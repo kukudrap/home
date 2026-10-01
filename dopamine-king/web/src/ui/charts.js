@@ -57,6 +57,7 @@
       flag = d.h("span.meter-flag", null, opts.markerLabel || "");
       markerEl = d.h("div.meter-marker", { "aria-hidden": "true" }, flag);
       markerEl.style.setProperty("--m", String(d.clamp(opts.marker / max, 0, 1)));
+      flag.classList.toggle("flag-right", opts.marker / max > 0.8);
       track.appendChild(markerEl);
     }
     el.appendChild(track);
@@ -74,6 +75,7 @@
     el.setMarker = function (v, label) {
       if (!markerEl) return;
       markerEl.style.setProperty("--m", String(d.clamp(v / max, 0, 1)));
+      if (flag) flag.classList.toggle("flag-right", v / max > 0.8);
       if (label !== undefined && flag) flag.textContent = label;
     };
     el.current = function () { return current; };

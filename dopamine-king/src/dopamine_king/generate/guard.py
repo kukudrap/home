@@ -275,13 +275,13 @@ _SCARCITY_RE = _compile([
     r"\bomezene (?:mnozstvi|zasoby|pocet|kapacita)\b", r"\bdo vyprodani zasob\b", r"\bskoro vyprodan\w*", r"\brychle se vyprodava\b",
 ])
 _URGENCY_RE = _compile([
-    r"\b(?:offer|sale|deal|discount|promotion|promo)\s+ends?\s+(?:in|today|tonight|soon|at midnight|tomorrow)\b",
+    r"\b(?:offer|sale|deal|discount|promotion|promo)\s+ends?\s+(?:in\s+(?!\d)|today|tonight|soon|at midnight|tomorrow)\b",
     r"\bends?\s+in\s+\d+\s+(?:minutes?|mins?|hours?|seconds?|secs?)\b", r"\b(?:hurry|act now|act fast|act today)\b",
     r"\blast chance\b", r"\btoday only\b", r"\blimited[- ]time (?:only|offer|deal)\b", r"\bexpires? (?:today|tonight|soon|in \d+)\b",
     r"\b\d+\s+(?:minutes?|hours?)\s+(?:left|remaining)\b", r"\bcountdown\b", r"\bclock is ticking\b",
     r"\bbefore it(?:'s| is) too late\b", r"\bnow or never\b", r"\boffer expires\b",
     r"\b(?:akce|nabidka|sleva|prodej)\s+konci\s+(?:za|dnes|v pulnoci|uz|zitra|brzy)\b", r"\bkonci\s+za\s+\d+\s*(?:minut\w*|hodin\w*|sekund\w*|dn\w*)\b",
-    r"\bposledni sance\b", r"\bspejte\b", r"\bsputejte\b", r"\bjen dnes\b", r"\bpouze dnes\b", r"\bcas vyprsi\b",
+    r"\bposledni sance\b", r"\bspejte\b", r"\bspechejte\b", r"\bsputejte\b", r"\bjen dnes\b", r"\bpouze dnes\b", r"\bcas vyprsi\b",
     r"\bzbyva\s+(?:uz\s+)?(?:jen\s+)?\d+\s+(?:minut\w*|hodin\w*|dn\w*)\b", r"\bodpocet\b", r"\bnabidka (?:brzy )?(?:vyprsi|zmizi)\b",
     r"\bpredtim nez bude pozde\b", r"\bted nebo nikdy\b", r"\bomezeny cas\b", r"\bcasove omezen\w*",
 ])
@@ -348,7 +348,7 @@ _CLOAK_RE = _compile([
 ])
 _FAKE_REVIEW_CMD_RE = _compile([
     r"\b(?:write|post|generate|buy|order|publish|fabricate)\s+(?:some\s+|a few\s+|\d+\s+)?(?:fake|5[- ]star|five[- ]star|positive)\s+reviews?\b",
-    r"\b(?:napis\w+|koupit|objednat|vygenerovat)\s+(?:si\s+)?(?:falesn\w+|placen\w+|petihvezdick\w+)\s+recenz\w+\b",
+    r"\b(?:naps\w+|napis\w+|koupit|objednat|vygenerovat)\s+(?:si\s+)?(?:falesn\w+|placen\w+|petihvezdick\w+)\s+recenz\w+\b",
 ])
 _REVIEW_LIKE_RE = _compile([
     "[" + chr(0x2605) + chr(0x2B50) + "]{3,}", r"\b(?:verified|overeny|overeni)\s+(?:buyer|purchase|customer|purchaser|zakaznik|nakup|kupujici)\b",
@@ -369,7 +369,7 @@ _ROLE_MAILBOXES = {
 _EMAIL_RE = re.compile(r"[A-Za-z0-9._%+-]+@[A-Za-z0-9-]+(?:\.[A-Za-z0-9-]+)*\.[A-Za-z]{2,}")
 _PHONE_RES = (
     re.compile(r"(?<![\w/.,-])(?:\+|00)\d{1,3}[ .-]?\(?\d{1,4}\)?(?:[ .-]?\d{2,4}){2,4}(?!\w)"),
-    re.compile(r"(?<![\w/.,+-])\d{3}[ .-]\d{3}[ .-]\d{3}(?!\d)(?!\s?(?:kč|kc|czk|eur|usd|€|\$))"),
+    re.compile(r"(?<![\w/.,+-])\d{3}[ .-]\d{3}[ .-]\d{3}(?!\d)(?!\s?(?i:kč|kc|czk|eur|usd|€|\$))"),
     re.compile(r"(?<![\w/.,+-])\(?\d{3}\)?[ .-]\d{3}[ .-]\d{4}(?!\d)"),
 )
 _RC_SLASH_RE = re.compile(r"(?<![\d/])(\d{2})(\d{2})(\d{2})/(\d{3,4})(?!\d)")
@@ -562,8 +562,8 @@ def _r_stuffing(ctx: _Ctx) -> list[Issue]:
     if not kw:
         return []
     _, words, density = keyword_density(plain_text(ctx.text), kw, ctx.lang)
-    if words < 100 or density <= 3.0:
-        return []
+    if words < 100 or density <= 3.0 or PLACEHOLDER_RE.search(ctx.text):
+        return []                                # density is only judged on complete text of a useful length
     m = re.search(re.escape(fold_aligned(kw)), ctx.low)
     a, b = m.span() if m else (0, 0)
     d = f"{density:.1f}".replace(".", ",") if ctx.lang == "cs" else f"{density:.1f}"
@@ -577,7 +577,10 @@ def _r_clickbait(ctx: _Ctx) -> list[Issue]:
         hook = re.sub(r"^[#>*\s-]+", "", hook)
     if not hook or PLACEHOLDER_RE.search(hook):
         return []
-    risk = score_hook(hook[:300], lang=ctx.lang).clickbait_risk
+    try:
+        risk = score_hook(hook[:300], lang=ctx.lang).clickbait_risk
+    except ValueError:                                   # scoring chokes on tokens like "12.5"; retry without decimals
+        risk = score_hook(re.sub(r"\d+[.,]\d+", "1", hook[:300]), lang=ctx.lang).clickbait_risk
     if risk > 0.5:
         return [ctx.issue("CLICKBAIT", 0, len(hook), text=hook, r=f"{risk:.2f}".replace(".", ",") if ctx.lang == "cs" else f"{risk:.2f}")]
     return []
@@ -646,12 +649,12 @@ class TrustShield:
         issues: list[Issue] = []
         for rule in _RULE_FUNCS:
             issues.extend(rule(ctx))
-        seen: set[tuple[str, str | None]] = set()
+        seen: set[tuple[str, str | None, str]] = set()
         counts: dict[str, int] = {}
         dropped: dict[str, int] = {}
         kept: list[Issue] = []
         for issue in issues:
-            key = (issue.code, issue.where)
+            key = (issue.code, issue.where, issue.message)
             if key in seen:
                 continue
             seen.add(key)

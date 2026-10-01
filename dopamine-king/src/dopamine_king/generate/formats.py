@@ -14,7 +14,7 @@ from ..scoring import fold
 from .types import Brief, Draft, FormatSpec, Issue, Skeleton
 
 BUILTIN_MODULES = ("hooks", "social", "video", "ads", "seo", "geo", "longform")
-EM_DASH = "—"                      # forbidden in this project's output
+EM_DASH = chr(0x2014)                  # forbidden in this project's output
 PLACEHOLDER_RE = re.compile(r"\[\[ADD:.*?\]\]", re.S)
 LANG_NAMES = {"en": "English", "cs": "Czech"}
 _SEVERITY_RANK = {"error": 0, "warn": 1, "info": 2}
@@ -140,6 +140,18 @@ def standard_notes(brief: Brief, *extra: str) -> list[str]:
     return notes + list(extra)
 
 
+def record_replaced_hook(sk: Skeleton, hook: str | None) -> Skeleton:
+    """When a supplied hook did not become the hook slot default (it broke the slot limits), say so."""
+    given = (hook or "").strip()
+    if not given or not sk.slots:
+        return sk
+    slot = next((s for s in sk.slots if s.id == sk.hook_slot), None)
+    if slot is not None and (slot.default or "").strip() != given:
+        sk.fixed["hook_requested"] = given
+        sk.notes.append("The supplied hook does not fit the hook slot limits, so the best library hook that fits was used instead.")
+    return sk
+
+
 def fit(text: str | None, *, max_chars: int | None = None, max_words: int | None = None) -> str | None:
     """The text when it respects the limits, else None (defaults are never truncated mid-sentence)."""
     t = " ".join((text or "").split())
@@ -175,7 +187,7 @@ def topic_hashtags(brief: Brief, limit: int) -> list[str]:
 
 
 # -- text helpers for validators ------------------------------------------------------
-_WORD_RE = re.compile(r"[^\W_]+(?:['’][^\W_]+)*")
+_WORD_RE = re.compile(r"[^\W_]+(?:['" + chr(0x2019) + r"][^\W_]+)*")
 _HASHTAG_RE = re.compile(r"(?<![\w#&])#([^\W\d_]\w*)")
 _URL_RE = re.compile(r"(?:https?://|www\.)[^\s)>\]]+", re.I)
 

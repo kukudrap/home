@@ -442,6 +442,23 @@ class SeoScoreTests(unittest.TestCase):
         clean = seo.seo_score(mk_draft(article_body()))
         self.assertGreater(clean.score, r.score)
 
+    def test_density_is_not_judged_on_incomplete_or_tiny_text(self):
+        sk = seo.build_seo_article(EN)
+        offline = seo.seo_score(sk.render(OfflineWriter().fill(sk, EN)), EN)
+        self.assertEqual(check(offline, "keyword_density").weight, 0.0)
+        self.assertIsNone(offline.density)
+        self.assertEqual(offline.penalty, 0.0)
+        self.assertNotIn("KEYWORD_STUFFING", [i.code for i in offline.issues])
+        tiny = seo.seo_score(mk_draft("# Running shoes\n\nRunning shoes running shoes running shoes."))
+        self.assertEqual(check(tiny, "keyword_density").weight, 0.0)
+        self.assertEqual(tiny.penalty, 0.0)
+
+    def test_decimal_keywords_do_not_break_title_ranking(self):
+        b = Brief(brand="Zorvia", topic="dumbbells", audience="home athletes", keyword="12.5 kg dumbbells")
+        title = seo.build_seo_article(b).slot("title").default
+        self.assertLessEqual(len(title), 60)
+        self.assertIn("12.5 kg dumbbells", title.lower())
+
     def test_between_25_and_3_percent_fails_without_the_stuffing_penalty(self):
         words = prose(300).split()
         text = " ".join(words)
@@ -494,6 +511,12 @@ class SeoScoreTests(unittest.TestCase):
         self.assertEqual(check(r, "keyword_density").weight, 0.0)
         self.assertIsNone(r.density)
         self.assertTrue(check(r, "title").passed)
+
+    def test_reports_serialise_to_json(self):
+        data = seo.seo_score(mk_draft(article_body(h1=2))).to_dict()
+        self.assertEqual(set(data), {"score", "checks", "issues", "density", "penalty"})
+        self.assertEqual(json.loads(json.dumps(data))["checks"][0]["id"], "title")
+        self.assertEqual(data["issues"][0]["severity"] in ("error", "warn"), True)
 
     def test_score_is_bounded_and_drops_with_defects(self):
         for body in ("", "# T", article_body(), article_body(h1=3, faq=0, cites=0)):

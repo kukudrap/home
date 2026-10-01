@@ -1,5 +1,4 @@
 import math
-import re
 import unittest
 
 from dopamine_king.generate import video

@@ -349,15 +349,22 @@ test("Lab truth is drawn with the published odds from the scenario lift", () => 
 
 test("Lab decisions are judged against the hidden truth", () => {
   const better = { kind: "better" }, none = { kind: "none" }, worse = { kind: "worse" };
-  const sig = { pValue: 0.01, alpha: 0.05 }, weak = { pValue: 0.4, alpha: 0.05 };
-  assert.equal(game.judgeLabDecision("ship_b", better, sig).correct, true);
-  assert.equal(game.judgeLabDecision("ship_b", none, sig).correct, false);
+  const sigB = { pValue: 0.01, alpha: 0.05, diff: 0.01 }, sigA = { pValue: 0.01, alpha: 0.05, diff: -0.01 }, weak = { pValue: 0.4, alpha: 0.05, diff: 0.002 };
+  assert.equal(game.judgeLabDecision("ship_b", better, sigB).correct, true);
+  assert.equal(game.judgeLabDecision("ship_b", none, sigB).correct, false, "fooled by a false positive");
   assert.equal(game.judgeLabDecision("ship_b", worse, weak).correct, false);
-  assert.equal(game.judgeLabDecision("ship_a", better, sig).correct, false);
+  assert.equal(game.judgeLabDecision("ship_a", better, sigB).correct, false);
   assert.equal(game.judgeLabDecision("ship_a", none, weak).correct, true);
-  assert.equal(game.judgeLabDecision("ship_a", worse, sig).correct, true);
+  assert.equal(game.judgeLabDecision("ship_a", worse, sigA).correct, true);
   assert.equal(game.judgeLabDecision("keep_testing", better, weak).correct, true, "inconclusive evidence: keep testing is right");
-  assert.equal(game.judgeLabDecision("keep_testing", better, sig).correct, false, "conclusive evidence: keep testing wastes traffic");
+  assert.equal(game.judgeLabDecision("keep_testing", better, sigB).correct, false, "conclusive and right: waiting wastes traffic");
+  assert.equal(game.judgeLabDecision("keep_testing", worse, sigA).correct, false, "conclusive and right about B being worse");
+  assert.equal(game.judgeLabDecision("keep_testing", none, sigB).correct, true, "a false alarm: confirming first is wise");
+  assert.equal(game.judgeLabDecision("keep_testing", better, sigA).correct, true, "evidence pointing the wrong way");
+  assert.equal(game.judgeLabDecision("keep_testing", none, weak).correct, true);
+  assert.equal(game.judgeLabDecision("ship_b", better, sigB).evidenceSays, "b");
+  assert.equal(game.judgeLabDecision("ship_b", better, weak).evidenceSays, "none");
+  assert.equal(game.judgeLabDecision("ship_b", better, sigA).conclusive, true);
 });
 
 // -- streaks ------------------------------------------------------------------------------------

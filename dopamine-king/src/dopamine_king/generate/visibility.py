@@ -261,7 +261,8 @@ def suggest_queries(brief: Brief, n: int = 15) -> list[str]:
     if kw and kw.lower() != brief.topic.strip().lower():
         extra = [f"Best {kw}", f"{kw} price", f"How to choose {kw}"] if lang == "en" else [f"nejlepší {kw}", f"{kw} cena", f"{kw} jak vybrat"]
         out[3:3] = extra[:1]
-        out += extra[1:]
+        out[7:7] = extra[1:2]
+        out += extra[2:]
     seen: set[str] = set()
     unique = []
     for q in out:

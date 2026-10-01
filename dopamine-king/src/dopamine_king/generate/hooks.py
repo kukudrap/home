@@ -119,7 +119,7 @@ TEMPLATES_EN: dict[str, tuple[str, ...]] = {
         "Is it time to rethink {topic}?",
         "Should you start with {topic}? Here is how to decide",
         "What is the one thing you would ask about {topic}?",
-        "What does good {topic} look like?",
+        "What does good look like for {topic}?",
         "{keyword}: what should you look for?",
     ),
     "identity": (
@@ -300,7 +300,7 @@ TEMPLATES_CS: dict[str, tuple[str, ...]] = {
         "{topic}: {n} mýtů, kterým {audience} stále věří",
         "Mýtus, nebo pravda? {topic}",
         "{topic}: přestaňte věřit těmto mýtům",
-        "{topic}: největší mýtus a jak je to doopravdy",
+        "{topic}: častý mýtus a jak je to doopravdy",
         "Mýty a fakta: {topic}",
         "{topic}: co je pravda a co mýtus",
         "{topic}: {n} tvrzení, která si zaslouží ověření",
@@ -407,7 +407,7 @@ def norm_key(text: str, lang: str) -> str:
     t = unicodedata.normalize("NFC", text).lower()
     if lang == "cs":
         t = fold(t)
-    return " ".join(re.sub(r"[^0-9a-zÀ-￿]+", " ", t).split())
+    return " ".join(re.sub(r"[\W_]+", " ", t).split())
 
 
 def proof_facts(brief: Brief) -> list[str]:
@@ -505,6 +505,8 @@ def generate_hooks(
     over ``max_chars`` or ``max_words`` and near duplicates are dropped. Without a ``styles`` filter at
     most ``STYLE_CAP`` hooks per style are returned so the list stays diverse.
     """
+    if isinstance(styles, str):
+        styles = [styles]
     if styles is not None:
         unknown = [s for s in styles if s not in HOOK_STYLES]
         if unknown:
@@ -571,6 +573,10 @@ def best_hook(brief: Brief, **kw: Any) -> HookCandidate:
     return found[0] if found else _fallback_hook(brief, kw.get("max_chars"), kw.get("max_words"))
 
 
+def hook_fits(text: str, max_chars: int | None = None, max_words: int | None = None) -> bool:
+    return (max_chars is None or len(text) <= max_chars) and (max_words is None or len(text.split()) <= max_words)
+
+
 def choose_hook(
     brief: Brief,
     hook: str | None = None,
@@ -579,11 +585,14 @@ def choose_hook(
     max_words: int | None = None,
     prefer: str | None = None,
 ) -> str:
-    """The hook text a builder should use: the caller's hook if given, else the best library hook.
+    """The hook text a builder should use as a slot default.
 
-    ``prefer`` favours the best hook that contains the given phrase (for example the SEO keyword).
+    A caller supplied hook wins when it respects the slot limits; one that does not fit (a 10 word hook for a
+    3 second video beat, say) is replaced by the best library hook that does, so a skeleton never ships a
+    default that breaks its own limits. ``prefer`` favours the best hook that contains the given phrase
+    (for example the SEO keyword).
     """
-    if hook and hook.strip():
+    if hook and hook.strip() and hook_fits(hook.strip(), max_chars, max_words):
         return hook.strip()
     if prefer:
         needle = fold(prefer.lower().strip())

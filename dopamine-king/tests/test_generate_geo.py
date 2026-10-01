@@ -28,6 +28,7 @@ STRONG_FILLS = {
     "stat_3": "Around 25% of runners report heel slip in new shoes [[cite:s3]].",
     "quote_1_text": "A short gait check saves most beginners from buying the wrong shoe in the first place.",
     "quote_1_name": "Petra Svobodova", "quote_1_credential": "physiotherapist, Sports Clinic Prague",
+    "fact_label_3": "Drop", "fact_value_3": "8 mm",
     "faq_a1": "Choose a stable shoe with firm arch support and check the fit in the afternoon when feet are largest.",
     "faq_a2": "Start with a short gait check and two easy runs per week while you learn how the shoe feels.",
     "faq_a3": "Avoid buying by colour, skipping the fit check and keeping worn out shoes for too long.",
@@ -310,6 +311,12 @@ class GeoScoreTests(unittest.TestCase):
         cs = geo.geo_score(stuffed, EN, lang="cs")
         self.assertTrue(any("přeplňování" in t for t in cs.tips))
 
+    def test_offline_pages_are_not_judged_for_stuffing(self):
+        sk = geo.build_geo_answer_page(EN)
+        r = geo.geo_score(sk.render(OfflineWriter().fill(sk, EN)), EN)
+        self.assertEqual((r.penalty, r.density), (0.0, None))
+        self.assertIsNone(geo.geo_score("Running shoes for flat feet. " * 6, EN).density)
+
     def test_tips_and_messages_exist_in_both_languages(self):
         r = geo.geo_score("# Title\n\nShort.", EN)
         for c in r.checks:
@@ -328,6 +335,11 @@ class GeoScoreTests(unittest.TestCase):
         self.assertEqual(geo.geo_score(d).lang, "cs")
         self.assertEqual(geo.geo_score(d, lang="en").lang, "en")
         self.assertEqual(geo.geo_score("text", EN).lang, "en")
+
+    def test_report_serialises_to_json(self):
+        data = geo.geo_score(page(), EN).to_dict()
+        self.assertEqual(set(data), {"score", "checks", "tips", "penalty", "density", "lang"})
+        self.assertEqual(len(json.loads(json.dumps(data))["checks"]), 11)
 
     def test_score_is_always_bounded(self):
         for text in ("", "#", "x" * 5000, page(), "1 2 3 4 5 " * 300):
@@ -438,8 +450,11 @@ class ValidatorTests(unittest.TestCase):
     def test_offline_page_reports_failed_checks_as_warnings(self):
         sk = geo.build_geo_answer_page(BARE)
         issues = geo.validate_geo_page(sk.render(OfflineWriter().fill(sk, BARE)))
-        self.assertEqual(self.codes(issues, "error"), [])
+        self.assertEqual(self.codes(issues, "error"), ["SLOTS_OPEN", "NOT_PUBLISHABLE_NO_EXPERIENCE"])
         self.assertIn("GEO_CITE_SOURCES", self.codes(issues, "warn"))
+        self.assertIn("HUMAN_REVIEW_REQUIRED", self.codes(issues, "info"))
+        with_facts = geo.build_geo_answer_page(EN)
+        self.assertEqual(self.codes(geo.validate_geo_page(with_facts.render(OfflineWriter().fill(with_facts, EN))), "error"), ["SLOTS_OPEN"])
         cs_issues = geo.validate_geo_page(geo.build_geo_answer_page(CS).render())
         self.assertTrue(any("Počet" in i.message or "Citace" in i.message for i in cs_issues))
 

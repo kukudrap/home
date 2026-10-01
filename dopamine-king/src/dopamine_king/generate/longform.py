@@ -10,9 +10,10 @@ import re
 from typing import Any
 
 from ..scoring import fold
+from .guard import fold_aligned
 from .seo import (
-    CITE_RE, PLACEHOLDER_RE, _URL_RE, _ph, _real, count_words, format_date, front_matter, norm_lang,
-    parse_headings, plain_text, split_sentences, tr,
+    CITE_RE, PLACEHOLDER_RE, _URL_RE, _ph, _real, _source_entries, _source_hint, count_words, format_date, front_matter,
+    norm_lang, parse_headings, plain_text, sources_block, split_sentences, tr,
 )
 from .types import Brief, Draft, FormatSpec, Issue, Skeleton, Slot
 
@@ -70,18 +71,25 @@ _SUPERLATIVES = (
 )
 
 
+_EVIDENCE_NUM_RE = re.compile(r"\d+[.,]\d+|\d{2,}|\d\s?%")
+_YEAR_RE = re.compile(r"(?<!\d)(?:19|20)\d{2}(?!\d)")
+
+
+def _has_evidence(window: str) -> bool:
+    """A cite marker, a link or a real figure (not a year or a single digit in a product name)."""
+    return bool(CITE_RE.search(window) or _URL_RE.search(window) or _EVIDENCE_NUM_RE.search(_YEAR_RE.sub(" ", window)))
+
+
 def unsubstantiated_superlatives(text: str) -> list[str]:
-    """Superlative claims with no number, link or cite marker in the same or the next sentence."""
+    """Superlative claims (as written, lower case) with no figure, link or cite marker in the same or the next sentence."""
     sents = split_sentences(PLACEHOLDER_RE.sub(" ", text or ""))
     found: list[str] = []
     for i, s in enumerate(sents):
-        folded = " " + re.sub(r"[^a-z0-9.' -]+", " ", fold(s.lower().replace("’", "'"))) + " "
-        hit = next((w for w in _SUPERLATIVES if re.search(rf"(?<![a-z0-9]){re.escape(w)}(?![a-z0-9])", folded)), None)
-        if not hit:
-            continue
-        window = s + " " + (sents[i + 1] if i + 1 < len(sents) else "")
-        if not (CITE_RE.search(window) or _URL_RE.search(window) or re.search(r"\d", window)):
-            found.append(hit)
+        low = fold_aligned(s)                                  # same length as s, so spans map back to the original text
+        spans = [(w, m.span()) for w in _SUPERLATIVES if (m := re.search(rf"(?<![a-z0-9]){re.escape(w)}(?![a-z0-9])", low))]
+        spans = [(w, sp) for w, sp in spans if not any(w != o and w in o for o, _ in spans)]     # "best" inside "best-in-class" counts once
+        if spans and not _has_evidence(s + " " + (sents[i + 1] if i + 1 < len(sents) else "")):
+            found.extend(s[a:b].lower() for _, (a, b) in spans)
     return found
 
 
@@ -110,8 +118,8 @@ def build_press_release(brief: Brief, *, hook: str | None = None, options: dict 
         Slot("lead", f"Lead paragraph of at most 60 words answering who ({brief.brand}), what, when, where and why in the first "
              f"sentences. Lead with the news, not the company history.{news}", max_words=60, min_chars=120),
         Slot("body_1", "Key details: what is new, how it works, availability. Short paragraph, supplied facts only.", max_words=120),
-        Slot("body_2", f"Context: the problem this solves for {brief.audience}, backed only by supplied facts or vetted sources.",
-             max_words=120),
+        Slot("body_2", f"Context: the problem this solves for {brief.audience}, backed only by supplied facts or vetted sources "
+             f"(cite them with the cite marker for their id, see notes).{_source_hint(brief)}", max_words=120),
     ]
     for i in range(1, n_quotes + 1):
         slots += [
@@ -134,6 +142,8 @@ def build_press_release(brief: Brief, *, hook: str | None = None, options: dict 
     lines = [tr(lang, "FOR IMMEDIATE RELEASE", "TISKOVÁ ZPRÁVA"), "", f"# {_ph('headline')}", "", f"*{_ph('subhead')}*", "",
              f"{_ph('dateline')} - {_ph('lead')}", "", _ph("body_1"), "", _ph("body_2"), ""]
     lines += [quotes[0], "", _ph("body_3"), ""] + [f"{q}\n" for q in quotes[1:]]
+    if brief.sources:
+        lines += [sources_block(brief.sources, tr(lang, "Sources", "Zdroje")), ""]
     lines += [f"## {tr(lang, 'About', 'O značce')} {brief.brand}", "", _ph("boilerplate"), "",
               f"## {tr(lang, 'Media contact', 'Kontakt pro média')}", "", _ph("media_contact"), "", "###"]
     return Skeleton(
@@ -141,8 +151,9 @@ def build_press_release(brief: Brief, *, hook: str | None = None, options: dict 
         notes=[tr(lang, "Quotes, contact details and the boilerplate must come from real people and facts; nothing is generated here.",
                   "Citace, kontakty a medailonek firmy musí pocházet od skutečných lidí a z ověřených faktů; nic se zde negeneruje."),
                tr(lang, "Inverted pyramid: the most important news first, details later, boilerplate last.",
-                  "Obrácená pyramida: nejdůležitější zpráva první, podrobnosti později, medailonek firmy nakonec.")],
-        fixed={"end_mark": "###"},
+                  "Obrácená pyramida: nejdůležitější zpráva první, podrobnosti později, medailonek firmy nakonec."),
+               tr(lang, "Cite vetted sources only, written as [[cite:<source_id>]].", "Citujte jen ověřené zdroje ve tvaru [[cite:<source_id>]].")],
+        fixed={"end_mark": "###", "sources": _source_entries(brief)},
         meta={"goal": brief.goal, "cta": brief.cta, "sponsored": brief.sponsored, "keyword": brief.primary_keyword,
               "lang": lang, "brand": brief.brand, "topic": brief.topic, "offer": brief.offer},
     )
@@ -230,7 +241,7 @@ def validate_press_release(draft: Draft) -> list[Issue]:
     if not tail or tail[-1] not in ("###", "-30-", "- 30 -"):
         issues.append(Issue("warn", "PR_END_MARK_MISSING", tr(lang, "End the release with the ### end mark.",
                                                             "Ukončete zprávu značkou ###.")))
-    for word in dict.fromkeys(unsubstantiated_superlatives(plain_text(body))):
+    for word in dict.fromkeys(unsubstantiated_superlatives(body)):
         issues.append(Issue("warn", "PR_UNSUBSTANTIATED_SUPERLATIVE", tr(
             lang, f"Superlative '{word}' without a number, source or cite marker nearby; substantiate or remove it.",
             f"Superlativ '{word}' bez čísla, zdroje nebo značky citace poblíž; doložte ho, nebo ho vypusťte."), word))
@@ -275,7 +286,8 @@ def build_landing_page(brief: Brief, *, hook: str | None = None, options: dict |
         slots.append(Slot(f"benefit_{i}_title", f"Benefit {i} title: an outcome for the reader, max 8 words.", max_words=8, kind="line"))
         slots.append(Slot(f"benefit_{i}_body", f"Benefit {i} body (20-40 words): how the benefit comes about. Supplied facts only.", max_words=45, min_chars=80))
     slots += [
-        Slot("proof_stat_1", "Proof number: one real first-party result or a cited statistic (use the cite marker). Never invent numbers.", max_words=35, kind="line"),
+        Slot("proof_stat_1", "Proof number: one real first-party result or a cited statistic (use the cite marker for its id, see notes). "
+             f"Never invent numbers.{_source_hint(brief)}", max_words=35, kind="line"),
         Slot("proof_stat_2", "Second proof number, same rules. Leave nothing invented.", max_words=35, kind="line"),
         Slot("testimonial_quote", "Real customer testimonial, verbatim, supplied by the user. Never invent testimonials.", max_words=60, kind="line"),
         Slot("testimonial_name", "Name and role of the person giving the testimonial, as supplied by the user.", max_chars=80, kind="line"),
@@ -300,13 +312,16 @@ def build_landing_page(brief: Brief, *, hook: str | None = None, options: dict |
     for i in (1, 2, 3):
         lines += [f"### {_ph(f'faq_q{i}')}", "", _ph(f"faq_a{i}"), ""]
     lines += [f"## {hd('final')}", "", _ph("final_cta_text"), "", button]
+    if brief.sources:
+        lines += ["", sources_block(brief.sources, tr(lang, "Sources", "Zdroje"))]
     return Skeleton(
         format="landing_page", lang=lang, template="\n".join(lines), slots=slots, hook_slot="hero_headline",
         notes=[tr(lang, "Proof must be real: first-party numbers, cited statistics and verbatim testimonials supplied by the user.",
                   "Důkazy musí být skutečné: vlastní čísla, citované statistiky a doslovné reference dodané uživatelem."),
                tr(lang, "One primary CTA, repeated; set the real button URL when publishing.",
-                  "Jedna hlavní výzva k akci, opakovaná; při zveřejnění nastavte skutečnou adresu tlačítka.")],
-        fixed={"cta_url": cta_url},
+                  "Jedna hlavní výzva k akci, opakovaná; při zveřejnění nastavte skutečnou adresu tlačítka."),
+               tr(lang, "Cite vetted sources only, written as [[cite:<source_id>]].", "Citujte jen ověřené zdroje ve tvaru [[cite:<source_id>]].")],
+        fixed={"cta_url": cta_url, "sources": _source_entries(brief)},
         meta={"goal": brief.goal, "cta": brief.cta, "sponsored": brief.sponsored, "keyword": brief.primary_keyword,
               "lang": lang, "brand": brief.brand, "topic": brief.topic, "offer": brief.offer},
     )
@@ -355,7 +370,7 @@ def validate_landing_page(draft: Draft) -> list[Issue]:
         issues.append(Issue("warn", "LANDING_META_DESCRIPTION_LENGTH", tr(
             lang, f"Meta description is {len(desc)} characters; aim for 120-155.",
             f"Meta popis má {len(desc)} znaků; cílem je 120-155."), _short(desc)))
-    for word in dict.fromkeys(unsubstantiated_superlatives(plain_text(body))):
+    for word in dict.fromkeys(unsubstantiated_superlatives(body)):
         issues.append(Issue("warn", "LANDING_UNSUBSTANTIATED_SUPERLATIVE", tr(
             lang, f"Superlative '{word}' without a number, source or cite marker nearby; substantiate or remove it.",
             f"Superlativ '{word}' bez čísla, zdroje nebo značky citace poblíž; doložte ho, nebo ho vypusťte."), word))
@@ -439,7 +454,7 @@ def build_newsletter(brief: Brief, *, hook: str | None = None, options: dict | N
         format="newsletter", lang=lang, template="\n".join(lines), slots=slots, hook_slot="hook",
         notes=[tr(lang, "Keep one CTA. The footer must carry a working unsubscribe link and the sender identity.",
                   "Ponechte jednu výzvu k akci. Zápatí musí obsahovat funkční odkaz pro odhlášení a identifikaci odesílatele.")],
-        fixed={"cta_url": cta_url},
+        fixed={"cta_url": cta_url, "sources": _source_entries(brief)},
         meta={"goal": brief.goal, "cta": brief.cta, "sponsored": brief.sponsored, "keyword": brief.primary_keyword,
               "lang": lang, "brand": brief.brand, "topic": brief.topic},
     )
@@ -534,7 +549,7 @@ def build_email_sequence(brief: Brief, *, hook: str | None = None, options: dict
         format="email_sequence", lang=lang, template="\n".join(lines).rstrip("-\n "), slots=slots, hook_slot="e1_subject",
         notes=[tr(lang, "One CTA per email. Last call only mentions a deadline that exists in your facts; no fake urgency.",
                   "Jedna výzva v každém e-mailu. Poslední výzva zmiňuje jen termín, který skutečně existuje; žádný vymyšlený spěch.")],
-        fixed={"timing": timing, "emails": n, "cta_url": cta_url},
+        fixed={"timing": timing, "emails": n, "cta_url": cta_url, "sources": _source_entries(brief)},
         meta={"goal": brief.goal, "cta": brief.cta, "sponsored": brief.sponsored, "keyword": brief.primary_keyword,
               "lang": lang, "brand": brief.brand, "topic": brief.topic, "emails": n},
     )

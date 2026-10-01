@@ -15,12 +15,13 @@ import re
 from typing import Any, Callable
 
 from .formats import (
-    DISCLOSURE_TAG, PLACEHOLDER_RE, brief_meta, fit, has_disclosure, has_placeholder, keyword_in, lang_of,
-    pick, slot_text, standard_notes, strip_placeholders, topic_hashtags, word_count,
+    DISCLOSURE_TAG, PLACEHOLDER_RE, brief_meta, fit, has_disclosure, keyword_in, lang_of,
+    pick, record_replaced_hook, slot_text, standard_notes, strip_placeholders, topic_hashtags, word_count,
 )
 from .hooks import cached_score, choose_hook, generate_hooks
 from .types import Brief, Draft, FormatSpec, Issue, Skeleton, Slot
 
+# platform limits checked 2026-10, verify before publishing (YouTube title, chapter and description limits below)
 SPEECH_RATE = {"en": 2.6, "cs": 2.4}          # words per second of natural narration
 SHORT_DURATIONS = (15, 30, 45, 60, 90)
 SHORT_STYLES = ("talking_head", "voiceover_broll", "screen_demo", "ugc")
@@ -371,14 +372,14 @@ def build_short_video_script(brief: Brief, *, hook: str | None = None, options: 
     post_slots, post_parts = _post_slots(brief)
     title = pick(lang, "Short video script", "Scénář krátkého videa")
     parts = [f"# {title}: {brief.topic} ({duration} s, {style})"] + _beat_template(plan, lang) + post_parts
-    return Skeleton(
+    return record_replaced_hook(Skeleton(
         format="short_video_script", lang=lang, template="\n\n".join(parts), slots=_beat_slots(brief, plan, style, hook) + post_slots,
         fixed={"duration": duration, "style": style, "plan": plan, "speech_rate": speech_rate(lang),
                "hook_max_s": HOOK_MAX_S, "cut_every_s": CUT_EVERY_S},
         meta=brief_meta(brief, duration_s=duration, style=style, hook_max_s=HOOK_MAX_S, short=True),
         hook_slot="vo_hook", assemble=_assemble_beats(plan, lang),
         notes=standard_notes(brief, f"Budget: {speech_rate(lang)} words per second. Hook within {HOOK_MAX_S} s, a visual change at least every {CUT_EVERY_S} s."),
-    )
+    ), hook)
 
 
 def build_ugc_ad_script(brief: Brief, *, hook: str | None = None, options: dict | None = None) -> Skeleton:
@@ -395,13 +396,13 @@ def build_ugc_ad_script(brief: Brief, *, hook: str | None = None, options: dict 
         notes.append("Paid partnership: the disclosure beat must stay in the video and the label in the caption.")
     else:
         notes.append("If the creator is paid or receives free product, add a disclosure before publishing.")
-    return Skeleton(
+    return record_replaced_hook(Skeleton(
         format="ugc_ad_script", lang=lang, template="\n\n".join(parts), slots=_beat_slots(brief, plan, "pas", hook) + post_slots,
         fixed={"duration": duration, "style": "pas", "plan": plan, "speech_rate": speech_rate(lang),
                "hook_max_s": HOOK_MAX_S, "cut_every_s": CUT_EVERY_S},
         meta=brief_meta(brief, duration_s=duration, style="pas", hook_max_s=HOOK_MAX_S, short=True),
         hook_slot="vo_hook", assemble=_assemble_beats(plan, lang), notes=standard_notes(brief, *notes),
-    )
+    ), hook)
 
 
 # -- beat validators --------------------------------------------------------------------------
@@ -620,7 +621,7 @@ def build_youtube_script(brief: Brief, *, hook: str | None = None, options: dict
             out.append({"id": c["id"], "start": c["start"], "timestamp": c["timestamp"], "title": title})
         return {"chapters": out, "chapters_text": "\n".join(f"{c['timestamp']} {c['title']}" for c in out)}
 
-    return Skeleton(
+    return record_replaced_hook(Skeleton(
         format="youtube_script", lang=lang, template=template, slots=slots,
         fixed={"minutes": minutes, "plan": plan, "speech_rate": speech_rate(lang), "chapter_count": n_ch,
                "chapter_times": [{k: c[k] for k in ("id", "start", "timestamp")} for c in chapters],
@@ -628,7 +629,7 @@ def build_youtube_script(brief: Brief, *, hook: str | None = None, options: dict
         meta=brief_meta(brief, duration_s=minutes * 60, style="youtube", hook_max_s=YT_HOOK_S, short=False),
         hook_slot="vo_hook", assemble=_assemble_beats(plan, lang, extra),
         notes=standard_notes(brief, f"Budget: {speech_rate(lang)} words per second. Every chapter ends with an open loop into the next part."),
-    )
+    ), hook)
 
 
 _TS_RE = re.compile(r"^\d{1,2}:\d{2}$")
@@ -696,7 +697,7 @@ def build_youtube_title_set(brief: Brief, *, hook: str | None = None, options: d
     lang = lang_of(brief)
     cands = generate_hooks(brief, n=YT_TITLES, max_chars=TITLE_MAX_CHARS)
     rows = [{"text": c.text, "style": c.style, "score": c.score, "risk": c.clickbait_risk} for c in cands]
-    if hook and hook.strip():      # a supplied hook is pinned to the first slot, the rest stay ranked
+    if fit(hook, max_chars=TITLE_MAX_CHARS):      # a supplied hook that fits is pinned to the first slot, the rest stay ranked
         total, risk = cached_score(hook.strip(), lang)
         rows = ([{"text": hook.strip(), "style": "provided", "score": round(total, 2), "risk": round(risk, 4)}]
                 + [r for r in rows if r["text"] != hook.strip()])[:YT_TITLES]
@@ -716,12 +717,12 @@ def build_youtube_title_set(brief: Brief, *, hook: str | None = None, options: d
     parts = [f"# {head[0]}: {brief.topic}", f"## {head[1]}\n\n" + "\n".join(f"{i}. " + "{{title_%02d}}" % i for i in range(1, YT_TITLES + 1)),
              f"## {head[2]}\n\n" + "\n".join(f"{i}. " + "{{thumb_%d}}" % i for i in range(1, YT_THUMBS + 1)),
              f"## {head[3]}\n\n" + "{{thumbnail_concept}}"]
-    return Skeleton(
+    return record_replaced_hook(Skeleton(
         format="youtube_title_set", lang=lang, template="\n\n".join(parts), slots=slots,
         fixed={"titles": rows, "thumbnail_texts": [{"text": t, "score": sc} for t, sc in thumbs], "hook": rows[0]["text"] if rows else ""},
         meta=brief_meta(brief), hook_slot="title_01",
         notes=standard_notes(brief, "Titles are ranked by the Dopamine Score; test two or three, and make sure the video delivers the promise."),
-    )
+    ), hook)
 
 
 def validate_youtube_title_set(draft: Draft) -> list[Issue]:
@@ -823,12 +824,12 @@ def build_podcast_outline(brief: Brief, *, hook: str | None = None, options: dic
                     for b in plan if b["id"].startswith("seg")]
         return {"segments": segments, "questions": [values[f"q_{i}"] for i in range(1, POD_QUESTIONS + 1)]}
 
-    return Skeleton(
+    return record_replaced_hook(Skeleton(
         format="podcast_outline", lang=lang, template="\n\n".join(blocks), slots=slots,
         fixed={"minutes": minutes, "plan": plan, "segment_count": segs, "speech_rate": rate},
         meta=brief_meta(brief, duration_s=minutes * 60), hook_slot="vo_hook", assemble=assemble,
         notes=standard_notes(brief, "Timings are a plan: adjust to the guest. Questions must be open-ended, not yes or no."),
-    )
+    ), hook)
 
 
 def validate_podcast_outline(draft: Draft) -> list[Issue]:

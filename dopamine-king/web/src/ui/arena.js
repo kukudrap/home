@@ -2,6 +2,9 @@
  * with a confidence level. The reveal shows both success indices as percentile bars, the model's Dopamine
  * Scores and win probability, the explanation, an UPSET badge, and animated XP. Fully playable by keyboard:
  * A or Left for the first hook, B or Right for the second, Enter for the next duel.
+ *
+ * Layout idea: the verdict replaces the prompt above the cards, so the "Next duel" button always sits in the
+ * same place and nothing jumps when you answer.
  */
 (function (root, factory) {
   if (typeof module === "object" && module.exports) module.exports = factory(root);
@@ -72,13 +75,13 @@
         format: function (v) { return v + " %"; }, onInput: function (v) { state.confidence = v; }
       });
       var sliderHost = d.h("div.conf-slider", { hidden: !state.confidenceOn }, confSlider.el);
+      var hint = d.h("p.small.muted.conf-hint", { hidden: state.confidenceOn }, t("arena.confShort"));
+      var help = d.h("p.small.muted.conf-help", { hidden: !state.confidenceOn }, t("arena.confHint"));
       var confSw = widgets.switchControl({
         label: t("arena.confidence"), checked: state.confidenceOn,
-        onChange: function (on) { state.confidenceOn = on; sliderHost.hidden = !on; hint.hidden = on; }
+        onChange: function (on) { state.confidenceOn = on; sliderHost.hidden = !on; hint.hidden = on; help.hidden = !on; }
       });
-      var hint = d.h("p.small.muted.conf-hint", { hidden: state.confidenceOn }, t("arena.confShort"));
-      return d.h("div.conf-row", null, d.h("div.conf-switch", null, confSw.el, hint), sliderHost,
-        d.h("p.small.muted.conf-help", { hidden: !state.confidenceOn }, t("arena.confHint")));
+      return d.h("div.conf-row", null, d.h("div.conf-switch", null, confSw.el, hint), sliderHost, help);
     }
 
     function filtersCard() {
@@ -94,8 +97,7 @@
         label: t("arena.preferLang"), checked: state.preferLang,
         onChange: function (on) { state.preferLang = on; if (!state.revealed) { nextDuel(); render(); } }
       });
-      var open = filtersOpen;
-      var det = d.h("details.card.arena-filters-card", { open: open },
+      var det = d.h("details.card.arena-filters-card", { open: filtersOpen },
         d.h("summary", null, icons.icon("settings", { size: 18 }), d.h("span", null, t("arena.controls")), icons.icon("chevronDown", { size: 18, class: "chev" })),
         d.h("div.arena-filters", null,
           d.h("div.setting", null, d.h("span.setting-label", null, t("arena.difficulty")), diffSeg.el),
@@ -117,7 +119,7 @@
         d.h("div.stat-chip.combo-chip" + (mult > 1 ? ".is-hot" : ""), null,
           d.h("span.combo-x", { id: "combo-x" }, "x" + mult),
           d.h("div.combo-body", null,
-            d.h("strong", null, t("arena.combo") + " " + t("arena.comboRow", { n: p.combo })),
+            d.h("strong", null, t("arena.combo") + ": " + t("arena.comboRow", { n: p.combo })),
             comboMeter,
             d.h("span.small.muted", null, mult >= game.XP.comboMax ? t("arena.comboMax") : t("arena.comboNext", { n: toNext, m: mult + 1 })))),
         d.h("div.stat-chip", null, d.h("span.stat-val", null, String(state.round)), d.h("span.stat-label", null, t("arena.round", { n: state.round }))),
@@ -134,17 +136,24 @@
         d.h("span.hook-top", null, d.h("span.hook-letter", { "aria-hidden": "true" }, letter), d.h("span.hook-brand", null, hook.brand || "")),
         d.h("span.hook-text", null, hook.text),
         d.h("span.hook-key", { "aria-hidden": "true" }, d.kbd(letter), d.h("span", null, " / "), d.kbd(side === "a" ? "←" : "→")));
-      var wrap = d.h("article.hook-wrap", { "data-side": side }, btn, d.h("div.hook-reveal", { hidden: true }));
-      return wrap;
+      return d.h("article.hook-wrap", { "data-side": side }, btn, d.h("div.hook-reveal", { hidden: true }));
+    }
+
+    function promptPanel(duel) {
+      var metaLine = d.h("div.duel-meta", null,
+        d.h("span.chip.tone-info", null, icons.icon("layers", { size: 14 }), d.h("span", null, cohortName(duel.cohort))),
+        d.h("span.chip", null, platformLabel(duel.platform, t)),
+        d.h("span.chip", null, duel.lang === "cs" ? t("arena.langCs") : t("arena.langEn")),
+        diffChip(duel.difficulty));
+      return d.h("div.duel-prompt", null, d.h("h2.duel-q", { id: "duel-q" }, t("arena.prompt")), metaLine, confidenceRow());
     }
 
     // -- reveal ----------------------------------------------------------------------------------------
-    function fillReveal(wrap, side, duel, result) {
+    function fillReveal(wrap, side, duel) {
       var hook = duel[side];
       var box = wrap.querySelector(".hook-reveal");
       var isWinner = duel.winner === side;
-      var modelPickA = duel.model_p_a >= 0.5;
-      var isModelPick = (side === "a") === modelPickA;
+      var isModelPick = (side === "a") === (duel.model_p_a >= 0.5);
       var badges = d.h("div.hook-badges", null);
       if (isWinner) badges.appendChild(d.h("span.chip.tone-ok", null, icons.icon("trophy", { size: 14 }), d.h("span", null, t("arena.winner"))));
       if (state.picked === side) badges.appendChild(d.h("span.chip.tone-brand", null, icons.icon("user", { size: 14 }), d.h("span", null, t("arena.yourPick"))));
@@ -154,7 +163,7 @@
       tweens.push(d.tween({ from: 0, to: hook.success, ms: 1000, onUpdate: function (v) { val.textContent = d.fmt(v, 1); } }));
       d.fill(box, [
         badges,
-        d.h("div.reveal-line", null, d.h("span.reveal-label", null, t("arena.success")), val, d.h("span.chip.tone-warn.sim-chip", null, t("common.simulated"))),
+        d.h("div.reveal-line", null, d.h("span.reveal-label", null, t("arena.success")), val, d.h("span.chip.tone-warn.sim-chip", null, icons.icon("flask", { size: 13 }), d.h("span", null, t("common.simulated")))),
         m,
         d.h("div.reveal-line.score-line", null, d.h("span.reveal-label", null, t("arena.score")), d.h("strong.num", null, d.fmt(hook.score, 1)))
       ]);
@@ -164,9 +173,8 @@
       if (state.picked === side) wrap.classList.add("is-picked");
     }
 
-    function resultPanel(duel, res) {
+    function verdictPanel(duel, res) {
       var correct = res.correct;
-      var pA = Math.round(duel.model_p_a * 100);
       var xp = res.xp;
       var chips = [];
       if (correct) {
@@ -180,33 +188,38 @@
       }
       var xpNum = d.h("strong.xp-gain", null, "+0 XP");
       tweens.push(d.countUp(xpNum, xp.total, { prefix: "+", suffix: " XP", ms: 800 }));
-      var reasons = ctx.pick(duel, "reasons", ctx.lang());
-      var reasonList = Array.isArray(reasons) && reasons.length
-        ? d.h("ul.reason-list", null, reasons.map(function (r) { return d.h("li", null, icons.icon("chevronRight", { size: 14 }), d.h("span", null, r)); }))
-        : d.h("p.small.muted", null, t("arena.noReasons"));
-      var modelPickA = duel.model_p_a >= 0.5;
-      var upsetBadge = null;
-      if (res.upsetCaught) {
-        upsetBadge = d.h("div.upset-badge", { role: "status" }, icons.icon("bolt", { size: 26 }), d.h("div", null, d.h("strong", null, t("arena.upset")), d.h("span", null, t("arena.upsetText"))));
-      }
-      return d.h("section.card.result" + (correct ? ".is-correct" : ".is-wrong"), { "aria-label": t("arena.result") },
+      var upsetBadge = res.upsetCaught
+        ? d.h("div.upset-badge", { role: "status" }, icons.icon("bolt", { size: 28 }), d.h("div", null, d.h("strong", null, t("arena.upset")), d.h("span", null, t("arena.upsetText"))))
+        : null;
+      return d.h("div.verdict" + (correct ? ".is-correct" : ".is-wrong"), { id: "duel-verdict", role: "group", "aria-label": t("arena.result") },
         upsetBadge,
         d.h("div.result-head", null,
           d.h("span.result-icon", { "aria-hidden": "true" }, icons.icon(correct ? "check" : "heart", { size: 26, stroke: 2.4 })),
           d.h("h2.result-title", null, correct ? t("arena.correct") : t("arena.wrong")),
           xpNum),
-        d.h("div.chip-row", null, chips),
-        !res.upsetCaught && duel.upset ? d.h("p.small.upset-note", null, icons.icon("bolt", { size: 15 }), d.h("span", null, t("arena.upsetMissed"))) : null,
+        d.h("div.verdict-foot", null,
+          d.h("div.chip-row", null, chips),
+          d.h("div.verdict-actions", null,
+            d.h("span.small.muted.enter-hint", null, d.kbd("Enter")),
+            d.h("button.btn.btn-primary.next-btn", { type: "button", onclick: function () { advance(); } }, t("arena.next"), icons.icon("arrowRight", { size: 18 })))),
+        !res.upsetCaught && duel.upset ? d.h("p.small.upset-note", null, icons.icon("bolt", { size: 15 }), d.h("span", null, t("arena.upsetMissed"))) : null);
+    }
+
+    function detailsPanel(duel) {
+      var pA = Math.round(duel.model_p_a * 100);
+      var modelPickA = duel.model_p_a >= 0.5;
+      var reasons = ctx.pick(duel, "reasons", ctx.lang());
+      var reasonList = Array.isArray(reasons) && reasons.length
+        ? d.h("ul.reason-list", null, reasons.map(function (r) { return d.h("li", null, icons.icon("chevronRight", { size: 14 }), d.h("span", null, r)); }))
+        : d.h("p.small.muted", null, t("arena.noReasons"));
+      return d.h("section.card.result-details", { "aria-label": t("arena.details") },
         d.h("div.model-box", null,
           d.h("h3.sub", null, t("arena.modelProb")),
           charts.splitBar({ a: duel.model_p_a, labelA: "A", labelB: "B", aria: t("arena.modelAria", { a: pA, b: 100 - pA, pick: modelPickA ? "A" : "B" }) }),
           d.h("p.small.muted", null, t("arena.scores", { a: d.fmt(duel.a.score, 1), b: d.fmt(duel.b.score, 1) }))),
         d.h("div", null, d.h("h3.sub", null, t("arena.why")), reasonList),
         d.h("p.small.sim-note", null, icons.icon("flask", { size: 15 }), d.h("span", null, t("arena.simNote"))),
-        state.cycled ? d.h("p.small.muted", null, t("arena.cycled")) : null,
-        d.h("div.row.wrap", null,
-          d.h("button.btn.btn-primary.next-btn", { type: "button", onclick: function () { advance(); } }, t("arena.next"), icons.icon("arrowRight", { size: 18 })),
-          d.h("span.small.muted", null, d.kbd("Enter"))));
+        state.cycled ? d.h("p.small.muted", null, t("arena.cycled")) : null);
     }
 
     // -- actions ---------------------------------------------------------------------------------------
@@ -221,8 +234,7 @@
       if (res.correct) state.sessionCorrect += 1;
       ctx.sound(res.upsetCaught ? "level" : res.correct ? "correct" : "wrong");
       showReveal(true);
-      var winLetter = state.duel.winner.toUpperCase();
-      ctx.announce(t(res.correct ? "arena.announceCorrect" : "arena.announceWrong", { side: winLetter, xp: "+" + res.xp.total }) + (res.upsetCaught ? " " + t("arena.upset") : ""));
+      ctx.announce(t(res.correct ? "arena.announceCorrect" : "arena.announceWrong", { side: state.duel.winner.toUpperCase(), xp: "+" + res.xp.total }) + (res.upsetCaught ? " " + t("arena.upset") : ""));
     }
 
     function advance() {
@@ -231,6 +243,21 @@
       render();
       var first = page.querySelector(".hook-card");
       if (first) first.focus({ preventScroll: true });
+      scrollToDuel();
+    }
+
+    function stickyOffset() {
+      var top = root.document.getElementById("topbar");
+      var nav = root.document.getElementById("nav");
+      var desktop = root.matchMedia && root.matchMedia("(min-width: 900px)").matches;
+      return (top ? top.offsetHeight : 0) + (desktop && nav ? nav.offsetHeight : 0) + 12;
+    }
+
+    function scrollToDuel() {
+      var area = page.querySelector(".duel-area");
+      if (!area) return;
+      var y = area.getBoundingClientRect().top + root.pageYOffset - stickyOffset();
+      if (Math.abs(root.pageYOffset - y) > 40) root.scrollTo({ top: Math.max(0, y), behavior: ctx.reducedMotion() ? "auto" : "smooth" });
     }
 
     function showReveal(animate) {
@@ -239,22 +266,17 @@
       area.classList.add("is-revealed");
       ["a", "b"].forEach(function (side) {
         var wrap = page.querySelector('.hook-wrap[data-side="' + side + '"]');
-        fillReveal(wrap, side, duel, res);
+        fillReveal(wrap, side, duel);
         wrap.querySelector(".hook-card").setAttribute("aria-disabled", "true");
       });
-      var host = page.querySelector(".result-host");
-      d.fill(host, resultPanel(duel, res));
+      d.fill(page.querySelector(".duel-top"), verdictPanel(duel, res));
+      d.fill(page.querySelector(".details-host"), detailsPanel(duel));
       if (animate) {
         var combo = page.querySelector("#combo-x");
         if (combo) { combo.classList.remove("pop"); void combo.offsetWidth; combo.classList.add("pop"); }
-      }
-      var nextBtn = host.querySelector(".next-btn");
-      if (nextBtn && animate) {
-        timers.push(setTimeout(function () {
-          if (!alive) return;
-          try { nextBtn.focus({ preventScroll: true }); } catch (e) { /* ignore */ }
-          if (!ctx.reducedMotion()) nextBtn.scrollIntoView({ block: "nearest", behavior: "smooth" });
-        }, 450));
+        scrollToDuel();
+        var nextBtn = page.querySelector(".next-btn");
+        if (nextBtn) timers.push(setTimeout(function () { if (alive) { try { nextBtn.focus({ preventScroll: true }); } catch (e) { /* ignore */ } } }, 350));
       }
     }
 
@@ -270,15 +292,9 @@
         ]);
         return;
       }
-      var metaLine = d.h("div.duel-meta", null,
-        d.h("span.chip.tone-info", null, icons.icon("layers", { size: 14 }), d.h("span", null, cohortName(duel.cohort))),
-        d.h("span.chip", null, platformLabel(duel.platform, t)),
-        d.h("span.chip", null, duel.lang === "cs" ? t("arena.langCs") : t("arena.langEn")),
-        diffChip(duel.difficulty));
-      var area = d.h("section.duel-area", { "aria-labelledby": "duel-q" },
-        d.h("h2.duel-q", { id: "duel-q" }, t("arena.prompt")),
-        metaLine,
-        confidenceRow(),
+      var top = d.h("div.duel-top");
+      var area = d.h("section.duel-area", { "aria-label": t("arena.prompt") },
+        top,
         d.h("div.duel-cards", null, hookCard("a", duel.a), d.h("span.vs", { "aria-hidden": "true" }, "VS"), hookCard("b", duel.b)),
         d.h("p.small.muted.key-help", null, t("arena.keys")));
       d.fill(page, [
@@ -287,10 +303,11 @@
           d.h("p.page-lead", null, t("arena.lead"))),
         statsStrip(),
         area,
-        d.h("div.result-host", { "aria-live": "off" }),
+        d.h("div.details-host"),
         filtersCard()
       ]);
       if (state.revealed && state.result) showReveal(false);
+      else d.fill(top, promptPanel(duel));
     }
 
     // -- keyboard ----------------------------------------------------------------------------------------------
@@ -308,7 +325,7 @@
       }
     }
 
-    if (!state.duel || (arena.length && !state.revealed && state.duel && state.difficulty !== "all" && state.duel.difficulty !== state.difficulty)) nextDuel();
+    if (!state.duel || (arena.length && !state.revealed && state.difficulty !== "all" && state.duel.difficulty !== state.difficulty)) nextDuel();
     render();
     root.document.addEventListener("keydown", onKey);
 

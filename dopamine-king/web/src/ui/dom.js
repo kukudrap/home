@@ -215,6 +215,15 @@
     return tag === "input" || tag === "textarea" || tag === "select" || el.isContentEditable === true;
   }
 
+  /** A share as a percentage in the UI language: 0.052 -> "5.2%" (English) or "5,2 %" (Czech). */
+  function fmtPct(x, digits) { return fmt(x * 100, digits === undefined ? 1 : digits) + (lang() === "cs" ? "\u00a0%" : "%"); }
+
+  /** A number with an explicit plus sign for positive values. */
+  function fmtSigned(x, digits) { return (x > 0 ? "+" : "") + fmt(x, digits); }
+
+  /** Wrap text in the quotation marks of the UI language (Czech uses low-high marks). */
+  function quote(text) { return lang() === "cs" ? "\u201e" + text + "\u201c" : "\u201c" + text + "\u201d"; }
+
   /** A short "press this key" hint. */
   function kbd(text) { return h("kbd", { class: "kbd" }, text); }
 
@@ -229,6 +238,6 @@
     SVG_NS: SVG_NS, h: h, svg: svg, clear: clear, fill: fill, append: append, clamp: clamp, lerp: lerp, uid: uid,
     debounce: debounce, t: t, lang: lang, fmt: fmt, ease: ease, tween: tween, countUp: countUp, raf: raf, wait: wait,
     setReducedMotion: setReducedMotion, reducedMotion: reducedMotion, announce: announce, copyText: copyText,
-    download: download, isFormField: isFormField, kbd: kbd, fmtMinutes: fmtMinutes
+    download: download, isFormField: isFormField, kbd: kbd, fmtMinutes: fmtMinutes, quote: quote, fmtPct: fmtPct, fmtSigned: fmtSigned
   };
 });

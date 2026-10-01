@@ -312,8 +312,8 @@ class ValidatorTests(unittest.TestCase):
         self.assertIn("HASHTAG_COUNT", codes(issues("facebook_post", en(), {"body": "#a1 #b2 #c3 #d4 words"})))
 
     def test_emoji_in_first_line(self):
-        three = "\U0001F680\U0001F525✨ Start now"
-        four = "\U0001F680\U0001F525✨\U0001F4A1 Start now"
+        three = "\U0001F680\U0001F525" + chr(0x2728) + " Start now"
+        four = "\U0001F680\U0001F525" + chr(0x2728) + "\U0001F4A1 Start now"
         self.assertNotIn("EMOJI_OVERUSE", codes(issues("linkedin_post", en(), {"hook": three})))
         self.assertEqual(severity(issues("linkedin_post", en(), {"hook": four}), "EMOJI_OVERUSE"), {"warn"})
 
@@ -437,6 +437,12 @@ class ValidatorTests(unittest.TestCase):
         self.assertEqual(severity(found, "KEYWORD_MISSING"), {"warn"})
         found = issues("pinterest_pin", en(), {"description": "Everything about running shoes for flat feet. Learn more."})
         self.assertNotIn("KEYWORD_MISSING", codes(found))
+
+    def test_pinterest_waits_for_the_description_before_judging_keyword_and_cta(self):
+        found = issues("pinterest_pin", en(), {"title": "A title without the phrase"})
+        self.assertFalse({"KEYWORD_MISSING", "CTA_MISSING"} & codes(found))
+        found = issues("pinterest_pin", en(), {"title": "A title without the phrase", "description": "Plain words only."})
+        self.assertTrue({"KEYWORD_MISSING", "CTA_MISSING"} <= codes(found))
 
     def test_youtube_community_validator(self):
         found = issues("youtube_community_post", en(), {"body": "b" * 680, "hook": "h" * 140, "cta": "c" * 120})

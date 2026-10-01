@@ -14,13 +14,13 @@ from typing import Any, Callable
 from ..scoring import fold
 from .formats import (
     DISCLOSURE_TAG, brief_meta, caps_ratio, caps_words, emoji_count, engagement_bait, fit, has_cta,
-    has_disclosure, hashtags_in, keyword_in, lang_of, pick, slot_text, standard_notes, strip_placeholders,
-    topic_hashtags, urls_in, word_count,
+    has_disclosure, hashtags_in, keyword_in, lang_of, pick, record_replaced_hook, slot_text, standard_notes,
+    strip_placeholders, topic_hashtags, urls_in, word_count,
 )
 from .hooks import choose_hook
 from .types import Brief, Draft, FormatSpec, Issue, Skeleton, Slot
 
-# Platform limits checked 2026-10, verify before publishing.
+# platform limits checked 2026-10, verify before publishing
 LINKEDIN_POST_CHARS = 3000
 LINKEDIN_HOOK_WINDOW = 140          # characters shown before "see more"
 LINKEDIN_HASHTAGS = (0, 3)
@@ -97,15 +97,16 @@ def _disclosure_slot(brief: Brief, max_chars: int = 40) -> Slot | None:
     )
 
 
-def _skeleton(fmt: str, brief: Brief, parts: list[str], slots: list[Slot | None], *, hook_slot: str = "hook",
-              fixed: dict[str, Any] | None = None, assemble: Callable | None = None,
+def _skeleton(fmt: str, brief: Brief, parts: list[str], slots: list[Slot | None], *, hook: str | None = None,
+              hook_slot: str = "hook", fixed: dict[str, Any] | None = None, assemble: Callable | None = None,
               notes: tuple[str, ...] = (), meta: dict[str, Any] | None = None, sep: str = "\n\n") -> Skeleton:
     real = [s for s in slots if s is not None]
-    return Skeleton(
+    sk = Skeleton(
         format=fmt, lang=lang_of(brief), template=sep.join(p for p in parts if p), slots=real,
         fixed=fixed or {}, meta=brief_meta(brief, **(meta or {})), hook_slot=hook_slot,
         notes=standard_notes(brief, *notes), assemble=assemble,
     )
+    return record_replaced_hook(sk, hook)
 
 
 def _opt_int(options: dict | None, key: str, default: int, lo: int, hi: int) -> int:
@@ -164,6 +165,21 @@ def disclosure_issue(draft: Draft, text: str) -> list[Issue]:
     return []
 
 
+def _hook_issues(draft: Draft, rule: Rule, clean: str) -> list[Issue]:
+    hook = strip_placeholders(draft.hook).strip()
+    if not hook:
+        # an open hook slot is already reported as SLOTS_OPEN
+        return [] if "hook" in draft.slots_open or draft.hook.strip() else [Issue("warn", "HOOK_MISSING", "The post has no hook.")]
+    out: list[Issue] = []
+    if rule.hook_window and len(hook) > rule.hook_window:
+        out.append(Issue("warn", "HOOK_TRUNCATED",
+                         f"The hook is {len(hook)} characters; the feed shows about {rule.hook_window} before truncating."))
+    at = clean.find(hook)
+    if at < 0 or at > 40:
+        out.append(Issue("warn", "HOOK_MISSING", "The hook is not at the start of the post."))
+    return out
+
+
 def check_social(draft: Draft, rule: Rule, text: str | None = None) -> list[Issue]:
     """Shared social checks on ``text`` (default: the whole body) with placeholders ignored."""
     clean = strip_placeholders(draft.body if text is None else text)
@@ -171,17 +187,8 @@ def check_social(draft: Draft, rule: Rule, text: str | None = None) -> list[Issu
     length = rule.counter(clean.strip())
     if rule.max_chars is not None and length > rule.max_chars:
         issues.append(Issue("error", "CHAR_LIMIT", f"{length} characters, the limit is {rule.max_chars}."))
-    hook = strip_placeholders(draft.hook).strip() if rule.check_hook else ""
-    if not rule.check_hook:
-        pass
-    elif hook:
-        if rule.hook_window and len(hook) > rule.hook_window:
-            issues.append(Issue("warn", "HOOK_TRUNCATED",
-                                f"The hook is {len(hook)} characters; the feed shows about {rule.hook_window} before truncating."))
-        if clean.find(hook) < 0 or clean.find(hook) > 40:
-            issues.append(Issue("warn", "HOOK_MISSING", "The hook is not at the start of the post."))
-    elif "hook" not in draft.slots_open and not draft.hook.strip():
-        issues.append(Issue("warn", "HOOK_MISSING", "The post has no hook."))
+    if rule.check_hook:
+        issues += _hook_issues(draft, rule, clean)
     if rule.hashtags is not None:
         lo, hi = rule.hashtags
         n = len(hashtags_in(clean))
@@ -226,7 +233,7 @@ def build_linkedin_post(brief: Brief, *, hook: str | None = None, options: dict 
     ]
     parts = ["{{hook}}", "{{context}}", "{{insight}}", "{{proof}}", "{{points}}", "{{closing}}",
              "{{disclosure}}" if brief.sponsored else "", "{{hashtags}}"]
-    return _skeleton("linkedin_post", brief, parts, slots, notes=(
+    return _skeleton("linkedin_post", brief, parts, slots, hook=hook, notes=(
         "Short paragraphs of one or two lines. The first 140 characters must carry the hook.",
         "Zero to three hashtags at the end, nothing that asks for likes or tags.",
     ))
@@ -247,11 +254,10 @@ def build_x_post(brief: Brief, *, hook: str | None = None, options: dict | None 
         _hook_slot(brief, hook, max_chars=100, what="First line"),
         Slot("point", "One sentence that delivers on the hook. Concrete, no filler.", max_chars=115, kind="line"),
         _cta_slot(brief, max_chars=40),
-        Slot("disclosure", "Paid partnership disclosure (for example #ad).", max_chars=12, kind="line",
-             default=DISCLOSURE_TAG[lang_of(brief)]) if brief.sponsored else None,
+        _disclosure_slot(brief, 12),
     ]
     parts = ["{{hook}}", "{{point}}", "{{cta}}", "{{disclosure}}" if brief.sponsored else ""]
-    return _skeleton("x_post", brief, parts, slots, fixed={"max_chars": X_POST_CHARS}, notes=(
+    return _skeleton("x_post", brief, parts, slots, hook=hook, fixed={"max_chars": X_POST_CHARS}, notes=(
         "280 characters in total (links count 23, emoji 2). At most two hashtags.",
     ))
 
@@ -270,8 +276,7 @@ def build_x_thread(brief: Brief, *, hook: str | None = None, options: dict | Non
                           max_chars=260, kind="text"))
     slots.append(Slot("recap", "Recap the thread in one or two sentences (max 180 chars).", max_chars=180, kind="text"))
     slots.append(_cta_slot(brief, max_chars=70))
-    slots.append(Slot("disclosure", "Paid partnership disclosure (for example #ad).", max_chars=12, kind="line",
-                      default=DISCLOSURE_TAG[lang_of(brief)]) if brief.sponsored else None)
+    slots.append(_disclosure_slot(brief, 12))
     posts = ["1/" + str(n) + " {{hook}}" + (" {{disclosure}}" if brief.sponsored else "")]
     posts += [f"{k}/{n} " + "{{post_%02d}}" % k for k in range(2, n)]
     posts.append(f"{n}/{n} " + "{{recap}}\n\n{{cta}}")
@@ -282,7 +287,7 @@ def build_x_thread(brief: Brief, *, hook: str | None = None, options: dict | Non
         texts.append(f"{n}/{n} " + values["recap"] + "\n\n" + values["cta"])
         return {"posts": [{"n": i, "text": t, "chars": x_length(strip_placeholders(t))} for i, t in enumerate(texts, 1)]}
 
-    return _skeleton("x_thread", brief, posts, slots, sep="\n\n---\n\n", assemble=assemble,
+    return _skeleton("x_thread", brief, posts, slots, hook=hook, sep="\n\n---\n\n", assemble=assemble,
                      fixed={"posts_count": n, "post_chars": X_THREAD_POST_CHARS}, notes=(
         "Post 1 promises the payoff and the thread delivers it. The last post recaps and carries the call to action.",
     ))
@@ -317,7 +322,7 @@ def build_instagram_caption(brief: Brief, *, hook: str | None = None, options: d
         _hashtag_slot(brief, *INSTAGRAM_HASHTAGS, default_count=4),
     ]
     parts = ["{{disclosure}}" if brief.sponsored else "", "{{hook}}", "{{body}}", "{{cta}}", "{{hashtags}}"]
-    return _skeleton("instagram_caption", brief, parts, slots, notes=(
+    return _skeleton("instagram_caption", brief, parts, slots, hook=hook, notes=(
         "Three to five hashtags at the end. Put the paid partnership label at the very start when sponsored.",
     ))
 
@@ -336,7 +341,7 @@ def build_facebook_post(brief: Brief, *, hook: str | None = None, options: dict 
         _disclosure_slot(brief),
     ]
     parts = ["{{hook}}", "{{body}}", "{{cta}}", "{{disclosure}}" if brief.sponsored else ""]
-    return _skeleton("facebook_post", brief, parts, slots, fixed={"aim_words": FACEBOOK_AIM_WORDS},
+    return _skeleton("facebook_post", brief, parts, slots, hook=hook, fixed={"aim_words": FACEBOOK_AIM_WORDS},
                      notes=("Short is better: aim for 80 words or fewer.",))
 
 
@@ -352,7 +357,7 @@ def build_threads_post(brief: Brief, *, hook: str | None = None, options: dict |
         _disclosure_slot(brief, 12),
     ]
     parts = ["{{hook}}", "{{body}}", "{{cta}}", "{{disclosure}}" if brief.sponsored else ""]
-    return _skeleton("threads_post", brief, parts, slots, fixed={"max_chars": THREADS_POST_CHARS},
+    return _skeleton("threads_post", brief, parts, slots, hook=hook, fixed={"max_chars": THREADS_POST_CHARS},
                      notes=("Threads shows one topic tag per post; use at most one.",))
 
 
@@ -408,7 +413,7 @@ def build_linkedin_carousel(brief: Brief, *, hook: str | None = None, options: d
     parts = ["## Slide 1\n\n**{{hook}}**\n\n{{subtitle}}" + ("\n\n{{disclosure}}" if brief.sponsored else "")]
     for k in range(2, n + 1):
         parts.append(f"## Slide {k}\n\n" + "**{{title_%02d}}**\n\n{{body_%02d}}" % (k, k))
-    return _skeleton("linkedin_carousel", brief, parts, slots, assemble=_slides_assemble(n, roles),
+    return _skeleton("linkedin_carousel", brief, parts, slots, hook=hook, assemble=_slides_assemble(n, roles),
                      fixed={"slides_count": n, "roles": roles}, notes=(
         "Slide 1 is the hook, the last slide is the call to action. One idea per slide.",
     ))
@@ -460,7 +465,7 @@ def build_instagram_carousel(brief: Brief, *, hook: str | None = None, options: 
         slides += [{"n": k, "role": roles[k - 1], "text": values[f"slide_{k:02d}"]} for k in range(2, n + 1)]
         return {"slides": slides}
 
-    return _skeleton("instagram_carousel", brief, parts, slots, assemble=assemble,
+    return _skeleton("instagram_carousel", brief, parts, slots, hook=hook, assemble=assemble,
                      fixed={"slides_count": n, "roles": roles}, notes=(
         f"Up to {INSTAGRAM_MAX_SLIDES} slides. Slide 1 is the hook, the last slide is the call to action.",
     ))
@@ -498,7 +503,7 @@ def build_pinterest_pin(brief: Brief, *, hook: str | None = None, options: dict 
     ]
     parts = ["**Title:** {{title}}", "**Description:** {{description}}" + ("\n\n{{disclosure}}" if brief.sponsored else ""),
              "**Alt text:** {{alt_text}}"]
-    return _skeleton("pinterest_pin", brief, parts, slots, hook_slot="title",
+    return _skeleton("pinterest_pin", brief, parts, slots, hook=hook, hook_slot="title",
                      fixed={"title_chars": PINTEREST_TITLE_CHARS, "description_chars": PINTEREST_DESCRIPTION_CHARS},
                      notes=("Pinterest is a search engine: lead with the keyword and describe the pin plainly.",))
 
@@ -514,9 +519,11 @@ def validate_pinterest_pin(draft: Draft) -> list[Issue]:
         issues.append(Issue("info", "ALT_TEXT_LONG", f"Alt text is {alt} characters; under {PINTEREST_ALT_AIM} reads better in screen readers.", "alt_text"))
     kw = draft.meta.get("primary_keyword")
     combined = slot_text(draft, "title") + " " + slot_text(draft, "description")
-    if kw and combined.strip() and not keyword_in(combined, kw, draft.lang):
+    description_open = "description" in draft.slots_open     # the keyword and CTA belong there, so wait for it
+    if kw and not description_open and combined.strip() and not keyword_in(combined, kw, draft.lang):
         issues.append(Issue("warn", "KEYWORD_MISSING", f"The keyword '{kw}' appears in neither title nor description."))
-    issues += check_social(draft, Rule(cta="if_given", check_hook=False), compose(draft, ["title", "description", "disclosure"]))
+    rule = Rule(cta="off" if description_open else "if_given", check_hook=False)
+    issues += check_social(draft, rule, compose(draft, ["title", "description", "disclosure"]))
     return issues
 
 
@@ -552,7 +559,7 @@ def build_youtube_community_post(brief: Brief, *, hook: str | None = None, optio
         return {"poll": {"question": values["poll_question"],
                          "options": [values[f"poll_option_{i}"] for i in range(1, k_opts + 1)]}}
 
-    return _skeleton("youtube_community_post", brief, parts, slots, assemble=assemble,
+    return _skeleton("youtube_community_post", brief, parts, slots, hook=hook, assemble=assemble,
                      fixed={"max_chars": YOUTUBE_COMMUNITY_CHARS, "poll_options": k_opts},
                      notes=("Optional poll: 2 to 4 options, passed as options['poll'] (a count or a list of option texts).",))
 
@@ -617,7 +624,7 @@ def build_reddit_answer(brief: Brief, *, hook: str | None = None, options: dict 
     sub = str((options or {}).get("subreddit") or "").strip()
     slots = [
         Slot("direct_answer", "Answer the question directly in one or two sentences. No promotion, no brand mention, no links.",
-             max_chars=300, kind="text", default=hook.strip() if hook and hook.strip() else None),
+             max_chars=300, kind="text", default=fit(hook, max_chars=300)),
         Slot("details", "Explain how and why with practical steps, trade-offs or examples. Be useful even if the reader never "
                         "buys anything. No brand mention, no links.", max_chars=2500, kind="text"),
         Slot("caveats", "Say when this advice does not apply and mention fair alternatives, including ones that are not ours.",
@@ -632,7 +639,7 @@ def build_reddit_answer(brief: Brief, *, hook: str | None = None, options: dict 
     ]
     if sub:
         notes.append(f"Target subreddit: {sub}. Read its rules first.")
-    return _skeleton("reddit_answer", brief, parts, slots, hook_slot="direct_answer",
+    return _skeleton("reddit_answer", brief, parts, slots, hook=hook, hook_slot="direct_answer",
                      fixed={"max_chars": REDDIT_COMMENT_CHARS, "brand_link_window": REDDIT_LINK_WINDOW, "subreddit": sub or None},
                      notes=tuple(notes))
 
@@ -688,7 +695,7 @@ def build_google_business_post(brief: Brief, *, hook: str | None = None, options
         _disclosure_slot(brief, 12),
     ]
     parts = ["{{hook}}", "{{details}}", "{{cta}}", "{{disclosure}}" if brief.sponsored else "", "**Button:** {{cta_button}}"]
-    return _skeleton("google_business_post", brief, parts, slots,
+    return _skeleton("google_business_post", brief, parts, slots, hook=hook,
                      fixed={"cta_buttons": dict(GBP_CTA_BUTTONS), "aim_chars": list(GBP_AIM_CHARS)},
                      notes=("Aim for 150 to 300 characters. Name the offer, date and place; avoid phone numbers and ALL CAPS.",))
 
@@ -712,7 +719,7 @@ def _spec(fid: str, en: str, cs: str, platform: str, build: Callable, validate: 
                       validate=validate, limits=limits, description_en=d_en, description_cs=d_cs)
 
 
-# Platform limits checked 2026-10, verify before publishing.
+# platform limits checked 2026-10, verify before publishing
 FORMAT_SPECS: list[FormatSpec] = [
     _spec("linkedin_post", "LinkedIn post", "LinkedIn příspěvek", "linkedin", build_linkedin_post, validate_linkedin_post,
           {"max_chars": LINKEDIN_POST_CHARS, "hook_window": LINKEDIN_HOOK_WINDOW, "hashtags": list(LINKEDIN_HASHTAGS)},
@@ -761,7 +768,7 @@ FORMAT_SPECS: list[FormatSpec] = [
           {"max_chars": REDDIT_COMMENT_CHARS, "brand_link_window": REDDIT_LINK_WINDOW},
           "Genuinely helpful answer with an affiliation disclosure and no promotion.",
           "Opravdu užitečná odpověď s uvedením vztahu ke značce a bez propagace."),
-    _spec("google_business_post", "Google Business post", "Příspěvek ve Firmě na Googlu", "google",
+    _spec("google_business_post", "Google Business post", "Příspěvek do Profilu firmy na Googlu", "google",
           build_google_business_post, validate_google_business_post,
           {"max_chars": GBP_POST_CHARS, "aim_chars": list(GBP_AIM_CHARS), "cta_buttons": list(GBP_CTA_BUTTONS)},
           "Business Profile update of 150 to 300 characters with a call to action button.",

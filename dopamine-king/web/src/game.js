@@ -566,15 +566,23 @@
   }
 
   /**
-   * Judge a Lab decision against the hidden truth. Shipping B is right only when B is truly better,
-   * shipping A is right when it is not, and "keep testing" is right while the evidence is inconclusive.
+   * Judge a Lab decision against the hidden truth (test: {pValue, diff, alpha} of the latest sample).
+   * Shipping B is right only when B is truly better; shipping A is right when it is not. "Keep testing" is
+   * right while the evidence is inconclusive, and also when a significant result points the wrong way
+   * (a false alarm that more data would expose); it is wasted traffic when the evidence is already right.
    */
   function judgeLabDecision(decision, truth, test) {
     var alpha = test && test.alpha !== undefined ? test.alpha : 0.05;
     var conclusive = !!test && test.pValue < alpha;
-    if (decision === "ship_b") return { correct: truth.kind === "better", conclusive: conclusive };
-    if (decision === "ship_a") return { correct: truth.kind !== "better", conclusive: conclusive };
-    return { correct: !conclusive, conclusive: conclusive };
+    var says = !conclusive ? "none" : (test.diff > 0 ? "b" : "a");
+    var out = { conclusive: conclusive, evidenceSays: says };
+    if (decision === "ship_b") out.correct = truth.kind === "better";
+    else if (decision === "ship_a") out.correct = truth.kind !== "better";
+    else {
+      var evidenceRight = (says === "b" && truth.kind === "better") || (says === "a" && truth.kind === "worse");
+      out.correct = !conclusive || !evidenceRight;
+    }
+    return out;
   }
 
   function applyLabRun(profile, args, ctx) {

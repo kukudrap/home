@@ -17,6 +17,7 @@ from dataclasses import dataclass
 from datetime import date, datetime
 from typing import Any, Iterable, Sequence
 
+from ..models import Serializable
 from ..scoring import fold, rank_hooks
 from .types import Brief, Draft, FormatSpec, Issue, Skeleton, Slot
 
@@ -640,7 +641,10 @@ def _pick_title(cands: Sequence[str], lang: str, max_len: int = 60) -> str | Non
     fit = [c for c in dict.fromkeys(cands) if len(c) <= max_len]
     if not fit:
         return None
-    ranked = rank_hooks(fit, lang=lang)
+    try:
+        ranked = rank_hooks(fit, lang=lang)
+    except ValueError:                           # the hook scorer cannot parse some tokens (for example "12.5"): keep the order
+        return fit[0]
     for text, sc in ranked:
         if sc.clickbait_risk <= 0.3:           # never clickbait
             return text
@@ -817,9 +821,9 @@ def build_seo_article(brief: Brief, *, hook: str | None = None, options: dict | 
     headings = sec_heads + [faq_h, concl_h] + ([src_h] if brief.sources else [])
     notes = [
         tr(lang, "Draft for a human to finish: add first-party experience, verify every fact and cut filler before publishing.",
-           "Koncept, který má dokončit člověk: doplňte vlastní zkušenost, ověřte každý fakt a před zveřejněním vyřaďte vatu."),
+           "Koncept, který má dokončit člověk: doplňte vlastní zkušenost, ověřte každý fakt a před zveřejněním vyřaďte vycpávky."),
         tr(lang, "Mass produced, low-value pages risk being treated as scaled content abuse however they are made; this skeleton only gives structure.",
-           "Hromadně vyráběné stránky s nízkou hodnotou mohou být posouzeny jako zneužití škálovaného obsahu bez ohledu na to, jak vznikly; kostra dává jen strukturu."),
+           "Hromadně vyráběné stránky s nízkou hodnotou mohou být posouzeny jako zneužívání obsahu ve velkém měřítku bez ohledu na to, jak vznikly; kostra dává jen strukturu."),
         tr(lang, "Cite only the supplied sources, written as [[cite:<source_id>]].",
            "Citujte jen dodané zdroje ve tvaru [[cite:<source_id>]]."),
     ]
@@ -839,7 +843,7 @@ def build_seo_article(brief: Brief, *, hook: str | None = None, options: dict | 
 
 # -- SEO score ---------------------------------------------------------------------------
 @dataclass
-class Check:
+class Check(Serializable):
     id: str
     passed: bool
     weight: float                  # 0.0 means "not applicable": ignored by the score
@@ -847,7 +851,7 @@ class Check:
 
 
 @dataclass
-class SeoReport:
+class SeoReport(Serializable):
     score: float                   # 0..100
     checks: list[Check]
     issues: list[Issue]
@@ -942,12 +946,17 @@ def seo_score(draft: Draft, brief: Brief | None = None) -> SeoReport:
         early = count_keyword(first100, kw, lang) > 0
         add("keyword_early", early, 0.08, f"Keyword in the first 100 words: {'yes' if early else 'no'}.",
             f"Klíčové slovo v prvních 100 slovech: {'ano' if early else 'ne'}.")
-        hits, words, density = keyword_density(text, kw, lang)
-        add("keyword_density", 0.5 <= density <= 2.5, 0.10,
-            f"Keyword density: {num(density)}% (target 0.5-2.5%; above 3% is stuffing).",
-            f"Hustota klíčového slova: {num(density)} % (cíl 0,5-2,5 %; nad 3 % jde o přeplňování).")
-        if density > 3.0:
-            penalty = min(25.0, 10.0 + (density - 3.0) * 5.0)
+        _, words, measured = keyword_density(text, kw, lang)
+        if words < 100 or draft.slots_open or PLACEHOLDER_RE.search(draft.body):
+            add("keyword_density", True, 0.0, "Keyword density is only judged on complete text of at least 100 words.",
+                "Hustota klíčového slova se posuzuje jen u dokončeného textu o alespoň 100 slovech.")
+        else:
+            density = measured
+            add("keyword_density", 0.5 <= density <= 2.5, 0.10,
+                f"Keyword density: {num(density)}% (target 0.5-2.5%; above 3% is stuffing).",
+                f"Hustota klíčového slova: {num(density)} % (cíl 0,5-2,5 %; nad 3 % jde o přeplňování).")
+            if density > 3.0:
+                penalty = min(25.0, 10.0 + (density - 3.0) * 5.0)
     else:
         add("keyword_early", True, 0.0, "No keyword known: check skipped.", "Klíčové slovo není známo: kontrola přeskočena.")
         add("keyword_density", True, 0.0, "No keyword known: check skipped.", "Klíčové slovo není známo: kontrola přeskočena.")
@@ -994,7 +1003,8 @@ def seo_score(draft: Draft, brief: Brief | None = None) -> SeoReport:
     issues: list[Issue] = []
     for c in checks:
         if c.weight > 0 and not c.passed:
-            issues.append(_issue("error" if c.id == "single_h1" else "warn", _SEO_CODES[c.id], c.message))
+            shown = {"title": title, "meta_description": meta}.get(c.id)
+            issues.append(_issue("error" if c.id == "single_h1" else "warn", _SEO_CODES[c.id], c.message, shown[:80] if shown else None))
     if density is not None and density > 3.0:
         issues.append(_issue("warn", "KEYWORD_STUFFING", tr(
             lang, f"Keyword stuffing: {num(density)}% density (above 3%). Rewrite naturally and use variations.",
@@ -1063,7 +1073,7 @@ def quality_gate(draft: Draft, brief: Brief | None = None) -> list[Issue]:
             lang, "Not publishable: the draft has no first-party experience or facts. Add what the brand itself saw, measured "
                   "or did; mass produced, low-value pages risk being treated as scaled content abuse however they are made.",
             "Nelze zveřejnit: koncept neobsahuje vlastní zkušenost ani fakta. Doplňte, co značka sama viděla, změřila nebo "
-            "udělala; hromadně vyráběné stránky s nízkou hodnotou mohou být posouzeny jako zneužití škálovaného obsahu."),
+            "udělala; hromadně vyráběné stránky s nízkou hodnotou mohou být posouzeny jako zneužívání obsahu ve velkém měřítku."),
             "experience"))
     sources = brief.sources if brief else (draft.parts.get("sources") or [])
     facts = brief.facts if brief else (draft.parts.get("facts") or [])

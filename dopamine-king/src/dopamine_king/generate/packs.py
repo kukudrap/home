@@ -23,6 +23,8 @@ DEFAULT_FORMATS = (
 ARTICLE_FORMATS = ("seo_article", "geo_answer_page")
 # Menus of alternatives repeat the topic on purpose, so keyword density does not apply to them.
 OPTION_LIST_FORMATS = ("hook_set", "youtube_title_set", "email_subject_set", "google_rsa")
+# Formats with no natural place for a sponsorship label: the platform's ad label or the message body carries it.
+NO_INLINE_DISCLOSURE = OPTION_LIST_FORMATS + ("meta_ad", "linkedin_ad")
 
 
 @dataclass
@@ -137,6 +139,11 @@ def check_draft(draft: Draft, brief: Brief, *, shield: Any = None, ledger: Any =
     issues = _dedupe(issues)
     if draft.format in OPTION_LIST_FORMATS:
         issues = [i for i in issues if i.code != "KEYWORD_STUFFING"]
+    if draft.format in NO_INLINE_DISCLOSURE:
+        # Not blocking: the label belongs to the ad placement or the finished message, not to this copy set.
+        issues = [Issue("warn", i.code, i.message + (" Label it in the ad placement or the final message." if brief.lang != "cs"
+                                                      else " Označte to v reklamním umístění nebo ve finální zprávě."), i.where)
+                  if i.code == "DISCLOSURE_MISSING" else i for i in issues]
     if any(i.code == "PLACEHOLDER_OPEN" for i in issues):
         issues = [i for i in issues if i.code != "SLOTS_OPEN"]
     return issues
@@ -149,7 +156,10 @@ def _feedback(skeleton: Skeleton, draft: Draft, issues: Sequence[Issue], brief: 
     for issue in issues:
         if issue.severity == "info" or not issue.where or issue.code == "SLOTS_OPEN":
             continue
-        needle = issue.where.strip("[]. ")[:40]
+        if issue.where in values:                       # builders report a slot id or a location label
+            feedback.setdefault(issue.where, []).append(f"{issue.code}: {issue.message}")
+            continue
+        needle = issue.where.strip("[]. ")[:40]         # the guard reports a short excerpt of the text
         for slot_id, text in values.items():
             if needle and needle in text:
                 feedback.setdefault(slot_id, []).append(f"{issue.code}: {issue.message}")

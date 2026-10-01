@@ -8,17 +8,17 @@ Validators measure real content and ignore ``[[ADD: ...]]`` placeholders.
 from __future__ import annotations
 
 import re
-from typing import Any, Callable
+from typing import Any
 
 from ..scoring import fold
 from .formats import (
-    brief_meta, caps_words, emoji_count, fit, keyword_in, lang_of, pick, slot_text, standard_notes,
-    strip_placeholders,
+    brief_meta, caps_words, emoji_count, fit, keyword_in, lang_of, pick, record_replaced_hook, slot_text,
+    standard_notes, strip_placeholders,
 )
 from .hooks import cached_score, generate_hooks
 from .types import Brief, Draft, FormatSpec, Issue, Skeleton, Slot
 
-# Platform limits checked 2026-10, verify before publishing.
+# platform limits checked 2026-10, verify before publishing
 RSA_HEADLINES = 15
 RSA_HEADLINE_CHARS = 30
 RSA_DESCRIPTIONS = 4
@@ -54,13 +54,17 @@ _NO_NOTE = {"", "n/a", "na", "none", "no", "ne", "zadne", "zadna", "-"}
 
 # Superlatives and absolute claims that need a substantiation note. Matched on lower-cased text without diacritics.
 _CLAIM_RE = re.compile("|".join((
-    r"\bbest\b", r"(?<!\w)#\s?1\b", r"\bno\.? ?1\b", r"\bnumber (?:one|1)\b", r"\bguarantee[sd]?\b", r"\bleading\b",
+    r"\bbest\b(?! practices?\b)", r"(?<!\w)#\s?1\b", r"\bno\.? ?1\b", r"\bnumber (?:one|1)\b", r"\bguarantee[sd]?\b",
+    r"\bleading (?:brand|provider|company|platform|manufacturer|maker|supplier|retailer|expert|authority|source|name|choice)\b",
     r"\btop[- ]rated\b", r"\bcheapest\b", r"\blowest price\b", r"\bfastest\b", r"\bunbeatable\b", r"\brisk[- ]free\b",
-    r"\bproven\b", r"\bmiracle\b", r"\b100\s?%", r"\bworld'?s (?:best|first|leading)\b",
+    r"\bproven\b", r"\bmiracle\b", r"\b100\s?% (?:satisfaction|guarantee\w*|safe|effective|success\w*|secure|accurate|results?)\b",
+    r"\bworld'?s (?:best|first|leading)\b",
     r"\bcislo (?:1|jedna)\b", r"\bc\. ?1\b", r"\bgarantovan\w*", r"\bgarantujeme\b", r"\bgarance\b", r"\bzarucen\w*",
     r"\bnejlepsi\b", r"\bnejlevnejsi\b", r"\bnejrychlejsi\b", r"\bnejvyhodnejsi\b", r"\bnejkvalitnejsi\b",
-    r"\bnejvetsi\b", r"\bnejoblibenejsi\b", r"\bnejlepe\b", r"\bjediny\b", r"\bvedouci\b", r"\bbez rizika\b",
-    r"\bosvedcen\w*", r"\bzazracn\w*",
+    r"\bnejvetsi\b", r"\bnejoblibenejsi\b", r"\bnejlepe\b", r"\bjediny\b", r"\bbez rizika\b",
+    r"\bvedouci (?:dodavatel|vyrobce|znacka|firma|poskytovatel|pozice|postaveni|specialista|expert)\b",
+    r"\bosvedcen\w*", r"\bzazracn\w*", r"\bstoprocentn\w*",
+    r"\b100\s?% (?:spokojenost|garance|bezpecn\w*|ucinn\w*|uspesn\w*)",
 )))
 
 
@@ -154,7 +158,7 @@ def build_google_rsa(brief: Brief, *, hook: str | None = None, options: dict | N
     for sid in _numbered("h", RSA_HEADLINES):
         kind = kind_of[sid]
         slots.append(Slot(sid, f"Headline, max {RSA_HEADLINE_CHARS} chars, {what[kind]}", max_chars=RSA_HEADLINE_CHARS,
-                          kind="title", default=defaults.get(sid), must_include=[kw] if kind == "keyword" and sid == "h01" else []))
+                          kind="title", default=defaults.get(sid)))
     d_what = {1: f"states the main benefit for {brief.audience} and includes the keyword '{kw}'", 2: "answers the biggest objection or risk",
               3: "adds a verifiable proof point from the brief", 4: "ends with a clear call to action"}
     for i in range(1, RSA_DESCRIPTIONS + 1):
@@ -170,13 +174,13 @@ def build_google_rsa(brief: Brief, *, hook: str | None = None, options: dict | N
         return {"headlines": [values[s] for s in _numbered("h", RSA_HEADLINES)],
                 "descriptions": [values[f"d{i}"] for i in range(1, RSA_DESCRIPTIONS + 1)]}
 
-    return Skeleton(
+    return record_replaced_hook(Skeleton(
         format="google_rsa", lang=lang_of(brief), template="\n\n".join(parts), slots=slots,
         fixed={"headline_mix": HEADLINE_MIX, "headline_chars": RSA_HEADLINE_CHARS, "description_chars": RSA_DESCRIPTION_CHARS},
         meta=brief_meta(brief), hook_slot="h01", assemble=assemble,
         notes=standard_notes(brief, "Mix: keyword, benefit, proof, CTA and brand headlines. Include the keyword in at least two headlines "
                                     "and one description. Headlines must be unique and must not be pinned unless required."),
-    )
+    ), hook)
 
 
 def validate_google_rsa(draft: Draft) -> list[Issue]:
@@ -225,7 +229,7 @@ def validate_google_rsa(draft: Draft) -> list[Issue]:
 def _hook_variants(brief: Brief, hook: str | None, n: int, max_chars: int) -> list[str]:
     """Up to n distinct hooks within max_chars; a caller supplied hook goes first."""
     out: list[str] = []
-    if hook and hook.strip():
+    if fit(hook, max_chars=max_chars):
         out.append(hook.strip())
     for c in generate_hooks(brief, n=n + 2, max_chars=max_chars):
         if len(out) >= n:
@@ -260,13 +264,13 @@ def build_meta_ad(brief: Brief, *, hook: str | None = None, options: dict | None
         return {"variants": [{"n": i, "primary_text": values[f"primary_{i}"], "headline": values[f"headline_{i}"],
                               "description": values[f"description_{i}"]} for i in range(1, META_VARIANTS + 1)]}
 
-    return Skeleton(
+    return record_replaced_hook(Skeleton(
         format="meta_ad", lang=lang, template="\n\n".join(blocks), slots=slots,
         fixed={"visible_chars": META_PRIMARY_VISIBLE, "primary_chars": META_PRIMARY_MAX, "headline_chars": META_HEADLINE_MAX,
                "description_chars": META_DESCRIPTION_MAX, "variants": META_VARIANTS},
         meta=brief_meta(brief), hook_slot="primary_1", assemble=assemble,
         notes=standard_notes(brief, "Test the three variants against each other: change one thing at a time (hook, offer or format)."),
-    )
+    ), hook)
 
 
 def validate_meta_ad(draft: Draft) -> list[Issue]:
@@ -333,14 +337,14 @@ def build_linkedin_ad(brief: Brief, *, hook: str | None = None, options: dict | 
     slots.append(_substantiation_slot())
     blocks.append("**" + pick(lang, "Button", "Tlačítko") + ":** {{cta_button}}")
     blocks.append("**" + pick(lang, "Substantiation", "Doložení tvrzení") + ":** {{substantiation}}")
-    return Skeleton(
+    return record_replaced_hook(Skeleton(
         format="linkedin_ad", lang=lang, template="\n\n".join(blocks), slots=slots,
         fixed={"intro_recommended": LINKEDIN_INTRO_RECOMMENDED, "intro_max": LINKEDIN_INTRO_MAX,
                "headline_recommended": LINKEDIN_HEADLINE_RECOMMENDED, "headline_max": LINKEDIN_HEADLINE_MAX,
                "cta_buttons": list(LINKEDIN_CTA_BUTTONS), "variants": n},
         meta=brief_meta(brief), hook_slot="intro_text",
         notes=standard_notes(brief, "Intro text over 150 characters is cut on mobile: put the hook and the point first."),
-    )
+    ), hook)
 
 
 def validate_linkedin_ad(draft: Draft) -> list[Issue]:
@@ -397,7 +401,7 @@ def build_email_subject_set(brief: Brief, *, hook: str | None = None, options: d
     lang = lang_of(brief)
     rows = [{"text": c.text, "style": c.style, "score": c.score, "risk": c.clickbait_risk}
             for c in generate_hooks(brief, n=EMAIL_SUBJECTS, max_chars=EMAIL_SUBJECT_MAX)]
-    if hook and hook.strip():      # a supplied hook is pinned to the first slot, the rest stay ranked
+    if fit(hook, max_chars=EMAIL_SUBJECT_MAX):      # a supplied hook that fits is pinned to the first slot, the rest stay ranked
         total, risk = cached_score(hook.strip(), lang)
         rows = ([{"text": hook.strip(), "style": "provided", "score": round(total, 2), "risk": round(risk, 4)}]
                 + [r for r in rows if r["text"] != hook.strip()])[:EMAIL_SUBJECTS]
@@ -419,12 +423,12 @@ def build_email_subject_set(brief: Brief, *, hook: str | None = None, options: d
         return {"pairs": [{"n": i, "subject": values[f"subject_{i:02d}"], "preheader": values[f"preheader_{i:02d}"]}
                           for i in range(1, EMAIL_SUBJECTS + 1)]}
 
-    return Skeleton(
+    return record_replaced_hook(Skeleton(
         format="email_subject_set", lang=lang, template=template, slots=slots,
         fixed={"subjects": rows, "subject_chars": EMAIL_SUBJECT_MAX, "preheader_chars": list(EMAIL_PREHEADER)},
         meta=brief_meta(brief), hook_slot="subject_01", assemble=assemble,
         notes=standard_notes(brief, "Subjects are ranked by the Dopamine Score. A/B test two or three; a subject must match what the email delivers."),
-    )
+    ), hook)
 
 
 def validate_email_subject_set(draft: Draft) -> list[Issue]:

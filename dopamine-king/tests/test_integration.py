@@ -10,7 +10,7 @@ from dopamine_king import cli
 from dopamine_king.generate import formats as registry
 from dopamine_king.generate.packs import DEFAULT_FORMATS, build_pack
 from dopamine_king.generate.providers import slot_violations
-from dopamine_king.generate.types import Brief, Skeleton, Slot
+from dopamine_king.generate.types import Brief, Issue, Skeleton, Slot
 from dopamine_king.server import handle_api
 
 EN = Brief(brand="Zorvia", topic="running shoes", audience="beginner runners", cohort="sport", keyword="running shoes for beginners",
@@ -160,3 +160,39 @@ class ApiIntegrationTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class SponsoredAndFeedbackTests(unittest.TestCase):
+    def test_sponsored_ad_sets_are_reviewed_not_blocked(self):
+        brief = Brief(brand="Zorvia", topic="running shoes", audience="beginner runners", keyword="running shoes", sponsored=True,
+                      cta="Try the Aero 2")
+        pack = build_pack(brief, ["google_rsa", "meta_ad", "hook_set", "email_subject_set"], improve_rounds=0)
+        for item in pack.items:
+            self.assertNotEqual(item.verdict, "blocked", item.format)
+            codes = {i["code"]: i["severity"] for i in item.issues}
+            if "DISCLOSURE_MISSING" in codes:
+                self.assertEqual(codes["DISCLOSURE_MISSING"], "warn", item.format)
+
+    def test_sponsored_social_post_carries_a_label_by_construction(self):
+        brief = Brief(brand="Zorvia", topic="running shoes", audience="beginner runners", sponsored=True)
+        item = build_pack(brief, ["linkedin_post"], writer=FillerWriter(), improve_rounds=0).items[0]
+        self.assertIn("#ad", item.body)
+        self.assertNotIn("DISCLOSURE_MISSING", [i["code"] for i in item.issues])
+
+    def test_sponsored_text_without_a_label_is_blocked(self):
+        from dopamine_king.generate.packs import _verdict, check_draft
+        from dopamine_king.generate.types import Draft
+        brief = Brief(brand="Zorvia", topic="running shoes", audience="beginner runners", sponsored=True)
+        draft = Draft(format="linkedin_post", lang="en", hook="Why most beginner runners quit",
+                      body="Why most beginner runners quit\n\nStart slower than you think.", meta={"sponsored": True, "goal": "awareness"})
+        issues = check_draft(draft, brief)
+        self.assertIn("DISCLOSURE_MISSING", [i.code for i in issues])
+        self.assertEqual(_verdict(issues), "blocked")
+
+    def test_feedback_maps_slot_id_locations_to_slots(self):
+        from dopamine_king.generate.packs import _feedback
+        sk = Skeleton(format="demo", lang="en", template="{{hook}} {{body}}",
+                      slots=[Slot("hook", "h", default="7 mistakes every beginner runner makes"), Slot("body", "b", default="text")])
+        draft = sk.render({})
+        fb = _feedback(sk, draft, [Issue("warn", "WORDS_OVER_BUDGET", "too long", "body")], Brief(brand="B", topic="t", audience="a"))
+        self.assertEqual(list(fb), ["body"])

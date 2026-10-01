@@ -204,7 +204,7 @@ class GoogleRsaTests(unittest.TestCase):
         self.assertNotIn("EXCLAMATION_LIMIT", codes(check("google_rsa", rsa_en(), fills)))
 
     def test_unsubstantiated_claims_english(self):
-        for text in ("Best running shoes", "The #1 choice", "Guaranteed fit", "100% comfort", "Top-rated by runners", "Fastest delivery",
+        for text in ("Best running shoes", "The #1 choice", "Guaranteed fit", "100% satisfaction", "Top-rated by runners", "Fastest delivery",
                      "Proven results", "Number one in fit", "World's best shoes", "Risk-free returns"):
             found = check("google_rsa", rsa_en(), {**full_rsa(), "h08": text, "substantiation": ""})
             self.assertEqual(severity(found, "UNSUBSTANTIATED_CLAIM"), {"warn"}, text)
@@ -230,6 +230,13 @@ class GoogleRsaTests(unittest.TestCase):
         self.assertIn("UNSUBSTANTIATED_CLAIM", codes(check("google_rsa", rsa_en(), fills)))
         fills["substantiation"] = "žádné"
         self.assertIn("UNSUBSTANTIATED_CLAIM", codes(check("google_rsa", cs(), {**full_rsa("běžecké boty"), "h08": "Nejlepší boty", "substantiation": "ne"})))
+
+    def test_claim_detector_ignores_everyday_phrases(self):
+        for text in ("Best practices for runners", "100% cotton socks", "A path leading to the park", "Vedoucí prodejny radí",
+                     "100 % bavlna", "Leading edge cushioning is a design term"):
+            self.assertEqual(claim_hits(text), [], text)
+        for text in ("Leading provider of running shoes", "Vedoucí dodavatel bot", "Stoprocentní spokojenost", "100 % spokojenost"):
+            self.assertTrue(claim_hits(text), text)
 
     def test_claim_detector_has_no_czech_false_positives(self):
         for text in ("Nejen boty, ale i rady", "Nejsou to jen boty", "Nejde o značku", "Our best friends run", "Rest of the range"):
@@ -480,6 +487,16 @@ class AdsFamilyTests(unittest.TestCase):
             for brief in (en(), cs()):
                 sk, draft = render(fid, brief)
                 self.assertNotIn("UNSUBSTANTIATED_CLAIM", codes(get_format(fid).validate(draft)))
+
+    def test_library_hooks_never_trip_the_claim_detector(self):
+        from dopamine_king.generate.hooks import HOOK_STYLES, build_context, render_template, templates_for
+        for lang, brief in (("en", en(keyword="fit guide")), ("cs", cs(keyword="průvodce výběrem"))):
+            ctx = build_context(brief)
+            ctx.update({"n": "7", "fact": "Tested by 1,200 runners"})
+            for style in HOOK_STYLES:
+                for template in templates_for(lang, style):
+                    text = render_template(template, ctx)
+                    self.assertEqual(claim_hits(text or ""), [], template)
 
     def test_claim_detector_basics(self):
         self.assertEqual(claim_hits("Guaranteed results"), ["guaranteed"])

@@ -12,12 +12,13 @@ import re
 from dataclasses import dataclass
 from typing import Any, Sequence
 
+from ..models import Serializable
 from ..scoring import detect_lang, fold
 from .seo import (
     _FAQ_PATTERNS, _FENCE_RE, _URL_RE, CITE_RE, PLACEHOLDER_RE, _case_forms, _clean_links, _make_assemble, _ph, _real,
     _resolve, _shorten, _source_entries, _source_hint, _split_sources, avg_sentence_words, cap_first, cite_ids, count_keyword,
     count_words, detect_intent, format_date, front_matter, is_question_keyword, jsonld_article, jsonld_organization,
-    keyword_density, norm_lang, parse_faq, parse_headings, plain_text, sources_block, split_sentences, tr,
+    keyword_density, norm_lang, parse_faq, parse_headings, plain_text, quality_gate, sources_block, split_sentences, tr,
 )
 from .types import Brief, Draft, FormatSpec, Issue, Skeleton, Slot
 
@@ -188,7 +189,7 @@ def build_geo_answer_page(brief: Brief, *, hook: str | None = None, options: dic
 
 # -- GEO score ---------------------------------------------------------------------------
 @dataclass
-class GeoCheck:
+class GeoCheck(Serializable):
     id: str
     passed: bool
     weight: float
@@ -197,7 +198,7 @@ class GeoCheck:
 
 
 @dataclass
-class GeoReport:
+class GeoReport(Serializable):
     score: float                       # 0..100
     checks: list[GeoCheck]
     tips: list[str]                    # one tip per failed check, in the report language
@@ -471,10 +472,12 @@ def geo_score(draft_or_text: Draft | str, brief: Brief | None = None, *, lang: s
 
     density: float | None = None
     penalty = 0.0
-    if keyword:
-        _, _, density = keyword_density(plain, keyword, lang)
-        if density > 2.5:
-            penalty = min(25.0, (density - 2.5) * 10.0)
+    if keyword and not PLACEHOLDER_RE.search(body) and not (isinstance(draft_or_text, Draft) and draft_or_text.slots_open):
+        _, n_words, measured = keyword_density(plain, keyword, lang)
+        if n_words >= 100:                              # density is only judged on complete text of a useful length
+            density = measured
+            if density > 2.5:
+                penalty = min(25.0, (density - 2.5) * 10.0)
     earned = sum(c.weight for c in checks if c.passed)
     score = max(0.0, min(100.0, 100.0 * earned - penalty))
     tips = [_TIPS[c.id][1 if lang == "cs" else 0] for c in checks if not c.passed]
@@ -575,7 +578,10 @@ def robots_ai_snippet(policy: str = "allow_search_block_training", extra_agents:
 
 # -- validator and registry --------------------------------------------------------------
 def validate_geo_page(draft: Draft) -> list[Issue]:
-    """Statistics must carry a known cite marker, quotes need a named source, plus the failed GEO checks."""
+    """Statistics need a known cite marker, quotes a named source; plus failed GEO checks and the SEO quality gate.
+
+    The gate means a page with open slots or no first-party facts is never called publishable.
+    """
     lang = norm_lang(draft.lang)
     slots = draft.parts.get("slots") if isinstance(draft.parts.get("slots"), dict) else {}
     known = {str(s.get("id")) for s in draft.parts.get("sources") or [] if s.get("id")}
@@ -604,7 +610,7 @@ def validate_geo_page(draft: Draft) -> list[Issue]:
     for c in geo_score(draft).checks:
         if not c.passed:
             issues.append(Issue("warn", f"GEO_{c.id.upper()}", c.message_cs if lang == "cs" else c.message_en))
-    return issues
+    return issues + quality_gate(draft, None)
 
 
 FORMAT_SPECS: list[FormatSpec] = [

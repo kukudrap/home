@@ -92,6 +92,9 @@ class GenerationTests(unittest.TestCase):
         two = generate_hooks(en_brief(), n=40, styles=("question", "myth_bust"))
         self.assertEqual({c.style for c in two}, {"question", "myth_bust"})
 
+    def test_a_single_style_name_is_accepted(self):
+        self.assertEqual({c.style for c in generate_hooks(en_brief(), n=5, styles="how_to")}, {"how_to"})
+
     def test_unknown_style_raises(self):
         with self.assertRaises(ValueError) as ctx:
             generate_hooks(en_brief(), styles=["clickbait"])
@@ -216,6 +219,20 @@ class BestHookTests(unittest.TestCase):
         h = best_hook(risky, max_risk=0.0)
         self.assertTrue(h.text)
 
+    def test_a_supplied_hook_that_breaks_the_limits_is_replaced(self):
+        brief = en_brief()
+        long_hook = "This supplied hook is much longer than a three second video beat allows"
+        self.assertEqual(choose_hook(brief, long_hook), long_hook)
+        replaced = choose_hook(brief, long_hook, max_words=7)
+        self.assertNotEqual(replaced, long_hook)
+        self.assertLessEqual(len(replaced.split()), 7)
+        self.assertEqual(choose_hook(brief, "Five words fit here fine", max_words=7), "Five words fit here fine")
+        self.assertNotEqual(choose_hook(brief, long_hook, max_chars=30), long_hook)
+        self.assertLessEqual(len(choose_hook(brief, long_hook, max_chars=30)), 30)
+        self.assertTrue(hooks.hook_fits("abc", 3, 1))
+        self.assertFalse(hooks.hook_fits("abcd", 3))
+        self.assertFalse(hooks.hook_fits("a b", None, 1))
+
     def test_choose_hook(self):
         self.assertEqual(choose_hook(en_brief(), "  My own hook "), "My own hook")
         self.assertEqual(choose_hook(en_brief()), best_hook(en_brief()).text)
@@ -247,7 +264,7 @@ class TemplateLibraryTests(unittest.TestCase):
             self.assertNotIn(EM_DASH, text)
             self.assertNotIn(chr(0x2013), text)
             self.assertNotIn(chr(0x2026), text)
-            self.assertFalse(set(text) & set("“”„’‘"), text)
+            self.assertFalse(set(text) & {chr(c) for c in (0x201c, 0x201d, 0x201e, 0x2019, 0x2018)}, text)
             if lang == "en":
                 self.assertTrue(text.isascii(), text)
 

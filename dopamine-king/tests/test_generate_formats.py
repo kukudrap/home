@@ -1,3 +1,4 @@
+import json
 import re
 import types
 import unittest
@@ -7,9 +8,10 @@ from dopamine_king.generate import formats
 from dopamine_king.generate.formats import (
     BUILTIN_MODULES, EM_DASH, all_formats, build_skeleton, caps_words,
     emoji_count, engagement_bait, fit, formats_by_module, generic_checks, get_format, has_cta, has_disclosure,
-    hashtags_in, keyword_in, list_formats, strip_placeholders, to_hashtag, topic_hashtags, validate_draft, word_count,
+    hashtags_in, keyword_in, list_formats, record_replaced_hook, strip_placeholders, to_hashtag, topic_hashtags, validate_draft,
+    word_count,
 )
-from dopamine_king.generate.types import SLOT_RE, Brief, Draft, FormatSpec, Issue, OfflineWriter, Slot
+from dopamine_king.generate.types import SLOT_RE, Brief, Draft, FormatSpec, OfflineWriter, Skeleton, Slot
 
 FAMILIES = {"article", "social", "video", "ad", "email", "audio", "hooks"}
 MY_MODULES = ("hooks", "social", "video", "ads")
@@ -145,6 +147,15 @@ class BuildEverythingTests(unittest.TestCase):
                     self.assertIn(draft.meta["keyword"], (brief.keyword, brief.primary_keyword))
                     self.assertIsInstance(validate_draft(draft), list)
 
+    def test_drafts_serialise_to_json(self):
+        for module in MY_MODULES:
+            for fid in formats_by_module()[module]:
+                for name in ("en_full", "cs_sponsored"):
+                    _, draft = render_offline(fid, briefs()[name])
+                    restored = Draft.from_dict(json.loads(json.dumps(draft.to_dict())))
+                    self.assertEqual(restored.body, draft.body, fid)
+                    self.assertEqual(restored.parts.get("slots"), draft.parts.get("slots"), fid)
+
     def test_hook_argument_becomes_the_hook_slot_default(self):
         for fid in formats_by_module()["social"] + formats_by_module()["ads"] + formats_by_module()["video"]:
             if fid in ("google_rsa", "reddit_answer"):
@@ -161,6 +172,48 @@ class BuildEverythingTests(unittest.TestCase):
         self.assertNotEqual(long.slot("h01").default, "This hook is much too long for a headline")
         sk = build_skeleton("reddit_answer", briefs()["en_plain"], hook="Use a wider toe box.")
         self.assertEqual(sk.slot("direct_answer").default, "Use a wider toe box.")
+
+    def test_a_hook_that_does_not_fit_is_replaced_and_recorded(self):
+        too_long = {
+            "x_post": "word " * 30, "short_video_script": "one two three four five six seven eight nine ten",
+            "ugc_ad_script": "one two three four five six seven eight nine ten", "linkedin_carousel": "one two three four five six seven eight nine ten",
+            "instagram_carousel": "word " * 13, "facebook_post": "word " * 16, "email_subject_set": "Subject " * 8,
+            "youtube_title_set": "Title " * 14, "meta_ad": "word " * 30, "google_rsa": "A headline that is too long to fit",
+            "reddit_answer": "Answer " * 50, "pinterest_pin": "Pin " * 30, "google_business_post": "word " * 20,
+        }
+        for fid, hook in too_long.items():
+            hook = hook.strip()
+            with self.subTest(format=fid):
+                sk = build_skeleton(fid, briefs()["en_plain"], hook=hook)
+                slot = sk.slot(sk.hook_slot)
+                self.assertNotEqual(slot.default, hook)
+                self.assertEqual(sk.fixed["hook_requested"], hook)
+                self.assertTrue(any("does not fit the hook slot" in n for n in sk.notes))
+                if slot.max_chars is not None and slot.default:
+                    self.assertLessEqual(len(slot.default), slot.max_chars)
+                if slot.max_words is not None and slot.default:
+                    self.assertLessEqual(len(slot.default.split()), slot.max_words)
+                _, draft = render_offline(fid, briefs()["en_plain"], hook=hook)
+                self.assertEqual([i for i in validate_draft(draft) if i.severity == "error"], [])
+
+    def test_a_fitting_hook_is_kept_without_a_note(self):
+        for fid in ("x_post", "short_video_script", "email_subject_set", "linkedin_carousel", "meta_ad", "youtube_script"):
+            sk = build_skeleton(fid, briefs()["en_plain"], hook="Fits everywhere")
+            self.assertNotIn("hook_requested", sk.fixed, fid)
+            self.assertFalse(any("does not fit" in n for n in sk.notes), fid)
+
+    def test_record_replaced_hook_helper(self):
+        slot = Slot("hook", "x", default="Library hook")
+        sk = Skeleton("f", "en", "{{hook}}", [slot])
+        self.assertIs(record_replaced_hook(sk, None), sk)
+        self.assertNotIn("hook_requested", sk.fixed)
+        record_replaced_hook(sk, "  Library hook ")
+        self.assertNotIn("hook_requested", sk.fixed)
+        record_replaced_hook(sk, "Something else")
+        self.assertEqual(sk.fixed["hook_requested"], "Something else")
+        self.assertEqual(len(sk.notes), 1)
+        empty = Skeleton("f", "en", "text", [])
+        self.assertEqual(record_replaced_hook(empty, "x").fixed, {})
 
     def test_slot_and_template_consistency_in_this_slice(self):
         for module in MY_MODULES:
