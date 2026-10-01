@@ -2,6 +2,11 @@
 
 Verze 0.1 (tento repozitář) je **svislý řez**: celý řetězec od sběru po hru běží a je otestovaný, ale na syntetických datech. Další kroky mění demo na produkt.
 
+## Známá omezení verze 0.1
+- Zástupné texty `[[ADD: ...]]` v offline režimu nesou **anglické** zadání pro pisatele i v českých balíčcích (je to totéž zadání, které dostává model). Lokalizace zadání do češtiny je malá, ale pracná úprava všech 28 builderů.
+- Skóre hooku má slovníky pro češtinu a angličtinu; u jiných jazyků se použije anglický slovník, takže smysl mají jen signály nezávislé na jazyce (čísla, interpunkce, délka).
+- Živý sběr běží jen proti hostům, které síť prostředí povolí (viz otevřené otázky).
+
 ## v0.2: skutečná data
 - Konektory: YouTube Data API, Reddit API, hromadný import z GDELT a Common Crawl, historie přes Wayback CDX (vše s klíči, kvótami a dodržením podmínek).
 - Rozšíření a ověření registru značek (stovky značek, automatické objevování feedů), plánovač sběru a inkrementální běhy.

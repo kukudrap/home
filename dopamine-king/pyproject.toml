@@ -7,7 +7,7 @@ name = "dopamine-king"
 version = "0.1.0"
 description = "Evidence-driven content intelligence game: ethical scraping, benchmarking, testing lab, studies ledger, SEO/GEO and multi-format generators."
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.11"
 dependencies = []
 
 [project.optional-dependencies]

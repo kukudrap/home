@@ -51,7 +51,7 @@ python3 -m dopamine_king evidence verify --save .king/ledger.json    # ověřen�
 | Část | Stav |
 |---|---|
 | Dopamine Score, benchmark, pattern mining, kalibrace, laboratoř (A/B, bandité) | Hotovo, otestováno na syntetickém korpusu se **zasazenými efekty** (analytika je dokáže zpětně najít) |
-| Hra (arena, boss, laboratoř, vault) | Hotovo; JS skóre je shodné s Pythonem (104 "golden" případů) |
+| Hra (arena, boss, laboratoř, vault) | Hotovo; JS skóre je shodné s Pythonem (110 "golden" případů) |
 | 28 formátů obsahu, Trust Shield, SEO a GEO skóre | Hotovo; offline režim nevymýšlí prózu |
 | Psaní prózy modelem Claude | Napsáno podle dokumentace a **otestováno proti atrapě**; živé API zde nebylo možné vyzkoušet (bez klíče) |
 | Šetrný sběr, import analytik | Hotovo, otestováno offline i proti lokálnímu HTTP serveru; **živý sběr vyžaduje síť** (prostředí, kde kód vznikl, povolilo ze 111 značek jen jednu) |
@@ -74,6 +74,13 @@ Dokumentace: [vize](docs/01-vize.md), [herní design](docs/02-hra.md), [architek
 ```bash
 make test        # Python (unittest) + JavaScript (node --test)
 make lint-dash   # projektové pravidlo: žádná dlouhá pomlčka v žádném souboru
+```
+
+Prohlížečový test celé hry (Playwright + Chromium, mimo CI, protože potřebuje prohlížeč):
+
+```bash
+python3 -m dopamine_king build-web
+node web/tests/smoke.playwright.mjs     # projde všechny pohledy v cs i en, světlém i tmavém režimu a na mobilu
 ```
 
 ## Poctivost a limity

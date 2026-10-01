@@ -1,6 +1,14 @@
 name: dopamine-king
 
 on:
+  push:
+    paths:
+      - "dopamine-king/**"
+      - ".github/workflows/dopamine-king.yml"
+  pull_request:
+    paths:
+      - "dopamine-king/**"
+      - ".github/workflows/dopamine-king.yml"
   workflow_dispatch:
 
 jobs:
