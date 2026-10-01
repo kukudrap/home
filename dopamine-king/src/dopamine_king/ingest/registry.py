@@ -61,7 +61,8 @@ def validate_brands(brands: Iterable[Brand]) -> list[str]:
             problems.append(f"{where}: country must be an ISO alpha-2 code, got '{brand.country}'")
         if brand.homepage is not None and not _is_url(brand.homepage, https_only=True):
             problems.append(f"{where}: homepage must be an https URL, got '{brand.homepage}'")
-        for label, values in (("feeds", brand.feeds), ("sitemaps", brand.sitemaps), ("content_paths", brand.content_paths)):
+        lists = (("feeds", brand.feeds), ("sitemaps", brand.sitemaps), ("content_paths", brand.content_paths))
+        for label, values in lists:
             if not isinstance(values, list):
                 problems.append(f"{where}: {label} must be a list")
                 continue

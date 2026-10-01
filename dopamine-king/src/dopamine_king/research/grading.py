@@ -44,46 +44,56 @@ _PREPRINT_VENUE = _re(r"arxiv|ssrn|biorxiv|medrxiv|psyarxiv|socarxiv|osf preprin
 _META = r"meta[- ]?analy(?:sis|ses|tic|tical)\b"
 _SYSTEMATIC = r"systematic(?:ally)?[- ](?:literature[- ])?(?:review|mapping|map)\b|scoping review|umbrella review"
 _RCT = r"randomi[sz]ed[- ]controlled|randomi[sz]ed (?:clinical )?trials?|\brcts?\b"
-_FIELD = r"field experiments?|natural experiments?|randomi[sz]ed (?:field |online )?experiments?|online controlled experiments?"
-_AB_RUN = (
-    r"(?:ran|run|conducted?|performed?|deployed|launched|carried out|reports?|reported)\b[^.]{0,60}?"
-    r"(?:a/b[- ]?tests?|a/b[- ]?testing|split[- ]tests?)"
-)
+_FIELD_TITLE = r"field experiments?|natural experiments?|randomi[sz]ed (?:field |online )?experiments?|online controlled experiments?"
+_FIELD_CLAIM = _FIELD_TITLE + r"|a/b[- ]?(?:tests?|testing)|split[- ]tests?"   # "A/B test" in a title is often a methods paper
 _LAB_TITLE = r"experimental (?:evidence|study|studies|investigation)|laboratory experiments?|lab experiments?"
-_NUM = r"(?:\d+|one|two|three|four|five|six|seven|eight|nine|ten|several|multiple|a series of|a number of)"
+_NUM = r"(?:\d+|one|two|three|four|five|six|seven|eight|nine|ten)"
 _LAB_ABSTRACT = (
     r"participants (?:were )?randomly assigned|randomly assigned (?:to|participants)|"
     r"between[- ]subjects? (?:design|experiment)|within[- ]subjects? (?:design|experiment)|"
     r"laboratory (?:experiment|study)|lab (?:experiment|study)|"
-    r"\bwe (?:\w+ ){0,2}(?:conduct|conducted|ran|run|report|reported|present|presented|perform|performed|"
-    r"carried out) (?:\w+ ){0,2}?" + _NUM + r" (?:\w+[- ]){0,2}experiments?"
+    r"\bin " + _NUM + r" (?:\w+[- ]){0,2}experiments?\b"
 )
 _OBSERVATIONAL = (
     r"observational (?:study|studies|data|analysis)|cohort stud|cross[- ]sectional|longitudinal (?:study|analysis)|"
     r"retrospective (?:study|analysis)|case[- ]control|panel data|archival data"
 )
 _SURVEY = r"\bsurvey\b|\bquestionnaire\b"
-_QUALITATIVE = r"case stud(?:y|ies)|\binterviews?\b|ethnograph|grounded theory|focus groups?|thematic analysis|\bqualitative\b"
+_QUALITATIVE = r"case stud(?:y|ies)|\binterview(?:s|ed)?\b|ethnograph|grounded theory|focus groups?|thematic analysis|\bqualitative\b"
 _GUIDELINE = r"\bguidelines?\b|\bbest[- ]practices?\b|\bpractical guide\b|\bwhite ?paper\b|\bplaybook\b"
 _THEORY = r"\btheor(?:y|ies|etical)\b|\bframework\b|\bconceptual\b"
 
-# (design, pattern applied to the title, pattern applied to abstract sentences that claim the design)
-_RULES: tuple[tuple[str, re.Pattern[str] | None, re.Pattern[str] | None], ...] = (
-    ("meta-analysis", _re(_META), _re(_META)),
-    ("systematic-review", _re(_SYSTEMATIC), _re(_SYSTEMATIC)),
-    ("rct", _re(_RCT), _re(_RCT)),
-    ("field-experiment", _re(_FIELD), _re(_FIELD + "|" + _AB_RUN)),
-    ("lab-experiment", _re(_LAB_TITLE), _re(_LAB_ABSTRACT)),
-    ("observational", _re(_OBSERVATIONAL), _re(_OBSERVATIONAL)),
-    ("survey", _re(_SURVEY), _re(r"\bwe survey(?:ed)?\b|\bsurvey of \d|\bquestionnaires?\b")),
-    ("qualitative", _re(_QUALITATIVE), _re(_QUALITATIVE)),
-    ("guideline", _re(_GUIDELINE), None),
-    ("theory", _re(_THEORY), _re(_THEORY)),
+# Wording in which the authors claim a design for their own paper: "we ran an A/B test", "this meta-analysis".
+# Mentions such as "we review field experiments" or "unlike previous meta-analyses" do not match.
+_CLAIM_VERBS = r"(?:conduct(?:ed)?|ran|run|perform(?:ed)?|carried out|carry out|report(?:ed)?|present(?:ed)?|undert(?:ook|ake))"
+_FILLER_WORD = r"(?:(?!(?:study|studies|survey|review|analysis|paper|approach|method|methods|framework|literature)\b)[\w,/-]+\s+)"
+
+
+def _claim(noun: str) -> str:
+    return (
+        rf"\bwe\s+(?:\w+\s+){{0,2}}{_CLAIM_VERBS}\s+{_FILLER_WORD}{{0,3}}?(?:{noun})"
+        rf"|\b(?:this|the present|the current|our)\s+(?:[\w-]+\s+)?(?:{noun})"
+    )
+
+
+# (design, title pattern, abstract pattern, abstract needs the generic self-reference check, title guard)
+_RULES: tuple[tuple[str, re.Pattern[str], re.Pattern[str] | None, bool, bool], ...] = (
+    ("meta-analysis", _re(_META), _re(_claim(_META)), False, False),
+    ("systematic-review", _re(_SYSTEMATIC), _re(_claim(_SYSTEMATIC)), False, False),
+    ("rct", _re(_RCT), _re(_claim(_RCT)), False, True),
+    ("field-experiment", _re(_FIELD_TITLE), _re(_claim(_FIELD_CLAIM)), False, True),
+    ("lab-experiment", _re(_LAB_TITLE), _re(_LAB_ABSTRACT + "|" + _claim(r"experiments?")), False, True),
+    ("observational", _re(_OBSERVATIONAL), _re(_OBSERVATIONAL), True, False),
+    ("survey", _re(_SURVEY), _re(r"\bwe survey(?:ed)?\b|\bsurvey of \d|\bquestionnaires?\b"), True, False),
+    ("qualitative", _re(_QUALITATIVE), _re(_QUALITATIVE), True, False),
+    ("guideline", _re(_GUIDELINE), None, False, False),
+    ("theory", _re(_THEORY), _re(_THEORY), True, False),
 )
 
 _SENTENCE_SPLIT = re.compile(r"(?<=[.!?])\s+")
 _SELF_REF = re.compile(r"\b(?:this|our|we|here|present|current|authors?|participants|respondents)\b", re.I)
 _PRIOR_WORK = re.compile(r"\b(?:previous|prior|earlier|recent|existing|published|several|many|other|past)\b[^.]{0,30}$", re.I)
+_REVIEWISH_TITLE = _re(r"\b(?:reviews?|surveys?|overview|literature|meta|synthesis|commentary|critique)\b")
 _BOOK_TYPES = frozenset({"book", "monograph", "edited-book", "reference-book"})
 _PREPRINT_TYPES = frozenset({"preprint", "posted-content"})
 
@@ -91,7 +101,7 @@ _PREPRINT_TYPES = frozenset({"preprint", "posted-content"})
 def _claimed_in_abstract(pattern: re.Pattern[str], abstract: str) -> bool:
     """True when a sentence of the abstract claims the design for the paper itself.
 
-    A mention of "previous meta-analyses" must not turn an ordinary study into a meta-analysis.
+    A mention of "previous studies of this kind" must not turn an ordinary paper into that design.
     """
     for sentence in _SENTENCE_SPLIT.split(abstract):
         match = pattern.search(sentence)
@@ -113,8 +123,8 @@ def classify_design(
     """Guess the study design from public metadata. Conservative: "unknown" when unsure.
 
     ``work_type`` is the record type reported by the API (OpenAlex ``type``, Crossref ``type``).
-    Title keywords are decisive; abstract keywords only count when the sentence claims the design
-    for the paper itself.
+    Title keywords are decisive; abstract keywords only count when the authors claim the design for
+    their own paper. A design guess is never a verdict: grading shows the reasoning.
     """
     wtype = (work_type or "").strip().lower()
     if wtype in _PREPRINT_TYPES or (venue and _PREPRINT_VENUE.search(venue)):
@@ -123,11 +133,14 @@ def classify_design(
         return "book"
     text_title = title or ""
     text_abstract = abstract or ""
-    for design, title_pattern, abstract_pattern in _RULES:
-        if title_pattern and title_pattern.search(text_title):
+    for design, title_pattern, abstract_pattern, generic, guard in _RULES:
+        if title_pattern.search(text_title) and not (guard and _REVIEWISH_TITLE.search(text_title)):
             return design
-        if abstract_pattern and text_abstract and _claimed_in_abstract(abstract_pattern, text_abstract):
-            return design
+        if abstract_pattern and text_abstract:
+            if generic and _claimed_in_abstract(abstract_pattern, text_abstract):
+                return design
+            if not generic and abstract_pattern.search(text_abstract):
+                return design
     return "unknown"
 
 

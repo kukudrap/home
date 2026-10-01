@@ -28,6 +28,15 @@ _VOID_TAGS = frozenset({
 _CZECH_CHARS = set("řěščžůŘĚŠČŽŮ")
 _WORD = re.compile(r"[^\W_]+(?:['" + chr(0x2019) + r"\-.][^\W_]+)*")
 _TAG_LIKE = re.compile(r"</?[a-zA-Z][^>]*>")
+_NAMED_ZONES = {"CET": "+0100", "CEST": "+0200", "EET": "+0200", "EEST": "+0300", "BST": "+0100", "WET": "+0000",
+                "WEST": "+0100"}
+_MONTHS = {m: i for i, m in enumerate(
+    ("jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"), start=1)}
+_WORDY_DATE = re.compile(
+    r"^(?:[A-Za-z]+,?\s+)?(?:(?P<d1>\d{1,2})(?:st|nd|rd|th)?\s+(?P<m1>[A-Za-z]{3,9})\.?,?|"
+    r"(?P<m2>[A-Za-z]{3,9})\.?\s+(?P<d2>\d{1,2})(?:st|nd|rd|th)?,?)\s+(?P<y>\d{4})"
+    r"(?:[ ,T]+(?P<h>\d{1,2}):(?P<mi>\d{2}))?\s*$"
+)
 _ISO_DATE = re.compile(
     r"^(\d{4})-?(\d{2})-?(\d{2})"
     r"(?:[T ](\d{2}):?(\d{2})(?::?(\d{2})(?:[.,]\d+)?)?)?"
@@ -125,8 +134,15 @@ def parse_datetime(value: Any) -> datetime | None:
                 digits = zone[1:].replace(":", "")
                 offset = timedelta(hours=int(digits[:2]), minutes=int(digits[2:4] or 0))
                 parsed = parsed.replace(tzinfo=timezone(sign * offset))
+        elif wordy := _WORDY_DATE.match(text):
+            month = _MONTHS.get((wordy["m1"] or wordy["m2"])[:3].lower())
+            if month is None:
+                return None
+            day = int(wordy["d1"] or wordy["d2"])
+            parsed = datetime(int(wordy["y"]), month, day, int(wordy["h"] or 0), int(wordy["mi"] or 0))
         else:
-            parsed = parsedate_to_datetime(text)
+            parsed = parsedate_to_datetime(re.sub(
+                r"\b(CEST|CET|EEST|EET|BST|WEST|WET)\s*$", lambda m: _NAMED_ZONES[m.group(1)], text))
         if parsed.tzinfo is None:
             parsed = parsed.replace(tzinfo=timezone.utc)
         parsed = parsed.astimezone(timezone.utc)
@@ -237,6 +253,7 @@ def _author_present(node: dict[str, Any], by_id: dict[str, dict[str, Any]]) -> b
 _CHROME = frozenset({"nav", "header", "footer", "aside", "form"})   # not part of the readable body
 _STRUCT_SKIP = frozenset({"nav", "footer", "aside", "form"})        # excluded from structure counts
 _RAW = frozenset({"script", "style", "template", "noscript", "head", "svg"})
+_HEAD_TAGS = frozenset({"html", "head", "title", "meta", "link", "script", "style", "base", "noscript", "template"})
 _CLOSES_P = frozenset({
     "p", "div", "ul", "ol", "dl", "h1", "h2", "h3", "h4", "h5", "h6", "table", "section", "article",
     "blockquote", "pre", "hr", "form", "header", "footer", "nav", "aside", "main", "figure", "details",
@@ -244,10 +261,29 @@ _CLOSES_P = frozenset({
 _BYLINE_CLASSES = frozenset({
     "byline", "author", "author-name", "post-author", "entry-author", "article-author", "posted-by", "meta-author",
 })
+_META_LINE_CLASSES = _BYLINE_CLASSES | frozenset({
+    "meta", "post-meta", "entry-meta", "article-meta", "dateline", "post-date", "entry-date", "posted-on", "published",
+})
+# Lead paragraph candidates that are really bylines or datelines are skipped, so names never reach the excerpt.
+_BYLINE_TEXT = re.compile(
+    r"^\W*(?i:(?:(?:posted|written|words|text|photos?)\s+)?by|napsal|napsala|autor|autorem|od)\s+[A-ZÀ-Ž]"
+    r"|^\W*(?i:published|updated|posted|last updated|publikováno|zveřejněno|aktualizováno|author|autor|autorem)"
+    r"\b\s*[:\d.-]"
+)
+
+
+def strip_byline_lead(text: str) -> str:
+    """Drop a leading byline or dateline sentence ("By Jane Doe. ...") so author names stay out of excerpts."""
+    if not _BYLINE_TEXT.search(text):
+        return text
+    parts = re.split(r"(?<=[.!?])\s+|\n", text.strip(), maxsplit=1)
+    return parts[1] if len(parts) > 1 else ""
+
 _VIDEO_HOSTS = ("youtube.com/embed", "youtube-nocookie.com", "player.vimeo.com", "wistia.", "dailymotion.com/embed",
                 "fast.wistia", "loom.com/embed", "vidyard.com", "brightcove")
 _FAQ_HEADING = re.compile(r"\bfaqs?\b|frequently asked|časté dotazy|často kladené|nejčastější dotazy", re.I)
-_TITLE_SEPARATORS = "|:" + chr(0x2013) + chr(0x2014) + chr(0xB7) + chr(0x2022) + "-"  # trailing hyphen stays literal in a class
+# en dash, em dash, middle dot and bullet are built from code points; the hyphen goes last so it stays literal
+_TITLE_SEPARATORS = "|:" + chr(0x2013) + chr(0x2014) + chr(0xB7) + chr(0x2022) + "-"
 _PUBLISHED_CLASS = re.compile(r"publish|posted|entry-date|post-date|pubdate|dateline", re.I)
 _MODIFIED_CLASS = re.compile(r"updated|modified|edited", re.I)
 
@@ -274,11 +310,14 @@ class _PageParser(HTMLParser):
         self.times: list[dict[str, str]] = []
         self.paragraphs: list[str] = []
         self.text_chunks: list[str] = []
+        self._meta_open: list[bool] = []  # parallel to the open elements: does one mark a byline or date line?
         self.links: set[str] = set()
         self._title_buf: list[str] | None = None
         self._jsonld_buf: list[str] | None = None
         self._heading: tuple[str, list[str]] | None = None
         self._para: list[str] | None = None
+        self._para_is_meta = False
+        self._seen_text = False
 
     # -- helpers --------------------------------------------------------------------
     def _in(self, names: frozenset[str]) -> bool:
@@ -287,6 +326,7 @@ class _PageParser(HTMLParser):
     def _pop_to(self, tag: str) -> None:
         while self.stack:
             top = self.stack.pop()
+            self._meta_open.pop()
             self.counts[top] -= 1
             self._closed(top)
             if top == tag:
@@ -295,6 +335,7 @@ class _PageParser(HTMLParser):
     def finish(self) -> None:
         while self.stack:
             top = self.stack.pop()
+            self._meta_open.pop()
             self.counts[top] -= 1
             self._closed(top)
 
@@ -308,7 +349,7 @@ class _PageParser(HTMLParser):
             self._jsonld_buf = None
         elif tag == "p" and self._para is not None:
             text = " ".join("".join(self._para).split())
-            if text:
+            if text and not self._para_is_meta and not _BYLINE_TEXT.search(text):
                 self.paragraphs.append(text)
             self._para = None
         elif self._heading and self._heading[0] == tag:
@@ -324,6 +365,8 @@ class _PageParser(HTMLParser):
         a = {k.lower(): (v or "") for k, v in attrs}
         if tag in _CLOSES_P and self.counts.get("p"):
             self._pop_to("p")
+        if self.counts.get("head") and tag not in _HEAD_TAGS:  # a missing </head> ends at the first body element
+            self._pop_to("head")
         structure_ok = not self._in(_STRUCT_SKIP | _RAW)
         text_ok = not self._in(_CHROME | _RAW)
         classes = set(a.get("class", "").lower().split())
@@ -370,6 +413,7 @@ class _PageParser(HTMLParser):
                                "class": a.get("class", "")})
         elif tag == "p" and text_ok:
             self._para = []
+            self._para_is_meta = any(self._meta_open) or bool(classes & _META_LINE_CLASSES)
 
         if a.get("itemprop", "").lower() == "author" and not self.counts.get("nav"):
             self.byline_hint = True
@@ -380,8 +424,11 @@ class _PageParser(HTMLParser):
         if tag in _BLOCK_TAGS:
             self.text_chunks.append("\n")
         if tag not in _VOID_TAGS:
-            self.stack.append(tag)
-            self.counts[tag] = self.counts.get(tag, 0) + 1
+            # a form opened before any text wraps the whole page (ASP.NET style) and is not page chrome
+            name = "form-wrap" if tag == "form" and not self._seen_text else tag
+            self.stack.append(name)
+            self._meta_open.append(bool(classes & _META_LINE_CLASSES) or a.get("itemprop", "").lower() == "author")
+            self.counts[name] = self.counts.get(name, 0) + 1
 
     def handle_endtag(self, tag: str) -> None:
         if tag in _BLOCK_TAGS:
@@ -397,6 +444,8 @@ class _PageParser(HTMLParser):
             self._title_buf.append(data)
         if self._heading is not None:
             self._heading[1].append(data)
+        if data.strip() and not self._in(_RAW):
+            self._seen_text = True
         if self._in(_CHROME | _RAW):
             return
         self.text_chunks.append(data)
@@ -413,7 +462,7 @@ class _PageParser(HTMLParser):
 
 
 # -- public entry point ---------------------------------------------------------------
-def _same_site(host_a: str, host_b: str) -> bool:
+def same_site(host_a: str, host_b: str) -> bool:
     a, b = host_a.lower().removeprefix("www."), host_b.lower().removeprefix("www.")
     return a == b or a.endswith("." + b) or b.endswith("." + a)
 
@@ -505,7 +554,8 @@ def extract_page(html: str, url: str) -> PageMeta:
 
     times = parser.times
     pub_times = [t["datetime"] for t in times if t["itemprop"] == "datepublished"]
-    pub_times += [t["datetime"] for t in times if _PUBLISHED_CLASS.search(t["class"]) and t["itemprop"] != "datemodified"]
+    pub_times += [t["datetime"] for t in times
+                  if _PUBLISHED_CLASS.search(t["class"]) and t["itemprop"] != "datemodified"]
     pub_times += [t["datetime"] for t in times
                   if t["itemprop"] != "datemodified" and not _MODIFIED_CLASS.search(t["class"])]
     mod_times = [t["datetime"] for t in times if t["itemprop"] == "datemodified" or _MODIFIED_CLASS.search(t["class"])]
@@ -543,7 +593,7 @@ def extract_page(html: str, url: str) -> PageMeta:
     page_host = urlsplit(url).hostname or ""
     internal = external = 0
     for link in parser.links:
-        if _same_site(urlsplit(link).hostname or "", page_host):
+        if same_site(urlsplit(link).hostname or "", page_host):
             internal += 1
         else:
             external += 1

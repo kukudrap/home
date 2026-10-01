@@ -1,0 +1,129 @@
+{
+  "id": "https://openalex.org/W4300000001",
+  "doi": "https://doi.org/10.5555/curiosity.2021.001",
+  "title": "Curiosity Gaps in Headline Writing: A Randomized Controlled Trial",
+  "display_name": "Curiosity Gaps in Headline Writing: A Randomized Controlled Trial",
+  "publication_year": 2021,
+  "type": "article",
+  "type_crossref": "journal-article",
+  "cited_by_count": 87,
+  "is_retracted": false,
+  "abstract_inverted_index": {
+    "Curiosity": [
+      14
+    ],
+    "We": [
+      0
+    ],
+    "and": [
+      11
+    ],
+    "answered": [
+      24
+    ],
+    "article": [
+      23
+    ],
+    "assigned": [
+      2
+    ],
+    "but": [
+      19
+    ],
+    "clicks,": [
+      18
+    ],
+    "clicks.": [
+      13
+    ],
+    "curiosity": [
+      5
+    ],
+    "gap": [
+      6,
+      15
+    ],
+    "headlines": [
+      7,
+      10,
+      16
+    ],
+    "measured": [
+      12
+    ],
+    "only": [
+      20
+    ],
+    "or": [
+      8
+    ],
+    "plain": [
+      9
+    ],
+    "question.": [
+      26
+    ],
+    "raised": [
+      17
+    ],
+    "randomly": [
+      1
+    ],
+    "readers": [
+      3
+    ],
+    "the": [
+      22,
+      25
+    ],
+    "to": [
+      4
+    ],
+    "when": [
+      21
+    ]
+  },
+  "authorships": [
+    {
+      "author_position": "first",
+      "author": {
+        "id": "https://openalex.org/A5000000193",
+        "display_name": "Jane Q. Doe",
+        "orcid": null
+      },
+      "institutions": [],
+      "is_corresponding": true,
+      "raw_author_name": "Jane Q. Doe",
+      "raw_affiliation_strings": []
+    },
+    {
+      "author_position": "last",
+      "author": {
+        "id": "https://openalex.org/A5000000404",
+        "display_name": "Jan Novák",
+        "orcid": "https://orcid.org/0000-0000-0000-0000"
+      },
+      "institutions": [],
+      "is_corresponding": false,
+      "raw_author_name": "Jan Novák",
+      "raw_affiliation_strings": []
+    }
+  ],
+  "primary_location": {
+    "is_oa": true,
+    "landing_page_url": "https://doi.org/10.5555/curiosity.2021.001",
+    "pdf_url": null,
+    "source": {
+      "id": "https://openalex.org/S4300000001",
+      "display_name": "Journal of Synthetic Media Studies",
+      "issn_l": null,
+      "is_oa": false,
+      "host_organization_name": "Example Press",
+      "type": "journal"
+    },
+    "license": null,
+    "version": "publishedVersion",
+    "is_accepted": true,
+    "is_published": true
+  }
+}

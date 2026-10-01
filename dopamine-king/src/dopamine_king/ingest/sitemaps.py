@@ -6,10 +6,11 @@ fetched afterwards. Traversal is breadth first, newest first, and bounded in dep
 from __future__ import annotations
 
 import re
+import zlib
 from collections import deque
 from dataclasses import dataclass, field
 from datetime import datetime
-from typing import Callable
+from typing import Callable, Iterable
 
 from ..models import Serializable, canonical_url
 from ..net import Fetcher, maybe_gunzip
@@ -50,6 +51,15 @@ _HOST_TERM = r"https?://(?:[^/?#]*\.)?" + _TERMS + r"\.[^/?#]*/[^/?#]"
 _PATH_TERM = r"/(?:[^/?#]*[^a-z0-9/?#])?" + _TERMS + r"(?:[^a-z0-9/?#][^/?#]*)?/[^/?#]"
 DEFAULT_CONTENT_PATTERN = re.compile(rf"^(?!.*{_JUNK})(?=.*(?:{_HOST_TERM}|{_PATH_TERM}))", re.I)
 
+def content_pattern(paths: Iterable[str] = ()) -> re.Pattern[str]:
+    """The default content pattern, widened with brand specific content paths such as ``["/blog"]``."""
+    prefixes = [re.escape(p.rstrip("/")) for p in paths if isinstance(p, str) and p.startswith("/") and p.strip("/")]
+    if not prefixes:
+        return DEFAULT_CONTENT_PATTERN
+    brand = rf"^(?!.*{_JUNK})https?://[^/?#]+(?:{'|'.join(prefixes)})/[^/?#]"
+    return re.compile(f"(?:{DEFAULT_CONTENT_PATTERN.pattern})|(?:{brand})", re.I)
+
+
 _CONTENT_SITEMAP = re.compile(r"(?<![a-z0-9])(?:posts?|blogs?|news|articles?|stories|story|press|insights?|journal"
                               r"|magazine|resources|updates|learn|editorial)(?![a-z0-9])", re.I)
 _JUNK_SITEMAP = re.compile(r"(?<![a-z0-9])(?:products?|categor(?:y|ies)|tags?|authors?|pages?|images?|videos?"
@@ -66,7 +76,10 @@ def _child_text(el, local: str) -> str:
 def parse_sitemap(data: bytes | str) -> SitemapDoc:
     """Parse a sitemap, a sitemap index or a plain text URL list (gzip is detected by magic bytes)."""
     raw = data.encode("utf-8") if isinstance(data, str) else data
-    raw = maybe_gunzip(raw).lstrip(b"\xef\xbb\xbf \t\r\n")
+    try:
+        raw = maybe_gunzip(raw).lstrip(b"\xef\xbb\xbf \t\r\n")
+    except (zlib.error, EOFError, OSError) as err:
+        raise ValueError(f"invalid gzip data: {err}") from err
     if raw[:1] != b"<":
         urls = [line.strip() for line in raw.decode("utf-8", errors="replace").splitlines()]
         urls = [u for u in urls if re.match(r"https?://\S+$", u)]
@@ -84,7 +97,7 @@ def parse_sitemap(data: bytes | str) -> SitemapDoc:
         if qname(node)[1] != wanted:
             continue
         loc = _child_text(node, "loc")
-        if not re.match(r"https?://", loc, re.I):
+        if not re.match(r"https?://", loc, re.I) or len(loc) > 2048:  # 2048 is the protocol's limit
             continue
         images = sum(1 for c in node if qname(c)[1] == "image" and "image" in qname(c)[0])
         videos = sum(1 for c in node if qname(c)[1] == "video" and "video" in qname(c)[0])

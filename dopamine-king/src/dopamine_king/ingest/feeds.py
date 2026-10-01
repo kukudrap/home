@@ -19,6 +19,7 @@ from .extract import shorten, strip_html, to_iso
 
 NS_ATOM = "http://www.w3.org/2005/Atom"
 NS_RSS1 = "http://purl.org/rss/1.0/"
+NS_USERLAND = "http://backend.userland.com/rss2"
 NS_DC = "http://purl.org/dc/elements/1.1/"
 NS_CONTENT = "http://purl.org/rss/1.0/modules/content/"
 NS_SLASH = "http://purl.org/rss/1.0/modules/slash/"
@@ -135,6 +136,14 @@ def _first_image_in_html(html: str, base: str) -> str | None:
     return _abs(base, match.group(1)) if match else None
 
 
+def _first_image_in_element(el: ET.Element | None, base: str) -> str | None:
+    """First ``<img src>`` of embedded (x)html markup, for Atom ``content type="xhtml"``."""
+    for node in el.iter() if el is not None else []:
+        if qname(node)[1] == "img" and node.get("src"):
+            return _abs(base, node.get("src"))
+    return None
+
+
 def _is_image(url: str, mime: str | None, medium: str | None = None) -> bool:
     if mime:
         return mime.lower().startswith("image/")
@@ -183,14 +192,14 @@ def _first_date(*values: str) -> str | None:
 # -- RSS 2.0 and RSS 1.0 --------------------------------------------------------------
 def _parse_rss_item(item: ET.Element, base: str) -> FeedEntry | None:
     kids = _kids(item)
-    plain = ("", NS_RSS1)
+    plain = ("", NS_RSS1, NS_USERLAND)
     title = strip_html(_text(_find(kids, "title", plain)))
     link = _text(_find(kids, "link", plain))
     orig = _text(_find(kids, "origLink", (NS_FEEDBURNER,)))
     if orig and re.search(r"feedproxy\.google|feeds\.feedburner", link or "x"):
         link = orig
     if not link:
-        guid = _text(_find(kids, "guid"))
+        guid = _text(_find(kids, "guid", plain))
         link = guid if guid.lower().startswith("http") else ""
     url = _abs(base, link)
     if not url:
@@ -200,15 +209,16 @@ def _parse_rss_item(item: ET.Element, base: str) -> FeedEntry | None:
     encoded = _text(_find(kids, "encoded", (NS_CONTENT,)))
     summary = _clean_summary(description, encoded, _text(_find(kids, "description", (NS_DC,))))
     published = _first_date(
-        _text(_find(kids, "pubDate")), _text(_find(kids, "date", (NS_DC,))),
+        _text(_find(kids, "pubDate", plain)), _text(_find(kids, "date", (NS_DC,))),
         _text(_find(kids, "published", (NS_ATOM, ""))), _text(_find(kids, "updated", (NS_ATOM, ""))),
     )
     categories = _categories(
-        [_text(el) for ns, name, el in kids if (name == "category" and ns in plain) or (name == "subject" and ns == NS_DC)]
+        [_text(el) for ns, name, el in kids
+         if (name == "category" and ns in plain) or (name == "subject" and ns == NS_DC)]
     )
     byline = any(
         _text(el) for ns, name, el in kids
-        if (name == "author" and ns == "") or (name == "creator" and ns == NS_DC)
+        if (name == "author" and ns in plain) or (name == "creator" and ns == NS_DC)
         or (name == "author" and ns.endswith("itunes-1.0.dtd"))
     )
     comments = _int(_text(_find(kids, "comments", (NS_SLASH,))))
@@ -216,7 +226,7 @@ def _parse_rss_item(item: ET.Element, base: str) -> FeedEntry | None:
     image = _media_image(kids, base)
     if not image:
         for ns, name, el in kids:
-            if name == "enclosure" and ns == "" and _is_image(el.get("url", ""), el.get("type")):
+            if name == "enclosure" and ns in plain and _is_image(el.get("url", ""), el.get("type")):
                 image = _abs(base, el.get("url"))
                 break
             if name == "image" and ns.endswith("itunes-1.0.dtd") and el.get("href"):
@@ -280,7 +290,7 @@ def _parse_atom_entry(entry: ET.Element, base: str) -> FeedEntry | None:
                 image = _abs(base, el.get("href"))
                 break
     html = _text(content_el) or _text(_find(kids, "summary", atom))
-    image = image or _first_image_in_html(html, base)
+    image = image or _first_image_in_html(html, base) or _first_image_in_element(content_el, base)
     return FeedEntry(title or url, url, published, summary, categories, byline, comments, image)
 
 
@@ -291,7 +301,11 @@ def _parse_json_feed(doc: dict[str, Any], base: str) -> list[FeedEntry]:
         try:
             if not isinstance(item, dict):
                 continue
-            url = _abs(base, item.get("url") or item.get("external_url") or item.get("id"))
+            ident = str(item.get("id") or "")
+            listed = item.get("url") or item.get("external_url")
+            if not listed and ident.lower().startswith("http"):
+                listed = ident
+            url = _abs(base, listed)
             if not url:
                 continue
             html = item.get("content_html") or ""

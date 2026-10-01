@@ -1,0 +1,354 @@
+{
+  "status": "ok",
+  "message-type": "work-list",
+  "message-version": "1.0.0",
+  "message": {
+    "facets": {},
+    "total-results": 1234,
+    "items": [
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2024,
+              5,
+              1
+            ]
+          ],
+          "date-time": "2024-05-01T10:00:00Z",
+          "timestamp": 1714557600000
+        },
+        "reference-count": 41,
+        "publisher": "Example Press",
+        "issue": "2",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2020,
+                  12,
+                  20
+                ]
+              ],
+              "date-time": "2020-12-20T00:00:00Z",
+              "timestamp": 1608422400000
+            },
+            "content-version": "vor",
+            "delay-in-days": 0,
+            "URL": "https://example.org/license"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "J Synth Media"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2021,
+              6
+            ]
+          ]
+        },
+        "DOI": "10.5555/Curiosity.2021.001",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2020,
+              12,
+              21
+            ]
+          ],
+          "date-time": "2020-12-21T09:00:00Z",
+          "timestamp": 1608541200000
+        },
+        "page": "101-120",
+        "source": "Crossref",
+        "is-referenced-by-count": 88,
+        "title": [
+          "Curiosity Gaps in Headline Writing"
+        ],
+        "prefix": "10.5555",
+        "volume": "12",
+        "author": [
+          {
+            "given": "Jane Q.",
+            "family": "Doe",
+            "sequence": "first",
+            "affiliation": []
+          },
+          {
+            "given": "Jan",
+            "family": "Novák",
+            "sequence": "additional",
+            "affiliation": []
+          },
+          {
+            "name": "Headline Research Consortium",
+            "sequence": "additional",
+            "affiliation": []
+          }
+        ],
+        "member": "9999",
+        "published-online": {
+          "date-parts": [
+            [
+              2020,
+              12,
+              20
+            ]
+          ]
+        },
+        "container-title": [
+          "Journal of Synthetic Media Studies"
+        ],
+        "language": "en",
+        "deposited": {
+          "date-parts": [
+            [
+              2021,
+              7,
+              1
+            ]
+          ],
+          "date-time": "2021-07-01T00:00:00Z",
+          "timestamp": 1625097600000
+        },
+        "score": 1.0,
+        "subtitle": [
+          "A randomized controlled trial"
+        ],
+        "issued": {
+          "date-parts": [
+            [
+              2020,
+              12,
+              20
+            ]
+          ]
+        },
+        "references-count": 41,
+        "journal-issue": {
+          "issue": "2",
+          "published-print": {
+            "date-parts": [
+              [
+                2021,
+                6
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "SMS-2021-001"
+        ],
+        "URL": "http://dx.doi.org/10.5555/curiosity.2021.001",
+        "relation": {},
+        "ISSN": [
+          "0000-0000"
+        ],
+        "issn-type": [
+          {
+            "value": "0000-0000",
+            "type": "print"
+          }
+        ],
+        "abstract": "<jats:title>Abstract</jats:title><jats:p>We randomly assigned readers to <jats:italic>curiosity gap</jats:italic> headlines and measured clicks (<jats:italic>p</jats:italic> &lt; 0.05).</jats:p><jats:p>Effects were larger when the article answered the question.</jats:p>"
+      },
+      {
+        "DOI": "10.5555/sparse.2018.007",
+        "type": "journal-article",
+        "title": [
+          "A Sparse Record"
+        ],
+        "published-online": {
+          "date-parts": [
+            [
+              2018,
+              3,
+              1
+            ]
+          ]
+        },
+        "is-referenced-by-count": 0
+      },
+      {
+        "DOI": "10.5555/retraction.2022.010",
+        "type": "journal-article",
+        "title": [
+          "Retraction notice: Viral Emotions Revisited"
+        ],
+        "issued": {
+          "date-parts": [
+            [
+              2022
+            ]
+          ]
+        },
+        "container-title": [
+          "Synthetic Emotion Letters"
+        ],
+        "is-referenced-by-count": 1,
+        "update-to": [
+          {
+            "updated": {
+              "date-parts": [
+                [
+                  2022,
+                  5,
+                  5
+                ]
+              ],
+              "date-time": "2022-05-05T00:00:00Z",
+              "timestamp": 1651708800000
+            },
+            "DOI": "10.5555/retracted.2019.003",
+            "type": "retraction",
+            "label": "Retraction"
+          }
+        ]
+      },
+      {
+        "DOI": "10.5555/retracted.2019.003",
+        "type": "journal-article",
+        "title": [
+          "A Retracted Study of Viral Emotions"
+        ],
+        "issued": {
+          "date-parts": [
+            [
+              2019,
+              8
+            ]
+          ]
+        },
+        "container-title": [
+          "Synthetic Emotion Letters"
+        ],
+        "is-referenced-by-count": 15,
+        "updated-by": [
+          {
+            "updated": {
+              "date-parts": [
+                [
+                  2022,
+                  5,
+                  5
+                ]
+              ]
+            },
+            "DOI": "10.5555/retraction.2022.010",
+            "type": "retraction",
+            "label": "Retraction",
+            "source": "publisher"
+          }
+        ]
+      },
+      {
+        "DOI": "10.5555/relation.2017.011",
+        "type": "journal-article",
+        "title": [
+          "A Paper Whose Retraction Is Only Visible In Relations"
+        ],
+        "issued": {
+          "date-parts": [
+            [
+              2017
+            ]
+          ]
+        },
+        "relation": {
+          "is-retracted-by": [
+            {
+              "id-type": "doi",
+              "id": "10.5555/retraction.2018.012",
+              "asserted-by": "object"
+            }
+          ]
+        }
+      },
+      {
+        "DOI": "10.5555/titleflag.2016.013",
+        "type": "journal-article",
+        "title": [
+          "RETRACTED: Persuasion by Numbers"
+        ],
+        "issued": {
+          "date-parts": [
+            [
+              2016
+            ]
+          ]
+        }
+      },
+      {
+        "DOI": "10.5555/correction.2020.014",
+        "type": "journal-article",
+        "title": [
+          "Correction to: Emotional Arousal and Sharing"
+        ],
+        "issued": {
+          "date-parts": [
+            [
+              2020
+            ]
+          ]
+        },
+        "update-to": [
+          {
+            "updated": {
+              "date-parts": [
+                [
+                  2020,
+                  2,
+                  2
+                ]
+              ]
+            },
+            "DOI": "10.5555/arousal.2019.002",
+            "type": "correction",
+            "label": "Correction"
+          }
+        ]
+      },
+      {
+        "DOI": "10.5555/posted.2023.015",
+        "type": "posted-content",
+        "title": [
+          "A Preprint About Headlines"
+        ],
+        "issued": {
+          "date-parts": [
+            [
+              2023,
+              4,
+              2
+            ]
+          ]
+        },
+        "container-title": []
+      },
+      {
+        "DOI": "10.5555/untitled.2020.016",
+        "type": "journal-article",
+        "issued": {
+          "date-parts": [
+            [
+              2020
+            ]
+          ]
+        }
+      }
+    ],
+    "items-per-page": 9,
+    "query": {
+      "start-index": 0,
+      "search-terms": null
+    }
+  }
+}

@@ -27,7 +27,9 @@ WELL_KNOWN_TDM = "/.well-known/tdmrep.json"
 def has_tdm_meta(html: str) -> bool:
     """True when the HTML carries ``<meta name="tdm-reservation" content="1">``."""
     for tag in _META_TAG.findall(html[:_HEAD_CHARS]):
-        attrs = {m.group(1).lower(): (m.group(2) or m.group(3) or m.group(4) or "") for m in _ATTR.finditer(tag)}
+        attrs = {
+            m.group(1).lower(): m.group(2) or m.group(3) or (m.group(4) or "").rstrip("/") for m in _ATTR.finditer(tag)
+        }
         if attrs.get("name", "").strip().lower() == "tdm-reservation" and attrs.get("content", "").strip() == "1":
             return True
     return False
@@ -92,7 +94,7 @@ class PoliteFetcher:
             self._log(url, None, None, f"blocked: {reason}")
             raise BlockedByPolicy(url, reason)
         self._apply_crawl_delay(url)
-        if self._reserved_by_tdmrep(url):
+        if self.tdmrep_reserved(url):
             self._log(url, None, None, "blocked: tdm-reservation (tdmrep.json)")
             raise BlockedByPolicy(url, "tdm-reservation")
         resp = self._fetch(url, headers, log=False)
@@ -130,7 +132,8 @@ class PoliteFetcher:
             setter(host, delay)
             self._delays[host] = delay
 
-    def _reserved_by_tdmrep(self, url: str) -> bool:
+    def tdmrep_reserved(self, url: str) -> bool:
+        """True when the host's tdmrep.json reserves this URL. Used for items built without fetching the page."""
         if not self.check_tdmrep:
             return False
         origin = origin_of(url)

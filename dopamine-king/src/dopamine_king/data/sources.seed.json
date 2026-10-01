@@ -1,0 +1,1394 @@
+{
+  "version": 1,
+  "note": "Seed registry of well-known public brands. Every endpoint (feeds, sitemaps, content_paths) is a hint that must be confirmed by `kingctl sources verify` before scraping; entries stay verified=false until that check passed. Sitemaps are left empty on purpose: they are read from robots.txt Sitemap lines.",
+  "brands": [
+    {
+      "id": "google",
+      "name": "Google",
+      "cohort": "tech",
+      "country": "US",
+      "homepage": "https://www.google.com/",
+      "feeds": [
+        "https://blog.google/rss/"
+      ],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "microsoft",
+      "name": "Microsoft",
+      "cohort": "tech",
+      "country": "US",
+      "homepage": "https://www.microsoft.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "amazon-web-services",
+      "name": "Amazon Web Services",
+      "cohort": "tech",
+      "country": "US",
+      "homepage": "https://aws.amazon.com/",
+      "feeds": [
+        "https://aws.amazon.com/blogs/aws/feed/"
+      ],
+      "sitemaps": [],
+      "content_paths": [
+        "/blogs"
+      ],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "cloudflare",
+      "name": "Cloudflare",
+      "cohort": "tech",
+      "country": "US",
+      "homepage": "https://www.cloudflare.com/",
+      "feeds": [
+        "https://blog.cloudflare.com/rss/"
+      ],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "github",
+      "name": "GitHub",
+      "cohort": "tech",
+      "country": "US",
+      "homepage": "https://github.com/",
+      "feeds": [
+        "https://github.blog/feed/"
+      ],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "nvidia",
+      "name": "NVIDIA",
+      "cohort": "tech",
+      "country": "US",
+      "homepage": "https://www.nvidia.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "ibm",
+      "name": "IBM",
+      "cohort": "tech",
+      "country": "US",
+      "homepage": "https://www.ibm.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [
+        "/blog"
+      ],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "salesforce",
+      "name": "Salesforce",
+      "cohort": "b2b-saas",
+      "country": "US",
+      "homepage": "https://www.salesforce.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [
+        "/blog"
+      ],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "hubspot",
+      "name": "HubSpot",
+      "cohort": "b2b-saas",
+      "country": "US",
+      "homepage": "https://www.hubspot.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "slack",
+      "name": "Slack",
+      "cohort": "b2b-saas",
+      "country": "US",
+      "homepage": "https://slack.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [
+        "/blog"
+      ],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "atlassian",
+      "name": "Atlassian",
+      "cohort": "b2b-saas",
+      "country": "AU",
+      "homepage": "https://www.atlassian.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [
+        "/blog"
+      ],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "shopify",
+      "name": "Shopify",
+      "cohort": "b2b-saas",
+      "country": "CA",
+      "homepage": "https://www.shopify.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [
+        "/blog"
+      ],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "stripe",
+      "name": "Stripe",
+      "cohort": "b2b-saas",
+      "country": "US",
+      "homepage": "https://stripe.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [
+        "/blog"
+      ],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "figma",
+      "name": "Figma",
+      "cohort": "b2b-saas",
+      "country": "US",
+      "homepage": "https://www.figma.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [
+        "/blog"
+      ],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "apple",
+      "name": "Apple",
+      "cohort": "consumer-electronics",
+      "country": "US",
+      "homepage": "https://www.apple.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [
+        "/newsroom"
+      ],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "samsung",
+      "name": "Samsung",
+      "cohort": "consumer-electronics",
+      "country": "KR",
+      "homepage": "https://www.samsung.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "sony",
+      "name": "Sony",
+      "cohort": "consumer-electronics",
+      "country": "JP",
+      "homepage": "https://www.sony.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "dell",
+      "name": "Dell Technologies",
+      "cohort": "consumer-electronics",
+      "country": "US",
+      "homepage": "https://www.dell.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "logitech",
+      "name": "Logitech",
+      "cohort": "consumer-electronics",
+      "country": "CH",
+      "homepage": "https://www.logitech.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "sonos",
+      "name": "Sonos",
+      "cohort": "consumer-electronics",
+      "country": "US",
+      "homepage": "https://www.sonos.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "nike",
+      "name": "Nike",
+      "cohort": "sport",
+      "country": "US",
+      "homepage": "https://www.nike.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "adidas",
+      "name": "Adidas",
+      "cohort": "sport",
+      "country": "DE",
+      "homepage": "https://www.adidas.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "puma",
+      "name": "Puma",
+      "cohort": "sport",
+      "country": "DE",
+      "homepage": "https://www.puma.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "under-armour",
+      "name": "Under Armour",
+      "cohort": "sport",
+      "country": "US",
+      "homepage": "https://www.underarmour.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "new-balance",
+      "name": "New Balance",
+      "cohort": "sport",
+      "country": "US",
+      "homepage": "https://www.newbalance.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "decathlon",
+      "name": "Decathlon",
+      "cohort": "sport",
+      "country": "FR",
+      "homepage": "https://www.decathlon.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "gymshark",
+      "name": "Gymshark",
+      "cohort": "sport",
+      "country": "GB",
+      "homepage": "https://www.gymshark.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "zara",
+      "name": "Zara",
+      "cohort": "fashion-beauty",
+      "country": "ES",
+      "homepage": "https://www.zara.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "hm",
+      "name": "H&M",
+      "cohort": "fashion-beauty",
+      "country": "SE",
+      "homepage": "https://www.hm.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "uniqlo",
+      "name": "Uniqlo",
+      "cohort": "fashion-beauty",
+      "country": "JP",
+      "homepage": "https://www.uniqlo.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "gucci",
+      "name": "Gucci",
+      "cohort": "fashion-beauty",
+      "country": "IT",
+      "homepage": "https://www.gucci.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "loreal",
+      "name": "L'Oreal",
+      "cohort": "fashion-beauty",
+      "country": "FR",
+      "homepage": "https://www.loreal.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "sephora",
+      "name": "Sephora",
+      "cohort": "fashion-beauty",
+      "country": "FR",
+      "homepage": "https://www.sephora.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "estee-lauder",
+      "name": "Estee Lauder",
+      "cohort": "fashion-beauty",
+      "country": "US",
+      "homepage": "https://www.esteelauder.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "coca-cola",
+      "name": "Coca-Cola",
+      "cohort": "food-beverage",
+      "country": "US",
+      "homepage": "https://www.coca-cola.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "pepsico",
+      "name": "PepsiCo",
+      "cohort": "food-beverage",
+      "country": "US",
+      "homepage": "https://www.pepsico.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "nestle",
+      "name": "Nestle",
+      "cohort": "food-beverage",
+      "country": "CH",
+      "homepage": "https://www.nestle.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "mcdonalds",
+      "name": "McDonald's",
+      "cohort": "food-beverage",
+      "country": "US",
+      "homepage": "https://www.mcdonalds.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "starbucks",
+      "name": "Starbucks",
+      "cohort": "food-beverage",
+      "country": "US",
+      "homepage": "https://www.starbucks.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "red-bull",
+      "name": "Red Bull",
+      "cohort": "food-beverage",
+      "country": "AT",
+      "homepage": "https://www.redbull.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "heineken",
+      "name": "Heineken",
+      "cohort": "food-beverage",
+      "country": "NL",
+      "homepage": "https://www.heineken.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "amazon",
+      "name": "Amazon",
+      "cohort": "retail-ecommerce",
+      "country": "US",
+      "homepage": "https://www.amazon.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "walmart",
+      "name": "Walmart",
+      "cohort": "retail-ecommerce",
+      "country": "US",
+      "homepage": "https://www.walmart.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "ebay",
+      "name": "eBay",
+      "cohort": "retail-ecommerce",
+      "country": "US",
+      "homepage": "https://www.ebay.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "etsy",
+      "name": "Etsy",
+      "cohort": "retail-ecommerce",
+      "country": "US",
+      "homepage": "https://www.etsy.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "target",
+      "name": "Target",
+      "cohort": "retail-ecommerce",
+      "country": "US",
+      "homepage": "https://www.target.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "zalando",
+      "name": "Zalando",
+      "cohort": "retail-ecommerce",
+      "country": "DE",
+      "homepage": "https://corporate.zalando.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "visa",
+      "name": "Visa",
+      "cohort": "finance",
+      "country": "US",
+      "homepage": "https://www.visa.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "mastercard",
+      "name": "Mastercard",
+      "cohort": "finance",
+      "country": "US",
+      "homepage": "https://www.mastercard.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [
+        "/news"
+      ],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "paypal",
+      "name": "PayPal",
+      "cohort": "finance",
+      "country": "US",
+      "homepage": "https://www.paypal.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "jpmorgan-chase",
+      "name": "JPMorgan Chase",
+      "cohort": "finance",
+      "country": "US",
+      "homepage": "https://www.jpmorganchase.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "revolut",
+      "name": "Revolut",
+      "cohort": "finance",
+      "country": "GB",
+      "homepage": "https://www.revolut.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "wise",
+      "name": "Wise",
+      "cohort": "finance",
+      "country": "GB",
+      "homepage": "https://wise.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "american-express",
+      "name": "American Express",
+      "cohort": "finance",
+      "country": "US",
+      "homepage": "https://www.americanexpress.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "airbnb",
+      "name": "Airbnb",
+      "cohort": "travel",
+      "country": "US",
+      "homepage": "https://www.airbnb.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "booking",
+      "name": "Booking.com",
+      "cohort": "travel",
+      "country": "NL",
+      "homepage": "https://www.booking.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "expedia",
+      "name": "Expedia",
+      "cohort": "travel",
+      "country": "US",
+      "homepage": "https://www.expedia.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "tripadvisor",
+      "name": "Tripadvisor",
+      "cohort": "travel",
+      "country": "US",
+      "homepage": "https://www.tripadvisor.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "ryanair",
+      "name": "Ryanair",
+      "cohort": "travel",
+      "country": "IE",
+      "homepage": "https://www.ryanair.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "lufthansa",
+      "name": "Lufthansa",
+      "cohort": "travel",
+      "country": "DE",
+      "homepage": "https://www.lufthansa.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "marriott",
+      "name": "Marriott",
+      "cohort": "travel",
+      "country": "US",
+      "homepage": "https://www.marriott.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "tesla",
+      "name": "Tesla",
+      "cohort": "auto",
+      "country": "US",
+      "homepage": "https://www.tesla.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [
+        "/blog"
+      ],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "toyota",
+      "name": "Toyota",
+      "cohort": "auto",
+      "country": "JP",
+      "homepage": "https://www.toyota.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "volkswagen",
+      "name": "Volkswagen",
+      "cohort": "auto",
+      "country": "DE",
+      "homepage": "https://www.volkswagen.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "bmw",
+      "name": "BMW",
+      "cohort": "auto",
+      "country": "DE",
+      "homepage": "https://www.bmw.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "mercedes-benz",
+      "name": "Mercedes-Benz",
+      "cohort": "auto",
+      "country": "DE",
+      "homepage": "https://www.mercedes-benz.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "ford",
+      "name": "Ford",
+      "cohort": "auto",
+      "country": "US",
+      "homepage": "https://www.ford.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "porsche",
+      "name": "Porsche",
+      "cohort": "auto",
+      "country": "DE",
+      "homepage": "https://www.porsche.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "netflix",
+      "name": "Netflix",
+      "cohort": "media-entertainment",
+      "country": "US",
+      "homepage": "https://www.netflix.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "disney",
+      "name": "Disney",
+      "cohort": "media-entertainment",
+      "country": "US",
+      "homepage": "https://www.disney.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "spotify",
+      "name": "Spotify",
+      "cohort": "media-entertainment",
+      "country": "SE",
+      "homepage": "https://www.spotify.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "bbc",
+      "name": "BBC",
+      "cohort": "media-entertainment",
+      "country": "GB",
+      "homepage": "https://www.bbc.com/",
+      "feeds": [
+        "https://feeds.bbci.co.uk/news/rss.xml"
+      ],
+      "sitemaps": [],
+      "content_paths": [
+        "/news"
+      ],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "the-guardian",
+      "name": "The Guardian",
+      "cohort": "media-entertainment",
+      "country": "GB",
+      "homepage": "https://www.theguardian.com/",
+      "feeds": [
+        "https://www.theguardian.com/uk/rss"
+      ],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "techcrunch",
+      "name": "TechCrunch",
+      "cohort": "media-entertainment",
+      "country": "US",
+      "homepage": "https://techcrunch.com/",
+      "feeds": [
+        "https://techcrunch.com/feed/"
+      ],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "the-verge",
+      "name": "The Verge",
+      "cohort": "media-entertainment",
+      "country": "US",
+      "homepage": "https://www.theverge.com/",
+      "feeds": [
+        "https://www.theverge.com/rss/index.xml"
+      ],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "new-york-times",
+      "name": "The New York Times",
+      "cohort": "media-entertainment",
+      "country": "US",
+      "homepage": "https://www.nytimes.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "nintendo",
+      "name": "Nintendo",
+      "cohort": "gaming",
+      "country": "JP",
+      "homepage": "https://www.nintendo.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "playstation",
+      "name": "PlayStation",
+      "cohort": "gaming",
+      "country": "JP",
+      "homepage": "https://www.playstation.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "xbox",
+      "name": "Xbox",
+      "cohort": "gaming",
+      "country": "US",
+      "homepage": "https://www.xbox.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "epic-games",
+      "name": "Epic Games",
+      "cohort": "gaming",
+      "country": "US",
+      "homepage": "https://www.epicgames.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "riot-games",
+      "name": "Riot Games",
+      "cohort": "gaming",
+      "country": "US",
+      "homepage": "https://www.riotgames.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "electronic-arts",
+      "name": "Electronic Arts",
+      "cohort": "gaming",
+      "country": "US",
+      "homepage": "https://www.ea.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [
+        "/news"
+      ],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "roblox",
+      "name": "Roblox",
+      "cohort": "gaming",
+      "country": "US",
+      "homepage": "https://www.roblox.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "peloton",
+      "name": "Peloton",
+      "cohort": "health-wellness",
+      "country": "US",
+      "homepage": "https://www.onepeloton.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "headspace",
+      "name": "Headspace",
+      "cohort": "health-wellness",
+      "country": "US",
+      "homepage": "https://www.headspace.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [
+        "/articles"
+      ],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "calm",
+      "name": "Calm",
+      "cohort": "health-wellness",
+      "country": "US",
+      "homepage": "https://www.calm.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [
+        "/blog"
+      ],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "myfitnesspal",
+      "name": "MyFitnessPal",
+      "cohort": "health-wellness",
+      "country": "US",
+      "homepage": "https://www.myfitnesspal.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "whoop",
+      "name": "WHOOP",
+      "cohort": "health-wellness",
+      "country": "US",
+      "homepage": "https://www.whoop.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "oura",
+      "name": "Oura",
+      "cohort": "health-wellness",
+      "country": "FI",
+      "homepage": "https://ouraring.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [
+        "/blog"
+      ],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "pfizer",
+      "name": "Pfizer",
+      "cohort": "health-wellness",
+      "country": "US",
+      "homepage": "https://www.pfizer.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [
+        "/news"
+      ],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "ikea",
+      "name": "IKEA",
+      "cohort": "home-living",
+      "country": "SE",
+      "homepage": "https://www.ikea.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "home-depot",
+      "name": "The Home Depot",
+      "cohort": "home-living",
+      "country": "US",
+      "homepage": "https://www.homedepot.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "lowes",
+      "name": "Lowe's",
+      "cohort": "home-living",
+      "country": "US",
+      "homepage": "https://www.lowes.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "wayfair",
+      "name": "Wayfair",
+      "cohort": "home-living",
+      "country": "US",
+      "homepage": "https://www.wayfair.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "dyson",
+      "name": "Dyson",
+      "cohort": "home-living",
+      "country": "GB",
+      "homepage": "https://www.dyson.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "miele",
+      "name": "Miele",
+      "cohort": "home-living",
+      "country": "DE",
+      "homepage": "https://www.miele.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "williams-sonoma",
+      "name": "Williams Sonoma",
+      "cohort": "home-living",
+      "country": "US",
+      "homepage": "https://www.williams-sonoma.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "skoda-auto",
+      "name": "Škoda Auto",
+      "cohort": "cz-local",
+      "country": "CZ",
+      "homepage": "https://www.skoda-auto.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "kofola",
+      "name": "Kofola",
+      "cohort": "cz-local",
+      "country": "CZ",
+      "homepage": "https://www.kofola.cz/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "rohlik",
+      "name": "Rohlik.cz",
+      "cohort": "cz-local",
+      "country": "CZ",
+      "homepage": "https://www.rohlik.cz/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "alza",
+      "name": "Alza.cz",
+      "cohort": "cz-local",
+      "country": "CZ",
+      "homepage": "https://www.alza.cz/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "notino",
+      "name": "Notino",
+      "cohort": "cz-local",
+      "country": "CZ",
+      "homepage": "https://www.notino.cz/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "kiwi-com",
+      "name": "Kiwi.com",
+      "cohort": "cz-local",
+      "country": "CZ",
+      "homepage": "https://www.kiwi.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [
+        "/stories"
+      ],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "livesport",
+      "name": "Livesport",
+      "cohort": "cz-local",
+      "country": "CZ",
+      "homepage": "https://www.livesport.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "productboard",
+      "name": "Productboard",
+      "cohort": "cz-local",
+      "country": "CZ",
+      "homepage": "https://www.productboard.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [
+        "/blog"
+      ],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "seznam",
+      "name": "Seznam.cz",
+      "cohort": "cz-local",
+      "country": "CZ",
+      "homepage": "https://www.seznam.cz/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "avast",
+      "name": "Avast",
+      "cohort": "cz-local",
+      "country": "CZ",
+      "homepage": "https://www.avast.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "jetbrains",
+      "name": "JetBrains",
+      "cohort": "cz-local",
+      "country": "CZ",
+      "homepage": "https://www.jetbrains.com/",
+      "feeds": [
+        "https://blog.jetbrains.com/feed/"
+      ],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "mall-cz",
+      "name": "Mall.cz",
+      "cohort": "cz-local",
+      "country": "CZ",
+      "homepage": "https://www.mall.cz/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "czc",
+      "name": "CZC.cz",
+      "cohort": "cz-local",
+      "country": "CZ",
+      "homepage": "https://www.czc.cz/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    },
+    {
+      "id": "pilsner-urquell",
+      "name": "Pilsner Urquell",
+      "cohort": "cz-local",
+      "country": "CZ",
+      "homepage": "https://www.pilsnerurquell.com/",
+      "feeds": [],
+      "sitemaps": [],
+      "content_paths": [],
+      "verified": false,
+      "synthetic": false
+    }
+  ]
+}

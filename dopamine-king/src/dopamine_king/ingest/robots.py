@@ -133,7 +133,11 @@ class _Entry:
 
 def origin_of(value: str) -> tuple[str, str] | None:
     """(scheme, netloc) of a URL or bare host name; None for anything that is not http(s)."""
-    parts = urlsplit(value if "://" in value else f"https://{value}")
+    if "://" not in value:
+        if not re.fullmatch(r"[^/:@\s]+(?::\d+)?(?:/.*)?", value):  # not a bare host: mailto:, javascript:, ...
+            return None
+        value = f"https://{value}"
+    parts = urlsplit(value)
     host = (parts.hostname or "").lower()
     if parts.scheme not in ("http", "https") or not host:
         return None

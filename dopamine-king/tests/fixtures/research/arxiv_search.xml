@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <link href="http://arxiv.org/api/query?search_query%3Dall%3Aheadline%20AND%20all%3Aexperiments%26id_list%3D%26start%3D0%26max_results%3D2" rel="self" type="application/atom+xml"/>
+  <title type="html">ArXiv Query: search_query=all:headline AND all:experiments&amp;id_list=&amp;start=0&amp;max_results=2</title>
+  <id>http://arxiv.org/api/SyntheticFeedIdForTests</id>
+  <updated>2025-01-01T00:00:00-05:00</updated>
+  <opensearch:totalResults xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/">2</opensearch:totalResults>
+  <opensearch:startIndex xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/">0</opensearch:startIndex>
+  <opensearch:itemsPerPage xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/">2</opensearch:itemsPerPage>
+  <entry>
+    <id>http://arxiv.org/abs/2999.12345v2</id>
+    <updated>2029-02-01T12:00:00Z</updated>
+    <published>2029-01-15T09:30:00Z</published>
+    <title>Headline Experiments
+  at Scale: A Synthetic Example</title>
+    <summary>  We describe a synthetic preprint used only in tests.
+  The abstract spans several lines and has   irregular spacing.  </summary>
+    <author>
+      <name>Jane Q. Doe</name>
+    </author>
+    <author>
+      <name>Jan Novák</name>
+    </author>
+    <author>
+      <name>Anna van der Meer</name>
+    </author>
+    <arxiv:comment xmlns:arxiv="http://arxiv.org/schemas/atom">12 pages, synthetic</arxiv:comment>
+    <link href="http://arxiv.org/abs/2999.12345v2" rel="alternate" type="text/html"/>
+    <link title="pdf" href="http://arxiv.org/pdf/2999.12345v2" rel="related" type="application/pdf"/>
+    <arxiv:primary_category xmlns:arxiv="http://arxiv.org/schemas/atom" term="cs.SI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.SI" scheme="http://arxiv.org/schemas/atom"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/synth/0000001v1</id>
+    <updated>2020-03-01T00:00:00Z</updated>
+    <published>2020-02-20T00:00:00Z</published>
+    <title>An Old Style Identifier Preprint</title>
+    <summary>A second synthetic preprint that was later published in a journal.</summary>
+    <author><name>Maria Garcia</name></author>
+    <arxiv:doi xmlns:arxiv="http://arxiv.org/schemas/atom">10.5555/Preprint.Published.2020.5</arxiv:doi>
+    <arxiv:journal_ref xmlns:arxiv="http://arxiv.org/schemas/atom">Synthetic Journal 5 (2020) 1-10</arxiv:journal_ref>
+    <link title="doi" href="http://dx.doi.org/10.5555/Preprint.Published.2020.5" rel="related"/>
+    <link href="http://arxiv.org/abs/synth/0000001v1" rel="alternate" type="text/html"/>
+    <category term="stat.ME" scheme="http://arxiv.org/schemas/atom"/>
+  </entry>
+</feed>

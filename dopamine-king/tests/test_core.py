@@ -4,7 +4,7 @@ import unittest
 from pathlib import Path
 
 from dopamine_king.models import Brand, ContentItem, canonical_url, item_id_for_url
-from dopamine_king.net import FakeFetcher, FetchError, HttpFetcher, Response, maybe_gunzip
+from dopamine_king.net import FakeFetcher, FetchDenied, FetchError, HttpFetcher, Response, maybe_gunzip
 from dopamine_king.store import Store
 
 
@@ -112,6 +112,13 @@ class HttpFetcherTests(unittest.TestCase):
         with self.assertRaises(FetchError):
             f.get("https://h.test/a")
         self.assertEqual(len(calls), 3)
+
+    def test_policy_denial_is_not_retried(self):
+        f, calls, sleeps = self.make([FetchDenied("tunnel denied")] * 3, max_retries=3, min_interval=0)
+        with self.assertRaises(FetchDenied):
+            f.get("https://h.test/a")
+        self.assertEqual((len(calls), sleeps), (1, []))
+        self.assertTrue(issubclass(FetchDenied, FetchError))
 
     def test_per_host_rate_limit(self):
         f, _, sleeps = self.make([Response("u", 200, {}, b"1"), Response("u", 200, {}, b"2"),

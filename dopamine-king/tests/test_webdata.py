@@ -79,3 +79,36 @@ class BundleTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class BundleWithLedgerTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        from dopamine_king.research.ledger import Ledger
+        cls.ledger = Ledger.load()
+        cls.bundle = build_bundle(ledger=cls.ledger)
+
+    def test_vault_is_filled_from_the_ledger(self):
+        vault = self.bundle["vault"]
+        self.assertGreaterEqual(len(vault["tactics"]), 30)
+        self.assertEqual(len(vault["studies"]), len(self.ledger.studies))
+        self.assertEqual(len(vault["links"]), len(self.ledger.links))
+        self.assertEqual(vault["stats"]["studies"], len(self.ledger.studies))
+        for t in vault["tactics"]:
+            ev = t["evidence"]
+            self.assertIn(ev["label"], ("strong", "moderate", "limited", "contested", "none"))
+            self.assertTrue(ev["headline_en"] and ev["headline_cs"])
+
+    def test_tactic_grade_comes_from_supporting_studies_only(self):
+        by_id = {t["id"]: t["evidence"] for t in self.bundle["vault"]["tactics"]}
+        # Deci (grade A) is a MIXED link here; Kahneman and Tversky (grade C theory) is the only supporter.
+        self.assertEqual(by_id["streaks-loss-aversion"]["grade"], "C")
+        self.assertEqual(by_id["numbers-specificity"]["grade"], "")
+
+    def test_study_cards_enter_the_loot_table_with_rarity_by_grade(self):
+        cards = {c["id"]: c for c in self.bundle["loot"]["cards"]}
+        study_cards = [c for c in cards.values() if c["kind"] == "study"]
+        self.assertEqual(len(study_cards), len(self.ledger.studies))
+        self.assertTrue(all(not c["demo"] for c in study_cards))
+        self.assertIn("legendary", {c["rarity"] for c in study_cards})
+        self.assertNotIn(chr(0x2014), bundle_json(self.bundle))

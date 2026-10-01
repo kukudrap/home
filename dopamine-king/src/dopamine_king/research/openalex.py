@@ -126,6 +126,8 @@ class OpenAlexClient:
         return data
 
     def search(self, query: str, *, per_page: int = 10, year_from: int | None = None) -> list[Study]:
+        if not query or not query.strip():
+            return []                      # an empty search would list arbitrary works
         params: dict[str, Any] = {
             "search": query,
             "per-page": max(1, min(per_page, 200)),

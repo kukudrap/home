@@ -263,8 +263,11 @@ def _vault_from_ledger(ledger: Any) -> tuple[dict[str, Any], list[dict[str, Any]
     cards: list[dict[str, Any]] = []
     for t in TACTICS.values():
         summary = ledger.summary(t.id)
+        # Show the best grade among studies that SUPPORT the tactic, so a mixed or contradicting
+        # high-grade study cannot make weak support look strong.
+        supporters = [study.grade or "D" for study, link in ledger.evidence_for(t.id) if link.direction == "supports"]
         tactics.append({**t.to_dict(), "evidence": {
-            "label": summary.label, "grade": summary.grade, "n_studies": summary.n_studies,
+            "label": summary.label, "grade": min(supporters, default=""), "n_studies": summary.n_studies,
             "headline_en": summary.headline_en, "headline_cs": summary.headline_cs,
             "caveats_en": summary.caveats_en, "caveats_cs": summary.caveats_cs,
         }})
@@ -280,7 +283,8 @@ def _vault_from_ledger(ledger: Any) -> tuple[dict[str, Any], list[dict[str, Any]
             "body_en": f"{study['title']}. Design: {study.get('design')}. Grade {study.get('grade')}. Not yet verified against Crossref: run `kingctl evidence verify`." if not study.get("verified") else f"{study['title']}. Design: {study.get('design')}. Grade {study.get('grade')}. Verified.",
             "body_cs": f"{study['title']}. Typ studie: {study.get('design')}. Hodnocení {study.get('grade')}. Zatím neověřeno přes Crossref: spusťte `kingctl evidence verify`." if not study.get("verified") else f"{study['title']}. Typ studie: {study.get('design')}. Hodnocení {study.get('grade')}. Ověřeno.",
         })
-    return {"tactics": tactics, "studies": studies, "links": links}, cards
+    stats = ledger.stats() if hasattr(ledger, "stats") else {}
+    return {"tactics": tactics, "studies": studies, "links": links, "stats": stats}, cards
 
 
 def bundle_json(bundle: dict[str, Any], *, indent: int | None = None) -> str:

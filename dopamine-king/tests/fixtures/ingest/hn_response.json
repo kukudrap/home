@@ -1,0 +1,9 @@
+{
+  "hits": [
+    {"objectID": "1001", "title": "Spring trail shoes", "url": "http://www.acme.example/blog/spring-trail-shoes-2026/?utm_source=hn", "points": 87, "num_comments": 23},
+    {"objectID": "1002", "title": "Spring trail shoes (repost)", "url": "https://acme.example/blog/spring-trail-shoes-2026", "points": 12, "num_comments": 3},
+    {"objectID": "1003", "title": "A different page", "url": "https://acme.example/blog/another-page", "points": 300, "num_comments": 150},
+    {"objectID": "1004", "title": "Ask HN: no url", "url": null, "points": 5, "num_comments": 1}
+  ],
+  "nbHits": 4
+}

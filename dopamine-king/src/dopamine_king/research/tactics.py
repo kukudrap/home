@@ -116,7 +116,7 @@ _DEFS: list[tuple[str, str, str, str, str, str, str, str]] = [
         "Concrete numbers and specific details are commonly advised because they are easier to picture and check "
         "than vague wording ('seven steps' rather than 'some tips'). The ledger holds no direct test of this yet.",
         "Konkrétní čísla a podrobnosti se běžně doporučují, protože se dají snáz představit a ověřit než vágní "
-        "formulace ('sedm kroků' místo 'pár tipů'). Registr studií zatím neobsahuje její přímý test.",
+        "formulace ('sedm kroků' místo 'pár tipů'). Registr studií zatím neobsahuje žádný přímý test tohoto postupu.",
         "Numbers must be real and sourced. Fake precision is deception.",
         "Čísla musí být skutečná a doložená. Falešná přesnost je klam.",
     ),
@@ -128,7 +128,7 @@ _DEFS: list[tuple[str, str, str, str, str, str, str, str]] = [
         "Otázka v titulku může otevřít informační mezeru, ale jen tehdy, když na ni obsah odpoví. Zda získá víc "
         "prokliků, závisí na publiku a tématu a mělo by se to otestovat.",
         "Do not ask a question whose honest answer is no just to bait the click.",
-        "Neptejte se otázkou, na kterou je poctivá odpověď ne, jen abyste vylákali proklik.",
+        "Nepokládejte otázku, na kterou je poctivá odpověď ne, jen abyste vylákali proklik.",
     ),
     (
         "storytelling", "emotion",
@@ -218,7 +218,7 @@ _DEFS: list[tuple[str, str, str, str, str, str, str, str]] = [
         "Open a video with its most compelling moment or promise so viewers know within seconds why to stay. The "
         "ledger holds no direct test of this yet; measure retention with your own tests.",
         "Začněte video nejsilnějším momentem nebo příslibem, aby diváci během vteřin věděli, proč zůstat. Registr "
-        "studií zatím neobsahuje její přímý test; udržení diváků měřte vlastními testy.",
+        "studií zatím neobsahuje žádný přímý test tohoto postupu; udržení diváků měřte vlastními testy.",
         "The hook must be in the video. A hook that misrepresents the content costs trust.",
         "Háček musí být ve videu skutečně obsažen. Háček, který zkresluje obsah, stojí důvěru.",
     ),
@@ -290,8 +290,8 @@ _DEFS: list[tuple[str, str, str, str, str, str, str, str]] = [
         "Answer-first structure", "Struktura s odpovědí na začátku",
         "Put the direct answer in the first lines, then explain, so both readers and answer engines find it "
         "immediately. The ledger holds no direct test of this yet.",
-        "Přímou odpověď dejte hned na začátek a teprve potom vysvětlujte, aby ji čtenáři i odpovídající "
-        "vyhledávače našli okamžitě. Registr studií zatím neobsahuje její přímý test.",
+        "Přímou odpověď dejte hned na začátek a teprve potom vysvětlujte, aby ji čtenáři i generativní "
+        "vyhledávače našli okamžitě. Registr studií zatím neobsahuje žádný přímý test tohoto postupu.",
         "",
         "",
     ),

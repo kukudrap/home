@@ -66,6 +66,7 @@ def _title_match(ours: str, theirs: str, threshold: float, *, allow_prefix: bool
 
 
 def _headline(label: str, *, sup_ab: int, sup_c: int, con_ab: int, mixed_ab: int, direct: int) -> tuple[str, str]:
+    """English and Czech one-line verdict. Counts only studies that bear on the claim (not context)."""
     if label == "contested":
         return (
             f"Contested: studies graded A or B point in both directions ({sup_ab} supporting, {con_ab} contradicting).",
@@ -91,15 +92,21 @@ def _headline(label: str, *, sup_ab: int, sup_c: int, con_ab: int, mixed_ab: int
             "Limited evidence: the best linked studies contradict this tactic.",
             "Omezené důkazy: nejkvalitnější propojené studie této taktice odporují.",
         )
+    elif mixed_ab:
+        return (
+            "Limited evidence: no supporting study is graded A or B, and the strongest study reports mixed results.",
+            "Omezené důkazy: žádná podpůrná studie nemá stupeň A nebo B a nejsilnější studie uvádí smíšené výsledky.",
+        )
     else:
+        verb = "bears" if direct == 1 else "bear"
         noun = "study" if direct == 1 else "studies"
         return (
-            f"Limited evidence: {direct} linked {noun}, none strong enough to carry the claim.",
-            f"Omezené důkazy: propojených studií je {direct}, žádná nestačí k pevnému závěru.",
+            f"Limited evidence: {direct} {noun} {verb} directly on this tactic, none strong enough to carry the claim.",
+            f"Omezené důkazy: přímo se této taktiky týká studií {direct}, žádná nestačí k pevnému závěru.",
         )
     if mixed_ab:
-        en += f" Studies graded A or B with mixed results: {mixed_ab}."
-        cs += f" Studie se stupněm A nebo B se smíšenými výsledky: {mixed_ab}."
+        en += f" Mixed findings in studies graded A or B: {mixed_ab}."
+        cs += f" Smíšené nálezy ve studiích se stupněm A nebo B: {mixed_ab}."
     return en, cs
 
 
@@ -246,7 +253,7 @@ class Ledger:
                 problems.append(f"link {link.tactic_id} -> {link.study_id}: unknown tactic")
             if not (link.note_en and link.note_cs):
                 problems.append(f"link {link.tactic_id} -> {link.study_id}: note missing in a language")
-        if "—" in json.dumps(self.to_dict(), ensure_ascii=False):
+        if chr(0x2014) in json.dumps(self.to_dict(), ensure_ascii=False):
             problems.append("the long dash character is not allowed anywhere in the ledger")
         return problems
 

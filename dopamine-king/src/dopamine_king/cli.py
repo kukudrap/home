@@ -262,6 +262,8 @@ def cmd_scrape(args: argparse.Namespace) -> int:
         for rep in scraper.scrape_all(brands):
             total_new += rep.new
             print(f"{rep.brand_id:<22} candidates {rep.candidates:4d}  new {rep.new:4d}  blocked {rep.blocked}  errors {len(rep.errors)}")
+            for line in rep.errors[:2] + rep.blocked_reasons[:2]:
+                print(f"    {line[:160]}")
         print(f"\n{total_new} new items stored in {store.path}. Next: kingctl enrich, kingctl analyze")
     return 0
 

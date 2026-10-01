@@ -31,6 +31,10 @@ class FetchError(Exception):
     """Network level failure (DNS, TLS, timeout, proxy denial). HTTP error codes are not errors."""
 
 
+class FetchDenied(FetchError):
+    """The egress proxy or network policy refused the host. A policy decision, so it is never retried."""
+
+
 @dataclass
 class Response:
     url: str
@@ -110,6 +114,7 @@ def urllib_transport(url: str, headers: dict[str, str], timeout: float, max_byte
         message = str(getattr(err, "reason", err))
         if "Tunnel connection failed" in message:
             message += " (the egress proxy denied this host: check the environment network policy)"
+            raise FetchDenied(f"{url}: {message}") from err
         raise FetchError(f"{url}: {message}") from err
     truncated = len(raw) > max_bytes
     raw = raw[:max_bytes]
@@ -242,6 +247,8 @@ class HttpFetcher:
             self._throttle(host)
             try:
                 resp = self._transport(url, req_headers, self.timeout, self.max_bytes)
+            except FetchDenied:
+                raise                       # a policy denial will not change by waiting
             except FetchError as err:
                 last_error = err
                 if attempt >= self.max_retries:

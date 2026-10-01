@@ -164,6 +164,8 @@ class CrossrefClient:
         return found[0] if found else None
 
     def search_detailed(self, query: str, *, rows: int = 10) -> list[tuple[Study, frozenset[int]]]:
+        if not query or not query.strip():
+            return []
         params = {"query.bibliographic": query, "rows": max(1, min(rows, 100))}
         url = f"{self.base_url}/works?{urlencode({**params, 'select': SELECT_FIELDS}, quote_via=quote, safe=',:')}"
         resp = self._get(url)

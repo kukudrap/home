@@ -1,0 +1,302 @@
+{
+  "meta": {
+    "count": 4821,
+    "db_response_time_ms": 41,
+    "page": 1,
+    "per_page": 6,
+    "groups_count": null
+  },
+  "results": [
+    {
+      "id": "https://openalex.org/W4300000001",
+      "doi": "https://doi.org/10.5555/curiosity.2021.001",
+      "title": "Curiosity Gaps in Headline Writing: A Randomized Controlled Trial",
+      "display_name": "Curiosity Gaps in Headline Writing: A Randomized Controlled Trial",
+      "publication_year": 2021,
+      "type": "article",
+      "type_crossref": "journal-article",
+      "cited_by_count": 87,
+      "is_retracted": false,
+      "abstract_inverted_index": {
+        "Curiosity": [
+          14
+        ],
+        "We": [
+          0
+        ],
+        "and": [
+          11
+        ],
+        "answered": [
+          24
+        ],
+        "article": [
+          23
+        ],
+        "assigned": [
+          2
+        ],
+        "but": [
+          19
+        ],
+        "clicks,": [
+          18
+        ],
+        "clicks.": [
+          13
+        ],
+        "curiosity": [
+          5
+        ],
+        "gap": [
+          6,
+          15
+        ],
+        "headlines": [
+          7,
+          10,
+          16
+        ],
+        "measured": [
+          12
+        ],
+        "only": [
+          20
+        ],
+        "or": [
+          8
+        ],
+        "plain": [
+          9
+        ],
+        "question.": [
+          26
+        ],
+        "raised": [
+          17
+        ],
+        "randomly": [
+          1
+        ],
+        "readers": [
+          3
+        ],
+        "the": [
+          22,
+          25
+        ],
+        "to": [
+          4
+        ],
+        "when": [
+          21
+        ]
+      },
+      "authorships": [
+        {
+          "author_position": "first",
+          "author": {
+            "id": "https://openalex.org/A5000000193",
+            "display_name": "Jane Q. Doe",
+            "orcid": null
+          },
+          "institutions": [],
+          "is_corresponding": true,
+          "raw_author_name": "Jane Q. Doe",
+          "raw_affiliation_strings": []
+        },
+        {
+          "author_position": "last",
+          "author": {
+            "id": "https://openalex.org/A5000000404",
+            "display_name": "Jan Novák",
+            "orcid": "https://orcid.org/0000-0000-0000-0000"
+          },
+          "institutions": [],
+          "is_corresponding": false,
+          "raw_author_name": "Jan Novák",
+          "raw_affiliation_strings": []
+        }
+      ],
+      "primary_location": {
+        "is_oa": true,
+        "landing_page_url": "https://doi.org/10.5555/curiosity.2021.001",
+        "pdf_url": null,
+        "source": {
+          "id": "https://openalex.org/S4300000001",
+          "display_name": "Journal of Synthetic Media Studies",
+          "issn_l": null,
+          "is_oa": false,
+          "host_organization_name": "Example Press",
+          "type": "journal"
+        },
+        "license": null,
+        "version": "publishedVersion",
+        "is_accepted": true,
+        "is_published": true
+      }
+    },
+    {
+      "id": "https://openalex.org/W4300000002",
+      "doi": null,
+      "title": "Notes on Headline Questions",
+      "display_name": "Notes on Headline Questions",
+      "publication_year": null,
+      "type": "preprint",
+      "type_crossref": "posted-content",
+      "cited_by_count": 0,
+      "is_retracted": false,
+      "abstract_inverted_index": null,
+      "authorships": [],
+      "primary_location": null
+    },
+    {
+      "id": "https://openalex.org/W4300000003",
+      "doi": "https://doi.org/10.5555/RETRACTED.2019.003",
+      "title": "A Retracted Study of Viral Emotions",
+      "display_name": "A Retracted Study of Viral Emotions",
+      "publication_year": 2019,
+      "type": "article",
+      "type_crossref": "journal-article",
+      "cited_by_count": 15,
+      "is_retracted": true,
+      "abstract_inverted_index": {
+        "Emotional": [
+          0
+        ],
+        "an": [
+          5
+        ],
+        "analysed": [
+          3
+        ],
+        "data": [
+          7
+        ],
+        "in": [
+          4
+        ],
+        "observational": [
+          6
+        ],
+        "posts": [
+          1
+        ],
+        "set.": [
+          8
+        ],
+        "were": [
+          2
+        ]
+      },
+      "authorships": [
+        {
+          "author_position": "first",
+          "author": {
+            "id": "https://openalex.org/A5000000817",
+            "display_name": "Robert van der Berg",
+            "orcid": null
+          },
+          "institutions": [],
+          "is_corresponding": true,
+          "raw_author_name": "Robert van der Berg",
+          "raw_affiliation_strings": []
+        }
+      ],
+      "primary_location": {
+        "is_oa": false,
+        "landing_page_url": "https://doi.org/10.5555/retracted.2019.003",
+        "pdf_url": null,
+        "source": {
+          "id": "https://openalex.org/S4300000002",
+          "display_name": "Synthetic Emotion Letters",
+          "type": "journal"
+        },
+        "version": "publishedVersion",
+        "is_accepted": true,
+        "is_published": true
+      }
+    },
+    {
+      "id": "https://openalex.org/W4300000004",
+      "doi": null,
+      "title": "Practical Persuasion: A Field Guide",
+      "display_name": "Practical Persuasion: A Field Guide",
+      "publication_year": 2018,
+      "type": "book",
+      "type_crossref": "book",
+      "cited_by_count": 40,
+      "is_retracted": false,
+      "abstract_inverted_index": null,
+      "authorships": [
+        {
+          "author_position": "first",
+          "author": {
+            "id": "https://openalex.org/A5000000506",
+            "display_name": "Maria Garcia",
+            "orcid": null
+          },
+          "institutions": [],
+          "is_corresponding": true,
+          "raw_author_name": "Maria Garcia",
+          "raw_affiliation_strings": []
+        }
+      ],
+      "primary_location": {
+        "is_oa": false,
+        "landing_page_url": "https://example.org/books/persuasion",
+        "pdf_url": null,
+        "source": null
+      }
+    },
+    {
+      "id": "https://openalex.org/W4300000005",
+      "doi": "https://doi.org/10.5555/review.2022.005",
+      "title": null,
+      "display_name": "A Systematic Review of Gamification in Marketing",
+      "publication_year": 2022,
+      "type": "review",
+      "type_crossref": "journal-article",
+      "cited_by_count": 9,
+      "is_retracted": false,
+      "abstract_inverted_index": null,
+      "authorships": [
+        {
+          "author_position": "first",
+          "author": {
+            "id": "https://openalex.org/A5000000698",
+            "display_name": "Chen Li",
+            "orcid": null
+          },
+          "institutions": [],
+          "is_corresponding": true,
+          "raw_author_name": "Chen Li",
+          "raw_affiliation_strings": []
+        }
+      ],
+      "primary_location": {
+        "is_oa": true,
+        "landing_page_url": null,
+        "pdf_url": null,
+        "source": {
+          "display_name": "Synthetic Marketing Review",
+          "type": "journal"
+        }
+      }
+    },
+    {
+      "id": "https://openalex.org/W4300000006",
+      "doi": null,
+      "title": null,
+      "display_name": null,
+      "publication_year": 2020,
+      "type": "other",
+      "cited_by_count": 1,
+      "is_retracted": false,
+      "abstract_inverted_index": null,
+      "authorships": [],
+      "primary_location": null
+    }
+  ],
+  "group_by": []
+}
