@@ -1,0 +1,70 @@
+{
+  "version": 1,
+  "note": "Heuristic model of attention triggers in hooks. Not a neuroscience measurement. Shared by the Python scorer and the JavaScript port; golden tests keep both identical.",
+  "params": {
+    "weights": {"curiosity": 0.25, "surprise": 0.15, "emotion": 0.18, "relevance": 0.17, "utility": 0.25},
+    "scales": {"curiosity": 1.3, "surprise": 1.1, "emotion": 1.5, "relevance": 1.2, "utility": 1.3, "risk": 1.0},
+    "display_tau": 0.35,
+    "risk_penalty": 0.65,
+    "fluency_floor": 0.55,
+    "avg_len_ref": {"en": 4.6, "cs": 5.6},
+    "caps_threshold": 0.25,
+    "caps_min_len": 3,
+    "max_tokens": 400
+  },
+  "langs": {
+    "en": {
+      "stopwords": ["the", "a", "an", "and", "of", "to", "in", "is", "are", "for", "on", "with", "that", "this", "it", "as", "at", "by", "from", "you", "your", "we", "our", "how", "why", "what", "be", "or", "not", "can", "will", "do", "does", "i", "my", "they", "their", "was", "were", "have", "has"],
+      "question_starters": ["why", "what", "who", "which", "where", "when", "should", "can", "do", "does", "did", "is", "are", "would", "could", "will", "have", "has", "am", "was", "were"],
+      "lexicons": {
+        "curiosity": ["secret", "secrets", "truth", "hidden", "surprising", "surprisingly", "unexpected", "mystery", "revealed", "reveals", "untold", "nobody tells", "nobody talks", "no one tells", "no one talks", "what happens", "what nobody", "what no one", "what most", "what we learned", "this is why", "here's why", "here's what", "here's how", "the real reason", "the reason", "the one thing", "you didn't know", "didn't know", "mistake", "mistakes", "behind the scenes", "inside", "why most", "why your", "the hidden", "the truth about", "turns out", "what really", "the problem with"],
+        "contrast": ["stop", "never", "wrong", "myth", "myths", "actually", "instead", "versus", "vs", "no longer", "forget", "ditch", "overrated", "underrated", "unpopular opinion", "counterintuitive", "isn't", "don't", "doesn't", "won't", "worst", "ignore", "quit", "lie", "lies", "wasting", "waste", "killing", "kills", "contrary to", "the opposite", "rather than", "the end of", "is dead", "not what"],
+        "emotion": ["amazing", "incredible", "insane", "shocking", "brutal", "epic", "stunning", "heartbreaking", "terrifying", "furious", "outrage", "outrageous", "hilarious", "love", "hate", "obsessed", "addicted", "wow", "unbelievable", "mind blowing", "jaw dropping", "game changer", "life changing", "fear", "panic", "disaster", "crisis", "beautiful", "awesome", "wild", "crazy", "genius", "magical", "powerful", "ultimate", "unforgettable", "thrilling", "devastating", "heartwarming", "inspiring", "fascinating", "terrible", "horrifying", "angry", "afraid", "anxious", "stressed", "thrilled", "delighted", "legendary", "iconic", "gorgeous"],
+        "practical": ["how to", "how", "guide", "checklist", "template", "templates", "steps", "step", "tips", "tip", "ways", "framework", "playbook", "cheat sheet", "tutorial", "examples", "example", "ideas", "tools", "lessons", "rules", "formula", "blueprint", "roadmap", "strategies", "hacks", "tricks", "best practices", "what to", "ultimate guide", "in minutes", "for beginners", "free", "simple", "easy", "quick", "fast", "ready to use", "step by step"],
+        "social": ["insider", "insiders", "exclusive", "members", "member", "most people", "elite", "smart", "join", "community", "vip", "invite", "invitation", "leaders", "founders", "pros", "experts", "professionals", "everyone", "everybody", "people like you", "top performers", "winners"],
+        "second_person": ["you", "your", "you're", "yours", "yourself", "you'll", "you've", "you'd", "yourselves"],
+        "clickbait": ["you won't believe", "won't believe", "shocking", "this one trick", "one weird trick", "doctors hate", "what happened next", "will blow your mind", "blow your mind", "gone wrong", "can't stop", "stop scrolling", "you need to see", "must see", "must read", "go viral", "secret trick", "they don't want you to know", "the internet is", "this changes everything", "changes everything", "you'll never guess", "never guess", "what happens next", "jaw dropping", "mind blowing", "unbelievable"],
+        "overclaim": ["guaranteed", "guarantee", "proven", "scientifically proven", "clinically proven", "miracle", "instantly", "overnight", "effortless", "risk free", "no risk", "best in the world", "number one", "cure", "cures", "get rich", "passive income", "always works", "never fails", "works every time", "foolproof", "secret formula", "zero effort", "no effort", "magic"],
+        "positive": ["love", "great", "best", "amazing", "win", "wins", "easy", "simple", "free", "boost", "growth", "grow", "success", "happy", "joy", "better", "smart", "fast", "save", "saves", "gain", "upgrade", "improve", "benefit", "benefits", "delight", "celebrate", "wonderful", "perfect", "bright", "fresh"],
+        "negative": ["mistake", "mistakes", "fail", "fails", "failure", "worst", "avoid", "never", "wrong", "lose", "losing", "loss", "risk", "danger", "dangerous", "scary", "fear", "problem", "problems", "trap", "kill", "killing", "waste", "ruin", "ruined", "costly", "crisis", "warning", "pain", "painful", "bad", "ugly", "toxic", "stuck", "broken"]
+      }
+    },
+    "cs": {
+      "stopwords": ["a", "i", "je", "jsou", "na", "v", "ve", "s", "se", "z", "ze", "do", "od", "pro", "to", "že", "jak", "co", "proč", "který", "která", "které", "jako", "ale", "nebo", "tak", "si", "by", "byl", "být", "má", "mít", "když", "už", "jen", "také", "až", "ten", "ta", "o", "u", "k", "ke", "vy", "ty", "váš", "tvůj", "my", "náš"],
+      "question_starters": ["proč", "co", "kdo", "který", "která", "které", "kde", "kdy", "kolik", "jaký", "jaká", "jaké", "je", "jsou", "může", "má", "mám", "měl*", "dá", "lze", "opravdu", "skutečně"],
+      "lexicons": {
+        "curiosity": ["tajemství", "tajemn*", "tajn*", "skryt*", "překvapiv*", "překvapen*", "nečekan*", "záhad*", "pravda", "pravdu", "pravdě", "pravdy", "co se stane", "co se stalo", "co nikdo", "co většina", "o čem se nemluví", "nikdo vám neřekne", "nikdo vám neřekl", "důvod", "důvody", "skutečný důvod", "odhalen*", "odhalil*", "odhalte", "zákulis*", "za oponou", "chyb*", "tohle je důvod", "tady je proč", "tady je co", "co jsme zjistili", "zjistili jsme", "proč většina", "proč vám", "proč vaše", "proč váš"],
+        "contrast": ["přestaňte", "přestaň", "nikdy", "špatně", "špatn*", "mýtus", "mýty", "mýtů", "ve skutečnosti", "místo", "versus", "vs", "už ne", "zapomeňte", "zapomeň", "přeceňovan*", "podceňovan*", "nepopulární názor", "protiintuitivn*", "není", "nejsou", "nemá", "nikoli", "naopak", "lež", "lži", "plýtvá*", "zabíj*", "ignoruj*", "konec", "je mrtv*", "opak", "nemusíte", "nepotřebujete", "nedělejte"],
+        "emotion": ["úžasn*", "neuvěřiteln*", "šílen*", "šokující", "brutáln*", "epick*", "ohromn*", "dojemn*", "děsiv*", "zuřiv*", "pobouřen*", "vtipn*", "miluj*", "nenávid*", "posedl*", "závislost", "závislý", "wow", "wau", "paráda", "bomba", "senzac*", "geniáln*", "magick*", "mocn*", "nezapomenutelné", "dechberoucí", "strach", "panika", "katastrof*", "krize", "krásn*", "skvěl*", "nádhern*", "fascinující", "inspirativn*", "hrozn*", "děsn*", "naštvan*", "legendární", "ikonick*", "vzrušující", "srdcervoucí", "zničující", "radost", "úleva"],
+        "practical": ["jak", "návod", "průvodce", "checklist", "šablona", "šablony", "kroky", "krok", "tipy", "tip", "způsoby", "způsob", "postup", "tutoriál", "příklady", "příklad", "nápady", "nástroje", "lekce", "pravidla", "vzorec", "plán", "strategie", "triky", "osvědčené postupy", "za pár minut", "pro začátečníky", "zdarma", "jednoduše", "snadno", "rychle", "krok za krokem", "metoda", "ukázka", "co dělat", "jak na", "jak na to", "kompletní", "praktick*", "rady", "rada"],
+        "social": ["insider", "exkluzivn*", "členové", "člen", "většina lidí", "elita", "chytří", "přidej se", "přidejte se", "komunita", "pozvánka", "lídři", "zakladatelé", "profíci", "experti", "odborníci", "všichni", "každý", "lidé jako ty", "lidé jako vy", "vítězové"],
+        "second_person": ["ty", "tvůj", "tvoje", "tvé", "tvá", "tvou", "tvého", "tvému", "tvých", "tobě", "tě", "vy", "váš", "vaše", "vašeho", "vašemu", "vaši", "vaším", "vás", "vám", "vámi", "vaš*", "tvoj*"],
+        "clickbait": ["neuvěříte", "neuvěříš", "šokující", "tenhle trik", "tenhle jeden trik", "jeden trik", "lékaři nenávidí", "co se stalo potom", "vyrazí vám dech", "vyrazí dech", "nemůžete přestat", "nemůžeš přestat", "musíte vidět", "musíš vidět", "nechtějí abyste věděli", "tajný trik", "změní to všechno", "všechno změní", "nebudete věřit", "neuvěřitelný trik"],
+        "overclaim": ["zaručen*", "garance", "garantuj*", "garantovan*", "osvědčen*", "vědecky prokázan*", "klinicky prokázan*", "zázrač*", "okamžitě", "přes noc", "bez námahy", "bez rizika", "nejlepší na světě", "číslo jedna", "vyléčí", "léčí", "zbohatni", "zbohatněte", "pasivní příjem", "funguje vždy", "nikdy nezklame", "stoprocentní"],
+        "positive": ["miluj*", "skvěl*", "nejlepší", "úžasn*", "výhra", "vyhr*", "snadn*", "jednoduch*", "zdarma", "růst", "úspěch", "šťastn*", "radost", "lepší", "chytr*", "rychl*", "ušetř*", "zisk", "vylepš*", "výhoda", "výhody", "krásn*", "perfektní", "báječn*"],
+        "negative": ["chyb*", "selh*", "neúspěch", "nejhorší", "vyhněte se", "vyhni se", "nikdy", "špatn*", "ztráta", "ztrácet", "ztratit", "riziko", "nebezpeč*", "děsiv*", "strach", "problém*", "past", "zabíj*", "plýtvá*", "zničit", "drahé", "krize", "varování", "bolest", "škodlivé", "toxick*", "zlomen*"]
+      }
+    }
+  },
+  "labels": {
+    "curiosity": {"en": "Curiosity", "cs": "Zvědavost"},
+    "surprise": {"en": "Surprise", "cs": "Překvapení"},
+    "emotion": {"en": "Emotion", "cs": "Emoce"},
+    "relevance": {"en": "Relevance", "cs": "Oslovení"},
+    "utility": {"en": "Utility", "cs": "Užitek"},
+    "fluency": {"en": "Fluency", "cs": "Srozumitelnost"},
+    "risk": {"en": "Clickbait risk", "cs": "Riziko clickbaitu"}
+  },
+  "messages": {
+    "open_loop": {"en": "Open an information gap: a question, a surprising claim or a promise of a reveal.", "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."},
+    "add_utility": {"en": "Make the payoff concrete: a number, steps or a 'how to'.", "cs": "Zkonkrétni užitek: číslo, kroky nebo \"jak na to\"."},
+    "address_reader": {"en": "Speak to the reader directly (you, your) or name the audience.", "cs": "Oslov čtenáře přímo (ty, vy, váš) nebo pojmenuj publikum."},
+    "add_emotion": {"en": "Add one high-arousal emotion word that is true to the content.", "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."},
+    "add_contrast": {"en": "Challenge an expectation: a myth, a 'stop doing X', a contrast.", "cs": "Zpochybni očekávání: mýtus, \"přestaň dělat X\", kontrast."},
+    "shorten": {"en": "Shorten it: aim for 6 to 12 words.", "cs": "Zkrať to: cílem je 6 až 12 slov."},
+    "simplify": {"en": "Use shorter, plainer words.", "cs": "Použij kratší a prostší slova."},
+    "reduce_clickbait": {"en": "Remove clickbait phrasing and exaggerated claims; trust and delivery matter.", "cs": "Odstraň clickbaitové formulace a přehnané sliby; důvěra a splnění slibu rozhodují."},
+    "keep_promise": {"en": "The number in the headline promises more items than the body delivers.", "cs": "Číslo v titulku slibuje víc položek, než text obsahuje."},
+    "ship_it": {"en": "Strong and honest. Test it against a close variant.", "cs": "Silné a férové. Otestuj to proti blízké variantě."}
+  }
+}

@@ -1,0 +1,29 @@
+name: dopamine-king
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: dopamine-king
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Python tests
+        run: PYTHONPATH=src python -m unittest discover -s tests -t . -v
+      - name: JavaScript tests (scorer parity, game rules, lab statistics)
+        run: node --test web/tests/
+      - name: Offline demo runs end to end
+        run: PYTHONPATH=src python -m dopamine_king demo
+      - name: Single-file game builds
+        run: PYTHONPATH=src python scripts/build_web.py --out /tmp/dopamine-king.html
+      - name: No long dashes anywhere (project rule)
+        run: make lint-dash

@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dopamine-king"
+version = "0.1.0"
+description = "Evidence-driven content intelligence game: ethical scraping, benchmarking, testing lab, studies ledger, SEO/GEO and multi-format generators."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+llm = ["anthropic>=0.40"]
+dev = ["pytest>=8"]
+
+[project.scripts]
+kingctl = "dopamine_king.cli:main"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+dopamine_king = ["data/*.json", "data/*.md"]
