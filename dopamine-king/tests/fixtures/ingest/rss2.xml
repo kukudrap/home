@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+     xmlns:content="http://purl.org/rss/1.0/modules/content/"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:atom="http://www.w3.org/2005/Atom"
+     xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+     xmlns:media="http://search.yahoo.com/mrss/">
+  <channel>
+    <title>Acme Outdoor Blog</title>
+    <link>https://acme.example/blog</link>
+    <atom:link href="https://acme.example/blog/feed" rel="self" type="application/rss+xml"/>
+    <description>Gear, trails and stories.</description>
+    <item>
+      <title>Spring trail shoes: what changed in 2026</title>
+      <link>https://acme.example/blog/spring-trail-shoes-2026?utm_source=rss</link>
+      <pubDate>Sun, 01 Mar 2026 09:30:00 +0100</pubDate>
+      <dc:creator><![CDATA[Jane Doe]]></dc:creator>
+      <category>Trail</category>
+      <category>Shoes</category>
+      <category>trail</category>
+      <guid isPermaLink="false">acme-1001</guid>
+      <description><![CDATA[<p>Lighter foams, <strong>wider lasts</strong> and a few surprises. Here is what we learned testing 14 pairs.</p><img src="https://acme.example/img/spring-shoes.jpg" alt="shoes">]]></description>
+      <content:encoded><![CDATA[<p>Lighter foams, wider lasts and a few surprises.</p><p>Full article body that we never store beyond a short excerpt.</p>]]></content:encoded>
+      <slash:comments>12</slash:comments>
+      <media:thumbnail url="https://acme.example/img/spring-shoes-thumb.jpg" width="320" height="180"/>
+    </item>
+    <item>
+      <title>Pack your bag in five minutes</title>
+      <link>/blog/pack-your-bag</link>
+      <pubDate>Tue, 03 Mar 2026 14:00:00 GMT</pubDate>
+      <comments>https://acme.example/blog/pack-your-bag#comments</comments>
+      <description>&lt;p&gt;A short checklist &amp;amp; three mistakes to avoid.&lt;/p&gt;</description>
+      <enclosure url="https://acme.example/img/bag.png" length="12345" type="image/png"/>
+    </item>
+    <item>
+      <title>An entry without any link</title>
+      <pubDate>Wed, 04 Mar 2026 10:00:00 GMT</pubDate>
+      <description>This entry has no link and no guid, so it must be skipped.</description>
+    </item>
+    <item>
+      <title>Permalink only in the guid</title>
+      <pubDate>Thu, 05 Mar 2026 08:00:00 -0500</pubDate>
+      <author>press@acme.example (Acme Press)</author>
+      <guid isPermaLink="true">https://acme.example/blog/guid-only</guid>
+      <description>Guid fallback and a negative timezone offset.</description>
+    </item>
+    <item>
+      <title>Date that cannot be parsed</title>
+      <link>https://acme.example/blog/odd-date</link>
+      <pubDate>sometime last week</pubDate>
+      <description>Bad dates yield None instead of failing.</description>
+    </item>
+  </channel>
+</rss>

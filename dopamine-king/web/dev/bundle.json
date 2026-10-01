@@ -1,0 +1,6692 @@
+{
+ "meta": {
+  "version": 1,
+  "generated": "2026-10-01T19:55:24+00:00",
+  "synthetic": true,
+  "corpus": {
+   "brands": 25,
+   "items": 1000
+  },
+  "note": "All engagement data in this bundle is SIMULATED. Brands are fictional."
+ },
+ "spec": {
+  "version": 1,
+  "note": "Heuristic model of attention triggers in hooks. Not a neuroscience measurement. Shared by the Python scorer and the JavaScript port; golden tests keep both identical.",
+  "params": {
+   "weights": {
+    "curiosity": 0.25,
+    "surprise": 0.15,
+    "emotion": 0.18,
+    "relevance": 0.17,
+    "utility": 0.25
+   },
+   "scales": {
+    "curiosity": 1.3,
+    "surprise": 1.1,
+    "emotion": 1.5,
+    "relevance": 1.2,
+    "utility": 1.3,
+    "risk": 1.0
+   },
+   "display_tau": 0.35,
+   "risk_penalty": 0.65,
+   "fluency_floor": 0.55,
+   "avg_len_ref": {
+    "en": 4.6,
+    "cs": 5.6
+   },
+   "caps_threshold": 0.25,
+   "caps_min_len": 3,
+   "max_tokens": 400
+  },
+  "langs": {
+   "en": {
+    "stopwords": [
+     "the",
+     "a",
+     "an",
+     "and",
+     "of",
+     "to",
+     "in",
+     "is",
+     "are",
+     "for",
+     "on",
+     "with",
+     "that",
+     "this",
+     "it",
+     "as",
+     "at",
+     "by",
+     "from",
+     "you",
+     "your",
+     "we",
+     "our",
+     "how",
+     "why",
+     "what",
+     "be",
+     "or",
+     "not",
+     "can",
+     "will",
+     "do",
+     "does",
+     "i",
+     "my",
+     "they",
+     "their",
+     "was",
+     "were",
+     "have",
+     "has"
+    ],
+    "question_starters": [
+     "why",
+     "what",
+     "who",
+     "which",
+     "where",
+     "when",
+     "should",
+     "can",
+     "do",
+     "does",
+     "did",
+     "is",
+     "are",
+     "would",
+     "could",
+     "will",
+     "have",
+     "has",
+     "am",
+     "was",
+     "were"
+    ],
+    "lexicons": {
+     "curiosity": [
+      "secret",
+      "secrets",
+      "truth",
+      "hidden",
+      "surprising",
+      "surprisingly",
+      "unexpected",
+      "mystery",
+      "revealed",
+      "reveals",
+      "untold",
+      "nobody tells",
+      "nobody talks",
+      "no one tells",
+      "no one talks",
+      "what happens",
+      "what nobody",
+      "what no one",
+      "what most",
+      "what we learned",
+      "this is why",
+      "here's why",
+      "here's what",
+      "here's how",
+      "the real reason",
+      "the reason",
+      "the one thing",
+      "you didn't know",
+      "didn't know",
+      "mistake",
+      "mistakes",
+      "behind the scenes",
+      "inside",
+      "why most",
+      "why your",
+      "the hidden",
+      "the truth about",
+      "turns out",
+      "what really",
+      "the problem with"
+     ],
+     "contrast": [
+      "stop",
+      "never",
+      "wrong",
+      "myth",
+      "myths",
+      "actually",
+      "instead",
+      "versus",
+      "vs",
+      "no longer",
+      "forget",
+      "ditch",
+      "overrated",
+      "underrated",
+      "unpopular opinion",
+      "counterintuitive",
+      "isn't",
+      "don't",
+      "doesn't",
+      "won't",
+      "worst",
+      "ignore",
+      "quit",
+      "lie",
+      "lies",
+      "wasting",
+      "waste",
+      "killing",
+      "kills",
+      "contrary to",
+      "the opposite",
+      "rather than",
+      "the end of",
+      "is dead",
+      "not what"
+     ],
+     "emotion": [
+      "amazing",
+      "incredible",
+      "insane",
+      "shocking",
+      "brutal",
+      "epic",
+      "stunning",
+      "heartbreaking",
+      "terrifying",
+      "furious",
+      "outrage",
+      "outrageous",
+      "hilarious",
+      "love",
+      "hate",
+      "obsessed",
+      "addicted",
+      "wow",
+      "unbelievable",
+      "mind blowing",
+      "jaw dropping",
+      "game changer",
+      "life changing",
+      "fear",
+      "panic",
+      "disaster",
+      "crisis",
+      "beautiful",
+      "awesome",
+      "wild",
+      "crazy",
+      "genius",
+      "magical",
+      "powerful",
+      "ultimate",
+      "unforgettable",
+      "thrilling",
+      "devastating",
+      "heartwarming",
+      "inspiring",
+      "fascinating",
+      "terrible",
+      "horrifying",
+      "angry",
+      "afraid",
+      "anxious",
+      "stressed",
+      "thrilled",
+      "delighted",
+      "legendary",
+      "iconic",
+      "gorgeous"
+     ],
+     "practical": [
+      "how to",
+      "how",
+      "guide",
+      "checklist",
+      "template",
+      "templates",
+      "steps",
+      "step",
+      "tips",
+      "tip",
+      "ways",
+      "framework",
+      "playbook",
+      "cheat sheet",
+      "tutorial",
+      "examples",
+      "example",
+      "ideas",
+      "tools",
+      "lessons",
+      "rules",
+      "formula",
+      "blueprint",
+      "roadmap",
+      "strategies",
+      "hacks",
+      "tricks",
+      "best practices",
+      "what to",
+      "ultimate guide",
+      "in minutes",
+      "for beginners",
+      "free",
+      "simple",
+      "easy",
+      "quick",
+      "fast",
+      "ready to use",
+      "step by step"
+     ],
+     "social": [
+      "insider",
+      "insiders",
+      "exclusive",
+      "members",
+      "member",
+      "most people",
+      "elite",
+      "smart",
+      "join",
+      "community",
+      "vip",
+      "invite",
+      "invitation",
+      "leaders",
+      "founders",
+      "pros",
+      "experts",
+      "professionals",
+      "everyone",
+      "everybody",
+      "people like you",
+      "top performers",
+      "winners"
+     ],
+     "second_person": [
+      "you",
+      "your",
+      "you're",
+      "yours",
+      "yourself",
+      "you'll",
+      "you've",
+      "you'd",
+      "yourselves"
+     ],
+     "clickbait": [
+      "you won't believe",
+      "won't believe",
+      "shocking",
+      "this one trick",
+      "one weird trick",
+      "doctors hate",
+      "what happened next",
+      "will blow your mind",
+      "blow your mind",
+      "gone wrong",
+      "can't stop",
+      "stop scrolling",
+      "you need to see",
+      "must see",
+      "must read",
+      "go viral",
+      "secret trick",
+      "they don't want you to know",
+      "the internet is",
+      "this changes everything",
+      "changes everything",
+      "you'll never guess",
+      "never guess",
+      "what happens next",
+      "jaw dropping",
+      "mind blowing",
+      "unbelievable"
+     ],
+     "overclaim": [
+      "guaranteed",
+      "guarantee",
+      "proven",
+      "scientifically proven",
+      "clinically proven",
+      "miracle",
+      "instantly",
+      "overnight",
+      "effortless",
+      "risk free",
+      "no risk",
+      "best in the world",
+      "number one",
+      "cure",
+      "cures",
+      "get rich",
+      "passive income",
+      "always works",
+      "never fails",
+      "works every time",
+      "foolproof",
+      "secret formula",
+      "zero effort",
+      "no effort",
+      "magic"
+     ],
+     "positive": [
+      "love",
+      "great",
+      "best",
+      "amazing",
+      "win",
+      "wins",
+      "easy",
+      "simple",
+      "free",
+      "boost",
+      "growth",
+      "grow",
+      "success",
+      "happy",
+      "joy",
+      "better",
+      "smart",
+      "fast",
+      "save",
+      "saves",
+      "gain",
+      "upgrade",
+      "improve",
+      "benefit",
+      "benefits",
+      "delight",
+      "celebrate",
+      "wonderful",
+      "perfect",
+      "bright",
+      "fresh"
+     ],
+     "negative": [
+      "mistake",
+      "mistakes",
+      "fail",
+      "fails",
+      "failure",
+      "worst",
+      "avoid",
+      "never",
+      "wrong",
+      "lose",
+      "losing",
+      "loss",
+      "risk",
+      "danger",
+      "dangerous",
+      "scary",
+      "fear",
+      "problem",
+      "problems",
+      "trap",
+      "kill",
+      "killing",
+      "waste",
+      "ruin",
+      "ruined",
+      "costly",
+      "crisis",
+      "warning",
+      "pain",
+      "painful",
+      "bad",
+      "ugly",
+      "toxic",
+      "stuck",
+      "broken"
+     ]
+    }
+   },
+   "cs": {
+    "stopwords": [
+     "a",
+     "i",
+     "je",
+     "jsou",
+     "na",
+     "v",
+     "ve",
+     "s",
+     "se",
+     "z",
+     "ze",
+     "do",
+     "od",
+     "pro",
+     "to",
+     "že",
+     "jak",
+     "co",
+     "proč",
+     "který",
+     "která",
+     "které",
+     "jako",
+     "ale",
+     "nebo",
+     "tak",
+     "si",
+     "by",
+     "byl",
+     "být",
+     "má",
+     "mít",
+     "když",
+     "už",
+     "jen",
+     "také",
+     "až",
+     "ten",
+     "ta",
+     "o",
+     "u",
+     "k",
+     "ke",
+     "vy",
+     "ty",
+     "váš",
+     "tvůj",
+     "my",
+     "náš"
+    ],
+    "question_starters": [
+     "proč",
+     "co",
+     "kdo",
+     "který",
+     "která",
+     "které",
+     "kde",
+     "kdy",
+     "kolik",
+     "jaký",
+     "jaká",
+     "jaké",
+     "je",
+     "jsou",
+     "může",
+     "má",
+     "mám",
+     "měl*",
+     "dá",
+     "lze",
+     "opravdu",
+     "skutečně"
+    ],
+    "lexicons": {
+     "curiosity": [
+      "tajemství",
+      "tajemn*",
+      "tajn*",
+      "skryt*",
+      "překvapiv*",
+      "překvapen*",
+      "nečekan*",
+      "záhad*",
+      "pravda",
+      "pravdu",
+      "pravdě",
+      "pravdy",
+      "co se stane",
+      "co se stalo",
+      "co nikdo",
+      "co většina",
+      "o čem se nemluví",
+      "nikdo vám neřekne",
+      "nikdo vám neřekl",
+      "důvod",
+      "důvody",
+      "skutečný důvod",
+      "odhalen*",
+      "odhalil*",
+      "odhalte",
+      "zákulis*",
+      "za oponou",
+      "chyb*",
+      "tohle je důvod",
+      "tady je proč",
+      "tady je co",
+      "co jsme zjistili",
+      "zjistili jsme",
+      "proč většina",
+      "proč vám",
+      "proč vaše",
+      "proč váš"
+     ],
+     "contrast": [
+      "přestaňte",
+      "přestaň",
+      "nikdy",
+      "špatně",
+      "špatn*",
+      "mýtus",
+      "mýty",
+      "mýtů",
+      "ve skutečnosti",
+      "místo",
+      "versus",
+      "vs",
+      "už ne",
+      "zapomeňte",
+      "zapomeň",
+      "přeceňovan*",
+      "podceňovan*",
+      "nepopulární názor",
+      "protiintuitivn*",
+      "není",
+      "nejsou",
+      "nemá",
+      "nikoli",
+      "naopak",
+      "lež",
+      "lži",
+      "plýtvá*",
+      "zabíj*",
+      "ignoruj*",
+      "konec",
+      "je mrtv*",
+      "opak",
+      "nemusíte",
+      "nepotřebujete",
+      "nedělejte"
+     ],
+     "emotion": [
+      "úžasn*",
+      "neuvěřiteln*",
+      "šílen*",
+      "šokující",
+      "brutáln*",
+      "epick*",
+      "ohromn*",
+      "dojemn*",
+      "děsiv*",
+      "zuřiv*",
+      "pobouřen*",
+      "vtipn*",
+      "miluj*",
+      "nenávid*",
+      "posedl*",
+      "závislost",
+      "závislý",
+      "wow",
+      "wau",
+      "paráda",
+      "bomba",
+      "senzac*",
+      "geniáln*",
+      "magick*",
+      "mocn*",
+      "nezapomenutelné",
+      "dechberoucí",
+      "strach",
+      "panika",
+      "katastrof*",
+      "krize",
+      "krásn*",
+      "skvěl*",
+      "nádhern*",
+      "fascinující",
+      "inspirativn*",
+      "hrozn*",
+      "děsn*",
+      "naštvan*",
+      "legendární",
+      "ikonick*",
+      "vzrušující",
+      "srdcervoucí",
+      "zničující",
+      "radost",
+      "úleva"
+     ],
+     "practical": [
+      "jak",
+      "návod",
+      "průvodce",
+      "checklist",
+      "šablona",
+      "šablony",
+      "kroky",
+      "krok",
+      "tipy",
+      "tip",
+      "způsoby",
+      "způsob",
+      "postup",
+      "tutoriál",
+      "příklady",
+      "příklad",
+      "nápady",
+      "nástroje",
+      "lekce",
+      "pravidla",
+      "vzorec",
+      "plán",
+      "strategie",
+      "triky",
+      "osvědčené postupy",
+      "za pár minut",
+      "pro začátečníky",
+      "zdarma",
+      "jednoduše",
+      "snadno",
+      "rychle",
+      "krok za krokem",
+      "metoda",
+      "ukázka",
+      "co dělat",
+      "jak na",
+      "jak na to",
+      "kompletní",
+      "praktick*",
+      "rady",
+      "rada"
+     ],
+     "social": [
+      "insider",
+      "exkluzivn*",
+      "členové",
+      "člen",
+      "většina lidí",
+      "elita",
+      "chytří",
+      "přidej se",
+      "přidejte se",
+      "komunita",
+      "pozvánka",
+      "lídři",
+      "zakladatelé",
+      "profíci",
+      "experti",
+      "odborníci",
+      "všichni",
+      "každý",
+      "lidé jako ty",
+      "lidé jako vy",
+      "vítězové"
+     ],
+     "second_person": [
+      "ty",
+      "tvůj",
+      "tvoje",
+      "tvé",
+      "tvá",
+      "tvou",
+      "tvého",
+      "tvému",
+      "tvých",
+      "tobě",
+      "tě",
+      "vy",
+      "váš",
+      "vaše",
+      "vašeho",
+      "vašemu",
+      "vaši",
+      "vaším",
+      "vás",
+      "vám",
+      "vámi",
+      "vaš*",
+      "tvoj*"
+     ],
+     "clickbait": [
+      "neuvěříte",
+      "neuvěříš",
+      "šokující",
+      "tenhle trik",
+      "tenhle jeden trik",
+      "jeden trik",
+      "lékaři nenávidí",
+      "co se stalo potom",
+      "vyrazí vám dech",
+      "vyrazí dech",
+      "nemůžete přestat",
+      "nemůžeš přestat",
+      "musíte vidět",
+      "musíš vidět",
+      "nechtějí abyste věděli",
+      "tajný trik",
+      "změní to všechno",
+      "všechno změní",
+      "nebudete věřit",
+      "neuvěřitelný trik"
+     ],
+     "overclaim": [
+      "zaručen*",
+      "garance",
+      "garantuj*",
+      "garantovan*",
+      "osvědčen*",
+      "vědecky prokázan*",
+      "klinicky prokázan*",
+      "zázrač*",
+      "okamžitě",
+      "přes noc",
+      "bez námahy",
+      "bez rizika",
+      "nejlepší na světě",
+      "číslo jedna",
+      "vyléčí",
+      "léčí",
+      "zbohatni",
+      "zbohatněte",
+      "pasivní příjem",
+      "funguje vždy",
+      "nikdy nezklame",
+      "stoprocentní"
+     ],
+     "positive": [
+      "miluj*",
+      "skvěl*",
+      "nejlepší",
+      "úžasn*",
+      "výhra",
+      "vyhr*",
+      "snadn*",
+      "jednoduch*",
+      "zdarma",
+      "růst",
+      "úspěch",
+      "šťastn*",
+      "radost",
+      "lepší",
+      "chytr*",
+      "rychl*",
+      "ušetř*",
+      "zisk",
+      "vylepš*",
+      "výhoda",
+      "výhody",
+      "krásn*",
+      "perfektní",
+      "báječn*"
+     ],
+     "negative": [
+      "chyb*",
+      "selh*",
+      "neúspěch",
+      "nejhorší",
+      "vyhněte se",
+      "vyhni se",
+      "nikdy",
+      "špatn*",
+      "ztráta",
+      "ztrácet",
+      "ztratit",
+      "riziko",
+      "nebezpeč*",
+      "děsiv*",
+      "strach",
+      "problém*",
+      "past",
+      "zabíj*",
+      "plýtvá*",
+      "zničit",
+      "drahé",
+      "krize",
+      "varování",
+      "bolest",
+      "škodlivé",
+      "toxick*",
+      "zlomen*"
+     ]
+    }
+   }
+  },
+  "labels": {
+   "curiosity": {
+    "en": "Curiosity",
+    "cs": "Zvědavost"
+   },
+   "surprise": {
+    "en": "Surprise",
+    "cs": "Překvapení"
+   },
+   "emotion": {
+    "en": "Emotion",
+    "cs": "Emoce"
+   },
+   "relevance": {
+    "en": "Relevance",
+    "cs": "Oslovení"
+   },
+   "utility": {
+    "en": "Utility",
+    "cs": "Užitek"
+   },
+   "fluency": {
+    "en": "Fluency",
+    "cs": "Srozumitelnost"
+   },
+   "risk": {
+    "en": "Clickbait risk",
+    "cs": "Riziko clickbaitu"
+   }
+  },
+  "messages": {
+   "open_loop": {
+    "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
+    "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+   },
+   "add_utility": {
+    "en": "Make the payoff concrete: a number, steps or a 'how to'.",
+    "cs": "Zkonkrétni užitek: číslo, kroky nebo \"jak na to\"."
+   },
+   "address_reader": {
+    "en": "Speak to the reader directly (you, your) or name the audience.",
+    "cs": "Oslov čtenáře přímo (ty, vy, váš) nebo pojmenuj publikum."
+   },
+   "add_emotion": {
+    "en": "Add one high-arousal emotion word that is true to the content.",
+    "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+   },
+   "add_contrast": {
+    "en": "Challenge an expectation: a myth, a 'stop doing X', a contrast.",
+    "cs": "Zpochybni očekávání: mýtus, \"přestaň dělat X\", kontrast."
+   },
+   "shorten": {
+    "en": "Shorten it: aim for 6 to 12 words.",
+    "cs": "Zkrať to: cílem je 6 až 12 slov."
+   },
+   "simplify": {
+    "en": "Use shorter, plainer words.",
+    "cs": "Použij kratší a prostší slova."
+   },
+   "reduce_clickbait": {
+    "en": "Remove clickbait phrasing and exaggerated claims; trust and delivery matter.",
+    "cs": "Odstraň clickbaitové formulace a přehnané sliby; důvěra a splnění slibu rozhodují."
+   },
+   "keep_promise": {
+    "en": "The number in the headline promises more items than the body delivers.",
+    "cs": "Číslo v titulku slibuje víc položek, než text obsahuje."
+   },
+   "ship_it": {
+    "en": "Strong and honest. Test it against a close variant.",
+    "cs": "Silné a férové. Otestuj to proti blízké variantě."
+   }
+  }
+ },
+ "calibration": {
+  "weights": {
+   "curiosity": 0.1845,
+   "surprise": 0.1555,
+   "emotion": 0.1359,
+   "relevance": 0.1728,
+   "utility": 0.3514
+  },
+  "n": 1000,
+  "cv_spearman_default": 0.3953,
+  "cv_spearman_calibrated": 0.4141,
+  "logit_scale": 30.5,
+  "notes": []
+ },
+ "cohort_labels": {
+  "tech": {
+   "en": "Tech",
+   "cs": "Technologie"
+  },
+  "b2b-saas": {
+   "en": "B2B SaaS",
+   "cs": "B2B SaaS"
+  },
+  "consumer-electronics": {
+   "en": "Consumer electronics",
+   "cs": "Spotřební elektronika"
+  },
+  "sport": {
+   "en": "Sport",
+   "cs": "Sport"
+  },
+  "fashion-beauty": {
+   "en": "Fashion and beauty",
+   "cs": "Móda a krása"
+  },
+  "food-beverage": {
+   "en": "Food and beverage",
+   "cs": "Jídlo a nápoje"
+  },
+  "retail-ecommerce": {
+   "en": "Retail and e-commerce",
+   "cs": "Retail a e-commerce"
+  },
+  "finance": {
+   "en": "Finance",
+   "cs": "Finance"
+  },
+  "travel": {
+   "en": "Travel",
+   "cs": "Cestování"
+  },
+  "auto": {
+   "en": "Automotive",
+   "cs": "Auto-moto"
+  },
+  "media-entertainment": {
+   "en": "Media and entertainment",
+   "cs": "Média a zábava"
+  },
+  "gaming": {
+   "en": "Gaming",
+   "cs": "Hry"
+  },
+  "health-wellness": {
+   "en": "Health and wellness",
+   "cs": "Zdraví a wellness"
+  },
+  "home-living": {
+   "en": "Home and living",
+   "cs": "Domov a bydlení"
+  },
+  "cz-local": {
+   "en": "Czech local brands",
+   "cs": "České značky"
+  }
+ },
+ "benchmarks": {
+  "all": {
+   "quantiles": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    11.257,
+    12.472,
+    13.875,
+    15.131,
+    17.871,
+    18.368,
+    18.742,
+    19.278,
+    19.698,
+    20.191,
+    20.515,
+    20.814,
+    20.959,
+    21.08,
+    21.277,
+    21.339,
+    21.759,
+    21.896,
+    22.101,
+    22.128,
+    22.144,
+    22.261,
+    22.454,
+    22.578,
+    22.578,
+    22.578,
+    22.578,
+    22.624,
+    22.712,
+    23.062,
+    23.207,
+    23.317,
+    23.543,
+    23.819,
+    23.931,
+    24.52,
+    25.972,
+    27.178,
+    28.713,
+    29.771,
+    30.414,
+    31.21,
+    31.84,
+    31.84,
+    31.84,
+    32.988,
+    33.837,
+    35.445,
+    36.191,
+    36.549,
+    37.132,
+    38.422,
+    38.776,
+    39.454,
+    39.69,
+    39.847,
+    40.04,
+    40.359,
+    40.529,
+    40.779,
+    41.063,
+    41.177,
+    41.51,
+    41.85,
+    42.429,
+    42.932,
+    42.932,
+    42.932,
+    44.57,
+    45.187,
+    45.771,
+    46.21,
+    46.581,
+    46.891,
+    47.264,
+    49.356,
+    52.36,
+    53.306,
+    53.927,
+    54.173,
+    55.136,
+    56.636,
+    63.37,
+    64.587,
+    69.015,
+    70.34,
+    72.023
+   ],
+   "stats": {
+    "n": 1000.0,
+    "mean": 29.28,
+    "p25": 20.81,
+    "p50": 25.97,
+    "p75": 41.18,
+    "p90": 52.36
+   }
+  },
+  "b2b-saas": {
+   "quantiles": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.046,
+    11.625,
+    11.625,
+    16.075,
+    18.686,
+    19.239,
+    19.278,
+    19.432,
+    19.669,
+    19.699,
+    19.884,
+    19.888,
+    20.337,
+    21.08,
+    21.08,
+    21.08,
+    21.08,
+    21.297,
+    21.759,
+    21.759,
+    21.807,
+    21.903,
+    22.053,
+    22.101,
+    22.103,
+    22.105,
+    22.107,
+    22.208,
+    22.299,
+    22.356,
+    22.484,
+    22.577,
+    22.578,
+    22.578,
+    22.578,
+    22.578,
+    22.702,
+    22.932,
+    23.317,
+    23.317,
+    23.491,
+    23.57,
+    26.719,
+    26.719,
+    28.382,
+    30.754,
+    31.165,
+    31.516,
+    34.083,
+    36.091,
+    36.61,
+    37.102,
+    37.605,
+    38.197,
+    38.865,
+    39.772,
+    39.842,
+    39.858,
+    39.887,
+    39.964,
+    40.291,
+    40.49,
+    40.705,
+    40.736,
+    40.779,
+    40.966,
+    41.204,
+    41.568,
+    42.732,
+    42.932,
+    43.579,
+    44.7,
+    44.778,
+    45.183,
+    45.2,
+    45.271,
+    46.195,
+    46.891,
+    51.577,
+    52.539,
+    54.153,
+    54.173,
+    54.373,
+    62.706,
+    68.105,
+    68.25,
+    68.711,
+    68.711,
+    70.03,
+    70.982
+   ],
+   "stats": {
+    "n": 120.0,
+    "mean": 29.82,
+    "p25": 21.08,
+    "p50": 23.32,
+    "p75": 40.78,
+    "p90": 52.54
+   }
+  },
+  "cz-local": {
+   "quantiles": [
+    0.0,
+    0.0,
+    7.372,
+    10.741,
+    11.663,
+    12.955,
+    13.654,
+    13.875,
+    14.396,
+    14.799,
+    15.148,
+    15.172,
+    15.172,
+    15.402,
+    15.585,
+    15.785,
+    18.48,
+    19.219,
+    19.807,
+    20.174,
+    20.533,
+    20.616,
+    20.769,
+    20.772,
+    20.986,
+    20.986,
+    21.017,
+    21.281,
+    21.297,
+    21.307,
+    21.391,
+    21.452,
+    22.044,
+    22.298,
+    22.306,
+    22.323,
+    22.578,
+    22.578,
+    22.578,
+    22.578,
+    23.296,
+    23.775,
+    25.489,
+    25.972,
+    26.689,
+    27.647,
+    28.261,
+    28.314,
+    28.499,
+    28.589,
+    28.712,
+    28.735,
+    28.959,
+    28.959,
+    28.959,
+    29.614,
+    30.424,
+    30.654,
+    31.21,
+    31.21,
+    31.21,
+    31.833,
+    31.84,
+    31.84,
+    32.5,
+    32.759,
+    32.915,
+    33.008,
+    33.456,
+    33.497,
+    34.928,
+    36.052,
+    36.249,
+    36.328,
+    36.546,
+    36.546,
+    40.317,
+    41.177,
+    41.177,
+    41.177,
+    41.528,
+    44.771,
+    45.621,
+    46.21,
+    46.312,
+    47.264,
+    47.264,
+    47.376,
+    47.605,
+    48.424,
+    49.355,
+    49.962,
+    50.59,
+    50.59,
+    51.347,
+    54.246,
+    54.246,
+    63.37,
+    63.37,
+    63.37,
+    65.59
+   ],
+   "stats": {
+    "n": 160.0,
+    "mean": 30.15,
+    "p25": 20.99,
+    "p50": 28.71,
+    "p75": 36.55,
+    "p90": 49.36
+   }
+  },
+  "finance": {
+   "quantiles": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    7.089,
+    11.505,
+    12.323,
+    18.368,
+    18.496,
+    18.715,
+    18.742,
+    18.742,
+    19.504,
+    19.99,
+    20.174,
+    20.286,
+    20.787,
+    21.556,
+    22.118,
+    22.146,
+    22.146,
+    22.46,
+    22.578,
+    22.578,
+    22.578,
+    22.578,
+    22.621,
+    22.673,
+    22.913,
+    23.088,
+    23.392,
+    23.767,
+    23.819,
+    23.819,
+    23.822,
+    24.093,
+    24.49,
+    26.567,
+    30.573,
+    31.768,
+    31.84,
+    31.84,
+    31.84,
+    31.84,
+    31.84,
+    31.84,
+    31.84,
+    33.335,
+    35.98,
+    36.084,
+    36.462,
+    37.982,
+    38.644,
+    38.687,
+    38.815,
+    39.511,
+    39.633,
+    39.69,
+    39.846,
+    40.038,
+    40.148,
+    40.371,
+    40.402,
+    40.625,
+    40.743,
+    40.923,
+    41.086,
+    41.173,
+    41.446,
+    42.158,
+    42.166,
+    42.289,
+    42.482,
+    42.828,
+    43.468,
+    45.185,
+    45.185,
+    45.675,
+    46.11,
+    46.329,
+    47.795,
+    52.89,
+    53.669,
+    53.842,
+    53.927,
+    54.691,
+    59.009,
+    69.305,
+    69.487,
+    70.066,
+    70.176
+   ],
+   "stats": {
+    "n": 120.0,
+    "mean": 29.66,
+    "p25": 20.29,
+    "p50": 31.84,
+    "p75": 40.92,
+    "p90": 47.79
+   }
+  },
+  "food-beverage": {
+   "quantiles": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    3.008,
+    10.741,
+    10.741,
+    12.997,
+    13.435,
+    14.397,
+    14.397,
+    16.531,
+    18.518,
+    18.674,
+    18.782,
+    19.787,
+    21.003,
+    21.277,
+    21.277,
+    21.285,
+    21.339,
+    21.339,
+    21.339,
+    21.35,
+    21.862,
+    22.139,
+    22.142,
+    22.286,
+    22.544,
+    22.578,
+    22.578,
+    22.578,
+    22.578,
+    22.776,
+    22.829,
+    23.231,
+    23.384,
+    23.715,
+    23.931,
+    23.931,
+    23.971,
+    24.505,
+    25.029,
+    25.029,
+    26.516,
+    29.816,
+    30.414,
+    30.414,
+    30.414,
+    31.597,
+    31.84,
+    32.371,
+    35.054,
+    36.651,
+    37.065,
+    38.597,
+    38.644,
+    38.937,
+    39.482,
+    39.482,
+    39.673,
+    39.69,
+    39.69,
+    39.69,
+    39.851,
+    40.412,
+    40.495,
+    40.772,
+    41.139,
+    41.139,
+    41.632,
+    41.933,
+    42.932,
+    42.932,
+    42.932,
+    42.932,
+    42.932,
+    43.255,
+    45.549,
+    46.518,
+    46.581,
+    46.581,
+    46.581,
+    48.531,
+    53.722,
+    54.173,
+    56.291,
+    56.636,
+    56.636,
+    61.957,
+    69.654,
+    70.837,
+    71.299
+   ],
+   "stats": {
+    "n": 120.0,
+    "mean": 28.99,
+    "p25": 21.28,
+    "p50": 25.03,
+    "p75": 40.77,
+    "p90": 46.58
+   }
+  },
+  "gaming": {
+   "quantiles": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    10.661,
+    11.494,
+    14.193,
+    18.885,
+    20.19,
+    20.463,
+    20.802,
+    20.825,
+    21.313,
+    21.889,
+    21.902,
+    22.008,
+    22.101,
+    22.117,
+    22.139,
+    22.139,
+    22.139,
+    22.146,
+    22.302,
+    22.578,
+    22.578,
+    22.578,
+    22.638,
+    22.725,
+    22.967,
+    23.16,
+    23.202,
+    23.22,
+    23.439,
+    23.698,
+    23.978,
+    26.268,
+    29.454,
+    29.906,
+    30.984,
+    32.903,
+    35.009,
+    35.395,
+    35.622,
+    36.732,
+    37.071,
+    37.645,
+    39.108,
+    39.281,
+    39.624,
+    40.052,
+    40.052,
+    40.503,
+    40.634,
+    41.013,
+    41.353,
+    41.527,
+    41.79,
+    42.42,
+    42.915,
+    42.922,
+    42.932,
+    42.932,
+    42.932,
+    44.122,
+    44.565,
+    45.633,
+    46.804,
+    47.23,
+    47.868,
+    53.306,
+    53.306,
+    53.425,
+    54.076,
+    55.195,
+    56.636,
+    59.876,
+    67.536,
+    69.666,
+    72.023
+   ],
+   "stats": {
+    "n": 120.0,
+    "mean": 25.69,
+    "p25": 0.0,
+    "p50": 22.97,
+    "p75": 41.01,
+    "p90": 47.87
+   }
+  },
+  "home-living": {
+   "quantiles": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    6.381,
+    10.375,
+    13.013,
+    14.397,
+    15.884,
+    17.938,
+    19.01,
+    20.512,
+    20.604,
+    20.842,
+    21.01,
+    21.111,
+    21.39,
+    21.933,
+    22.141,
+    22.303,
+    22.454,
+    22.454,
+    22.578,
+    22.614,
+    22.715,
+    22.719,
+    23.007,
+    23.317,
+    23.394,
+    23.733,
+    24.118,
+    24.476,
+    24.52,
+    24.52,
+    24.889,
+    25.544,
+    26.97,
+    29.309,
+    30.036,
+    31.223,
+    31.84,
+    33.083,
+    33.814,
+    33.946,
+    35.83,
+    37.198,
+    37.579,
+    38.172,
+    38.427,
+    38.732,
+    39.252,
+    39.755,
+    39.787,
+    40.134,
+    40.266,
+    40.902,
+    41.045,
+    41.233,
+    41.407,
+    41.668,
+    41.853,
+    42.018,
+    42.164,
+    42.244,
+    42.482,
+    42.594,
+    42.932,
+    43.632,
+    45.698,
+    46.064,
+    46.419,
+    46.916,
+    47.397,
+    47.861,
+    48.886,
+    49.44,
+    52.36,
+    52.751,
+    53.098,
+    53.571,
+    53.927,
+    53.998,
+    54.316,
+    56.395,
+    57.342,
+    57.916,
+    57.916,
+    62.686,
+    69.01,
+    70.185,
+    71.299
+   ],
+   "stats": {
+    "n": 120.0,
+    "mean": 31.11,
+    "p25": 21.11,
+    "p50": 31.84,
+    "p75": 42.59,
+    "p90": 53.93
+   }
+  },
+  "sport": {
+   "quantiles": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    18.208,
+    18.264,
+    18.368,
+    18.898,
+    19.237,
+    19.566,
+    19.59,
+    19.911,
+    20.295,
+    20.295,
+    20.809,
+    21.182,
+    21.876,
+    22.002,
+    22.104,
+    22.105,
+    22.154,
+    22.307,
+    22.487,
+    22.505,
+    22.515,
+    22.578,
+    22.578,
+    22.578,
+    22.578,
+    22.615,
+    22.624,
+    22.638,
+    22.706,
+    22.983,
+    23.241,
+    23.253,
+    23.317,
+    23.317,
+    23.692,
+    28.225,
+    30.376,
+    30.414,
+    31.253,
+    34.212,
+    35.22,
+    35.437,
+    36.196,
+    36.549,
+    36.758,
+    37.535,
+    38.952,
+    39.501,
+    39.618,
+    39.869,
+    39.935,
+    40.175,
+    40.249,
+    40.442,
+    40.464,
+    40.513,
+    40.785,
+    41.142,
+    41.527,
+    41.656,
+    42.316,
+    42.932,
+    42.932,
+    42.948,
+    44.608,
+    44.778,
+    44.778,
+    45.265,
+    45.429,
+    45.771,
+    46.001,
+    46.448,
+    46.767,
+    52.729,
+    53.306,
+    53.306,
+    53.709,
+    54.145,
+    54.145,
+    54.233,
+    55.652,
+    59.959,
+    64.556,
+    67.921,
+    70.662
+   ],
+   "stats": {
+    "n": 120.0,
+    "mean": 29.36,
+    "p25": 20.3,
+    "p50": 23.69,
+    "p75": 41.66,
+    "p90": 53.31
+   }
+  },
+  "travel": {
+   "quantiles": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    3.176,
+    12.1,
+    12.956,
+    12.987,
+    18.376,
+    18.705,
+    19.161,
+    19.232,
+    19.828,
+    20.292,
+    20.545,
+    20.819,
+    20.832,
+    20.872,
+    21.0,
+    21.017,
+    21.08,
+    21.08,
+    21.623,
+    21.856,
+    21.866,
+    21.874,
+    21.993,
+    22.127,
+    22.139,
+    22.152,
+    22.578,
+    22.578,
+    22.578,
+    22.578,
+    22.578,
+    22.703,
+    23.085,
+    23.126,
+    23.186,
+    23.207,
+    23.207,
+    23.207,
+    23.295,
+    23.472,
+    23.782,
+    23.819,
+    23.821,
+    24.154,
+    28.982,
+    31.691,
+    31.84,
+    31.84,
+    31.84,
+    31.84,
+    31.84,
+    35.337,
+    36.158,
+    37.007,
+    38.299,
+    38.878,
+    38.953,
+    39.095,
+    39.23,
+    39.612,
+    40.44,
+    40.659,
+    40.914,
+    41.143,
+    41.979,
+    42.648,
+    42.932,
+    42.932,
+    42.932,
+    43.569,
+    45.264,
+    45.771,
+    45.771,
+    45.858,
+    46.384,
+    46.518,
+    46.804,
+    46.891,
+    53.488,
+    55.212,
+    55.44,
+    55.864,
+    56.074,
+    56.498,
+    64.556,
+    66.849,
+    70.243,
+    70.689,
+    70.743
+   ],
+   "stats": {
+    "n": 120.0,
+    "mean": 29.15,
+    "p25": 20.87,
+    "p50": 23.3,
+    "p75": 41.14,
+    "p90": 53.49
+   }
+  }
+ },
+ "arena": [
+  {
+   "id": "p001",
+   "difficulty": "medium",
+   "cohort": "b2b-saas",
+   "platform": "blog",
+   "lang": "en",
+   "a": {
+    "text": "3 tips for better email automation",
+    "brand": "Mailorbit",
+    "success": 50.0,
+    "score": 45.2
+   },
+   "b": {
+    "text": "Why founders and experts choose email automation",
+    "brand": "Onboardly",
+    "success": 75.8,
+    "score": 40.7
+   },
+   "winner": "b",
+   "model_p_a": 0.537,
+   "upset": true,
+   "reasons_en": [
+    "A is stronger on utility (79 points).",
+    "B is stronger on relevance (63 points).",
+    "B is stronger on curiosity (37 points)."
+   ],
+   "reasons_cs": [
+    "A je silnější v oblasti: užitek (79 bodů).",
+    "B je silnější v oblasti: oslovení (63 bodů).",
+    "B je silnější v oblasti: zvědavost (37 bodů)."
+   ]
+  },
+  {
+   "id": "p002",
+   "difficulty": "medium",
+   "cohort": "food-beverage",
+   "platform": "instagram",
+   "lang": "en",
+   "a": {
+    "text": "Why most sourdough advice falls flat",
+    "brand": "Brewmoor Coffee",
+    "success": 86.5,
+    "score": 38.6
+   },
+   "b": {
+    "text": "A beginner guide to cold brew",
+    "brand": "Greenfork Meals",
+    "success": 62.4,
+    "score": 31.8
+   },
+   "winner": "a",
+   "model_p_a": 0.556,
+   "upset": false,
+   "reasons_en": [
+    "A is stronger on curiosity (71 points).",
+    "B is stronger on utility (54 points)."
+   ],
+   "reasons_cs": [
+    "A je silnější v oblasti: zvědavost (71 bodů).",
+    "B je silnější v oblasti: užitek (54 bodů)."
+   ]
+  },
+  {
+   "id": "p003",
+   "difficulty": "easy",
+   "cohort": "b2b-saas",
+   "platform": "linkedin",
+   "lang": "en",
+   "a": {
+    "text": "Your sales forecasting questions, answered in a way that works for teams of every size across every industry and every single region of the world",
+    "brand": "Quillo CRM",
+    "success": 27.6,
+    "score": 19.7
+   },
+   "b": {
+    "text": "4 customer onboarding mistakes that quietly cost you results",
+    "brand": "Quillo CRM",
+    "success": 76.3,
+    "score": 68.1
+   },
+   "winner": "b",
+   "model_p_a": 0.17,
+   "upset": false,
+   "reasons_en": [
+    "B is stronger on curiosity (54 points).",
+    "B is stronger on utility (54 points).",
+    "B is stronger on surprise (30 points)."
+   ],
+   "reasons_cs": [
+    "B je silnější v oblasti: zvědavost (54 bodů).",
+    "B je silnější v oblasti: užitek (54 bodů).",
+    "B je silnější v oblasti: překvapení (30 bodů)."
+   ]
+  },
+  {
+   "id": "p004",
+   "difficulty": "hard",
+   "cohort": "food-beverage",
+   "platform": "blog",
+   "lang": "en",
+   "a": {
+    "text": "Why coffee at home advice is usually wrong",
+    "brand": "Kettle and Crumb",
+    "success": 3.8,
+    "score": 46.6
+   },
+   "b": {
+    "text": "Company update: coffee at home",
+    "brand": "Brewmoor Coffee",
+    "success": 18.3,
+    "score": 14.4
+   },
+   "winner": "b",
+   "model_p_a": 0.742,
+   "upset": true,
+   "reasons_en": [
+    "A is stronger on surprise (60 points).",
+    "A is stronger on emotion (21 points).",
+    "A is stronger on fluency (17 points)."
+   ],
+   "reasons_cs": [
+    "A je silnější v oblasti: překvapení (60 bodů).",
+    "A je silnější v oblasti: emoce (21 bodů).",
+    "A je silnější v oblasti: srozumitelnost (17 bodů)."
+   ]
+  },
+  {
+   "id": "p005",
+   "difficulty": "hard",
+   "cohort": "finance",
+   "platform": "linkedin",
+   "lang": "en",
+   "a": {
+    "text": "Why emergency funds advice is usually wrong",
+    "brand": "Penny Harbor",
+    "success": 52.8,
+    "score": 45.2
+   },
+   "b": {
+    "text": "Index funds myths we need to retire in a way that works for teams of every size across every industry and every single region of the world",
+    "brand": "Lumen Bank",
+    "success": 40.6,
+    "score": 18.7
+   },
+   "winner": "a",
+   "model_p_a": 0.704,
+   "upset": false,
+   "reasons_en": [
+    "A is stronger on curiosity (37 points).",
+    "A is stronger on fluency (33 points).",
+    "A is stronger on emotion (21 points)."
+   ],
+   "reasons_cs": [
+    "A je silnější v oblasti: zvědavost (37 bodů).",
+    "A je silnější v oblasti: srozumitelnost (33 bodů).",
+    "A je silnější v oblasti: emoce (21 bodů)."
+   ]
+  },
+  {
+   "id": "p006",
+   "difficulty": "medium",
+   "cohort": "sport",
+   "platform": "youtube",
+   "lang": "en",
+   "a": {
+    "text": "Your yoga questions, answered",
+    "brand": "Peakline Cycling",
+    "success": 80.0,
+    "score": 19.6
+   },
+   "b": {
+    "text": "Why yoga advice is usually wrong in a way that works for teams of every size across every industry and every single region of the world",
+    "brand": "Peakline Cycling",
+    "success": 56.6,
+    "score": 39.9
+   },
+   "winner": "a",
+   "model_p_a": 0.34,
+   "upset": true,
+   "reasons_en": [
+    "B is stronger on surprise (60 points).",
+    "A is stronger on relevance (57 points).",
+    "B is stronger on curiosity (37 points)."
+   ],
+   "reasons_cs": [
+    "B je silnější v oblasti: překvapení (60 bodů).",
+    "A je silnější v oblasti: oslovení (57 bodů).",
+    "B je silnější v oblasti: zvědavost (37 bodů)."
+   ]
+  },
+  {
+   "id": "p007",
+   "difficulty": "medium",
+   "cohort": "travel",
+   "platform": "youtube",
+   "lang": "en",
+   "a": {
+    "text": "Stop doing city breaks the hard way",
+    "brand": "Voyago",
+    "success": 44.2,
+    "score": 22.6
+   },
+   "b": {
+    "text": "Company update: hotel deals",
+    "brand": "Voyago",
+    "success": 61.7,
+    "score": 13.0
+   },
+   "winner": "b",
+   "model_p_a": 0.578,
+   "upset": true,
+   "reasons_en": [
+    "A is stronger on surprise (60 points).",
+    "A is stronger on fluency (39 points).",
+    "B is stronger on curiosity (24 points)."
+   ],
+   "reasons_cs": [
+    "A je silnější v oblasti: překvapení (60 bodů).",
+    "A je silnější v oblasti: srozumitelnost (39 bodů).",
+    "B je silnější v oblasti: zvědavost (24 bodů)."
+   ]
+  },
+  {
+   "id": "p008",
+   "difficulty": "hard",
+   "cohort": "home-living",
+   "platform": "instagram",
+   "lang": "en",
+   "a": {
+    "text": "You won't believe what happened with smart lighting!!!",
+    "brand": "Nesta Living",
+    "success": 21.5,
+    "score": 25.5
+   },
+   "b": {
+    "text": "Plants at home news and announcements in a way that works for teams of every size across every industry and every single region of the world",
+    "brand": "Verdant Home",
+    "success": 12.8,
+    "score": 0.0
+   },
+   "winner": "a",
+   "model_p_a": 0.698,
+   "upset": false,
+   "reasons_en": [
+    "A is stronger on relevance (74 points).",
+    "A is stronger on surprise (60 points).",
+    "A is stronger on emotion (43 points).",
+    "A carries clickbait risk (82%), which costs trust."
+   ],
+   "reasons_cs": [
+    "A je silnější v oblasti: oslovení (74 bodů).",
+    "A je silnější v oblasti: překvapení (60 bodů).",
+    "A je silnější v oblasti: emoce (43 bodů).",
+    "A nese riziko clickbaitu (82%), což snižuje důvěru."
+   ]
+  },
+  {
+   "id": "p009",
+   "difficulty": "hard",
+   "cohort": "cz-local",
+   "platform": "blog",
+   "lang": "cs",
+   "a": {
+    "text": "Neuvěřitelný příběh: běžecké boty",
+    "brand": "Domovník",
+    "success": 80.1,
+    "score": 28.3
+   },
+   "b": {
+    "text": "Milujeme běžecké boty",
+    "brand": "Spořílek",
+    "success": 73.1,
+    "score": 20.6
+   },
+   "winner": "a",
+   "model_p_a": 0.562,
+   "upset": false,
+   "reasons_en": [
+    "A is stronger on curiosity (24 points)."
+   ],
+   "reasons_cs": [
+    "A je silnější v oblasti: zvědavost (24 bodů)."
+   ]
+  },
+  {
+   "id": "p010",
+   "difficulty": "easy",
+   "cohort": "food-beverage",
+   "platform": "instagram",
+   "lang": "en",
+   "a": {
+    "text": "15 things top performers do differently with plant-based dinners",
+    "brand": "Brewmoor Coffee",
+    "success": 66.8,
+    "score": 41.1
+   },
+   "b": {
+    "text": "6 coffee at home templates you can copy today",
+    "brand": "Kettle and Crumb",
+    "success": 20.6,
+    "score": 56.6
+   },
+   "winner": "a",
+   "model_p_a": 0.376,
+   "upset": true,
+   "reasons_en": [
+    "B is stronger on utility (25 points).",
+    "B is stronger on relevance (17 points).",
+    "B is stronger on fluency (17 points)."
+   ],
+   "reasons_cs": [
+    "B je silnější v oblasti: užitek (25 bodů).",
+    "B je silnější v oblasti: oslovení (17 bodů).",
+    "B je silnější v oblasti: srozumitelnost (17 bodů)."
+   ]
+  },
+  {
+   "id": "p011",
+   "difficulty": "medium",
+   "cohort": "travel",
+   "platform": "instagram",
+   "lang": "en",
+   "a": {
+    "text": "Everything you need for packing",
+    "brand": "Voyago",
+    "success": 48.0,
+    "score": 21.9
+   },
+   "b": {
+    "text": "3 city breaks mistakes that quietly cost you results",
+    "brand": "Skyhopper",
+    "success": 76.2,
+    "score": 70.5
+   },
+   "winner": "b",
+   "model_p_a": 0.169,
+   "upset": false,
+   "reasons_en": [
+    "B is stronger on curiosity (54 points).",
+    "B is stronger on utility (54 points).",
+    "B is stronger on surprise (30 points)."
+   ],
+   "reasons_cs": [
+    "B je silnější v oblasti: zvědavost (54 bodů).",
+    "B je silnější v oblasti: užitek (54 bodů).",
+    "B je silnější v oblasti: překvapení (30 bodů)."
+   ]
+  },
+  {
+   "id": "p012",
+   "difficulty": "easy",
+   "cohort": "gaming",
+   "platform": "x",
+   "lang": "en",
+   "a": {
+    "text": "Stop doing controllers the hard way",
+    "brand": "Pixelforge Games",
+    "success": 74.2,
+    "score": 22.1
+   },
+   "b": {
+    "text": "Why founders and experts choose game settings in a way that works for teams of every size across every industry and every single region of the world",
+    "brand": "Pixelforge Games",
+    "success": 28.5,
+    "score": 37.1
+   },
+   "winner": "a",
+   "model_p_a": 0.38,
+   "upset": true,
+   "reasons_en": [
+    "B is stronger on relevance (63 points).",
+    "A is stronger on surprise (60 points).",
+    "B is stronger on curiosity (37 points)."
+   ],
+   "reasons_cs": [
+    "B je silnější v oblasti: oslovení (63 bodů).",
+    "A je silnější v oblasti: překvapení (60 bodů).",
+    "B je silnější v oblasti: zvědavost (37 bodů)."
+   ]
+  },
+  {
+   "id": "p013",
+   "difficulty": "hard",
+   "cohort": "home-living",
+   "platform": "blog",
+   "lang": "en",
+   "a": {
+    "text": "The hidden truth about sleep setups",
+    "brand": "Nesta Living",
+    "success": 60.9,
+    "score": 42.2
+   },
+   "b": {
+    "text": "Decluttering myths we need to retire",
+    "brand": "Lumiline",
+    "success": 68.8,
+    "score": 21.9
+   },
+   "winner": "b",
+   "model_p_a": 0.66,
+   "upset": true,
+   "reasons_en": [
+    "A is stronger on curiosity (79 points).",
+    "B is stronger on surprise (60 points)."
+   ],
+   "reasons_cs": [
+    "A je silnější v oblasti: zvědavost (79 bodů).",
+    "B je silnější v oblasti: překvapení (60 bodů)."
+   ]
+  },
+  {
+   "id": "p014",
+   "difficulty": "easy",
+   "cohort": "finance",
+   "platform": "x",
+   "lang": "en",
+   "a": {
+    "text": "This one trick changes everything about mortgage rates",
+    "brand": "Penny Harbor",
+    "success": 18.4,
+    "score": 0.0
+   },
+   "b": {
+    "text": "Index funds myths we need to retire",
+    "brand": "Coinharbor",
+    "success": 51.8,
+    "score": 22.6
+   },
+   "winner": "b",
+   "model_p_a": 0.323,
+   "upset": false,
+   "reasons_en": [
+    "B is stronger on surprise (60 points).",
+    "B is stronger on fluency (17 points).",
+    "A carries clickbait risk (86%), which costs trust."
+   ],
+   "reasons_cs": [
+    "B je silnější v oblasti: překvapení (60 bodů).",
+    "B je silnější v oblasti: srozumitelnost (17 bodů).",
+    "A nese riziko clickbaitu (86%), což snižuje důvěru."
+   ]
+  },
+  {
+   "id": "p015",
+   "difficulty": "medium",
+   "cohort": "cz-local",
+   "platform": "instagram",
+   "lang": "cs",
+   "a": {
+    "text": "Vyplatí se chytrá domácnost? tak, aby to fungovalo pro týmy všech velikostí napříč všemi obory a ve všech regionech celého světa",
+    "brand": "Domovník",
+    "success": 51.1,
+    "score": 6.6
+   },
+   "b": {
+    "text": "4 věcí, které dělají špičky kolem osobního rozpočtu",
+    "brand": "Spořílek",
+    "success": 71.8,
+    "score": 31.2
+   },
+   "winner": "b",
+   "model_p_a": 0.309,
+   "upset": false,
+   "reasons_en": [
+    "B is stronger on utility (54 points).",
+    "B is stronger on fluency (24 points).",
+    "A is stronger on emotion (15 points)."
+   ],
+   "reasons_cs": [
+    "B je silnější v oblasti: užitek (54 bodů).",
+    "B je silnější v oblasti: srozumitelnost (24 bodů).",
+    "A je silnější v oblasti: emoce (15 bodů)."
+   ]
+  },
+  {
+   "id": "p016",
+   "difficulty": "easy",
+   "cohort": "cz-local",
+   "platform": "instagram",
+   "lang": "cs",
+   "a": {
+    "text": "Aktuality: běžecké boty",
+    "brand": "Spořílek",
+    "success": 10.6,
+    "score": 12.2
+   },
+   "b": {
+    "text": "21 věcí, které dělají špičky kolem chytré domácnosti",
+    "brand": "Šlapka",
+    "success": 57.2,
+    "score": 36.3
+   },
+   "winner": "b",
+   "model_p_a": 0.312,
+   "upset": false,
+   "reasons_en": [
+    "B is stronger on utility (54 points).",
+    "B is stronger on fluency (45 points).",
+    "A is stronger on curiosity (24 points)."
+   ],
+   "reasons_cs": [
+    "B je silnější v oblasti: užitek (54 bodů).",
+    "B je silnější v oblasti: srozumitelnost (45 bodů).",
+    "A je silnější v oblasti: zvědavost (24 bodů)."
+   ]
+  },
+  {
+   "id": "p017",
+   "difficulty": "medium",
+   "cohort": "finance",
+   "platform": "x",
+   "lang": "en",
+   "a": {
+    "text": "Why founders and experts choose index funds",
+    "brand": "Coinharbor",
+    "success": 53.1,
+    "score": 42.2
+   },
+   "b": {
+    "text": "We are obsessed with emergency funds in a way that works for teams of every size across every industry and every single region of the world",
+    "brand": "Penny Harbor",
+    "success": 24.7,
+    "score": 18.4
+   },
+   "winner": "a",
+   "model_p_a": 0.686,
+   "upset": false,
+   "reasons_en": [
+    "A is stronger on relevance (63 points).",
+    "B is stronger on emotion (49 points).",
+    "A is stronger on curiosity (37 points)."
+   ],
+   "reasons_cs": [
+    "A je silnější v oblasti: oslovení (63 bodů).",
+    "B je silnější v oblasti: emoce (49 bodů).",
+    "A je silnější v oblasti: zvědavost (37 bodů)."
+   ]
+  },
+  {
+   "id": "p018",
+   "difficulty": "medium",
+   "cohort": "cz-local",
+   "platform": "instagram",
+   "lang": "cs",
+   "a": {
+    "text": "10 věcí, které dělají špičky kolem osobního rozpočtu",
+    "brand": "Hrnek a Hvězda",
+    "success": 50.8,
+    "score": 31.2
+   },
+   "b": {
+    "text": "Milujeme běžecké boty",
+    "brand": "Šlapka",
+    "success": 23.0,
+    "score": 20.6
+   },
+   "winner": "a",
+   "model_p_a": 0.586,
+   "upset": false,
+   "reasons_en": [
+    "B is stronger on emotion (57 points).",
+    "A is stronger on utility (54 points).",
+    "A is stronger on fluency (40 points)."
+   ],
+   "reasons_cs": [
+    "B je silnější v oblasti: emoce (57 bodů).",
+    "A je silnější v oblasti: užitek (54 bodů).",
+    "A je silnější v oblasti: srozumitelnost (40 bodů)."
+   ]
+  },
+  {
+   "id": "p019",
+   "difficulty": "medium",
+   "cohort": "gaming",
+   "platform": "x",
+   "lang": "en",
+   "a": {
+    "text": "Stop doing game settings the hard way",
+    "brand": "Pixelforge Games",
+    "success": 73.8,
+    "score": 22.6
+   },
+   "b": {
+    "text": "10 speedrunning mistakes that quietly cost you results in a way that works for teams of every size across every industry and every single region of the world",
+    "brand": "Pixelforge Games",
+    "success": 95.7,
+    "score": 64.2
+   },
+   "winner": "b",
+   "model_p_a": 0.204,
+   "upset": false,
+   "reasons_en": [
+    "B is stronger on relevance (57 points).",
+    "B is stronger on curiosity (54 points).",
+    "B is stronger on utility (54 points)."
+   ],
+   "reasons_cs": [
+    "B je silnější v oblasti: oslovení (57 bodů).",
+    "B je silnější v oblasti: zvědavost (54 bodů).",
+    "B je silnější v oblasti: užitek (54 bodů)."
+   ]
+  },
+  {
+   "id": "p020",
+   "difficulty": "medium",
+   "cohort": "b2b-saas",
+   "platform": "blog",
+   "lang": "en",
+   "a": {
+    "text": "What nobody tells you about CRM",
+    "brand": "Onboardly",
+    "success": 53.3,
+    "score": 54.2
+   },
+   "b": {
+    "text": "Churn myths we need to retire",
+    "brand": "Quillo CRM",
+    "success": 29.2,
+    "score": 22.6
+   },
+   "winner": "a",
+   "model_p_a": 0.738,
+   "upset": false,
+   "reasons_en": [
+    "A is stronger on curiosity (71 points).",
+    "B is stronger on surprise (60 points).",
+    "A is stronger on relevance (57 points)."
+   ],
+   "reasons_cs": [
+    "A je silnější v oblasti: zvědavost (71 bodů).",
+    "B je silnější v oblasti: překvapení (60 bodů).",
+    "A je silnější v oblasti: oslovení (57 bodů)."
+   ]
+  },
+  {
+   "id": "p021",
+   "difficulty": "medium",
+   "cohort": "food-beverage",
+   "platform": "blog",
+   "lang": "en",
+   "a": {
+    "text": "Cold brew that people absolutely love",
+    "brand": "Greenfork Meals",
+    "success": 52.5,
+    "score": 24.3
+   },
+   "b": {
+    "text": "Why smoothies advice is usually wrong",
+    "brand": "Brewmoor Coffee",
+    "success": 75.8,
+    "score": 45.1
+   },
+   "winner": "b",
+   "model_p_a": 0.336,
+   "upset": false,
+   "reasons_en": [
+    "B is stronger on surprise (60 points).",
+    "B is stronger on curiosity (37 points).",
+    "A is stronger on emotion (36 points)."
+   ],
+   "reasons_cs": [
+    "B je silnější v oblasti: překvapení (60 bodů).",
+    "B je silnější v oblasti: zvědavost (37 bodů).",
+    "A je silnější v oblasti: emoce (36 bodů)."
+   ]
+  },
+  {
+   "id": "p022",
+   "difficulty": "easy",
+   "cohort": "cz-local",
+   "platform": "instagram",
+   "lang": "cs",
+   "a": {
+    "text": "3 věcí, které dělají špičky kolem osobního rozpočtu",
+    "brand": "Hrnek a Hvězda",
+    "success": 82.2,
+    "score": 31.2
+   },
+   "b": {
+    "text": "Mýty o cestování po Česku, kterým nesmíte věřit",
+    "brand": "Hrnek a Hvězda",
+    "success": 40.5,
+    "score": 22.6
+   },
+   "winner": "a",
+   "model_p_a": 0.57,
+   "upset": false,
+   "reasons_en": [
+    "B is stronger on surprise (60 points).",
+    "A is stronger on utility (54 points)."
+   ],
+   "reasons_cs": [
+    "B je silnější v oblasti: překvapení (60 bodů).",
+    "A je silnější v oblasti: užitek (54 bodů)."
+   ]
+  },
+  {
+   "id": "p023",
+   "difficulty": "medium",
+   "cohort": "gaming",
+   "platform": "x",
+   "lang": "en",
+   "a": {
+    "text": "Indie releases that people absolutely love",
+    "brand": "Arcadium",
+    "success": 68.7,
+    "score": 23.2
+   },
+   "b": {
+    "text": "Should you rethink game settings this year?",
+    "brand": "Pixelforge Games",
+    "success": 50.0,
+    "score": 40.6
+   },
+   "winner": "a",
+   "model_p_a": 0.361,
+   "upset": true,
+   "reasons_en": [
+    "A is stronger on emotion (57 points).",
+    "B is stronger on relevance (57 points).",
+    "B is stronger on curiosity (37 points)."
+   ],
+   "reasons_cs": [
+    "A je silnější v oblasti: emoce (57 bodů).",
+    "B je silnější v oblasti: oslovení (57 bodů).",
+    "B je silnější v oblasti: zvědavost (37 bodů)."
+   ]
+  },
+  {
+   "id": "p024",
+   "difficulty": "easy",
+   "cohort": "cz-local",
+   "platform": "blog",
+   "lang": "cs",
+   "a": {
+    "text": "15 věcí, které dělají špičky kolem osobního rozpočtu",
+    "brand": "Hrnek a Hvězda",
+    "success": 42.9,
+    "score": 31.2
+   },
+   "b": {
+    "text": "Váš průvodce: cestování po Česku",
+    "brand": "Hrnek a Hvězda",
+    "success": 84.0,
+    "score": 54.2
+   },
+   "winner": "b",
+   "model_p_a": 0.32,
+   "upset": false,
+   "reasons_en": [
+    "B is stronger on relevance (57 points).",
+    "B is stronger on curiosity (24 points)."
+   ],
+   "reasons_cs": [
+    "B je silnější v oblasti: oslovení (57 bodů).",
+    "B je silnější v oblasti: zvědavost (24 bodů)."
+   ]
+  },
+  {
+   "id": "p025",
+   "difficulty": "hard",
+   "cohort": "cz-local",
+   "platform": "instagram",
+   "lang": "cs",
+   "a": {
+    "text": "Vyplatí se domácí káva?",
+    "brand": "Hrnek a Hvězda",
+    "success": 37.8,
+    "score": 21.0
+   },
+   "b": {
+    "text": "Představujeme naši novou nabídku: online nakupování",
+    "brand": "Domovník",
+    "success": 51.2,
+    "score": 13.9
+   },
+   "winner": "b",
+   "model_p_a": 0.558,
+   "upset": true,
+   "reasons_en": [
+    "A is stronger on curiosity (13 points)."
+   ],
+   "reasons_cs": [
+    "A je silnější v oblasti: zvědavost (13 bodů)."
+   ]
+  },
+  {
+   "id": "p026",
+   "difficulty": "easy",
+   "cohort": "travel",
+   "platform": "instagram",
+   "lang": "en",
+   "a": {
+    "text": "Is road trips worth the money? in a way that works for teams of every size across every industry and every single region of the world",
+    "brand": "Tripnest",
+    "success": 58.0,
+    "score": 19.3
+   },
+   "b": {
+    "text": "Your city breaks questions, answered",
+    "brand": "Skyhopper",
+    "success": 19.1,
+    "score": 20.8
+   },
+   "winner": "a",
+   "model_p_a": 0.487,
+   "upset": false,
+   "reasons_en": [
+    "B is stronger on relevance (57 points).",
+    "A is stronger on curiosity (37 points).",
+    "B is stronger on fluency (9 points)."
+   ],
+   "reasons_cs": [
+    "B je silnější v oblasti: oslovení (57 bodů).",
+    "A je silnější v oblasti: zvědavost (37 bodů).",
+    "B je silnější v oblasti: srozumitelnost (9 bodů)."
+   ]
+  },
+  {
+   "id": "p027",
+   "difficulty": "easy",
+   "cohort": "finance",
+   "platform": "linkedin",
+   "lang": "en",
+   "a": {
+    "text": "How to start with emergency funds",
+    "brand": "Coinharbor",
+    "success": 85.9,
+    "score": 31.7
+   },
+   "b": {
+    "text": "Shocking budgeting secrets revealed!!!",
+    "brand": "Coinharbor",
+    "success": 29.2,
+    "score": 22.1
+   },
+   "winner": "a",
+   "model_p_a": 0.578,
+   "upset": false,
+   "reasons_en": [
+    "B is stronger on curiosity (79 points).",
+    "B is stronger on emotion (66 points).",
+    "A is stronger on fluency (63 points).",
+    "B carries clickbait risk (82%), which costs trust."
+   ],
+   "reasons_cs": [
+    "B je silnější v oblasti: zvědavost (79 bodů).",
+    "B je silnější v oblasti: emoce (66 bodů).",
+    "A je silnější v oblasti: srozumitelnost (63 bodů).",
+    "B nese riziko clickbaitu (82%), což snižuje důvěru."
+   ]
+  },
+  {
+   "id": "p028",
+   "difficulty": "hard",
+   "cohort": "food-beverage",
+   "platform": "blog",
+   "lang": "en",
+   "a": {
+    "text": "You won't believe what happened with cold brew!!!",
+    "brand": "Greenfork Meals",
+    "success": 12.5,
+    "score": 23.3
+   },
+   "b": {
+    "text": "Everything you need for cold brew",
+    "brand": "Greenfork Meals",
+    "success": 19.2,
+    "score": 23.9
+   },
+   "winner": "b",
+   "model_p_a": 0.495,
+   "upset": false,
+   "reasons_en": [
+    "A is stronger on surprise (60 points).",
+    "A is stronger on emotion (33 points).",
+    "A carries clickbait risk (82%), which costs trust."
+   ],
+   "reasons_cs": [
+    "A je silnější v oblasti: překvapení (60 bodů).",
+    "A je silnější v oblasti: emoce (33 bodů).",
+    "A nese riziko clickbaitu (82%), což snižuje důvěru."
+   ]
+  },
+  {
+   "id": "p029",
+   "difficulty": "easy",
+   "cohort": "cz-local",
+   "platform": "blog",
+   "lang": "cs",
+   "a": {
+    "text": "Milujeme běžecké boty",
+    "brand": "Šlapka",
+    "success": 76.3,
+    "score": 20.6
+   },
+   "b": {
+    "text": "Představujeme naši novou nabídku: online nakupování",
+    "brand": "Šlapka",
+    "success": 13.5,
+    "score": 13.9
+   },
+   "winner": "a",
+   "model_p_a": 0.555,
+   "upset": false,
+   "reasons_en": [
+    "A is stronger on emotion (57 points).",
+    "B is stronger on curiosity (24 points).",
+    "B is stronger on fluency (20 points)."
+   ],
+   "reasons_cs": [
+    "A je silnější v oblasti: emoce (57 bodů).",
+    "B je silnější v oblasti: zvědavost (24 bodů).",
+    "B je silnější v oblasti: srozumitelnost (20 bodů)."
+   ]
+  },
+  {
+   "id": "p030",
+   "difficulty": "easy",
+   "cohort": "food-beverage",
+   "platform": "blog",
+   "lang": "en",
+   "a": {
+    "text": "Sourdough: a practical playbook",
+    "brand": "Kettle and Crumb",
+    "success": 54.2,
+    "score": 34.4
+   },
+   "b": {
+    "text": "How to start with smoothies",
+    "brand": "Greenfork Meals",
+    "success": 95.8,
+    "score": 30.4
+   },
+   "winner": "b",
+   "model_p_a": 0.532,
+   "upset": true,
+   "reasons_en": [
+    "B is stronger on fluency (41 points).",
+    "A is stronger on curiosity (24 points)."
+   ],
+   "reasons_cs": [
+    "B je silnější v oblasti: srozumitelnost (41 bodů).",
+    "A je silnější v oblasti: zvědavost (24 bodů)."
+   ]
+  },
+  {
+   "id": "p031",
+   "difficulty": "easy",
+   "cohort": "sport",
+   "platform": "youtube",
+   "lang": "en",
+   "a": {
+    "text": "Is yoga worth the money?",
+    "brand": "Kinetiq Gear",
+    "success": 73.7,
+    "score": 22.1
+   },
+   "b": {
+    "text": "Marathon training news and announcements",
+    "brand": "Kinetiq Gear",
+    "success": 19.5,
+    "score": 0.0
+   },
+   "winner": "a",
+   "model_p_a": 0.674,
+   "upset": false,
+   "reasons_en": [
+    "A is stronger on curiosity (37 points).",
+    "A is stronger on fluency (35 points)."
+   ],
+   "reasons_cs": [
+    "A je silnější v oblasti: zvědavost (37 bodů).",
+    "A je silnější v oblasti: srozumitelnost (35 bodů)."
+   ]
+  },
+  {
+   "id": "p032",
+   "difficulty": "hard",
+   "cohort": "gaming",
+   "platform": "x",
+   "lang": "en",
+   "a": {
+    "text": "3 co-op games mistakes that quietly cost you results",
+    "brand": "Arcadium",
+    "success": 65.3,
+    "score": 72.0
+   },
+   "b": {
+    "text": "Controllers myths we need to retire",
+    "brand": "Questloop",
+    "success": 52.3,
+    "score": 22.1
+   },
+   "winner": "a",
+   "model_p_a": 0.837,
+   "upset": false,
+   "reasons_en": [
+    "A is stronger on relevance (57 points).",
+    "A is stronger on curiosity (54 points).",
+    "A is stronger on utility (54 points)."
+   ],
+   "reasons_cs": [
+    "A je silnější v oblasti: oslovení (57 bodů).",
+    "A je silnější v oblasti: zvědavost (54 bodů).",
+    "A je silnější v oblasti: užitek (54 bodů)."
+   ]
+  },
+  {
+   "id": "p033",
+   "difficulty": "medium",
+   "cohort": "cz-local",
+   "platform": "blog",
+   "lang": "cs",
+   "a": {
+    "text": "Naše novinky: chytrá domácnost ve třetím čtvrtletí",
+    "brand": "Domovník",
+    "success": 43.6,
+    "score": 21.3
+   },
+   "b": {
+    "text": "Neuvěřitelný příběh: chytrá domácnost tak, aby to fungovalo pro týmy všech velikostí napříč všemi obory a ve všech regionech celého světa",
+    "brand": "Domovník",
+    "success": 59.6,
+    "score": 32.9
+   },
+   "winner": "b",
+   "model_p_a": 0.406,
+   "upset": false,
+   "reasons_en": [
+    "B is stronger on emotion (41 points).",
+    "A is stronger on fluency (22 points)."
+   ],
+   "reasons_cs": [
+    "B je silnější v oblasti: emoce (41 bodů).",
+    "A je silnější v oblasti: srozumitelnost (22 bodů)."
+   ]
+  },
+  {
+   "id": "p034",
+   "difficulty": "easy",
+   "cohort": "b2b-saas",
+   "platform": "linkedin",
+   "lang": "en",
+   "a": {
+    "text": "We are obsessed with product analytics",
+    "brand": "Mailorbit",
+    "success": 19.7,
+    "score": 21.1
+   },
+   "b": {
+    "text": "What nobody tells you about sales forecasting",
+    "brand": "Mailorbit",
+    "success": 54.9,
+    "score": 52.0
+   },
+   "winner": "b",
+   "model_p_a": 0.266,
+   "upset": false,
+   "reasons_en": [
+    "B is stronger on curiosity (71 points).",
+    "B is stronger on relevance (57 points).",
+    "A is stronger on emotion (49 points)."
+   ],
+   "reasons_cs": [
+    "B je silnější v oblasti: zvědavost (71 bodů).",
+    "B je silnější v oblasti: oslovení (57 bodů).",
+    "A je silnější v oblasti: emoce (49 bodů)."
+   ]
+  },
+  {
+   "id": "p035",
+   "difficulty": "medium",
+   "cohort": "travel",
+   "platform": "youtube",
+   "lang": "en",
+   "a": {
+    "text": "Stop doing city breaks the hard way",
+    "brand": "Voyago",
+    "success": 44.2,
+    "score": 22.6
+   },
+   "b": {
+    "text": "Your weekend trips questions, answered",
+    "brand": "Tripnest",
+    "success": 20.3,
+    "score": 20.3
+   },
+   "winner": "a",
+   "model_p_a": 0.519,
+   "upset": false,
+   "reasons_en": [
+    "A is stronger on surprise (60 points).",
+    "B is stronger on relevance (57 points).",
+    "A is stronger on fluency (39 points)."
+   ],
+   "reasons_cs": [
+    "A je silnější v oblasti: překvapení (60 bodů).",
+    "B je silnější v oblasti: oslovení (57 bodů).",
+    "A je silnější v oblasti: srozumitelnost (39 bodů)."
+   ]
+  },
+  {
+   "id": "p036",
+   "difficulty": "medium",
+   "cohort": "food-beverage",
+   "platform": "instagram",
+   "lang": "en",
+   "a": {
+    "text": "Cold brew: a practical playbook",
+    "brand": "Greenfork Meals",
+    "success": 54.7,
+    "score": 39.5
+   },
+   "b": {
+    "text": "You won't believe what happened with plant-based dinners!!!",
+    "brand": "Greenfork Meals",
+    "success": 35.8,
+    "score": 22.8
+   },
+   "winner": "a",
+   "model_p_a": 0.633,
+   "upset": false,
+   "reasons_en": [
+    "B is stronger on surprise (60 points).",
+    "B is stronger on relevance (57 points).",
+    "A is stronger on utility (54 points).",
+    "B carries clickbait risk (82%), which costs trust."
+   ],
+   "reasons_cs": [
+    "B je silnější v oblasti: překvapení (60 bodů).",
+    "B je silnější v oblasti: oslovení (57 bodů).",
+    "A je silnější v oblasti: užitek (54 bodů).",
+    "B nese riziko clickbaitu (82%), což snižuje důvěru."
+   ]
+  },
+  {
+   "id": "p037",
+   "difficulty": "easy",
+   "cohort": "travel",
+   "platform": "youtube",
+   "lang": "en",
+   "a": {
+    "text": "21 road trips mistakes that quietly cost you results",
+    "brand": "Tripnest",
+    "success": 74.7,
+    "score": 70.7
+   },
+   "b": {
+    "text": "Hotel deals news and announcements",
+    "brand": "Skyhopper",
+    "success": 20.5,
+    "score": 0.0
+   },
+   "winner": "a",
+   "model_p_a": 0.91,
+   "upset": false,
+   "reasons_en": [
+    "A is stronger on relevance (57 points).",
+    "A is stronger on curiosity (54 points).",
+    "A is stronger on utility (54 points)."
+   ],
+   "reasons_cs": [
+    "A je silnější v oblasti: oslovení (57 bodů).",
+    "A je silnější v oblasti: zvědavost (54 bodů).",
+    "A je silnější v oblasti: užitek (54 bodů)."
+   ]
+  },
+  {
+   "id": "p038",
+   "difficulty": "medium",
+   "cohort": "finance",
+   "platform": "x",
+   "lang": "en",
+   "a": {
+    "text": "8 things top performers do differently with emergency funds",
+    "brand": "Penny Harbor",
+    "success": 48.0,
+    "score": 40.4
+   },
+   "b": {
+    "text": "Why most emergency funds advice falls flat",
+    "brand": "Coinharbor",
+    "success": 66.4,
+    "score": 38.7
+   },
+   "winner": "b",
+   "model_p_a": 0.514,
+   "upset": false,
+   "reasons_en": [
+    "B is stronger on curiosity (71 points).",
+    "A is stronger on utility (54 points).",
+    "A is stronger on relevance (39 points)."
+   ],
+   "reasons_cs": [
+    "B je silnější v oblasti: zvědavost (71 bodů).",
+    "A je silnější v oblasti: užitek (54 bodů).",
+    "A je silnější v oblasti: oslovení (39 bodů)."
+   ]
+  },
+  {
+   "id": "p039",
+   "difficulty": "easy",
+   "cohort": "b2b-saas",
+   "platform": "linkedin",
+   "lang": "en",
+   "a": {
+    "text": "Email automation: a practical playbook",
+    "brand": "Onboardly",
+    "success": 21.2,
+    "score": 36.6
+   },
+   "b": {
+    "text": "Should you rethink CRM this year?",
+    "brand": "Onboardly",
+    "success": 58.3,
+    "score": 41.6
+   },
+   "winner": "b",
+   "model_p_a": 0.459,
+   "upset": false,
+   "reasons_en": [
+    "B is stronger on relevance (57 points).",
+    "A is stronger on utility (54 points).",
+    "B is stronger on fluency (39 points)."
+   ],
+   "reasons_cs": [
+    "B je silnější v oblasti: oslovení (57 bodů).",
+    "A je silnější v oblasti: užitek (54 bodů).",
+    "B je silnější v oblasti: srozumitelnost (39 bodů)."
+   ]
+  },
+  {
+   "id": "p040",
+   "difficulty": "medium",
+   "cohort": "food-beverage",
+   "platform": "instagram",
+   "lang": "en",
+   "a": {
+    "text": "Why cold brew advice is usually wrong",
+    "brand": "Brewmoor Coffee",
+    "success": 63.4,
+    "score": 46.6
+   },
+   "b": {
+    "text": "Our Q3 coffee at home update in a way that works for teams of every size across every industry and every single region of the world",
+    "brand": "Brewmoor Coffee",
+    "success": 46.4,
+    "score": 0.0
+   },
+   "winner": "a",
+   "model_p_a": 0.822,
+   "upset": false,
+   "reasons_en": [
+    "A is stronger on surprise (60 points).",
+    "A is stronger on fluency (42 points).",
+    "A is stronger on curiosity (37 points)."
+   ],
+   "reasons_cs": [
+    "A je silnější v oblasti: překvapení (60 bodů).",
+    "A je silnější v oblasti: srozumitelnost (42 bodů).",
+    "A je silnější v oblasti: zvědavost (37 bodů)."
+   ]
+  },
+  {
+   "id": "p041",
+   "difficulty": "medium",
+   "cohort": "b2b-saas",
+   "platform": "linkedin",
+   "lang": "en",
+   "a": {
+    "text": "Crm myths we need to retire",
+    "brand": "Onboardly",
+    "success": 78.5,
+    "score": 22.6
+   },
+   "b": {
+    "text": "Stop doing customer onboarding the hard way",
+    "brand": "Onboardly",
+    "success": 56.2,
+    "score": 21.8
+   },
+   "winner": "a",
+   "model_p_a": 0.507,
+   "upset": false,
+   "reasons_en": [
+    "A is stronger on fluency (9 points)."
+   ],
+   "reasons_cs": [
+    "A je silnější v oblasti: srozumitelnost (9 bodů)."
+   ]
+  },
+  {
+   "id": "p042",
+   "difficulty": "hard",
+   "cohort": "cz-local",
+   "platform": "blog",
+   "lang": "cs",
+   "a": {
+    "text": "Naše novinky: osobní rozpočet ve třetím čtvrtletí",
+    "brand": "Spořílek",
+    "success": 41.7,
+    "score": 15.2
+   },
+   "b": {
+    "text": "9 věcí, které dělají špičky kolem domácí kávy",
+    "brand": "Šlapka",
+    "success": 55.8,
+    "score": 31.8
+   },
+   "winner": "b",
+   "model_p_a": 0.367,
+   "upset": false,
+   "reasons_en": [
+    "B is stronger on utility (54 points).",
+    "A is stronger on curiosity (24 points)."
+   ],
+   "reasons_cs": [
+    "B je silnější v oblasti: užitek (54 bodů).",
+    "A je silnější v oblasti: zvědavost (24 bodů)."
+   ]
+  },
+  {
+   "id": "p043",
+   "difficulty": "hard",
+   "cohort": "cz-local",
+   "platform": "instagram",
+   "lang": "cs",
+   "a": {
+    "text": "Přestaňte dělat osobní rozpočet špatně",
+    "brand": "Hrnek a Hvězda",
+    "success": 58.0,
+    "score": 33.5
+   },
+   "b": {
+    "text": "4 věcí, které dělají špičky kolem osobního rozpočtu",
+    "brand": "Spořílek",
+    "success": 71.8,
+    "score": 31.2
+   },
+   "winner": "b",
+   "model_p_a": 0.518,
+   "upset": true,
+   "reasons_en": [
+    "A is stronger on surprise (84 points).",
+    "B is stronger on utility (54 points).",
+    "B is stronger on fluency (23 points)."
+   ],
+   "reasons_cs": [
+    "A je silnější v oblasti: překvapení (84 bodů).",
+    "B je silnější v oblasti: užitek (54 bodů).",
+    "B je silnější v oblasti: srozumitelnost (23 bodů)."
+   ]
+  },
+  {
+   "id": "p044",
+   "difficulty": "medium",
+   "cohort": "food-beverage",
+   "platform": "blog",
+   "lang": "en",
+   "a": {
+    "text": "Why founders and experts choose sourdough in a way that works for teams of every size across every industry and every single region of the world",
+    "brand": "Greenfork Meals",
+    "success": 10.8,
+    "score": 37.1
+   },
+   "b": {
+    "text": "Coffee at home: a practical playbook in a way that works for teams of every size across every industry and every single region of the world",
+    "brand": "Brewmoor Coffee",
+    "success": 35.0,
+    "score": 36.1
+   },
+   "winner": "b",
+   "model_p_a": 0.508,
+   "upset": false,
+   "reasons_en": [
+    "A is stronger on relevance (63 points).",
+    "B is stronger on utility (54 points).",
+    "A is stronger on curiosity (13 points)."
+   ],
+   "reasons_cs": [
+    "A je silnější v oblasti: oslovení (63 bodů).",
+    "B je silnější v oblasti: užitek (54 bodů).",
+    "A je silnější v oblasti: zvědavost (13 bodů)."
+   ]
+  },
+  {
+   "id": "p045",
+   "difficulty": "hard",
+   "cohort": "finance",
+   "platform": "x",
+   "lang": "en",
+   "a": {
+    "text": "Company update: emergency funds",
+    "brand": "Coinharbor",
+    "success": 21.7,
+    "score": 12.1
+   },
+   "b": {
+    "text": "You won't believe what happened with saving!!!",
+    "brand": "Lumen Bank",
+    "success": 34.6,
+    "score": 22.9
+   },
+   "winner": "b",
+   "model_p_a": 0.412,
+   "upset": false,
+   "reasons_en": [
+    "B is stronger on surprise (60 points).",
+    "B is stronger on relevance (57 points).",
+    "B is stronger on fluency (43 points).",
+    "B carries clickbait risk (82%), which costs trust."
+   ],
+   "reasons_cs": [
+    "B je silnější v oblasti: překvapení (60 bodů).",
+    "B je silnější v oblasti: oslovení (57 bodů).",
+    "B je silnější v oblasti: srozumitelnost (43 bodů).",
+    "B nese riziko clickbaitu (82%), což snižuje důvěru."
+   ]
+  },
+  {
+   "id": "p046",
+   "difficulty": "medium",
+   "cohort": "gaming",
+   "platform": "youtube",
+   "lang": "en",
+   "a": {
+    "text": "Esports: a practical playbook",
+    "brand": "Arcadium",
+    "success": 70.9,
+    "score": 35.4
+   },
+   "b": {
+    "text": "15 esports mistakes that quietly cost you results",
+    "brand": "Arcadium",
+    "success": 54.2,
+    "score": 69.7
+   },
+   "winner": "a",
+   "model_p_a": 0.246,
+   "upset": true,
+   "reasons_en": [
+    "B is stronger on relevance (57 points).",
+    "B is stronger on fluency (31 points).",
+    "B is stronger on surprise (30 points)."
+   ],
+   "reasons_cs": [
+    "B je silnější v oblasti: oslovení (57 bodů).",
+    "B je silnější v oblasti: srozumitelnost (31 bodů).",
+    "B je silnější v oblasti: překvapení (30 bodů)."
+   ]
+  },
+  {
+   "id": "p047",
+   "difficulty": "easy",
+   "cohort": "food-beverage",
+   "platform": "blog",
+   "lang": "en",
+   "a": {
+    "text": "Plant-based dinners myths we need to retire",
+    "brand": "Kettle and Crumb",
+    "success": 35.8,
+    "score": 22.6
+   },
+   "b": {
+    "text": "Meal prep: a practical playbook",
+    "brand": "Greenfork Meals",
+    "success": 78.3,
+    "score": 39.5
+   },
+   "winner": "b",
+   "model_p_a": 0.365,
+   "upset": false,
+   "reasons_en": [
+    "A is stronger on surprise (60 points).",
+    "B is stronger on utility (54 points).",
+    "B is stronger on curiosity (24 points)."
+   ],
+   "reasons_cs": [
+    "A je silnější v oblasti: překvapení (60 bodů).",
+    "B je silnější v oblasti: užitek (54 bodů).",
+    "B je silnější v oblasti: zvědavost (24 bodů)."
+   ]
+  },
+  {
+   "id": "p048",
+   "difficulty": "easy",
+   "cohort": "travel",
+   "platform": "youtube",
+   "lang": "en",
+   "a": {
+    "text": "The hidden truth about packing in a way that works for teams of every size across every industry and every single region of the world",
+    "brand": "Voyago",
+    "success": 81.1,
+    "score": 36.5
+   },
+   "b": {
+    "text": "How to start with city breaks",
+    "brand": "Skyhopper",
+    "success": 37.6,
+    "score": 31.8
+   },
+   "winner": "a",
+   "model_p_a": 0.539,
+   "upset": false,
+   "reasons_en": [
+    "A is stronger on curiosity (79 points).",
+    "B is stronger on utility (54 points).",
+    "B is stronger on fluency (42 points)."
+   ],
+   "reasons_cs": [
+    "A je silnější v oblasti: zvědavost (79 bodů).",
+    "B je silnější v oblasti: užitek (54 bodů).",
+    "B je silnější v oblasti: srozumitelnost (42 bodů)."
+   ]
+  },
+  {
+   "id": "p049",
+   "difficulty": "medium",
+   "cohort": "travel",
+   "platform": "youtube",
+   "lang": "en",
+   "a": {
+    "text": "How to start with road trips",
+    "brand": "Skyhopper",
+    "success": 25.5,
+    "score": 31.8
+   },
+   "b": {
+    "text": "Weekend trips that people absolutely love",
+    "brand": "Voyago",
+    "success": 44.3,
+    "score": 23.4
+   },
+   "winner": "b",
+   "model_p_a": 0.569,
+   "upset": true,
+   "reasons_en": [
+    "B is stronger on emotion (57 points).",
+    "A is stronger on utility (54 points).",
+    "A is stronger on fluency (19 points)."
+   ],
+   "reasons_cs": [
+    "B je silnější v oblasti: emoce (57 bodů).",
+    "A je silnější v oblasti: užitek (54 bodů).",
+    "A je silnější v oblasti: srozumitelnost (19 bodů)."
+   ]
+  },
+  {
+   "id": "p050",
+   "difficulty": "easy",
+   "cohort": "b2b-saas",
+   "platform": "linkedin",
+   "lang": "en",
+   "a": {
+    "text": "4 customer onboarding mistakes that quietly cost you results",
+    "brand": "Quillo CRM",
+    "success": 76.3,
+    "score": 68.1
+   },
+   "b": {
+    "text": "Churn news and announcements",
+    "brand": "Quillo CRM",
+    "success": 28.1,
+    "score": 0.0
+   },
+   "winner": "a",
+   "model_p_a": 0.903,
+   "upset": false,
+   "reasons_en": [
+    "A is stronger on relevance (57 points).",
+    "A is stronger on curiosity (54 points).",
+    "A is stronger on utility (54 points)."
+   ],
+   "reasons_cs": [
+    "A je silnější v oblasti: oslovení (57 bodů).",
+    "A je silnější v oblasti: zvědavost (54 bodů).",
+    "A je silnější v oblasti: užitek (54 bodů)."
+   ]
+  },
+  {
+   "id": "p051",
+   "difficulty": "hard",
+   "cohort": "cz-local",
+   "platform": "blog",
+   "lang": "cs",
+   "a": {
+    "text": "Přestaňte dělat domácí kávu špatně",
+    "brand": "Šlapka",
+    "success": 93.6,
+    "score": 34.9
+   },
+   "b": {
+    "text": "Skrytá pravda o běžeckých botách",
+    "brand": "Hrnek a Hvězda",
+    "success": 86.5,
+    "score": 41.2
+   },
+   "winner": "a",
+   "model_p_a": 0.449,
+   "upset": true,
+   "reasons_en": [
+    "A is stronger on surprise (84 points).",
+    "B is stronger on curiosity (79 points).",
+    "A is stronger on emotion (21 points)."
+   ],
+   "reasons_cs": [
+    "A je silnější v oblasti: překvapení (84 bodů).",
+    "B je silnější v oblasti: zvědavost (79 bodů).",
+    "A je silnější v oblasti: emoce (21 bodů)."
+   ]
+  },
+  {
+   "id": "p052",
+   "difficulty": "easy",
+   "cohort": "food-beverage",
+   "platform": "instagram",
+   "lang": "en",
+   "a": {
+    "text": "3 meal prep templates you can copy today",
+    "brand": "Kettle and Crumb",
+    "success": 60.5,
+    "score": 56.6
+   },
+   "b": {
+    "text": "Company update: sourdough",
+    "brand": "Kettle and Crumb",
+    "success": 15.3,
+    "score": 10.7
+   },
+   "winner": "a",
+   "model_p_a": 0.818,
+   "upset": false,
+   "reasons_en": [
+    "A is stronger on utility (79 points).",
+    "A is stronger on fluency (72 points).",
+    "A is stronger on relevance (57 points)."
+   ],
+   "reasons_cs": [
+    "A je silnější v oblasti: užitek (79 bodů).",
+    "A je silnější v oblasti: srozumitelnost (72 bodů).",
+    "A je silnější v oblasti: oslovení (57 bodů)."
+   ]
+  },
+  {
+   "id": "p053",
+   "difficulty": "medium",
+   "cohort": "finance",
+   "platform": "linkedin",
+   "lang": "en",
+   "a": {
+    "text": "How to start with saving",
+    "brand": "Coinharbor",
+    "success": 51.9,
+    "score": 30.4
+   },
+   "b": {
+    "text": "Should you rethink mortgage rates this year?",
+    "brand": "Lumen Bank",
+    "success": 70.1,
+    "score": 40.3
+   },
+   "winner": "b",
+   "model_p_a": 0.419,
+   "upset": false,
+   "reasons_en": [
+    "B is stronger on relevance (57 points).",
+    "A is stronger on utility (54 points).",
+    "B is stronger on curiosity (37 points)."
+   ],
+   "reasons_cs": [
+    "B je silnější v oblasti: oslovení (57 bodů).",
+    "A je silnější v oblasti: užitek (54 bodů).",
+    "B je silnější v oblasti: zvědavost (37 bodů)."
+   ]
+  },
+  {
+   "id": "p054",
+   "difficulty": "hard",
+   "cohort": "cz-local",
+   "platform": "instagram",
+   "lang": "cs",
+   "a": {
+    "text": "Aktuality: osobní rozpočet",
+    "brand": "Spořílek",
+    "success": 47.3,
+    "score": 11.3
+   },
+   "b": {
+    "text": "Průvodce pro začátečníky: online nakupování",
+    "brand": "Hrnek a Hvězda",
+    "success": 56.9,
+    "score": 45.3
+   },
+   "winner": "b",
+   "model_p_a": 0.247,
+   "upset": false,
+   "reasons_en": [
+    "B is stronger on utility (79 points).",
+    "B is stronger on fluency (25 points)."
+   ],
+   "reasons_cs": [
+    "B je silnější v oblasti: užitek (79 bodů).",
+    "B je silnější v oblasti: srozumitelnost (25 bodů)."
+   ]
+  },
+  {
+   "id": "p055",
+   "difficulty": "easy",
+   "cohort": "b2b-saas",
+   "platform": "blog",
+   "lang": "en",
+   "a": {
+    "text": "Customer onboarding: a practical playbook in a way that works for teams of every size across every industry and every single region of the world",
+    "brand": "Mailorbit",
+    "success": 65.8,
+    "score": 35.7
+   },
+   "b": {
+    "text": "The incredible story behind sales forecasting",
+    "brand": "Quillo CRM",
+    "success": 32.5,
+    "score": 19.7
+   },
+   "winner": "a",
+   "model_p_a": 0.629,
+   "upset": false,
+   "reasons_en": [
+    "A is stronger on utility (54 points).",
+    "B is stronger on emotion (49 points).",
+    "A is stronger on curiosity (24 points)."
+   ],
+   "reasons_cs": [
+    "A je silnější v oblasti: užitek (54 bodů).",
+    "B je silnější v oblasti: emoce (49 bodů).",
+    "A je silnější v oblasti: zvědavost (24 bodů)."
+   ]
+  },
+  {
+   "id": "p056",
+   "difficulty": "hard",
+   "cohort": "gaming",
+   "platform": "youtube",
+   "lang": "en",
+   "a": {
+    "text": "Why founders and experts choose game settings",
+    "brand": "Arcadium",
+    "success": 51.2,
+    "score": 41.6
+   },
+   "b": {
+    "text": "How to start with speedrunning",
+    "brand": "Pixelforge Games",
+    "success": 44.0,
+    "score": 29.4
+   },
+   "winner": "a",
+   "model_p_a": 0.598,
+   "upset": false,
+   "reasons_en": [
+    "A is stronger on relevance (63 points).",
+    "B is stronger on utility (54 points).",
+    "A is stronger on curiosity (37 points)."
+   ],
+   "reasons_cs": [
+    "A je silnější v oblasti: oslovení (63 bodů).",
+    "B je silnější v oblasti: užitek (54 bodů).",
+    "A je silnější v oblasti: zvědavost (37 bodů)."
+   ]
+  },
+  {
+   "id": "p057",
+   "difficulty": "medium",
+   "cohort": "sport",
+   "platform": "youtube",
+   "lang": "en",
+   "a": {
+    "text": "Your running shoes questions, answered",
+    "brand": "Peakline Cycling",
+    "success": 37.1,
+    "score": 20.3
+   },
+   "b": {
+    "text": "Why yoga advice is usually wrong in a way that works for teams of every size across every industry and every single region of the world",
+    "brand": "Peakline Cycling",
+    "success": 56.6,
+    "score": 39.9
+   },
+   "winner": "b",
+   "model_p_a": 0.345,
+   "upset": false,
+   "reasons_en": [
+    "B is stronger on surprise (60 points).",
+    "A is stronger on relevance (57 points).",
+    "B is stronger on curiosity (37 points)."
+   ],
+   "reasons_cs": [
+    "B je silnější v oblasti: překvapení (60 bodů).",
+    "A je silnější v oblasti: oslovení (57 bodů).",
+    "B je silnější v oblasti: zvědavost (37 bodů)."
+   ]
+  },
+  {
+   "id": "p058",
+   "difficulty": "medium",
+   "cohort": "gaming",
+   "platform": "x",
+   "lang": "en",
+   "a": {
+    "text": "Our Q3 controllers update",
+    "brand": "Questloop",
+    "success": 19.9,
+    "score": 0.0
+   },
+   "b": {
+    "text": "Your speedrunning questions, answered",
+    "brand": "Arcadium",
+    "success": 44.4,
+    "score": 17.8
+   },
+   "winner": "b",
+   "model_p_a": 0.358,
+   "upset": false,
+   "reasons_en": [
+    "B is stronger on relevance (57 points).",
+    "A is stronger on fluency (12 points)."
+   ],
+   "reasons_cs": [
+    "B je silnější v oblasti: oslovení (57 bodů).",
+    "A je silnější v oblasti: srozumitelnost (12 bodů)."
+   ]
+  },
+  {
+   "id": "p059",
+   "difficulty": "easy",
+   "cohort": "sport",
+   "platform": "youtube",
+   "lang": "en",
+   "a": {
+    "text": "3 yoga mistakes that quietly cost you results",
+    "brand": "Zorvia Running",
+    "success": 94.8,
+    "score": 70.7
+   },
+   "b": {
+    "text": "Shocking yoga secrets revealed!!!",
+    "brand": "Kinetiq Gear",
+    "success": 26.1,
+    "score": 23.3
+   },
+   "winner": "a",
+   "model_p_a": 0.826,
+   "upset": false,
+   "reasons_en": [
+    "A is stronger on relevance (57 points).",
+    "A is stronger on utility (54 points).",
+    "B is stronger on emotion (45 points).",
+    "B carries clickbait risk (82%), which costs trust."
+   ],
+   "reasons_cs": [
+    "A je silnější v oblasti: oslovení (57 bodů).",
+    "A je silnější v oblasti: užitek (54 bodů).",
+    "B je silnější v oblasti: emoce (45 bodů).",
+    "B nese riziko clickbaitu (82%), což snižuje důvěru."
+   ]
+  },
+  {
+   "id": "p060",
+   "difficulty": "easy",
+   "cohort": "b2b-saas",
+   "platform": "linkedin",
+   "lang": "en",
+   "a": {
+    "text": "You won't believe what happened with customer onboarding!!!",
+    "brand": "Quillo CRM",
+    "success": 10.1,
+    "score": 21.9
+   },
+   "b": {
+    "text": "Churn myths we need to retire",
+    "brand": "Mailorbit",
+    "success": 59.1,
+    "score": 22.6
+   },
+   "winner": "b",
+   "model_p_a": 0.494,
+   "upset": false,
+   "reasons_en": [
+    "A is stronger on relevance (57 points).",
+    "A is stronger on emotion (33 points).",
+    "B is stronger on fluency (22 points).",
+    "A carries clickbait risk (82%), which costs trust."
+   ],
+   "reasons_cs": [
+    "A je silnější v oblasti: oslovení (57 bodů).",
+    "A je silnější v oblasti: emoce (33 bodů).",
+    "B je silnější v oblasti: srozumitelnost (22 bodů).",
+    "A nese riziko clickbaitu (82%), což snižuje důvěru."
+   ]
+  },
+  {
+   "id": "p061",
+   "difficulty": "medium",
+   "cohort": "travel",
+   "platform": "instagram",
+   "lang": "en",
+   "a": {
+    "text": "Stop doing hotel deals the hard way",
+    "brand": "Tripnest",
+    "success": 45.2,
+    "score": 22.6
+   },
+   "b": {
+    "text": "Why founders and experts choose city breaks",
+    "brand": "Tripnest",
+    "success": 63.6,
+    "score": 42.2
+   },
+   "winner": "b",
+   "model_p_a": 0.345,
+   "upset": false,
+   "reasons_en": [
+    "B is stronger on relevance (63 points).",
+    "A is stronger on surprise (60 points).",
+    "B is stronger on curiosity (37 points)."
+   ],
+   "reasons_cs": [
+    "B je silnější v oblasti: oslovení (63 bodů).",
+    "A je silnější v oblasti: překvapení (60 bodů).",
+    "B je silnější v oblasti: zvědavost (37 bodů)."
+   ]
+  },
+  {
+   "id": "p062",
+   "difficulty": "medium",
+   "cohort": "sport",
+   "platform": "instagram",
+   "lang": "en",
+   "a": {
+    "text": "Stop doing strength training the hard way",
+    "brand": "Zorvia Running",
+    "success": 75.2,
+    "score": 22.1
+   },
+   "b": {
+    "text": "Your strength training questions, answered",
+    "brand": "Zorvia Running",
+    "success": 58.3,
+    "score": 19.2
+   },
+   "winner": "a",
+   "model_p_a": 0.523,
+   "upset": false,
+   "reasons_en": [
+    "A is stronger on surprise (60 points).",
+    "B is stronger on relevance (57 points).",
+    "A is stronger on fluency (44 points)."
+   ],
+   "reasons_cs": [
+    "A je silnější v oblasti: překvapení (60 bodů).",
+    "B je silnější v oblasti: oslovení (57 bodů).",
+    "A je silnější v oblasti: srozumitelnost (44 bodů)."
+   ]
+  },
+  {
+   "id": "p063",
+   "difficulty": "easy",
+   "cohort": "cz-local",
+   "platform": "blog",
+   "lang": "cs",
+   "a": {
+    "text": "8 chyb, které děláte u chytré domácnosti",
+    "brand": "Domovník",
+    "success": 37.8,
+    "score": 65.6
+   },
+   "b": {
+    "text": "Váš průvodce: domácí káva",
+    "brand": "Hrnek a Hvězda",
+    "success": 92.3,
+    "score": 52.2
+   },
+   "winner": "b",
+   "model_p_a": 0.608,
+   "upset": true,
+   "reasons_en": [
+    "B is stronger on relevance (57 points).",
+    "A is stronger on emotion (33 points).",
+    "A is stronger on surprise (30 points)."
+   ],
+   "reasons_cs": [
+    "B je silnější v oblasti: oslovení (57 bodů).",
+    "A je silnější v oblasti: emoce (33 bodů).",
+    "A je silnější v oblasti: překvapení (30 bodů)."
+   ]
+  },
+  {
+   "id": "p064",
+   "difficulty": "hard",
+   "cohort": "food-beverage",
+   "platform": "instagram",
+   "lang": "en",
+   "a": {
+    "text": "Why most cold brew advice falls flat",
+    "brand": "Greenfork Meals",
+    "success": 31.3,
+    "score": 39.7
+   },
+   "b": {
+    "text": "6 coffee at home templates you can copy today",
+    "brand": "Kettle and Crumb",
+    "success": 20.6,
+    "score": 56.6
+   },
+   "winner": "a",
+   "model_p_a": 0.365,
+   "upset": true,
+   "reasons_en": [
+    "B is stronger on utility (79 points).",
+    "A is stronger on curiosity (71 points).",
+    "B is stronger on relevance (57 points)."
+   ],
+   "reasons_cs": [
+    "B je silnější v oblasti: užitek (79 bodů).",
+    "A je silnější v oblasti: zvědavost (71 bodů).",
+    "B je silnější v oblasti: oslovení (57 bodů)."
+   ]
+  },
+  {
+   "id": "p065",
+   "difficulty": "medium",
+   "cohort": "travel",
+   "platform": "youtube",
+   "lang": "en",
+   "a": {
+    "text": "Packing that people absolutely love",
+    "brand": "Voyago",
+    "success": 70.2,
+    "score": 21.9
+   },
+   "b": {
+    "text": "Packing: a practical playbook",
+    "brand": "Tripnest",
+    "success": 50.4,
+    "score": 35.4
+   },
+   "winner": "a",
+   "model_p_a": 0.391,
+   "upset": true,
+   "reasons_en": [
+    "A is stronger on emotion (57 points).",
+    "B is stronger on utility (54 points).",
+    "B is stronger on curiosity (24 points)."
+   ],
+   "reasons_cs": [
+    "A je silnější v oblasti: emoce (57 bodů).",
+    "B je silnější v oblasti: užitek (54 bodů).",
+    "B je silnější v oblasti: zvědavost (24 bodů)."
+   ]
+  },
+  {
+   "id": "p066",
+   "difficulty": "medium",
+   "cohort": "food-beverage",
+   "platform": "instagram",
+   "lang": "en",
+   "a": {
+    "text": "You won't believe what happened with plant-based dinners!!!",
+    "brand": "Kettle and Crumb",
+    "success": 12.8,
+    "score": 22.8
+   },
+   "b": {
+    "text": "Why cold brew advice is usually wrong",
+    "brand": "Greenfork Meals",
+    "success": 42.5,
+    "score": 46.6
+   },
+   "winner": "b",
+   "model_p_a": 0.315,
+   "upset": false,
+   "reasons_en": [
+    "A is stronger on relevance (57 points).",
+    "B is stronger on curiosity (37 points).",
+    "A is stronger on emotion (12 points).",
+    "A carries clickbait risk (82%), which costs trust."
+   ],
+   "reasons_cs": [
+    "A je silnější v oblasti: oslovení (57 bodů).",
+    "B je silnější v oblasti: zvědavost (37 bodů).",
+    "A je silnější v oblasti: emoce (12 bodů).",
+    "A nese riziko clickbaitu (82%), což snižuje důvěru."
+   ]
+  },
+  {
+   "id": "p067",
+   "difficulty": "medium",
+   "cohort": "finance",
+   "platform": "x",
+   "lang": "en",
+   "a": {
+    "text": "This one trick changes everything about mortgage rates",
+    "brand": "Penny Harbor",
+    "success": 18.4,
+    "score": 0.0
+   },
+   "b": {
+    "text": "Why index funds advice is usually wrong",
+    "brand": "Penny Harbor",
+    "success": 45.6,
+    "score": 46.4
+   },
+   "winner": "b",
+   "model_p_a": 0.18,
+   "upset": false,
+   "reasons_en": [
+    "B is stronger on surprise (60 points).",
+    "B is stronger on curiosity (37 points).",
+    "B is stronger on emotion (21 points).",
+    "A carries clickbait risk (86%), which costs trust."
+   ],
+   "reasons_cs": [
+    "B je silnější v oblasti: překvapení (60 bodů).",
+    "B je silnější v oblasti: zvědavost (37 bodů).",
+    "B je silnější v oblasti: emoce (21 bodů).",
+    "A nese riziko clickbaitu (86%), což snižuje důvěru."
+   ]
+  },
+  {
+   "id": "p068",
+   "difficulty": "medium",
+   "cohort": "food-beverage",
+   "platform": "blog",
+   "lang": "en",
+   "a": {
+    "text": "The incredible story behind cold brew",
+    "brand": "Kettle and Crumb",
+    "success": 56.7,
+    "score": 21.3
+   },
+   "b": {
+    "text": "How to start with plant-based dinners in a way that works for teams of every size across every industry and every single region of the world",
+    "brand": "Brewmoor Coffee",
+    "success": 40.8,
+    "score": 26.7
+   },
+   "winner": "a",
+   "model_p_a": 0.456,
+   "upset": true,
+   "reasons_en": [
+    "B is stronger on utility (54 points).",
+    "A is stronger on emotion (49 points).",
+    "A is stronger on fluency (32 points)."
+   ],
+   "reasons_cs": [
+    "B je silnější v oblasti: užitek (54 bodů).",
+    "A je silnější v oblasti: emoce (49 bodů).",
+    "A je silnější v oblasti: srozumitelnost (32 bodů)."
+   ]
+  },
+  {
+   "id": "p069",
+   "difficulty": "medium",
+   "cohort": "travel",
+   "platform": "youtube",
+   "lang": "en",
+   "a": {
+    "text": "Shocking hotel deals secrets revealed!!!",
+    "brand": "Skyhopper",
+    "success": 70.1,
+    "score": 24.6
+   },
+   "b": {
+    "text": "Weekend trips that people absolutely love",
+    "brand": "Voyago",
+    "success": 44.3,
+    "score": 23.4
+   },
+   "winner": "a",
+   "model_p_a": 0.51,
+   "upset": false,
+   "reasons_en": [
+    "A is stronger on curiosity (79 points).",
+    "B is stronger on fluency (20 points).",
+    "A is stronger on emotion (9 points).",
+    "A carries clickbait risk (82%), which costs trust."
+   ],
+   "reasons_cs": [
+    "A je silnější v oblasti: zvědavost (79 bodů).",
+    "B je silnější v oblasti: srozumitelnost (20 bodů).",
+    "A je silnější v oblasti: emoce (9 bodů).",
+    "A nese riziko clickbaitu (82%), což snižuje důvěru."
+   ]
+  },
+  {
+   "id": "p070",
+   "difficulty": "medium",
+   "cohort": "b2b-saas",
+   "platform": "linkedin",
+   "lang": "en",
+   "a": {
+    "text": "Shocking CRM secrets revealed!!!",
+    "brand": "Quillo CRM",
+    "success": 59.0,
+    "score": 23.6
+   },
+   "b": {
+    "text": "What nobody tells you about churn in a way that works for teams of every size across every industry and every single region of the world",
+    "brand": "Quillo CRM",
+    "success": 37.5,
+    "score": 46.9
+   },
+   "winner": "a",
+   "model_p_a": 0.318,
+   "upset": true,
+   "reasons_en": [
+    "A is stronger on emotion (66 points).",
+    "B is stronger on relevance (57 points).",
+    "A carries clickbait risk (82%), which costs trust."
+   ],
+   "reasons_cs": [
+    "A je silnější v oblasti: emoce (66 bodů).",
+    "B je silnější v oblasti: oslovení (57 bodů).",
+    "A nese riziko clickbaitu (82%), což snižuje důvěru."
+   ]
+  },
+  {
+   "id": "p071",
+   "difficulty": "easy",
+   "cohort": "food-beverage",
+   "platform": "blog",
+   "lang": "en",
+   "a": {
+    "text": "7 things top performers do differently with meal prep",
+    "brand": "Kettle and Crumb",
+    "success": 96.7,
+    "score": 41.9
+   },
+   "b": {
+    "text": "Cold brew myths we need to retire",
+    "brand": "Greenfork Meals",
+    "success": 40.8,
+    "score": 22.6
+   },
+   "winner": "a",
+   "model_p_a": 0.653,
+   "upset": false,
+   "reasons_en": [
+    "B is stronger on surprise (60 points).",
+    "A is stronger on utility (54 points).",
+    "A is stronger on relevance (39 points)."
+   ],
+   "reasons_cs": [
+    "B je silnější v oblasti: překvapení (60 bodů).",
+    "A je silnější v oblasti: užitek (54 bodů).",
+    "A je silnější v oblasti: oslovení (39 bodů)."
+   ]
+  },
+  {
+   "id": "p072",
+   "difficulty": "hard",
+   "cohort": "sport",
+   "platform": "instagram",
+   "lang": "en",
+   "a": {
+    "text": "Your strength training questions, answered",
+    "brand": "Zorvia Running",
+    "success": 58.3,
+    "score": 19.2
+   },
+   "b": {
+    "text": "Why most cycling advice falls flat",
+    "brand": "Peakline Cycling",
+    "success": 67.8,
+    "score": 39.3
+   },
+   "winner": "b",
+   "model_p_a": 0.342,
+   "upset": false,
+   "reasons_en": [
+    "B is stronger on curiosity (71 points).",
+    "A is stronger on relevance (57 points).",
+    "B is stronger on fluency (46 points)."
+   ],
+   "reasons_cs": [
+    "B je silnější v oblasti: zvědavost (71 bodů).",
+    "A je silnější v oblasti: oslovení (57 bodů).",
+    "B je silnější v oblasti: srozumitelnost (46 bodů)."
+   ]
+  },
+  {
+   "id": "p073",
+   "difficulty": "hard",
+   "cohort": "finance",
+   "platform": "x",
+   "lang": "en",
+   "a": {
+    "text": "Credit cards news and announcements in a way that works for teams of every size across every industry and every single region of the world",
+    "brand": "Coinharbor",
+    "success": 31.9,
+    "score": 0.0
+   },
+   "b": {
+    "text": "This one trick changes everything about index funds",
+    "brand": "Lumen Bank",
+    "success": 25.2,
+    "score": 0.0
+   },
+   "winner": "a",
+   "model_p_a": 0.5,
+   "upset": false,
+   "reasons_en": [
+    "B is stronger on fluency (30 points).",
+    "B carries clickbait risk (86%), which costs trust."
+   ],
+   "reasons_cs": [
+    "B je silnější v oblasti: srozumitelnost (30 bodů).",
+    "B nese riziko clickbaitu (86%), což snižuje důvěru."
+   ]
+  },
+  {
+   "id": "p074",
+   "difficulty": "hard",
+   "cohort": "cz-local",
+   "platform": "instagram",
+   "lang": "cs",
+   "a": {
+    "text": "Přestaňte dělat cestování po Česku špatně",
+    "brand": "Spořílek",
+    "success": 46.4,
+    "score": 36.5
+   },
+   "b": {
+    "text": "Skrytá pravda o běžeckých botách",
+    "brand": "Spořílek",
+    "success": 39.4,
+    "score": 41.2
+   },
+   "winner": "a",
+   "model_p_a": 0.462,
+   "upset": true,
+   "reasons_en": [
+    "A is stronger on surprise (84 points).",
+    "B is stronger on curiosity (79 points).",
+    "A is stronger on emotion (21 points)."
+   ],
+   "reasons_cs": [
+    "A je silnější v oblasti: překvapení (84 bodů).",
+    "B je silnější v oblasti: zvědavost (79 bodů).",
+    "A je silnější v oblasti: emoce (21 bodů)."
+   ]
+  },
+  {
+   "id": "p075",
+   "difficulty": "easy",
+   "cohort": "gaming",
+   "platform": "x",
+   "lang": "en",
+   "a": {
+    "text": "Why founders and experts choose controllers",
+    "brand": "Questloop",
+    "success": 53.9,
+    "score": 40.1
+   },
+   "b": {
+    "text": "Co-op games news and announcements",
+    "brand": "Pixelforge Games",
+    "success": 21.2,
+    "score": 0.0
+   },
+   "winner": "a",
+   "model_p_a": 0.788,
+   "upset": false,
+   "reasons_en": [
+    "A is stronger on relevance (63 points).",
+    "A is stronger on curiosity (37 points).",
+    "B is stronger on fluency (20 points)."
+   ],
+   "reasons_cs": [
+    "A je silnější v oblasti: oslovení (63 bodů).",
+    "A je silnější v oblasti: zvědavost (37 bodů).",
+    "B je silnější v oblasti: srozumitelnost (20 bodů)."
+   ]
+  },
+  {
+   "id": "p076",
+   "difficulty": "medium",
+   "cohort": "finance",
+   "platform": "linkedin",
+   "lang": "en",
+   "a": {
+    "text": "3 things top performers do differently with emergency funds",
+    "brand": "Penny Harbor",
+    "success": 76.8,
+    "score": 40.4
+   },
+   "b": {
+    "text": "Shocking mortgage rates secrets revealed!!!",
+    "brand": "Lumen Bank",
+    "success": 58.0,
+    "score": 23.8
+   },
+   "winner": "a",
+   "model_p_a": 0.633,
+   "upset": false,
+   "reasons_en": [
+    "B is stronger on curiosity (79 points).",
+    "B is stronger on emotion (66 points).",
+    "A is stronger on utility (54 points).",
+    "B carries clickbait risk (82%), which costs trust."
+   ],
+   "reasons_cs": [
+    "B je silnější v oblasti: zvědavost (79 bodů).",
+    "B je silnější v oblasti: emoce (66 bodů).",
+    "A je silnější v oblasti: užitek (54 bodů).",
+    "B nese riziko clickbaitu (82%), což snižuje důvěru."
+   ]
+  },
+  {
+   "id": "p077",
+   "difficulty": "easy",
+   "cohort": "sport",
+   "platform": "instagram",
+   "lang": "en",
+   "a": {
+    "text": "Should you rethink strength training this year?",
+    "brand": "Zorvia Running",
+    "success": 81.6,
+    "score": 39.5
+   },
+   "b": {
+    "text": "Our Q3 marathon training update",
+    "brand": "Peakline Cycling",
+    "success": 31.0,
+    "score": 0.0
+   },
+   "winner": "a",
+   "model_p_a": 0.785,
+   "upset": false,
+   "reasons_en": [
+    "A is stronger on relevance (57 points).",
+    "A is stronger on curiosity (37 points).",
+    "A is stronger on fluency (19 points)."
+   ],
+   "reasons_cs": [
+    "A je silnější v oblasti: oslovení (57 bodů).",
+    "A je silnější v oblasti: zvědavost (37 bodů).",
+    "A je silnější v oblasti: srozumitelnost (19 bodů)."
+   ]
+  },
+  {
+   "id": "p078",
+   "difficulty": "hard",
+   "cohort": "cz-local",
+   "platform": "instagram",
+   "lang": "cs",
+   "a": {
+    "text": "Vyplatí se domácí káva?",
+    "brand": "Hrnek a Hvězda",
+    "success": 37.8,
+    "score": 21.0
+   },
+   "b": {
+    "text": "Vyplatí se chytrá domácnost? tak, aby to fungovalo pro týmy všech velikostí napříč všemi obory a ve všech regionech celého světa",
+    "brand": "Domovník",
+    "success": 51.1,
+    "score": 6.6
+   },
+   "winner": "b",
+   "model_p_a": 0.616,
+   "upset": true,
+   "reasons_en": [
+    "A is stronger on curiosity (37 points).",
+    "B is stronger on emotion (15 points)."
+   ],
+   "reasons_cs": [
+    "A je silnější v oblasti: zvědavost (37 bodů).",
+    "B je silnější v oblasti: emoce (15 bodů)."
+   ]
+  },
+  {
+   "id": "p079",
+   "difficulty": "hard",
+   "cohort": "cz-local",
+   "platform": "blog",
+   "lang": "cs",
+   "a": {
+    "text": "Neuvěřitelný příběh: chytrá domácnost",
+    "brand": "Spořílek",
+    "success": 48.1,
+    "score": 28.6
+   },
+   "b": {
+    "text": "Průvodce pro začátečníky: běžecké boty",
+    "brand": "Hrnek a Hvězda",
+    "success": 37.2,
+    "score": 47.6
+   },
+   "winner": "a",
+   "model_p_a": 0.349,
+   "upset": true,
+   "reasons_en": [
+    "B is stronger on utility (79 points).",
+    "A is stronger on emotion (57 points).",
+    "B is stronger on fluency (34 points)."
+   ],
+   "reasons_cs": [
+    "B je silnější v oblasti: užitek (79 bodů).",
+    "A je silnější v oblasti: emoce (57 bodů).",
+    "B je silnější v oblasti: srozumitelnost (34 bodů)."
+   ]
+  },
+  {
+   "id": "p080",
+   "difficulty": "hard",
+   "cohort": "finance",
+   "platform": "linkedin",
+   "lang": "en",
+   "a": {
+    "text": "Why budgeting advice is usually wrong in a way that works for teams of every size across every industry and every single region of the world",
+    "brand": "Penny Harbor",
+    "success": 20.5,
+    "score": 39.9
+   },
+   "b": {
+    "text": "9 budgeting templates you can copy today",
+    "brand": "Coinharbor",
+    "success": 32.7,
+    "score": 54.6
+   },
+   "winner": "b",
+   "model_p_a": 0.381,
+   "upset": false,
+   "reasons_en": [
+    "B is stronger on utility (79 points).",
+    "A is stronger on surprise (60 points).",
+    "B is stronger on relevance (57 points)."
+   ],
+   "reasons_cs": [
+    "B je silnější v oblasti: užitek (79 bodů).",
+    "A je silnější v oblasti: překvapení (60 bodů).",
+    "B je silnější v oblasti: oslovení (57 bodů)."
+   ]
+  },
+  {
+   "id": "p081",
+   "difficulty": "medium",
+   "cohort": "finance",
+   "platform": "x",
+   "lang": "en",
+   "a": {
+    "text": "We are obsessed with emergency funds in a way that works for teams of every size across every industry and every single region of the world",
+    "brand": "Penny Harbor",
+    "success": 24.7,
+    "score": 18.4
+   },
+   "b": {
+    "text": "We are obsessed with emergency funds",
+    "brand": "Lumen Bank",
+    "success": 47.7,
+    "score": 21.5
+   },
+   "winner": "b",
+   "model_p_a": 0.475,
+   "upset": false,
+   "reasons_en": [
+    "B is stronger on fluency (34 points)."
+   ],
+   "reasons_cs": [
+    "B je silnější v oblasti: srozumitelnost (34 bodů)."
+   ]
+  },
+  {
+   "id": "p082",
+   "difficulty": "medium",
+   "cohort": "finance",
+   "platform": "x",
+   "lang": "en",
+   "a": {
+    "text": "Your mortgage rates questions, answered",
+    "brand": "Penny Harbor",
+    "success": 46.6,
+    "score": 20.0
+   },
+   "b": {
+    "text": "The hidden truth about emergency funds",
+    "brand": "Penny Harbor",
+    "success": 73.5,
+    "score": 41.2
+   },
+   "winner": "b",
+   "model_p_a": 0.333,
+   "upset": false,
+   "reasons_en": [
+    "B is stronger on curiosity (79 points).",
+    "A is stronger on relevance (57 points).",
+    "B is stronger on fluency (29 points)."
+   ],
+   "reasons_cs": [
+    "B je silnější v oblasti: zvědavost (79 bodů).",
+    "A je silnější v oblasti: oslovení (57 bodů).",
+    "B je silnější v oblasti: srozumitelnost (29 bodů)."
+   ]
+  },
+  {
+   "id": "p083",
+   "difficulty": "easy",
+   "cohort": "sport",
+   "platform": "instagram",
+   "lang": "en",
+   "a": {
+    "text": "Is cycling worth the money?",
+    "brand": "Kinetiq Gear",
+    "success": 14.9,
+    "score": 22.1
+   },
+   "b": {
+    "text": "What nobody tells you about running shoes",
+    "brand": "Peakline Cycling",
+    "success": 45.2,
+    "score": 53.3
+   },
+   "winner": "b",
+   "model_p_a": 0.264,
+   "upset": false,
+   "reasons_en": [
+    "B is stronger on relevance (57 points).",
+    "B is stronger on curiosity (34 points)."
+   ],
+   "reasons_cs": [
+    "B je silnější v oblasti: oslovení (57 bodů).",
+    "B je silnější v oblasti: zvědavost (34 bodů)."
+   ]
+  },
+  {
+   "id": "p084",
+   "difficulty": "medium",
+   "cohort": "home-living",
+   "platform": "blog",
+   "lang": "en",
+   "a": {
+    "text": "Plants at home myths we need to retire",
+    "brand": "Nesta Living",
+    "success": 60.1,
+    "score": 22.6
+   },
+   "b": {
+    "text": "A beginner guide to sleep setups",
+    "brand": "Verdant Home",
+    "success": 76.1,
+    "score": 31.8
+   },
+   "winner": "b",
+   "model_p_a": 0.425,
+   "upset": false,
+   "reasons_en": [
+    "A is stronger on surprise (60 points).",
+    "B is stronger on utility (54 points)."
+   ],
+   "reasons_cs": [
+    "A je silnější v oblasti: překvapení (60 bodů).",
+    "B je silnější v oblasti: užitek (54 bodů)."
+   ]
+  },
+  {
+   "id": "p085",
+   "difficulty": "hard",
+   "cohort": "gaming",
+   "platform": "x",
+   "lang": "en",
+   "a": {
+    "text": "A message from our CEO on speedrunning",
+    "brand": "Arcadium",
+    "success": 32.1,
+    "score": 0.0
+   },
+   "b": {
+    "text": "Our Q3 controllers update",
+    "brand": "Questloop",
+    "success": 19.9,
+    "score": 0.0
+   },
+   "winner": "a",
+   "model_p_a": 0.5,
+   "upset": false,
+   "reasons_en": [
+    "A is stronger on fluency (52 points)."
+   ],
+   "reasons_cs": [
+    "A je silnější v oblasti: srozumitelnost (52 bodů)."
+   ]
+  },
+  {
+   "id": "p086",
+   "difficulty": "easy",
+   "cohort": "gaming",
+   "platform": "youtube",
+   "lang": "en",
+   "a": {
+    "text": "Introducing our new controllers range",
+    "brand": "Arcadium",
+    "success": 30.2,
+    "score": 0.0
+   },
+   "b": {
+    "text": "Is game settings worth the money?",
+    "brand": "Pixelforge Games",
+    "success": 68.9,
+    "score": 23.2
+   },
+   "winner": "b",
+   "model_p_a": 0.318,
+   "upset": false,
+   "reasons_en": [
+    "B is stronger on fluency (39 points).",
+    "B is stronger on curiosity (37 points)."
+   ],
+   "reasons_cs": [
+    "B je silnější v oblasti: srozumitelnost (39 bodů).",
+    "B je silnější v oblasti: zvědavost (37 bodů)."
+   ]
+  },
+  {
+   "id": "p087",
+   "difficulty": "medium",
+   "cohort": "gaming",
+   "platform": "x",
+   "lang": "en",
+   "a": {
+    "text": "Indie releases that people absolutely love",
+    "brand": "Arcadium",
+    "success": 68.7,
+    "score": 23.2
+   },
+   "b": {
+    "text": "10 speedrunning mistakes that quietly cost you results in a way that works for teams of every size across every industry and every single region of the world",
+    "brand": "Pixelforge Games",
+    "success": 95.7,
+    "score": 64.2
+   },
+   "winner": "b",
+   "model_p_a": 0.207,
+   "upset": false,
+   "reasons_en": [
+    "B is stronger on relevance (57 points).",
+    "B is stronger on curiosity (54 points).",
+    "B is stronger on utility (54 points)."
+   ],
+   "reasons_cs": [
+    "B je silnější v oblasti: oslovení (57 bodů).",
+    "B je silnější v oblasti: zvědavost (54 bodů).",
+    "B je silnější v oblasti: užitek (54 bodů)."
+   ]
+  },
+  {
+   "id": "p088",
+   "difficulty": "hard",
+   "cohort": "food-beverage",
+   "platform": "blog",
+   "lang": "en",
+   "a": {
+    "text": "Sourdough: a practical playbook",
+    "brand": "Kettle and Crumb",
+    "success": 54.2,
+    "score": 34.4
+   },
+   "b": {
+    "text": "This one trick changes everything about plant-based dinners",
+    "brand": "Greenfork Meals",
+    "success": 41.7,
+    "score": 0.0
+   },
+   "winner": "a",
+   "model_p_a": 0.755,
+   "upset": false,
+   "reasons_en": [
+    "A is stronger on utility (54 points).",
+    "B is stronger on fluency (38 points).",
+    "A is stronger on curiosity (24 points).",
+    "B carries clickbait risk (86%), which costs trust."
+   ],
+   "reasons_cs": [
+    "A je silnější v oblasti: užitek (54 bodů).",
+    "B je silnější v oblasti: srozumitelnost (38 bodů).",
+    "A je silnější v oblasti: zvědavost (24 bodů).",
+    "B nese riziko clickbaitu (86%), což snižuje důvěru."
+   ]
+  },
+  {
+   "id": "p089",
+   "difficulty": "hard",
+   "cohort": "food-beverage",
+   "platform": "blog",
+   "lang": "en",
+   "a": {
+    "text": "What nobody tells you about meal prep",
+    "brand": "Brewmoor Coffee",
+    "success": 59.2,
+    "score": 54.2
+   },
+   "b": {
+    "text": "Why most meal prep advice falls flat",
+    "brand": "Brewmoor Coffee",
+    "success": 69.2,
+    "score": 39.7
+   },
+   "winner": "b",
+   "model_p_a": 0.617,
+   "upset": true,
+   "reasons_en": [
+    "A is stronger on relevance (57 points)."
+   ],
+   "reasons_cs": [
+    "A je silnější v oblasti: oslovení (57 bodů)."
+   ]
+  },
+  {
+   "id": "p090",
+   "difficulty": "hard",
+   "cohort": "cz-local",
+   "platform": "blog",
+   "lang": "cs",
+   "a": {
+    "text": "Milujeme běžecké boty",
+    "brand": "Šlapka",
+    "success": 76.3,
+    "score": 20.6
+   },
+   "b": {
+    "text": "7 chyb, které děláte u domácí kávy",
+    "brand": "Šlapka",
+    "success": 84.0,
+    "score": 63.4
+   },
+   "winner": "b",
+   "model_p_a": 0.198,
+   "upset": false,
+   "reasons_en": [
+    "B is stronger on curiosity (54 points).",
+    "B is stronger on utility (54 points).",
+    "B is stronger on fluency (46 points)."
+   ],
+   "reasons_cs": [
+    "B je silnější v oblasti: zvědavost (54 bodů).",
+    "B je silnější v oblasti: užitek (54 bodů).",
+    "B je silnější v oblasti: srozumitelnost (46 bodů)."
+   ]
+  },
+  {
+   "id": "p091",
+   "difficulty": "easy",
+   "cohort": "sport",
+   "platform": "instagram",
+   "lang": "en",
+   "a": {
+    "text": "Is cycling worth the money?",
+    "brand": "Kinetiq Gear",
+    "success": 14.9,
+    "score": 22.1
+   },
+   "b": {
+    "text": "5 strength training mistakes that quietly cost you results",
+    "brand": "Kinetiq Gear",
+    "success": 82.4,
+    "score": 68.7
+   },
+   "winner": "b",
+   "model_p_a": 0.178,
+   "upset": false,
+   "reasons_en": [
+    "B is stronger on relevance (57 points).",
+    "B is stronger on utility (54 points).",
+    "B is stronger on surprise (30 points)."
+   ],
+   "reasons_cs": [
+    "B je silnější v oblasti: oslovení (57 bodů).",
+    "B je silnější v oblasti: užitek (54 bodů).",
+    "B je silnější v oblasti: překvapení (30 bodů)."
+   ]
+  },
+  {
+   "id": "p092",
+   "difficulty": "hard",
+   "cohort": "b2b-saas",
+   "platform": "blog",
+   "lang": "en",
+   "a": {
+    "text": "Company update: product analytics",
+    "brand": "Onboardly",
+    "success": 24.2,
+    "score": 11.6
+   },
+   "b": {
+    "text": "Stop doing sales forecasting the hard way",
+    "brand": "Onboardly",
+    "success": 13.3,
+    "score": 22.1
+   },
+   "winner": "a",
+   "model_p_a": 0.415,
+   "upset": true,
+   "reasons_en": [
+    "B is stronger on surprise (60 points).",
+    "B is stronger on fluency (54 points).",
+    "A is stronger on curiosity (24 points)."
+   ],
+   "reasons_cs": [
+    "B je silnější v oblasti: překvapení (60 bodů).",
+    "B je silnější v oblasti: srozumitelnost (54 bodů).",
+    "A je silnější v oblasti: zvědavost (24 bodů)."
+   ]
+  },
+  {
+   "id": "p093",
+   "difficulty": "easy",
+   "cohort": "sport",
+   "platform": "youtube",
+   "lang": "en",
+   "a": {
+    "text": "Shocking recovery secrets revealed!!!",
+    "brand": "Zorvia Running",
+    "success": 81.0,
+    "score": 22.1
+   },
+   "b": {
+    "text": "10 tips for better cycling",
+    "brand": "Kinetiq Gear",
+    "success": 46.0,
+    "score": 44.6
+   },
+   "winner": "a",
+   "model_p_a": 0.324,
+   "upset": true,
+   "reasons_en": [
+    "A is stronger on curiosity (79 points).",
+    "B is stronger on utility (79 points).",
+    "A is stronger on emotion (50 points).",
+    "A carries clickbait risk (82%), which costs trust."
+   ],
+   "reasons_cs": [
+    "A je silnější v oblasti: zvědavost (79 bodů).",
+    "B je silnější v oblasti: užitek (79 bodů).",
+    "A je silnější v oblasti: emoce (50 bodů).",
+    "A nese riziko clickbaitu (82%), což snižuje důvěru."
+   ]
+  },
+  {
+   "id": "p094",
+   "difficulty": "hard",
+   "cohort": "travel",
+   "platform": "instagram",
+   "lang": "en",
+   "a": {
+    "text": "Weekend trips news and announcements",
+    "brand": "Skyhopper",
+    "success": 49.7,
+    "score": 0.0
+   },
+   "b": {
+    "text": "Introducing our new city breaks range",
+    "brand": "Skyhopper",
+    "success": 61.8,
+    "score": 0.0
+   },
+   "winner": "b",
+   "model_p_a": 0.5,
+   "upset": false,
+   "reasons_en": [
+    "B is stronger on fluency (26 points)."
+   ],
+   "reasons_cs": [
+    "B je silnější v oblasti: srozumitelnost (26 bodů)."
+   ]
+  },
+  {
+   "id": "p095",
+   "difficulty": "hard",
+   "cohort": "sport",
+   "platform": "instagram",
+   "lang": "en",
+   "a": {
+    "text": "Why recovery advice is usually wrong",
+    "brand": "Kinetiq Gear",
+    "success": 39.3,
+    "score": 45.4
+   },
+   "b": {
+    "text": "Should you rethink yoga this year?",
+    "brand": "Peakline Cycling",
+    "success": 30.7,
+    "score": 41.5
+   },
+   "winner": "a",
+   "model_p_a": 0.532,
+   "upset": false,
+   "reasons_en": [
+    "A is stronger on surprise (60 points).",
+    "B is stronger on relevance (57 points).",
+    "A is stronger on emotion (21 points)."
+   ],
+   "reasons_cs": [
+    "A je silnější v oblasti: překvapení (60 bodů).",
+    "B je silnější v oblasti: oslovení (57 bodů).",
+    "A je silnější v oblasti: emoce (21 bodů)."
+   ]
+  },
+  {
+   "id": "p096",
+   "difficulty": "easy",
+   "cohort": "finance",
+   "platform": "x",
+   "lang": "en",
+   "a": {
+    "text": "Why most emergency funds advice falls flat",
+    "brand": "Coinharbor",
+    "success": 66.4,
+    "score": 38.7
+   },
+   "b": {
+    "text": "A message from our CEO on mortgage rates",
+    "brand": "Coinharbor",
+    "success": 20.8,
+    "score": 0.0
+   },
+   "winner": "a",
+   "model_p_a": 0.78,
+   "upset": false,
+   "reasons_en": [
+    "A is stronger on curiosity (71 points)."
+   ],
+   "reasons_cs": [
+    "A je silnější v oblasti: zvědavost (71 bodů)."
+   ]
+  },
+  {
+   "id": "p097",
+   "difficulty": "medium",
+   "cohort": "cz-local",
+   "platform": "blog",
+   "lang": "cs",
+   "a": {
+    "text": "Šokující tajemství: cestování po Česku!!!",
+    "brand": "Spořílek",
+    "success": 39.7,
+    "score": 23.8
+   },
+   "b": {
+    "text": "Průvodce pro začátečníky: cestování po Česku",
+    "brand": "Hrnek a Hvězda",
+    "success": 63.5,
+    "score": 50.2
+   },
+   "winner": "b",
+   "model_p_a": 0.296,
+   "upset": false,
+   "reasons_en": [
+    "B is stronger on utility (79 points).",
+    "A is stronger on emotion (66 points).",
+    "A is stronger on curiosity (41 points).",
+    "A carries clickbait risk (82%), which costs trust."
+   ],
+   "reasons_cs": [
+    "B je silnější v oblasti: užitek (79 bodů).",
+    "A je silnější v oblasti: emoce (66 bodů).",
+    "A je silnější v oblasti: zvědavost (41 bodů).",
+    "A nese riziko clickbaitu (82%), což snižuje důvěru."
+   ]
+  },
+  {
+   "id": "p098",
+   "difficulty": "hard",
+   "cohort": "travel",
+   "platform": "instagram",
+   "lang": "en",
+   "a": {
+    "text": "You won't believe what happened with city breaks!!!",
+    "brand": "Voyago",
+    "success": 68.0,
+    "score": 23.1
+   },
+   "b": {
+    "text": "9 things top performers do differently with budget flights",
+    "brand": "Tripnest",
+    "success": 80.6,
+    "score": 40.7
+   },
+   "winner": "b",
+   "model_p_a": 0.36,
+   "upset": false,
+   "reasons_en": [
+    "A is stronger on surprise (60 points).",
+    "B is stronger on utility (54 points).",
+    "A is stronger on emotion (33 points).",
+    "A carries clickbait risk (82%), which costs trust."
+   ],
+   "reasons_cs": [
+    "A je silnější v oblasti: překvapení (60 bodů).",
+    "B je silnější v oblasti: užitek (54 bodů).",
+    "A je silnější v oblasti: emoce (33 bodů).",
+    "A nese riziko clickbaitu (82%), což snižuje důvěru."
+   ]
+  },
+  {
+   "id": "p099",
+   "difficulty": "medium",
+   "cohort": "home-living",
+   "platform": "blog",
+   "lang": "en",
+   "a": {
+    "text": "A message from our CEO on plants at home",
+    "brand": "Lumiline",
+    "success": 39.1,
+    "score": 0.0
+   },
+   "b": {
+    "text": "15 small apartments mistakes that quietly cost you results",
+    "brand": "Nesta Living",
+    "success": 63.8,
+    "score": 69.0
+   },
+   "winner": "b",
+   "model_p_a": 0.094,
+   "upset": false,
+   "reasons_en": [
+    "B is stronger on relevance (57 points).",
+    "B is stronger on curiosity (54 points).",
+    "B is stronger on utility (54 points)."
+   ],
+   "reasons_cs": [
+    "B je silnější v oblasti: oslovení (57 bodů).",
+    "B je silnější v oblasti: zvědavost (54 bodů).",
+    "B je silnější v oblasti: užitek (54 bodů)."
+   ]
+  },
+  {
+   "id": "p100",
+   "difficulty": "medium",
+   "cohort": "home-living",
+   "platform": "instagram",
+   "lang": "en",
+   "a": {
+    "text": "Why most small apartments advice falls flat",
+    "brand": "Nesta Living",
+    "success": 40.5,
+    "score": 38.4
+   },
+   "b": {
+    "text": "5 tips for better decluttering",
+    "brand": "Verdant Home",
+    "success": 57.3,
+    "score": 41.8
+   },
+   "winner": "b",
+   "model_p_a": 0.472,
+   "upset": false,
+   "reasons_en": [
+    "B is stronger on utility (79 points).",
+    "A is stronger on curiosity (71 points).",
+    "A is stronger on fluency (25 points)."
+   ],
+   "reasons_cs": [
+    "B je silnější v oblasti: užitek (79 bodů).",
+    "A je silnější v oblasti: zvědavost (71 bodů).",
+    "A je silnější v oblasti: srozumitelnost (25 bodů)."
+   ]
+  },
+  {
+   "id": "p101",
+   "difficulty": "medium",
+   "cohort": "sport",
+   "platform": "youtube",
+   "lang": "en",
+   "a": {
+    "text": "The incredible story behind marathon training",
+    "brand": "Zorvia Running",
+    "success": 69.2,
+    "score": 19.7
+   },
+   "b": {
+    "text": "Cycling myths we need to retire",
+    "brand": "Kinetiq Gear",
+    "success": 84.7,
+    "score": 22.6
+   },
+   "winner": "b",
+   "model_p_a": 0.476,
+   "upset": false,
+   "reasons_en": [
+    "B is stronger on surprise (60 points).",
+    "A is stronger on emotion (49 points).",
+    "B is stronger on fluency (28 points)."
+   ],
+   "reasons_cs": [
+    "B je silnější v oblasti: překvapení (60 bodů).",
+    "A je silnější v oblasti: emoce (49 bodů).",
+    "B je silnější v oblasti: srozumitelnost (28 bodů)."
+   ]
+  },
+  {
+   "id": "p102",
+   "difficulty": "hard",
+   "cohort": "finance",
+   "platform": "linkedin",
+   "lang": "en",
+   "a": {
+    "text": "Shocking mortgage rates secrets revealed!!!",
+    "brand": "Coinharbor",
+    "success": 45.7,
+    "score": 23.8
+   },
+   "b": {
+    "text": "The hidden truth about credit cards",
+    "brand": "Penny Harbor",
+    "success": 56.8,
+    "score": 42.2
+   },
+   "winner": "b",
+   "model_p_a": 0.354,
+   "upset": false,
+   "reasons_en": [
+    "A is stronger on emotion (66 points).",
+    "B is stronger on fluency (41 points).",
+    "A carries clickbait risk (82%), which costs trust."
+   ],
+   "reasons_cs": [
+    "A je silnější v oblasti: emoce (66 bodů).",
+    "B je silnější v oblasti: srozumitelnost (41 bodů).",
+    "A nese riziko clickbaitu (82%), což snižuje důvěru."
+   ]
+  },
+  {
+   "id": "p103",
+   "difficulty": "medium",
+   "cohort": "home-living",
+   "platform": "blog",
+   "lang": "en",
+   "a": {
+    "text": "Why most smart lighting advice falls flat in a way that works for teams of every size across every industry and every single region of the world",
+    "brand": "Verdant Home",
+    "success": 80.4,
+    "score": 46.7
+   },
+   "b": {
+    "text": "15 tips for better smart lighting",
+    "brand": "Verdant Home",
+    "success": 60.9,
+    "score": 57.9
+   },
+   "winner": "a",
+   "model_p_a": 0.409,
+   "upset": true,
+   "reasons_en": [
+    "B is stronger on utility (79 points).",
+    "A is stronger on curiosity (71 points).",
+    "B is stronger on fluency (34 points)."
+   ],
+   "reasons_cs": [
+    "B je silnější v oblasti: užitek (79 bodů).",
+    "A je silnější v oblasti: zvědavost (71 bodů).",
+    "B je silnější v oblasti: srozumitelnost (34 bodů)."
+   ]
+  },
+  {
+   "id": "p104",
+   "difficulty": "hard",
+   "cohort": "travel",
+   "platform": "instagram",
+   "lang": "en",
+   "a": {
+    "text": "Why weekend trips advice is usually wrong",
+    "brand": "Skyhopper",
+    "success": 39.2,
+    "score": 45.8
+   },
+   "b": {
+    "text": "Road trips that people absolutely love in a way that works for teams of every size across every industry and every single region of the world",
+    "brand": "Voyago",
+    "success": 50.6,
+    "score": 21.0
+   },
+   "winner": "b",
+   "model_p_a": 0.693,
+   "upset": true,
+   "reasons_en": [
+    "A is stronger on surprise (60 points).",
+    "A is stronger on curiosity (37 points).",
+    "A is stronger on fluency (37 points)."
+   ],
+   "reasons_cs": [
+    "A je silnější v oblasti: překvapení (60 bodů).",
+    "A je silnější v oblasti: zvědavost (37 bodů).",
+    "A je silnější v oblasti: srozumitelnost (37 bodů)."
+   ]
+  },
+  {
+   "id": "p105",
+   "difficulty": "medium",
+   "cohort": "food-beverage",
+   "platform": "blog",
+   "lang": "en",
+   "a": {
+    "text": "Meal prep news and announcements",
+    "brand": "Brewmoor Coffee",
+    "success": 33.3,
+    "score": 0.0
+   },
+   "b": {
+    "text": "Company update: sourdough",
+    "brand": "Kettle and Crumb",
+    "success": 11.2,
+    "score": 10.7
+   },
+   "winner": "a",
+   "model_p_a": 0.413,
+   "upset": true,
+   "reasons_en": [
+    "A is stronger on fluency (47 points).",
+    "B is stronger on curiosity (24 points)."
+   ],
+   "reasons_cs": [
+    "A je silnější v oblasti: srozumitelnost (47 bodů).",
+    "B je silnější v oblasti: zvědavost (24 bodů)."
+   ]
+  },
+  {
+   "id": "p106",
+   "difficulty": "medium",
+   "cohort": "b2b-saas",
+   "platform": "blog",
+   "lang": "en",
+   "a": {
+    "text": "Our Q3 product analytics update",
+    "brand": "Mailorbit",
+    "success": 35.0,
+    "score": 0.0
+   },
+   "b": {
+    "text": "Stop doing sales forecasting the hard way",
+    "brand": "Onboardly",
+    "success": 13.3,
+    "score": 22.1
+   },
+   "winner": "a",
+   "model_p_a": 0.326,
+   "upset": true,
+   "reasons_en": [
+    "B is stronger on surprise (60 points).",
+    "B is stronger on fluency (29 points)."
+   ],
+   "reasons_cs": [
+    "B je silnější v oblasti: překvapení (60 bodů).",
+    "B je silnější v oblasti: srozumitelnost (29 bodů)."
+   ]
+  },
+  {
+   "id": "p107",
+   "difficulty": "easy",
+   "cohort": "sport",
+   "platform": "instagram",
+   "lang": "en",
+   "a": {
+    "text": "A message from our CEO on yoga",
+    "brand": "Kinetiq Gear",
+    "success": 12.0,
+    "score": 0.0
+   },
+   "b": {
+    "text": "3 tips for better strength training",
+    "brand": "Peakline Cycling",
+    "success": 47.7,
+    "score": 44.8
+   },
+   "winner": "b",
+   "model_p_a": 0.187,
+   "upset": false,
+   "reasons_en": [
+    "B is stronger on utility (79 points).",
+    "A is stronger on fluency (16 points).",
+    "B is stronger on emotion (15 points)."
+   ],
+   "reasons_cs": [
+    "B je silnější v oblasti: užitek (79 bodů).",
+    "A je silnější v oblasti: srozumitelnost (16 bodů).",
+    "B je silnější v oblasti: emoce (15 bodů)."
+   ]
+  },
+  {
+   "id": "p108",
+   "difficulty": "easy",
+   "cohort": "food-beverage",
+   "platform": "blog",
+   "lang": "en",
+   "a": {
+    "text": "Coffee at home: a practical playbook in a way that works for teams of every size across every industry and every single region of the world",
+    "brand": "Brewmoor Coffee",
+    "success": 35.0,
+    "score": 36.1
+   },
+   "b": {
+    "text": "The incredible story behind cold brew",
+    "brand": "Brewmoor Coffee",
+    "success": 90.0,
+    "score": 21.3
+   },
+   "winner": "b",
+   "model_p_a": 0.619,
+   "upset": true,
+   "reasons_en": [
+    "A is stronger on utility (54 points).",
+    "B is stronger on emotion (49 points).",
+    "B is stronger on fluency (32 points)."
+   ],
+   "reasons_cs": [
+    "A je silnější v oblasti: užitek (54 bodů).",
+    "B je silnější v oblasti: emoce (49 bodů).",
+    "B je silnější v oblasti: srozumitelnost (32 bodů)."
+   ]
+  },
+  {
+   "id": "p109",
+   "difficulty": "hard",
+   "cohort": "finance",
+   "platform": "x",
+   "lang": "en",
+   "a": {
+    "text": "Emergency funds: a practical playbook",
+    "brand": "Penny Harbor",
+    "success": 20.9,
+    "score": 37.0
+   },
+   "b": {
+    "text": "Shocking mortgage rates secrets revealed!!!",
+    "brand": "Lumen Bank",
+    "success": 27.5,
+    "score": 23.8
+   },
+   "winner": "b",
+   "model_p_a": 0.607,
+   "upset": true,
+   "reasons_en": [
+    "B is stronger on emotion (66 points).",
+    "B is stronger on curiosity (55 points).",
+    "A is stronger on utility (54 points).",
+    "B carries clickbait risk (82%), which costs trust."
+   ],
+   "reasons_cs": [
+    "B je silnější v oblasti: emoce (66 bodů).",
+    "B je silnější v oblasti: zvědavost (55 bodů).",
+    "A je silnější v oblasti: užitek (54 bodů).",
+    "B nese riziko clickbaitu (82%), což snižuje důvěru."
+   ]
+  },
+  {
+   "id": "p110",
+   "difficulty": "medium",
+   "cohort": "home-living",
+   "platform": "blog",
+   "lang": "en",
+   "a": {
+    "text": "8 tips for better smart lighting",
+    "brand": "Nesta Living",
+    "success": 59.4,
+    "score": 57.9
+   },
+   "b": {
+    "text": "Plants at home that people absolutely love",
+    "brand": "Nesta Living",
+    "success": 31.2,
+    "score": 24.5
+   },
+   "winner": "a",
+   "model_p_a": 0.749,
+   "upset": false,
+   "reasons_en": [
+    "A is stronger on utility (79 points).",
+    "A is stronger on relevance (39 points).",
+    "B is stronger on emotion (28 points)."
+   ],
+   "reasons_cs": [
+    "A je silnější v oblasti: užitek (79 bodů).",
+    "A je silnější v oblasti: oslovení (39 bodů).",
+    "B je silnější v oblasti: emoce (28 bodů)."
+   ]
+  },
+  {
+   "id": "p111",
+   "difficulty": "easy",
+   "cohort": "b2b-saas",
+   "platform": "linkedin",
+   "lang": "en",
+   "a": {
+    "text": "Stop doing email automation the hard way",
+    "brand": "Mailorbit",
+    "success": 52.5,
+    "score": 22.3
+   },
+   "b": {
+    "text": "The incredible story behind email automation",
+    "brand": "Mailorbit",
+    "success": 83.7,
+    "score": 19.9
+   },
+   "winner": "b",
+   "model_p_a": 0.52,
+   "upset": true,
+   "reasons_en": [
+    "A is stronger on surprise (60 points).",
+    "B is stronger on emotion (49 points).",
+    "A is stronger on fluency (22 points)."
+   ],
+   "reasons_cs": [
+    "A je silnější v oblasti: překvapení (60 bodů).",
+    "B je silnější v oblasti: emoce (49 bodů).",
+    "A je silnější v oblasti: srozumitelnost (22 bodů)."
+   ]
+  },
+  {
+   "id": "p112",
+   "difficulty": "hard",
+   "cohort": "b2b-saas",
+   "platform": "linkedin",
+   "lang": "en",
+   "a": {
+    "text": "Is CRM worth the money?",
+    "brand": "Quillo CRM",
+    "success": 48.4,
+    "score": 22.1
+   },
+   "b": {
+    "text": "Company update: sales forecasting",
+    "brand": "Mailorbit",
+    "success": 37.2,
+    "score": 11.6
+   },
+   "winner": "a",
+   "model_p_a": 0.585,
+   "upset": false,
+   "reasons_en": [
+    "A is stronger on fluency (47 points).",
+    "A is stronger on curiosity (13 points)."
+   ],
+   "reasons_cs": [
+    "A je silnější v oblasti: srozumitelnost (47 bodů).",
+    "A je silnější v oblasti: zvědavost (13 bodů)."
+   ]
+  },
+  {
+   "id": "p113",
+   "difficulty": "medium",
+   "cohort": "travel",
+   "platform": "instagram",
+   "lang": "en",
+   "a": {
+    "text": "Why most budget flights advice falls flat",
+    "brand": "Voyago",
+    "success": 61.8,
+    "score": 39.0
+   },
+   "b": {
+    "text": "How to start with city breaks",
+    "brand": "Voyago",
+    "success": 34.4,
+    "score": 31.8
+   },
+   "winner": "a",
+   "model_p_a": 0.558,
+   "upset": false,
+   "reasons_en": [
+    "A is stronger on curiosity (71 points).",
+    "B is stronger on utility (54 points)."
+   ],
+   "reasons_cs": [
+    "A je silnější v oblasti: zvědavost (71 bodů).",
+    "B je silnější v oblasti: užitek (54 bodů)."
+   ]
+  },
+  {
+   "id": "p114",
+   "difficulty": "hard",
+   "cohort": "b2b-saas",
+   "platform": "linkedin",
+   "lang": "en",
+   "a": {
+    "text": "21 things top performers do differently with churn",
+    "brand": "Quillo CRM",
+    "success": 66.3,
+    "score": 41.2
+   },
+   "b": {
+    "text": "Crm myths we need to retire",
+    "brand": "Onboardly",
+    "success": 78.5,
+    "score": 22.6
+   },
+   "winner": "b",
+   "model_p_a": 0.648,
+   "upset": true,
+   "reasons_en": [
+    "B is stronger on surprise (60 points).",
+    "A is stronger on utility (54 points).",
+    "A is stronger on relevance (39 points)."
+   ],
+   "reasons_cs": [
+    "B je silnější v oblasti: překvapení (60 bodů).",
+    "A je silnější v oblasti: užitek (54 bodů).",
+    "A je silnější v oblasti: oslovení (39 bodů)."
+   ]
+  },
+  {
+   "id": "p115",
+   "difficulty": "medium",
+   "cohort": "b2b-saas",
+   "platform": "blog",
+   "lang": "en",
+   "a": {
+    "text": "A message from our CEO on email automation",
+    "brand": "Onboardly",
+    "success": 15.8,
+    "score": 0.0
+   },
+   "b": {
+    "text": "We are obsessed with CRM",
+    "brand": "Quillo CRM",
+    "success": 35.0,
+    "score": 21.1
+   },
+   "winner": "b",
+   "model_p_a": 0.334,
+   "upset": false,
+   "reasons_en": [
+    "B is stronger on emotion (49 points).",
+    "A is stronger on fluency (12 points)."
+   ],
+   "reasons_cs": [
+    "B je silnější v oblasti: emoce (49 bodů).",
+    "A je silnější v oblasti: srozumitelnost (12 bodů)."
+   ]
+  },
+  {
+   "id": "p116",
+   "difficulty": "hard",
+   "cohort": "cz-local",
+   "platform": "instagram",
+   "lang": "cs",
+   "a": {
+    "text": "Průvodce pro začátečníky: osobní rozpočet",
+    "brand": "Hrnek a Hvězda",
+    "success": 52.8,
+    "score": 46.2
+   },
+   "b": {
+    "text": "Mýty o cestování po Česku, kterým nesmíte věřit",
+    "brand": "Hrnek a Hvězda",
+    "success": 40.5,
+    "score": 22.6
+   },
+   "winner": "a",
+   "model_p_a": 0.685,
+   "upset": false,
+   "reasons_en": [
+    "A is stronger on utility (79 points).",
+    "B is stronger on surprise (60 points).",
+    "B is stronger on fluency (33 points)."
+   ],
+   "reasons_cs": [
+    "A je silnější v oblasti: užitek (79 bodů).",
+    "B je silnější v oblasti: překvapení (60 bodů).",
+    "B je silnější v oblasti: srozumitelnost (33 bodů)."
+   ]
+  },
+  {
+   "id": "p117",
+   "difficulty": "easy",
+   "cohort": "home-living",
+   "platform": "instagram",
+   "lang": "en",
+   "a": {
+    "text": "Plants at home news and announcements in a way that works for teams of every size across every industry and every single region of the world",
+    "brand": "Verdant Home",
+    "success": 12.8,
+    "score": 0.0
+   },
+   "b": {
+    "text": "Home office: a practical playbook",
+    "brand": "Verdant Home",
+    "success": 50.8,
+    "score": 38.7
+   },
+   "winner": "b",
+   "model_p_a": 0.22,
+   "upset": false,
+   "reasons_en": [
+    "B is stronger on utility (54 points).",
+    "B is stronger on curiosity (24 points).",
+    "B is stronger on fluency (17 points)."
+   ],
+   "reasons_cs": [
+    "B je silnější v oblasti: užitek (54 bodů).",
+    "B je silnější v oblasti: zvědavost (24 bodů).",
+    "B je silnější v oblasti: srozumitelnost (17 bodů)."
+   ]
+  },
+  {
+   "id": "p118",
+   "difficulty": "easy",
+   "cohort": "sport",
+   "platform": "youtube",
+   "lang": "en",
+   "a": {
+    "text": "Introducing our new yoga range in a way that works for teams of every size across every industry and every single region of the world",
+    "brand": "Kinetiq Gear",
+    "success": 12.2,
+    "score": 0.0
+   },
+   "b": {
+    "text": "Is yoga worth the money?",
+    "brand": "Kinetiq Gear",
+    "success": 73.7,
+    "score": 22.1
+   },
+   "winner": "b",
+   "model_p_a": 0.326,
+   "upset": false,
+   "reasons_en": [
+    "B is stronger on curiosity (37 points).",
+    "B is stronger on fluency (30 points)."
+   ],
+   "reasons_cs": [
+    "B je silnější v oblasti: zvědavost (37 bodů).",
+    "B je silnější v oblasti: srozumitelnost (30 bodů)."
+   ]
+  },
+  {
+   "id": "p119",
+   "difficulty": "medium",
+   "cohort": "sport",
+   "platform": "youtube",
+   "lang": "en",
+   "a": {
+    "text": "Running shoes: a practical playbook",
+    "brand": "Zorvia Running",
+    "success": 79.5,
+    "score": 37.9
+   },
+   "b": {
+    "text": "Why cycling advice is usually wrong",
+    "brand": "Zorvia Running",
+    "success": 54.5,
+    "score": 45.8
+   },
+   "winner": "a",
+   "model_p_a": 0.436,
+   "upset": true,
+   "reasons_en": [
+    "B is stronger on surprise (60 points).",
+    "A is stronger on utility (54 points).",
+    "B is stronger on fluency (25 points)."
+   ],
+   "reasons_cs": [
+    "B je silnější v oblasti: překvapení (60 bodů).",
+    "A je silnější v oblasti: užitek (54 bodů).",
+    "B je silnější v oblasti: srozumitelnost (25 bodů)."
+   ]
+  },
+  {
+   "id": "p120",
+   "difficulty": "hard",
+   "cohort": "food-beverage",
+   "platform": "blog",
+   "lang": "en",
+   "a": {
+    "text": "Why coffee at home advice is usually wrong",
+    "brand": "Kettle and Crumb",
+    "success": 3.8,
+    "score": 46.6
+   },
+   "b": {
+    "text": "Company update: coffee at home",
+    "brand": "Brewmoor Coffee",
+    "success": 18.3,
+    "score": 14.4
+   },
+   "winner": "b",
+   "model_p_a": 0.742,
+   "upset": true,
+   "reasons_en": [
+    "A is stronger on surprise (60 points).",
+    "A is stronger on emotion (21 points).",
+    "A is stronger on fluency (17 points)."
+   ],
+   "reasons_cs": [
+    "A je silnější v oblasti: překvapení (60 bodů).",
+    "A je silnější v oblasti: emoce (21 bodů).",
+    "A je silnější v oblasti: srozumitelnost (17 bodů)."
+   ]
+  }
+ ],
+ "bosses": [
+  {
+   "id": "boss-goblin",
+   "cohort": "sport",
+   "lang": "en",
+   "name": "The Scroll Goblin",
+   "tier": 1,
+   "percentile": 60,
+   "xp": 60,
+   "brief_en": "Launch post for a lightweight running shoe aimed at beginners.",
+   "brief_cs": "Příspěvek k uvedení lehké běžecké boty pro začátečníky.",
+   "taunt_en": "Nobody reads launch posts. Prove me wrong.",
+   "taunt_cs": "Launch příspěvky nikdo nečte. Dokaž opak."
+  },
+  {
+   "id": "boss-cliche",
+   "cohort": "b2b-saas",
+   "lang": "en",
+   "name": "Captain Cliche",
+   "tier": 2,
+   "percentile": 75,
+   "xp": 100,
+   "brief_en": "Webinar invitation: cut churn with better onboarding emails.",
+   "brief_cs": "Pozvánka na webinář: snižte odchody zákazníků lepším onboardingem.",
+   "taunt_en": "Unlock your potential and leverage synergies!",
+   "taunt_cs": "Odemkněte svůj potenciál a využijte synergie!"
+  },
+  {
+   "id": "boss-meh",
+   "cohort": "food-beverage",
+   "lang": "en",
+   "name": "Mr. Meh",
+   "tier": 1,
+   "percentile": 60,
+   "xp": 60,
+   "brief_en": "Teaser for a new cold brew flavour.",
+   "brief_cs": "Upoutávka na novou příchuť cold brew.",
+   "taunt_en": "It is just coffee.",
+   "taunt_cs": "Je to jen káva."
+  },
+  {
+   "id": "boss-hydra",
+   "cohort": "finance",
+   "lang": "en",
+   "name": "The Algorithm Hydra",
+   "tier": 3,
+   "percentile": 90,
+   "xp": 180,
+   "brief_en": "Savings account: an emergency fund challenge for people who never save.",
+   "brief_cs": "Spořicí účet: výzva k nouzové rezervě pro lidi, kteří nikdy nešetří.",
+   "taunt_en": "Cut off one hook, two more appear.",
+   "taunt_cs": "Utneš jeden hook, narostou dva."
+  },
+  {
+   "id": "boss-nomad",
+   "cohort": "travel",
+   "lang": "en",
+   "name": "The Tab Nomad",
+   "tier": 2,
+   "percentile": 75,
+   "xp": 100,
+   "brief_en": "Weekend city break deal for first-time visitors.",
+   "brief_cs": "Nabídka víkendového pobytu ve městě pro první návštěvníky.",
+   "taunt_en": "Fifty open tabs and not one booking.",
+   "taunt_cs": "Padesát otevřených panelů a žádná rezervace."
+  },
+  {
+   "id": "boss-lagbot",
+   "cohort": "gaming",
+   "lang": "en",
+   "name": "Lagbot 3000",
+   "tier": 2,
+   "percentile": 75,
+   "xp": 100,
+   "brief_en": "Headline for a co-op update trailer.",
+   "brief_cs": "Titulek k traileru kooperativní aktualizace.",
+   "taunt_en": "Skip trailer. Skip trailer. Skip.",
+   "taunt_cs": "Přeskočit trailer. Přeskočit. Přeskočit."
+  },
+  {
+   "id": "boss-kafe",
+   "cohort": "cz-local",
+   "lang": "cs",
+   "name": "Pan Nuda",
+   "tier": 1,
+   "percentile": 60,
+   "xp": 60,
+   "brief_en": "Czech roastery: promote home coffee for people who only drink instant.",
+   "brief_cs": "Česká pražírna: propagujte domácí kávu lidem, kteří pijí jen instantní.",
+   "taunt_en": "Instant is fine.",
+   "taunt_cs": "Instantní je v pohodě."
+  },
+  {
+   "id": "boss-chytry",
+   "cohort": "cz-local",
+   "lang": "cs",
+   "name": "Lord Průměr",
+   "tier": 3,
+   "percentile": 90,
+   "xp": 180,
+   "brief_en": "Czech smart home brand: spring promotion for flat owners.",
+   "brief_cs": "Česká značka chytré domácnosti: jarní akce pro majitele bytů.",
+   "taunt_en": "Average is safe.",
+   "taunt_cs": "Průměr je bezpečný."
+  }
+ ],
+ "patterns": [
+  {
+   "feature": "curiosity_hits",
+   "label_en": "Curiosity phrases",
+   "label_cs": "Fráze vzbuzující zvědavost",
+   "kind": "numeric",
+   "n": 1000,
+   "prevalence": 0.271,
+   "lift": 6.106,
+   "lift_ci": [
+    4.675,
+    7.439
+   ],
+   "adj_effect": 6.106,
+   "adj_ci": [
+    4.675,
+    7.439
+   ],
+   "significant": true,
+   "examples": [
+    "6 indie releases mistakes that quietly cost you results",
+    "12 plant-based dinners mistakes that quietly cost you results",
+    "The hidden truth about churn"
+   ]
+  },
+  {
+   "feature": "practical_hits",
+   "label_en": "Practical value words",
+   "label_cs": "Slova praktického užitku",
+   "kind": "numeric",
+   "n": 1000,
+   "prevalence": 0.201,
+   "lift": 5.5,
+   "lift_ci": [
+    4.344,
+    6.773
+   ],
+   "adj_effect": 5.5,
+   "adj_ci": [
+    4.344,
+    6.773
+   ],
+   "significant": true,
+   "examples": [
+    "21 meal prep templates you can copy today",
+    "How to start with smoothies",
+    "8 cycling templates you can copy today"
+   ]
+  },
+  {
+   "feature": "exclaim",
+   "label_en": "Exclamation marks",
+   "label_cs": "Vykřičníky",
+   "kind": "numeric",
+   "n": 1000,
+   "prevalence": 0.216,
+   "lift": -5.395,
+   "lift_ci": [
+    -7.286,
+    -3.52
+   ],
+   "adj_effect": -5.395,
+   "adj_ci": [
+    -7.286,
+    -3.52
+   ],
+   "significant": true,
+   "examples": [
+    "Shocking sourdough secrets revealed!!!",
+    "You won't believe what happened with indie releases!!!",
+    "Shocking budget flights secrets revealed!!!"
+   ]
+  },
+  {
+   "feature": "emotion_hits",
+   "label_en": "Emotion words",
+   "label_cs": "Emoční slova",
+   "kind": "binary",
+   "n": 1000,
+   "prevalence": 0.165,
+   "lift": -0.139,
+   "lift_ci": [
+    -3.152,
+    3.754
+   ],
+   "adj_effect": 5.347,
+   "adj_ci": [
+    4.223,
+    6.957
+   ],
+   "significant": true,
+   "examples": [
+    "The incredible story behind meal prep",
+    "Game settings that people absolutely love",
+    "The incredible story behind cold brew"
+   ]
+  },
+  {
+   "feature": "contrast_hits",
+   "label_en": "Contrast or myth-busting",
+   "label_cs": "Kontrast a vyvracení mýtů",
+   "kind": "numeric",
+   "n": 1000,
+   "prevalence": 0.143,
+   "lift": 5.287,
+   "lift_ci": [
+    3.555,
+    6.795
+   ],
+   "adj_effect": 5.287,
+   "adj_ci": [
+    3.555,
+    6.795
+   ],
+   "significant": true,
+   "examples": [
+    "Přestaňte dělat domácí kávu špatně",
+    "Why packing advice is usually wrong",
+    "Why running shoes advice is usually wrong"
+   ]
+  },
+  {
+   "feature": "second_person_hits",
+   "label_en": "Addresses the reader",
+   "label_cs": "Oslovuje čtenáře",
+   "kind": "binary",
+   "n": 1000,
+   "prevalence": 0.195,
+   "lift": 11.469,
+   "lift_ci": [
+    8.519,
+    14.218
+   ],
+   "adj_effect": 4.785,
+   "adj_ci": [
+    3.504,
+    5.937
+   ],
+   "significant": true,
+   "examples": [
+    "21 meal prep templates you can copy today",
+    "6 indie releases mistakes that quietly cost you results",
+    "12 plant-based dinners mistakes that quietly cost you results"
+   ]
+  },
+  {
+   "feature": "has_number",
+   "label_en": "Contains a number",
+   "label_cs": "Obsahuje číslo",
+   "kind": "binary",
+   "n": 1000,
+   "prevalence": 0.171,
+   "lift": 18.158,
+   "lift_ci": [
+    14.695,
+    21.504
+   ],
+   "adj_effect": 3.345,
+   "adj_ci": [
+    2.546,
+    4.138
+   ],
+   "significant": true,
+   "examples": [
+    "7 things top performers do differently with meal prep",
+    "21 meal prep templates you can copy today",
+    "6 indie releases mistakes that quietly cost you results"
+   ]
+  },
+  {
+   "feature": "starts_with_number",
+   "label_en": "Starts with a number",
+   "label_cs": "Začíná číslem",
+   "kind": "binary",
+   "n": 1000,
+   "prevalence": 0.171,
+   "lift": 18.158,
+   "lift_ci": [
+    14.909,
+    20.423
+   ],
+   "adj_effect": 3.345,
+   "adj_ci": [
+    2.546,
+    4.138
+   ],
+   "significant": true,
+   "examples": [
+    "7 things top performers do differently with meal prep",
+    "21 meal prep templates you can copy today",
+    "6 indie releases mistakes that quietly cost you results"
+   ]
+  },
+  {
+   "feature": "is_question",
+   "label_en": "Is a question",
+   "label_cs": "Je otázka",
+   "kind": "binary",
+   "n": 1000,
+   "prevalence": 0.189,
+   "lift": 2.625,
+   "lift_ci": [
+    -0.978,
+    6.346
+   ],
+   "adj_effect": 2.899,
+   "adj_ci": [
+    1.347,
+    3.975
+   ],
+   "significant": true,
+   "examples": [
+    "Why packing advice is usually wrong",
+    "Why running shoes advice is usually wrong",
+    "Why most budgeting advice falls flat"
+   ]
+  },
+  {
+   "feature": "negative_hits",
+   "label_en": "Negative framing",
+   "label_cs": "Negativní rámování",
+   "kind": "binary",
+   "n": 1000,
+   "prevalence": 0.087,
+   "lift": 10.71,
+   "lift_ci": [
+    6.382,
+    15.656
+   ],
+   "adj_effect": -1.775,
+   "adj_ci": [
+    -2.96,
+    -0.451
+   ],
+   "significant": true,
+   "examples": [
+    "6 indie releases mistakes that quietly cost you results",
+    "12 plant-based dinners mistakes that quietly cost you results",
+    "10 speedrunning mistakes that quietly cost you results in a way that works for teams of every size across every industry and every single region of the world"
+   ]
+  },
+  {
+   "feature": "open_loop",
+   "label_en": "Open loop (colon or ellipsis)",
+   "label_cs": "Otevřená smyčka (dvojtečka, tři tečky)",
+   "kind": "binary",
+   "n": 1000,
+   "prevalence": 0.122,
+   "lift": -9.113,
+   "lift_ci": [
+    -12.466,
+    -6.071
+   ],
+   "adj_effect": -1.492,
+   "adj_ci": [
+    -2.835,
+    -0.419
+   ],
+   "significant": true,
+   "examples": [
+    "Váš průvodce: domácí káva",
+    "Váš průvodce: cestování po Česku",
+    "Neuvěřitelný příběh: běžecké boty"
+   ]
+  },
+  {
+   "feature": "n_words",
+   "label_en": "Length in words",
+   "label_cs": "Délka ve slovech",
+   "kind": "numeric",
+   "n": 1000,
+   "prevalence": 8.227,
+   "lift": -1.423,
+   "lift_ci": [
+    -2.89,
+    -0.577
+   ],
+   "adj_effect": -1.423,
+   "adj_ci": [
+    -2.89,
+    -0.577
+   ],
+   "significant": true,
+   "examples": [
+    "7 things top performers do differently with meal prep",
+    "21 meal prep templates you can copy today",
+    "6 indie releases mistakes that quietly cost you results"
+   ]
+  },
+  {
+   "feature": "caps_ratio",
+   "label_en": "ALL CAPS share",
+   "label_cs": "Podíl VELKÝCH PÍSMEN",
+   "kind": "numeric",
+   "n": 1000,
+   "prevalence": 0.0069,
+   "lift": -1.259,
+   "lift_ci": [
+    -2.355,
+    -0.398
+   ],
+   "adj_effect": -1.259,
+   "adj_ci": [
+    -2.355,
+    -0.398
+   ],
+   "significant": true,
+   "examples": [
+    "What nobody tells you about CRM",
+    "How to start with CRM in a way that works for teams of every size across every industry and every single region of the world",
+    "4 CRM mistakes that quietly cost you results"
+   ]
+  },
+  {
+   "feature": "avg_word_len",
+   "label_en": "Average word length",
+   "label_cs": "Průměrná délka slova",
+   "kind": "numeric",
+   "n": 1000,
+   "prevalence": 5.3806,
+   "lift": 0.969,
+   "lift_ci": [
+    -0.556,
+    2.294
+   ],
+   "adj_effect": 0.969,
+   "adj_ci": [
+    -0.556,
+    2.294
+   ],
+   "significant": false,
+   "examples": [
+    "7 things top performers do differently with meal prep",
+    "21 meal prep templates you can copy today",
+    "6 indie releases mistakes that quietly cost you results"
+   ]
+  },
+  {
+   "feature": "social_hits",
+   "label_en": "Social currency words",
+   "label_cs": "Slova sociální měny",
+   "kind": "numeric",
+   "n": 1000,
+   "prevalence": 0.109,
+   "lift": 0.689,
+   "lift_ci": [
+    -0.531,
+    1.511
+   ],
+   "adj_effect": 0.689,
+   "adj_ci": [
+    -0.531,
+    1.511
+   ],
+   "significant": false,
+   "examples": [
+    "7 things top performers do differently with meal prep",
+    "21 things top performers do differently with small apartments",
+    "9 things top performers do differently with budget flights"
+   ]
+  },
+  {
+   "feature": "positive_hits",
+   "label_en": "Positive framing",
+   "label_cs": "Pozitivní rámování",
+   "kind": "numeric",
+   "n": 1000,
+   "prevalence": 0.121,
+   "lift": -0.463,
+   "lift_ci": [
+    -1.573,
+    0.706
+   ],
+   "adj_effect": -0.463,
+   "adj_ci": [
+    -1.573,
+    0.706
+   ],
+   "significant": false,
+   "examples": [
+    "Pravda o chytré domácnosti tak, aby to fungovalo pro týmy všech velikostí napříč všemi obory a ve všech regionech celého světa",
+    "Game settings that people absolutely love",
+    "3 tips for better sales forecasting"
+   ]
+  },
+  {
+   "feature": "clickbait_hits",
+   "label_en": "Clickbait phrases",
+   "label_cs": "Clickbaitové fráze",
+   "kind": "numeric",
+   "n": 1000,
+   "prevalence": 0.124,
+   "lift": -0.062,
+   "lift_ci": [
+    -1.239,
+    1.177
+   ],
+   "adj_effect": -0.062,
+   "adj_ci": [
+    -1.239,
+    1.177
+   ],
+   "significant": false,
+   "examples": [
+    "Shocking sourdough secrets revealed!!!",
+    "You won't believe what happened with indie releases!!!",
+    "This one trick changes everything about controllers"
+   ]
+  }
+ ],
+ "myths": [
+  {
+   "id": "m-dopamine",
+   "answer": "myth",
+   "ref": "Berridge and Robinson, 1998; Schultz et al., 1997",
+   "en": "Dopamine is the brain's pleasure chemical.",
+   "cs": "Dopamin je mozková látka slasti.",
+   "why_en": "Dopamine is better tied to wanting, anticipation and prediction errors than to enjoyment itself. That is why a good hook creates anticipation and then delivers.",
+   "why_cs": "Dopamin souvisí spíš s chtěním, očekáváním a chybou predikce než s požitkem samotným. Proto dobrý hook vytvoří očekávání a pak ho splní."
+  },
+  {
+   "id": "m-peeking",
+   "answer": "myth",
+   "ref": "Johari et al., 2017",
+   "en": "Checking an A/B test every hour and stopping at the first p below 0.05 is fine.",
+   "cs": "Kontrolovat A/B test každou hodinu a zastavit ho při první hodnotě p pod 0,05 je v pořádku.",
+   "why_en": "Continuous peeking inflates false positives far above the nominal 5 percent. Fix the sample size in advance or use a sequential method.",
+   "why_cs": "Neustálé nahlížení nafukuje falešně pozitivní výsledky daleko nad nominálních 5 procent. Určete velikost vzorku předem nebo použijte sekvenční metodu."
+  },
+  {
+   "id": "m-stuffing",
+   "answer": "myth",
+   "ref": "Aggarwal et al., 2024",
+   "en": "Stuffing keywords makes your content more visible to AI answer engines.",
+   "cs": "Nacpání klíčových slov zvýší viditelnost obsahu v AI odpovědních enginech.",
+   "why_en": "In the GEO benchmark, keyword stuffing did not help, while citations, quotations and statistics did. Caveat: one benchmark and engine setup.",
+   "why_cs": "V benchmarku GEO nacpání klíčových slov nepomohlo, zatímco citace, citáty a statistiky ano. Pozor: jde o jeden benchmark a nastavení enginu."
+  },
+  {
+   "id": "m-arousal",
+   "answer": "fact",
+   "ref": "Berger and Milkman, 2012",
+   "en": "High-arousal emotions such as awe or anger make content more likely to be shared than low-arousal sadness.",
+   "cs": "Emoce s vysokou intenzitou, jako úžas nebo hněv, zvyšují šanci na sdílení víc než smutek s nízkou intenzitou.",
+   "why_en": "Observational data on thousands of articles supports this. It shows association, not proof of cause, and it is no licence to manufacture outrage.",
+   "why_cs": "Podporují to observační data z tisíců článků. Ukazuje to souvislost, ne důkaz příčiny, a není to licence vyrábět pobouření."
+  },
+  {
+   "id": "m-points",
+   "answer": "myth",
+   "ref": "Deci, Koestner and Ryan, 1999",
+   "en": "Rewarding people with points always increases their intrinsic motivation.",
+   "cs": "Odměňování body vždy zvyšuje vnitřní motivaci.",
+   "why_en": "A meta-analysis found that expected tangible rewards can undermine intrinsic motivation. Reward progress and mastery, not mere activity.",
+   "why_cs": "Metaanalýza zjistila, že očekávané hmatatelné odměny mohou vnitřní motivaci podkopat. Odměňujte pokrok a mistrovství, ne pouhou aktivitu."
+  },
+  {
+   "id": "m-gamification",
+   "answer": "fact",
+   "ref": "Sailer and Homner, 2020; Hamari et al., 2014",
+   "en": "Gamification tends to give small to medium positive effects, and context matters.",
+   "cs": "Gamifikace obvykle přináší malé až střední pozitivní efekty a záleží na kontextu.",
+   "why_en": "Reviews and a meta-analysis point that way, mostly in learning settings. It is not magic and it can fail.",
+   "why_cs": "Přehledové studie a metaanalýza to naznačují, hlavně ve vzdělávání. Není to kouzlo a může to selhat."
+  },
+  {
+   "id": "m-scaled",
+   "answer": "myth",
+   "ref": "Google Search Central spam policies",
+   "en": "Mass-produced AI articles are safe for SEO as long as they read well.",
+   "cs": "Hromadně vyráběné AI články jsou pro SEO bezpečné, pokud se dobře čtou.",
+   "why_en": "Mass-produced low-value content can violate spam policy however it is made. Add first-party experience and review every piece.",
+   "why_cs": "Hromadně vyráběný obsah s nízkou hodnotou může porušovat spamové zásady bez ohledu na to, jak vznikl. Přidejte vlastní zkušenost a každý kus zkontrolujte."
+  },
+  {
+   "id": "m-loss",
+   "answer": "fact",
+   "ref": "Kahneman and Tversky, 1979",
+   "en": "Losses tend to feel larger than equal gains.",
+   "cs": "Ztráty bývají vnímány silněji než stejně velké zisky.",
+   "why_en": "This is the core of prospect theory. How strongly it shows up in marketing varies, so test it and never fake scarcity.",
+   "why_cs": "To je jádro teorie vyhlídek. Jak silně se projeví v marketingu, se liší, takže to testujte a nikdy nepředstírejte nedostatek."
+  },
+  {
+   "id": "m-curiosity",
+   "answer": "fact",
+   "ref": "Gruber, Gelman and Ranganath, 2014",
+   "en": "Curiosity can improve learning and memory.",
+   "cs": "Zvědavost může zlepšit učení a paměť.",
+   "why_en": "A lab study linked curiosity states to better memory and activity in reward circuitry. Small lab samples, so treat it as supportive, not final.",
+   "why_cs": "Laboratorní studie spojila stavy zvědavosti s lepší pamětí a aktivitou v okruzích odměny. Malé laboratorní vzorky, berte to jako podpůrné, ne konečné."
+  },
+  {
+   "id": "m-rats",
+   "answer": "myth",
+   "ref": "Ferster and Skinner, 1957",
+   "en": "Variable-reward experiments on animals prove that slot-machine mechanics are the best way to market products.",
+   "cs": "Pokusy s proměnlivou odměnou na zvířatech dokazují, že mechanika hracích automatů je nejlepší způsob marketingu.",
+   "why_en": "Reinforcement schedules were studied in animals. Generalising to marketing is weak, and manipulative mechanics erode trust. Variable rewards belong in learning, with published odds.",
+   "why_cs": "Plány posilování se zkoumaly na zvířatech. Zobecnění na marketing je slabé a manipulativní mechaniky ničí důvěru. Proměnlivé odměny patří do učení, s uvedenými šancemi."
+  },
+  {
+   "id": "m-geo-cite",
+   "answer": "fact",
+   "ref": "Aggarwal et al., 2024",
+   "en": "Citing sources, adding quotations from named people and adding statistics can help generative engines surface your content.",
+   "cs": "Citace zdrojů, citáty jmenovaných osob a statistiky mohou pomoci generativním enginům zobrazit váš obsah.",
+   "why_en": "These were the strongest tactics in the GEO benchmark. Use real, verifiable sources only.",
+   "why_cs": "Byly to nejsilnější taktiky v benchmarku GEO. Používejte jen skutečné, ověřitelné zdroje."
+  },
+  {
+   "id": "m-fluency",
+   "answer": "fact",
+   "ref": "Alter and Oppenheimer, 2009",
+   "en": "Text that is easy to process shapes how people judge it.",
+   "cs": "To, jak snadno se text zpracovává, ovlivňuje, jak ho lidé hodnotí.",
+   "why_en": "Processing fluency influences judgements. Short words and clear structure are not decoration, they are persuasion hygiene.",
+   "why_cs": "Plynulost zpracování ovlivňuje soudy. Krátká slova a jasná struktura nejsou ozdoba, ale hygiena přesvědčování."
+  }
+ ],
+ "lab": {
+  "scenarios": [
+   {
+    "id": "lab-subject",
+    "title_en": "Newsletter subject line",
+    "title_cs": "Předmět newsletteru",
+    "baseline": 0.04,
+    "lift_rel": 0.25,
+    "visitors_hint": 6000
+   },
+   {
+    "id": "lab-cta",
+    "title_en": "Landing page button",
+    "title_cs": "Tlačítko na landing page",
+    "baseline": 0.08,
+    "lift_rel": 0.15,
+    "visitors_hint": 12000
+   },
+   {
+    "id": "lab-thumb",
+    "title_en": "Video thumbnail",
+    "title_cs": "Náhled videa",
+    "baseline": 0.03,
+    "lift_rel": 0.4,
+    "visitors_hint": 3000
+   }
+  ]
+ },
+ "vault": {
+  "tactics": [],
+  "studies": [],
+  "links": []
+ },
+ "loot": {
+  "cards": [
+   {
+    "id": "pat-curiosity_hits",
+    "kind": "pattern",
+    "rarity": "rare",
+    "demo": true,
+    "title_en": "Curiosity phrases",
+    "title_cs": "Fráze vzbuzující zvědavost",
+    "body_en": "In the demo corpus, this signal goes with higher success (+6.1 index points per standard deviation, other features held constant). Demo data: simulated.",
+    "body_cs": "V demo korpusu tento signál souvisí s vyšší úspěchem (+6.1 bodu indexu na směrodatnou odchylku, ostatní vlastnosti konstantní). Demo data: simulace."
+   },
+   {
+    "id": "pat-practical_hits",
+    "kind": "pattern",
+    "rarity": "rare",
+    "demo": true,
+    "title_en": "Practical value words",
+    "title_cs": "Slova praktického užitku",
+    "body_en": "In the demo corpus, this signal goes with higher success (+5.5 index points per standard deviation, other features held constant). Demo data: simulated.",
+    "body_cs": "V demo korpusu tento signál souvisí s vyšší úspěchem (+5.5 bodu indexu na směrodatnou odchylku, ostatní vlastnosti konstantní). Demo data: simulace."
+   },
+   {
+    "id": "pat-exclaim",
+    "kind": "pattern",
+    "rarity": "rare",
+    "demo": true,
+    "title_en": "Exclamation marks",
+    "title_cs": "Vykřičníky",
+    "body_en": "In the demo corpus, this signal goes with lower success (-5.4 index points per standard deviation, other features held constant). Demo data: simulated.",
+    "body_cs": "V demo korpusu tento signál souvisí s nižší úspěchem (-5.4 bodu indexu na směrodatnou odchylku, ostatní vlastnosti konstantní). Demo data: simulace."
+   },
+   {
+    "id": "pat-emotion_hits",
+    "kind": "pattern",
+    "rarity": "rare",
+    "demo": true,
+    "title_en": "Emotion words",
+    "title_cs": "Emoční slova",
+    "body_en": "In the demo corpus, this signal goes with higher success (+5.3 index points per standard deviation, other features held constant). Demo data: simulated.",
+    "body_cs": "V demo korpusu tento signál souvisí s vyšší úspěchem (+5.3 bodu indexu na směrodatnou odchylku, ostatní vlastnosti konstantní). Demo data: simulace."
+   },
+   {
+    "id": "pat-contrast_hits",
+    "kind": "pattern",
+    "rarity": "rare",
+    "demo": true,
+    "title_en": "Contrast or myth-busting",
+    "title_cs": "Kontrast a vyvracení mýtů",
+    "body_en": "In the demo corpus, this signal goes with higher success (+5.3 index points per standard deviation, other features held constant). Demo data: simulated.",
+    "body_cs": "V demo korpusu tento signál souvisí s vyšší úspěchem (+5.3 bodu indexu na směrodatnou odchylku, ostatní vlastnosti konstantní). Demo data: simulace."
+   },
+   {
+    "id": "pat-second_person_hits",
+    "kind": "pattern",
+    "rarity": "common",
+    "demo": true,
+    "title_en": "Addresses the reader",
+    "title_cs": "Oslovuje čtenáře",
+    "body_en": "In the demo corpus, this signal goes with higher success (+4.8 index points per standard deviation, other features held constant). Demo data: simulated.",
+    "body_cs": "V demo korpusu tento signál souvisí s vyšší úspěchem (+4.8 bodu indexu na směrodatnou odchylku, ostatní vlastnosti konstantní). Demo data: simulace."
+   },
+   {
+    "id": "pat-has_number",
+    "kind": "pattern",
+    "rarity": "common",
+    "demo": true,
+    "title_en": "Contains a number",
+    "title_cs": "Obsahuje číslo",
+    "body_en": "In the demo corpus, this signal goes with higher success (+3.3 index points per standard deviation, other features held constant). Demo data: simulated.",
+    "body_cs": "V demo korpusu tento signál souvisí s vyšší úspěchem (+3.3 bodu indexu na směrodatnou odchylku, ostatní vlastnosti konstantní). Demo data: simulace."
+   },
+   {
+    "id": "pat-starts_with_number",
+    "kind": "pattern",
+    "rarity": "common",
+    "demo": true,
+    "title_en": "Starts with a number",
+    "title_cs": "Začíná číslem",
+    "body_en": "In the demo corpus, this signal goes with higher success (+3.3 index points per standard deviation, other features held constant). Demo data: simulated.",
+    "body_cs": "V demo korpusu tento signál souvisí s vyšší úspěchem (+3.3 bodu indexu na směrodatnou odchylku, ostatní vlastnosti konstantní). Demo data: simulace."
+   },
+   {
+    "id": "pat-is_question",
+    "kind": "pattern",
+    "rarity": "common",
+    "demo": true,
+    "title_en": "Is a question",
+    "title_cs": "Je otázka",
+    "body_en": "In the demo corpus, this signal goes with higher success (+2.9 index points per standard deviation, other features held constant). Demo data: simulated.",
+    "body_cs": "V demo korpusu tento signál souvisí s vyšší úspěchem (+2.9 bodu indexu na směrodatnou odchylku, ostatní vlastnosti konstantní). Demo data: simulace."
+   },
+   {
+    "id": "pat-negative_hits",
+    "kind": "pattern",
+    "rarity": "common",
+    "demo": true,
+    "title_en": "Negative framing",
+    "title_cs": "Negativní rámování",
+    "body_en": "In the demo corpus, this signal goes with lower success (-1.8 index points per standard deviation, other features held constant). Demo data: simulated.",
+    "body_cs": "V demo korpusu tento signál souvisí s nižší úspěchem (-1.8 bodu indexu na směrodatnou odchylku, ostatní vlastnosti konstantní). Demo data: simulace."
+   },
+   {
+    "id": "pat-open_loop",
+    "kind": "pattern",
+    "rarity": "common",
+    "demo": true,
+    "title_en": "Open loop (colon or ellipsis)",
+    "title_cs": "Otevřená smyčka (dvojtečka, tři tečky)",
+    "body_en": "In the demo corpus, this signal goes with lower success (-1.5 index points per standard deviation, other features held constant). Demo data: simulated.",
+    "body_cs": "V demo korpusu tento signál souvisí s nižší úspěchem (-1.5 bodu indexu na směrodatnou odchylku, ostatní vlastnosti konstantní). Demo data: simulace."
+   },
+   {
+    "id": "pat-n_words",
+    "kind": "pattern",
+    "rarity": "common",
+    "demo": true,
+    "title_en": "Length in words",
+    "title_cs": "Délka ve slovech",
+    "body_en": "In the demo corpus, this signal goes with lower success (-1.4 index points per standard deviation, other features held constant). Demo data: simulated.",
+    "body_cs": "V demo korpusu tento signál souvisí s nižší úspěchem (-1.4 bodu indexu na směrodatnou odchylku, ostatní vlastnosti konstantní). Demo data: simulace."
+   },
+   {
+    "id": "pat-caps_ratio",
+    "kind": "pattern",
+    "rarity": "common",
+    "demo": true,
+    "title_en": "ALL CAPS share",
+    "title_cs": "Podíl VELKÝCH PÍSMEN",
+    "body_en": "In the demo corpus, this signal goes with lower success (-1.3 index points per standard deviation, other features held constant). Demo data: simulated.",
+    "body_cs": "V demo korpusu tento signál souvisí s nižší úspěchem (-1.3 bodu indexu na směrodatnou odchylku, ostatní vlastnosti konstantní). Demo data: simulace."
+   },
+   {
+    "id": "tip-open_loop",
+    "kind": "tip",
+    "rarity": "common",
+    "demo": false,
+    "title_en": "Hook hygiene",
+    "title_cs": "Hygiena hooku",
+    "body_en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
+    "body_cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+   },
+   {
+    "id": "tip-add_utility",
+    "kind": "tip",
+    "rarity": "common",
+    "demo": false,
+    "title_en": "Hook hygiene",
+    "title_cs": "Hygiena hooku",
+    "body_en": "Make the payoff concrete: a number, steps or a 'how to'.",
+    "body_cs": "Zkonkrétni užitek: číslo, kroky nebo \"jak na to\"."
+   },
+   {
+    "id": "tip-address_reader",
+    "kind": "tip",
+    "rarity": "common",
+    "demo": false,
+    "title_en": "Hook hygiene",
+    "title_cs": "Hygiena hooku",
+    "body_en": "Speak to the reader directly (you, your) or name the audience.",
+    "body_cs": "Oslov čtenáře přímo (ty, vy, váš) nebo pojmenuj publikum."
+   },
+   {
+    "id": "tip-add_emotion",
+    "kind": "tip",
+    "rarity": "common",
+    "demo": false,
+    "title_en": "Hook hygiene",
+    "title_cs": "Hygiena hooku",
+    "body_en": "Add one high-arousal emotion word that is true to the content.",
+    "body_cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+   },
+   {
+    "id": "tip-add_contrast",
+    "kind": "tip",
+    "rarity": "common",
+    "demo": false,
+    "title_en": "Hook hygiene",
+    "title_cs": "Hygiena hooku",
+    "body_en": "Challenge an expectation: a myth, a 'stop doing X', a contrast.",
+    "body_cs": "Zpochybni očekávání: mýtus, \"přestaň dělat X\", kontrast."
+   },
+   {
+    "id": "tip-shorten",
+    "kind": "tip",
+    "rarity": "common",
+    "demo": false,
+    "title_en": "Hook hygiene",
+    "title_cs": "Hygiena hooku",
+    "body_en": "Shorten it: aim for 6 to 12 words.",
+    "body_cs": "Zkrať to: cílem je 6 až 12 slov."
+   },
+   {
+    "id": "tip-simplify",
+    "kind": "tip",
+    "rarity": "common",
+    "demo": false,
+    "title_en": "Hook hygiene",
+    "title_cs": "Hygiena hooku",
+    "body_en": "Use shorter, plainer words.",
+    "body_cs": "Použij kratší a prostší slova."
+   },
+   {
+    "id": "tip-reduce_clickbait",
+    "kind": "tip",
+    "rarity": "common",
+    "demo": false,
+    "title_en": "Hook hygiene",
+    "title_cs": "Hygiena hooku",
+    "body_en": "Remove clickbait phrasing and exaggerated claims; trust and delivery matter.",
+    "body_cs": "Odstraň clickbaitové formulace a přehnané sliby; důvěra a splnění slibu rozhodují."
+   }
+  ],
+  "rates": {
+   "common": 0.6,
+   "rare": 0.28,
+   "epic": 0.1,
+   "legendary": 0.02
+  },
+  "pity_after": 8
+ },
+ "forge_samples": []
+}

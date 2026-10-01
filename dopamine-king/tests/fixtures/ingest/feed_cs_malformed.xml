@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Kofola &amp; spol.</title>
+    <link>https://brand.example.cz/</link>
+    <item>
+      <title>Nová limonáda &amp; zdravější složení</title>
+      <link>https://brand.example.cz/novinky/nova-limonada</link>
+      <pubDate>Mon, 02 Mar 2026 07:00:00 +0100</pubDate>
+      <description>Příliš žluťoučký kůň úpěl ďábelské ódy &nbsp; a to bez cukru & umělých barviv.</description>
+    </item>
+  </channel>
+</rss>

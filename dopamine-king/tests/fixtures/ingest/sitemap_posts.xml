@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+  <url>
+    <loc>https://acme.example/blog/spring-trail-shoes-2026</loc>
+    <lastmod>2026-03-01T09:30:00+00:00</lastmod>
+    <image:image><image:loc>https://acme.example/img/a.jpg</image:loc></image:image>
+    <image:image><image:loc>https://acme.example/img/b.jpg</image:loc></image:image>
+    <video:video>
+      <video:thumbnail_loc>https://acme.example/img/v.jpg</video:thumbnail_loc>
+      <video:title>Trail demo</video:title>
+      <video:content_loc>https://acme.example/media/demo.mp4</video:content_loc>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://acme.example/blog/pack-your-bag</loc>
+    <lastmod>2026-02-20</lastmod>
+  </url>
+  <url>
+    <loc>https://acme.example/blog/</loc>
+    <lastmod>2026-03-08</lastmod>
+  </url>
+  <url>
+    <loc>https://acme.example/blog/tag/running</loc>
+    <lastmod>2026-03-08</lastmod>
+  </url>
+  <url>
+    <loc>https://acme.example/blog/page/2</loc>
+  </url>
+  <url>
+    <loc>https://acme.example/products/trail-shoe-x</loc>
+    <lastmod>2026-03-07</lastmod>
+  </url>
+  <url>
+    <loc>https://acme.example/news/old-announcement</loc>
+    <lastmod>2024-01-15</lastmod>
+  </url>
+  <url>
+    <loc>https://acme.example/careers/engineer</loc>
+  </url>
+</urlset>

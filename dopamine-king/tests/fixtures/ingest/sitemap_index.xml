@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <sitemap>
+    <loc>https://acme.example/sitemap-products.xml</loc>
+    <lastmod>2026-03-09T10:00:00+00:00</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://acme.example/post-sitemap.xml</loc>
+    <lastmod>2026-03-08T10:00:00+00:00</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://acme.example/news-sitemap.xml.gz</loc>
+    <lastmod>2026-02-27</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://acme.example/broken-post-sitemap.xml</loc>
+    <lastmod>2026-03-01</lastmod>
+  </sitemap>
+</sitemapindex>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"
+      xmlns:thr="http://purl.org/syndication/thread/1.0"
+      xmlns:media="http://search.yahoo.com/mrss/"
+      xml:base="https://studio.example/">
+  <title>Studio Journal</title>
+  <link href="https://studio.example/journal/atom.xml" rel="self"/>
+  <link href="https://studio.example/journal"/>
+  <updated>2026-03-10T10:00:00Z</updated>
+  <id>tag:studio.example,2026:journal</id>
+  <author><name>Studio Team</name></author>
+  <entry>
+    <title type="html">Designing for &lt;em&gt;calm&lt;/em&gt; interfaces</title>
+    <link rel="alternate" type="text/html" href="journal/calm-interfaces"/>
+    <link rel="replies" type="application/atom+xml" href="journal/calm-interfaces/comments" thr:count="7"/>
+    <link rel="enclosure" type="image/jpeg" href="/img/calm.jpg"/>
+    <id>tag:studio.example,2026:calm-interfaces</id>
+    <published>2026-03-02T08:00:00Z</published>
+    <updated>2026-03-04T09:00:00Z</updated>
+    <author><name>Alex Example</name><email>alex@studio.example</email></author>
+    <category term="Design" label="Design"/>
+    <category term="UX"/>
+    <summary type="text">How we remove noise from product screens.</summary>
+    <content type="html">&lt;p&gt;Long body text with &lt;a href="/x"&gt;links&lt;/a&gt; that is never stored in full.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <title>Typography notes</title>
+    <link rel="alternate" href="https://studio.example/journal/typography"/>
+    <id>tag:studio.example,2026:typography</id>
+    <updated>2026-03-08T16:30:00+02:00</updated>
+    <thr:total>3</thr:total>
+    <content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml"><p>Notes on <b>type</b> pairing.</p><img src="/img/type.png"/></div></content>
+  </entry>
+  <entry>
+    <title>Broken entry without any link</title>
+    <id>urn:uuid:not-a-url</id>
+    <updated>2026-03-09T00:00:00Z</updated>
+  </entry>
+</feed>

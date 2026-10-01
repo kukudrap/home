@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns="http://purl.org/rss/1.0/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel rdf:about="https://news.example.org/">
+    <title>Example Newsroom</title>
+    <link>https://news.example.org/</link>
+    <description>Press releases</description>
+    <items>
+      <rdf:Seq>
+        <rdf:li rdf:resource="https://news.example.org/press/launch"/>
+        <rdf:li rdf:resource="https://news.example.org/press/results"/>
+      </rdf:Seq>
+    </items>
+  </channel>
+  <item rdf:about="https://news.example.org/press/launch">
+    <title>Example launches new platform</title>
+    <link>https://news.example.org/press/launch</link>
+    <description>The company announced a new platform today.</description>
+    <dc:date>2026-02-10T12:00:00+01:00</dc:date>
+    <dc:creator>Press Office</dc:creator>
+    <dc:subject>Product</dc:subject>
+    <content:encoded><![CDATA[<p>The company announced a new platform today.</p>]]></content:encoded>
+  </item>
+  <item rdf:about="https://news.example.org/press/results">
+    <title>Quarterly results</title>
+    <link>/press/results</link>
+    <description>Revenue grew &lt;b&gt;12%&lt;/b&gt;.</description>
+    <dc:date>2026-02-20T08:15:00Z</dc:date>
+  </item>
+</rdf:RDF>
