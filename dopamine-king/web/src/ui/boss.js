@@ -134,7 +134,7 @@
       var norm = scoring.normalize(text);
       var inner = d.h("div.hl-inner");
       if (norm !== text || !result || !result.spans.length) {
-        inner.appendChild(d.h("span", null, text + "​"));
+        inner.appendChild(d.h("span", null, text + "\u200b"));
         layer.appendChild(inner);
         return;
       }
@@ -146,7 +146,7 @@
         var g = groupOf(seg.primary);
         inner.appendChild(d.h("mark.hl.g-" + g, { "data-cats": seg.cats.join(" ") }, seg.text));
       });
-      inner.appendChild(d.h("span", null, "​"));
+      inner.appendChild(d.h("span", null, "\u200b"));
       layer.appendChild(inner);
     }
 
@@ -249,7 +249,7 @@
       drafts[boss.id] = text;
       var chars = Array.from(text).length;
       var words = text.trim() ? text.trim().split(/\s+/).length : 0;
-      count.textContent = t("boss.count", { c: chars, max: MAX_CHARS, w: words });
+      count.textContent = t("boss.count", { c: chars, max: MAX_CHARS, words: ctx.tp("boss.words", words) });
       resize();
       var result = text.trim() ? scoreNow() : null;
       var shownResult = result || scoring.scoreHook("", "", { lang: langChoice === "auto" ? undefined : langChoice, spec: ctx.bundle.spec });
@@ -298,7 +298,7 @@
       // tips
       var tipItems;
       if (!result) tipItems = [d.h("li", null, icons.icon("pencil", { size: 16 }), d.h("span", null, t("boss.tipEmpty")))];
-      else tipItems = shownResult.tips.map(function (tip) { return d.h("li", null, icons.icon(tip.key === "ship_it" ? "check" : "bulb", { size: 16 }), d.h("span", null, tip[ctx.lang()] || tip.en)); });
+      else tipItems = shownResult.tips.map(function (tip) { return d.h("li", null, icons.icon(tip.key === "ship_it" ? "check" : "bulb", { size: 16 }), d.h("span", null, d.typo(tip[ctx.lang()] || tip.en))); });
       d.fill(els.tips, tipItems);
 
       d.fill(els.phraseHost, phrases(result));
@@ -384,7 +384,7 @@
       return d.h("section.card.fight-result.is-lose", { tabindex: "-1" },
         d.h("div.victory-banner.soft", null, icons.icon("heart", { size: 30 }), d.h("div", null, d.h("h2.result-title", null, t("boss.notYet")), d.h("p", null, t("boss.notYetText", { name: boss.name })))),
         d.h("ul.reason-list", null, reasons),
-        result.tips.length ? d.h("div", null, d.h("h3.sub", null, t("boss.tryThis")), d.h("ul.tip-list", null, result.tips.map(function (tip) { return d.h("li", null, icons.icon("bulb", { size: 16 }), d.h("span", null, tip[ctx.lang()] || tip.en)); }))) : null,
+        result.tips.length ? d.h("div", null, d.h("h3.sub", null, t("boss.tryThis")), d.h("ul.tip-list", null, result.tips.map(function (tip) { return d.h("li", null, icons.icon("bulb", { size: 16 }), d.h("span", null, d.typo(tip[ctx.lang()] || tip.en))); }))) : null,
         d.h("div.row.wrap", null,
           d.h("button.btn.btn-primary", { type: "button", onclick: function () { resultHost.textContent = ""; input.focus(); } }, t("boss.tryAgain")),
           d.h("a.btn.btn-ghost", { href: "#/boss" }, t("boss.all"))));

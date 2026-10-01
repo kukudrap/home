@@ -99,9 +99,9 @@
             d.h("a.btn" + (p.chestsReady > 0 ? ".btn-primary" : ".btn-ghost"), { href: "#/vault" }, icons.icon("vault", { size: 18 }), t("home.chest.open")),
             d.h("a.link.small", { href: "#/vault" }, t("home.chest.odds")))));
 
-      var oracleRing = charts.ring({ value: oracle === null ? 0 : oracle, max: 100, size: 92, stroke: 9, tone: "info", text: oracle === null ? "?" : String(Math.round(oracle)), label: t("home.oracle.title") + ": " + (oracle === null ? t("home.oracle.locked", { n: needOracle }) : Math.round(oracle)) });
+      var oracleRing = charts.ring({ value: oracle === null ? 0 : oracle, max: 100, size: 92, stroke: 9, tone: "info", text: oracle === null ? "?" : String(Math.round(oracle)), label: t("home.oracle.title") + ": " + (oracle === null ? ctx.tp("home.oracle.locked", needOracle) : Math.round(oracle)) });
       var oracleCard = statCard(t("home.oracle.title"), d.h("div.stat-body.col", null, oracleRing,
-        d.h("p.small", null, oracle === null ? t("home.oracle.locked", { n: needOracle }) : t("home.oracle.hint"))));
+        d.h("p.small", null, oracle === null ? ctx.tp("home.oracle.locked", needOracle) : t("home.oracle.hint"))));
 
       var timeCard = statCard(t("home.time.title"), d.h("div.stat-body.col", null,
         d.h("span.big-num", null, d.fmtMinutes(minutes)),

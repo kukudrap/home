@@ -116,6 +116,7 @@ LAB_SCENARIOS = [
      "baseline": 0.03, "lift_rel": 0.40, "visitors_hint": 3000},
 ]
 
+DEMO_FORMATS = ("linkedin_post", "seo_article", "short_video_script", "google_rsa")
 DROP_RATES = {"common": 0.60, "rare": 0.28, "epic": 0.10, "legendary": 0.02}
 PITY_AFTER = 8
 
@@ -213,8 +214,32 @@ def build_loot(patterns: list[dict[str, Any]], ledger_cards: list[dict[str, Any]
     return cards
 
 
+def demo_samples(ledger: Any = None) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    """Real engine output for two fictional brands (English and Czech): an offline pack and a 4 week plan.
+
+    Nothing here is hand written: open slots stay ``[[ADD: ...]]`` because the offline writer never
+    invents prose, and every remark comes from the validators and the Trust Shield.
+    """
+    from .generate.packs import build_pack
+    from .generate.types import Brief
+    from .guru import build_plan
+
+    briefs = [
+        Brief(brand="Zorvia Running", topic="running shoes", audience="beginner runners", cohort="sport",
+              keyword="running shoes for beginners", facts=["Our Aero 2 weighs 210 g."], cta="Try the Aero 2 for 30 days",
+              offer="The Aero 2 running shoe"),
+        Brief(brand="Hrnek a Hvězda", topic="domácí káva", audience="začátečníci", lang="cs", cohort="cz-local",
+              keyword="domácí káva pro začátečníky", facts=["Pražíme každý týden v malých dávkách."],
+              cta="Objednejte první balení", offer="Startovací balení kávy",
+              topic_forms={"gen": "domácí kávy", "dat": "domácí kávě", "acc": "domácí kávu", "loc": "domácí kávě", "ins": "domácí kávou"}),
+    ]
+    packs = [build_pack(b, DEMO_FORMATS, ledger=ledger, improve_rounds=0).to_dict() for b in briefs]
+    plans = [build_plan(b).to_dict() for b in briefs]
+    return packs, plans
+
+
 def build_bundle(*, seed: int = 7, ledger: Any = None, forge_samples: list[dict[str, Any]] | None = None,
-                 guru_sample: dict[str, Any] | None = None) -> dict[str, Any]:
+                 guru_sample: dict[str, Any] | None = None, with_samples: bool = True) -> dict[str, Any]:
     brands, items = generate_corpus(seed=seed)
     cohort_by_brand = {b.id: b.cohort for b in brands}
     brand_name = {b.id: b.name for b in brands}
@@ -223,6 +248,11 @@ def build_bundle(*, seed: int = 7, ledger: Any = None, forge_samples: list[dict[
     brands_by_item = {i.id: brand_name[i.brand_id] for i in items}
     cal = calibrate_weights(analyses)
     patterns = [p.to_dict() for p in mine_patterns(analyses, titles, n_boot=60)]
+
+    guru_samples: list[dict[str, Any]] = [guru_sample] if guru_sample else []
+    if with_samples and not forge_samples:
+        forge_samples, guru_samples = demo_samples(ledger)
+        guru_sample = guru_samples[0]
 
     ledger_cards: list[dict[str, Any]] = []
     vault: dict[str, Any] = {"tactics": [], "studies": [], "links": []}
@@ -246,6 +276,7 @@ def build_bundle(*, seed: int = 7, ledger: Any = None, forge_samples: list[dict[
         "loot": {"cards": build_loot(patterns, ledger_cards), "rates": DROP_RATES, "pity_after": PITY_AFTER},
         "forge_samples": forge_samples or [],
         "guru_sample": guru_sample,
+        "guru_samples": guru_samples,
     }
 
 

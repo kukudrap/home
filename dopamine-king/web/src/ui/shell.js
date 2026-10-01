@@ -89,7 +89,7 @@
       var st = game.streakStatus(p, ctx.today());
       var f = p.freezeTokens;
       var chip = d.h("div.streak-chip" + (st.alive ? "" : ".is-out"), {
-        role: "group", "aria-label": t("top.streakAria", { n: st.streak, f: f }), title: t("top.streakTitle")
+        role: "group", "aria-label": t("top.streakAria", { days: ctx.tp("home.streak.days", st.streak), f: f }), title: t("top.streakTitle")
       },
         icons.flame(22, st.alive),
         d.h("b.streak-n", { "aria-hidden": "true" }, String(st.streak)),
@@ -177,7 +177,17 @@
       var lp = game.levelProgress(p.xp);
       var oracle = game.oracleRating(p.brier);
       var nameInput = d.h("input.input", { type: "text", maxlength: "40", value: p.name, autocomplete: "nickname", placeholder: t("profile.namePlaceholder") });
-      nameInput.addEventListener("change", function () { ctx.updateProfile({ name: nameInput.value.trim() }); });
+      // Saved shortly after typing and again on change or close, so closing the dialog never loses a name.
+      var savedName = p.name;
+      function saveName() {
+        var v = nameInput.value.trim();
+        if (v === savedName) return;
+        savedName = v;
+        ctx.updateProfile({ name: v });
+      }
+      var saveSoon = d.debounce(saveName, 400);
+      nameInput.addEventListener("input", saveSoon);
+      nameInput.addEventListener("change", function () { saveSoon.cancel(); saveName(); });
 
       var ach = d.h("ul.ach-grid", null, game.ACHIEVEMENTS.map(function (a) {
         var on = p.achievements.indexOf(a.id) >= 0;
@@ -261,7 +271,7 @@
             d.h("button.btn.btn-ghost.btn-sm", { type: "button", onclick: function () { fileInput.click(); } }, icons.icon("upload", { size: 15 }), t("profile.import")),
             fileInput),
           msg, resetHost));
-      var dlg = widgets.dialog({ title: t("profile.title"), body: body, wide: true });
+      var dlg = widgets.dialog({ title: t("profile.title"), body: body, wide: true, onClose: function () { saveSoon.cancel(); saveName(); } });
       return dlg;
     }
 

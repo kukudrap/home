@@ -28,6 +28,14 @@
     canvas.style.width = W + "px";
     canvas.style.height = H + "px";
     canvas.classList.add("is-on");
+    // A modal dialog lives in the top layer, above any z-index. Promote the canvas to the top layer too (popover),
+    // so a burst over an open chest dialog is visible. Engines without popovers just use the z-index.
+    try {
+      if (typeof canvas.showPopover === "function") {
+        if (!canvas.hasAttribute("popover")) canvas.setAttribute("popover", "manual");
+        if (!canvas.matches(":popover-open")) canvas.showPopover();
+      }
+    } catch (e) { /* fall back to z-index */ }
     if (running) cancelAnimationFrame(running.id);
 
     var ox = (opts.x === undefined ? 0.5 : opts.x) * W, oy = (opts.y === undefined ? 0.35 : opts.y) * H;
@@ -67,7 +75,12 @@
         ctx.restore();
       });
       if (alive && age < total) state.id = requestAnimationFrame(frame);
-      else { ctx.clearRect(0, 0, W, H); canvas.classList.remove("is-on"); running = null; }
+      else {
+        ctx.clearRect(0, 0, W, H);
+        canvas.classList.remove("is-on");
+        try { if (canvas.matches(":popover-open")) canvas.hidePopover(); } catch (e) { /* not a popover here */ }
+        running = null;
+      }
     }
     state.id = requestAnimationFrame(frame);
     return true;

@@ -19,11 +19,11 @@
       d.h("span.chip-text", null, text));
   }
 
-  /** Section heading with an optional subtitle and a right-hand slot. */
-  function heading(level, title, sub, right) {
+  /** Section heading with an optional subtitle, a right-hand slot and an id for aria-labelledby. */
+  function heading(level, title, sub, right, id) {
     var d = dom();
     return d.h("div.heading",
-      d.h("div.heading-main", d.h("h" + level + ".heading-title", null, title), sub ? d.h("p.heading-sub", null, sub) : null),
+      d.h("div.heading-main", d.h("h" + level + ".heading-title", { id: id || null }, title), sub ? d.h("p.heading-sub", null, sub) : null),
       right ? d.h("div.heading-right", null, right) : null);
   }
 
@@ -49,6 +49,14 @@
     var order = opts.items.map(function (i) { return i.id; });
     var active = null;
 
+    /** On a narrow screen the tab row scrolls sideways: bring the selected tab into view without moving the page. */
+    function reveal(btn) {
+      if (!btn || list.scrollWidth <= list.clientWidth + 1) return;
+      var left = Math.max(0, btn.offsetLeft - (list.clientWidth - btn.offsetWidth) / 2);
+      if (typeof list.scrollTo === "function") list.scrollTo({ left: left, behavior: d.reducedMotion() ? "auto" : "smooth" });
+      else list.scrollLeft = left;
+    }
+
     function select(id, focus, silent) {
       if (!btns[id]) return;
       active = id;
@@ -59,6 +67,7 @@
         btns[k].classList.toggle("is-active", on);
       });
       panel.setAttribute("aria-labelledby", btns[id].id);
+      reveal(btns[id]);
       if (focus) btns[id].focus();
       if (!silent && opts.onChange) opts.onChange(id, panel);
     }
@@ -82,6 +91,7 @@
 
     var api = { el: list, panel: panel, select: function (id, focus) { select(id, !!focus); }, active: function () { return active; } };
     if (opts.active || order.length) select(opts.active || order[0], false);
+    d.raf(function () { reveal(btns[active]); }); // the row is in the page by now: show a remembered tab that is off screen
     return api;
   }
 

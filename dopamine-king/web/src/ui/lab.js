@@ -113,10 +113,10 @@
       var slider = widgets.slider({
         label: t("lab.duel.visitors"), min: 200, max: maxN(s), step: 100, value: Math.min(st.n, maxN(s)),
         format: function (v) { return d.fmt(v); },
-        onInput: function (v) { st.n = v; days.textContent = t("lab.duel.days", { d: daysFor(s, v) }); }
+        onInput: function (v) { st.n = v; days.textContent = ctx.tp("lab.duel.days", daysFor(s, v)); }
       });
       slider.disable(locked);
-      var days = d.h("span.small.muted", null, t("lab.duel.days", { d: daysFor(s, st.n) }));
+      var days = d.h("span.small.muted", null, ctx.tp("lab.duel.days", daysFor(s, st.n)));
       var plan = t("lab.duel.planning", { m: 20, p: d.fmtPct(s.baseline, 1), n: d.fmt(labstats.sampleSizePerArm(s.baseline, 0.2)) });
       var runBtn = d.h("button.btn.btn-primary", { type: "button", disabled: locked, onclick: function () { run(); } },
         icons.icon("play", { size: 18 }), d.h("span", null, round.runs.length ? t("lab.duel.runAgain") : t("lab.duel.run")));

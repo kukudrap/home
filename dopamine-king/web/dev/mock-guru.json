@@ -1,0 +1,545 @@
+{
+ "brief": {
+  "brand": "Zorvia Running",
+  "topic": "lightweight running shoes",
+  "audience": "beginner runners",
+  "goal": "awareness",
+  "lang": "en",
+  "tone": "friendly, direct, no hype",
+  "keyword": "lightweight running shoes",
+  "secondary_keywords": [
+   "beginner running shoes",
+   "first 5k"
+  ],
+  "offer": "the Aero 2 trainer",
+  "cta": "Try the Aero 2 for 30 days",
+  "facts": [
+   "The Aero 2 weighs 210 g in size 42.",
+   "Returns are free within 30 days.",
+   "The upper is made from 60 percent recycled yarn."
+  ],
+  "sources": [],
+  "voice_notes": "",
+  "cohort": "sport",
+  "avoid": [
+   "revolutionary",
+   "game changer"
+  ],
+  "topic_forms": {},
+  "sponsored": false
+ },
+ "positioning": "Zorvia Running | Audience: beginner runners | Topic: lightweight running shoes | Promise: the Aero 2 trainer | Proof: The Aero 2 weighs 210 g in size 42.; Returns are free within 30 days. | Tone: friendly, direct, no hype",
+ "pillars": [
+  {
+   "id": "educate",
+   "name_en": "Educate",
+   "name_cs": "Vzdělávej",
+   "share": 0.35,
+   "angles": [
+    "How-to with a concrete result",
+    "Common mistakes and how to avoid them",
+    "Myth versus fact",
+    "Checklist or template"
+   ],
+   "angles_en": [
+    "How-to with a concrete result",
+    "Common mistakes and how to avoid them",
+    "Myth versus fact",
+    "Checklist or template"
+   ],
+   "angles_cs": [
+    "Návod s konkrétním výsledkem",
+    "Časté chyby a jak se jim vyhnout",
+    "Mýtus versus fakt",
+    "Checklist nebo šablona"
+   ]
+  },
+  {
+   "id": "story",
+   "name_en": "Story",
+   "name_cs": "Příběh",
+   "share": 0.3,
+   "angles": [
+    "Origin or turning point",
+    "A day in the life of the audience",
+    "Lesson learned the hard way",
+    "Community spotlight"
+   ],
+   "angles_en": [
+    "Origin or turning point",
+    "A day in the life of the audience",
+    "Lesson learned the hard way",
+    "Community spotlight"
+   ],
+   "angles_cs": [
+    "Počátek nebo zlom",
+    "Den v životě publika",
+    "Lekce, která stála zkušenost",
+    "Spotlight na komunitu"
+   ]
+  },
+  {
+   "id": "prove",
+   "name_en": "Prove",
+   "name_cs": "Dokaž",
+   "share": 0.2,
+   "angles": [
+    "A first-party number and what it means",
+    "Before and after with real data",
+    "Behind the scenes of how it is made",
+    "Customer outcome (with permission)"
+   ],
+   "angles_en": [
+    "A first-party number and what it means",
+    "Before and after with real data",
+    "Behind the scenes of how it is made",
+    "Customer outcome (with permission)"
+   ],
+   "angles_cs": [
+    "Vlastní číslo a co znamená",
+    "Před a po se skutečnými daty",
+    "Zákulisí výroby",
+    "Výsledek zákazníka (se svolením)"
+   ]
+  },
+  {
+   "id": "convert",
+   "name_en": "Convert",
+   "name_cs": "Prodej",
+   "share": 0.15,
+   "angles": [
+    "One clear offer with an honest deadline (only if real)",
+    "Objection handling",
+    "Comparison with the old way",
+    "How to get started in three steps"
+   ],
+   "angles_en": [
+    "One clear offer with an honest deadline (only if real)",
+    "Objection handling",
+    "Comparison with the old way",
+    "How to get started in three steps"
+   ],
+   "angles_cs": [
+    "Jedna jasná nabídka s férovým termínem (jen pokud je reálný)",
+    "Řešení námitek",
+    "Srovnání se starým způsobem",
+    "Jak začít ve třech krocích"
+   ]
+  }
+ ],
+ "channels": [
+  {
+   "id": "short_video",
+   "formats": [
+    "short_video_script"
+   ],
+   "posts_per_week": 1.25,
+   "kpi": "completion rate",
+   "why_en": "Cheapest reach; the first three seconds decide everything.",
+   "why_cs": "Nejlevnější dosah; o všem rozhodují první tři vteřiny."
+  },
+  {
+   "id": "instagram",
+   "formats": [
+    "instagram_carousel",
+    "instagram_caption"
+   ],
+   "posts_per_week": 1.25,
+   "kpi": "saves and shares",
+   "why_en": "Visual discovery for consumer topics; saves signal real value.",
+   "why_cs": "Vizuální objevování spotřebitelských témat; uložení signalizuje skutečnou hodnotu."
+  },
+  {
+   "id": "blog",
+   "formats": [
+    "seo_article",
+    "geo_answer_page"
+   ],
+   "posts_per_week": 1.0,
+   "kpi": "organic visits and AI citations",
+   "why_en": "Compounding search and answer-engine visibility; the home of your evidence.",
+   "why_cs": "Kumulativní viditelnost ve vyhledávání a v AI odpovědích; domov vašich důkazů."
+  },
+  {
+   "id": "email",
+   "formats": [
+    "newsletter",
+    "email_sequence"
+   ],
+   "posts_per_week": 1.0,
+   "kpi": "open and click rate",
+   "why_en": "The one channel you own; best place to convert attention.",
+   "why_cs": "Jediný kanál, který vlastníte; nejlepší místo pro přeměnu pozornosti."
+  },
+  {
+   "id": "youtube",
+   "formats": [
+    "youtube_script"
+   ],
+   "posts_per_week": 0.5,
+   "kpi": "average view duration",
+   "why_en": "Search plus recommendation; long form builds trust.",
+   "why_cs": "Vyhledávání plus doporučování; dlouhá forma buduje důvěru."
+  }
+ ],
+ "calendar": [
+  {
+   "week": 1,
+   "day": "Mon",
+   "channel": "short_video",
+   "format": "short_video_script",
+   "pillar": "educate",
+   "hook": "Lightweight running shoes: a simple checklist before you begin",
+   "experiment": {
+    "hypothesis": "Number-led hooks beat curiosity-led hooks",
+    "variant_b": "Don't make this mistake with lightweight running shoes",
+    "metric": "CTR"
+   },
+   "kpi": "completion rate"
+  },
+  {
+   "week": 1,
+   "day": "Tue",
+   "channel": "instagram",
+   "format": "instagram_carousel",
+   "pillar": "story",
+   "hook": "Here's what to know about lightweight running shoes before you decide",
+   "experiment": null,
+   "kpi": "saves and shares"
+  },
+  {
+   "week": 1,
+   "day": "Wed",
+   "channel": "blog",
+   "format": "seo_article",
+   "pillar": "prove",
+   "hook": "What the data says: Returns are free within 30 days",
+   "experiment": null,
+   "kpi": "organic visits and AI citations"
+  },
+  {
+   "week": 1,
+   "day": "Thu",
+   "channel": "email",
+   "format": "newsletter",
+   "pillar": "convert",
+   "hook": "Should you start with lightweight running shoes? Here is how to decide",
+   "experiment": null,
+   "kpi": "open and click rate"
+  },
+  {
+   "week": 1,
+   "day": "Fri",
+   "channel": "youtube",
+   "format": "youtube_script",
+   "pillar": "educate",
+   "hook": "How to avoid costly mistakes with lightweight running shoes",
+   "experiment": null,
+   "kpi": "average view duration"
+  },
+  {
+   "week": 2,
+   "day": "Mon",
+   "channel": "short_video",
+   "format": "short_video_script",
+   "pillar": "story",
+   "hook": "Lightweight running shoes: myths, facts and what to do instead",
+   "experiment": {
+    "hypothesis": "A question beats a statement as the opening line",
+    "variant_b": "Our numbers on lightweight running shoes: Returns are free within 30 days",
+    "metric": "CTR"
+   },
+   "kpi": "completion rate"
+  },
+  {
+   "week": 2,
+   "day": "Tue",
+   "channel": "instagram",
+   "format": "instagram_caption",
+   "pillar": "prove",
+   "hook": "7 mistakes beginner runners make with lightweight running shoes",
+   "experiment": null,
+   "kpi": "saves and shares"
+  },
+  {
+   "week": 2,
+   "day": "Wed",
+   "channel": "blog",
+   "format": "geo_answer_page",
+   "pillar": "convert",
+   "hook": "Beginner runners: this guide is for you",
+   "experiment": null,
+   "kpi": "organic visits and AI citations"
+  },
+  {
+   "week": 2,
+   "day": "Thu",
+   "channel": "email",
+   "format": "email_sequence",
+   "pillar": "educate",
+   "hook": "Before vs after: 5 small changes to your lightweight running shoes",
+   "experiment": null,
+   "kpi": "open and click rate"
+  },
+  {
+   "week": 2,
+   "day": "Fri",
+   "channel": "youtube",
+   "format": "youtube_script",
+   "pillar": "story",
+   "hook": "Are you making these mistakes with lightweight running shoes?",
+   "experiment": null,
+   "kpi": "average view duration"
+  },
+  {
+   "week": 3,
+   "day": "Mon",
+   "channel": "short_video",
+   "format": "short_video_script",
+   "pillar": "prove",
+   "hook": "5 ways to get more from your lightweight running shoes",
+   "experiment": {
+    "hypothesis": "Speaking to the reader (you) beats talking about us",
+    "variant_b": "Think you know lightweight running shoes? Check these 5 myths",
+    "metric": "saves rate"
+   },
+   "kpi": "completion rate"
+  },
+  {
+   "week": 3,
+   "day": "Tue",
+   "channel": "instagram",
+   "format": "instagram_carousel",
+   "pillar": "convert",
+   "hook": "Calling all beginner runners: a lightweight running shoes guide made for you",
+   "experiment": null,
+   "kpi": "saves and shares"
+  },
+  {
+   "week": 3,
+   "day": "Wed",
+   "channel": "blog",
+   "format": "seo_article",
+   "pillar": "educate",
+   "hook": "Avoid these 5 mistakes with lightweight running shoes",
+   "experiment": null,
+   "kpi": "organic visits and AI citations"
+  },
+  {
+   "week": 3,
+   "day": "Thu",
+   "channel": "email",
+   "format": "newsletter",
+   "pillar": "story",
+   "hook": "What is the one thing you would ask about lightweight running shoes?",
+   "experiment": null,
+   "kpi": "open and click rate"
+  },
+  {
+   "week": 3,
+   "day": "Fri",
+   "channel": "short_video",
+   "format": "short_video_script",
+   "pillar": "prove",
+   "hook": "Your lightweight running shoes before and after 5 simple changes",
+   "experiment": null,
+   "kpi": "completion rate"
+  },
+  {
+   "week": 4,
+   "day": "Mon",
+   "channel": "instagram",
+   "format": "instagram_caption",
+   "pillar": "educate",
+   "hook": "Why you should ignore some lightweight running shoes advice",
+   "experiment": {
+    "hypothesis": "Hooks under 8 words beat hooks over 12 words",
+    "variant_b": "Turns out, there is more to lightweight running shoes than you think",
+    "metric": "CTR"
+   },
+   "kpi": "saves and shares"
+  },
+  {
+   "week": 4,
+   "day": "Tue",
+   "channel": "blog",
+   "format": "geo_answer_page",
+   "pillar": "story",
+   "hook": "How Zorvia Running looks at lightweight running shoes, from the inside",
+   "experiment": null,
+   "kpi": "organic visits and AI citations"
+  },
+  {
+   "week": 4,
+   "day": "Wed",
+   "channel": "email",
+   "format": "email_sequence",
+   "pillar": "educate",
+   "hook": "What nobody tells you about lightweight running shoes",
+   "experiment": null,
+   "kpi": "open and click rate"
+  },
+  {
+   "week": 4,
+   "day": "Thu",
+   "channel": "short_video",
+   "format": "short_video_script",
+   "pillar": "story",
+   "hook": "By the numbers: Returns are free within 30 days",
+   "experiment": null,
+   "kpi": "completion rate"
+  },
+  {
+   "week": 4,
+   "day": "Fri",
+   "channel": "instagram",
+   "format": "instagram_carousel",
+   "pillar": "educate",
+   "hook": "Can you do this for 7 days? A lightweight running shoes challenge",
+   "experiment": null,
+   "kpi": "saves and shares"
+  }
+ ],
+ "experiments": [
+  {
+   "id": "e1",
+   "hypothesis_en": "Number-led hooks beat curiosity-led hooks",
+   "hypothesis_cs": "Hooky s číslem porazí hooky založené na zvědavosti",
+   "metric": "CTR",
+   "baseline": 0.03,
+   "mde_rel": 0.2,
+   "n_per_arm": 13914,
+   "note_en": "Replace the baseline with your own measured rate before running.",
+   "note_cs": "Před spuštěním nahraďte základní hodnotu vlastním naměřeným číslem."
+  },
+  {
+   "id": "e2",
+   "hypothesis_en": "A question beats a statement as the opening line",
+   "hypothesis_cs": "Otázka porazí tvrzení jako úvodní řádek",
+   "metric": "CTR",
+   "baseline": 0.03,
+   "mde_rel": 0.2,
+   "n_per_arm": 13914,
+   "note_en": "Replace the baseline with your own measured rate before running.",
+   "note_cs": "Před spuštěním nahraďte základní hodnotu vlastním naměřeným číslem."
+  },
+  {
+   "id": "e3",
+   "hypothesis_en": "Speaking to the reader (you) beats talking about us",
+   "hypothesis_cs": "Oslovení čtenáře (vy) porazí mluvení o nás",
+   "metric": "saves rate",
+   "baseline": 0.03,
+   "mde_rel": 0.2,
+   "n_per_arm": 13914,
+   "note_en": "Replace the baseline with your own measured rate before running.",
+   "note_cs": "Před spuštěním nahraďte základní hodnotu vlastním naměřeným číslem."
+  },
+  {
+   "id": "e4",
+   "hypothesis_en": "Hooks under 8 words beat hooks over 12 words",
+   "hypothesis_cs": "Hooky pod 8 slov porazí hooky nad 12 slov",
+   "metric": "CTR",
+   "baseline": 0.03,
+   "mde_rel": 0.2,
+   "n_per_arm": 13914,
+   "note_en": "Replace the baseline with your own measured rate before running.",
+   "note_cs": "Před spuštěním nahraďte základní hodnotu vlastním naměřeným číslem."
+  },
+  {
+   "id": "e5",
+   "hypothesis_en": "Showing the payoff first beats building suspense",
+   "hypothesis_cs": "Ukázat výsledek hned porazí budování napětí",
+   "metric": "completion rate",
+   "baseline": 0.03,
+   "mde_rel": 0.2,
+   "n_per_arm": 13914,
+   "note_en": "Replace the baseline with your own measured rate before running.",
+   "note_cs": "Před spuštěním nahraďte základní hodnotu vlastním naměřeným číslem."
+  }
+ ],
+ "kpis": [
+  {
+   "goal": "awareness",
+   "metric_en": "Reach and completion rate",
+   "metric_cs": "Dosah a dokoukanost",
+   "target_rule_en": "Improve by 10 percent against your own previous 4 week baseline, then re-baseline.",
+   "target_rule_cs": "Zlepšit o 10 procent proti vlastnímu předchozímu čtyřtýdennímu základu, potom základ přepočítat.",
+   "primary": true
+  },
+  {
+   "goal": "consideration",
+   "metric_en": "Click-through rate and saves",
+   "metric_cs": "Míra prokliku a uložení",
+   "target_rule_en": "Improve by 10 percent against your own previous 4 week baseline, then re-baseline.",
+   "target_rule_cs": "Zlepšit o 10 procent proti vlastnímu předchozímu čtyřtýdennímu základu, potom základ přepočítat.",
+   "primary": false
+  },
+  {
+   "goal": "conversion",
+   "metric_en": "Conversion rate and cost per conversion",
+   "metric_cs": "Konverzní poměr a cena konverze",
+   "target_rule_en": "Improve by 10 percent against your own previous 4 week baseline, then re-baseline.",
+   "target_rule_cs": "Zlepšit o 10 procent proti vlastnímu předchozímu čtyřtýdennímu základu, potom základ přepočítat.",
+   "primary": false
+  },
+  {
+   "goal": "retention",
+   "metric_en": "Open rate and repeat visits",
+   "metric_cs": "Otevření a opakované návštěvy",
+   "target_rule_en": "Improve by 10 percent against your own previous 4 week baseline, then re-baseline.",
+   "target_rule_cs": "Zlepšit o 10 procent proti vlastnímu předchozímu čtyřtýdennímu základu, potom základ přepočítat.",
+   "primary": false
+  },
+  {
+   "goal": "community",
+   "metric_en": "Comments, replies and shares",
+   "metric_cs": "Komentáře, odpovědi a sdílení",
+   "target_rule_en": "Improve by 10 percent against your own previous 4 week baseline, then re-baseline.",
+   "target_rule_cs": "Zlepšit o 10 procent proti vlastnímu předchozímu čtyřtýdennímu základu, potom základ přepočítat.",
+   "primary": false
+  }
+ ],
+ "geo": {
+  "queries": [
+   "What should I know about lightweight running shoes?",
+   "Best lightweight running shoes for beginner runners",
+   "How do I choose lightweight running shoes?",
+   "Zorvia Running vs alternatives",
+   "How much should I pay for lightweight running shoes?",
+   "Zorvia Running reviews",
+   "Is Zorvia Running worth it?",
+   "What are the alternatives to Zorvia Running?",
+   "Is it worth investing in lightweight running shoes?",
+   "What are the pros and cons of lightweight running shoes?"
+  ],
+  "tasks_en": [
+   "Publish one answer-first page per query cluster (format geo_answer_page) with a 40 to 60 word direct answer.",
+   "Add at least 3 vetted sources, 1 quotation from a named expert and 3 first-party statistics per page.",
+   "Add Article, FAQPage and Organization JSON-LD; show author, role and a visible updated date.",
+   "Decide your policy for AI crawlers in robots.txt (search allowed, training your choice) and optionally publish llms.txt.",
+   "Every week paste the answers of 2 to 3 answer engines for these queries into `kingctl visibility` and track mention and citation rate."
+  ],
+  "tasks_cs": [
+   "Publikujte pro každý okruh dotazů jednu stránku s odpovědí na začátku (formát geo_answer_page) s přímou odpovědí na 40 až 60 slov.",
+   "Přidejte nejméně 3 prověřené zdroje, 1 citát jmenovaného experta a 3 vlastní statistiky na stránku.",
+   "Přidejte JSON-LD Article, FAQPage a Organization; ukažte autora, jeho roli a viditelné datum aktualizace.",
+   "Rozhodněte o politice pro AI crawlery v robots.txt (vyhledávání povolit, trénink dle vašeho rozhodnutí) a volitelně publikujte llms.txt.",
+   "Každý týden vložte odpovědi 2 až 3 odpovědních enginů na tyto dotazy do `kingctl visibility` a sledujte míru zmínek a citací."
+  ]
+ },
+ "guardrails_en": [
+  "Every piece passes the Trust Shield before publishing: no invented numbers, no fake scarcity, citations only from vetted sources.",
+  "A human reviews and adds first-party experience to every article; mass-produced low-value content is a spam-policy risk.",
+  "Label sponsored content and follow platform and EU rules on AI-generated or synthetic media; this is not legal advice.",
+  "Verify platform limits and policies before publishing; they change."
+ ],
+ "guardrails_cs": [
+  "Každý kus projde před publikací Trust Shieldem: žádná vymyšlená čísla, žádný falešný nedostatek, citace jen z prověřených zdrojů.",
+  "Člověk každý článek zkontroluje a doplní o vlastní zkušenost; hromadně vyráběný obsah s nízkou hodnotou je riziko pro spamové zásady.",
+  "Označte sponzorovaný obsah a dodržujte pravidla platforem a EU pro obsah vytvořený AI nebo syntetická média; nejde o právní radu.",
+  "Před publikací ověřte limity a pravidla platforem; mění se."
+ ],
+ "needs_input": [
+  "Add 2 to 3 vetted sources (studies, standards) for citations in articles."
+ ]
+}

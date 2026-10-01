@@ -12,7 +12,7 @@ class BundleTests(unittest.TestCase):
 
     def test_top_level_shape(self):
         expected = {"meta", "spec", "calibration", "cohort_labels", "benchmarks", "arena", "bosses", "patterns", "myths",
-                    "lab", "vault", "loot", "forge_samples", "guru_sample"}
+                    "lab", "vault", "loot", "forge_samples", "guru_sample", "guru_samples"}
         self.assertEqual(set(self.bundle), expected)
         self.assertTrue(self.bundle["meta"]["synthetic"])
         self.assertIn("SIMULATED", self.bundle["meta"]["note"])
@@ -112,3 +112,31 @@ class BundleWithLedgerTests(unittest.TestCase):
         self.assertTrue(all(not c["demo"] for c in study_cards))
         self.assertIn("legendary", {c["rarity"] for c in study_cards})
         self.assertNotIn(chr(0x2014), bundle_json(self.bundle))
+
+
+class DemoSamplesTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.bundle = build_bundle()
+
+    def test_samples_come_from_the_engine_in_both_languages(self):
+        packs = self.bundle["forge_samples"]
+        self.assertEqual([p["brief"]["lang"] for p in packs], ["en", "cs"])
+        for pack in packs:
+            self.assertEqual(pack["writer"], "offline")
+            self.assertEqual([i["format"] for i in pack["items"]], ["linkedin_post", "seo_article", "short_video_script", "google_rsa"])
+            # the offline writer never invents prose: the gaps are explicit placeholders
+            self.assertTrue(any("[[ADD:" in i["body"] for i in pack["items"]))
+            self.assertGreater(pack["summary"]["open_slots"], 0)
+        plans = self.bundle["guru_samples"]
+        self.assertEqual([p["brief"]["lang"] for p in plans], ["en", "cs"])
+        self.assertEqual(self.bundle["guru_sample"], plans[0])
+
+    def test_samples_can_be_switched_off(self):
+        bare = build_bundle(with_samples=False)
+        self.assertEqual((bare["forge_samples"], bare["guru_sample"], bare["guru_samples"]), ([], None, []))
+
+    def test_sample_text_has_no_long_dash(self):
+        text = bundle_json(self.bundle)
+        self.assertNotIn(chr(0x2014), text)
+        self.assertNotIn(chr(0x2013), text)

@@ -224,6 +224,17 @@
   /** Wrap text in the quotation marks of the UI language (Czech uses low-high marks). */
   function quote(text) { return lang() === "cs" ? "\u201e" + text + "\u201c" : "\u201c" + text + "\u201d"; }
 
+  /** Text with `code` spans as an array of strings and <code> elements: "run `kingctl serve`" is safe to show. */
+  function rich(text) {
+    return String(text === undefined || text === null ? "" : text).split(/`([^`]+)`/).map(function (part, i) { return i % 2 ? h("code.inline", null, part) : part; });
+  }
+
+  /** Typographic quotes for text that comes from data: "x" becomes „x“ in Czech and “x” in English. */
+  function typo(text) {
+    var s = String(text === undefined || text === null ? "" : text);
+    return lang() === "cs" ? s.replace(/"([^"\n]+)"/g, "„$1“") : s.replace(/"([^"\n]+)"/g, "“$1”");
+  }
+
   /** A short "press this key" hint. */
   function kbd(text) { return h("kbd", { class: "kbd" }, text); }
 
@@ -238,6 +249,6 @@
     SVG_NS: SVG_NS, h: h, svg: svg, clear: clear, fill: fill, append: append, clamp: clamp, lerp: lerp, uid: uid,
     debounce: debounce, t: t, lang: lang, fmt: fmt, ease: ease, tween: tween, countUp: countUp, raf: raf, wait: wait,
     setReducedMotion: setReducedMotion, reducedMotion: reducedMotion, announce: announce, copyText: copyText,
-    download: download, isFormField: isFormField, kbd: kbd, fmtMinutes: fmtMinutes, quote: quote, fmtPct: fmtPct, fmtSigned: fmtSigned
+    download: download, isFormField: isFormField, rich: rich, typo: typo, kbd: kbd, fmtMinutes: fmtMinutes, quote: quote, fmtPct: fmtPct, fmtSigned: fmtSigned
   };
 });

@@ -90,6 +90,14 @@
     return mqLight && mqLight.matches ? "light" : "dark";
   }
 
+  /** Keep the browser UI colour (address bar on phones) in step with the theme that is really shown. */
+  function updateThemeColor(theme) {
+    var meta = document.querySelector('meta[name="theme-color"]');
+    if (!meta) return;
+    var light = theme === "light" || (theme !== "dark" && mqLight && mqLight.matches);
+    meta.setAttribute("content", light ? "#f1f3fb" : "#070b16");
+  }
+
   function applySettings(s, prev) {
     var langChanged = !prev || s.lang !== prev.lang;
     if (langChanged) {
@@ -98,6 +106,7 @@
     }
     var html = document.documentElement;
     if (s.theme === "dark" || s.theme === "light") html.setAttribute("data-theme", s.theme); else html.removeAttribute("data-theme");
+    updateThemeColor(s.theme);
     DK.ui.fx.setSound(s.sound);
     dom.setReducedMotion(s.reducedMotion);
     return langChanged;
@@ -251,7 +260,7 @@
       main.setAttribute("tabindex", "-1");
       main.focus();
     });
-    if (mqLight && mqLight.addEventListener) mqLight.addEventListener("change", function () { if (app.shell) app.shell.update(); });
+    if (mqLight && mqLight.addEventListener) mqLight.addEventListener("change", function () { updateThemeColor(app.store.get().settings.theme); if (app.shell) app.shell.update(); });
     root.addEventListener("hashchange", renderRoute);
     root.addEventListener("pagehide", flushPlayTime);
     document.addEventListener("visibilitychange", function () { if (document.visibilityState === "hidden") flushPlayTime(); else session.last = Date.now(); });

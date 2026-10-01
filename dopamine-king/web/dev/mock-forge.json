@@ -1,0 +1,615 @@
+{
+ "brief": {
+  "brand": "Zorvia Running",
+  "topic": "lightweight running shoes",
+  "audience": "beginner runners",
+  "goal": "awareness",
+  "lang": "en",
+  "tone": "friendly, direct, no hype",
+  "keyword": "lightweight running shoes",
+  "secondary_keywords": [
+   "beginner running shoes",
+   "first 5k"
+  ],
+  "offer": "the Aero 2 trainer",
+  "cta": "Try the Aero 2 for 30 days",
+  "facts": [
+   "The Aero 2 weighs 210 g in size 42.",
+   "Returns are free within 30 days.",
+   "The upper is made from 60 percent recycled yarn."
+  ],
+  "sources": [],
+  "voice_notes": "",
+  "cohort": "sport",
+  "avoid": [
+   "revolutionary",
+   "game changer"
+  ],
+  "topic_forms": {},
+  "sponsored": false
+ },
+ "writer": "offline",
+ "created": "2026-10-01T09:30:00+00:00",
+ "items": [
+  {
+   "format": "linkedin_post",
+   "name_en": "LinkedIn post",
+   "name_cs": "Příspěvek na LinkedInu",
+   "family": "social",
+   "hook": "Why your running shoes feel heavy (and how to fix it)",
+   "body": "Why your running shoes feel heavy (and how to fix it)\n\nMost beginners buy for looks and pay for it in week two. Here is what to check instead:\n\n1. Weight. The Aero 2 weighs 210 g in size 42, so your legs do less work on every stride.\n2. Fit. [[ADD: one sentence on how to check the fit in a shop, from your own fitting experience]]\n3. Returns. You can return the Aero 2 free of charge within 30 days.\n\nTry the Aero 2 for 30 days.\n\n#running #beginnerrunners #firstfivek",
+   "hook_score": {
+    "total": 68.76,
+    "raw": 0.4073,
+    "parts": {
+     "curiosity": 70.79,
+     "surprise": 0.0,
+     "emotion": 0.0,
+     "relevance": 56.54,
+     "utility": 53.66,
+     "fluency": 100.0
+    },
+    "clickbait_risk": 0.0,
+    "lang": "en",
+    "features": {
+     "n_words": 11.0,
+     "has_number": 0.0,
+     "starts_with_number": 0.0,
+     "is_question": 1.0,
+     "open_loop": 0.0,
+     "exclaim": 0.0,
+     "caps_ratio": 0.0,
+     "avg_word_len": 3.7273,
+     "promise_gap": 0.0,
+     "curiosity_hits": 1.0,
+     "contrast_hits": 0.0,
+     "emotion_hits": 0.0,
+     "practical_hits": 1.0,
+     "social_hits": 0.0,
+     "second_person_hits": 1.0,
+     "clickbait_hits": 0.0,
+     "overclaim_hits": 0.0,
+     "positive_hits": 0.0,
+     "negative_hits": 0.0
+    },
+    "hits": {
+     "curiosity": 1,
+     "contrast": 0,
+     "emotion": 0,
+     "practical": 1,
+     "social": 0,
+     "second_person": 1,
+     "clickbait": 0,
+     "overclaim": 0,
+     "positive": 0,
+     "negative": 0
+    },
+    "spans": [
+     {
+      "category": "curiosity",
+      "tok_start": 0,
+      "tok_end": 2,
+      "start": 0,
+      "end": 8,
+      "text": "Why your"
+     },
+     {
+      "category": "practical",
+      "tok_start": 7,
+      "tok_end": 9,
+      "start": 39,
+      "end": 45,
+      "text": "how to"
+     },
+     {
+      "category": "second_person",
+      "tok_start": 1,
+      "tok_end": 2,
+      "start": 4,
+      "end": 8,
+      "text": "your"
+     }
+    ],
+    "tips": [
+     {
+      "key": "add_emotion",
+      "en": "Add one high-arousal emotion word that is true to the content.",
+      "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+     },
+     {
+      "key": "add_contrast",
+      "en": "Challenge an expectation: a myth, a 'stop doing X', a contrast.",
+      "cs": "Zpochybni očekávání: mýtus, \"přestaň dělat X\", kontrast."
+     }
+    ],
+    "text": "Why your running shoes feel heavy (and how to fix it)"
+   },
+   "issues": [
+    {
+     "severity": "warn",
+     "code": "SLOTS_OPEN",
+     "message": "1 slot still holds an [[ADD: ...]] placeholder. Fill it with first-party content before publishing.",
+     "where": "body"
+    },
+    {
+     "severity": "info",
+     "code": "HASHTAGS",
+     "message": "LinkedIn works best with 3 to 5 hashtags; this post has 3.",
+     "where": null
+    }
+   ],
+   "verdict": "review",
+   "scores": {
+    "dopamine": 68.8,
+    "seo": null,
+    "geo": null
+   },
+   "alt_hooks": [
+    {
+     "text": "5 mistakes beginners make when buying running shoes",
+     "score": 59.8,
+     "style": "number_list"
+    },
+    {
+     "text": "Why most beginners buy the wrong running shoes",
+     "score": 57.4,
+     "style": "curiosity_gap"
+    },
+    {
+     "text": "How to pick running shoes you will actually wear",
+     "score": 59.9,
+     "style": "how_to"
+    }
+   ],
+   "parts": {
+    "hashtags": [
+     "#running",
+     "#beginnerrunners",
+     "#firstfivek"
+    ]
+   },
+   "slots_open": [
+    "fit_tip"
+   ]
+  },
+  {
+   "format": "blog_article",
+   "name_en": "Blog article",
+   "name_cs": "Blogový článek",
+   "family": "article",
+   "hook": "Lightweight running shoes for beginners: how to choose your first pair",
+   "body": "# Lightweight running shoes for beginners: how to choose your first pair\n\nChoosing your first pair of lightweight running shoes does not need to be complicated. This guide covers weight, fit and returns, so you can start your first 5k with confidence.\n\n## Why weight matters\n\nThe Aero 2 weighs 210 g in size 42. [[ADD: one or two sentences on why lighter shoes feel different over a 5k, with a source you trust]]\n\n## How to check the fit\n\n[[ADD: a short checklist for trying on running shoes in a shop]]\n\n## What to ask about returns\n\nZorvia Running offers free returns within 30 days, so you can test the Aero 2 on real runs before you decide.\n\n## Frequently asked questions\n\n**How light should beginner running shoes be?** [[ADD: a direct answer in two sentences]]\n\n**Is a lighter shoe always better?** [[ADD: a balanced answer that mentions cushioning and your own testing]]\n\nTry the Aero 2 for 30 days.",
+   "hook_score": {
+    "total": 61.64,
+    "raw": 0.3353,
+    "parts": {
+     "curiosity": 23.6,
+     "surprise": 0.0,
+     "emotion": 0.0,
+     "relevance": 56.54,
+     "utility": 78.53,
+     "fluency": 89.82
+    },
+    "clickbait_risk": 0.0,
+    "lang": "en",
+    "features": {
+     "n_words": 11.0,
+     "has_number": 0.0,
+     "starts_with_number": 0.0,
+     "is_question": 0.0,
+     "open_loop": 1.0,
+     "exclaim": 0.0,
+     "caps_ratio": 0.0,
+     "avg_word_len": 5.3636,
+     "promise_gap": 0.0,
+     "curiosity_hits": 0.0,
+     "contrast_hits": 0.0,
+     "emotion_hits": 0.0,
+     "practical_hits": 2.0,
+     "social_hits": 0.0,
+     "second_person_hits": 1.0,
+     "clickbait_hits": 0.0,
+     "overclaim_hits": 0.0,
+     "positive_hits": 0.0,
+     "negative_hits": 0.0
+    },
+    "hits": {
+     "curiosity": 0,
+     "contrast": 0,
+     "emotion": 0,
+     "practical": 2,
+     "social": 0,
+     "second_person": 1,
+     "clickbait": 0,
+     "overclaim": 0,
+     "positive": 0,
+     "negative": 0
+    },
+    "spans": [
+     {
+      "category": "practical",
+      "tok_start": 3,
+      "tok_end": 5,
+      "start": 26,
+      "end": 39,
+      "text": "for beginners"
+     },
+     {
+      "category": "practical",
+      "tok_start": 5,
+      "tok_end": 7,
+      "start": 41,
+      "end": 47,
+      "text": "how to"
+     },
+     {
+      "category": "second_person",
+      "tok_start": 8,
+      "tok_end": 9,
+      "start": 55,
+      "end": 59,
+      "text": "your"
+     }
+    ],
+    "tips": [
+     {
+      "key": "add_emotion",
+      "en": "Add one high-arousal emotion word that is true to the content.",
+      "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+     },
+     {
+      "key": "open_loop",
+      "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
+      "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+     },
+     {
+      "key": "add_contrast",
+      "en": "Challenge an expectation: a myth, a 'stop doing X', a contrast.",
+      "cs": "Zpochybni očekávání: mýtus, \"přestaň dělat X\", kontrast."
+     }
+    ],
+    "text": "Lightweight running shoes for beginners: how to choose your first pair"
+   },
+   "issues": [
+    {
+     "severity": "warn",
+     "code": "SLOTS_OPEN",
+     "message": "4 slots still hold [[ADD: ...]] placeholders. The offline writer never invents prose.",
+     "where": "body"
+    },
+    {
+     "severity": "warn",
+     "code": "GEO_NO_CITATIONS",
+     "message": "No sources are cited. Generative engines favour pages with citations, quotations and statistics from real sources.",
+     "where": "body"
+    },
+    {
+     "severity": "info",
+     "code": "KEYWORD_IN_TITLE",
+     "message": "The primary keyword 'lightweight running shoes' appears in the title and the first paragraph.",
+     "where": "title"
+    }
+   ],
+   "verdict": "review",
+   "scores": {
+    "dopamine": 61.6,
+    "seo": 72.5,
+    "geo": 48.0
+   },
+   "alt_hooks": [
+    {
+     "text": "3 things to check before you buy your first running shoes",
+     "score": 54.0,
+     "style": "number_list"
+    },
+    {
+     "text": "Are your running shoes too heavy for your first 5k?",
+     "score": 48.2,
+     "style": "question"
+    },
+    {
+     "text": "How to choose your first pair of lightweight running shoes",
+     "score": 47.6,
+     "style": "how_to"
+    }
+   ],
+   "parts": {
+    "outline": [
+     "Why weight matters",
+     "How to check the fit",
+     "What to ask about returns",
+     "Frequently asked questions"
+    ]
+   },
+   "slots_open": [
+    "weight_why",
+    "fit_checklist",
+    "faq_weight",
+    "faq_lighter"
+   ]
+  },
+  {
+   "format": "newsletter_email",
+   "name_en": "Newsletter email",
+   "name_cs": "Newsletterový e-mail",
+   "family": "email",
+   "hook": "Light shoes, easy first 5k: try the Aero 2 free for 30 days",
+   "body": "Subject: Light shoes, easy first 5k: try the Aero 2 free for 30 days\nPreheader: 210 g, free returns and a plan for your first 5k.\n\nHi there,\n\nYour first 5k is closer than you think. The right shoes help: the Aero 2 weighs 210 g in size 42, and the upper is made from 60 percent recycled yarn.\n\nIf they are not for you, send them back within 30 days. Returns are free.\n\nTry the Aero 2 for 30 days\n\nHappy running,\nThe Zorvia Running team",
+   "hook_score": {
+    "total": 59.27,
+    "raw": 0.3144,
+    "parts": {
+     "curiosity": 23.6,
+     "surprise": 0.0,
+     "emotion": 28.35,
+     "relevance": 0.0,
+     "utility": 83.6,
+     "fluency": 96.77
+    },
+    "clickbait_risk": 0.0,
+    "lang": "en",
+    "features": {
+     "n_words": 13.0,
+     "has_number": 1.0,
+     "starts_with_number": 0.0,
+     "is_question": 0.0,
+     "open_loop": 1.0,
+     "exclaim": 0.0,
+     "caps_ratio": 0.0,
+     "avg_word_len": 4.0,
+     "promise_gap": 0.0,
+     "curiosity_hits": 0.0,
+     "contrast_hits": 0.0,
+     "emotion_hits": 0.0,
+     "practical_hits": 2.0,
+     "social_hits": 0.0,
+     "second_person_hits": 0.0,
+     "clickbait_hits": 0.0,
+     "overclaim_hits": 0.0,
+     "positive_hits": 2.0,
+     "negative_hits": 0.0
+    },
+    "hits": {
+     "curiosity": 0,
+     "contrast": 0,
+     "emotion": 0,
+     "practical": 2,
+     "social": 0,
+     "second_person": 0,
+     "clickbait": 0,
+     "overclaim": 0,
+     "positive": 2,
+     "negative": 0
+    },
+    "spans": [
+     {
+      "category": "practical",
+      "tok_start": 2,
+      "tok_end": 3,
+      "start": 13,
+      "end": 17,
+      "text": "easy"
+     },
+     {
+      "category": "practical",
+      "tok_start": 9,
+      "tok_end": 10,
+      "start": 43,
+      "end": 47,
+      "text": "free"
+     },
+     {
+      "category": "positive",
+      "tok_start": 2,
+      "tok_end": 3,
+      "start": 13,
+      "end": 17,
+      "text": "easy"
+     },
+     {
+      "category": "positive",
+      "tok_start": 9,
+      "tok_end": 10,
+      "start": 43,
+      "end": 47,
+      "text": "free"
+     }
+    ],
+    "tips": [
+     {
+      "key": "address_reader",
+      "en": "Speak to the reader directly (you, your) or name the audience.",
+      "cs": "Oslov čtenáře přímo (ty, vy, váš) nebo pojmenuj publikum."
+     },
+     {
+      "key": "open_loop",
+      "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
+      "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+     },
+     {
+      "key": "add_contrast",
+      "en": "Challenge an expectation: a myth, a 'stop doing X', a contrast.",
+      "cs": "Zpochybni očekávání: mýtus, \"přestaň dělat X\", kontrast."
+     }
+    ],
+    "text": "Light shoes, easy first 5k: try the Aero 2 free for 30 days"
+   },
+   "issues": [
+    {
+     "severity": "info",
+     "code": "SUBJECT_LENGTH",
+     "message": "The subject is 58 characters. Many inboxes cut subjects after about 60.",
+     "where": "subject"
+    },
+    {
+     "severity": "info",
+     "code": "FACTS_USED",
+     "message": "Every number in this email comes from the brief.",
+     "where": null
+    }
+   ],
+   "verdict": "ok",
+   "scores": {
+    "dopamine": 59.3,
+    "seo": null,
+    "geo": null
+   },
+   "alt_hooks": [
+    {
+     "text": "3 checks before you buy running shoes",
+     "score": 47.4,
+     "style": "number_list"
+    },
+    {
+     "text": "Beginner runner? Here is how to pick light shoes",
+     "score": 31.8,
+     "style": "question"
+    },
+    {
+     "text": "Your first 5k starts with the right shoes",
+     "score": 24.0,
+     "style": "plain"
+    }
+   ],
+   "parts": {
+    "subject": "Light shoes, easy first 5k: try the Aero 2 free for 30 days",
+    "preheader": "210 g, free returns and a plan for your first 5k."
+   },
+   "slots_open": []
+  },
+  {
+   "format": "search_ad",
+   "name_en": "Search ad",
+   "name_cs": "Vyhledávací reklama",
+   "family": "ad",
+   "hook": "Lightweight Running Shoes",
+   "body": "Headline 1: Lightweight Running Shoes\nHeadline 2: Fastest Beginner Shoe Ever\nHeadline 3: 30 Day Free Returns\nDescription 1: The Aero 2 weighs just 210 g. [[ADD: one benefit line for beginners, 90 characters at most]]\nDescription 2: Try the Aero 2 for 30 days. Free returns.",
+   "hook_score": {
+    "total": 0.0,
+    "raw": 0.0,
+    "parts": {
+     "curiosity": 0.0,
+     "surprise": 0.0,
+     "emotion": 0.0,
+     "relevance": 0.0,
+     "utility": 0.0,
+     "fluency": 24.0
+    },
+    "clickbait_risk": 0.0,
+    "lang": "en",
+    "features": {
+     "n_words": 3.0,
+     "has_number": 0.0,
+     "starts_with_number": 0.0,
+     "is_question": 0.0,
+     "open_loop": 0.0,
+     "exclaim": 0.0,
+     "caps_ratio": 0.0,
+     "avg_word_len": 7.6667,
+     "promise_gap": 0.0,
+     "curiosity_hits": 0.0,
+     "contrast_hits": 0.0,
+     "emotion_hits": 0.0,
+     "practical_hits": 0.0,
+     "social_hits": 0.0,
+     "second_person_hits": 0.0,
+     "clickbait_hits": 0.0,
+     "overclaim_hits": 0.0,
+     "positive_hits": 0.0,
+     "negative_hits": 0.0
+    },
+    "hits": {
+     "curiosity": 0,
+     "contrast": 0,
+     "emotion": 0,
+     "practical": 0,
+     "social": 0,
+     "second_person": 0,
+     "clickbait": 0,
+     "overclaim": 0,
+     "positive": 0,
+     "negative": 0
+    },
+    "spans": [],
+    "tips": [
+     {
+      "key": "simplify",
+      "en": "Use shorter, plainer words.",
+      "cs": "Použij kratší a prostší slova."
+     },
+     {
+      "key": "add_utility",
+      "en": "Make the payoff concrete: a number, steps or a 'how to'.",
+      "cs": "Zkonkrétni užitek: číslo, kroky nebo \"jak na to\"."
+     },
+     {
+      "key": "open_loop",
+      "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
+      "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+     }
+    ],
+    "text": "Lightweight Running Shoes"
+   },
+   "issues": [
+    {
+     "severity": "error",
+     "code": "UNSUPPORTED_CLAIM",
+     "message": "'Fastest ... ever' is a superlative claim that no fact in the brief supports. Remove it or add evidence.",
+     "where": "headline_2"
+    },
+    {
+     "severity": "warn",
+     "code": "SLOTS_OPEN",
+     "message": "1 slot still holds an [[ADD: ...]] placeholder.",
+     "where": "description_1"
+    }
+   ],
+   "verdict": "blocked",
+   "scores": {
+    "dopamine": 0.0,
+    "seo": null,
+    "geo": null
+   },
+   "alt_hooks": [
+    {
+     "text": "Light Running Shoes",
+     "score": 0.0,
+     "style": "plain"
+    },
+    {
+     "text": "Your First 5k Shoes",
+     "score": 21.6,
+     "style": "benefit"
+    },
+    {
+     "text": "Try Free for 30 Days",
+     "score": 40.0,
+     "style": "offer"
+    }
+   ],
+   "parts": {
+    "headlines": [
+     "Lightweight Running Shoes",
+     "Fastest Beginner Shoe Ever",
+     "30 Day Free Returns"
+    ]
+   },
+   "slots_open": [
+    "benefit_line"
+   ]
+  }
+ ],
+ "summary": {
+  "n_items": 4,
+  "avg_dopamine": 47.4,
+  "errors": 1,
+  "warnings": 4,
+  "open_slots": 6,
+  "verdicts": {
+   "ok": 1,
+   "review": 2,
+   "blocked": 1
+  }
+ },
+ "errors": []
+}

@@ -17,7 +17,7 @@
   var EVIDENCE_LEVEL = { strong: 4, moderate: 3, limited: 2, contested: 2, none: 0 };
   var CONFETTI_BY_RARITY = { common: 0, rare: 70, epic: 130, legendary: 230 };
 
-  var state = { tab: "cards", studyFilter: "all", myth: { current: null, answered: null, correctRun: 0, played: 0 } };
+  var state = { tab: "cards", studyFilter: "all", lootFilter: "all", tacticTheme: "all", tacticEvidence: "all", myth: { current: null, answered: null, correctRun: 0, played: 0 } };
 
   function rarityOf(card) { return RARITIES.indexOf(card.rarity) >= 0 ? card.rarity : "common"; }
 
@@ -125,9 +125,8 @@
       if (!own) {
         return d.h("li", null, d.h("div.loot-card.r-" + r + ".is-locked", { role: "img", "aria-label": t("vault.lockedAria", { r: rarityLabel(r) }) },
           d.h("span.loot-top", null, icons.gems(r, 13), d.h("span.loot-rarity", null, rarityLabel(r))),
-          d.h("span.loot-lock", null, icons.icon("lock", { size: 28 })),
-          d.h("span.loot-title", null, t("vault.locked")),
-          d.h("span.loot-kind", null, kindLabel(c.kind))));
+          d.h("span.loot-lock", null, icons.icon("lock", { size: 24 })),
+          d.h("span.loot-kind", null, t("vault.locked") + " \u00b7 " + kindLabel(c.kind))));
       }
       return d.h("li", null, d.h("button.loot-card.r-" + r + ".is-owned", { type: "button", onclick: function () { showCard(c); } },
         d.h("span.loot-top", null, icons.gems(r, 13), d.h("span.loot-rarity", null, rarityLabel(r))),
@@ -152,13 +151,23 @@
 
     function lootGrid() {
       var p = ctx.profile();
-      var sorted = cards.slice().sort(function (a, b) { return RARITIES.indexOf(rarityOf(b)) - RARITIES.indexOf(rarityOf(a)); });
-      var ownedN = cards.filter(function (c) { return p.deck.indexOf(c.id) >= 0; }).length;
+      var rank = function (c) { return RARITIES.indexOf(rarityOf(c)); };
+      var isOwned = function (c) { return p.deck.indexOf(c.id) >= 0; };
+      var sorted = cards.slice().sort(function (a, b) { return rank(b) - rank(a) || (isOwned(b) ? 1 : 0) - (isOwned(a) ? 1 : 0); });
+      var ownedN = cards.filter(isOwned).length;
       if (!cards.length) return widgets.emptyState({ icon: "gem", title: t("vault.noCards.title"), text: t("vault.noCards.text") });
-      return d.h("section", { "aria-labelledby": "loot-h" },
-        widgets.heading(2, t("vault.collection"), t("vault.collectionSub"), d.h("span.chip.tone-brand", null, t("common.of", { a: ownedN, b: cards.length }))),
+      var shown = sorted.filter(function (c) { return state.lootFilter === "all" || (state.lootFilter === "owned") === isOwned(c); });
+      var filter = widgets.segmented({
+        label: t("vault.lootFilter"), active: state.lootFilter,
+        items: [{ id: "all", label: t("common.all") }, { id: "owned", label: t("common.owned") }, { id: "locked", label: t("common.locked") }],
+        onChange: function (id) { state.lootFilter = id; var host2 = grid.parentNode; if (host2) host2.replaceChild(lootGrid(), grid); }
+      });
+      var grid = d.h("section", { "aria-labelledby": "loot-h" },
+        widgets.heading(2, t("vault.collection"), t("vault.collectionSub"), d.h("span.chip.tone-brand", null, t("common.of", { a: ownedN, b: cards.length })), "loot-h"),
         charts.meter({ value: ownedN, max: Math.max(1, cards.length), size: "sm", tone: "brand", label: t("vault.collection"), valueText: function () { return ownedN + " / " + cards.length; } }),
-        d.h("ul.loot-grid", null, sorted.map(lootCard)));
+        filter.el,
+        shown.length ? d.h("ul.loot-grid", null, shown.map(lootCard)) : d.h("p.muted", null, t("vault.noMatch2")));
+      return grid;
     }
 
     // -- evidence tactics
@@ -168,6 +177,12 @@
       var segs = d.h("span.ev-segs", { "aria-hidden": "true" });
       for (var i = 1; i <= 4; i++) segs.appendChild(d.h("i" + (i <= (EVIDENCE_LEVEL[label] || 0) ? ".on" : "")));
       return d.h("span.chip.ev-" + label, null, segs, label === "contested" ? icons.icon("alert", { size: 13 }) : null, d.h("span", null, t("vault.ev." + label)));
+    }
+
+    function themeLabel(id) {
+      var labels = (ctx.bundle.spec && ctx.bundle.spec.labels) || {};
+      if (labels[id]) return labels[id][ctx.lang()] || labels[id].en;
+      return d.t("vault.theme." + id) === "vault.theme." + id ? String(id || "") : d.t("vault.theme." + id);
     }
 
     function tacticCard(tc) {
@@ -186,7 +201,7 @@
           d.h("h3.tactic-name", null, ctx.pick(tc, "name") || tc.id),
           evidenceChip(label)),
         d.h("div.chip-row", null,
-          tc.driver ? d.h("span.chip.tone-info", null, tc.driver) : null,
+          tc.driver ? d.h("span.chip.tone-info", null, themeLabel(tc.driver)) : null,
           ev.grade ? d.h("span.chip.grade-" + String(ev.grade).toLowerCase(), null, t("vault.grade", { g: ev.grade })) : null,
           typeof ev.n_studies === "number" ? d.h("span.chip", null, ctx.tp("vault.nStudies", ev.n_studies)) : null),
         ctx.pick(tc, "summary") ? d.h("p", null, ctx.pick(tc, "summary")) : null,
@@ -198,9 +213,27 @@
       if (!tactics.length) {
         return widgets.emptyState({ icon: "layers", title: t("vault.noTactics.title"), text: t("vault.noTactics.text") });
       }
+      var themes = [];
+      tactics.forEach(function (x) { if (x.driver && themes.indexOf(x.driver) < 0) themes.push(x.driver); });
+      var levels = ["strong", "moderate", "limited", "contested", "none"].filter(function (l) { return tactics.some(function (x) { return ((x.evidence || {}).label || "none") === l; }); });
+      var list = d.h("ul.tactic-grid");
+      var count = d.h("p.small.muted", { role: "status" });
+      function paint() {
+        var shown = tactics.filter(function (x) {
+          return (state.tacticTheme === "all" || x.driver === state.tacticTheme) && (state.tacticEvidence === "all" || ((x.evidence || {}).label || "none") === state.tacticEvidence);
+        });
+        d.fill(list, shown.map(tacticCard));
+        count.textContent = t("vault.tacticCount", { a: shown.length, b: tactics.length });
+      }
+      var themeSel = d.h("select.input", { id: "tac-theme", onchange: function () { state.tacticTheme = themeSel.value; paint(); } },
+        [d.h("option", { value: "all", selected: state.tacticTheme === "all" }, t("common.all"))].concat(themes.map(function (th) { return d.h("option", { value: th, selected: state.tacticTheme === th }, themeLabel(th)); })));
+      var levelSel = d.h("select.input", { id: "tac-level", onchange: function () { state.tacticEvidence = levelSel.value; paint(); } },
+        [d.h("option", { value: "all", selected: state.tacticEvidence === "all" }, t("common.all"))].concat(levels.map(function (l) { return d.h("option", { value: l, selected: state.tacticEvidence === l }, t("vault.ev." + l)); })));
+      paint();
       return d.h("section", { "aria-labelledby": "tac-h" },
-        widgets.heading(2, t("vault.tactics"), t("vault.tacticsSub")),
-        d.h("ul.tactic-grid", null, tactics.map(tacticCard)));
+        widgets.heading(2, t("vault.tactics"), t("vault.tacticsSub"), null, "tac-h"),
+        d.h("div.tactic-filters", null, widgets.field(t("vault.themeFilter"), themeSel), widgets.field(t("vault.evidenceFilter"), levelSel), count),
+        list);
     }
 
     // -- chest opening
@@ -341,7 +374,7 @@
     function noteBox() {
       return d.h("section.card.note-card", { role: "note" },
         d.h("h2.card-title", null, icons.icon("shield", { size: 20 }), t("vault.honestyTitle")),
-        d.h("p", null, t("vault.unverifiedNote")),
+        d.h("p", null, d.rich(t("vault.unverifiedNote"))),
         d.h("p.small.muted", null, t("vault.gradeNote")));
     }
     render();

@@ -5,8 +5,11 @@
 
 The script reads ``web/src/index.template.html``, inlines ``styles.css`` and the JavaScript files in
 dependency order, and embeds the data bundle as ``<script id="dk-bundle" type="application/json">``.
-Without ``--bundle`` the bundle is computed by ``dopamine_king.webdata.build_bundle()``. ``--forge`` and
-``--guru`` inject a sample Pack and Plan when the bundle has none. Standard library only.
+Without ``--bundle`` the bundle is computed by ``dopamine_king.webdata.build_bundle()`` together with the
+shipped seed evidence ledger (so the Vault shows studies and tactics). ``--forge`` and
+``--guru`` inject a sample Pack and Plan when the bundle has none; when they are not given, the development
+samples ``web/dev/mock-forge.json`` and ``web/dev/mock-guru.json`` are used (``--no-samples`` turns that off),
+so the Forge and Guru views are never empty in the offline file. Standard library only.
 
 The result must work from file:// with no network, so the build verifies that the output has no external
 URLs in markup or CSS, no em or en dash, and stays below 1.5 MB.
@@ -23,6 +26,8 @@ from typing import Any
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "web" / "src"
 DEFAULT_OUT = ROOT / "web" / "dist" / "dopamine-king.html"
+DEV_FORGE = ROOT / "web" / "dev" / "mock-forge.json"
+DEV_GURU = ROOT / "web" / "dev" / "mock-guru.json"
 
 # Dependency order: logic modules first, then the UI toolkit, then views, then the bootstrap.
 JS_ORDER = [
@@ -82,7 +87,13 @@ def load_bundle(bundle_path: Path | None) -> dict[str, Any]:
             from dopamine_king.webdata import build_bundle  # type: ignore
         except ImportError as exc:
             raise BuildError(f"cannot import dopamine_king.webdata.build_bundle: {exc}") from exc
-        bundle = build_bundle()
+        ledger = None
+        try:  # the shipped seed ledger gives the Vault real studies and tactics instead of an empty state
+            from dopamine_king.research.ledger import Ledger  # type: ignore
+            ledger = Ledger.load()
+        except Exception as exc:  # the game still builds without the evidence vault
+            print(f"note: building without the evidence ledger ({exc})", file=sys.stderr)
+        bundle = build_bundle(ledger=ledger)
     if not isinstance(bundle, dict):
         raise BuildError("the bundle must be a JSON object")
     missing = [k for k in REQUIRED_BUNDLE_KEYS if k not in bundle]
@@ -213,10 +224,15 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--out", type=Path, default=DEFAULT_OUT, help="output file (default: web/dist/dopamine-king.html)")
     parser.add_argument("--forge", type=Path, help="sample Pack JSON, used when the bundle has no forge_samples")
     parser.add_argument("--guru", type=Path, help="sample Plan JSON, used when the bundle has no guru_sample")
+    parser.add_argument("--no-samples", action="store_true", help="do not fall back to the development sample Pack and Plan in web/dev")
     parser.add_argument("--quiet", action="store_true")
     args = parser.parse_args(argv)
+    forge, guru = args.forge, args.guru
+    if not args.no_samples:
+        forge = forge or (DEV_FORGE if DEV_FORGE.is_file() else None)
+        guru = guru or (DEV_GURU if DEV_GURU.is_file() else None)
     try:
-        build_web(args.bundle, args.out, args.forge, args.guru, args.quiet)
+        build_web(args.bundle, args.out, forge, guru, args.quiet)
     except BuildError as exc:
         print(f"build failed: {exc}", file=sys.stderr)
         return 1
