@@ -114,6 +114,8 @@ class GoogleRsaTests(unittest.TestCase):
         self.assertNotIn("h13", defaults)
         self.assertEqual(defaults["h01"], "Running shoes")
         sk = build_skeleton("google_rsa", long)
+        self.assertEqual(sk.slot("d4").default, long.cta)            # fits a 90 character description
+        sk = build_skeleton("google_rsa", en(cta="c" * 95))
         self.assertIsNone(sk.slot("d4").default)
 
     def test_defaults_are_unique_when_keyword_equals_topic(self):
@@ -149,40 +151,40 @@ class GoogleRsaTests(unittest.TestCase):
         self.assertEqual(draft.parts["headlines"][0], "Running shoes for flat feet")
 
     def test_valid_set_has_no_issues(self):
-        found = check("google_rsa", en(), full_rsa())
+        found = check("google_rsa", rsa_en(), full_rsa())
         self.assertEqual(found, [])
-        self.assertEqual(validate_draft(render("google_rsa", en(), full_rsa())[1]), [])
+        self.assertEqual(validate_draft(render("google_rsa", rsa_en(), full_rsa())[1]), [])
 
     def test_every_limit_is_enforced(self):
-        found = check("google_rsa", en(), {**full_rsa(), "h05": "x" * 31})
+        found = check("google_rsa", rsa_en(), {**full_rsa(), "h05": "x" * 31})
         self.assertEqual([(i.code, i.severity, i.where) for i in found if i.code == "CHAR_LIMIT"], [("CHAR_LIMIT", "error", "h05")])
-        found = check("google_rsa", en(), {**full_rsa(), "h06": "y" * 30, "d2": "z" * 91})
+        found = check("google_rsa", rsa_en(), {**full_rsa(), "h06": "y" * 30, "d2": "z" * 91})
         self.assertEqual([(i.where) for i in found if i.code == "CHAR_LIMIT"], ["d2"])
         found = check("google_rsa", cs(), {**full_rsa("běžecké boty"), "h15": "ž" * 31})
         self.assertEqual([i.where for i in found if i.code == "CHAR_LIMIT"], ["h15"])
 
     def test_duplicates_are_errors(self):
-        found = check("google_rsa", en(), {**full_rsa(), "h07": "Distinct headline 8"})
+        found = check("google_rsa", rsa_en(), {**full_rsa(), "h07": "Distinct headline 8"})
         self.assertEqual(severity(found, "DUPLICATE_ASSET"), {"error"})
-        found = check("google_rsa", en(), {**full_rsa(), "h07": "DISTINCT HEADLINE 8!"})
+        found = check("google_rsa", rsa_en(), {**full_rsa(), "h07": "DISTINCT HEADLINE 8!"})
         self.assertIn("DUPLICATE_ASSET", codes(found))
-        found = check("google_rsa", en(), {**full_rsa(), "d2": "Description number 1 about running shoes for flat feet with a clear next step."})
+        found = check("google_rsa", rsa_en(), {**full_rsa(), "d2": full_rsa()["d1"].upper()})
         self.assertIn("DUPLICATE_ASSET", codes(found))
 
     def test_keyword_coverage(self):
         fills = full_rsa()
         for i in (1, 2, 3):
             fills[f"h{i:02d}"] = f"Unrelated headline {i}"
-        found = check("google_rsa", en(), fills)
+        found = check("google_rsa", rsa_en(), fills)
         self.assertEqual(severity(found, "KEYWORD_COVERAGE"), {"warn"})
-        fills["h04"] = "Running shoes for flat feet"
-        fills["h05"] = "More running shoes for flat feet"
-        self.assertNotIn("KEYWORD_COVERAGE", codes(check("google_rsa", en(), fills)))
+        fills["h04"] = "Flat feet running shoes"
+        fills["h05"] = "More flat feet running shoes"
+        self.assertNotIn("KEYWORD_COVERAGE", codes(check("google_rsa", rsa_en(), fills)))
         fills = full_rsa()
         for i in range(1, 5):
             fills[f"d{i}"] = "A description that never says the phrase."
-        self.assertEqual(severity(check("google_rsa", en(), fills), "KEYWORD_COVERAGE"), {"warn"})
-        self.assertNotIn("KEYWORD_COVERAGE", codes(check("google_rsa", en())))
+        self.assertEqual(severity(check("google_rsa", rsa_en(), fills), "KEYWORD_COVERAGE"), {"warn"})
+        self.assertNotIn("KEYWORD_COVERAGE", codes(check("google_rsa", rsa_en())))
 
     def test_keyword_coverage_ignores_case_and_diacritics(self):
         fills = full_rsa("běžecké boty")
@@ -194,17 +196,17 @@ class GoogleRsaTests(unittest.TestCase):
     def test_at_most_two_exclamation_headlines(self):
         fills = full_rsa()
         fills.update({"h05": "Run today!", "h06": "Fit matters!"})
-        self.assertNotIn("EXCLAMATION_LIMIT", codes(check("google_rsa", en(), fills)))
+        self.assertNotIn("EXCLAMATION_LIMIT", codes(check("google_rsa", rsa_en(), fills)))
         fills["h07"] = "Try it now!"
-        self.assertEqual(severity(check("google_rsa", en(), fills), "EXCLAMATION_LIMIT"), {"warn"})
+        self.assertEqual(severity(check("google_rsa", rsa_en(), fills), "EXCLAMATION_LIMIT"), {"warn"})
         fills = full_rsa()
-        fills["d1"] = "Description one! With two! Marks! About running shoes for flat feet."
-        self.assertNotIn("EXCLAMATION_LIMIT", codes(check("google_rsa", en(), fills)))
+        fills["d1"] = "Description one! With two! Marks! About flat feet running shoes."
+        self.assertNotIn("EXCLAMATION_LIMIT", codes(check("google_rsa", rsa_en(), fills)))
 
     def test_unsubstantiated_claims_english(self):
         for text in ("Best running shoes", "The #1 choice", "Guaranteed fit", "100% comfort", "Top-rated by runners", "Fastest delivery",
                      "Proven results", "Number one in fit", "World's best shoes", "Risk-free returns"):
-            found = check("google_rsa", en(), {**full_rsa(), "h08": text, "substantiation": ""})
+            found = check("google_rsa", rsa_en(), {**full_rsa(), "h08": text, "substantiation": ""})
             self.assertEqual(severity(found, "UNSUBSTANTIATED_CLAIM"), {"warn"}, text)
             self.assertEqual([i.where for i in found if i.code == "UNSUBSTANTIATED_CLAIM"], ["h08"], text)
 
@@ -216,16 +218,16 @@ class GoogleRsaTests(unittest.TestCase):
             self.assertEqual(severity(found, "UNSUBSTANTIATED_CLAIM"), {"warn"}, text)
 
     def test_claims_in_descriptions_are_found_too(self):
-        found = check("google_rsa", en(), {**full_rsa(), "d3": "We are the best choice for running shoes for flat feet.", "substantiation": ""})
+        found = check("google_rsa", rsa_en(), {**full_rsa(), "d3": "We are the best choice for flat feet running shoes.", "substantiation": ""})
         self.assertEqual([i.where for i in found if i.code == "UNSUBSTANTIATED_CLAIM"], ["d3"])
 
     def test_substantiation_note_silences_the_warning(self):
         fills = {**full_rsa(), "h08": "Best running shoes", "substantiation": "Runner's World test, March 2026"}
-        self.assertNotIn("UNSUBSTANTIATED_CLAIM", codes(check("google_rsa", en(), fills)))
+        self.assertNotIn("UNSUBSTANTIATED_CLAIM", codes(check("google_rsa", rsa_en(), fills)))
         fills["substantiation"] = "n/a"
-        self.assertIn("UNSUBSTANTIATED_CLAIM", codes(check("google_rsa", en(), fills)))
+        self.assertIn("UNSUBSTANTIATED_CLAIM", codes(check("google_rsa", rsa_en(), fills)))
         fills["substantiation"] = "N/A."
-        self.assertIn("UNSUBSTANTIATED_CLAIM", codes(check("google_rsa", en(), fills)))
+        self.assertIn("UNSUBSTANTIATED_CLAIM", codes(check("google_rsa", rsa_en(), fills)))
         fills["substantiation"] = "žádné"
         self.assertIn("UNSUBSTANTIATED_CLAIM", codes(check("google_rsa", cs(), {**full_rsa("běžecké boty"), "h08": "Nejlepší boty", "substantiation": "ne"})))
 
@@ -238,17 +240,17 @@ class GoogleRsaTests(unittest.TestCase):
         self.assertEqual(claim_hits("[[ADD: best claim]]"), [])
 
     def test_all_caps_and_minimum_assets(self):
-        found = check("google_rsa", en(), {**full_rsa(), "h09": "BUY NOW"})
+        found = check("google_rsa", rsa_en(), {**full_rsa(), "h09": "BUY NOW"})
         self.assertEqual(severity(found, "ALL_CAPS"), {"warn"})
-        self.assertNotIn("ALL_CAPS", codes(check("google_rsa", en(), {**full_rsa(), "h09": "Our SEO and CRM tips"})))
-        sk, draft = render("google_rsa", en(), full_rsa())
+        self.assertNotIn("ALL_CAPS", codes(check("google_rsa", rsa_en(), {**full_rsa(), "h09": "Our SEO and CRM tips"})))
+        sk, draft = render("google_rsa", rsa_en(), full_rsa())
         draft.parts["slots"] = {k: v for k, v in draft.parts["slots"].items() if k in ("h01", "h02", "d1")}
         draft.slots_open = []
         found = get_format("google_rsa").validate(draft)
         self.assertEqual(severity(found, "TOO_FEW_ASSETS"), {"error"})
 
     def test_placeholders_do_not_trigger_limit_errors(self):
-        found = check("google_rsa", en())
+        found = check("google_rsa", rsa_en())
         self.assertEqual([i for i in found if i.severity == "error"], [])
 
 
@@ -334,7 +336,7 @@ class LinkedinAdTests(unittest.TestCase):
 
     def test_default_button_follows_the_cta(self):
         cases = {"Download the guide": "Download", "Stáhněte si průvodce": "Download", "Request a demo": "Request demo", "Register today": "Register",
-                 "Zaregistrujte se": "Sign up", "Subscribe now": "Subscribe", "Join us": "Join", "Apply now": "Apply", "Read more": "Learn more", None: "Learn more"}
+                 "Zaregistrujte se": "Register", "Přihlaste se": "Sign up", "Subscribe now": "Subscribe", "Join us": "Join", "Apply now": "Apply", "Read more": "Learn more", None: "Learn more"}
         for cta, expected in cases.items():
             self.assertEqual(linkedin_default_button(en(cta=cta)), expected, cta)
             self.assertIn(expected, ads.LINKEDIN_CTA_BUTTONS)
@@ -418,7 +420,7 @@ class EmailSubjectTests(unittest.TestCase):
         for text in bad:
             found = check("email_subject_set", cs() if "ZDARMA" in text or "Odp" in text or "VÝPRODEJ" in text else en(), self.fills(subject_02=text))
             self.assertEqual(severity(found, "DECEPTIVE_SUBJECT"), {"error"}, text)
-            self.assertEqual([i.where for i in found if i.code == "DECEPTIVE_SUBJECT"], ["subject_02"], text)
+            self.assertEqual({i.where for i in found if i.code == "DECEPTIVE_SUBJECT"}, {"subject_02"}, text)
 
     def test_clean_subjects_are_not_flagged(self):
         for text in ("Our SEO checklist is ready", "One exclamation is fine!", "Is your fit right?", "Re-think your running shoes",
