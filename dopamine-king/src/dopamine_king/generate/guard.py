@@ -25,8 +25,10 @@ _SEV_RANK = {"error": 0, "warn": 1, "info": 2}
 # severity and bilingual message (en, cs) per code
 _RULES: dict[str, tuple[str, str, str]] = {
     "UNSUPPORTED_CLAIM": ("error",
-        "Evidence claim without a citation. Add a cite marker for a vetted source in the same or the next sentence, or rephrase it as your own experience.",
-        "Tvrzení opírající se o důkazy bez citace. Přidejte značku citace ověřeného zdroje ve stejné nebo další větě, nebo to přeformulujte jako vlastní zkušenost."),
+        "Evidence claim without a citation. Add a cite marker for a vetted source in the same or the next "
+        "sentence, or rephrase it as your own experience.",
+        "Tvrzení opírající se o důkazy bez citace. Přidejte značku citace ověřeného zdroje ve stejné nebo "
+        "další větě, nebo to přeformulujte jako vlastní zkušenost."),
     "STAT_WITHOUT_SOURCE": ("warn",
         "Statistic without a source. Cite a vetted source or use a number from your own supplied facts.",
         "Statistika bez zdroje. Citujte ověřený zdroj nebo použijte číslo z vlastních dodaných faktů."),
@@ -34,56 +36,77 @@ _RULES: dict[str, tuple[str, str, str]] = {
         "Absolute claim. Replace it with a specific, verifiable statement.",
         "Absolutní tvrzení. Nahraďte ho konkrétním, ověřitelným tvrzením."),
     "HEALTH_CLAIM": ("error",
-        "Health or medical claim (cure, treat, detox, rapid weight loss). Remove it or have it checked by a qualified professional; advertising rules restrict these claims.",
-        "Zdravotní nebo lékařské tvrzení (léčba, detox, rychlé hubnutí). Odstraňte ho nebo ho nechte posoudit odborníkem; reklamní pravidla tato tvrzení omezují."),
+        "Health or medical claim (cure, treat, detox, rapid weight loss). Remove it or have it checked by a "
+        "qualified professional; advertising rules restrict these claims.",
+        "Zdravotní nebo lékařské tvrzení (léčba, detox, rychlé hubnutí). Odstraňte ho nebo ho nechte posoudit "
+        "odborníkem; reklamní pravidla tato tvrzení omezují."),
     "FINANCE_CLAIM": ("error",
-        "Financial promise (guaranteed returns, risk-free profit, get rich). Remove it; such claims are misleading and heavily regulated.",
-        "Finanční slib (zaručený výnos, zisk bez rizika, zbohatnutí). Odstraňte ho; taková tvrzení jsou klamavá a přísně regulovaná."),
+        "Financial promise (guaranteed returns, risk-free profit, get rich). Remove it; such claims are "
+        "misleading and heavily regulated.",
+        "Finanční slib (zaručený výnos, zisk bez rizika, zbohatnutí). Odstraňte ho; taková tvrzení jsou "
+        "klamavá a přísně regulovaná."),
     "FAKE_SCARCITY": ("error",
-        "Scarcity claim that your facts do not back. Remove it or add the real stock or capacity to the brief facts.",
-        "Tvrzení o nedostatku, které vaše fakta nepodporují. Odstraňte ho nebo doplňte skutečné zásoby či kapacitu do faktů zadání."),
+        "Scarcity claim that your facts do not back. Remove it or add the real stock or capacity to the brief "
+        "facts.",
+        "Tvrzení o nedostatku, které vaše fakta nepodporují. Odstraňte ho nebo doplňte skutečné zásoby či "
+        "kapacitu do faktů zadání."),
     "FAKE_URGENCY": ("error",
-        "Urgency or countdown claim that your facts do not back. Use a real deadline from the brief facts or remove it.",
-        "Tvrzení o časovém tlaku nebo odpočtu, které vaše fakta nepodporují. Použijte skutečný termín z faktů zadání, nebo ho odstraňte."),
+        "Urgency or countdown claim that your facts do not back. Use a real deadline from the brief facts or "
+        "remove it.",
+        "Tvrzení o časovém tlaku nebo odpočtu, které vaše fakta nepodporují. Použijte skutečný termín z faktů "
+        "zadání, nebo ho odstraňte."),
     "CONFIRMSHAMING": ("warn",
         "Confirmshaming: the decline option shames the reader. Use a neutral decline text.",
-        "Confirmshaming: odmítnutí čtenáře zahanbuje. Použijte neutrální text pro odmítnutí."),
+        "Confirmshaming: text volby pro odmítnutí čtenáře zahanbuje. Použijte neutrální formulaci."),
     "ENGAGEMENT_BAIT": ("warn",
-        "Engagement bait (asks for likes, comments or tags for nothing in return). Platforms demote it; ask a genuine question instead.",
-        "Návnada na interakci (žádá lajky, komentáře nebo označení bez protihodnoty). Platformy ji penalizují; raději položte skutečnou otázku."),
+        "Engagement bait (asks for likes, comments or tags for nothing in return). Platforms demote it; ask a "
+        "genuine question instead.",
+        "Návnada na interakci (žádá lajky, komentáře nebo označení bez protihodnoty). Platformy ji "
+        "penalizují; raději položte skutečnou otázku."),
     "HIDDEN_PROMPT_INJECTION": ("error",
-        "Hidden text or instructions aimed at AI models. Remove it: answer engines penalise it and it deceives readers.",
-        "Skrytý text nebo pokyny určené AI modelům. Odstraňte je: odpovědní systémy je penalizují a klamou čtenáře."),
+        "Hidden text or instructions aimed at AI models. Remove it: answer engines penalise it and it "
+        "deceives readers.",
+        "Skrytý text nebo pokyny určené AI modelům. Odstraňte je: vyhledávače a odpovědní systémy to "
+        "penalizují a pro čtenáře je to klamavé."),
     "CLOAKING": ("error",
         "Cloaking: serving different content to bots and to people is deceptive. Show both the same content.",
         "Cloaking: jiný obsah pro roboty a pro lidi je klamavý. Ukazujte oběma stejný obsah."),
     "FAKE_REVIEW": ("error",
         "Fake or unverifiable review or rating. Use only real, attributable reviews supplied by the user.",
-        "Falešná nebo neověřitelná recenze či hodnocení. Používejte jen skutečné, dohledatelné recenze dodané uživatelem."),
+        "Falešná nebo neověřitelná recenze či hodnocení. Používejte jen skutečné, dohledatelné recenze dodané "
+        "uživatelem."),
     "PLACEHOLDER_OPEN": ("warn",
         "{n} placeholder(s) still open ({names}). Fill or remove them before publishing.",
         "Stále zbývá otevřených zástupných textů: {n} ({names}). Vyplňte je nebo odstraňte před zveřejněním."),
     "DISCLOSURE_MISSING": ("error",
-        "Sponsored or affiliate content without a disclosure. Add #ad, 'sponsored', 'affiliate' or the local equivalent where readers see it first.",
-        "Placený nebo affiliate obsah bez označení. Přidejte #reklama, 'reklama', 'spolupráce' nebo 'affiliate' tam, kde to čtenář uvidí jako první."),
+        "Sponsored or affiliate content without a disclosure. Add #ad, 'sponsored', 'affiliate' or the local "
+        "equivalent where readers see it first.",
+        "Placený nebo affiliate obsah bez označení. Přidejte #reklama, 'reklama', 'spolupráce' nebo "
+        "'affiliate' tam, kde to čtenář uvidí jako první."),
     "AI_DISCLOSURE_REMINDER": ("info",
-        "AI assisted content may need labelling under platform rules and the EU AI Act transparency duties. Check the rules that apply to you; this is not legal advice.",
-        "Obsah vytvořený s pomocí AI může vyžadovat označení podle pravidel platforem a povinností transparentnosti podle evropského nařízení o AI. Ověřte si pravidla, která se vás týkají; nejde o právní poradenství."),
+        "AI assisted content may need labelling under platform rules and the EU AI Act transparency duties. "
+        "Check the rules that apply to you; this is not legal advice.",
+        "Obsah vytvořený s pomocí AI může vyžadovat označení podle pravidel platforem a povinností "
+        "transparentnosti podle evropského nařízení o AI. Ověřte si pravidla, která se vás týkají; nejde o "
+        "právní poradenství."),
     "PERSONAL_DATA": ("warn",
-        "Personal data in the text ({kind}). Remove it unless you have a clear reason and permission to publish it.",
+        "Personal data in the text ({kind}). Remove it unless you have a clear reason and permission to "
+        "publish it.",
         "Osobní údaje v textu ({kind}). Odstraňte je, pokud nemáte jasný důvod a souhlas k jejich zveřejnění."),
     "AVOIDED_TERM": ("warn",
         "Avoided term used: '{term}'. Rephrase it.",
         "Použit nežádoucí výraz: '{term}'. Přeformulujte ho."),
     "KEYWORD_STUFFING": ("warn",
         "Keyword density {d}% is above 3%: this reads as stuffing. Use natural wording and variations.",
-        "Hustota klíčového slova {d} % je nad 3 %: působí to jako přeplňování. Pište přirozeně a používejte varianty."),
+        "Hustota klíčového slova {d} % je nad 3 %: působí to jako přeplňování. Pište přirozeně a používejte "
+        "varianty."),
     "CLICKBAIT": ("warn",
         "The hook reads as clickbait (risk {r}). Promise only what the content delivers.",
         "Úvodní věta působí jako clickbait (riziko {r}). Slibujte jen to, co obsah skutečně splní."),
     "CITATION_UNKNOWN": ("error",
-        "Citation '{id}' is not one of the vetted sources and the ledger does not know it. Use a source from the brief.",
-        "Citace '{id}' není mezi ověřenými zdroji a evidence ji nezná. Použijte zdroj ze zadání."),
+        "Citation '{id}' is not one of the vetted sources and the ledger does not know it. Use a source from "
+        "the brief.",
+        "Citace '{id}' není mezi ověřenými zdroji a databáze studií ji nezná. Použijte zdroj ze zadání."),
 }
 _KINDS = {"email": ("email address", "e-mailová adresa"), "phone": ("phone number", "telefonní číslo"),
           "birth": ("birth number", "rodné číslo"), "iban": ("IBAN", "IBAN")}
@@ -269,7 +292,8 @@ _SCARCITY_RE = _compile([
     r"\b(?:just|only)\s+(?:a few|a handful of|\d+)\s+(?:items?|pieces?|units?|spots?|seats?|places?|pairs?)\s+(?:left|remaining|available)\b",
     r"\blimited (?:stock|supply|quantities|availability|spots|seats|places)\b", r"\bwhile (?:stocks?|supplies) last\b",
     r"\bselling fast\b", r"\balmost sold out\b", r"\b(?:nearly|almost) gone\b",
-    r"\blast (?:few|\d+) (?:items?|pieces?|units?|spots?|seats?|pairs?)\b", r"\b\d+\s+(?:items?|pieces?|units?|spots?|seats?|pairs?)\s+(?:left|remaining)\b",
+    r"\blast (?:few|\d+) (?:items?|pieces?|units?|spots?|seats?|pairs?)\b",
+    r"\b\d+\s+(?:items?|pieces?|units?|spots?|seats?|pairs?)\s+(?:left|remaining)\b",
     r"\bzbyvaj\w*\s+(?:uz\s+)?(?:jen\s+|pouze\s+)?\d+\b", r"\bzbyva\s+(?:uz\s+)?(?:jen\s+|pouze\s+)?\d+\b",
     r"\b(?:uz\s+)?(?:jen|pouze)\s+\d+\s+(?:kus\w*|mist\w*|volnych|zbyva\w*)\b", r"\bposledni\s+(?:\d+\s+)?(?:kus\w*|mist\w*)\b",
     r"\bomezene (?:mnozstvi|zasoby|pocet|kapacita)\b", r"\bdo vyprodani zasob\b", r"\bskoro vyprodan\w*", r"\brychle se vyprodava\b",
@@ -280,7 +304,8 @@ _URGENCY_RE = _compile([
     r"\blast chance\b", r"\btoday only\b", r"\blimited[- ]time (?:only|offer|deal)\b", r"\bexpires? (?:today|tonight|soon|in \d+)\b",
     r"\b\d+\s+(?:minutes?|hours?)\s+(?:left|remaining)\b", r"\bcountdown\b", r"\bclock is ticking\b",
     r"\bbefore it(?:'s| is) too late\b", r"\bnow or never\b", r"\boffer expires\b",
-    r"\b(?:akce|nabidka|sleva|prodej)\s+konci\s+(?:za|dnes|v pulnoci|uz|zitra|brzy)\b", r"\bkonci\s+za\s+\d+\s*(?:minut\w*|hodin\w*|sekund\w*|dn\w*)\b",
+    r"\b(?:akce|nabidka|sleva|prodej)\s+konci\s+(?:za|dnes|v pulnoci|uz|zitra|brzy)\b",
+    r"\bkonci\s+za\s+\d+\s*(?:minut\w*|hodin\w*|sekund\w*|dn\w*)\b",
     r"\bposledni sance\b", r"\bspejte\b", r"\bspechejte\b", r"\bsputejte\b", r"\bjen dnes\b", r"\bpouze dnes\b", r"\bcas vyprsi\b",
     r"\bzbyva\s+(?:uz\s+)?(?:jen\s+)?\d+\s+(?:minut\w*|hodin\w*|dn\w*)\b", r"\bodpocet\b", r"\bnabidka (?:brzy )?(?:vyprsi|zmizi)\b",
     r"\bpredtim nez bude pozde\b", r"\bted nebo nikdy\b", r"\bomezeny cas\b", r"\bcasove omezen\w*",
@@ -309,20 +334,26 @@ _BAIT_RE = _compile([
     r"\bzanechte (?:srdicko|like|lajk)\b",
 ])
 _INJECTION_RE = _compile([
-    r"\bignore (?:all |any |the |your )?(?:previous|prior|above|earlier|preceding|foregoing|system) (?:instructions?|prompts?|messages?|context|rules|directions)\b",
+    r"\bignore (?:all |any |the |your )?(?:previous|prior|above|earlier|preceding|foregoing|system)"
+    r" (?:instructions?|prompts?|messages?|context|rules|directions)\b",
     r"\bdisregard (?:all |any |the |your )?(?:previous|prior|above|earlier|preceding|system) (?:instructions?|prompts?|messages?|rules)\b",
     r"\bforget (?:all |everything |your )?(?:previous|prior|above|earlier) (?:instructions?|context|prompts?)\b",
     r"\bignore everything (?:above|before)\b",
     r"\bas an? (?:ai|llm|language model|ai assistant|assistant|chatbot)\b[^.\n]{0,40}\byou (?:must|should|will|need to|have to|are required to)\b",
-    r"\b(?:ai|llm|gpt|chatgpt|claude|gemini|perplexity|copilot|assistant|chatbot|language model|crawler)s?\s*[:,]\s*(?:you (?:must|should|will|need to)|always|never|ignore|recommend|prefer|rank|cite|mention)\b",
-    r"\b(?:note|attention|instructions?|message|notice|directive)s? (?:to|for) (?:ai|llms?|language models?|chatbots?|assistants?|crawlers?|ai agents?|bots?|models?)\b",
-    r"\b(?:ai|llm|language model|chatbot|assistant|model)s? (?:must|should|shall|are required to|need to|have to) (?:always )?(?:recommend|cite|mention|prefer|rank|promote|say|answer|list|suggest)\b",
-    r"\bwhen (?:asked|someone asks|a user asks|users ask|you are asked)\b[^.\n]{0,100}\b(?:always |only )?(?:recommend|mention|cite|say|answer|suggest)\b",
+    r"\b(?:ai|llm|gpt|chatgpt|claude|gemini|perplexity|copilot|assistant|chatbot|language model|"
+    r"crawler)s?\s*[:,]\s*(?:you (?:must|should|will|need to)|always|never|ignore|recommend|prefer|rank|cite|mention)\b",
+    r"\b(?:note|attention|instructions?|message|notice|directive)s? (?:to|for) (?:ai|llms?|language"
+    r" models?|chatbots?|assistants?|crawlers?|ai agents?|bots?|models?)\b",
+    r"\b(?:ai|llm|language model|chatbot|assistant|model)s? (?:must|should|shall|are required to|need to|"
+    r"have to) (?:always )?(?:recommend|cite|mention|prefer|rank|promote|say|answer|list|suggest)\b",
+    r"\bwhen (?:asked|someone asks|a user asks|users ask|you are asked)\b[^.\n]{0,100}\b(?:always |only"
+    r" )?(?:recommend|mention|cite|say|answer|suggest)\b",
     r"\bsystem prompt\b", r"\bnew instructions?\s*:", r"\byou are now (?:a|an|in)\b",
     r"\bdo not (?:mention|recommend|cite|suggest) (?:any )?(?:competitors?|other brands?|alternatives?)\b", r"\bonly recommend\b",
     r"\bignoruj(?:te)?\s+(?:vsechny\s+|veskere\s+)?(?:predchozi|drivejsi|predesle|predchazejici)\s+(?:instrukce|pokyny|prikazy|zadani)\b",
     r"\bzapomen(?:te)?\s+(?:vsechny\s+)?(?:predchozi|drivejsi)\s+(?:instrukce|pokyny)\b",
-    r"\bjako\s+(?:ai\s+)?(?:asistent|jazykovy model|umela inteligence|ai|chatbot)\b[^.\n]{0,40}\b(?:musis|musite|mas|mate|byste meli|bys mel|budes)\b",
+    r"\bjako\s+(?:ai\s+)?(?:asistent|jazykovy model|umela inteligence|ai|chatbot)\b[^.\n]{0,40}\b(?:musis|"
+    r"musite|mas|mate|byste meli|bys mel|budes)\b",
     r"\bpoznamka\s+pro\s+(?:ai|jazykove modely|chatboty|llm|umelou inteligenci|roboty)\b",
     r"\b(?:ai|llm|chatbot|asistent|jazykovy model)\w*\s*[:,]\s*(?:musis|musite|vzdy|nikdy|doporuc\w+|ignoruj\w*)\b",
     r"\bkdyz se (?:te|vas|uzivatel\w*)\s+(?:zepta|zeptaji|ptaji)\b[^.\n]{0,100}\b(?:vzdy |pouze )?doporuc\w+\b",
@@ -341,7 +372,8 @@ _WHITE_ON_WHITE_RE = re.compile(
 _INVISIBLE_RE = re.compile("[" + "".join(map(chr, (0x200B, 0x200C, 0x2060, 0x180E, 0xFEFF))) + "]")
 _TAG_CHARS_RE = re.compile("[\U000e0000-\U000e007f]")
 _CLOAK_RE = _compile([
-    r"\b(?:serve|show|display|deliver|present)s?\s+(?:different|separate|alternate|other)\s+(?:content|text|pages?|versions?)\s+(?:to|for)\s+(?:bots?|crawlers?|search engines?|googlebot|ai|llms?|robots?)\b",
+    r"\b(?:serve|show|display|deliver|present)s?\s+(?:different|separate|alternate|other)\s+(?:content|"
+    r"text|pages?|versions?)\s+(?:to|for)\s+(?:bots?|crawlers?|search engines?|googlebot|ai|llms?|robots?)\b",
     r"\bif\s*\(?[^)\n]{0,60}user[-_ ]?agent[^)\n]{0,60}(?:googlebot|gptbot|claudebot|bingbot|perplexitybot|ccbot|oai-searchbot)",
     r"\bjin\w+\s+(?:obsah|text|verzi)\s+(?:pro|nez pro)\s+(?:roboty|boty|vyhledavace|crawlery|ai)\b",
     r"\bpro\s+(?:roboty|boty|vyhledavace|crawlery)\s+(?:zobraz\w+|servir\w+|posil\w+)\s+jin\w+\s+(?:obsah|text|verzi)\b",
@@ -469,8 +501,17 @@ def _r_stat(ctx: _Ctx) -> list[Issue]:
     return out
 
 
+def _is_question_at(text: str, end: int) -> bool:
+    """True when the first sentence terminator after ``end`` on the same line is a question mark."""
+    rest = text[end:].split("\n", 1)[0]
+    match = re.search(r"[.!?]", rest)
+    return bool(match) and match.group() == "?"
+
+
 def _r_unsupported(ctx: _Ctx) -> list[Issue]:
-    return [ctx.issue("UNSUPPORTED_CLAIM", *m.span()) for m in _CLAIM_RE.finditer(ctx.low) if not ctx.cited_near(m.start())]
+    # A claim phrase inside a question ("What do experts say?") is not a claim.
+    return [ctx.issue("UNSUPPORTED_CLAIM", *m.span()) for m in _CLAIM_RE.finditer(ctx.low)
+            if not ctx.cited_near(m.start()) and not _is_question_at(ctx.low, m.end())]
 
 
 def _r_scarcity(ctx: _Ctx) -> list[Issue]:

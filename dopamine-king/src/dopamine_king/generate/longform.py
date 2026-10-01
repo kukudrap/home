@@ -152,7 +152,8 @@ def build_press_release(brief: Brief, *, hook: str | None = None, options: dict 
                   "Citace, kontakty a medailonek firmy musí pocházet od skutečných lidí a z ověřených faktů; nic se zde negeneruje."),
                tr(lang, "Inverted pyramid: the most important news first, details later, boilerplate last.",
                   "Obrácená pyramida: nejdůležitější zpráva první, podrobnosti později, medailonek firmy nakonec."),
-               tr(lang, "Cite vetted sources only, written as [[cite:<source_id>]].", "Citujte jen ověřené zdroje ve tvaru [[cite:<source_id>]].")],
+               tr(lang, "Cite vetted sources only, written as [[cite:<source_id>]].",
+                  "Citujte jen ověřené zdroje ve tvaru [[cite:<source_id>]].")],
         fixed={"end_mark": "###", "sources": _source_entries(brief)},
         meta={"goal": brief.goal, "cta": brief.cta, "sponsored": brief.sponsored, "keyword": brief.primary_keyword,
               "lang": lang, "brand": brief.brand, "topic": brief.topic, "offer": brief.offer},
@@ -170,7 +171,7 @@ _WHY_CUE_RE = re.compile(
 def validate_press_release(draft: Draft) -> list[Issue]:
     lang = _lang_of(draft)
     slots = _slots(draft)
-    fm, body = front_matter(draft.body)
+    _, body = front_matter(draft.body)
     issues: list[Issue] = []
     heads = parse_headings(body)
     h1_lines = [t for lv, t in heads if lv == 1]
@@ -220,8 +221,10 @@ def validate_press_release(draft: Draft) -> list[Issue]:
     if long_paras:
         issues.append(Issue("info", "PR_LONG_PARAGRAPH", tr(
             lang, "A paragraph is over 120 words; keep paragraphs short and put details after the lead (inverted pyramid).",
-            "Odstavec má přes 120 slov; držte odstavce krátké a podrobnosti dávejte až za perex (obrácená pyramida)."), _short(long_paras[0])))
-    if not (_real(slots.get("quote_1_text")) or re.search(r'"[^"\n]{20,}"[^\n]{0,20}(?:said|uvádí|uvedl|řekl)', body)) and "quote_1_text" not in slots:
+            "Odstavec má přes 120 slov; držte odstavce krátké a podrobnosti dávejte až za perex (obrácená pyramida)."),
+            _short(long_paras[0])))
+    has_quote = _real(slots.get("quote_1_text")) or re.search(r'"[^"\n]{20,}"[^\n]{0,20}(?:said|uvádí|uvedl|řekl)', body)
+    if not has_quote and "quote_1_text" not in slots:
         issues.append(Issue("warn", "PR_QUOTE_MISSING", tr(lang, "Add at least one quote from a named spokesperson.",
                                                          "Přidejte alespoň jednu citaci jmenovaného mluvčího.")))
     for i in (1, 2):
@@ -273,18 +276,22 @@ def build_landing_page(brief: Brief, *, hook: str | None = None, options: dict |
     hero_default = hook.strip() if hook and 0 < len(hook.split()) <= 12 else None
     slots = [
         Slot("meta_title", "Page title of at most 60 characters: what it is and who it is from.", max_chars=60, kind="title", default=meta_title),
-        Slot("meta_description", "Meta description of 120-155 characters: the offer and its main benefit. No hype.", max_chars=155, min_chars=120, kind="line"),
+        Slot("meta_description", "Meta description of 120-155 characters: the offer and its main benefit. No hype.",
+             max_chars=155, min_chars=120, kind="line"),
         Slot("hero_headline", f"Hero headline of at most 12 words stating the main benefit for {brief.audience}. Clear beats clever.",
              max_words=12, kind="title", default=hero_default),
         Slot("hero_subhead", "One or two sentences (max 30 words) saying what it is and who it is for.", max_words=30),
         Slot("cta", "Primary call to action as button text, 2-5 words. The same text is used in the hero and at the end.",
              max_chars=40, kind="line", default=brief.cta.strip() if brief.cta and brief.cta.strip() else None),
-        Slot("problem", f"The problem {brief.audience} face, in their own terms (40-80 words). Real, specific, no fear mongering.", max_words=90, min_chars=150),
-        Slot("solution", f"How {brief.offer or brief.brand} solves it (40-80 words). Concrete mechanism, supplied facts only.", max_words=90, min_chars=150),
+        Slot("problem", f"The problem {brief.audience} face, in their own terms (40-80 words). Real, specific, no fear "
+                        f"mongering.", max_words=90, min_chars=150),
+        Slot("solution", f"How {brief.offer or brief.brand} solves it (40-80 words). Concrete mechanism, supplied facts only.",
+             max_words=90, min_chars=150),
     ]
     for i in (1, 2, 3):
         slots.append(Slot(f"benefit_{i}_title", f"Benefit {i} title: an outcome for the reader, max 8 words.", max_words=8, kind="line"))
-        slots.append(Slot(f"benefit_{i}_body", f"Benefit {i} body (20-40 words): how the benefit comes about. Supplied facts only.", max_words=45, min_chars=80))
+        slots.append(Slot(f"benefit_{i}_body", f"Benefit {i} body (20-40 words): how the benefit comes about. Supplied facts only.",
+                          max_words=45, min_chars=80))
     slots += [
         Slot("proof_stat_1", "Proof number: one real first-party result or a cited statistic (use the cite marker for its id, see notes). "
              f"Never invent numbers.{_source_hint(brief)}", max_words=35, kind="line"),
@@ -295,7 +302,8 @@ def build_landing_page(brief: Brief, *, hook: str | None = None, options: dict |
     for i, q in enumerate(_LANDING_FAQ[lang], 1):
         slots.append(Slot(f"faq_q{i}", "Objection phrased as a question, in the reader's words.", max_chars=100, kind="line",
                           default=q.format(audience=brief.audience)))
-        slots.append(Slot(f"faq_a{i}", f"Answer to the question in faq_q{i} in 30-60 words. Honest, supplied facts only.", max_words=70, min_chars=80))
+        slots.append(Slot(f"faq_a{i}", f"Answer to the question in faq_q{i} in 30-60 words. Honest, supplied facts only.",
+                          max_words=70, min_chars=80))
     slots.append(Slot("final_cta_text", "One sentence (max 20 words) that restates the benefit and invites the click.", max_words=20, kind="line"))
 
     def hd(key: str) -> str:
@@ -320,7 +328,8 @@ def build_landing_page(brief: Brief, *, hook: str | None = None, options: dict |
                   "Důkazy musí být skutečné: vlastní čísla, citované statistiky a doslovné reference dodané uživatelem."),
                tr(lang, "One primary CTA, repeated; set the real button URL when publishing.",
                   "Jedna hlavní výzva k akci, opakovaná; při zveřejnění nastavte skutečnou adresu tlačítka."),
-               tr(lang, "Cite vetted sources only, written as [[cite:<source_id>]].", "Citujte jen ověřené zdroje ve tvaru [[cite:<source_id>]].")],
+               tr(lang, "Cite vetted sources only, written as [[cite:<source_id>]].",
+                  "Citujte jen ověřené zdroje ve tvaru [[cite:<source_id>]].")],
         fixed={"cta_url": cta_url, "sources": _source_entries(brief)},
         meta={"goal": brief.goal, "cta": brief.cta, "sponsored": brief.sponsored, "keyword": brief.primary_keyword,
               "lang": lang, "brand": brief.brand, "topic": brief.topic, "offer": brief.offer},
@@ -337,7 +346,7 @@ def validate_landing_page(draft: Draft) -> list[Issue]:
         issues.append(Issue("warn", "LANDING_HEADLINE_LONG", tr(
             lang, f"Hero headline has {count_words(headline)} words; keep it to 12 or fewer.",
             f"Hlavní titulek má {count_words(headline)} slov; držte se nejvýše 12."), _short(headline)))
-    buttons = [b for b in _cta_buttons(body)]
+    buttons = _cta_buttons(body)
     real_buttons = [b for b in buttons if not PLACEHOLDER_RE.search(b)]
     if not buttons:
         issues.append(Issue("error", "LANDING_CTA_MISSING", tr(lang, "The page has no call to action button.",
@@ -391,7 +400,7 @@ def _check_subject(subject: str, lang: str, where: str) -> list[Issue]:
     if len(subject) > 50:
         issues.append(Issue("warn", "SUBJECT_TOO_LONG", tr(
             lang, f"Subject is {len(subject)} characters; keep it at 50 or fewer so it is not cut off.",
-            f"Předmět má {len(subject)} znaků; držte se nejvýše 50, ať se neořízne."), _short(subject)))
+            f"Předmět má {len(subject)} znaků; držte se nejvýše 50, aby se nezkrátil."), _short(subject)))
     if _DECEPTIVE_SUBJECT_RE.match(subject):
         issues.append(Issue("error", "SUBJECT_DECEPTIVE", tr(
             lang, "Subject fakes a reply or forward (RE:, FWD:); deceptive subject lines are not allowed.",
@@ -484,7 +493,8 @@ def validate_newsletter(draft: Draft) -> list[Issue]:
                                                            "Newsletter nemá výzvu k akci.")))
     elif len(buttons) > 1:
         issues.append(Issue("warn", "NEWSLETTER_MULTIPLE_CTA", tr(
-            lang, "Use one primary call to action per newsletter.", "Použijte v newsletteru jednu hlavní výzvu k akci."), _short(" / ".join(buttons))))
+            lang, "Use one primary call to action per newsletter.", "Použijte v newsletteru jednu hlavní výzvu k akci."),
+            _short(" / ".join(buttons))))
     if not _has_unsubscribe(body):
         issues.append(Issue("error", "NEWSLETTER_NO_UNSUBSCRIBE", tr(
             lang, "The footer has no unsubscribe reminder; every marketing email must offer an easy opt-out.",
@@ -534,7 +544,8 @@ def build_email_sequence(brief: Brief, *, hook: str | None = None, options: dict
         day = _SEQ_DAYS[i - 1]
         timing.append({"n": i, "goal": goal, "day": day})
         slots += [
-            Slot(f"e{i}_subject", f"Email {i} ({label_en}) subject line, at most 50 characters. Honest and specific; no RE:/FWD: tricks, no fake urgency.",
+            Slot(f"e{i}_subject", f"Email {i} ({label_en}) subject line, at most 50 characters. Honest and specific; no RE:/FWD: "
+                                  f"tricks, no fake urgency.",
                  max_chars=50, kind="title"),
             Slot(f"e{i}_preheader", f"Email {i} preheader of 40-90 characters that adds to the subject.", max_chars=100, kind="line"),
             Slot(f"e{i}_body", f"Email {i} body of {lo}-{hi} words for {brief.audience}. Goal: {instr}", max_words=hi + 20, min_chars=lo * 5),
@@ -548,7 +559,8 @@ def build_email_sequence(brief: Brief, *, hook: str | None = None, options: dict
     return Skeleton(
         format="email_sequence", lang=lang, template="\n".join(lines).rstrip("-\n "), slots=slots, hook_slot="e1_subject",
         notes=[tr(lang, "One CTA per email. Last call only mentions a deadline that exists in your facts; no fake urgency.",
-                  "Jedna výzva v každém e-mailu. Poslední výzva zmiňuje jen termín, který skutečně existuje; žádný vymyšlený spěch.")],
+                  "Jedna výzva v každém e-mailu. Poslední výzva zmiňuje jen termín, který skutečně existuje; "
+                  "žádný vymyšlený spěch.")],
         fixed={"timing": timing, "emails": n, "cta_url": cta_url, "sources": _source_entries(brief)},
         meta={"goal": brief.goal, "cta": brief.cta, "sponsored": brief.sponsored, "keyword": brief.primary_keyword,
               "lang": lang, "brand": brief.brand, "topic": brief.topic, "emails": n},
@@ -562,7 +574,7 @@ def validate_email_sequence(draft: Draft) -> list[Issue]:
     issues: list[Issue] = []
     if not 3 <= len(heads) <= 5:
         issues.append(Issue("warn", "SEQUENCE_LENGTH", tr(
-            lang, f"The sequence has {len(heads)} emails; use 3 to 5.", f"Sekvence má {len(heads)} e-mailů; použijte 3 až 5.")))
+            lang, f"The sequence has {len(heads)} emails; use 3 to 5.", f"Počet e-mailů v sekvenci: {len(heads)}; použijte 3 až 5.")))
     for k, m in enumerate(heads):
         chunk = body[m.end(): heads[k + 1].start() if k + 1 < len(heads) else len(body)]
         where = f"email {m.group(1)}"
@@ -599,13 +611,15 @@ FORMAT_SPECS: list[FormatSpec] = [
         id="press_release", name_en="Press release", name_cs="Tisková zpráva", family="article", platform="newsroom",
         build=build_press_release, validate=validate_press_release, limits={"headline_max": 100, "lead_words": 60, "quotes": 1},
         description_en="Inverted pyramid press release with a 5W lead, real quotes only, boilerplate, media contact and end mark.",
-        description_cs="Tisková zpráva v obrácené pyramidě s perexem na otázky kdo, co, kdy, kde, proč, jen skutečnými citacemi, medailonkem a kontaktem.",
+        description_cs="Tisková zpráva v obrácené pyramidě s perexem odpovídajícím na otázky kdo, co, kdy, kde a proč, "
+                       "jen skutečnými citacemi, medailonkem firmy a kontaktem.",
     ),
     FormatSpec(
         id="landing_page", name_en="Landing page", name_cs="Landing page", family="article", platform="web",
         build=build_landing_page, validate=validate_landing_page, limits={"headline_words": 12, "benefits": 3, "meta_title_max": 60},
         description_en="Hero, problem, solution, three benefits, proof that is never invented, objection FAQ and one repeated CTA.",
-        description_cs="Hlavní blok, problém, řešení, tři přínosy, nikdy nevymyšlené důkazy, FAQ s námitkami a jedna opakovaná výzva k akci.",
+        description_cs="Hlavní blok, problém, řešení, tři přínosy, nikdy nevymyšlené důkazy, FAQ s námitkami a jedna "
+                       "opakovaná výzva k akci.",
     ),
     FormatSpec(
         id="newsletter", name_en="Newsletter", name_cs="Newsletter", family="email", platform="email",
@@ -618,6 +632,7 @@ FORMAT_SPECS: list[FormatSpec] = [
         build=build_email_sequence, validate=validate_email_sequence,
         limits={"emails": (3, 5), "days": list(_SEQ_DAYS), "subject_max": 50},
         description_en="Welcome, value, proof, offer and last call emails with timing, one CTA each and an unsubscribe line.",
-        description_cs="E-maily uvítání, užitečný obsah, důkazy, nabídka a poslední výzva s časováním, jednou výzvou a řádkem o odhlášení.",
+        description_cs="E-maily uvítání, užitečný obsah, důkazy, nabídka a poslední výzva s časováním, jednou výzvou "
+                       "a řádkem o odhlášení.",
     ),
 ]

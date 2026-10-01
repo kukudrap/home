@@ -281,7 +281,7 @@ _QUESTION_START = {
 }
 _CUES = {
     "navigational": {
-        "en": ("login", "log in", "sign in", "official site", "official website", "homepage", "customer service", "contact"),
+        "en": ("login", "log in", "sign in", "official site", "official website", "homepage", "customer service"),
         "cs": ("prihlaseni", "prihlasit", "oficialni", "kontakt", "zakaznicka podpora", "domovska stranka"),
     },
     "transactional": {
@@ -591,8 +591,8 @@ _FAQ_PATTERNS: dict[str, dict[str, dict[str, list[str]]]] = {
     },
     "cs": {
         "noun": {
-            "informational": ["Co je dobré vědět o {loc} na začátku?|{Kw}: co je dobré vědět na začátku?", "{Kw}: jak začít?", "{Kw}: jakých chyb se vyvarovat?",
-                              "{Kw}: pro koho se to hodí?"],
+            "informational": ["Co je dobré vědět o {loc} na začátku?|{Kw}: co je dobré vědět na začátku?", "{Kw}: jak začít?",
+                              "{Kw}: jakých chyb se vyvarovat?", "{Kw}: pro koho se to hodí?"],
             "commercial": ["Jak vybrat {acc}?|{Kw}: jak vybrat?", "{Kw}: kolik to stojí?", "{Kw}: vyplatí se to?", "{Kw}: jaké jsou alternativy?"],
             "transactional": ["Jak objednat {acc}?|{Kw}: jak objednat?", "{Kw}: kolik to stojí a co je v ceně?",
                               "{Kw}: jak funguje vrácení nebo zrušení?", "{Kw}: jak dlouho trvá dodání nebo zavedení?"],
@@ -691,9 +691,11 @@ def _make_assemble(lang: str, brand: str, kw: str, headings: list[str], links: l
     def assemble(sk: Skeleton, values: dict[str, str]) -> dict[str, Any]:
         title = values.get("title", "")
         h1 = values.get("h1", "") or title
+        prose = [values.get(k, "") for k in values if k in ("answer_lead", "experience", "conclusion") or k.startswith(("sec_", "faq_"))]
+        complete = bool(prose) and not any(PLACEHOLDER_RE.search(v) for v in prose)
         nodes: list[dict[str, Any]] = [jsonld_article(
             h1, description=values.get("meta_description"), url=url, lang=lang, author=author, publisher=brand,
-            published=published, keywords=[kw], word_count=word_target)]
+            published=published, keywords=[kw], word_count=sum(count_words(v) for v in prose) if complete else None)]
         faq = jsonld_faq((values.get(f"faq_q{i}", ""), values.get(f"faq_a{i}", "")) for i in range(1, n_faq + 1))
         if faq["mainEntity"]:
             nodes.append(faq)
@@ -716,6 +718,14 @@ _META_Q = {
 }
 
 
+def _int_option(value: Any, default: int) -> int:
+    """An integer option; anything unusable (None, 0, text) falls back to the default."""
+    try:
+        return int(value) or default
+    except (TypeError, ValueError):
+        return default
+
+
 def _shorten(text: str, n: int) -> str:
     if len(text) <= n:
         return text
@@ -736,8 +746,8 @@ def build_seo_article(brief: Brief, *, hook: str | None = None, options: dict | 
     intent = opts.get("intent") if opts.get("intent") in INTENTS else detect_intent(kw_clean, lang)
     pat_intent = intent if intent in ("commercial", "transactional") else "informational"
     outline = _OUTLINES[intent]
-    word_target = max(1, int(opts.get("word_target") or 1500))
-    n_sec = max(3, min(int(opts.get("sections") or 6), len(outline)))
+    word_target = max(1, _int_option(opts.get("word_target"), 1500))
+    n_sec = max(3, min(_int_option(opts.get("sections"), 6), len(outline)))
     links = _clean_links(opts.get("internal_links"))
     author = opts["author"] if isinstance(opts.get("author"), dict) and opts["author"].get("name") else None
     published = opts.get("published") or None
@@ -822,8 +832,10 @@ def build_seo_article(brief: Brief, *, hook: str | None = None, options: dict | 
     notes = [
         tr(lang, "Draft for a human to finish: add first-party experience, verify every fact and cut filler before publishing.",
            "Koncept, který má dokončit člověk: doplňte vlastní zkušenost, ověřte každý fakt a před zveřejněním vyřaďte vycpávky."),
-        tr(lang, "Mass produced, low-value pages risk being treated as scaled content abuse however they are made; this skeleton only gives structure.",
-           "Hromadně vyráběné stránky s nízkou hodnotou mohou být posouzeny jako zneužívání obsahu ve velkém měřítku bez ohledu na to, jak vznikly; kostra dává jen strukturu."),
+        tr(lang, "Mass produced, low-value pages risk being treated as scaled content abuse however they are made; "
+                 "this skeleton only gives structure.",
+           "Hromadně vyráběné stránky s nízkou hodnotou mohou být posouzeny jako zneužívání obsahu ve velkém "
+           "měřítku bez ohledu na to, jak vznikly; kostra dává jen strukturu."),
         tr(lang, "Cite only the supplied sources, written as [[cite:<source_id>]].",
            "Citujte jen dodané zdroje ve tvaru [[cite:<source_id>]]."),
     ]
@@ -984,7 +996,7 @@ def seo_score(draft: Draft, brief: Brief | None = None) -> SeoReport:
     items = len(re.findall(r"^\s*(?:\d{1,3}[.)]|[-*])\s+\S", v["src_section"], re.M))
     n_src = max(len(cite_ids(v["body"])), len(urls), items)
     add("sources", n_src >= 2, 0.12, f"Sources: {n_src} distinct (at least 2 expected).",
-        f"Zdroje: {n_src} různých (očekávají se alespoň 2).")
+        f"Počet různých zdrojů: {n_src} (očekávají se alespoň 2).")
 
     words_total = count_words(text)
     target = int(draft.parts.get("word_target") or draft.meta.get("word_target") or 1500)
@@ -1033,13 +1045,19 @@ def _norm_phrase(s: str) -> str:
 def first_party_text(draft: Draft, brief: Brief | None) -> str:
     """The first-party experience or fact text found in a draft ("" when there is none).
 
-    Counts a filled ``experience`` slot (at least 6 words), a brief fact quoted in the body, or the text
-    after the "From our own experience" label.
+    Counts a filled ``experience`` slot (at least 6 words), a filled key facts row (GEO pages), a brief fact
+    quoted in the body, or the text after the "From our own experience" label.
     """
     slots = draft.parts.get("slots") if isinstance(draft.parts.get("slots"), dict) else {}
     exp = _real(slots.get("experience"))
     if exp and count_words(exp) >= 6:
         return exp
+    for row in draft.parts.get("key_facts") or []:                    # GEO pages: filled key facts rows
+        if not isinstance(row, dict):
+            continue
+        text = f"{row.get('label', '')}: {row.get('value', '')}".strip(": ")
+        if count_words(text) >= 3:
+            return text
     body = _norm_phrase(draft.body)
     facts = list(brief.facts) if brief else list(draft.parts.get("facts") or [])
     for fact in facts:
@@ -1110,6 +1128,7 @@ FORMAT_SPECS: list[FormatSpec] = [
         limits={"title_max": 60, "meta_min": 120, "meta_max": 155, "answer_lead_words": (40, 60), "word_target": 1500,
                 "sections": 6, "faq": 4},
         description_en="Answer-first long-form article with intent based outline, FAQ, JSON-LD and a quality gate that blocks slop.",
-        description_cs="Dlouhý článek s odpovědí na začátku, osnovou podle záměru, FAQ, JSON-LD a kontrolou, která blokuje vatu.",
+        description_cs="Dlouhý článek s odpovědí na začátku, osnovou podle záměru, FAQ, JSON-LD a kontrolou, která "
+                       "zastaví obsah bez vlastní zkušenosti.",
     ),
 ]

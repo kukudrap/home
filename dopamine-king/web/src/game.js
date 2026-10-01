@@ -706,7 +706,7 @@
   }
 
   /** Looking at a vault card counts for the daily quest. */
-  function applyVaultOpen(profile, ctx) {
+  function applyVaultOpen(profile, args, ctx) {
     var st = begin(profile, ctx), p = st.next, events = st.events;
     bump(p, "vault_open", 1, events);
     finish(p, events);

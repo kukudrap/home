@@ -256,7 +256,8 @@ def score_hook(
             spans.append(Span(cat, a, b, tokens[a].start, tokens[b - 1].end, text[tokens[a].start:tokens[b - 1].end]))
 
     is_num = [bool(_NUM_RE.fullmatch(t.norm)) for t in tokens]
-    year_like = [is_num[i] and len(tokens[i].norm) == 4 and 1900 <= int(tokens[i].norm) <= 2100 for i in range(n)]
+    year_like = [is_num[i] and _INT_RE.fullmatch(tokens[i].norm) is not None and len(tokens[i].norm) == 4
+                 and 1900 <= int(tokens[i].norm) <= 2100 for i in range(n)]
     has_number = any(is_num[i] and not year_like[i] for i in range(n))
     starts_with_number = bool(n and is_num[0] and not year_like[0])
 

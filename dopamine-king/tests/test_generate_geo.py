@@ -148,6 +148,15 @@ class BuilderTests(unittest.TestCase):
         self.assertIn("faq_q3", [s.id for s in clamped.slots])
         self.assertNotIn("faq_q4", [s.id for s in clamped.slots])
 
+    def test_unusable_options_fall_back_to_defaults(self):
+        sk = geo.build_geo_answer_page(EN, options={"faq": "x", "quotes": None, "fact_rows": "many", "updated": "someday", "author": "bad"})
+        ids = [s.id for s in sk.slots]
+        self.assertIn("faq_a4", ids)
+        self.assertNotIn("faq_a5", ids)
+        self.assertIn("quote_1_text", ids)
+        self.assertEqual(sk.slot("updated").default, "someday")
+        self.assertIsNone(sk.slot("author_box").default)
+
     def test_headings_are_mostly_questions(self):
         for brief in (EN, CS, BARE):
             d = geo.build_geo_answer_page(brief).render()
@@ -181,6 +190,40 @@ class GeoScoreTests(unittest.TestCase):
         self.assertEqual(r.tips, [])
         self.assertEqual(r.penalty, 0.0)
         self.assertEqual(r.lang, "en")
+
+    def test_strong_czech_page_passes_every_check(self):
+        cs_fills = {
+            "definition": ("Běžecké boty jsou boty s pevnou oporou klenby a stabilní patou, které brání naklápění chodidla dovnitř. "
+                           "Zorvia je výrobce běžecké obuvi, který začínajícím běžcům přizpůsobuje boty krátkým vyšetřením chůze. "
+                           "Vyšetření trvá deset minut a nepotřebuje žádné zvláštní vybavení ani přípravu."),
+            "steps": "1. Nechte si změřit chůzi.\n2. Vyberte stabilní botu.\n3. Vyzkoušejte ji odpoledne.",
+            "comparison_table": "| Možnost | Opora |\n|---|---|\n| Stabilní bota | Vysoká |\n| Neutrální bota | Nízká |",
+            "stat_1": "Asi 38 % začátečníků vybere špatný typ bot [[cite:s1]].",
+            "stat_2": "Běžný pár vydrží 600 km, než se střední část podrážky zploští [[cite:s2]].",
+            "stat_3": "Kolem 25 % běžců si stěžuje na prokluzování paty v nových botách [[cite:s3]].",
+            "quote_1_text": "Krátké vyšetření chůze ušetří většině začátečníků špatnou koupi bot hned na začátku.",
+            "quote_1_name": "Petra Svobodová", "quote_1_credential": "fyzioterapeutka, Sportovní klinika Praha",
+            "fact_label_2": "Drop", "fact_value_2": "8 mm", "fact_label_3": "Barvy", "fact_value_3": "pět",
+            "faq_a1": ("Zvolte stabilní botu s pevnou oporou klenby a vyzkoušejte ji odpoledne, kdy jsou chodidla největší. "
+                       "Před špičkou nechte volné místo široké jako palec a před koupí si projděte pár kroků, abyste poznali, zda pata neprokluzuje."),
+            "faq_a2": ("Začněte krátkým vyšetřením chůze a dvěma lehkými běhy týdně, abyste poznali, jak bota sedí. "
+                       "Veďte si jednoduchý deník se vzdáleností, tempem a případnou bolestí a po dvou týdnech zvyšte objem jen o malý kousek."),
+            "faq_a3": ("Nevybírejte podle barvy, nevynechávejte zkoušení a nenoste opotřebované boty příliš dlouho. "
+                       "Když je střední část podrážky ztvrdlá nebo je vnější podrážka zničená, pár vyměňte, aby vás nezačala bolet kolena."),
+            "faq_a4": ("Nejvíce pomůže začínajícím běžcům s plochou nohou, zatímco běžci s vysokou klenbou mohou volit neutrální boty. "
+                       "Pokud si nejste jistí, zeptejte se trenéra nebo fyzioterapeuta, který vám chůzi krátce posoudí."),
+        }
+        sk = geo.build_geo_answer_page(CS, options={"updated": "2026-09-30", "author": {"name": "Jana Nováková", "role": "trenérka"}})
+        d = sk.render({**OfflineWriter().fill(sk, CS), **cs_fills})
+        self.assertEqual(d.slots_open, [])
+        r = geo.geo_score(d, CS)
+        self.assertEqual([c.id for c in r.checks if not c.passed], [])
+        self.assertEqual((r.score, r.lang), (100.0, "cs"))
+        self.assertEqual(self.codes_of(geo.validate_geo_page(d), "error"), [])
+
+    @staticmethod
+    def codes_of(issues, severity):
+        return [i.code for i in issues if i.severity == severity]
 
     def test_strong_crafted_text_page_passes_too(self):
         r = geo.geo_score(page(), EN)
@@ -326,6 +369,10 @@ class GeoScoreTests(unittest.TestCase):
         self.assertEqual(len(cs.tips), len(r.tips))
         self.assertTrue(all(re.search(r"[ěščřžýáíéůú]", t) for t in cs.tips))
         self.assertEqual(cs.lang, "cs")
+        self.assertEqual((r.tips_en, r.tips_cs), (cs.tips_en, cs.tips_cs))          # both languages are always available
+        self.assertEqual(cs.tips, cs.tips_cs)
+        self.assertEqual(r.tips, r.tips_en)
+        self.assertEqual(len(r.tips_en), len(r.tips_cs))
 
     def test_language_resolution(self):
         czech_text = "Běžecké boty jsou dobré pro začátečníky. Zkuste je."
@@ -338,7 +385,7 @@ class GeoScoreTests(unittest.TestCase):
 
     def test_report_serialises_to_json(self):
         data = geo.geo_score(page(), EN).to_dict()
-        self.assertEqual(set(data), {"score", "checks", "tips", "penalty", "density", "lang"})
+        self.assertEqual(set(data), {"score", "checks", "tips", "penalty", "density", "lang", "tips_en", "tips_cs"})
         self.assertEqual(len(json.loads(json.dumps(data))["checks"]), 11)
 
     def test_score_is_always_bounded(self):

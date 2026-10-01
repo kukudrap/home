@@ -14,6 +14,7 @@ ROOT = Path(__file__).resolve().parent.parent
 
 HAND_WRITTEN = [
     "", "   ", "Win", "42", "2026", "10", "1,000 users", "3.5 hours a week", "Best CRM tools 2026",
+    "Save 12.5 percent on shoes", "1.25 liters a day", "12,5 procenta ro\u010dn\u011b", "2026.5 forecast", "1900.0 hours", "12.5 tips for runners",
     "Our Q3 company update", "Introducing the new Aero 2 running shoe",
     "7 mistakes every beginner runner makes (and how to fix them)",
     "You won't BELIEVE this one trick!!!", "You won’t believe this one trick!!!",

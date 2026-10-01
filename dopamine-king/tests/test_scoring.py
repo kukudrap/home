@@ -115,6 +115,19 @@ class OrderingTests(unittest.TestCase):
         self.assertEqual(score_hook("2026 CRM tools").features["starts_with_number"], 0.0)
         self.assertEqual(score_hook("10 CRM tools").features["starts_with_number"], 1.0)
 
+    def test_decimal_tokens_of_four_characters_do_not_crash(self):
+        expected = {  # text: (has_number, starts_with_number)
+            "Save 12.5 percent on shoes": (1.0, 0.0),
+            "1.25 liters a day": (1.0, 1.0),
+            "12,5 procenta ro\u010dn\u011b": (1.0, 1.0),
+            "2026.5 forecast": (1.0, 1.0),      # a decimal is a number, never a year
+            "1900.0 hours": (1.0, 1.0),
+            "Best CRM tools 2026": (0.0, 0.0),  # a plain year is not a listicle number
+        }
+        for text, (has_number, starts) in expected.items():
+            f = score_hook(text).features
+            self.assertEqual((f["has_number"], f["starts_with_number"]), (has_number, starts), text)
+
     def test_promise_gap_flags_missing_list_items(self):
         body_ok = "\n".join(f"{i}. item {i}" for i in range(1, 8))
         body_short = "1. only one\n2. only two"

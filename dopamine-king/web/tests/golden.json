@@ -674,6 +674,456 @@
   }
  },
  {
+  "text": "Save 12.5 percent on shoes",
+  "body": "",
+  "lang": null,
+  "weights": null,
+  "expected": {
+   "total": 20.87804168004499,
+   "raw": 0.08196291170081275,
+   "parts": {
+    "curiosity": 0.0,
+    "surprise": 0.0,
+    "emotion": 15.351827510938588,
+    "relevance": 0.0,
+    "utility": 23.603306475765972,
+    "fluency": 88.0
+   },
+   "clickbait_risk": 0.0,
+   "lang": "en",
+   "features": {
+    "n_words": 5.0,
+    "has_number": 1.0,
+    "starts_with_number": 0.0,
+    "is_question": 0.0,
+    "open_loop": 0.0,
+    "exclaim": 0.0,
+    "caps_ratio": 0.0,
+    "avg_word_len": 4.5,
+    "promise_gap": 0.0,
+    "curiosity_hits": 0.0,
+    "contrast_hits": 0.0,
+    "emotion_hits": 0.0,
+    "practical_hits": 0.0,
+    "social_hits": 0.0,
+    "second_person_hits": 0.0,
+    "clickbait_hits": 0.0,
+    "overclaim_hits": 0.0,
+    "positive_hits": 1.0,
+    "negative_hits": 0.0
+   },
+   "hits": {
+    "curiosity": 0,
+    "contrast": 0,
+    "emotion": 0,
+    "practical": 0,
+    "social": 0,
+    "second_person": 0,
+    "clickbait": 0,
+    "overclaim": 0,
+    "positive": 1,
+    "negative": 0
+   },
+   "spans": [
+    {
+     "category": "positive",
+     "tok_start": 0,
+     "tok_end": 1,
+     "start": 0,
+     "end": 4,
+     "text": "Save"
+    }
+   ],
+   "tips": [
+    {
+     "key": "open_loop",
+     "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
+     "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+    },
+    {
+     "key": "address_reader",
+     "en": "Speak to the reader directly (you, your) or name the audience.",
+     "cs": "Oslov čtenáře přímo (ty, vy, váš) nebo pojmenuj publikum."
+    },
+    {
+     "key": "add_utility",
+     "en": "Make the payoff concrete: a number, steps or a 'how to'.",
+     "cs": "Zkonkrétni užitek: číslo, kroky nebo \"jak na to\"."
+    }
+   ],
+   "text": "Save 12.5 percent on shoes"
+  }
+ },
+ {
+  "text": "1.25 liters a day",
+  "body": "",
+  "lang": null,
+  "weights": null,
+  "expected": {
+   "total": 28.958812628529195,
+   "raw": 0.11966863066144791,
+   "parts": {
+    "curiosity": 0.0,
+    "surprise": 0.0,
+    "emotion": 0.0,
+    "relevance": 0.0,
+    "utility": 53.663063076882466,
+    "fluency": 76.0
+   },
+   "clickbait_risk": 0.0,
+   "lang": "en",
+   "features": {
+    "n_words": 4.0,
+    "has_number": 1.0,
+    "starts_with_number": 1.0,
+    "is_question": 0.0,
+    "open_loop": 0.0,
+    "exclaim": 0.0,
+    "caps_ratio": 0.0,
+    "avg_word_len": 3.3333333333333335,
+    "promise_gap": 0.0,
+    "curiosity_hits": 0.0,
+    "contrast_hits": 0.0,
+    "emotion_hits": 0.0,
+    "practical_hits": 0.0,
+    "social_hits": 0.0,
+    "second_person_hits": 0.0,
+    "clickbait_hits": 0.0,
+    "overclaim_hits": 0.0,
+    "positive_hits": 0.0,
+    "negative_hits": 0.0
+   },
+   "hits": {
+    "curiosity": 0,
+    "contrast": 0,
+    "emotion": 0,
+    "practical": 0,
+    "social": 0,
+    "second_person": 0,
+    "clickbait": 0,
+    "overclaim": 0,
+    "positive": 0,
+    "negative": 0
+   },
+   "spans": [],
+   "tips": [
+    {
+     "key": "open_loop",
+     "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
+     "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+    },
+    {
+     "key": "add_emotion",
+     "en": "Add one high-arousal emotion word that is true to the content.",
+     "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+    },
+    {
+     "key": "address_reader",
+     "en": "Speak to the reader directly (you, your) or name the audience.",
+     "cs": "Oslov čtenáře přímo (ty, vy, váš) nebo pojmenuj publikum."
+    }
+   ],
+   "text": "1.25 liters a day"
+  }
+ },
+ {
+  "text": "12,5 procenta ročně",
+  "body": "",
+  "lang": null,
+  "weights": null,
+  "expected": {
+   "total": 25.956183505971353,
+   "raw": 0.10517960363068964,
+   "parts": {
+    "curiosity": 0.0,
+    "surprise": 0.0,
+    "emotion": 0.0,
+    "relevance": 0.0,
+    "utility": 53.663063076882466,
+    "fluency": 52.0
+   },
+   "clickbait_risk": 0.0,
+   "lang": "cs",
+   "features": {
+    "n_words": 3.0,
+    "has_number": 1.0,
+    "starts_with_number": 1.0,
+    "is_question": 0.0,
+    "open_loop": 0.0,
+    "exclaim": 0.0,
+    "caps_ratio": 0.0,
+    "avg_word_len": 6.5,
+    "promise_gap": 0.0,
+    "curiosity_hits": 0.0,
+    "contrast_hits": 0.0,
+    "emotion_hits": 0.0,
+    "practical_hits": 0.0,
+    "social_hits": 0.0,
+    "second_person_hits": 0.0,
+    "clickbait_hits": 0.0,
+    "overclaim_hits": 0.0,
+    "positive_hits": 0.0,
+    "negative_hits": 0.0
+   },
+   "hits": {
+    "curiosity": 0,
+    "contrast": 0,
+    "emotion": 0,
+    "practical": 0,
+    "social": 0,
+    "second_person": 0,
+    "clickbait": 0,
+    "overclaim": 0,
+    "positive": 0,
+    "negative": 0
+   },
+   "spans": [],
+   "tips": [
+    {
+     "key": "simplify",
+     "en": "Use shorter, plainer words.",
+     "cs": "Použij kratší a prostší slova."
+    },
+    {
+     "key": "open_loop",
+     "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
+     "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+    },
+    {
+     "key": "add_emotion",
+     "en": "Add one high-arousal emotion word that is true to the content.",
+     "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+    }
+   ],
+   "text": "12,5 procenta ročně"
+  }
+ },
+ {
+  "text": "2026.5 forecast",
+  "body": "",
+  "lang": null,
+  "weights": null,
+  "expected": {
+   "total": 22.29234367450994,
+   "raw": 0.08827573876147166,
+   "parts": {
+    "curiosity": 0.0,
+    "surprise": 0.0,
+    "emotion": 0.0,
+    "relevance": 0.0,
+    "utility": 53.663063076882466,
+    "fluency": 24.0
+   },
+   "clickbait_risk": 0.0,
+   "lang": "en",
+   "features": {
+    "n_words": 2.0,
+    "has_number": 1.0,
+    "starts_with_number": 1.0,
+    "is_question": 0.0,
+    "open_loop": 0.0,
+    "exclaim": 0.0,
+    "caps_ratio": 0.0,
+    "avg_word_len": 8.0,
+    "promise_gap": 0.0,
+    "curiosity_hits": 0.0,
+    "contrast_hits": 0.0,
+    "emotion_hits": 0.0,
+    "practical_hits": 0.0,
+    "social_hits": 0.0,
+    "second_person_hits": 0.0,
+    "clickbait_hits": 0.0,
+    "overclaim_hits": 0.0,
+    "positive_hits": 0.0,
+    "negative_hits": 0.0
+   },
+   "hits": {
+    "curiosity": 0,
+    "contrast": 0,
+    "emotion": 0,
+    "practical": 0,
+    "social": 0,
+    "second_person": 0,
+    "clickbait": 0,
+    "overclaim": 0,
+    "positive": 0,
+    "negative": 0
+   },
+   "spans": [],
+   "tips": [
+    {
+     "key": "simplify",
+     "en": "Use shorter, plainer words.",
+     "cs": "Použij kratší a prostší slova."
+    },
+    {
+     "key": "open_loop",
+     "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
+     "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+    },
+    {
+     "key": "add_emotion",
+     "en": "Add one high-arousal emotion word that is true to the content.",
+     "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+    }
+   ],
+   "text": "2026.5 forecast"
+  }
+ },
+ {
+  "text": "1900.0 hours",
+  "body": "",
+  "lang": null,
+  "weights": null,
+  "expected": {
+   "total": 26.802753440284434,
+   "raw": 0.10920433336145582,
+   "parts": {
+    "curiosity": 0.0,
+    "surprise": 0.0,
+    "emotion": 0.0,
+    "relevance": 0.0,
+    "utility": 53.663063076882466,
+    "fluency": 58.666666666666664
+   },
+   "clickbait_risk": 0.0,
+   "lang": "en",
+   "features": {
+    "n_words": 2.0,
+    "has_number": 1.0,
+    "starts_with_number": 1.0,
+    "is_question": 0.0,
+    "open_loop": 0.0,
+    "exclaim": 0.0,
+    "caps_ratio": 0.0,
+    "avg_word_len": 5.0,
+    "promise_gap": 0.0,
+    "curiosity_hits": 0.0,
+    "contrast_hits": 0.0,
+    "emotion_hits": 0.0,
+    "practical_hits": 0.0,
+    "social_hits": 0.0,
+    "second_person_hits": 0.0,
+    "clickbait_hits": 0.0,
+    "overclaim_hits": 0.0,
+    "positive_hits": 0.0,
+    "negative_hits": 0.0
+   },
+   "hits": {
+    "curiosity": 0,
+    "contrast": 0,
+    "emotion": 0,
+    "practical": 0,
+    "social": 0,
+    "second_person": 0,
+    "clickbait": 0,
+    "overclaim": 0,
+    "positive": 0,
+    "negative": 0
+   },
+   "spans": [],
+   "tips": [
+    {
+     "key": "open_loop",
+     "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
+     "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+    },
+    {
+     "key": "add_emotion",
+     "en": "Add one high-arousal emotion word that is true to the content.",
+     "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+    },
+    {
+     "key": "address_reader",
+     "en": "Speak to the reader directly (you, your) or name the audience.",
+     "cs": "Oslov čtenáře přímo (ty, vy, váš) nebo pojmenuj publikum."
+    }
+   ],
+   "text": "1900.0 hours"
+  }
+ },
+ {
+  "text": "12.5 tips for runners",
+  "body": "",
+  "lang": null,
+  "weights": null,
+  "expected": {
+   "total": 39.231430820767,
+   "raw": 0.1743341197401432,
+   "parts": {
+    "curiosity": 0.0,
+    "surprise": 0.0,
+    "emotion": 0.0,
+    "relevance": 0.0,
+    "utility": 78.52888276583028,
+    "fluency": 75.1111111111111
+   },
+   "clickbait_risk": 0.0,
+   "lang": "en",
+   "features": {
+    "n_words": 4.0,
+    "has_number": 1.0,
+    "starts_with_number": 1.0,
+    "is_question": 0.0,
+    "open_loop": 0.0,
+    "exclaim": 0.0,
+    "caps_ratio": 0.0,
+    "avg_word_len": 4.666666666666667,
+    "promise_gap": 0.0,
+    "curiosity_hits": 0.0,
+    "contrast_hits": 0.0,
+    "emotion_hits": 0.0,
+    "practical_hits": 1.0,
+    "social_hits": 0.0,
+    "second_person_hits": 0.0,
+    "clickbait_hits": 0.0,
+    "overclaim_hits": 0.0,
+    "positive_hits": 0.0,
+    "negative_hits": 0.0
+   },
+   "hits": {
+    "curiosity": 0,
+    "contrast": 0,
+    "emotion": 0,
+    "practical": 1,
+    "social": 0,
+    "second_person": 0,
+    "clickbait": 0,
+    "overclaim": 0,
+    "positive": 0,
+    "negative": 0
+   },
+   "spans": [
+    {
+     "category": "practical",
+     "tok_start": 1,
+     "tok_end": 2,
+     "start": 5,
+     "end": 9,
+     "text": "tips"
+    }
+   ],
+   "tips": [
+    {
+     "key": "open_loop",
+     "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
+     "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+    },
+    {
+     "key": "add_emotion",
+     "en": "Add one high-arousal emotion word that is true to the content.",
+     "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+    },
+    {
+     "key": "address_reader",
+     "en": "Speak to the reader directly (you, your) or name the audience.",
+     "cs": "Oslov čtenáře přímo (ty, vy, váš) nebo pojmenuj publikum."
+    }
+   ],
+   "text": "12.5 tips for runners"
+  }
+ },
+ {
   "text": "Our Q3 company update",
   "body": "",
   "lang": null,

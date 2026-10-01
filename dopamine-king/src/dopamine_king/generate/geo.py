@@ -9,7 +9,7 @@ did not help. Nothing here promises a ranking: engines change, so treat the scor
 from __future__ import annotations
 
 import re
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import Any, Sequence
 
 from ..models import Serializable
@@ -151,7 +151,8 @@ def build_geo_answer_page(brief: Brief, *, hook: str | None = None, options: dic
     headings = [h("definition"), h("facts"), h("steps"), h("compare"), h("stats"), h("experts"), faq_h] + ([src_h] if brief.sources else [])
     notes = [
         tr(lang, "GEO means honest, well structured, citable content. No hidden text, no prompts aimed at models, no cloaking, no fake reviews.",
-           "GEO znamená poctivý, přehledný a citovatelný obsah. Žádný skrytý text, žádné pokyny určené modelům, žádný cloaking, žádné falešné recenze."),
+           "GEO znamená poctivý, přehledný a citovatelný obsah. Žádný skrytý text, žádné pokyny určené "
+           "modelům, žádný cloaking, žádné falešné recenze."),
         tr(lang, "Statistics need a cite marker such as [[cite:<source_id>]] from the vetted sources; quotes only from user supplied material.",
            "Statistiky potřebují značku citace ve tvaru [[cite:<source_id>]] z ověřených zdrojů; citace jen z dodaného materiálu."),
         tr(lang, "Draft for a human to finish: add first-party facts, verify every number and keep the date honest.",
@@ -205,6 +206,8 @@ class GeoReport(Serializable):
     penalty: float = 0.0               # points removed for keyword stuffing
     density: float | None = None       # keyword occurrences per 100 words
     lang: str = "en"
+    tips_en: list[str] = field(default_factory=list)   # the same tips in both languages, whatever the report language
+    tips_cs: list[str] = field(default_factory=list)
 
 
 GEO_WEIGHTS = {
@@ -213,7 +216,8 @@ GEO_WEIGHTS = {
 }
 _TIPS = {
     "cite_sources": ("Cite at least 3 distinct vetted sources with cite markers or links; engines quote pages that show where facts come from.",
-                     "Uveďte alespoň 3 různé ověřené zdroje pomocí značek citací nebo odkazů; odpovědní asistenti citují stránky, které ukazují, odkud fakta pocházejí."),
+                     "Uveďte alespoň 3 různé ověřené zdroje pomocí značek citací nebo odkazů; odpovědní asistenti "
+                     "citují stránky, které ukazují, odkud fakta pocházejí."),
     "statistics": ("Add at least 3 concrete numbers, each next to its citation; unsourced numbers are not trusted.",
                    "Přidejte alespoň 3 konkrétní čísla, každé vedle citace; čísla bez zdroje nikdo nebere vážně."),
     "quotations": ("Quote a named expert with a credential at least once, using only text you were given.",
@@ -222,8 +226,9 @@ _TIPS = {
                      "Začněte přímou odpovědí o 40 až 80 slovech s klíčovým slovem, a to v prvních 120 slovech."),
     "structure": ("Use at least 2 lists or tables and phrase headings as the questions people ask.",
                   "Použijte alespoň 2 seznamy nebo tabulky a formulujte nadpisy jako otázky, které lidé kladou."),
-    "faq": ("Add at least 3 question and answer pairs.", "Přidejte alespoň 3 dvojice otázka a odpověď."),
-    "entity_clarity": ("Name the brand and define the category in the first 100 words (\"Brand is a ...\") and spell the name the same way everywhere.",
+    "faq": ("Add at least 3 question and answer pairs.", "Přidejte alespoň 3 dvojice otázky a odpovědi."),
+    "entity_clarity": ("Name the brand and define the category in the first 100 words (\"Brand is a ...\") and spell the "
+                       "name the same way everywhere.",
                        "V prvních 100 slovech pojmenujte značku a vymezte kategorii (\"Značka je ...\") a název pište všude stejně."),
     "freshness": ("Show a visible \"Last updated\" date.", "Zobrazte viditelné datum poslední aktualizace."),
     "author_eeat": ("Add a byline with the author's role or credentials and the organisation.",
@@ -251,7 +256,8 @@ _MONTHS_RE = ("january|february|march|april|may|june|july|august|september|octob
               "ledna|unora|brezna|dubna|kvetna|cervna|cervence|srpna|zari|rijna|listopadu|prosince")
 _FRESH_RE = re.compile(
     rf"(?:last updated|updated|published|aktualizovano|naposledy aktualizovano|publikovano|zverejneno)\s*:?\s*(?:on\s+|dne\s+)?"
-    rf"(?:\d{{4}}-\d{{2}}-\d{{2}}|\d{{1,2}}\.\s?\d{{1,2}}\.\s?\d{{4}}|\d{{1,2}}\.?\s+(?:{_MONTHS_RE})\s+\d{{4}}|(?:{_MONTHS_RE})\s+\d{{1,2}},?\s+\d{{4}})")
+    rf"(?:\d{{4}}-\d{{2}}-\d{{2}}|\d{{1,2}}\.\s?\d{{1,2}}\.\s?\d{{4}}|\d{{1,2}}\.?\s+(?:{_MONTHS_RE})\s+\d{{4}}|"
+    rf"(?:{_MONTHS_RE})\s+\d{{1,2}},?\s+\d{{4}})")
 _DEF_VERB_RE = re.compile(
     r"\b(?:is|are|provides|offers|makes|builds|helps|sells|designs|develops|specialises|specializes|je|jsou|nabizi|poskytuje|"
     r"vyrabi|pomaha|prodava|navrhuje|vyviji|specializuje se)\b")
@@ -443,7 +449,7 @@ def geo_score(draft_or_text: Draft | str, brief: Brief | None = None, *, lang: s
         f"Seznamy nebo tabulky: {groups}; nadpisy ve formě otázky: {qheads} (očekávají se alespoň 2 od každého).")
 
     n_faq = len(parse_faq(main_md))
-    add("faq", n_faq >= 3, f"FAQ pairs: {n_faq} (at least 3 expected).", f"Dvojice otázka a odpověď: {n_faq} (očekávají se alespoň 3).")
+    add("faq", n_faq >= 3, f"FAQ pairs: {n_faq} (at least 3 expected).", f"Počet dvojic otázky a odpovědi: {n_faq} (očekávají se alespoň 3).")
 
     ent_ok = _entity_ok(plain, brand, topic, keyword, lang)
     add("entity_clarity", ent_ok, "Brand and category defined in the first 100 words with consistent naming: " + ("yes." if ent_ok else "no."),
@@ -480,10 +486,10 @@ def geo_score(draft_or_text: Draft | str, brief: Brief | None = None, *, lang: s
                 penalty = min(25.0, (density - 2.5) * 10.0)
     earned = sum(c.weight for c in checks if c.passed)
     score = max(0.0, min(100.0, 100.0 * earned - penalty))
-    tips = [_TIPS[c.id][1 if lang == "cs" else 0] for c in checks if not c.passed]
-    if penalty:
-        tips.append(_TIPS["stuffing"][1 if lang == "cs" else 0])
-    return GeoReport(round(score, 1), checks, tips, round(penalty, 1), None if density is None else round(density, 3), lang)
+    failed = [c.id for c in checks if not c.passed] + (["stuffing"] if penalty else [])
+    tips_en, tips_cs = [_TIPS[cid][0] for cid in failed], [_TIPS[cid][1] for cid in failed]
+    return GeoReport(round(score, 1), checks, tips_cs if lang == "cs" else tips_en, round(penalty, 1),
+                     None if density is None else round(density, 3), lang, tips_en, tips_cs)
 
 
 # -- llms.txt and robots.txt -------------------------------------------------------------
@@ -619,6 +625,7 @@ FORMAT_SPECS: list[FormatSpec] = [
         build=build_geo_answer_page, validate=validate_geo_page,
         limits={"definition_words": (40, 80), "stats": 3, "faq": 4, "quotes": 1},
         description_en="Page structured to be quoted by answer engines: definition, key facts, cited statistics, expert quotes, FAQ and JSON-LD.",
-        description_cs="Stránka postavená tak, aby ji odpovědní asistenti mohli citovat: definice, klíčová fakta, citované statistiky, citace expertů, FAQ a JSON-LD.",
+        description_cs="Stránka postavená tak, aby ji odpovědní asistenti mohli citovat: definice, klíčová fakta, "
+                       "citované statistiky, citace expertů, FAQ a JSON-LD.",
     ),
 ]

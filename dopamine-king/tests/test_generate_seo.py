@@ -250,6 +250,15 @@ class BuilderTests(unittest.TestCase):
         self.assertEqual(seo.build_seo_article(EN, options={"sections": 99}).fixed["headings"].__len__(), 8)
         self.assertEqual(len(seo.build_seo_article(EN, options={"sections": 1}).fixed["headings"]), 3)
 
+    def test_unusable_options_fall_back_to_defaults(self):
+        sk = seo.build_seo_article(EN, options={"word_target": "lots", "sections": "many", "internal_links": "bad", "author": "bad", "published": "someday"})
+        self.assertEqual(sk.meta["word_target"], 1500)
+        self.assertEqual(len(sk.fixed["headings"]), 6)
+        d = sk.render()
+        self.assertEqual(d.parts["internal_links"], [])
+        self.assertIn("someday", d.body)
+        self.assertEqual(seo.build_seo_article(EN, options={"word_target": 0, "sections": None}).meta["word_target"], 1500)
+
     def test_intent_is_detected_from_the_keyword(self):
         self.assertEqual(seo.build_seo_article(Brief(brand="B", topic="t", audience="a", keyword="best running shoes")).fixed["intent"], "commercial")
         self.assertEqual(seo.build_seo_article(Brief(brand="B", topic="t", audience="a", keyword="zorvia login")).fixed["intent"], "navigational")
@@ -344,6 +353,10 @@ class BuilderTests(unittest.TestCase):
         self.assertEqual(d.parts["slug"], seo.slugify(d.parts["slots"]["title"]))
         empty = sk.render()
         self.assertEqual([n["@type"] for n in empty.parts["json_ld"]], ["Article"])
+        self.assertNotIn("wordCount", empty.parts["json_ld"][0])               # only a finished article reports a real count
+        _, full = filled_article()
+        self.assertGreater(full.parts["json_ld"][0]["wordCount"], 300)
+        self.assertEqual([n["@type"] for n in full.parts["json_ld"]], ["Article", "FAQPage"])
 
     def test_toc_and_outline(self):
         d = seo.build_seo_article(EN).render()

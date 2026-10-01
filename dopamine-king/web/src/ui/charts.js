@@ -234,7 +234,9 @@
       stage.appendChild(tip);
       if (!series.length || !series[0].points.length) return;
       var narrow = W < 440;
-      var M = { l: narrow ? 40 : 48, r: narrow ? 14 : 72, t: 12, b: 40 };
+      var longest = 0;
+      series.forEach(function (sr) { longest = Math.max(longest, sr.label.length); });
+      var M = { l: narrow ? 40 : 48, r: narrow || series.length < 2 ? 14 : Math.min(Math.round(W * 0.28), Math.round(longest * 6.9 + 26)), t: 12, b: 40 };
       var iw = W - M.l - M.r, ih = height - M.t - M.b;
       var xs = allX();
       var xmin = xs[0], xmax = xs[xs.length - 1] === xs[0] ? xs[0] + 1 : xs[xs.length - 1];
@@ -243,6 +245,7 @@
       if (opts.nominal) ymaxData = Math.max(ymaxData, opts.nominal.y);
       var yt = niceTicks(opts.yMin || 0, ymaxData * 1.05 || 1, 4);
       var ymin = opts.yMin || 0, ymax = yt.niceMax;
+      if (yt.ticks[yt.ticks.length - 1] < ymax - 1e-9) yt.ticks.push(ymax);
       function X(x) { return M.l + (x - xmin) / (xmax - xmin) * iw; }
       function Y(y) { return M.t + ih - (y - ymin) / (ymax - ymin) * ih; }
       geo = { X: X, Y: Y, xs: xs, M: M, iw: iw, ih: ih, W: W };
@@ -273,7 +276,7 @@
         // Direct labels at the line ends; when two ends are close the legend above still carries identity.
         var ends = series.map(function (s) { var p = s.points[s.points.length - 1]; return { s: s, y: Y(p[1]) }; }).sort(function (a, b) { return a.y - b.y; });
         var ok = ends.every(function (e, i) { return i === 0 || e.y - ends[i - 1].y >= 14; });
-        if (ok) ends.forEach(function (e) { svg.appendChild(d.svg("text", { x: W - M.r + 10, y: e.y + 4, class: "end-label" }, e.s.label.length > 14 ? e.s.label.slice(0, 13) + "." : e.s.label)); });
+        if (ok) ends.forEach(function (e) { svg.appendChild(d.svg("text", { x: W - M.r + 10, y: e.y + 4, class: "end-label" }, e.s.label)); });
       }
       var cross = d.svg("g", { class: "cross", style: { display: "none" } },
         d.svg("line", { x1: 0, x2: 0, y1: M.t, y2: M.t + ih }));

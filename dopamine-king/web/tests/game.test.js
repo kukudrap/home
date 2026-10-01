@@ -483,7 +483,7 @@ test("quest events: boss, clean win, lab, myths, vault", () => {
   assert.equal(game.questView(p, "2026-10-01").find((q) => q.id === "myths_5").progress, 4);
   const fifth = game.answerMyth(p, { myth, answer: "fact" }, ctxAt());
   assert.ok(fifth.events.some((e) => e.type === "quest" && e.id === "myths_5"), "answering counts, right or wrong");
-  const v = game.applyVaultOpen(fifth.profile, ctxAt());
+  const v = game.applyVaultOpen(fifth.profile, null, ctxAt());
   assert.ok(v.events.some((e) => e.type === "quest" && e.id === "vault_open"));
 });
 

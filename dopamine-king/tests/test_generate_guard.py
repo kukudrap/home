@@ -59,6 +59,12 @@ class UnsupportedClaimTests(unittest.TestCase):
         self.assertFalse(flagged("Studie ukazují, že záleží na tvaru [[cite:s1]].", "UNSUPPORTED_CLAIM", CS))
         self.assertFalse(flagged("Studies show it works (see https://example.org/study).", "UNSUPPORTED_CLAIM"))
 
+    def test_claim_phrases_inside_questions_are_not_claims(self):
+        for text in ("## What do experts say?", "Do studies show that fit matters?", "Co říkají odborníci? Odborníci se shodují?",
+                     "Jak to vidí vědci a co zjistil výzkum? Podle studií je to jinak?"):
+            self.assertFalse(flagged(text, "UNSUPPORTED_CLAIM"), text)
+        self.assertTrue(flagged("What do experts say? Experts agree that fit matters.", "UNSUPPORTED_CLAIM"))
+
     def test_first_party_statements_are_not_claims(self):
         for text in ("Our team measured 412 runners in the lab.", "We studied shoes for two years.", "Podle našeho měření záleží na tvaru chodidla."):
             self.assertFalse(flagged(text, "UNSUPPORTED_CLAIM"), text)
@@ -468,7 +474,9 @@ class ShieldBehaviourTests(unittest.TestCase):
 
     def test_the_research_package_is_not_imported(self):
         code = "import sys; import dopamine_king.generate.guard; print(any(m.startswith('dopamine_king.research') for m in sys.modules))"
-        out = subprocess.run([sys.executable, "-c", code], capture_output=True, text=True, env=dict(os.environ), check=True)
+        src = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(guard.__file__))))     # the "src" directory
+        env = {**os.environ, "PYTHONPATH": src}
+        out = subprocess.run([sys.executable, "-c", code], capture_output=True, text=True, env=env, check=True)
         self.assertEqual(out.stdout.strip(), "False")
         self.assertIsNone(TrustShield().ledger)
 
