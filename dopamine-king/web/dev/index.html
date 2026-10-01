@@ -1,0 +1,51 @@
+<!doctype html>
+<!-- Development entry. Serve the web folder over http (for example `python3 -m http.server -d web 8000`)
+     and open http://localhost:8000/dev/index.html. It loads the sources directly and fetches ./bundle.json;
+     ./mock-forge.json and ./mock-guru.json fill the Forge and Guru views when the bundle has no samples. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#070b16">
+<title>Dopamine King (dev)</title>
+<link rel="stylesheet" href="../src/styles.css">
+</head>
+<body>
+<a class="skip-link" id="dk-skip" href="#main">Skip to content</a>
+<div id="app" class="app">
+  <header id="topbar" class="topbar" role="banner"></header>
+  <nav id="nav" class="nav" aria-label="Main navigation"></nav>
+  <main id="main" class="main" tabindex="-1">
+    <div class="boot" id="dk-boot" role="status">
+      <div class="boot-crown" aria-hidden="true"></div>
+      <p>Loading the game...</p>
+    </div>
+  </main>
+</div>
+<div id="dk-toasts" class="toasts" role="region" aria-label="Notifications"></div>
+<div id="dk-live" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+<canvas id="dk-confetti" class="confetti" aria-hidden="true"></canvas>
+<noscript><p class="noscript">Dopamine King needs JavaScript.</p></noscript>
+<script src="../src/scoring.js"></script>
+<script src="../src/labstats.js"></script>
+<script src="../src/game.js"></script>
+<script src="../src/i18n.js"></script>
+<script src="../src/store.js"></script>
+<script src="../src/ui/dom.js"></script>
+<script src="../src/ui/icons.js"></script>
+<script src="../src/ui/charts.js"></script>
+<script src="../src/ui/widgets.js"></script>
+<script src="../src/ui/fx.js"></script>
+<script src="../src/ui/shell.js"></script>
+<script src="../src/ui/home.js"></script>
+<script src="../src/ui/arena.js"></script>
+<script src="../src/ui/boss.js"></script>
+<script src="../src/ui/lab.js"></script>
+<script src="../src/ui/vault.js"></script>
+<script src="../src/ui/forge.js"></script>
+<script src="../src/ui/guru.js"></script>
+<script src="../src/ui/about.js"></script>
+<script src="../src/app.js"></script>
+</body>
+</html>

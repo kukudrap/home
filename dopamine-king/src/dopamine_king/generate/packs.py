@@ -21,6 +21,8 @@ DEFAULT_FORMATS = (
     "seo_article", "geo_answer_page", "newsletter", "google_rsa", "email_subject_set",
 )
 ARTICLE_FORMATS = ("seo_article", "geo_answer_page")
+# Menus of alternatives repeat the topic on purpose, so keyword density does not apply to them.
+OPTION_LIST_FORMATS = ("hook_set", "youtube_title_set", "email_subject_set", "google_rsa")
 
 
 @dataclass
@@ -61,13 +63,13 @@ class Pack:
         cs = (lang or self.brief.get("lang", "en")) == "cs"
         s = self.summary
         out = [f"# {'Balíček obsahu' if cs else 'Content pack'}: {self.brief['brand']} / {self.brief['topic']}", "",
-               f"{'Writer' if not cs else 'Autor textu'}: {self.writer} | {s['n_items']} {'formátů' if cs else 'formats'} | "
+               f"{'Autor textu' if cs else 'Writer'}: {self.writer} | {s['n_items']} {'formátů' if cs else 'formats'} | "
                f"{'průměrné skóre hooku' if cs else 'average hook score'} {s['avg_dopamine']} | "
                f"{s['errors']} {'chyb' if cs else 'errors'}, {s['warnings']} {'varování' if cs else 'warnings'}, "
                f"{s['open_slots']} {'otevřených slotů' if cs else 'open slots'}", ""]
         for item in self.items:
             out += [f"## {item.name_cs if cs else item.name_en} ({item.format})", "",
-                    f"**Hook:** {item.hook}  ", f"**{'Skóre' if not cs else 'Skóre'}:** dopamine {item.scores.get('dopamine')}"
+                    f"**Hook:** {item.hook}  ", f"**{'Skóre' if cs else 'Score'}:** dopamine {item.scores.get('dopamine')}"
                     + (f", SEO {item.scores['seo']}" if item.scores.get("seo") is not None else "")
                     + (f", GEO {item.scores['geo']}" if item.scores.get("geo") is not None else "")
                     + f" | {'verdikt' if cs else 'verdict'}: **{item.verdict}**", "", item.body, ""]
@@ -132,7 +134,12 @@ def check_draft(draft: Draft, brief: Brief, *, shield: Any = None, ledger: Any =
             issues += quality_gate(draft, brief)
         except ImportError:
             pass
-    return _dedupe(issues)
+    issues = _dedupe(issues)
+    if draft.format in OPTION_LIST_FORMATS:
+        issues = [i for i in issues if i.code != "KEYWORD_STUFFING"]
+    if any(i.code == "PLACEHOLDER_OPEN" for i in issues):
+        issues = [i for i in issues if i.code != "SLOTS_OPEN"]
+    return issues
 
 
 def _feedback(skeleton: Skeleton, draft: Draft, issues: Sequence[Issue], brief: Brief) -> dict[str, list[str]]:
@@ -155,6 +162,8 @@ def _feedback(skeleton: Skeleton, draft: Draft, issues: Sequence[Issue], brief: 
 
 
 def _build_with_fitting_hook(spec: Any, brief: Brief, candidates: Sequence[Any], options: dict | None) -> Skeleton:
+    if spec.family == "hooks":
+        return spec.build(brief, hook=None, options=options)
     first = None
     for cand in list(candidates)[:8] or [None]:
         sk = spec.build(brief, hook=cand.text if cand else None, options=options)
