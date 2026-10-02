@@ -37,7 +37,10 @@
     "ATP",
     "cellular energy",
     "energy production",
-    "cytochrome*"
+    "cytochrome*",
+    "blood flow",
+    "blood circulation",
+    "microcirculation"
    ],
    "nouns_cs": [
     "mitochondri*",
@@ -45,7 +48,11 @@
     "buněčn* energi*",
     "produkc* energie",
     "produkc* ATP",
-    "cytochrom*"
+    "cytochrom*",
+    "krevní oběh",
+    "krevního oběhu",
+    "prokrvení",
+    "mikrocirkulac*"
    ],
    "patterns": [],
    "safe_en": [
@@ -491,7 +498,9 @@
     "well-being",
     "mood",
     "feel better",
-    "feel great"
+    "feel great",
+    "fatigue",
+    "tiredness"
    ],
    "nouns_cs": [
     "energi*",
@@ -499,7 +508,9 @@
     "pohod*",
     "nálad*",
     "cítit se lépe",
-    "životní síl*"
+    "životní síl*",
+    "únav*",
+    "vyčerpán*"
    ],
    "patterns": [],
    "safe_en": [
@@ -942,8 +953,8 @@
    "id": "pbm-detox-immunity",
    "class": "avoid",
    "domain": "general",
-   "name_en": "Detox and immunity",
-   "name_cs": "Detox a imunita",
+   "name_en": "Detox, immunity and longevity",
+   "name_cs": "Detox, imunita a dlouhověkost",
    "claim_en": "Red light detoxifies the body or boosts the immune system.",
    "claim_cs": "Červené světlo detoxikuje tělo nebo posiluje imunitu.",
    "nouns_en": [
@@ -952,7 +963,11 @@
     "immune system",
     "immunity",
     "cleanse*",
-    "boost immunity"
+    "boost immunity",
+    "longevity",
+    "lifespan",
+    "live longer",
+    "life expectancy"
    ],
    "nouns_cs": [
     "detox*",
@@ -960,7 +975,10 @@
     "imunit*",
     "imunitn*",
     "očist* organism*",
-    "očist* těla"
+    "očist* těla",
+    "dlouhověkost*",
+    "délk* života",
+    "prodlouž* život*"
    ],
    "patterns": [
     "\\bdetox\\w*",

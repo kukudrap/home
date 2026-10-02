@@ -191,6 +191,23 @@ class ClaimsProfile:
                     topic.patterns.append(re.compile(rf"{indication}{noun_re}"))
             topic.patterns += [re.compile(p) for p in t.get("patterns", [])]
             self.topics.append(topic)
+        # words that claim a cure or treatment by themselves: they lift a wellness or appearance topic to a medical claim
+        # and form a topic of their own (a "cures" with no noun next to it is still a claim)
+        strong = guard.get("strong_claims") or {}
+        strong_terms = _both(strong.get("terms"))
+        self.strong_re = re.compile(terms_regex(strong_terms)) if strong_terms else None
+        strong_patterns = _both(strong.get("patterns"))
+        if self.strong_re is not None or strong_patterns:
+            name, safe = strong.get("name", {}), strong.get("safe", {})
+            generic = ClaimTopic(
+                id=strong.get("id", "generic-cure"), klass="medical",
+                name_en=name.get("en", "Cure or treatment claim"), name_cs=name.get("cs", "Tvrzení o léčbě nebo vyléčení"),
+                nouns=[], safe_en=list(safe.get("en", [])), safe_cs=list(safe.get("cs", [])),
+            )
+            if self.strong_re is not None:
+                generic.patterns.append(self.strong_re)
+            generic.patterns += [re.compile(pattern) for pattern in strong_patterns]
+            self.topics.append(generic)
         self.disease_regex = re.compile(proximity(self.verb_re, self.disease_re))
         self.targeting_regex = re.compile(proximity(self.targeting_re, self.disease_re, 8))
         self.disease_indication = re.compile(rf"{indication}{self.disease_re}")
@@ -250,6 +267,8 @@ class ClaimsProfile:
                         code = "CLAIM_MEDICAL"
                     elif topic.klass == "avoid":
                         code = "CLAIM_AVOID"
+                    elif self.strong_re is not None and self.strong_re.search(m.group()):
+                        code = "CLAIM_MEDICAL"          # a cure verb is a medical claim whatever it is applied to; hedges do not help
                     elif self.hedged(low, a, spans) or cited_near(a) or backed(m.group()):
                         continue
                     else:

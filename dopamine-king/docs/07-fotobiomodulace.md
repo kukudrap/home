@@ -20,20 +20,21 @@ Podle veřejných zdrojů není MITO LIGHT zdravotnický prostředek, je určen 
 
 | Kód | Úroveň | Příklad |
 |---|---|---|
-| `CLAIM_MEDICAL` | chyba | "Červené světlo zmírňuje bolest kloubů." |
+| `CLAIM_MEDICAL` | chyba | "Červené světlo zmírňuje bolest kloubů." "Heals your body with light." "Léčebné účinky světla." |
 | `CLAIM_AVOID` | chyba | "Zvyšuje testosteron." "Detoxikuje tělo." |
 | `DISEASE_MENTION` | chyba | "Pomáhá při artritidě." "Trpíte migrénou? Vyzkoušejte panel." |
-| `MEDICATION_ADVICE` | chyba | "Nahraďte léky světlem." |
-| `STATUS_CLAIM` | chyba | "Zdravotnický prostředek schválený FDA." "Lékařsky doporučeno." |
+| `MEDICATION_ADVICE` | chyba | "Nahraďte léky světlem." "Lepší než prášky." "Say goodbye to your painkillers." |
+| `STATUS_CLAIM` | chyba | "Zdravotnický prostředek schválený FDA." "Lékařsky doporučeno." "Léčebný panel pro domácí použití." |
 | `SAFETY_ABSOLUTE` | chyba | "Bez vedlejších účinků, bezpečné pro každého." |
 | `CLAIM_UNHEDGED` | varování | "Zlepšuje spánek." (bez "může", bez zdroje) |
-| `OUTCOME_PROMISE` | varování | "Za 4 týdny uvidíte méně vrásek." |
+| `OUTCOME_PROMISE` | varování | "Za 4 týdny uvidíte méně vrásek." "Zaručeně zlepší spánek." "Zázračné světlo." |
 | `DOSE_NOT_FROM_MANUAL` | varování | "Sezení trvá 10 minut z 15 cm." (údaj není ve faktech zadání) |
 | `SAFETY_NOTE_MISSING` | varování | Delší text o používání bez upozornění na oči, návod a lékaře |
 | `THERAPY_WORD` | poznámka | Slovo "terapie" může naznačovat léčbu |
 
 Důležité vlastnosti pravidel:
 
+- **Slova s léčebným významem jsou zdravotní tvrzení sama o sobě** ("léčí", "vyléčí", "heals", "cures", "léčebné účinky", "ochrana před nemocemi"): zvednou i téma wellness či vzhled na chybu a opatrné slovo ("může léčit") nepomůže. Podobně "alternativa k lékům", "lepší než prášky" nebo "rozlučte se s prášky" jsou rada nahradit léky.
 - **Odmítnutí a výhrady se nepenalizují.** "Přístroj neslouží k léčbě nemocí" ani "Není zdravotnický prostředek" projde. Pravidla hledají nejbližší zápor a končí u nové věty nebo nové klauzule ("Ochrana očí není nutná, je to naprosto neškodné" zápor neplatí).
 - **Standardní formulace se maskují**: "Vyzkoušejte bez rizika", "bezpečná platba", "lidé s epilepsií se mají poradit s lékařem".
 - **Otázky nejsou tvrzení** ("Může červené světlo podpořit regeneraci?"), kromě oslovení lidí s nemocí ("Trpíte artritidou?").

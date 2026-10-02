@@ -191,7 +191,7 @@ class Vertical:
         keys = ("treatment_verbs", "benefit_verbs", "disease_terms", "device_words", "indication_prepositions",
                 "regulated_status", "safety_absolute", "therapy_words", "hedge_words", "negation_words",
                 "negated_verb_stems", "timeline_patterns", "dose_patterns", "dose_context", "safety_terms", "long_form_formats",
-                "masking_phrases", "targeting_phrases", "clause_breakers", "medication_patterns")
+                "masking_phrases", "targeting_phrases", "clause_breakers", "medication_patterns", "strong_claims")
         topics = [{k: t.get(k) for k in ("id", "class", "name_en", "name_cs", "nouns_en", "nouns_cs", "patterns", "safe_en", "safe_cs", "label_cap")}
                   for t in self.claims()["topics"]]
         return {"profile": guard.get("profile", "wellness"), "topics": topics, **{k: guard[k] for k in keys if k in guard}}

@@ -70,6 +70,16 @@ MIXED = [
     "Ochrana očí není nutná, je to naprosto neškodné.", "Moje fibromyalgie zmizela po třech týdnech.", "Zaručeně vám do 30 dnů dorostou vlasy a přestanou vypadávat.",
     "Rozlučte se s lékařem.", "Tento produkt netvrdí nic o růstu ani vypadávání vlasů.", "Zastaví bolest okamžitě.", "Stops pain instantly.",
     "Zrychluje hojení jizev.", "Speeds scar healing.", "Panel není schválen FDA a není zdravotnický prostředek.", "Schváleno ministerstvem zdravotnictví jako terapeutické zařízení.",
+    # second round: cure verbs, medication idioms and comparisons, guarantees, protection against disease, clean look-alikes
+    "Léčebné účinky červeného světla.", "Světlo, které léčí.", "Panel pomáhá tělu léčit se samo.", "Lepší než prášky.", "Je to přírodní alternativa k lékům.",
+    "Nahrazuje fyzioterapii.", "Chraňte své zdraví před nemocemi.", "Redukuje stres a úzkost.", "Léčebný panel pro domácí použití.", "Redukuje otoky.",
+    "Heals your body with light.", "Cures sore muscles overnight.", "Red light may heal sore muscles after training.", "Say goodbye to your painkillers.",
+    "Better than medication.", "Natural alternative to painkillers.", "Protects your body against disease.", "Therapeutic device for home use.",
+    "The healing power of red light.", "Trusted by doctors worldwide.", "Zaručeně zlepší váš spánek.", "Zázračné světlo pro celé tělo.",
+    "Guaranteed results for everyone.", "Miracle light for your whole body.", "Zlepšuje krevní oběh.", "Pomáhá odstranit únavu.", "Zpomaluje stárnutí.",
+    "Treat yourself to a red light session.", "Při používání chraňte oči ochrannými brýlemi.", "Protect your eyes from the light.", "30-day money-back guarantee.",
+    "Garantujeme vrácení peněz do 30 dnů.", "This device does not cure anything.", "Panel nechrání před nemocemi.", "Ochrana před přehřátím.",
+    "Light is not a substitute for medical advice.", "Light that heals. Light that may support muscle recovery.",
 ]
 
 

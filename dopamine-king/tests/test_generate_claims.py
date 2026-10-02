@@ -273,6 +273,65 @@ class IndependentExamplesTests(unittest.TestCase):
         self.assertIn("SAFETY_ABSOLUTE", codes("You do not need eye protection, it is completely harmless.", EN))
 
 
+class CureVerbAndPromiseTests(unittest.TestCase):
+    """Second round: a fresh batch of sentences probed after the first rules were written (cure verbs, medication idioms, guarantees)."""
+
+    BLOCKED_CS = [
+        "Léčebné účinky červeného světla.", "Světlo, které léčí.", "Panel pomáhá tělu léčit se samo.", "Lepší než prášky.",
+        "Je to přírodní alternativa k lékům.", "Nahrazuje fyzioterapii.", "Chraňte své zdraví před nemocemi.",
+        "Redukuje stres a úzkost.", "Léčebný panel pro domácí použití.", "Rozlučte se s prášky na bolest.", "Redukuje otoky.",
+    ]
+    BLOCKED_EN = [
+        "Heals your body with light.", "Cures sore muscles overnight.", "Say goodbye to your painkillers.", "Better than medication.",
+        "Natural alternative to painkillers.", "Protects your body against disease.", "Therapeutic device for home use.",
+        "The healing power of red light.", "Trusted by doctors worldwide.",
+    ]
+    CLEAN = [
+        ("Treat yourself to a red light session.", EN), ("Při používání chraňte oči ochrannými brýlemi.", CS),
+        ("Protect your eyes from the light.", EN), ("30-day money-back guarantee.", EN), ("Garantujeme vrácení peněz do 30 dnů.", CS),
+        ("This device does not cure anything.", EN), ("Panel nechrání před nemocemi.", CS), ("Ochrana před přehřátím.", CS),
+        ("Light is not a substitute for medical advice.", EN), ("Pro lepší pohodu večer: krátké světelné sezení.", CS),
+    ]
+
+    def errors(self, text, brief):
+        return {i.code for i in SH.check(text, brief) if i.severity == "error"}
+
+    def test_cure_verbs_and_medication_idioms_are_errors(self):
+        for text in self.BLOCKED_CS:
+            self.assertTrue(self.errors(text, CS), text)
+        for text in self.BLOCKED_EN:
+            self.assertTrue(self.errors(text, EN), text)
+
+    def test_a_cure_verb_lifts_a_wellness_topic_to_a_medical_claim_even_when_hedged(self):
+        self.assertIn("CLAIM_MEDICAL", codes("Cures sore muscles overnight.", EN))
+        self.assertIn("CLAIM_MEDICAL", codes("Red light may heal sore muscles after training.", EN))
+        self.assertNotIn("CLAIM_MEDICAL", codes("Red light may support muscle recovery after training.", EN))
+
+    def test_a_cure_verb_alone_is_a_claim_with_a_generic_topic(self):
+        hits = claims.load_profile("pbm").scan_text("Light that heals.")
+        self.assertEqual([(h.code, h.topic.id) for h in hits], [("CLAIM_MEDICAL", "generic-cure")])
+
+    def test_guarantees_and_miracles_are_promises(self):
+        for text, brief in (("Zaručeně zlepší váš spánek.", CS), ("Guaranteed results for everyone.", EN), ("Zázračné světlo pro celé tělo.", CS),
+                            ("Miracle light for your whole body.", EN)):
+            self.assertIn("OUTCOME_PROMISE", codes(text, brief), text)
+
+    def test_ordinary_wording_is_not_blocked(self):
+        for text, brief in self.CLEAN:
+            self.assertEqual(self.errors(text, brief), set(), text)
+        for text in ("30-day money-back guarantee.", "Garantujeme vrácení peněz do 30 dnů."):
+            self.assertNotIn("OUTCOME_PROMISE", codes(text, EN if text.isascii() else CS), text)
+
+    def test_the_generic_topic_comes_from_the_data(self):
+        profile = claims.load_profile("pbm")
+        ids = [t.id for t in profile.topics]
+        self.assertIn("generic-cure", ids)
+        self.assertEqual(ids.count("generic-cure"), 1)
+        generic = next(t for t in profile.topics if t.id == "generic-cure")
+        self.assertEqual(generic.klass, "medical")
+        self.assertTrue(generic.safe("cs") and generic.safe("en"))
+
+
 class DataTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -299,7 +358,7 @@ class DataTests(unittest.TestCase):
     def test_every_blocked_class_topic_is_caught_by_its_own_words(self):
         profile = claims.load_profile("pbm")
         for t in profile.topics:
-            if t.klass not in ("medical", "avoid"):
+            if t.klass not in ("medical", "avoid") or not t.nouns:        # the generic cure topic has words of its own, no nouns
                 continue
             noun_en = next(n for n in t.nouns if n.replace("*", "").isascii() and len(n) > 4 and "*" not in n and " " not in n)
             found = codes(f"Red light cures {noun_en}.", EN)

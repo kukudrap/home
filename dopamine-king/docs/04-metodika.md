@@ -75,6 +75,7 @@ Obor PBM (edice MITO LIGHT) přidává pravidla pro nezdravotnický přístroj. 
 6. **Otázky** nejsou tvrzení, kromě oslovení nemocných a rady o lécích.
 7. **Opatrné slovo a zdroj.** Přínos v třídě wellness s "může", "u zdravých lidí" nebo s odkazem na zdroj je v pořádku. Bez toho je varování `CLAIM_UNHEDGED`. U zdravotních témat opatrné slovo nepomáhá.
 8. Při překrytí vyhrává přísnější třída (souvislosti, wellness, vzhled, zdravotní, zakázáno).
+9. **Slova s léčebným významem** (léčí, vyléčí, hojí, cures, heals, "léčebné účinky", ochrana před nemocemi) jsou zdravotní tvrzení bez ohledu na to, k čemu se vztahují: zvednou i téma wellness či vzhled na zdravotní tvrzení (opatrné slovo nepomůže) a samotná tvoří téma `generic-cure`. Seznam je v `guard.json` pod klíčem `strong_claims`.
 
 ### Mapa tvrzení: štítek síly důkazů
 Pro každé téma se spočítá štítek (`none`, `limited`, `moderate`, `strong`, `contested`) z ledgeru takto: (1) počítají se **jen ověřené studie**, neověřené jsou vidět jako "čeká na ověření", ale štítek nezvedou, (2) štítek **nepřekročí ruční strop** tématu (`label_cap`), který kurátor odůvodní (malé studie, různé protokoly, klinické přístroje, které se na domácí panely nepřenáší), (3) při rozporu kvalitních studií zůstává `contested`. Mapa **neříká, že tvrzení je dovolené**: třída tématu určuje, zda a s jakou formulací se smí vůbec zmínit.
@@ -82,8 +83,9 @@ Pro každé téma se spočítá štítek (`none`, `limited`, `moderate`, `strong
 ### Jak byla pravidla ověřena a co to znamená
 - Jednotkové testy na stovkách vět v češtině, češtině bez diakritiky a angličtině (správné i nesprávné formulace).
 - **Sada 50 příkladů psaných odděleně od pravidel** (například svědectví se slovesy "zmizela" či "vymizelo", nahrazení léků, schválení ministerstvem). Při prvním použití odhalila mezery, které jsem doplnil; teprve potom prošla 50 z 50. Sada tedy pomohla pravidla opravit a už není zcela nezávislá. Je to ověření, že pravidla nejsou naučená nazpaměť, ne důkaz, že jsou úplná; novou nezávislou sadu je třeba sestavit při každém větším rozšíření pravidel.
-- 150 "golden" případů shodných v Pythonu a JavaScriptu.
+- **Druhé kolo: asi 100 nových vět** (60 s předem určeným očekáváním, 47 jen k prohlédnutí). Našlo další mezery (například "Heals your body with light", "lepší než prášky", "alternativa k lékům", "léčebný panel", "redukuje úzkost", "zaručeně", "zázračné světlo"), které jsou opravené a mají testy. Na 30 běžných, správných větách (doprava, záruka, návod, opatrné wellness formulace) nebyl žádný falešný poplach.
+- 187 "golden" případů shodných v Pythonu a JavaScriptu.
 
 ### Limity (co kontrolor neumí)
-Čte slova, ne význam: obrázky, hashtagy, ironii, tvrzení rozložená do více vět a zvláštní slovní obraty (například nový slang) nezachytí a zdravé věty může označit omylem. Jazyky mimo češtinu a angličtinu nehlídá. Je to **pomůcka pro člověka**, ne právní posudek ani schvalovací orgán.
+Čte slova, ne význam: obrázky, hashtagy, ironii, tvrzení rozložená do více vět a zvláštní slovní obraty (například nový slang) nezachytí a zdravé věty může označit omylem. Jazyky mimo češtinu a angličtinu nehlídá. Známé mezery, které dnes projdou nebo skončí jen varováním a člověk by je zastavil: "Less pain, more energy" (méně bolesti), "Trusted by thousands of doctors", "Relieves muscle soreness" (anglicky jen varování, česky "zmírňuje svalovou bolest" chyba), kosmetické sliby typu "odstraňuje vrásky" (varování, v regulaci jde o rizikovou oblast a patří k právníkovi). Je to **pomůcka pro člověka**, ne právní posudek ani schvalovací orgán.
 

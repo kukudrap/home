@@ -75,7 +75,7 @@ python3 -m dopamine_king evidence verify --save .king/ledger.json    # ověřen�
 | Psaní prózy modelem Claude | Napsáno podle dokumentace a **otestováno proti atrapě**; živé API zde nebylo možné vyzkoušet (bez klíče) |
 | Šetrný sběr, import analytik | Hotovo, otestováno offline i proti lokálnímu HTTP serveru; **živý sběr vyžaduje síť** (prostředí, kde kód vznikl, povolilo ze 111 značek jen jednu) |
 | Ledger studií | 32 záznamů; **23 potvrzeno** veřejnými zdroji (název, časopis, rok, DOI), zbytek má u sebe poznámku, jak daleko ověření došlo. `evidence verify` ověří přes Crossref. |
-| Edice MITO LIGHT: profil wellness, mapa tvrzení, hra | Hotovo a otestováno na příkladech správných i nesprávných formulací a na 150 "golden" případech, které musí dát v Pythonu i v JavaScriptu stejný výsledek. **Pravidla je třeba nechat zkontrolovat regulatorním poradcem.** |
+| Edice MITO LIGHT: profil wellness, mapa tvrzení, hra | Hotovo a otestováno na příkladech správných i nesprávných formulací a na 187 "golden" případech, které musí dát v Pythonu i v JavaScriptu stejný výsledek. **Pravidla je třeba nechat zkontrolovat regulatorním poradcem.** |
 | Registr důkazů PBM | 41 záznamů: 25 ověřených veřejnými zdroji, 16 jsou **neověřené podněty** z paměti autora (označené, do síly důkazů se nepočítají). Hledání studií přes PubMed je napsané a otestované offline. |
 | Fakta o MITO LIGHT | Z veřejných zdrojů (výsledky vyhledávání, ne z otevřených stránek), **k potvrzení značkou**; čísla a parametry si značka musí schválit. |
 | Reálná data značek | Nejsou v repozitáři (autorská práva a výkonnostní čísla nejsou veřejná). Demo používá **fiktivní značky a simulovaná čísla**. |

@@ -54,7 +54,7 @@ Jádro je v Pythonu 3.11 **bez třetích knihoven** (jen standardní knihovna), 
 5. **Žádné automatické publikování.** Výstup je koncept. Trust Shield a quality gate záměrně blokují články bez vlastní zkušenosti.
 6. **Poctivost čísel.** Každé skóre má vysvětlení (zásahy, tipy), každý výsledek ze simulace nese štítek `simulated`, každá studie stav ověření.
 7. **Obor jako data, ne jako kód.** Zaměření na konkrétní obor (fotobiomodulace, MITO LIGHT) je soubor JSON v `data/verticals/<id>/`: kohorty, témata tvrzení, seznamy zakázaných výrazů, registr studií a značek, zadání. Obecný stroj se nemění, další obor je další složka. Python načítá data při spuštění, hra dostane stejná data v datovém balíku.
-8. **Profil tvrzení (`claims_profile`).** Zadání (`Brief`) nese `claims_profile`: `general` (výchozí) nebo `wellness` (nezdravotnický přístroj). Profil wellness přidává pravidla Trust Shieldu (`CLAIM_MEDICAL`, `DISEASE_MENTION`, `STATUS_CLAIM` a další), patičku s bezpečnostním upozorněním a filtr hooků. Stejný kontrolor běží v Pythonu (`generate/claims.py`) i v JavaScriptu (`web/src/claims.js`) a shodu hlídá 150 "golden" případů v `web/tests/claims.golden.json`. Pravidla hlídají **slova a jejich vzdálenost**, ne význam.
+8. **Profil tvrzení (`claims_profile`).** Zadání (`Brief`) nese `claims_profile`: `general` (výchozí) nebo `wellness` (nezdravotnický přístroj). Profil wellness přidává pravidla Trust Shieldu (`CLAIM_MEDICAL`, `DISEASE_MENTION`, `STATUS_CLAIM` a další), patičku s bezpečnostním upozorněním a filtr hooků. Stejný kontrolor běží v Pythonu (`generate/claims.py`) i v JavaScriptu (`web/src/claims.js`) a shodu hlídá 187 "golden" případů v `web/tests/claims.golden.json`. Pravidla hlídají **slova a jejich vzdálenost**, ne význam.
 
 ## Jak rozšířit
 

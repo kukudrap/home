@@ -207,7 +207,11 @@
    "gone",
    "regrow*",
    "regrew",
-   "reversed"
+   "reversed",
+   "protecting against",
+   "protect from",
+   "protects from",
+   "defends against"
   ],
   "cs": [
    "léč*",
@@ -365,7 +369,15 @@
    "zahoj*",
    "zhoj*",
    "zrychl*",
-   "zrychlí"
+   "zrychlí",
+   "chrání před",
+   "chránit před",
+   "chraňte před",
+   "ochran* před",
+   "eliminuj*",
+   "eliminac*",
+   "zabraňuje",
+   "brání"
   ]
  },
  "benefit_verbs": {
@@ -402,7 +414,12 @@
    "calms",
    "calming",
    "relax*",
-   "energi*"
+   "energi*",
+   "slow*",
+   "slowing",
+   "minimi*",
+   "shrink*",
+   "diminish*"
   ],
   "cs": [
    "zlepš*",
@@ -431,7 +448,14 @@
    "uvolň*",
    "uvoln*",
    "usnadň*",
-   "usnadn*"
+   "usnadn*",
+   "redukuj*",
+   "redukov*",
+   "redukc*",
+   "minimaliz*",
+   "zmenš*",
+   "zpomal*",
+   "zpomaluj*"
   ]
  },
  "disease_terms": {
@@ -1422,7 +1446,14 @@
    "doctor tested",
    "doctor-tested",
    "approved by doctors",
-   "approved by physicians"
+   "approved by physicians",
+   "therapeutic device",
+   "therapeutic panel",
+   "treatment device",
+   "treatment panel",
+   "medical panel",
+   "medical lamp",
+   "doctors trust"
   ],
   "cs": [
    "schváleno FDA",
@@ -1638,7 +1669,18 @@
    "lékaři používají",
    "schváleno lékaři",
    "ověřeno lékaři",
-   "testováno lékaři"
+   "testováno lékaři",
+   "léčebn* panel*",
+   "léčebn* přístroj*",
+   "léčebn* zařízení",
+   "léčebn* lamp*",
+   "léčebn* svítidl*",
+   "léčebn* pomůck*",
+   "terapeutick* panel*",
+   "terapeutick* přístroj*",
+   "terapeutick* zařízení",
+   "využívají lékaři",
+   "důvěřují lékaři"
   ]
  },
  "safety_absolute": {
@@ -2267,12 +2309,16 @@
   "en": [
    "\\b(?:in|within|after)\\s+(?:just\\s+|only\\s+|as little as\\s+)?\\d+\\s+(?:days?|weeks?|sessions?|minutes?)\\b[^.!?\\n]{0,30}\\b(?:you(?:'ll| will| can expect)?|expect|see|notice|feel|get)\\b",
    "\\byou(?:'ll| will| can expect to)\\s+(?:see|notice|feel|get)\\b[^.!?\\n]{0,50}\\b(?:in|within|after)\\s+(?:just\\s+|only\\s+)?\\d+\\s+(?:days?|weeks?|sessions?)\\b",
-   "\\b(?:results?|difference|changes?)\\s+(?:in|within|after)\\s+(?:just\\s+|only\\s+)?\\d+\\s+(?:days?|weeks?|sessions?)\\b"
+   "\\b(?:results?|difference|changes?)\\s+(?:in|within|after)\\s+(?:just\\s+|only\\s+)?\\d+\\s+(?:days?|weeks?|sessions?)\\b",
+   "\\b(?:guarantee[sd]?|guaranteeing)\\b",
+   "\\b(?:miracle|miraculous|miracles)\\b"
   ],
   "cs": [
    "\\b(?:za|behem|po)\\s+(?:jen\\s+|pouze\\s+)?\\d+\\s+(?:dn\\w*|tyd\\w*|hodin\\w*|minut\\w*|sezeni\\w*)\\b[^.!?\\n]{0,30}\\b(?:uvidite|ucitite|pocitite|zaznamenate|zpozorujete|dosahnete|ziskate)\\b",
    "\\b(?:uvidite|pocitite|zaznamenate|zpozorujete|dosahnete|ziskate)\\b[^.!?\\n]{0,50}\\b(?:za|behem|po)\\s+(?:jen\\s+|pouze\\s+)?\\d+\\s+(?:dn\\w*|tyd\\w*|sezeni\\w*)\\b",
-   "\\bvysledk\\w*\\s+(?:za|behem|po)\\s+(?:jen\\s+|pouze\\s+)?\\d+\\s+(?:dn\\w*|tyd\\w*|sezeni\\w*)\\b"
+   "\\bvysledk\\w*\\s+(?:za|behem|po)\\s+(?:jen\\s+|pouze\\s+)?\\d+\\s+(?:dn\\w*|tyd\\w*|sezeni\\w*)\\b",
+   "\\b(?:zarucen\\w*|zarucuj\\w*|garantovan\\w*|garantuj\\w*)\\b",
+   "\\b(?:zazracn\\w*|zazrak\\w*)\\b"
   ]
  },
  "dose_patterns": {
@@ -2415,7 +2461,17 @@
    "not intended to treat any medical condition",
    "makes no claim to diagnose, treat, cure or prevent any disease",
    "does not provide medical treatment",
-   "is not medical treatment"
+   "is not medical treatment",
+   "money back guarantee",
+   "money-back guarantee",
+   "satisfaction guarantee",
+   "day guarantee",
+   "year guarantee",
+   "guarantee period",
+   "guarantee returns",
+   "guarantee delivery",
+   "guarantee secure payment",
+   "guarantee your privacy"
   ],
   "cs": [
    "není zdravotnický prostředek",
@@ -2476,7 +2532,17 @@
    "neposkytuje zdravotní péči",
    "není zdravotní péče",
    "nejde o zdravotní péči",
-   "nejde o zdravotnický prostředek"
+   "nejde o zdravotnický prostředek",
+   "garantujeme vrácení peněz",
+   "zaručujeme vrácení peněz",
+   "garance vrácení peněz",
+   "záruka vrácení peněz",
+   "garantujeme bezpečnou platbu",
+   "zaručujeme bezpečnou platbu",
+   "garantujeme doručení",
+   "garantujeme ochranu osobních údajů",
+   "garantujeme dodání",
+   "garantujeme ochranu soukromí"
   ]
  },
  "targeting_phrases": {
@@ -2549,7 +2615,11 @@
    "\\bno (?:more )?(?:need|use) for (?:\\w+\\s+){0,2}(?:medication|medications|medicine|drugs|painkillers|doctor|doctors|surgery)\\b",
    "\\b(?:avoid|avoids|skip|skips)\\s+(?:the\\s+)?(?:doctor|doctors|surgery|medication)\\b",
    "\\bwithout (?:a |any )?(?:doctor|doctors|medication|medicine|drugs|surgery)\\b",
-   "\\bgoodbye\\s+to\\s+(?:\\w+\\s+){0,2}(?:doctor|doctors|medication|medicine|drugs|pills|surgery)\\b"
+   "\\bgoodbye\\s+to\\s+(?:\\w+\\s+){0,2}(?:doctor|doctors|medication|medicine|drugs|pills|surgery)\\b",
+   "\\b(?:say goodbye to|say bye to|bye bye to|farewell to|get rid of|ditch|ditches)\\s+(?:your\\s+|the\\s+)?(?:\\w+\\s+){0,2}(?:medication|medications|medicine|medicines|drugs|painkillers|pills|prescriptions?)\\b",
+   "\\b(?:better|safer|stronger|more effective|more powerful)\\s+than\\s+(?:\\w+\\s+){0,2}(?:medication|medications|medicine|medicines|drugs|painkillers|pills|surgery|physio\\w*|physical therapy)\\b",
+   "\\b(?:natural\\s+|safe\\s+|drug-free\\s+|drug free\\s+)?alternatives?\\s+to\\s+(?:\\w+\\s+){0,2}(?:medication|medications|medicine|medicines|drugs|painkillers|pills|surgery|physio\\w*|physical therapy)\\b",
+   "\\b(?:replace|replaces|replacing|substitute|substitutes|instead of)\\s+(?:\\w+\\s+){0,2}(?:physio\\w*|rehab\\w*|physical therapy)\\b"
   ],
   "cs": [
    "\\b(?:nahrad\\w*|nahrazuj\\w*|misto)\\s+(?:\\w+\\s+){0,2}(?:lek\\w*|medikac\\w*|prasky|tablet\\w*|leciv\\w*|operac\\w*|lekar\\w*|lecb\\w*)\\b",
@@ -2557,7 +2627,76 @@
    "\\bbez\\s+(?:lek\\w*|medikac\\w*|operac\\w*|lekar\\w*)\\b",
    "\\bnemusit\\w*\\s+(?:uz\\s+)?(?:k\\s+)?(?:lekar\\w*|brat\\s+lek\\w*|uzivat\\s+lek\\w*)\\b",
    "\\bvyhnete se\\s+(?:lekar\\w*|operac\\w*|lek\\w*)\\b",
-   "\\brozluc\\w*\\s+se\\s+s\\s+(?:\\w+\\s+){0,2}(?:lekar\\w*|lek\\w*|medikac\\w*)\\b"
+   "\\brozluc\\w*\\s+se\\s+s\\s+(?:\\w+\\s+){0,2}(?:lekar\\w*|lek\\w*|medikac\\w*|prasky|tablet\\w*|leciv\\w*|analgetik\\w*)\\b",
+   "\\b(?:nashledanou|sbohem|zbavte se|zapomente na)\\s+(?:s\\s+)?(?:\\w+\\s+){0,2}(?:lek\\w*|prasky|tablet\\w*|medikac\\w*|leciv\\w*|analgetik\\w*)\\b",
+   "\\b(?:lepsi|bezpecnejsi|ucinnejsi|silnejsi)\\s+nez\\s+(?:\\w+\\s+){0,2}(?:lek\\w*|prasky|tablet\\w*|medikac\\w*|operac\\w*|fyzioterap\\w*|rehabilitac\\w*)\\b",
+   "\\b(?:prirodni\\s+|bezpecna\\s+|bezlekov\\w+\\s+)?alternativ\\w*\\s+(?:k|ke)\\s+(?:\\w+\\s+){0,2}(?:lek\\w*|prasky|tablet\\w*|medikac\\w*|operac\\w*|fyzioterap\\w*|rehabilitac\\w*)\\b",
+   "\\b(?:nahrad\\w*|nahrazuj\\w*|misto)\\s+(?:\\w+\\s+){0,2}(?:fyzioterap\\w*|rehabilitac\\w*)\\b"
   ]
+ },
+ "strong_claims": {
+  "id": "generic-cure",
+  "name": {
+   "en": "Cure or treatment claim",
+   "cs": "Tvrzení o léčbě nebo vyléčení"
+  },
+  "safe": {
+   "en": [
+    "Describe the routine and the technology instead, for example: 'a red light panel for a regular evening routine; it does not replace medical care.'"
+   ],
+   "cs": [
+    "Popište raději rutinu a technologii, například: 'světelný panel pro pravidelný večerní rituál; nenahrazuje lékařskou péči.'"
+   ]
+  },
+  "terms": {
+   "en": [
+    "cure",
+    "cures",
+    "cured",
+    "curing",
+    "curative",
+    "heal",
+    "heals",
+    "healed",
+    "treats",
+    "treating",
+    "therapeutic effect*",
+    "healing effect*",
+    "healing power*",
+    "medicinal effect*"
+   ],
+   "cs": [
+    "léčí",
+    "léčit",
+    "léčíte",
+    "léčím",
+    "léčíme",
+    "léčila",
+    "léčil",
+    "vyléčí",
+    "vyléčit",
+    "vyléčíte",
+    "vyléčení",
+    "uzdraví",
+    "uzdravit",
+    "uzdravení",
+    "hojí",
+    "zahojí",
+    "léčebn* účink*",
+    "léčebn* efekt*",
+    "léčivé účink*",
+    "léčivá síla",
+    "léčivou sílu",
+    "terapeutick* účink*"
+   ]
+  },
+  "patterns": {
+   "en": [
+    "\\b(?:protect\\w*|defend\\w*|shield\\w*)\\s+(?:\\w+\\s+){0,3}(?:against|from)\\s+(?:\\w+\\s+){0,2}(?:diseases?|illness\\w*|infections?|viruses|virus|sickness\\w*|ailments?)\\b"
+   ],
+   "cs": [
+    "\\b(?:chran\\w*|ochran\\w*|brani\\w*|zabranuj\\w*)\\s+(?:\\w+\\s+){0,3}pred\\s+(?:\\w+\\s+){0,2}(?:nemoc\\w*|onemocnen\\w*|virus\\w*|infekc\\w*|chorob\\w*)\\b"
+   ]
+  }
  }
 }
