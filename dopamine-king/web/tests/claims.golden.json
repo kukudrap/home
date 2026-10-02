@@ -439,11 +439,11 @@
      "\\b(?:zastavi|ukonci|zbavi)\\w*\\s+(?:\\w+\\s+){0,2}bolest\\w*"
     ],
     "safe_en": [
-     "Safe wording only: MITO LIGHT is a wellness product, not a medical device, and is not intended to treat pain or joint problems.",
+     "Say that MITO LIGHT is a wellness product, not a medical device, and is not intended to treat pain or joint problems.",
      "Only if your regulatory adviser approves it, at most: researchers study light therapy for pain in clinical settings; make no statement that MITO LIGHT relieves or helps any pain."
     ],
     "safe_cs": [
-     "Bezpečná formulace: MITO LIGHT je wellness produkt, nikoli zdravotnický prostředek, a není určen k léčbě bolesti ani potíží s klouby.",
+     "Uveďte, že MITO LIGHT je wellness produkt, nikoli zdravotnický prostředek, a není určen k léčbě bolesti ani potíží s klouby.",
      "Jen pokud to schválí váš regulatorní poradce, nanejvýš lze uvést, že se světelná terapie bolesti zkoumá v klinickém prostředí; netvrďte, že MITO LIGHT jakoukoli bolest zmírňuje nebo jí pomáhá."
     ],
     "label_cap": "limited"
@@ -611,11 +611,11 @@
     ],
     "patterns": [],
     "safe_en": [
-     "Safety wording only: do not stare into the panel and follow the manufacturer's eye-protection instructions; MITO LIGHT is not intended to improve vision or treat eye conditions.",
+     "Say only: do not stare into the panel and follow the manufacturer's eye-protection instructions; MITO LIGHT is not intended to improve vision or treat eye conditions.",
      "Only if your regulatory adviser approves it, at most: researchers are studying specific red-light protocols for eye health under clinical supervision; make no claim that MITO LIGHT improves vision."
     ],
     "safe_cs": [
-     "Pouze bezpečnostní formulace: nedívejte se do panelu a dodržujte pokyny výrobce k ochraně očí; MITO LIGHT není určen ke zlepšení zraku ani k léčbě očních onemocnění.",
+     "Uvádějte jen: nedívejte se do panelu a dodržujte pokyny výrobce k ochraně očí; MITO LIGHT není určen ke zlepšení zraku ani k léčbě očních onemocnění.",
      "Jen pokud to schválí váš regulatorní poradce, nanejvýš lze uvést, že vědci zkoumají konkrétní protokoly červeného světla pro zdraví očí pod klinickým dohledem; netvrďte, že MITO LIGHT zlepšuje zrak."
     ],
     "label_cap": "limited"
