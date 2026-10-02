@@ -783,7 +783,10 @@
    "health issues",
    "symptom*",
    "patient*",
-   "diagnos*"
+   "diagnos*",
+   "mobility problems",
+   "trouble moving",
+   "limited mobility"
   ],
   "cs": [
    "rakovin*",
@@ -1254,7 +1257,10 @@
    "zdravotní potíže",
    "zdravotní potíž*",
    "zdravotní problém*",
-   "diagnóz*"
+   "diagnóz*",
+   "potíže s pohybem",
+   "omezená pohyblivost",
+   "omezení pohyblivosti"
   ]
  },
  "device_words": {
@@ -2389,14 +2395,16 @@
    "Talk about regeneration of a healthy body, routines, comfort, how the technology works, how to choose a panel and how to use it safely.",
    "Any benefit must be hedged (may, some studies suggest, in healthy adults) and tied to a source from the brief with [[cite:<id>]], or left out.",
    "Never write usage times, distances or doses unless they appear in the brief facts. Never promise results or timelines. Never claim FDA approval, medical device status, clinical proof or doctor recommendation unless the brief facts say so.",
-   "Never call the device safe for everyone or free of side effects. Long-form pieces end with the safety note from the brief or a placeholder for it."
+   "Never call the device safe for everyone or free of side effects. Long-form pieces end with the safety note from the brief or a placeholder for it.",
+   "CE, UKCA and RoHS are conformity markings of electrical equipment, never a medical or health approval: write 'carries the CE and UKCA markings', never 'certified' or 'approved' as a health claim, and only when the brief facts say so. 'Red light therapy' is the brand's own category name and may be used as that name only, never next to a health claim."
   ],
   "cs": [
    "Produkt je nezdravotnický wellness světelný přístroj. Nikdy nezmiňuj diagnostiku, léčbu, prevenci, zmírnění ani vyléčení jakékoli nemoci, stavu či příznaku (bolest, zánět, deprese, vypadávání vlasů, rány, imunita, detox, hormony, problémy se zrakem apod.).",
    "Mluv o regeneraci zdravého organismu, rutinách, pohodlí, tom, jak technologie funguje, jak vybrat panel a jak ho bezpečně používat.",
    "Každý přínos musí být opatrně formulovaný (může, některé studie naznačují, u zdravých dospělých) a opřený o zdroj ze zadání pomocí [[cite:<id>]], nebo vynechaný.",
    "Nikdy neuváděj doby používání, vzdálenosti ani dávky, pokud nejsou ve faktech zadání. Nikdy neslibuj výsledky ani lhůty. Nikdy netvrď schválení FDA, status zdravotnického prostředku, klinický důkaz ani doporučení lékařů, pokud to fakta zadání neuvádějí.",
-   "Nikdy neříkej, že je přístroj bezpečný pro každého nebo bez vedlejších účinků. Delší texty končí bezpečnostním upozorněním ze zadání nebo místem pro něj."
+   "Nikdy neříkej, že je přístroj bezpečný pro každého nebo bez vedlejších účinků. Delší texty končí bezpečnostním upozorněním ze zadání nebo místem pro něj.",
+   "CE, UKCA a RoHS jsou označení shody elektrických zařízení, nikdy zdravotnické schválení: piš 'má označení CE a UKCA', nikdy 'certifikováno' ani 'schváleno' jako zdravotní tvrzení, a jen když to fakta zadání uvádějí. 'Terapie červeným světlem' je název kategorie, který značka používá; smí se použít jen jako tento název, nikdy vedle zdravotního tvrzení. V češtině čtenáři vykej (Vy, Váš, můžete), nikdy netykej."
   ]
  },
  "masking_phrases": {
@@ -2560,7 +2568,14 @@
    "tired of living with",
    "living with chronic",
    "stop suffering",
-   "end your suffering"
+   "end your suffering",
+   "do you have problems with",
+   "are you dealing with",
+   "struggling with",
+   "troubled by",
+   "suffering from",
+   "if you have problems with",
+   "if you struggle with"
   ],
   "cs": [
    "trpíte",
@@ -2578,7 +2593,16 @@
    "pro ty, kdo trpí",
    "pro trpící",
    "konec utrpení",
-   "přestaňte trpět"
+   "přestaňte trpět",
+   "máte problém*",
+   "máte potíž*",
+   "máte obtíž*",
+   "řešíte problém*",
+   "řešíte potíž*",
+   "řešíte zdravotní",
+   "potýkáte se s",
+   "trpíte nedostatkem",
+   "trápí Vás"
   ]
  },
  "clause_breakers": {
@@ -2692,11 +2716,31 @@
   },
   "patterns": {
    "en": [
-    "\\b(?:protect\\w*|defend\\w*|shield\\w*)\\s+(?:\\w+\\s+){0,3}(?:against|from)\\s+(?:\\w+\\s+){0,2}(?:diseases?|illness\\w*|infections?|viruses|virus|sickness\\w*|ailments?)\\b"
+    "\\b(?:protect\\w*|defend\\w*|shield\\w*)\\s+(?:\\w+\\s+){0,3}(?:against|from)\\s+(?:\\w+\\s+){0,2}(?:diseases?|illness\\w*|infections?|viruses|virus|sickness\\w*|ailments?)\\b",
+    "\\b(?:helps?|helped)\\s+(?:you\\s+)?with\\s+(?:(?!technical|order|delivery|payment)\\w+\\s+){0,2}(?:problems?|issues?|troubles?|complaints?)\\b"
    ],
    "cs": [
-    "\\b(?:chran\\w*|ochran\\w*|brani\\w*|zabranuj\\w*)\\s+(?:\\w+\\s+){0,3}pred\\s+(?:\\w+\\s+){0,2}(?:nemoc\\w*|onemocnen\\w*|virus\\w*|infekc\\w*|chorob\\w*)\\b"
+    "\\b(?:chran\\w*|ochran\\w*|brani\\w*|zabranuj\\w*)\\s+(?:\\w+\\s+){0,3}pred\\s+(?:\\w+\\s+){0,2}(?:nemoc\\w*|onemocnen\\w*|virus\\w*|infekc\\w*|chorob\\w*)\\b",
+    "\\b(?:pomuze|pomaha|pomohl\\w*|pomuzou)\\s+(?:vam\\s+|vas\\s+)?s\\s+(?:(?!technick|objednavk|dorucen|platb)\\w+\\s+){0,2}(?:problem\\w*|potiz\\w*|obtiz\\w*)\\b"
    ]
   }
+ },
+ "approved_terms": {
+  "en": [
+   "red light therapy",
+   "red and near-infrared light therapy",
+   "red and infrared light therapy",
+   "near-infrared light therapy",
+   "infrared light therapy"
+  ],
+  "cs": [
+   "terapi* červeným světlem",
+   "terapi* červeným a infračerveným světlem",
+   "terapi* červeným a blízkým infračerveným světlem",
+   "terapi* infračerveným světlem",
+   "terapi* blízkým infračerveným světlem",
+   "terapi* červeného světla",
+   "terapi* červeného a infračerveného světla"
+  ]
  }
 }

@@ -178,9 +178,9 @@ class StatusAndSafetyTests(unittest.TestCase):
         self.assertNotIn("DOSE_NOT_FROM_MANUAL", codes("Read the guide in 5 minutes.", EN))
 
     def test_therapy_word_is_only_a_note(self):
-        found = {i.code: i.severity for i in SH.check("Terapie červeným světlem", CS)}
+        found = {i.code: i.severity for i in SH.check("Světelná terapie", CS)}
         self.assertEqual(found.get("THERAPY_WORD"), "info")
-        self.assertEqual(SH.verdict(SH.check("Terapie červeným světlem", CS)), "ok")
+        self.assertEqual(SH.verdict(SH.check("Světelná terapie", CS)), "ok")
 
     def test_long_form_needs_a_safety_note(self):
         draft = Draft(format="seo_article", lang="cs", hook="Jak vybrat panel", body="Jak vybrat panel podle vlnových délek a plochy.")
@@ -330,6 +330,29 @@ class CureVerbAndPromiseTests(unittest.TestCase):
         generic = next(t for t in profile.topics if t.id == "generic-cure")
         self.assertEqual(generic.klass, "medical")
         self.assertTrue(generic.safe("cs") and generic.safe("en"))
+
+
+class ApprovedCategoryNameTests(unittest.TestCase):
+    """The brand's own category name ("terapie červeným světlem") is approved: only the note about the word therapy skips it."""
+
+    def test_the_approved_name_is_not_noted_in_any_case_or_language(self):
+        for text, brief in (("Terapie červeným světlem pro každý den.", CS), ("Terapie červeným a infračerveným světlem doma.", CS),
+                            ("Zájem o terapii červeným světlem roste.", CS), ("Red light therapy for athletes.", EN),
+                            ("Near-infrared light therapy at home.", EN)):
+            self.assertNotIn("THERAPY_WORD", codes(text, brief), text)
+
+    def test_other_uses_of_the_word_are_still_noted(self):
+        for text, brief in (("Světelná terapie pro vás.", CS), ("Naše terapie pomáhá.", CS), ("Our therapy helps.", EN)):
+            self.assertIn("THERAPY_WORD", codes(text, brief), text)
+        self.assertIn("THERAPY_WORD", codes("Terapie červeným světlem a také terapie.", CS))           # the second use is not the name
+
+    def test_the_approved_name_never_hides_a_medical_claim(self):
+        for text, brief in (("Terapie červeným světlem léčí bolest zad.", CS), ("Terapie červeným světlem na bolest zad.", CS),
+                            ("Red light therapy cures joint pain.", EN)):
+            self.assertIn("CLAIM_MEDICAL", codes(text, brief), text)
+
+    def test_a_negated_use_is_not_noted(self):
+        self.assertNotIn("THERAPY_WORD", codes("Neslouží jako terapie nemocí.", CS))
 
 
 class DataTests(unittest.TestCase):

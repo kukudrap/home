@@ -45,7 +45,7 @@ Edice je hotový svislý řez (viz [07-fotobiomodulace.md](07-fotobiomodulace.md
 Fakturace, správa dat a souhlasů, dokumentace pro audit (GDPR, bezpečnost).
 
 ## Otevřené otázky na vás
-1. **PBM je fotobiomodulace a nástroj má sloužit značce MITO LIGHT.** Tím je první otázka vyřešená; edice je v [07-fotobiomodulace.md](07-fotobiomodulace.md). Zbývá potvrdit u značky věci, které z veřejných zdrojů nejsou jisté (tykání nebo vykání, aktivní kanály, cílové trhy a persony, certifikace, ozáření měřené v mW/cm2, zda další generace mají vlastní stanovisko ministerstva); úplný seznam je v dokumentaci edice.
+1. **PBM je fotobiomodulace a nástroj má sloužit značce MITO LIGHT.** Vyřešeno, edice je v [07-fotobiomodulace.md](07-fotobiomodulace.md). Značka už rozhodla o vykání, českém trhu, cílových skupinách, názvu kategorie a označení CE, UKCA a RoHS. Zbývá: naměřené ozáření jednotlivých modelů (spektrometr, vzdálenost, metoda), aktivní sociální kanály, zda i generace 4.0 a 5.0 mají stanovisko ministerstva a podklady k CE a UKCA.
 2. **Síť.** Prostředí, ve kterém vznikl tento kód, blokuje živé zdroje (OpenAlex, Crossref, arXiv, weby značek). Pro živý sběr a hledání studií povolte tyto hosty v nastavení sítě prostředí, nebo spusťte `kingctl` lokálně.
 3. **Klíč Anthropic** (volitelné): bez něj generátor v režimu `offline` zapisuje jen strukturu a `[[ADD: ...]]`; s klíčem (`ANTHROPIC_API_KEY`) píše prózu Claude.
 4. **Vlastní analytika (CSV)** aspoň jedné značky pro první skutečnou kalibraci modelu.

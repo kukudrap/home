@@ -159,6 +159,8 @@ class ClaimsProfile:
         self.status_re = re.compile(terms_regex(_both(guard.get("regulated_status"))))
         self.safety_abs_re = re.compile(terms_regex(_both(guard.get("safety_absolute"))))
         self.therapy_re = re.compile(terms_regex(_both(guard.get("therapy_words"))))
+        # the brand's own name for the category ("terapie červeným světlem"): the note about the word therapy skips it, every other rule still reads it
+        self.approved_re = re.compile(terms_regex(_both(guard.get("approved_terms"))))
         self.hedge_re = re.compile(terms_regex(_both(guard.get("hedge_words"))))
         self.safety_terms_re = re.compile(terms_regex(_both(guard.get("safety_terms"))))
         negation = [re.escape(fold(w.lower())) for w in _both(guard.get("negation_words"))]
@@ -209,7 +211,10 @@ class ClaimsProfile:
             generic.patterns += [re.compile(pattern) for pattern in strong_patterns]
             self.topics.append(generic)
         self.disease_regex = re.compile(proximity(self.verb_re, self.disease_re))
-        self.targeting_regex = re.compile(proximity(self.targeting_re, self.disease_re, 8))
+        # an ad that addresses people with a problem is a claim: next to a disease, and next to the nouns of every topic but the context ones
+        # ("Máte problémy se spánkem?", "Trpíte únavou?")
+        symptom_nouns = [n for t in claims.get("topics", []) if t["class"] != "context" for n in list(t.get("nouns_en", [])) + list(t.get("nouns_cs", []))]
+        self.targeting_regex = re.compile(proximity(self.targeting_re, f"(?:{self.disease_re}|{terms_regex(symptom_nouns)})", 8))
         self.disease_indication = re.compile(rf"{indication}{self.disease_re}")
 
     # -- helpers ---------------------------------------------------------------------------------------
@@ -320,9 +325,13 @@ class ClaimsProfile:
                     continue
                 seen_dose.add(key)
                 hits.append(Hit("DOSE_NOT_FROM_MANUAL", a, b))
-        m = self.therapy_re.search(low)
-        if m and not skip(*m.span()) and not self.negated(low, *m.span(), spans):
-            hits.append(Hit("THERAPY_WORD", *m.span()))
+        approved = [m.span() for m in self.approved_re.finditer(low)]
+        for m in self.therapy_re.finditer(low):
+            a, b = m.span()
+            if skip(a, b) or self.negated(low, a, b, spans) or any(x <= a and b <= y for x, y in approved):
+                continue
+            hits.append(Hit("THERAPY_WORD", a, b))              # the first use that is not the approved name or a negation
+            break
         if format_id in self.long_form and not self.safety_terms_re.search(low):
             hits.append(Hit("SAFETY_NOTE_MISSING", 0, 0))
         return hits

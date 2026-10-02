@@ -53,7 +53,7 @@ test("a check returns findings with the topic in the UI language, its evidence l
 
 test("findings are listed errors first, then warnings and notes, each with a severity", () => {
   const e = claimsui.engine(bundle);
-  const r = claimsui.check(e, "Red light therapy. Results in 14 days. Red light cures joint pain.", "en");
+  const r = claimsui.check(e, "Light therapy. Results in 14 days. Red light cures joint pain.", "en");
   assert.deepEqual(r.findings.map((x) => x.severity), ["error", "warn", "info"]);
   assert.deepEqual(r.summary, { error: 1, warn: 1, info: 1, total: 3 });
   assert.equal(r.findings[0].start > r.findings[1].start, true, "errors come first even when they sit later in the text");
@@ -73,8 +73,8 @@ test("the status of a report: idle, clean, blocked or advice", () => {
   assert.deepEqual(claimsui.statusOf(null), { kind: "idle", n: 0 });
   assert.deepEqual(claimsui.statusOf(claimsui.check(e, GOOD_HOOK, "en")), { kind: "clean", n: 0 });
   assert.deepEqual(claimsui.statusOf(claimsui.check(e, BAD_HOOK, "en")), { kind: "blocked", n: 1 });
-  assert.deepEqual(claimsui.statusOf(claimsui.check(e, "Red light therapy", "en")), { kind: "advice", n: 1 });
-  assert.deepEqual(claimsui.statusOf(claimsui.check(e, "Results in 14 days. Red light therapy.", "en")), { kind: "advice", n: 2 });
+  assert.deepEqual(claimsui.statusOf(claimsui.check(e, "Light therapy", "en")), { kind: "advice", n: 1 });
+  assert.deepEqual(claimsui.statusOf(claimsui.check(e, "Results in 14 days. Light therapy.", "en")), { kind: "advice", n: 2 });
 });
 
 test("the claims map groups the topics by class in the fixed order and marks medical and avoid as blocked", () => {
@@ -439,7 +439,7 @@ test("Vault: Check your own text runs the same checker and lists severity, topic
   run.click();
   assert.match(box.querySelector(".claims-empty").textContent, /Paste some text first/);
   // pasted text
-  input.value = "Red light relieves joint pain. Some studies suggest red light may support muscle recovery after exercise. Red light therapy.";
+  input.value = "Red light relieves joint pain. Some studies suggest red light may support muscle recovery after exercise. Light therapy.";
   run.click();
   const findings = box.querySelectorAll(".finding");
   assert.deepEqual(findings.map((f) => f.getAttribute("data-code")), ["CLAIM_MEDICAL", "THERAPY_WORD"]);

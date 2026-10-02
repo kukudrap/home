@@ -41,6 +41,7 @@ class Brief(Serializable):
     vertical: str | None = None
     claims_profile: str = "general"
     safety_note: str | None = None               # the manufacturer's own safety text; replaces the vertical's template
+    address: str = ""                            # Czech copy: "vy" formal (vykání), "ty" informal (tykání), "" no rule
 
     def topic_in(self, case: str) -> str:
         """Topic in a grammatical case when known, else the nominative form."""

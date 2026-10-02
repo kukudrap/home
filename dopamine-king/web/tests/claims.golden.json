@@ -415,7 +415,9 @@
      "chronic pain",
      "back pain",
      "migraine*",
-     "headache*"
+     "headache*",
+     "joint*",
+     "mobility"
     ],
     "nouns_cs": [
      "bolest",
@@ -432,7 +434,9 @@
      "tenisov* loket",
      "plantárn* fasciitid*",
      "migrén*",
-     "bolest* hlavy"
+     "bolest* hlavy",
+     "kloub*",
+     "pohyblivost*"
     ],
     "patterns": [
      "\\b(?:stop|stops|stopped|end|ends|ended|kill|kills)\\s+(?:\\w+\\s+){0,2}(?:pain|aches)\\b",
@@ -1482,7 +1486,10 @@
     "health issues",
     "symptom*",
     "patient*",
-    "diagnos*"
+    "diagnos*",
+    "mobility problems",
+    "trouble moving",
+    "limited mobility"
    ],
    "cs": [
     "rakovin*",
@@ -1953,7 +1960,10 @@
     "zdravotní potíže",
     "zdravotní potíž*",
     "zdravotní problém*",
-    "diagnóz*"
+    "diagnóz*",
+    "potíže s pohybem",
+    "omezená pohyblivost",
+    "omezení pohyblivosti"
    ]
   },
   "device_words": {
@@ -3239,7 +3249,14 @@
     "tired of living with",
     "living with chronic",
     "stop suffering",
-    "end your suffering"
+    "end your suffering",
+    "do you have problems with",
+    "are you dealing with",
+    "struggling with",
+    "troubled by",
+    "suffering from",
+    "if you have problems with",
+    "if you struggle with"
    ],
    "cs": [
     "trpíte",
@@ -3257,7 +3274,16 @@
     "pro ty, kdo trpí",
     "pro trpící",
     "konec utrpení",
-    "přestaňte trpět"
+    "přestaňte trpět",
+    "máte problém*",
+    "máte potíž*",
+    "máte obtíž*",
+    "řešíte problém*",
+    "řešíte potíž*",
+    "řešíte zdravotní",
+    "potýkáte se s",
+    "trpíte nedostatkem",
+    "trápí Vás"
    ]
   },
   "clause_breakers": {
@@ -3371,12 +3397,32 @@
    },
    "patterns": {
     "en": [
-     "\\b(?:protect\\w*|defend\\w*|shield\\w*)\\s+(?:\\w+\\s+){0,3}(?:against|from)\\s+(?:\\w+\\s+){0,2}(?:diseases?|illness\\w*|infections?|viruses|virus|sickness\\w*|ailments?)\\b"
+     "\\b(?:protect\\w*|defend\\w*|shield\\w*)\\s+(?:\\w+\\s+){0,3}(?:against|from)\\s+(?:\\w+\\s+){0,2}(?:diseases?|illness\\w*|infections?|viruses|virus|sickness\\w*|ailments?)\\b",
+     "\\b(?:helps?|helped)\\s+(?:you\\s+)?with\\s+(?:(?!technical|order|delivery|payment)\\w+\\s+){0,2}(?:problems?|issues?|troubles?|complaints?)\\b"
     ],
     "cs": [
-     "\\b(?:chran\\w*|ochran\\w*|brani\\w*|zabranuj\\w*)\\s+(?:\\w+\\s+){0,3}pred\\s+(?:\\w+\\s+){0,2}(?:nemoc\\w*|onemocnen\\w*|virus\\w*|infekc\\w*|chorob\\w*)\\b"
+     "\\b(?:chran\\w*|ochran\\w*|brani\\w*|zabranuj\\w*)\\s+(?:\\w+\\s+){0,3}pred\\s+(?:\\w+\\s+){0,2}(?:nemoc\\w*|onemocnen\\w*|virus\\w*|infekc\\w*|chorob\\w*)\\b",
+     "\\b(?:pomuze|pomaha|pomohl\\w*|pomuzou)\\s+(?:vam\\s+|vas\\s+)?s\\s+(?:(?!technick|objednavk|dorucen|platb)\\w+\\s+){0,2}(?:problem\\w*|potiz\\w*|obtiz\\w*)\\b"
     ]
    }
+  },
+  "approved_terms": {
+   "en": [
+    "red light therapy",
+    "red and near-infrared light therapy",
+    "red and infrared light therapy",
+    "near-infrared light therapy",
+    "infrared light therapy"
+   ],
+   "cs": [
+    "terapi* červeným světlem",
+    "terapi* červeným a infračerveným světlem",
+    "terapi* červeným a blízkým infračerveným světlem",
+    "terapi* infračerveným světlem",
+    "terapi* blízkým infračerveným světlem",
+    "terapi* červeného světla",
+    "terapi* červeného a infračerveného světla"
+   ]
   }
  },
  "cases": [
@@ -3387,7 +3433,7 @@
      "code": "CLAIM_MEDICAL",
      "topic": "pbm-pain-joints",
      "start": 15,
-     "end": 26
+     "end": 33
     }
    ]
   },
@@ -3531,14 +3577,7 @@
   },
   {
    "text": "Terapie červeným světlem",
-   "hits": [
-    {
-     "code": "THERAPY_WORD",
-     "topic": null,
-     "start": 0,
-     "end": 7
-    }
-   ]
+   "hits": []
   },
   {
    "text": "Panel proti migréně",
@@ -3661,7 +3700,7 @@
      "code": "CLAIM_MEDICAL",
      "topic": "pbm-pain-joints",
      "start": 27,
-     "end": 38
+     "end": 45
     }
    ]
   },
@@ -3760,7 +3799,7 @@
      "code": "CLAIM_MEDICAL",
      "topic": "pbm-pain-joints",
      "start": 15,
-     "end": 26
+     "end": 33
     }
    ]
   },
@@ -4050,14 +4089,7 @@
   },
   {
    "text": "Red light therapy",
-   "hits": [
-    {
-     "code": "THERAPY_WORD",
-     "topic": null,
-     "start": 10,
-     "end": 17
-    }
-   ]
+   "hits": []
   },
   {
    "text": "Speeds up wound healing.",
@@ -4342,14 +4374,7 @@
   },
   {
    "text": "Is red light therapy the same as a tanning bed?",
-   "hits": [
-    {
-     "code": "THERAPY_WORD",
-     "topic": null,
-     "start": 13,
-     "end": 20
-    }
-   ]
+   "hits": []
   },
   {
    "text": "A harmless way to relax.",
@@ -4396,7 +4421,7 @@
      "code": "CLAIM_MEDICAL",
      "topic": "pbm-pain-joints",
      "start": 10,
-     "end": 21
+     "end": 28
     }
    ]
   },
@@ -5175,6 +5200,163 @@
      "end": 16
     }
    ]
+  },
+  {
+   "text": "Terapie červeným světlem pro každý den.",
+   "hits": []
+  },
+  {
+   "text": "Terapie červeným a infračerveným světlem doma.",
+   "hits": []
+  },
+  {
+   "text": "Red light therapy for athletes.",
+   "hits": []
+  },
+  {
+   "text": "Terapie červeným světlem léčí bolest zad.",
+   "hits": [
+    {
+     "code": "CLAIM_MEDICAL",
+     "topic": "pbm-pain-joints",
+     "start": 0,
+     "end": 36
+    }
+   ]
+  },
+  {
+   "text": "Terapie červeným světlem na bolest zad.",
+   "hits": [
+    {
+     "code": "CLAIM_MEDICAL",
+     "topic": "pbm-pain-joints",
+     "start": 0,
+     "end": 34
+    }
+   ]
+  },
+  {
+   "text": "Světelná terapie pro vás.",
+   "hits": [
+    {
+     "code": "THERAPY_WORD",
+     "topic": null,
+     "start": 9,
+     "end": 16
+    }
+   ]
+  },
+  {
+   "text": "Terapie červeným světlem a také terapie.",
+   "hits": [
+    {
+     "code": "THERAPY_WORD",
+     "topic": null,
+     "start": 32,
+     "end": 39
+    }
+   ]
+  },
+  {
+   "text": "Zájem o terapii červeným světlem roste.",
+   "hits": []
+  },
+  {
+   "text": "Neslouží jako terapie nemocí.",
+   "hits": []
+  },
+  {
+   "text": "Máte problémy se spánkem? Světlo vám pomůže.",
+   "hits": [
+    {
+     "code": "DISEASE_MENTION",
+     "topic": null,
+     "start": 0,
+     "end": 24
+    }
+   ]
+  },
+  {
+   "text": "Trpíte únavou? Zkuste světlo.",
+   "hits": [
+    {
+     "code": "DISEASE_MENTION",
+     "topic": null,
+     "start": 0,
+     "end": 13
+    }
+   ]
+  },
+  {
+   "text": "Pomůže vám s problémy, které vás trápí.",
+   "hits": [
+    {
+     "code": "CLAIM_MEDICAL",
+     "topic": "generic-cure",
+     "start": 0,
+     "end": 21
+    }
+   ]
+  },
+  {
+   "text": "Světlo pro lepší pohyblivost kloubů.",
+   "hits": [
+    {
+     "code": "CLAIM_MEDICAL",
+     "topic": "pbm-pain-joints",
+     "start": 0,
+     "end": 28
+    }
+   ]
+  },
+  {
+   "text": "Panel na klouby.",
+   "hits": [
+    {
+     "code": "CLAIM_MEDICAL",
+     "topic": "pbm-pain-joints",
+     "start": 0,
+     "end": 15
+    }
+   ]
+  },
+  {
+   "text": "Máte potíže s pohybem? Světelný panel je řešení.",
+   "hits": []
+  },
+  {
+   "text": "Do you have problems with sleep? Try our panel.",
+   "hits": [
+    {
+     "code": "DISEASE_MENTION",
+     "topic": null,
+     "start": 0,
+     "end": 31
+    }
+   ]
+  },
+  {
+   "text": "It helps you with everyday problems.",
+   "hits": [
+    {
+     "code": "CLAIM_MEDICAL",
+     "topic": "generic-cure",
+     "start": 3,
+     "end": 35
+    }
+   ]
+  },
+  {
+   "text": "Pomůže vám s výběrem panelu.",
+   "hits": []
+  },
+  {
+   "text": "Máte zájem o panel? Napište nám.",
+   "hits": []
+  },
+  {
+   "text": "Klidná večerní rutina se světlem.",
+   "hits": []
   }
  ]
 }

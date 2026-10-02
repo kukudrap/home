@@ -153,6 +153,120 @@ def all_pairs(ledger):
     return out
 
 
+class PersonaTests(unittest.TestCase):
+    """The six target groups named by the brand, with extra care for the vulnerable ones."""
+
+    HIGH = {"beauty", "everyday", "seniors"}
+
+    @classmethod
+    def setUpClass(cls):
+        cls.personas = V.personas()
+        cls.briefs = V.persona_briefs()
+        cls.topic_ids = {t["id"] for t in V.claims()["topics"]}
+
+    def test_the_six_groups_are_there_and_the_vulnerable_ones_are_marked_high_risk(self):
+        ids = [p["id"] for p in self.personas]
+        self.assertEqual(sorted(ids), sorted(["fitness", "biohacker", "beauty", "everyday", "tech", "seniors"]))
+        self.assertEqual({p["id"] for p in self.personas if p["risk"] == "high"}, self.HIGH)
+        for p in self.personas:
+            self.assertIn(p["risk"], ("low", "medium", "high"), p["id"])
+            for key in ("name_cs", "name_en", "who_cs", "who_en", "care_cs", "brief"):
+                self.assertTrue(p[key], (p["id"], key))
+            for key in ("say_cs", "never_cs"):
+                self.assertGreaterEqual(len(p[key]), 3, (p["id"], key))
+            self.assertLessEqual(set(p["topics"]), self.topic_ids, p["id"])
+            self.assertEqual(set(p["brief"]["topic_forms"]), {"gen", "dat", "acc", "loc", "ins"}, p["id"])
+
+    def test_the_groups_that_must_not_be_addressed_through_health_have_no_benefit_topics_or_say_so(self):
+        by = {p["id"]: p for p in self.personas}
+        self.assertEqual(by["beauty"]["topics"], [])                    # no verified evidence on appearance: rituals only
+        self.assertEqual(by["seniors"]["topics"], [])
+        self.assertIn("potíž", by["everyday"]["never_cs"][0])           # never addresses people with problems
+        for pid in self.HIGH:
+            self.assertRegex(by[pid]["care_cs"], r"Zranitelní|Nejrizikovější", pid)
+
+    def test_each_group_gets_a_sample_brief_with_the_base_facts_and_formal_address(self):
+        base = V.briefs()["mito-light-cs"]
+        self.assertEqual(sorted(self.briefs), [f"mito-light-{p['id']}-cs" for p in sorted(self.personas, key=lambda p: p["id"])])
+        for key, brief in self.briefs.items():
+            self.assertEqual(brief.facts, base.facts, key)
+            self.assertEqual((brief.address, brief.claims_profile, brief.vertical, brief.lang), ("vy", "wellness", "pbm", "cs"), key)
+            self.assertTrue(any("CE a UKCA" in f for f in brief.facts), key)
+            self.assertIn("Cílová skupina", brief.voice_notes)
+            self.assertIn("Čtenáři vykáme", brief.voice_notes)
+            self.assertIn("zázrak", brief.avoid)
+        self.assertEqual(len({b.topic for b in self.briefs.values()}), 6)
+        self.assertEqual(len({b.audience for b in self.briefs.values()}), 6)
+
+    def test_the_voice_notes_carry_the_care_of_the_group(self):
+        seniors = self.briefs["mito-light-seniors-cs"]
+        self.assertIn("Zranitelní spotřebitelé", seniors.voice_notes)
+        self.assertIn("Nikdy:", seniors.voice_notes)
+        self.assertIn("omlazení", self.briefs["mito-light-beauty-cs"].avoid)
+        self.assertIn("trápí vás", self.briefs["mito-light-everyday-cs"].avoid)
+
+    def test_every_group_gets_a_pack_without_errors_and_with_usable_hooks(self):
+        shield = TrustShield(V.ledger())
+        for key, brief in self.briefs.items():
+            pack = build_pack(brief, ["hook_set", "instagram_caption", "short_video_script", "seo_article", "geo_answer_page", "newsletter"],
+                              ledger=V.ledger())
+            errors = [(i["code"], i["message"][:80]) for it in pack.items for i in it.issues if i["severity"] == "error"]
+            self.assertEqual(errors, [], key)
+            self.assertGreaterEqual(len(pack.items[0].alt_hooks) + 1, 4, key)
+            informal = [i for it in pack.items for i in it.issues if i["code"] == "INFORMAL_ADDRESS"]
+            self.assertEqual(informal, [], key)
+
+    def test_what_the_vulnerable_groups_must_never_hear_is_blocked(self):
+        shield = TrustShield(V.ledger())
+        brief = self.briefs["mito-light-everyday-cs"]
+        for text in ("Trápí vás bolest zad? Vyzkoušejte panel.", "Máte problémy se spánkem? Světlo vám pomůže.", "Trpíte únavou? Zkuste světlo.",
+                     "Pomůže vám s problémy, které vás trápí.", "Světlo pro lepší pohyblivost kloubů.", "Panel nahradí léky a fyzioterapii.",
+                     "Jen dnes sleva, poslední kusy!"):
+            errors = [i.code for i in shield.check(text, brief) if i.severity == "error"]
+            self.assertTrue(errors, text)
+        for text in ("Klidná večerní rutina se světlem.", "Panel pro každodenní použití je jednoduchý na ovládání.",
+                     "Máte zájem o panel? Napište nám.", "Při pochybnostech o zdravotním stavu se poraďte s lékařem."):
+            self.assertEqual([i.code for i in shield.check(text, brief) if i.severity == "error"], [], text)
+
+    def test_the_command_line_takes_a_persona_sample(self):
+        code, out, err = run_cli("forge", "--vertical", "pbm", "--sample", "mito-light-seniors-cs", "--formats", "hook_set", "--writer", "offline", "--json")
+        self.assertEqual(code, 0, err)
+        brief = json.loads(out)["brief"]
+        self.assertEqual((brief["audience"], brief["address"]), ("starší lidé, kteří hledají jednoduché a bezpečné domácí zařízení", "vy"))
+        with self.assertRaises(SystemExit) as ctx:
+            run_cli("forge", "--vertical", "pbm", "--sample", "nope", "--formats", "hook_set", "--writer", "offline")
+        self.assertIn("mito-light-fitness-cs", str(ctx.exception))
+
+    def test_audit_and_custom_briefs_use_the_brands_formal_address(self):
+        import io
+        import sys
+        old = sys.stdin
+        sys.stdin = io.StringIO("Zkus to dnes večer a podívej se na návod.")
+        try:
+            code, out, _ = run_cli("audit", "-", "--lang", "cs")
+        finally:
+            sys.stdin = old
+        self.assertEqual(code, 0)                                      # a warning, not an error
+        self.assertIn("INFORMAL_ADDRESS", out)
+        sys.stdin = io.StringIO("Zkus to dnes večer.")
+        try:
+            code, out, _ = run_cli("audit", "-", "--lang", "cs", "--address", "ty")
+        finally:
+            sys.stdin = old
+        self.assertNotIn("INFORMAL_ADDRESS", out)
+        code, out, _ = run_cli("forge", "--vertical", "pbm", "--brand", "MITO LIGHT", "--topic", "světlo", "--audience", "lidé", "--lang", "cs",
+                               "--formats", "hook_set", "--writer", "offline", "--json")
+        self.assertEqual(json.loads(out)["brief"]["address"], "vy")
+
+    def test_the_decisions_of_the_brand_are_recorded(self):
+        decisions = {d["id"]: d for d in V.brand_profile()["decisions"]}
+        self.assertEqual(set(decisions), {"address", "first-market", "personas", "category-name", "certifications"})
+        for d in decisions.values():
+            self.assertTrue(d["decision_cs"] and d["decision_en"] and d["date"], d)
+        self.assertIn("vykání", decisions["address"]["decision_cs"])
+        self.assertIn("RoHS", decisions["certifications"]["decision_cs"])
+
+
 class ResearchDataTests(unittest.TestCase):
     """Brand profile and strategy gathered from public sources: sourced, modest and free of personal data."""
 

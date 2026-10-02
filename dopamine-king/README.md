@@ -51,13 +51,14 @@ Obecný stroj má první **obor** (vertical): fotobiomodulaci (PBM, červené a 
 
 - profil tvrzení **wellness** pro nezdravotnický přístroj: Trust Shield blokuje diagnostiku, léčbu, prevenci a zmírnění nemocí, stavové fráze ("schváleno", "klinicky prokázáno"), absolutní bezpečnost a nahrazování lékaře, a upozorní na přínosy bez opatrné formulace, sliby výsledků, dávky mimo návod a chybějící bezpečnostní upozornění,
 - **mapu tvrzení** (19 témat, pět tříd) se silou důkazů počítanou jen z ověřených studií,
-- registr 41 záznamů o studiích (25 ověřených, 16 výslovně označených jako neověřené podněty), registr 26 značek a organizací oboru, vzorová zadání MITO LIGHT česky a anglicky a obsah hry (Boss s kontrolou tvrzení, Mýtus nebo fakt, mapa tvrzení v Trezoru).
+- registr 41 záznamů o studiích (25 ověřených, 16 výslovně označených jako neověřené podněty), registr 26 značek a organizací oboru, vzorová zadání MITO LIGHT česky (vykání) a anglicky, šest cílových skupin se zvláštní péčí o zranitelné a obsah hry (Boss s kontrolou tvrzení, Mýtus nebo fakt, mapa tvrzení v Trezoru).
 
 ```bash
 python3 -m dopamine_king demo --vertical pbm                        # prohlídka edice na simulovaných datech
 python3 -m dopamine_king evidence claims --vertical pbm             # co smím říct a s jakou silou důkazů
 python3 -m dopamine_king forge --vertical pbm --sample mito-light-cs --writer offline --out out/mito-cs
 python3 -m dopamine_king guru plan --vertical pbm --sample mito-light-cs
+python3 -m dopamine_king forge --vertical pbm --sample mito-light-seniors-cs --writer offline --out out/seniors   # cílové skupiny: fitness, biohacker, beauty, everyday, tech, seniors
 python3 -m dopamine_king audit stranka.txt                          # kontrola existujícího textu, kód 1 při chybě
 python3 -m dopamine_king evidence search "photobiomodulation sleep" --sources pubmed   # nové studie (síť)
 ```

@@ -50,7 +50,7 @@
    "audience": "aktivní lidé a sportovci",
    "goal": "awareness",
    "lang": "cs",
-   "tone": "věcný, přátelský, bez nadsázky a bez slibů",
+   "tone": "věcný, přátelský, bez nadsázky a bez slibů; vykání",
    "keyword": "panel s červeným světlem",
    "secondary_keywords": [
     "fotobiomodulace",
@@ -65,7 +65,8 @@
     "MITO LIGHT je určen jako pomůcka k podpoře regenerace zdravého organismu a není zdravotnickým prostředkem.",
     "Panel Mitohacker 4.0 má 408 LED diod a šest vlnových délek (630, 660, 670, 810, 830 a 850 nm).",
     "Nabídka sahá od žárovky pro lokální použití po celotělový panel.",
-    "Řada panelů zahrnuje modely Intro, Starter, Expert, Biohacker a Master."
+    "Řada panelů zahrnuje modely Intro, Starter, Expert, Biohacker a Master.",
+    "Zařízení MITO LIGHT mají označení CE a UKCA a splňují požadavky RoHS (jde o označení shody elektrických zařízení, nikoli o zdravotnické schválení)."
    ],
    "cohort": "pbm-cz-sk",
    "vertical": "pbm",
@@ -74,7 +75,7 @@
     "zázrak",
     "revoluční"
    ],
-   "voice_notes": "Mluvíme jako zkušený technik: jasně, konkrétně a bez slibů. Každý přínos opatrně a se zdrojem.",
+   "voice_notes": "Čtenáři vykáme (Vy, Váš, můžete), nikdy netykáme. Mluvíme jako zkušený technik: jasně, konkrétně a bez slibů. Každý přínos opatrně a se zdrojem. \"Terapie červeným světlem\" je název kategorie, který značka používá; vedle něj nikdy žádné zdravotní tvrzení.",
    "topic_forms": {
     "gen": "červeného světla",
     "dat": "červenému světlu",
@@ -89,7 +90,8 @@
     "nampo2016",
     "alvarez2025",
     "leal2015"
-   ]
+   ],
+   "address": "vy"
   },
   {
    "id": "mito-light-en",
@@ -113,7 +115,8 @@
     "MITO LIGHT is meant as an aid to support the regeneration of a healthy body and is not a medical device.",
     "The Mitohacker 4.0 panel has 408 LEDs and six wavelengths (630, 660, 670, 810, 830 and 850 nm).",
     "The range runs from a bulb for local use to a whole-body panel.",
-    "The panel range includes the models Intro, Starter, Expert, Biohacker and Master."
+    "The panel range includes the models Intro, Starter, Expert, Biohacker and Master.",
+    "MITO LIGHT devices carry the CE and UKCA markings and meet RoHS requirements (these are conformity markings for electrical equipment, not a medical approval)."
    ],
    "cohort": "pbm-home-devices",
    "vertical": "pbm",

@@ -223,14 +223,14 @@
  "unknowns": [
   "Legal entity that owns the brand and sells in each market, registration details and registered address (names seen: MITO LIGHT Europe s.r.o., MITO LIGHT Česko s.r.o., MITO LIGHT Logistics s.r.o.; their roles are unconfirmed).",
   "Official social channels, handles and posting cadence (Instagram, Facebook, YouTube, TikTok, LinkedIn). Searches surfaced none, so the brand's own social content could not be audited.",
-  "Brand voice rules: tykání or vykání, approved vocabulary (for example how to use 'terapie' versus 'světelná rutina' or 'sezení'), use of the registered sign, preferred claim wording, and the list of studies the brand is comfortable citing.",
-  "Legal and compliance sign-off: current regulatory statement for generations 4.0 and 5.0 (the Ministry of Health position seen names generation 3.0), CE, LVD, EMC and photobiological safety (IEC 62471) documents, and a decision on site copy that goes beyond the supportive-tool position (hair, scars, inflammation, 'no headaches', 'more effective than cryotherapy').",
-  "Independent measurements: irradiance per model with distance and method (Starter 5.0 lists 71 mW/cm2 by spectrometer and 130 mW/cm2 by solar meter), spectral output, flicker and EMF test reports.",
+  "Brand voice details beyond the decisions above: approved vocabulary (for example 'světelná rutina' or 'sezení' next to the category name), use of the registered sign and the list of studies the brand is comfortable citing.",
+  "Legal and compliance sign-off: whether the Ministry of Health statement seen (it names generation 3.0 and the requester did not know of one) also covers generations 4.0 and 5.0, the EMC, LVD and photobiological safety (IEC 62471) documents behind the CE and UKCA markings, and a decision on how the regulatory position is worded publicly.",
+  "Independent measurements: the requester asked for irradiance per model from the web; only stated values were found (Starter 5.0 lists 71 mW/cm2 by spectrometer and 130 mW/cm2 by solar meter, other models one figure each without distance or method), so the spectrometer measurement per model with distance and method, spectral output, flicker and EMF test reports are still needed from the brand.",
   "Warranty and lifetime terms per model (one snippet for a 504-LED panel suggested a 3-year warranty and LED life up to 50,000 hours, unconfirmed) and the return policy (Trusted Shops mentions a 30-day money-back guarantee).",
-  "Current prices, discounts and shipping terms per market; the prices in this file are snapshots from search snippets and may be outdated.",
+  "Current prices, discounts and shipping terms per market (none are stored in this file).",
   "Exact current lineup and dimensions: Mitohacker 4.0 versus 5.0 on the Czech site, and conflicting dimension data across snippets.",
-  "Markets and language sites beyond CZ, DE and UK (Slovak, Polish, Austrian and others), sales split by market and shipping coverage.",
-  "Target personas and sales mix (athletes, biohackers, home wellness, skin-care users), B2B segments (clubs, gyms, clinics) and the status of sport partnerships (FC Viktoria Plzeň from 2021 per the About page; an MMA athlete is quoted by Forbes.cz, but no ambassador agreement is confirmed).",
+  "Markets after the Czech start: Slovak, German and UK sites, sales split by market and shipping coverage.",
+  "Sales mix per persona, B2B segments (clubs, gyms, clinics) and the status of sport partnerships (FC Viktoria Plzeň from 2021 per the About page; an MMA athlete is quoted in the snippets).",
   "Origin wording: confirm 'vyvinuto a navrženo v Česku' and the manufacturing disclosure (Forbes.cz says production is by a long-term partner in China); do not use 'vyrobeno v Česku' unless confirmed.",
   "Superlative self-claims to avoid unless substantiated: 'European market leader' (Trusted Shops profile), a possible 'first in Czechia' wording (Forbes.cz says only 'one of the very first') and Light Therapy Insiders' statement that it is 'the only Czech company' (Lighthacker is another Czech brand).",
   "Creative assets and permissions: product photography and video, user-generated content rights, customer quotes that contain no health outcomes, and athlete or influencer release forms.",
@@ -238,5 +238,42 @@
   "Trademark position and preferred neutral wording for the name overlap with Mito Red Light (US)."
  ],
  "tone_notes_cs": "Odvozeno jen z úryvků vyhledávání (stránky mitolight.cz, karta aplikace, stránky s recenzemi); je třeba potvrdit se značkou. Pozorovaný hlas: sebevědomý, zaměřený na přínosy a s nádechem vědy (mitochondrie jako 'elektrárny', světlo jako 'nabíječka', slovník biohackingu, procenta ze studií, příběh o původu u NASA), produktové názvy začínají parametry ('Červený a infračervený panel MITO LIGHT® Starter 5.0'), značka se píše vždy MITO LIGHT® velkými písmeny a modely se číslují po generacích (3.0, 4.0, 5.0). Stránka O nás je přátelský příběh zakladatelů; FAQ je praktické a opatrné (dávka, vzdálenost, oči, lékař). Některé titulky blogu a shrnutí studií přesahují náš compliance rámec (vlasy, jizvy, záněty, 'žádné bolesti hlavy', srovnání s kryoterapií), proto přebírejte strukturu, ne tvrzení. Doporučený hlas pro tento engine: klidný, praktický, zvědavý a respektující důkazy; krátké věty; každé číslo vysvětlit (co měří a z jaké vzdálenosti); opatrně formulovat ('může', 'některé studie') a uvádět zdroj; v titulcích dávat přednost slovům 'světelná rutina', 'sezení' a 'panel' před 'terapie' či 'léčba' (výraz 'terapie červeným světlem' ponechat hlavně jako hledaný dotaz a pravidlo potvrdit s právníkem); psát 'vyvinuto a navrženo v Česku', ne 'vyrobeno v Česku'; nikdy žádné superlativy, záruky, 'klinicky prokázáno', odpočítávání ani falešný nedostatek. V češtině výchozí vykání, dokud značka nepotvrdí, zda používá tykání.",
- "tone_notes_en": "Inferred only from search snippets (mitolight.cz pages, App Store listing, review pages); confirm with the brand. Observed voice: confident, benefit-forward and science-flavoured (mitochondria as 'power plants', light as a 'charger', 'biohack' vocabulary, study percentages, the NASA origin story), with spec-first product titles ('Červený a infračervený panel MITO LIGHT® Starter 5.0'), the brand always written MITO LIGHT® in capitals and models named by generation (3.0, 4.0, 5.0). The About page is a friendly founder story; the FAQ is practical and cautious (dose, distance, eyes, doctor). Several blog titles and study summaries go beyond this project's compliance frame (hair, scars, inflammation, 'no headaches', comparisons with cryotherapy), so mirror the structure but not the claims. Recommended voice for this engine: calm, practical, curious and evidence-aware; short sentences; explain every number (what it measures, at what distance); hedge with 'may' and 'some studies' and name the source; prefer 'light routine', 'session' and 'panel' over 'therapy' or 'treatment' in headlines (keep 'red light therapy' mainly as the search term and confirm the policy with legal); write 'developed and designed in Czechia', not 'made in Czechia'; never use superlatives, guarantees, 'clinically proven', countdowns or scarcity. Default to formal address (vykání) in Czech until the brand confirms whether it uses tykání."
+ "tone_notes_en": "Inferred only from search snippets (mitolight.cz pages, App Store listing, review pages); confirm with the brand. Observed voice: confident, benefit-forward and science-flavoured (mitochondria as 'power plants', light as a 'charger', 'biohack' vocabulary, study percentages, the NASA origin story), with spec-first product titles ('Červený a infračervený panel MITO LIGHT® Starter 5.0'), the brand always written MITO LIGHT® in capitals and models named by generation (3.0, 4.0, 5.0). The About page is a friendly founder story; the FAQ is practical and cautious (dose, distance, eyes, doctor). Several blog titles and study summaries go beyond this project's compliance frame (hair, scars, inflammation, 'no headaches', comparisons with cryotherapy), so mirror the structure but not the claims. Recommended voice for this engine: calm, practical, curious and evidence-aware; short sentences; explain every number (what it measures, at what distance); hedge with 'may' and 'some studies' and name the source; prefer 'light routine', 'session' and 'panel' over 'therapy' or 'treatment' in headlines (keep 'red light therapy' mainly as the search term and confirm the policy with legal); write 'developed and designed in Czechia', not 'made in Czechia'; never use superlatives, guarantees, 'clinically proven', countdowns or scarcity. Default to formal address (vykání) in Czech until the brand confirms whether it uses tykání.",
+ "decisions": [
+  {
+   "id": "address",
+   "date": "2026-10-02",
+   "source": "brand, confirmed in conversation",
+   "decision_cs": "Značka vyká čtenářům (vykání), nikdy netyká.",
+   "decision_en": "The brand uses formal address (vykání) with readers, never tykání."
+  },
+  {
+   "id": "first-market",
+   "date": "2026-10-02",
+   "source": "brand, confirmed in conversation",
+   "decision_cs": "Začínáme na českém trhu (CZ). Slovensko, Německo a Velká Británie později.",
+   "decision_en": "Start with the Czech market (CZ). Slovakia, Germany and the UK later."
+  },
+  {
+   "id": "personas",
+   "date": "2026-10-02",
+   "source": "brand, confirmed in conversation",
+   "decision_cs": "Cílové skupiny: beauty segment, biohackeři, fitness, běžní lidé, kteří chtějí zlepšit pohodu, technologičtí nadšenci a starší lidé. Zadavatel původně řekl \"běžní lidé s problémy\"; pro nezdravotnický přístroj se takto smí oslovit jen pohoda a rutina, ne zdravotní problémy.",
+   "decision_en": "Target groups: beauty, biohackers, fitness, everyday people who want to improve their wellbeing, tech enthusiasts and older people. The requester first said \"everyday people with problems\"; for a non-medical device only wellbeing and routine may be addressed, never health problems."
+  },
+  {
+   "id": "category-name",
+   "date": "2026-10-02",
+   "source": "brand, confirmed in conversation",
+   "decision_cs": "\"Terapie červeným světlem\" je název kategorie, který značka nemůže měnit. V nástroji je to schválený název (upozornění na slovo terapie se jím nespouští); jakékoli zdravotní tvrzení vedle něj se dál blokuje.",
+   "decision_en": "\"Terapie červeným světlem\" (red light therapy) is the category name and the brand cannot change it. The tool treats it as an approved name (the note about the word therapy skips it); any health claim next to it is still blocked."
+  },
+  {
+   "id": "certifications",
+   "date": "2026-10-02",
+   "source": "brand, confirmed in conversation",
+   "decision_cs": "Zařízení mají označení CE a UKCA a splňují požadavky RoHS. Jsou to označení shody elektrických zařízení, nikoli zdravotnické schválení, a tak se mají i psát.",
+   "decision_en": "The devices carry the CE and UKCA markings and meet RoHS. These are conformity markings for electrical equipment, not a medical approval, and must be worded that way."
+  }
+ ]
 }

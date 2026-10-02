@@ -619,7 +619,9 @@
     "chronic pain",
     "back pain",
     "migraine*",
-    "headache*"
+    "headache*",
+    "joint*",
+    "mobility"
    ],
    "nouns_cs": [
     "bolest",
@@ -636,7 +638,9 @@
     "tenisov* loket",
     "plantárn* fasciitid*",
     "migrén*",
-    "bolest* hlavy"
+    "bolest* hlavy",
+    "kloub*",
+    "pohyblivost*"
    ],
    "patterns": [
     "\\b(?:stop|stops|stopped|end|ends|ended|kill|kills)\\s+(?:\\w+\\s+){0,2}(?:pain|aches)\\b",

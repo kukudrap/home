@@ -82,6 +82,9 @@ _RULES: dict[str, tuple[str, str, str]] = {
     "PLACEHOLDER_NOTE": ("warn",
         "A bracketed note for the editor is still in the text ('{note}'). Fill in real information or remove it before publishing.",
         "V textu zůstala poznámka pro redaktora v hranatých závorkách ('{note}'). Doplňte skutečný údaj nebo ji před zveřejněním odstraňte."),
+    "INFORMAL_ADDRESS": ("warn",
+        "Informal address (tykání) in Czech copy ('{word}'). This brand writes with formal address (vykání).",
+        "Tykání v českém textu ('{word}'). Značka vyká: použijte vykání."),
     "DISCLOSURE_MISSING": ("error",
         "Sponsored or affiliate content without a disclosure. Add #ad, 'sponsored', 'affiliate' or the local "
         "equivalent where readers see it first.",
@@ -610,6 +613,24 @@ def _r_placeholder_note(ctx: _Ctx) -> list[Issue]:
     return out
 
 
+# Unambiguous second person singular forms, matched on text without diacritics. Words that double as something else are left out on purpose
+# ("ty", "ti", "vyber" = výběr, "zjisti" = zjistí, "dej" = děj).
+_TYKANI_RE = re.compile(
+    r"\b(?:tvuj|tva|tve|tvoje|tvou|tveho|tvemu|tvym|tvymi|tvych|tobe|tebe|te|muzes|chces|mas|jsi|vis|potrebujes|uvidis|dostanes|najdes|budes|bys"
+    r"|zkus|podivej|precti|nezapomen|zacni|nedelej|prestan|vyzkousej|pamatuj)\b")
+
+
+def _r_address(ctx: _Ctx) -> list[Issue]:
+    if ctx.lang != "cs" or not ctx.brief or ctx.brief.address != "vy":
+        return []
+    blocked = [m.span() for m in PLACEHOLDER_RE.finditer(ctx.text)] + ctx.exempt
+    out = []
+    for m in _TYKANI_RE.finditer(ctx.low):
+        if not any(a < m.end() and m.start() < b for a, b in blocked):
+            out.append(ctx.issue("INFORMAL_ADDRESS", m.start(), m.end(), word=ctx.text[m.start():m.end()]))
+    return out
+
+
 def _r_disclosure(ctx: _Ctx) -> list[Issue]:
     if ctx.sponsored and not _SPONSOR_RE.search(ctx.low):
         return [ctx.issue("DISCLOSURE_MISSING", 0, 0)]
@@ -721,7 +742,7 @@ def _r_ai_reminder(ctx: _Ctx) -> list[Issue]:
 # order matters: regulated claims first, so the softer absolute and statistic rules skip the same text
 _RULE_FUNCS: tuple[Callable[[_Ctx], list[Issue]], ...] = (
     _r_claims, _r_health, _r_finance, _r_absolute, _r_stat, _r_unsupported, _r_scarcity, _r_urgency, _r_shaming, _r_bait, _r_injection,
-    _r_cloaking, _r_fake_review, _r_placeholder, _r_placeholder_note, _r_disclosure, _r_personal, _r_avoided, _r_stuffing, _r_clickbait,
+    _r_cloaking, _r_fake_review, _r_placeholder, _r_placeholder_note, _r_address, _r_disclosure, _r_personal, _r_avoided, _r_stuffing, _r_clickbait,
     _r_citations, _r_ai_reminder,
 )
 RULE_CODES = tuple(_RULES)

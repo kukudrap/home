@@ -132,7 +132,7 @@ test("severity helpers: errors block, warnings advise, info informs", () => {
   assert.equal(claims.severity("THERAPY_WORD"), "info");
   assert.equal(claims.severity("SOMETHING_NEW"), "info", "unknown codes never block");
   assert.equal(claims.isError("THERAPY_WORD"), false);
-  assert.deepEqual(claims.summarize(scan("Red light cures joint pain. Results in 14 days. Red light therapy")), { error: 1, warn: 1, info: 1, total: 3 });
+  assert.deepEqual(claims.summarize(scan("Red light cures joint pain. Results in 14 days. Light therapy")), { error: 1, warn: 1, info: 1, total: 3 });
   assert.deepEqual(claims.summarize([]), { error: 0, warn: 0, info: 0, total: 0 });
   assert.deepEqual(claims.summarize(null), { error: 0, warn: 0, info: 0, total: 0 });
 });
@@ -297,8 +297,12 @@ test("a dose is reported once per distinct snippet and only next to a usage word
   assert.deepEqual(codes("The video is 10 minutes long."), [], "no usage word in the sentence");
 });
 
-test("the word therapy is flagged once, at its first use, unless it is negated", () => {
-  assert.deepEqual(scan("Red light therapy and more light therapy"), [{ code: "THERAPY_WORD", topic: null, start: 10, end: 17 }]);
+test("the word therapy is flagged once, at its first use that is not the approved category name, unless it is negated", () => {
+  assert.deepEqual(scan("Light therapy and more light therapy"), [{ code: "THERAPY_WORD", topic: null, start: 6, end: 13 }]);
+  assert.deepEqual(scan("Red light therapy and more light therapy"), [{ code: "THERAPY_WORD", topic: null, start: 33, end: 40 }], "the approved name is skipped");
+  assert.deepEqual(codes("Red light therapy for athletes."), []);
+  assert.deepEqual(codes("Terapie \u010derven\u00fdm sv\u011btlem pro ka\u017ed\u00fd den."), []);
+  assert.deepEqual(codes("Red light therapy cures joint pain."), ["CLAIM_MEDICAL"], "the approved name never hides a claim");
   assert.deepEqual(codes("This is not a therapy."), []);
 });
 

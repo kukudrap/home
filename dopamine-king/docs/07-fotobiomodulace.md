@@ -43,6 +43,37 @@ Důležité vlastnosti pravidel:
 
 Pravidla jsou **data**, ne kód: `src/dopamine_king/data/verticals/pbm/guard.json` a `claims.json`. Přidat zakázaný výraz je úprava seznamu. Příklady správných a nesprávných formulací, na kterých se pravidla testují, jsou v `examples.json`.
 
+## Značka rozhodla (2. 10. 2026)
+
+| Téma | Rozhodnutí |
+|---|---|
+| Oslovení | **Vykání.** Zadání `mito-light-cs` má `address: vy`, pisatel dostává pokyn vykat a Štít varuje (`INFORMAL_ADDRESS`) před tykáním v českém textu. |
+| Trh | Začínáme v **Česku**. Slovensko, Německo a Velká Británie později (viz roadmapa). |
+| Název kategorie | **"Terapie červeným světlem"** je název, který značka nemůže měnit. Nástroj ho bere jako schválený: upozornění na slovo "terapie" se jím nespouští. Zdravotní tvrzení vedle něj se dál **blokuje** ("terapie červeným světlem léčí bolest zad" je chyba) a jiné použití slova "terapie" dál dostává poznámku. Rešerše v [08-regulace-pbm.md](08-regulace-pbm.md) označuje slovo za rizikové (naznačuje léčbu), takže název nechte potvrdit právníkem. |
+| Označení | **CE, UKCA, RoHS.** Jsou ve faktech zadání s upřesněním, že jde o označení shody elektrických zařízení, nikoli o zdravotnické schválení. Pisatel nesmí psát "certifikováno" ani "schváleno" jako zdravotní tvrzení. |
+| Cílové skupiny | Beauty, biohackeři, fitness, běžní lidé, kteří chtějí zlepšit pohodu, technologičtí nadšenci, starší lidé (viz dále). |
+
+## Cílové skupiny
+
+Pro každou skupinu je v `personas.json` popis, o čem psát, co nikdy a jak opatrně. Každá má ukázkové zadání (`--sample mito-light-<skupina>-cs`, česky, vykání): `fitness`, `biohacker`, `beauty`, `everyday`, `tech`, `seniors`.
+
+| Skupina | Riziko | O čem psát | Nikdy |
+|---|---|---|---|
+| **Fitness a sport** | nízké | Jak číst studie o světle kolem cvičení (kdo byl zkoumán, čím se měřilo, jak velký byl efekt). Světlo jako součást regenerační rutiny, ne zkratka k výkonu. | Slib vyššího výkonu, síly nebo rychlejšího růstu svalů. Hojení svalů, zranění nebo bolest. |
+| **Biohackeři** | střední | Parametry: vlnové délky, počet diod, ozáření s udanou vzdáleností a metodou měření (spektrometr, ne solární měřič). Jak založit vlastní pokus s jedním člověkem a proč z něj nelze dělat závěry o všech. | Testosteron, hormony, plodnost, dlouhověkost, stárnutí, detox a imunita (zakázané třídy). Slovo biohack jako příslib výsledku. |
+| **Beauty segment** | **vysoké** | Světelný večerní rituál jako chvíle pro sebe. Jak panel bezpečně používat (oči, návod, vzdálenost podle výrobce). | Jakýkoli výsledek na pleti a vzhledu: vrásky, kolagen, jizvy, akné, pigmentace, zpevnění, omlazení, 'anti-aging'. Ošetření pleti, odstranění chloupků nebo tetování, redukce tuku, tvar těla. |
+| **Běžní lidé, kteří chtějí zlepšit pohodu** | **vysoké** | Klidná večerní rutina se světlem, jak ji zařadit do dne. Jak panel bezpečně používat a co si přečíst v návodu. | Oslovování lidí s potížemi: 'Trápí vás bolest?', 'Máte problémy se spánkem?', 'Trpíte únavou?'. Jakákoli nemoc, příznak, bolest, zánět, deprese, nespavost. |
+| **Technologičtí nadšenci** | nízké | Jak je panel postavený: počet diod, vlnové délky, plocha. Jak se měří ozáření a proč záleží na vzdálenosti a přístroji. | Čísla bez zdroje, metody a vzdálenosti. Superlativy (nejsilnější, nejlepší, evropský lídr) bez doložení. |
+| **Starší lidé** | **vysoké** | Jak se panel zapíná a ovládá, krok za krokem a srozumitelně. Bezpečné používání: ochrana očí, návod výrobce, kdy se poradit s lékařem. | Jakékoli zdravotní tvrzení, nemoc, příznak nebo prevence, včetně nepřímých ('na klouby', 'pro lepší pohyblivost'). Strach, tlak, falešný nedostatek a časově omezené nabídky. |
+
+**Tři skupiny jsou rizikové a potřebují zvláštní péči.**
+
+- **Běžní lidé "s problémy".** Zadavatel je původně popsal jako lidi s problémy. U nezdravotnického přístroje se takto oslovit nesmí: oslovení lidí s potížemi je tvrzení léčebného účelu (a z wellness přístroje se tak může stát zdravotnický prostředek bez povolení), úřady navíc posuzují reklamu z pohledu skupiny, na kterou míří, a u lidí s potížemi přísněji (směrnice o nekalých obchodních praktikách, čl. 5 odst. 3). Nástroj proto skupinu oslovuje přes pohodu a rutinu a Štít blokuje oslovení typu "Máte problémy se spánkem?", "Trápí vás bolest zad?" nebo "Pomůže vám s problémy". Chcete-li mluvit k lidem s potížemi, je to jiný režim (zdravotnický prostředek), ne wellness.
+- **Starší lidé.** Zranitelná skupina: žádná zdravotní tvrzení, ani nepřímá ("na klouby", "pro lepší pohyblivost"), žádný tlak, strach ani časově omezené nabídky. Jen srozumitelné ovládání, bezpečí a doporučení poradit se s lékařem.
+- **Beauty.** K vzhledu pleti je v registru **nula ověřených studií** a tvrzení o pleti se blíží kosmetickým (podle přílohy XVI nařízení o zdravotnických prostředcích možná regulovaným výrobkům). Obsah staví na rituálu a bezpečném používání, ne na výsledku, a každý kus má posoudit právník.
+
+Ostatní skupiny jsou méně rizikové: **fitness** má nejlépe podložené téma oboru, ale s **mírně smíšenými** důkazy; **biohackeři** a **technologičtí nadšenci** potřebují hlavně potvrzená technická čísla (ozáření s udanou vzdáleností a metodou) a nesmí slyšet slib optimalizace těla.
+
 ## Mapa tvrzení a jak číst štítky
 
 Pět tříd: **wellness** (smí se opatrně a se zdrojem), **vzhled** (totéž pro vzhled pleti a těla), **souvislosti** (mechanismus, dávka, parametry, bezpečnost), **zdravotní** a **zakázáno** (nesmí se vůbec). Štítek síly důkazů vzniká takto:
@@ -134,7 +165,7 @@ Soubor `mito_light.json` obsahuje **31 sourcovaných faktů** a **15 otevřenýc
 
 **Důležité pozorování.** Výsledky vyhledávání ukazují, že část textů na webu značky jde za rámec "podpůrná pomůcka": zmiňuje vlasy, jizvy, zánět a obsahuje superlativy. Podle zdrojů, které jsme našli, to s uvedeným stanoviskem ministerstva nemusí souhlasit. Doporučení: nechte stránky projít příkazem `kingctl audit` a nález probrat s regulatorním poradcem.
 
-Otevřené otázky pro značku (výběr): kdo je právním provozovatelem v jednotlivých zemích, tykání nebo vykání, schválená slovní zásoba ("terapie" nebo "světelná rutina"), aktuální stanovisko pro generace 4.0 a 5.0 (nalezený dokument se týká generace 3.0), certifikace a měření ozáření, trhy mimo CZ, DE a UK, sociální sítě a persony.
+Otevřené otázky pro značku (výběr): kdo je právním provozovatelem v jednotlivých zemích, aktuální stanovisko pro generace 4.0 a 5.0 (nalezený dokument se týká generace 3.0 a zadavatel o žádném nevěděl), podklady k označení CE a UKCA (EMC, fotobiologická bezpečnost), **naměřené ozáření jednotlivých modelů** (spektrometrem, s uvedenou vzdáleností a metodou), sociální sítě a podíl prodeje podle skupin. Vykání, český trh, cílové skupiny, název kategorie a označení CE, UKCA a RoHS jsou rozhodnuté (viz výše).
 
 ## Omezení
 

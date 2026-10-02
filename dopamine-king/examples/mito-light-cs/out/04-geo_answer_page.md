@@ -18,6 +18,7 @@ Panel s červeným světlem je světelné zařízení s LED diodami, které vyza
 | Mitohacker 4.0 | Panel Mitohacker 4.0 má 408 LED diod a šest vlnových délek (630, 660, 670, 810, 830 a 850 nm). |
 | Rozsah nabídky | Nabídka sahá od žárovky pro lokální použití po celotělový panel. |
 | Modelová řada | Řada panelů zahrnuje modely Intro, Starter, Expert, Biohacker a Master. |
+| Označení | Označení CE a UKCA, splňuje RoHS (shoda elektrických zařízení, ne zdravotnické schválení). |
 
 ## Jak to funguje krok za krokem?
 

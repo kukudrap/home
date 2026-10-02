@@ -118,6 +118,28 @@ class Vertical:
             out[key] = Brief.from_dict({**fields, "sources": sources})
         return out
 
+    def personas(self) -> list[dict[str, Any]]:
+        """Target groups of the default brand: who they are, what may be said, what never, how careful the content must be (risk)."""
+        return list(self._json("personas.json", {}).get("personas", []))
+
+    def persona_briefs(self, ledger: Any = None) -> dict[str, Any]:
+        """One sample brief per persona (``<base>-<persona>-cs``): the base brief with the persona's topic, audience, keywords and care.
+
+        The persona's care and its never-list go into the voice notes, so the writer sees them next to the rules of the profile.
+        """
+        from ..generate.types import Brief
+        data = self._json("personas.json", {})
+        base_id = data.get("base", "mito-light-cs")
+        base = self.briefs(ledger)[base_id]
+        stem = base_id.rsplit("-", 1)[0]
+        out = {}
+        for persona in data.get("personas", []):
+            brief = Brief.from_dict({**base.to_dict(), **persona.get("brief", {})})
+            brief.voice_notes = (f"{base.voice_notes} Cílová skupina: {persona['name_cs']}. {persona['care_cs']} "
+                                 f"Nikdy: {' '.join(persona.get('never_cs', []))}").strip()
+            out[f"{stem}-{persona['id']}-{base.lang}"] = brief
+        return out
+
     def brand_profile(self) -> dict[str, Any]:
         """What public sources say about the default brand (facts with source and confidence, open questions, tone)."""
         return self._json("mito_light.json", {})
@@ -191,7 +213,7 @@ class Vertical:
         keys = ("treatment_verbs", "benefit_verbs", "disease_terms", "device_words", "indication_prepositions",
                 "regulated_status", "safety_absolute", "therapy_words", "hedge_words", "negation_words",
                 "negated_verb_stems", "timeline_patterns", "dose_patterns", "dose_context", "safety_terms", "long_form_formats",
-                "masking_phrases", "targeting_phrases", "clause_breakers", "medication_patterns", "strong_claims")
+                "masking_phrases", "targeting_phrases", "clause_breakers", "medication_patterns", "strong_claims", "approved_terms")
         topics = [{k: t.get(k) for k in ("id", "class", "name_en", "name_cs", "nouns_en", "nouns_cs", "patterns", "safe_en", "safe_cs", "label_cap")}
                   for t in self.claims()["topics"]]
         return {"profile": guard.get("profile", "wellness"), "topics": topics, **{k: guard[k] for k in keys if k in guard}}

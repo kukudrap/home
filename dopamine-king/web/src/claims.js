@@ -196,6 +196,7 @@
       statusRe: rx(termsRegex(both(rules.regulated_status)), "regulated_status"),
       safetyAbsRe: rx(termsRegex(both(rules.safety_absolute)), "safety_absolute"),
       therapyRe: rx(termsRegex(both(rules.therapy_words)), "therapy_words"),
+      approvedRe: rx(termsRegex(both(rules.approved_terms)), "approved_terms"),
       hedgeRe: rx(termsRegex(both(rules.hedge_words)), "hedge_words"),
       safetyTermsRe: rx(termsRegex(both(rules.safety_terms)), "safety_terms"),
       negRe: rx(negation.length ? "\\b(?:" + negation.join("|") + ")\\b" : NEVER, "negation_words"),
@@ -245,7 +246,10 @@
       c.byId[generic.id] = generic;
     }
     c.diseaseRe = rx(proximity(verbRe, diseaseRe), "disease_terms");
-    c.targetingRe = rx(proximity(targetingRe, diseaseRe, 8), "targeting_phrases");
+    // an ad that addresses people with a problem is a claim: next to a disease or next to the nouns of every topic but the context ones
+    var symptomNouns = [];
+    (rules.topics || []).forEach(function (t) { if (t["class"] !== "context") symptomNouns = symptomNouns.concat(t.nouns_en || [], t.nouns_cs || []); });
+    c.targetingRe = rx(proximity(targetingRe, "(?:" + diseaseRe + "|" + termsRegex(symptomNouns) + ")", 8), "targeting_phrases");
     c.indicationRe = rx(indication + diseaseRe, "disease_terms");
     if (cache && typeof rules === "object") cache.set(rules, c);
     return c;
@@ -369,8 +373,15 @@
         hits.push({ code: "DOSE_NOT_FROM_MANUAL", start: m.start, end: m.end, topic: null });
       });
     });
-    var th = first(c.therapyRe, low);
-    if (th && !negated(c, low, th.start, th.end, spans)) hits.push({ code: "THERAPY_WORD", start: th.start, end: th.end, topic: null });
+    var approved = all(c.approvedRe, low);
+    var therapy = all(c.therapyRe, low);
+    for (var ti = 0; ti < therapy.length; ti++) {
+      var th = therapy[ti];
+      if (negated(c, low, th.start, th.end, spans)) continue;
+      if (approved.some(function (ap) { return ap.start <= th.start && th.end <= ap.end; })) continue;
+      hits.push({ code: "THERAPY_WORD", start: th.start, end: th.end, topic: null });   // the first use that is not the approved name or a negation
+      break;
+    }
     if (formatId !== null && c.longForm.indexOf(formatId) >= 0 && !first(c.safetyTermsRe, low)) {
       hits.push({ code: "SAFETY_NOTE_MISSING", start: 0, end: 0, topic: null });
     }

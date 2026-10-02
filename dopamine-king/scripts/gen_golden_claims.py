@@ -80,6 +80,14 @@ MIXED = [
     "Treat yourself to a red light session.", "Při používání chraňte oči ochrannými brýlemi.", "Protect your eyes from the light.", "30-day money-back guarantee.",
     "Garantujeme vrácení peněz do 30 dnů.", "This device does not cure anything.", "Panel nechrání před nemocemi.", "Ochrana před přehřátím.",
     "Light is not a substitute for medical advice.", "Light that heals. Light that may support muscle recovery.",
+    # the approved category name "terapie červeným světlem" skips only the note about the word therapy
+    "Terapie červeným světlem pro každý den.", "Terapie červeným a infračerveným světlem doma.", "Red light therapy for athletes.",
+    "Terapie červeným světlem léčí bolest zad.", "Terapie červeným světlem na bolest zad.", "Světelná terapie pro vás.",
+    "Terapie červeným světlem a také terapie.", "Zájem o terapii červeným světlem roste.", "Neslouží jako terapie nemocí.",
+    # people with problems (the personas "everyday" and "seniors"): addressing a problem is a claim, even as a question
+    "Máte problémy se spánkem? Světlo vám pomůže.", "Trpíte únavou? Zkuste světlo.", "Pomůže vám s problémy, které vás trápí.",
+    "Světlo pro lepší pohyblivost kloubů.", "Panel na klouby.", "Máte potíže s pohybem? Světelný panel je řešení.", "Do you have problems with sleep? Try our panel.",
+    "It helps you with everyday problems.", "Pomůže vám s výběrem panelu.", "Máte zájem o panel? Napište nám.", "Klidná večerní rutina se světlem.",
 ]
 
 

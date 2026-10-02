@@ -268,6 +268,40 @@ class PlaceholderNoteTests(unittest.TestCase):
         self.assertIn("Doplňte jméno autora", cs.message)
 
 
+class FormalAddressTests(unittest.TestCase):
+    """A brand that writes with vykání gets a warning for tykání in Czech copy."""
+
+    VY = Brief(brand="MITO LIGHT", topic="světlo", audience="x", lang="cs", address="vy")
+
+    def issues(self, text, brief=None):
+        return [i for i in SH.check(text, brief or self.VY) if i.code == "INFORMAL_ADDRESS"]
+
+    def test_tykani_is_flagged(self):
+        for text in ("Zkus to dnes večer.", "Víš, co panel dělá?", "Tvůj panel čeká na zapnutí.", "Můžeš začít hned.", "Nezapomeň na ochranu očí.",
+                     "Chceš vědět víc? Podívej se na návod.", "Potřebuješ jen chvilku.", "Bez brýlí tě světlo oslní."):
+            self.assertTrue(self.issues(text), text)
+
+    def test_vykani_and_words_that_only_look_alike_are_not(self):
+        for text in ("Zkuste to dnes večer.", "Víte, co panel dělá?", "Váš panel čeká na zapnutí.", "Můžete začít hned.", "Nezapomeňte na ochranu očí.",
+                     "Výběr panelu: 5 chyb.", "Co se dozvíte: zjistí to každý.", "Děj filmu to nezmění.", "Ty věci jsou důležité.", "Těm, kteří chtějí vědět víc."):
+            self.assertFalse(self.issues(text), text)
+
+    def test_the_rule_needs_the_brief_czech_and_vykani(self):
+        self.assertFalse(self.issues("Zkus to dnes večer.", Brief(brand="B", topic="t", audience="a", lang="cs")))
+        self.assertFalse(self.issues("Zkus to dnes večer.", Brief(brand="B", topic="t", audience="a", lang="cs", address="ty")))
+        self.assertFalse(self.issues("Try it tonight. Mas it.", Brief(brand="B", topic="t", audience="a", lang="en", address="vy")))
+        self.assertFalse([i for i in SH.check("Zkus to dnes večer.", lang="cs") if i.code == "INFORMAL_ADDRESS"])
+
+    def test_the_issue_names_the_word_in_both_languages(self):
+        issue = self.issues("Tvůj panel čeká.")[0]
+        self.assertEqual(issue.severity, "warn")
+        self.assertIn("Tvůj", issue.message)
+        self.assertIn("Značka vyká", issue.message)
+
+    def test_placeholders_are_not_judged(self):
+        self.assertFalse(self.issues("[[ADD: Zkus popsat panel]]"))
+
+
 class DisclosureTests(unittest.TestCase):
     def sponsored(self, **kw):
         return Brief(brand="Zorvia", topic="t", audience="a", sponsored=True, **kw)
@@ -465,9 +499,9 @@ class ShieldBehaviourTests(unittest.TestCase):
         order = [{"error": 0, "warn": 1, "info": 2}[i.severity] for i in issues]
         self.assertEqual(order, sorted(order))
         self.assertTrue(set(codes(issues)) <= set(guard.RULE_CODES))
-        # 21 general rules plus the codes of the claims profile (see test_generate_claims)
+        # 22 general rules plus the codes of the claims profile (see test_generate_claims)
         from dopamine_king.generate import claims
-        self.assertEqual(len(guard.RULE_CODES), 21 + len(claims.RULES))
+        self.assertEqual(len(guard.RULE_CODES), 22 + len(claims.RULES))
 
     def test_issues_per_code_are_capped(self):
         text = " ".join(f"Studies show that claim number {i} is true." for i in range(12))

@@ -60,6 +60,7 @@ Výkon obsahu se **normalizuje**, aby nevyhrávaly velké účty: engagement se 
 - **SEO skóre:** délka titulku a meta popisu, klíčové slovo v titulku, H1 a prvních 100 slovech, hustota 0,5 až 2,5 procenta, délka vět, FAQ, zdroje, délka textu. **Quality gate** odmítne článek bez vlastní zkušenosti nebo faktů jako nepublikovatelný (hromadně vyráběný obsah s nízkou hodnotou je podle zásad vyhledávačů riziko).
 - **GEO skóre:** kontrolní seznam vážený podle výzkumu GEO (Aggarwal a kol., 2024: citace, citáty a statistiky pomáhaly nejvíc, nacpání klíčových slov nepomáhalo): zdroje, statistiky se zdrojem, citáty jmenovaných osob, odpověď na začátku, struktura, FAQ, srozumitelnost entity, aktuálnost, autor, schema, čitelnost. Výsledky pocházejí z jednoho benchmarku, na komerčních enginech se mohou lišit.
 - **Profil tvrzení wellness:** viz část 7.
+- **Další pravidla Štítu:** poznámka pro redaktora v hranatých závorkách (`PLACEHOLDER_NOTE`, například "[Doplňte jméno autora]") a tykání v českém textu značky, která vyká (`INFORMAL_ADDRESS`, zadání s `address: vy`).
 - **Trust Shield:** pravidla pro nepodložená tvrzení a statistiky, absolutní sliby, zdravotní a finanční sliby, falešný nedostatek a naléhavost, confirmshaming, engagement bait, skryté prompty pro AI, chybějící označení reklamy, osobní údaje, nenalezené citace.
 
 ## 7. Profil tvrzení wellness a mapa tvrzení (`generate/claims.py`, `verticals/`)
@@ -72,10 +73,11 @@ Obor PBM (edice MITO LIGHT) přidává pravidla pro nezdravotnický přístroj. 
 3. **Blízkost.** Pravidla se ptají na dvojice (sloveso nebo podstatné jméno léčby, téma nebo nemoc) v okně 5 slov (u oslovování nemocných 8). Okno nikdy nepřekročí konec věty (tečka, otazník, vykřičník, středník, nový řádek).
 4. **Zápor.** Hledá se **nejbližší** zápor před výrazem (do 60 znaků a s mezerou nejvýš 40 znaků); nová klauzule ("..., je to naprosto neškodné") zápor ruší. Díky tomu projde "Přístroj neslouží k léčbě nemocí", ale neprojde "Ochrana očí není nutná, je to naprosto neškodné".
 5. **Maskování.** Standardní věty (odmítnutí zdravotního určení, "vyzkoušejte bez rizika", "bezpečná platba") se nehodnotí.
-6. **Otázky** nejsou tvrzení, kromě oslovení nemocných a rady o lécích.
+6. **Otázky** nejsou tvrzení, kromě oslovení lidí s problémem a rady o lécích. **Oslovení lidí s problémem je tvrzení:** "máte problémy s", "trpíte", "trápí vás" vedle nemoci nebo vedle podstatného jména kteréhokoli tématu kromě souvislostí (spánek, únava, bolest) je chyba i jako otázka, stejně jako "pomůže vám s problémy".
 7. **Opatrné slovo a zdroj.** Přínos v třídě wellness s "může", "u zdravých lidí" nebo s odkazem na zdroj je v pořádku. Bez toho je varování `CLAIM_UNHEDGED`. U zdravotních témat opatrné slovo nepomáhá.
 8. Při překrytí vyhrává přísnější třída (souvislosti, wellness, vzhled, zdravotní, zakázáno).
 9. **Slova s léčebným významem** (léčí, vyléčí, hojí, cures, heals, "léčebné účinky", ochrana před nemocemi) jsou zdravotní tvrzení bez ohledu na to, k čemu se vztahují: zvednou i téma wellness či vzhled na zdravotní tvrzení (opatrné slovo nepomůže) a samotná tvoří téma `generic-cure`. Seznam je v `guard.json` pod klíčem `strong_claims`.
+10. **Schválený název kategorie.** Výrazy v `approved_terms` (u MITO LIGHT "terapie červeným světlem") přeskočí jen poznámku o slově terapie; všechna ostatní pravidla je čtou dál, takže "terapie červeným světlem léčí bolest zad" zůstává chybou.
 
 ### Mapa tvrzení: štítek síly důkazů
 Pro každé téma se spočítá štítek (`none`, `limited`, `moderate`, `strong`, `contested`) z ledgeru takto: (1) počítají se **jen ověřené studie**, neověřené jsou vidět jako "čeká na ověření", ale štítek nezvedou, (2) štítek **nepřekročí ruční strop** tématu (`label_cap`), který kurátor odůvodní (malé studie, různé protokoly, klinické přístroje, které se na domácí panely nepřenáší), (3) při rozporu kvalitních studií zůstává `contested`. Mapa **neříká, že tvrzení je dovolené**: třída tématu určuje, zda a s jakou formulací se smí vůbec zmínit.

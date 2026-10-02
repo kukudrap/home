@@ -146,6 +146,10 @@ def brief_block(brief: Brief) -> str:
         lines.append(f"Offer: {brief.offer}")
     if brief.cta:
         lines.append(f"Call to action: {brief.cta}")
+    if brief.address == "vy" and brief.lang == "cs":
+        lines.append("Address: formal vykání (Vy, Váš, můžete); never tykání (ty, tvůj, můžeš, zkus).")
+    elif brief.address == "ty" and brief.lang == "cs":
+        lines.append("Address: informal tykání (ty, tvůj, můžeš).")
     if brief.voice_notes:
         lines.append(f"Voice notes: {brief.voice_notes}")
     if brief.avoid:

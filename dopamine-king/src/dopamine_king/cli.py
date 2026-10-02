@@ -70,7 +70,7 @@ def _load_brief(args: argparse.Namespace) -> Brief:
     if getattr(args, "sample", None):
         if vertical is None:
             raise SystemExit("error: --sample needs --vertical (for example --vertical pbm --sample mito-light-cs)")
-        samples = vertical.briefs()
+        samples = {**vertical.briefs(), **vertical.persona_briefs()}
         if args.sample not in samples:
             raise SystemExit(f"error: no sample {args.sample!r}; available: {', '.join(samples)}")
         return samples[args.sample]
@@ -95,6 +95,7 @@ def _load_brief(args: argparse.Namespace) -> Brief:
         brief.claims_profile = args.claims_profile
     if getattr(args, "safety_note", None):
         brief.safety_note = args.safety_note
+    brief.address = getattr(args, "address", None) or brief.address or (str(vertical.meta.get("address", "")) if vertical is not None else "")
     return brief
 
 
@@ -112,6 +113,7 @@ def _brief_flags(p: argparse.ArgumentParser) -> None:
     p.add_argument("--sample", help="start from a sample brief of the vertical, for example mito-light-cs")
     p.add_argument("--claims-profile", choices=["general", "wellness"], help="wellness: non-medical device, no disease or treatment claims")
     p.add_argument("--safety-note", help="the manufacturer's own safety text for long-form content")
+    p.add_argument("--address", choices=["vy", "ty"], help="Czech copy: formal (vy) or informal (ty) address; default: the brand's choice in the vertical")
 
 
 def _synthetic_analyses(vertical: Any = None):
@@ -469,7 +471,8 @@ def cmd_audit(args: argparse.Namespace) -> int:
     for name, text in texts:
         lang = args.lang or detect_lang(text)
         brief = Brief(brand=args.brand or vertical.default_brand or "brand", topic="audit", audience="audit", lang=lang,
-                      vertical=vertical.id, claims_profile=args.claims_profile or vertical.claims_profile, facts=args.fact or [])
+                      vertical=vertical.id, claims_profile=args.claims_profile or vertical.claims_profile, facts=args.fact or [],
+                      address=args.address or str(vertical.meta.get("address", "")))
         issues = [i for i in shield.check(text, brief) if i.code != "AI_DISCLOSURE_REMINDER"]
         errors = sum(i.severity == "error" for i in issues)
         worst = max(worst, 1 if errors else 0)
@@ -737,6 +740,7 @@ def build_parser() -> argparse.ArgumentParser:
     s.add_argument("files", nargs="+", help="text files, or - for standard input")
     s.add_argument("--vertical", help="default: pbm"), s.add_argument("--lang", choices=["en", "cs"], help="default: detected")
     s.add_argument("--claims-profile", choices=["general", "wellness"]), s.add_argument("--brand")
+    s.add_argument("--address", choices=["vy", "ty"], help="Czech copy: formal (vy) or informal (ty) address; default: the brand's choice in the vertical")
     s.add_argument("--fact", action="append", help="a verified first-party fact the copy may state, repeatable")
     s.add_argument("--json", action="store_true")
     s.set_defaults(fn=cmd_audit)

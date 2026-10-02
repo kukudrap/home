@@ -141,6 +141,7 @@ Co se hodí mít po ruce:
 - Záznam rutiny: datum, doba sezení podle návodu, dojem a výkon. Pomůže vám posoudit, jestli se vám rutina vyplácí.
 - Souhrnné studie místo sloganů, například metaanalýzy z časopisů Sports Medicine a Lasers in Medical Science, ze kterých vychází tento článek [2] [1].
 - Porovnání parametrů: vlnové délky, počet diod a údaj o ozáření s uvedenou vzdáleností a metodou měření.
+- Označení výrobku: zařízení mají označení CE a UKCA a splňují požadavky RoHS. Jde o označení shody elektrických zařízení, ne o zdravotnické schválení.
 - Nabídka MITO LIGHT od žárovky pro lokální použití po celotělový panel, pokud hledáte zařízení české značky vyvíjené a navrhované v České republice.
 
 ## Časté dotazy
@@ -211,6 +212,7 @@ Panel s červeným světlem je světelné zařízení s LED diodami, které vyza
 | Mitohacker 4.0 | Panel Mitohacker 4.0 má 408 LED diod a šest vlnových délek (630, 660, 670, 810, 830 a 850 nm). |
 | Rozsah nabídky | Nabídka sahá od žárovky pro lokální použití po celotělový panel. |
 | Modelová řada | Řada panelů zahrnuje modely Intro, Starter, Expert, Biohacker a Master. |
+| Označení | Označení CE a UKCA, splňuje RoHS (shoda elektrických zařízení, ne zdravotnické schválení). |
 
 ## Jak to funguje krok za krokem?
 

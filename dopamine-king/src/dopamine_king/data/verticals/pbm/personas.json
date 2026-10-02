@@ -1,0 +1,310 @@
+{
+ "version": 1,
+ "note": "Target groups named by the brand on 2026-10-02 (the requester). Each persona says who they are, what the content may talk about, what it must never say and how careful it must be. 'risk' is the regulatory sensitivity of the group for a NON-MEDICAL device: high means vulnerable consumers or cosmetic outcomes (UCPD art. 5(3), Czech Act 40/1995 s. 5n, MDR Annex XVI, see docs/08) and every piece needs human and legal review. Each persona yields one sample brief (Czech, formal address) on top of the base brief.",
+ "base": "mito-light-cs",
+ "personas": [
+  {
+   "id": "fitness",
+   "risk": "low",
+   "name_cs": "Fitness a sport",
+   "name_en": "Fitness and sport",
+   "who_cs": "Lidé, kteří pravidelně cvičí nebo sportují a chtějí promyšleně řešit regeneraci.",
+   "who_en": "People who train or play sport regularly and want to handle recovery thoughtfully.",
+   "say_cs": [
+    "Jak číst studie o světle kolem cvičení (kdo byl zkoumán, čím se měřilo, jak velký byl efekt).",
+    "Světlo jako součást regenerační rutiny, ne zkratka k výkonu.",
+    "Deník tréninku a vlastní záznam místo slibů.",
+    "Jak vybrat panel podle parametrů a plochy."
+   ],
+   "never_cs": [
+    "Slib vyššího výkonu, síly nebo rychlejšího růstu svalů.",
+    "Hojení svalů, zranění nebo bolest.",
+    "Časové sliby (za týden, po měsíci).",
+    "Fotografie před a po."
+   ],
+   "care_cs": "Nejlépe podložené téma oboru, ale důkazy jsou smíšené (malé efekty, u fyzicky aktivních lidí často žádný přínos). Psát vyváženě, každý přínos opatrně a se zdrojem.",
+   "topics": [
+    "pbm-muscle-recovery",
+    "pbm-exercise-performance",
+    "pbm-energy-wellbeing"
+   ],
+   "brief": {
+    "topic": "červené světlo po tréninku",
+    "audience": "lidé, kteří pravidelně cvičí a chtějí promyšleně řešit regeneraci",
+    "keyword": "červené světlo po tréninku",
+    "secondary_keywords": [
+     "regenerace po tréninku",
+     "světelný panel pro sportovce",
+     "jak číst studie o červeném světle"
+    ],
+    "topic_forms": {
+     "gen": "červeného světla po tréninku",
+     "dat": "červenému světlu po tréninku",
+     "acc": "červené světlo po tréninku",
+     "loc": "červeném světle po tréninku",
+     "ins": "červeným světlem po tréninku"
+    },
+    "avoid": [
+     "zázrak",
+     "revoluční",
+     "rychlejší růst svalů",
+     "zaručeně"
+    ]
+   }
+  },
+  {
+   "id": "biohacker",
+   "risk": "medium",
+   "name_cs": "Biohackeři",
+   "name_en": "Biohackers",
+   "who_cs": "Lidé, kteří rádi měří, zapisují a zkoušejí vlastní rutinu a čtou technické parametry.",
+   "who_en": "People who like to measure, log and test their own routine and read technical specifications.",
+   "say_cs": [
+    "Parametry: vlnové délky, počet diod, ozáření s udanou vzdáleností a metodou měření (spektrometr, ne solární měřič).",
+    "Jak založit vlastní pokus s jedním člověkem a proč z něj nelze dělat závěry o všech.",
+    "Co o mechanismu říkají laboratorní studie (jako popis výzkumu, ne jako slib).",
+    "Zápis rutiny a vlastních dojmů."
+   ],
+   "never_cs": [
+    "Testosteron, hormony, plodnost, dlouhověkost, stárnutí, detox a imunita (zakázané třídy).",
+    "Slovo biohack jako příslib výsledku.",
+    "Nepodložená čísla o výkonu ('o 150 % více ATP').",
+    "Superlativy bez zdroje (nejsilnější, nejlepší)."
+   ],
+   "care_cs": "Kultura biohackingu láká k tvrzením o optimalizaci těla, která jsou v profilu zakázaná. Držet se měření, parametrů a poctivého popisu důkazů.",
+   "topics": [
+    "pbm-mechanism",
+    "pbm-dose-response",
+    "pbm-device-specs",
+    "pbm-sleep"
+   ],
+   "brief": {
+    "topic": "panel s červeným světlem pro biohackery",
+    "audience": "biohackeři a lidé, kteří rádi měří a testují vlastní rutinu",
+    "keyword": "panel s červeným světlem pro biohackery",
+    "secondary_keywords": [
+     "ozáření mW/cm2",
+     "vlnové délky 630 660 670 810 830 850 nm",
+     "jak měřit výkon světelného panelu"
+    ],
+    "topic_forms": {
+     "gen": "panelu s červeným světlem pro biohackery",
+     "dat": "panelu s červeným světlem pro biohackery",
+     "acc": "panel s červeným světlem pro biohackery",
+     "loc": "panelu s červeným světlem pro biohackery",
+     "ins": "panelem s červeným světlem pro biohackery"
+    },
+    "avoid": [
+     "zázrak",
+     "revoluční",
+     "optimalizace hormonů",
+     "dlouhověkost",
+     "anti-aging",
+     "nejsilnější"
+    ]
+   }
+  },
+  {
+   "id": "beauty",
+   "risk": "high",
+   "name_cs": "Beauty segment",
+   "name_en": "Beauty",
+   "who_cs": "Lidé, které zajímá péče o sebe, vzhled a večerní rituály.",
+   "who_en": "People interested in self-care, appearance and evening rituals.",
+   "say_cs": [
+    "Světelný večerní rituál jako chvíle pro sebe.",
+    "Jak panel bezpečně používat (oči, návod, vzdálenost podle výrobce).",
+    "Jak vybrat velikost panelu podle toho, co chcete osvětlit.",
+    "Co je a co není fotobiomodulace."
+   ],
+   "never_cs": [
+    "Jakýkoli výsledek na pleti a vzhledu: vrásky, kolagen, jizvy, akné, pigmentace, zpevnění, omlazení, 'anti-aging'.",
+    "Ošetření pleti, odstranění chloupků nebo tetování, redukce tuku, tvar těla.",
+    "Fotografie před a po a svědectví o vzhledu.",
+    "Doporučení lékařů či kosmetiček."
+   ],
+   "care_cs": "Nejrizikovější oblast. Tvrzení o vzhledu a kůži se blíží kosmetickým a podle přílohy XVI nařízení o zdravotnických prostředcích možná i regulovaným výrobkům; ověřených studií k vzhledu pleti je v registru nula. Obsah proto stavět na rituálu a bezpečném používání, ne na výsledku, a každý kus nechat posoudit právníkem.",
+   "topics": [],
+   "brief": {
+    "topic": "světelná rutina v péči o sebe",
+    "audience": "lidé, které zajímá péče o sebe a večerní rituály",
+    "keyword": "světelná rutina v péči o sebe",
+    "secondary_keywords": [
+     "večerní rituál",
+     "jak bezpečně používat světelný panel",
+     "jak vybrat velikost panelu"
+    ],
+    "topic_forms": {
+     "gen": "světelné rutiny v péči o sebe",
+     "dat": "světelné rutině v péči o sebe",
+     "acc": "světelnou rutinu v péči o sebe",
+     "loc": "světelné rutině v péči o sebe",
+     "ins": "světelnou rutinou v péči o sebe"
+    },
+    "avoid": [
+     "zázrak",
+     "revoluční",
+     "vrásky",
+     "kolagen",
+     "omlazení",
+     "anti-aging",
+     "jizvy",
+     "akné",
+     "před a po"
+    ]
+   }
+  },
+  {
+   "id": "everyday",
+   "risk": "high",
+   "name_cs": "Běžní lidé, kteří chtějí zlepšit pohodu",
+   "name_en": "Everyday people who want to improve their wellbeing",
+   "who_cs": "Lidé bez sportovních ambicí, kteří chtějí do dne zařadit klidnou rutinu. Zadavatel je původně popsal jako lidi s problémy; nástroj je oslovuje jen přes pohodu a rutinu, ne přes zdravotní potíže.",
+   "who_en": "People without sporting ambitions who want a calm routine in their day. The requester first described them as people with problems; the tool addresses them through wellbeing and routine only, never through health problems.",
+   "say_cs": [
+    "Klidná večerní rutina se světlem, jak ji zařadit do dne.",
+    "Jak panel bezpečně používat a co si přečíst v návodu.",
+    "Co o světle říkají studie na zdravých lidech a proč výsledky slíbit nelze.",
+    "Kdy se poradit s lékařem a že panel lékaře nenahrazuje."
+   ],
+   "never_cs": [
+    "Oslovování lidí s potížemi: 'Trápí vás bolest?', 'Máte problémy se spánkem?', 'Trpíte únavou?'.",
+    "Jakákoli nemoc, příznak, bolest, zánět, deprese, nespavost.",
+    "Sliby úlevy, zlepšení zdraví nebo 'pomůže vám s problémy'.",
+    "Tvrzení, že panel nahradí léky, lékaře nebo fyzioterapii."
+   ],
+   "care_cs": "Zranitelní spotřebitelé: úřady hodnotí reklamu z pohledu skupiny, na kterou míří, a u lidí s potížemi je laťka přísnější. Oslovit potíže znamená tvrdit léčebný účel, a tím se z wellness přístroje může stát nezdravotnický prostředek bez povolení. Proto pouze pohoda a rutina, vždy s odkazem na lékaře u potíží.",
+   "topics": [
+    "pbm-energy-wellbeing",
+    "pbm-sleep"
+   ],
+   "brief": {
+    "topic": "večerní světelná rutina",
+    "audience": "lidé, kteří chtějí do dne zařadit klidnou večerní rutinu",
+    "keyword": "večerní světelná rutina",
+    "secondary_keywords": [
+     "klidná večerní rutina",
+     "jak používat světelný panel doma",
+     "světelný panel pro každodenní pohodu"
+    ],
+    "topic_forms": {
+     "gen": "večerní světelné rutiny",
+     "dat": "večerní světelné rutině",
+     "acc": "večerní světelnou rutinu",
+     "loc": "večerní světelné rutině",
+     "ins": "večerní světelnou rutinou"
+    },
+    "avoid": [
+     "zázrak",
+     "revoluční",
+     "problémy",
+     "potíže",
+     "bolest",
+     "nespavost",
+     "trápí vás",
+     "trpíte"
+    ]
+   }
+  },
+  {
+   "id": "tech",
+   "risk": "low",
+   "name_cs": "Technologičtí nadšenci",
+   "name_en": "Technology enthusiasts",
+   "who_cs": "Lidé, které zajímá technika: LED čipy, vlnové délky, měření, ovládání z aplikace.",
+   "who_en": "People interested in the technology: LED chips, wavelengths, measurement, app control.",
+   "say_cs": [
+    "Jak je panel postavený: počet diod, vlnové délky, plocha.",
+    "Jak se měří ozáření a proč záleží na vzdálenosti a přístroji.",
+    "Ovládání a nastavení (jen to, co potvrdí výrobce).",
+    "Označení CE a UKCA a RoHS jako označení shody elektrických zařízení."
+   ],
+   "never_cs": [
+    "Čísla bez zdroje, metody a vzdálenosti.",
+    "Superlativy (nejsilnější, nejlepší, evropský lídr) bez doložení.",
+    "Srovnání s konkurencí bez ověřených dat.",
+    "Označení CE nebo UKCA jako zdravotnické schválení."
+   ],
+   "care_cs": "Nejméně rizikové téma, ale technická čísla musí potvrdit výrobce včetně vzdálenosti a metody měření. Do doby potvrzení raději parametry jen popsat a nepřepočítávat.",
+   "topics": [
+    "pbm-device-specs",
+    "pbm-mechanism",
+    "pbm-dose-response"
+   ],
+   "brief": {
+    "topic": "LED panel s červeným a infračerveným světlem",
+    "audience": "technologičtí nadšenci, kteří srovnávají parametry zařízení",
+    "keyword": "LED panel s červeným světlem",
+    "secondary_keywords": [
+     "vlnové délky červeného a infračerveného světla",
+     "ozáření mW/cm2 a vzdálenost",
+     "označení CE UKCA RoHS"
+    ],
+    "topic_forms": {
+     "gen": "LED panelu s červeným a infračerveným světlem",
+     "dat": "LED panelu s červeným a infračerveným světlem",
+     "acc": "LED panel s červeným a infračerveným světlem",
+     "loc": "LED panelu s červeným a infračerveným světlem",
+     "ins": "LED panelem s červeným a infračerveným světlem"
+    },
+    "avoid": [
+     "zázrak",
+     "revoluční",
+     "nejsilnější",
+     "nejlepší",
+     "evropský lídr"
+    ]
+   }
+  },
+  {
+   "id": "seniors",
+   "risk": "high",
+   "name_cs": "Starší lidé",
+   "name_en": "Older people",
+   "who_cs": "Starší lidé, kteří hledají jednoduché a bezpečné domácí zařízení a srozumitelné vysvětlení.",
+   "who_en": "Older people looking for a simple, safe home device and a clear explanation.",
+   "say_cs": [
+    "Jak se panel zapíná a ovládá, krok za krokem a srozumitelně.",
+    "Bezpečné používání: ochrana očí, návod výrobce, kdy se poradit s lékařem.",
+    "Co panel je a není: pomůcka k podpoře regenerace zdravého organismu, ne zdravotnický prostředek.",
+    "Klidný tón, krátké věty, žádný časový tlak."
+   ],
+   "never_cs": [
+    "Jakékoli zdravotní tvrzení, nemoc, příznak nebo prevence, včetně nepřímých ('na klouby', 'pro lepší pohyblivost').",
+    "Strach, tlak, falešný nedostatek a časově omezené nabídky.",
+    "Anti-aging a omlazení, tlak na mládí.",
+    "Svědectví o zdraví a doporučení lékařů."
+   ],
+   "care_cs": "Zranitelní spotřebitelé: starší lidé jsou častěji cílem klamavé reklamy a úřady je posuzují přísněji. Žádné zdravotní přínosy, jen srozumitelnost a bezpečí. Prodejní tlak a komunikace přes zdravotní obavy jsou vyloučené.",
+   "topics": [],
+   "brief": {
+    "topic": "světelný panel pro každodenní použití",
+    "audience": "starší lidé, kteří hledají jednoduché a bezpečné domácí zařízení",
+    "keyword": "světelný panel pro každodenní použití",
+    "secondary_keywords": [
+     "jak ovládat světelný panel",
+     "bezpečné používání světelného panelu",
+     "co přečíst v návodu"
+    ],
+    "topic_forms": {
+     "gen": "světelného panelu pro každodenní použití",
+     "dat": "světelnému panelu pro každodenní použití",
+     "acc": "světelný panel pro každodenní použití",
+     "loc": "světelném panelu pro každodenní použití",
+     "ins": "světelným panelem pro každodenní použití"
+    },
+    "avoid": [
+     "zázrak",
+     "revoluční",
+     "omlazení",
+     "anti-aging",
+     "mládí",
+     "pohyblivost",
+     "klouby",
+     "jen dnes",
+     "poslední kusy"
+    ]
+   }
+  }
+ ]
+}

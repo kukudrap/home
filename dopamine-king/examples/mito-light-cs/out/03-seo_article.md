@@ -62,6 +62,7 @@ Co se hodí mít po ruce:
 - Záznam rutiny: datum, doba sezení podle návodu, dojem a výkon. Pomůže vám posoudit, jestli se vám rutina vyplácí.
 - Souhrnné studie místo sloganů, například metaanalýzy z časopisů Sports Medicine a Lasers in Medical Science, ze kterých vychází tento článek [2] [1].
 - Porovnání parametrů: vlnové délky, počet diod a údaj o ozáření s uvedenou vzdáleností a metodou měření.
+- Označení výrobku: zařízení mají označení CE a UKCA a splňují požadavky RoHS. Jde o označení shody elektrických zařízení, ne o zdravotnické schválení.
 - Nabídka MITO LIGHT od žárovky pro lokální použití po celotělový panel, pokud hledáte zařízení české značky vyvíjené a navrhované v České republice.
 
 ## Časté dotazy
