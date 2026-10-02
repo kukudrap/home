@@ -92,6 +92,7 @@ python3 -m dopamine_king evidence verify --save .king/ledger.json    # ověřen�
 src/dopamine_king/   scoring, ingest, research, analysis, lab, generate, guru, server, cli
 web/                 hra (zdroje, testy), web/dist = sestavený jediný HTML soubor
 docs/                vize, hra, architektura, metodika, sběr dat a právo, roadmapa, edice MITO LIGHT, regulace (česky)
+examples/            hotová ukázka textů pro MITO LIGHT (fills.json a výsledek v out/)
 tests/               Python (unittest), web/tests = JavaScript (node --test)
 ```
 
