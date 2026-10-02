@@ -42,3 +42,11 @@
 - Neukládat a nepublikovat cizí text jako vlastní. Dopamine King učí **vzory** (struktura, délka, typ hooku), ne kopíruje věty.
 - Nesbírat osobní profily ani komentáře jednotlivců.
 - Nepoužívat vzorek značek jako "důkaz" o výkonu bez uvedení zdroje a zkreslení.
+
+## Zdravotní tvrzení v obsahu konkurence (obor PBM)
+
+Značky v oboru fotobiomodulace běžně používají zdravotní a léčebná tvrzení (bolest, zánět, vlasy, pleť, hormony). Pro korpus a analytiku to znamená dvě věci:
+
+- **Učíme se vzory, ne tvrzení.** Sběrač ukládá metadata a krátký výňatek; analytika hledá strukturu a typ hooku. Zdravotní tvrzení konkurence se nepřebírají do generovaných textů: profil `wellness` je zablokuje a mapa tvrzení říká, které téma se smí zmínit jen opatrně.
+- **To, co smí konkurence (nebo jiná země), nemusí smět vaše značka.** Americké texty se řídí jiným režimem než české a evropské (v USA hraje roli politika FDA k obecnému wellness a doporučení FTC, v EU nařízení o zdravotnických prostředcích a směrnice o nekalých obchodních praktikách, v Česku navíc zákon o regulaci reklamy). Přehled a míru jistoty u každého poznatku najdete v [08-regulace-pbm.md](08-regulace-pbm.md). **Není to právní poradenství.**
+

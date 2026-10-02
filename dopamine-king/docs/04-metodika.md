@@ -54,9 +54,36 @@ Výkon obsahu se **normalizuje**, aby nevyhrávaly velké účty: engagement se 
 ## 5. Důkazy (`research/`)
 - **Hodnocení studie:** hierarchie designu (metaanalýza a systematický přehled 1,0; RCT a polní experiment 0,85; laboratorní experiment 0,7; observační studie 0,55; průzkum 0,5; teorie 0,4; kvalitativní 0,35; preprint 0,4; kniha 0,3; neznámé 0,25), malý bonus za citace za rok, preprint nemůže přesáhnout B, stažená práce je vždy D. Práh: A od 0,8, B od 0,6, C od 0,4.
 - **Souhrn taktiky:** `strong` (aspoň dvě podporující studie A nebo B a žádná protichůdná A nebo B), `contested`, `moderate`, `limited`, `none`.
-- **Ověření:** `kingctl evidence verify` porovná každou studii s Crossref (shoda názvu a roku). Seed ledger je z větší části už ověřen přes veřejné zdroje (23 z 32); ostatní záznamy zůstávají označené jako neověřené, dokud ověření neproběhne.
+- **Ověření:** `kingctl evidence verify` porovná každou studii s Crossref (shoda názvu a roku). Seed ledger je z větší části už ověřen přes veřejné zdroje (23 z 32); ostatní záznamy zůstávají označené jako neověřené, dokud ověření neproběhne. Ledger oboru PBM má 41 záznamů, z toho 25 ověřených; 16 je označeno jako neověřené podněty a do síly důkazů se nepočítají. Hledání nových studií umí i PubMed (`evidence search --sources pubmed`).
 
 ## 6. SEO, GEO, Trust Shield (`generate/`)
 - **SEO skóre:** délka titulku a meta popisu, klíčové slovo v titulku, H1 a prvních 100 slovech, hustota 0,5 až 2,5 procenta, délka vět, FAQ, zdroje, délka textu. **Quality gate** odmítne článek bez vlastní zkušenosti nebo faktů jako nepublikovatelný (hromadně vyráběný obsah s nízkou hodnotou je podle zásad vyhledávačů riziko).
 - **GEO skóre:** kontrolní seznam vážený podle výzkumu GEO (Aggarwal a kol., 2024: citace, citáty a statistiky pomáhaly nejvíc, nacpání klíčových slov nepomáhalo): zdroje, statistiky se zdrojem, citáty jmenovaných osob, odpověď na začátku, struktura, FAQ, srozumitelnost entity, aktuálnost, autor, schema, čitelnost. Výsledky pocházejí z jednoho benchmarku, na komerčních enginech se mohou lišit.
+- **Profil tvrzení wellness:** viz část 7.
 - **Trust Shield:** pravidla pro nepodložená tvrzení a statistiky, absolutní sliby, zdravotní a finanční sliby, falešný nedostatek a naléhavost, confirmshaming, engagement bait, skryté prompty pro AI, chybějící označení reklamy, osobní údaje, nenalezené citace.
+
+## 7. Profil tvrzení wellness a mapa tvrzení (`generate/claims.py`, `verticals/`)
+
+Obor PBM (edice MITO LIGHT) přidává pravidla pro nezdravotnický přístroj. Údaje (témata, seznamy výrazů, vzorce) jsou v `data/verticals/pbm/claims.json` a `guard.json`, algoritmus je obecný.
+
+### Jak kontrolor čte text
+1. Text se převede na malá písmena a zbaví diakritiky (čeština s háčky i bez nich funguje stejně), poloha znaků se zachová, aby šlo označit konkrétní místo.
+2. Každý výraz ze seznamu se přeloží na regulární výraz; hvězdička na konci slova znamená kmen (`léč*`). Výraz o více slovech se hledá celý.
+3. **Blízkost.** Pravidla se ptají na dvojice (sloveso nebo podstatné jméno léčby, téma nebo nemoc) v okně 5 slov (u oslovování nemocných 8). Okno nikdy nepřekročí konec věty (tečka, otazník, vykřičník, středník, nový řádek).
+4. **Zápor.** Hledá se **nejbližší** zápor před výrazem (do 60 znaků a s mezerou nejvýš 40 znaků); nová klauzule ("..., je to naprosto neškodné") zápor ruší. Díky tomu projde "Přístroj neslouží k léčbě nemocí", ale neprojde "Ochrana očí není nutná, je to naprosto neškodné".
+5. **Maskování.** Standardní věty (odmítnutí zdravotního určení, "vyzkoušejte bez rizika", "bezpečná platba") se nehodnotí.
+6. **Otázky** nejsou tvrzení, kromě oslovení nemocných a rady o lécích.
+7. **Opatrné slovo a zdroj.** Přínos v třídě wellness s "může", "u zdravých lidí" nebo s odkazem na zdroj je v pořádku. Bez toho je varování `CLAIM_UNHEDGED`. U zdravotních témat opatrné slovo nepomáhá.
+8. Při překrytí vyhrává přísnější třída (souvislosti, wellness, vzhled, zdravotní, zakázáno).
+
+### Mapa tvrzení: štítek síly důkazů
+Pro každé téma se spočítá štítek (`none`, `limited`, `moderate`, `strong`, `contested`) z ledgeru takto: (1) počítají se **jen ověřené studie**, neověřené jsou vidět jako "čeká na ověření", ale štítek nezvedou, (2) štítek **nepřekročí ruční strop** tématu (`label_cap`), který kurátor odůvodní (malé studie, různé protokoly, klinické přístroje, které se na domácí panely nepřenáší), (3) při rozporu kvalitních studií zůstává `contested`. Mapa **neříká, že tvrzení je dovolené**: třída tématu určuje, zda a s jakou formulací se smí vůbec zmínit.
+
+### Jak byla pravidla ověřena a co to znamená
+- Jednotkové testy na stovkách vět v češtině, češtině bez diakritiky a angličtině (správné i nesprávné formulace).
+- **Sada 50 příkladů psaných odděleně od pravidel** (například svědectví se slovesy "zmizela" či "vymizelo", nahrazení léků, schválení ministerstvem). Při prvním použití odhalila mezery, které jsem doplnil; teprve potom prošla 50 z 50. Sada tedy pomohla pravidla opravit a už není zcela nezávislá. Je to ověření, že pravidla nejsou naučená nazpaměť, ne důkaz, že jsou úplná; novou nezávislou sadu je třeba sestavit při každém větším rozšíření pravidel.
+- 150 "golden" případů shodných v Pythonu a JavaScriptu.
+
+### Limity (co kontrolor neumí)
+Čte slova, ne význam: obrázky, hashtagy, ironii, tvrzení rozložená do více vět a zvláštní slovní obraty (například nový slang) nezachytí a zdravé věty může označit omylem. Jazyky mimo češtinu a angličtinu nehlídá. Je to **pomůcka pro člověka**, ne právní posudek ani schvalovací orgán.
+

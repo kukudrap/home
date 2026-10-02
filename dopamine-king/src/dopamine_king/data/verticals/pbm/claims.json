@@ -109,7 +109,7 @@
    "domain": "devices",
    "name_en": "Devices differ in output",
    "name_cs": "Zařízení se liší výkonem",
-   "claim_en": "Consumer light panels differ widely in wavelengths, irradiance and treated area, so published and independently measured specifications matter.",
+   "claim_en": "Consumer light panels differ widely in wavelengths, irradiance and illuminated area, so published and independently measured specifications matter.",
    "claim_cs": "Spotřebitelské světelné panely se výrazně liší vlnovými délkami, intenzitou ozáření i plochou, proto záleží na zveřejněných a nezávisle změřených parametrech.",
    "nouns_en": [],
    "nouns_cs": [],
@@ -717,7 +717,8 @@
     "burns",
     "bedsores",
     "diabetic foot",
-    "scar tissue"
+    "scar tissue",
+    "scar*"
    ],
    "nouns_cs": [
     "hojení",
@@ -731,7 +732,9 @@
     "vřed*",
     "dekubit*",
     "popálenin*",
-    "diabetick* noh*"
+    "diabetick* noh*",
+    "jizv*",
+    "jizev"
    ],
    "patterns": [],
    "safe_en": [

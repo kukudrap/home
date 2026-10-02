@@ -36,4 +36,8 @@ Dopamin **není** "hormon štěstí" ani látka slasti. Souvisí hlavně s *cht�
 | Seed ledger studií | 32 záznamů, z toho **23 potvrzeno** veřejnými zdroji (název, časopis, rok, DOI); ostatní nesou poznámku, jak daleko ověření došlo. `kingctl evidence verify` je znovu ověří přes Crossref (potřebuje síť). |
 | Skutečná data značek | Nejsou součástí repozitáře (autorská práva, výkonnostní čísla nejsou veřejná). Demo používá fiktivní značky a **simulovaná** čísla. |
 
+## Edice pro obor: MITO LIGHT (fotobiomodulace)
+
+Obecný stroj se přizpůsobuje oboru **daty, ne kódem**. První edice je pro fotobiomodulaci (červené a blízké infračervené světlo) a značku MITO LIGHT. Protože podle veřejných zdrojů jde o nezdravotnický přístroj, edice přidává profil tvrzení **wellness**: žádná diagnostika, léčba ani prevence nemocí, přínosy jen opatrně a se zdrojem. Silné stránky oboru jsou pod kontrolou důkazů (mapa tvrzení počítá sílu důkazů jen z ověřených studií); to, co se nesmí říkat, hlídá Trust Shield. Podrobnosti v [07-fotobiomodulace.md](07-fotobiomodulace.md), regulace v [08-regulace-pbm.md](08-regulace-pbm.md).
+
 Podrobnosti v `03-architektura.md`, metodika v `04-metodika.md`, pravidla sběru dat v `05-scraping-a-pravo.md`.

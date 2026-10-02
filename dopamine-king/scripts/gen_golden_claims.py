@@ -69,7 +69,7 @@ MIXED = [
     "Přístroj neslouží k diagnostice, léčbě ani prevenci nemocí.", "Vyzkoušejte bez rizika, bezpečná platba.", "Jste-li těhotná, poraďte se s lékařem.",
     "Ochrana očí není nutná, je to naprosto neškodné.", "Moje fibromyalgie zmizela po třech týdnech.", "Zaručeně vám do 30 dnů dorostou vlasy a přestanou vypadávat.",
     "Rozlučte se s lékařem.", "Tento produkt netvrdí nic o růstu ani vypadávání vlasů.", "Zastaví bolest okamžitě.", "Stops pain instantly.",
-    "Panel není schválen FDA a není zdravotnický prostředek.", "Schváleno ministerstvem zdravotnictví jako terapeutické zařízení.",
+    "Zrychluje hojení jizev.", "Speeds scar healing.", "Panel není schválen FDA a není zdravotnický prostředek.", "Schváleno ministerstvem zdravotnictví jako terapeutické zařízení.",
 ]
 
 

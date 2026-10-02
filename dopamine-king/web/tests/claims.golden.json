@@ -483,7 +483,8 @@
      "burns",
      "bedsores",
      "diabetic foot",
-     "scar tissue"
+     "scar tissue",
+     "scar*"
     ],
     "nouns_cs": [
      "hojení",
@@ -497,7 +498,9 @@
      "vřed*",
      "dekubit*",
      "popálenin*",
-     "diabetick* noh*"
+     "diabetick* noh*",
+     "jizv*",
+     "jizev"
     ],
     "patterns": [],
     "safe_en": [
@@ -1041,7 +1044,9 @@
     "odezn*",
     "dorost*",
     "zahoj*",
-    "zhoj*"
+    "zhoj*",
+    "zrychl*",
+    "zrychlí"
    ]
   },
   "benefit_verbs": {
@@ -4586,6 +4591,28 @@
      "topic": "pbm-pain-joints",
      "start": 0,
      "end": 10
+    }
+   ]
+  },
+  {
+   "text": "Zrychluje hojení jizev.",
+   "hits": [
+    {
+     "code": "CLAIM_MEDICAL",
+     "topic": "pbm-wound-healing",
+     "start": 0,
+     "end": 22
+    }
+   ]
+  },
+  {
+   "text": "Speeds scar healing.",
+   "hits": [
+    {
+     "code": "CLAIM_MEDICAL",
+     "topic": "pbm-wound-healing",
+     "start": 7,
+     "end": 19
     }
    ]
   },

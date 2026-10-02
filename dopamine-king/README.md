@@ -1,6 +1,6 @@
 # Dopamine King
 
-> **English TL;DR.** Evidence-driven content intelligence wrapped in a game. It scrapes public brand content politely (robots.txt, TDM reservations, feeds), turns it into cohort-fair benchmarks, tests and compares hooks with real statistics, keeps a graded ledger of the studies behind every tactic, and generates SEO, GEO, social and video content in 28 formats through a trust guard that blocks invented numbers and dark patterns. The Python core has no third-party dependencies; the game is one HTML file; prose is written by Claude (`--writer anthropic`) or left as explicit `[[ADD: ...]]` slots (`--writer offline`). Demo data is synthetic and labelled as such.
+> **English TL;DR.** Evidence-driven content intelligence wrapped in a game. It scrapes public brand content politely (robots.txt, TDM reservations, feeds), turns it into cohort-fair benchmarks, tests and compares hooks with real statistics, keeps a graded ledger of the studies behind every tactic, and generates SEO, GEO, social and video content in 28 formats through a trust guard that blocks invented numbers and dark patterns. The Python core has no third-party dependencies; the game is one HTML file; prose is written by Claude (`--writer anthropic`) or left as explicit `[[ADD: ...]]` slots (`--writer offline`). Demo data is synthetic and labelled as such. The first industry edition targets photobiomodulation (red and near-infrared light) for the Czech brand MITO LIGHT: a non-medical wellness claims profile that blocks disease, treatment and status claims, a claims map backed only by verified studies, and sample briefs in Czech and English.
 
 Marketingový stroj, který **nejdřív zjistí, co skutečně funguje**, a teprve potom **generuje obsah**: SEO a GEO články, příspěvky, video scénáře, reklamy. Celé je to zabalené do hry, ve které si trénujete cit pro silné hooky, porážíte "bossy" benchmarků a učíte se experimentovat.
 
@@ -35,6 +35,25 @@ python3 -m dopamine_king formats                  # všech 28 formátů
 python3 -m dopamine_king guru plan --brand Zorvia --topic "běžecké boty" --audience "začínající běžci"
 ```
 
+### Edice MITO LIGHT (fotobiomodulace)
+
+Obecný stroj má první **obor** (vertical): fotobiomodulaci (PBM, červené a blízké infračervené světlo) pro značku **MITO LIGHT**. Obor je soubor dat v `src/dopamine_king/data/verticals/pbm/`, obecný stroj se nemění. Přidává:
+
+- profil tvrzení **wellness** pro nezdravotnický přístroj: Trust Shield blokuje diagnostiku, léčbu, prevenci a zmírnění nemocí, stavové fráze ("schváleno", "klinicky prokázáno"), absolutní bezpečnost a nahrazování lékaře, a upozorní na přínosy bez opatrné formulace, sliby výsledků, dávky mimo návod a chybějící bezpečnostní upozornění,
+- **mapu tvrzení** (19 témat, pět tříd) se silou důkazů počítanou jen z ověřených studií,
+- registr 41 záznamů o studiích (25 ověřených, 16 výslovně označených jako neověřené podněty), registr 26 značek a organizací oboru, vzorová zadání MITO LIGHT česky a anglicky a obsah hry (Boss s kontrolou tvrzení, Mýtus nebo fakt, mapa tvrzení v Trezoru).
+
+```bash
+python3 -m dopamine_king demo --vertical pbm                        # prohlídka edice na simulovaných datech
+python3 -m dopamine_king evidence claims --vertical pbm             # co smím říct a s jakou silou důkazů
+python3 -m dopamine_king forge --vertical pbm --sample mito-light-cs --writer offline --out out/mito-cs
+python3 -m dopamine_king guru plan --vertical pbm --sample mito-light-cs
+python3 -m dopamine_king audit stranka.txt                          # kontrola existujícího textu, kód 1 při chybě
+python3 -m dopamine_king evidence search "photobiomodulation sleep" --sources pubmed   # nové studie (síť)
+```
+
+Podrobnosti v [docs/07-fotobiomodulace.md](docs/07-fotobiomodulace.md), regulace a zdroje v [docs/08-regulace-pbm.md](docs/08-regulace-pbm.md). **Pravidla nejsou právní poradenství.** Zjištění o stavu přístroje (nezdravotnický prostředek) vychází z jediného nepotvrzeného zdroje, viz docs/08.
+
 ### Živý sběr a studie (potřebují síť)
 
 ```bash
@@ -56,6 +75,9 @@ python3 -m dopamine_king evidence verify --save .king/ledger.json    # ověřen�
 | Psaní prózy modelem Claude | Napsáno podle dokumentace a **otestováno proti atrapě**; živé API zde nebylo možné vyzkoušet (bez klíče) |
 | Šetrný sběr, import analytik | Hotovo, otestováno offline i proti lokálnímu HTTP serveru; **živý sběr vyžaduje síť** (prostředí, kde kód vznikl, povolilo ze 111 značek jen jednu) |
 | Ledger studií | 32 záznamů; **23 potvrzeno** veřejnými zdroji (název, časopis, rok, DOI), zbytek má u sebe poznámku, jak daleko ověření došlo. `evidence verify` ověří přes Crossref. |
+| Edice MITO LIGHT: profil wellness, mapa tvrzení, hra | Hotovo a otestováno na příkladech správných i nesprávných formulací a na 150 "golden" případech, které musí dát v Pythonu i v JavaScriptu stejný výsledek. **Pravidla je třeba nechat zkontrolovat regulatorním poradcem.** |
+| Registr důkazů PBM | 41 záznamů: 25 ověřených veřejnými zdroji, 16 jsou **neověřené podněty** z paměti autora (označené, do síly důkazů se nepočítají). Hledání studií přes PubMed je napsané a otestované offline. |
+| Fakta o MITO LIGHT | Z veřejných zdrojů (výsledky vyhledávání, ne z otevřených stránek), **k potvrzení značkou**; čísla a parametry si značka musí schválit. |
 | Reálná data značek | Nejsou v repozitáři (autorská práva a výkonnostní čísla nejsou veřejná). Demo používá **fiktivní značky a simulovaná čísla**. |
 
 ## Struktura
@@ -63,11 +85,11 @@ python3 -m dopamine_king evidence verify --save .king/ledger.json    # ověřen�
 ```
 src/dopamine_king/   scoring, ingest, research, analysis, lab, generate, guru, server, cli
 web/                 hra (zdroje, testy), web/dist = sestavený jediný HTML soubor
-docs/                vize, hra, architektura, metodika, sběr dat a právo, roadmapa (česky)
+docs/                vize, hra, architektura, metodika, sběr dat a právo, roadmapa, edice MITO LIGHT, regulace (česky)
 tests/               Python (unittest), web/tests = JavaScript (node --test)
 ```
 
-Dokumentace: [vize](docs/01-vize.md), [herní design](docs/02-hra.md), [architektura](docs/03-architektura.md), [metodika](docs/04-metodika.md), [sběr dat a právo](docs/05-scraping-a-pravo.md), [roadmapa](docs/06-roadmapa.md).
+Dokumentace: [vize](docs/01-vize.md), [herní design](docs/02-hra.md), [architektura](docs/03-architektura.md), [metodika](docs/04-metodika.md), [sběr dat a právo](docs/05-scraping-a-pravo.md), [roadmapa](docs/06-roadmapa.md), [edice MITO LIGHT](docs/07-fotobiomodulace.md), [regulace reklamy](docs/08-regulace-pbm.md).
 
 ## Testy
 
@@ -89,4 +111,5 @@ node web/tests/smoke.playwright.mjs     # projde všechny pohledy v cs i en, sv�
 - **Demo čísla jsou simulovaná**; hra to na každém odhalení říká.
 - **Žádné automatické publikování.** Výstup je koncept pro člověka; quality gate blokuje články bez vlastní zkušenosti.
 - **Právo:** sběr respektuje `robots.txt` a rezervaci práv TDM, ukládá jen metadata a krátký výňatek. Není to právní poradenství, viz [docs/05-scraping-a-pravo.md](docs/05-scraping-a-pravo.md).
+- **Edice MITO LIGHT hlídá slova, ne záměr.** Pravidla poznají zakázané formulace, ne obrázky, hashtagy ani celkový dojem; schválení textu před zveřejněním zůstává na člověku. Číslo studie v mapě tvrzení neznamená, že se týká právě vašeho přístroje.
 - Licence zatím není určena: rozhodnutí je na majiteli repozitáře.

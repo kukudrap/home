@@ -385,6 +385,36 @@ class CommandLineTests(unittest.TestCase):
                                "--formats", "hook_set", "--writer", "offline", "--json")
         self.assertEqual(json.loads(out)["brief"]["claims_profile"], "wellness")
 
+    def test_audit_flags_existing_copy_and_sets_the_exit_code(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as tmp:
+            bad = Path(tmp) / "page.txt"
+            bad.write_text("Červené světlo zmírňuje zánět a bolest zad. Zrychluje hojení jizev. Bez vedlejších účinků.", "utf-8")
+            good = Path(tmp) / "ok.txt"
+            good.write_text("Mnoho lidí zařazuje sezení pod červeným světlem do večerní rutiny. Před použitím si přečtěte návod výrobce.", "utf-8")
+            code, out, _ = run_cli("audit", str(bad))
+            self.assertEqual(code, 1)
+            for needle in ("CLAIM_MEDICAL", "SAFETY_ABSOLUTE", "Zdravotní tvrzení"):
+                self.assertIn(needle, out)
+            code, out, _ = run_cli("audit", str(bad), "--json")
+            rows = json.loads(out)
+            self.assertEqual((code, rows[0]["lang"]), (1, "cs"))
+            self.assertGreaterEqual(rows[0]["errors"], 3)
+            code, out, _ = run_cli("audit", str(good))
+            self.assertEqual(code, 0)
+            self.assertIn("0 errors", out)
+            with self.assertRaises(SystemExit):
+                run_cli("audit", str(Path(tmp) / "missing.txt"))
+
+    def test_audit_accepts_brand_facts(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as tmp:
+            page = Path(tmp) / "p.txt"
+            page.write_text("The panel is certified to the ETL electrical safety standard.", "utf-8")
+            code, out, _ = run_cli("audit", str(page), "--lang", "en")
+            code_with, out_with, _ = run_cli("audit", str(page), "--lang", "en", "--fact", "The panel is certified to the ETL electrical safety standard.")
+            self.assertNotIn("STATUS_CLAIM", out_with)
+
     def test_bad_input_is_a_plain_error(self):
         for argv in (["forge", "--sample", "x"], ["forge", "--vertical", "nope", "--brand", "a", "--topic", "b", "--audience", "c"],
                      ["forge", "--vertical", "pbm", "--sample", "missing"]):

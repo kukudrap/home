@@ -429,6 +429,44 @@ def cmd_guru(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_audit(args: argparse.Namespace) -> int:
+    """Run the claims profile over existing copy (a product page, an article, a post) and list what a regulator would read."""
+    from .generate.guard import TrustShield
+    from .scoring import detect_lang
+    vertical = _vertical(args)
+    if vertical is None:
+        from .verticals import load_vertical
+        vertical = load_vertical("pbm")
+    texts: list[tuple[str, str]] = []
+    for name in args.files:
+        if name == "-":
+            texts.append(("stdin", sys.stdin.read()))
+        else:
+            path = Path(name)
+            if not path.exists():
+                raise SystemExit(f"error: no such file: {name}")
+            texts.append((name, path.read_text("utf-8")))
+    shield = TrustShield(vertical.ledger())
+    rows: list[dict[str, Any]] = []
+    worst = 0
+    for name, text in texts:
+        lang = args.lang or detect_lang(text)
+        brief = Brief(brand=args.brand or vertical.default_brand or "brand", topic="audit", audience="audit", lang=lang,
+                      vertical=vertical.id, claims_profile=args.claims_profile or vertical.claims_profile, facts=args.fact or [])
+        issues = [i for i in shield.check(text, brief) if i.code != "AI_DISCLOSURE_REMINDER"]
+        errors = sum(i.severity == "error" for i in issues)
+        worst = max(worst, 1 if errors else 0)
+        rows.append({"file": name, "lang": lang, "errors": errors, "warnings": sum(i.severity == "warn" for i in issues),
+                     "issues": [i.to_dict() for i in issues]})
+        if not args.json:
+            print(f"== {name} ({lang}): {errors} errors, {rows[-1]['warnings']} warnings, verdict {shield.verdict(issues)}")
+            for i in issues:
+                print(f"  [{i.severity:<5}] {i.code:<20} {i.where or ''}\n      {i.message}")
+    if args.json:
+        _emit(rows)
+    return worst
+
+
 def cmd_visibility(args: argparse.Namespace) -> int:
     from .generate.visibility import AnswerRecord, analyze_answers
     raw = json.loads(Path(args.answers).read_text("utf-8"))
@@ -673,6 +711,14 @@ def build_parser() -> argparse.ArgumentParser:
     x.add_argument("--weeks", type=int, default=4), x.add_argument("--posts-per-week", type=int, default=5), x.add_argument("--channels")
     x.add_argument("--json", action="store_true")
     s.set_defaults(fn=cmd_guru)
+
+    s = sub.add_parser("audit", help="check existing copy against the claims profile (exit code 1 when it has errors)")
+    s.add_argument("files", nargs="+", help="text files, or - for standard input")
+    s.add_argument("--vertical", help="default: pbm"), s.add_argument("--lang", choices=["en", "cs"], help="default: detected")
+    s.add_argument("--claims-profile", choices=["general", "wellness"]), s.add_argument("--brand")
+    s.add_argument("--fact", action="append", help="a verified first-party fact the copy may state, repeatable")
+    s.add_argument("--json", action="store_true")
+    s.set_defaults(fn=cmd_audit)
 
     s = sub.add_parser("visibility", help="AI answer visibility from pasted answers (JSON)")
     s.add_argument("answers"), s.add_argument("--brand", required=True), s.add_argument("--competitors"), s.add_argument("--domains")
