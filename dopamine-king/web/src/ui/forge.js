@@ -58,7 +58,8 @@
     if (facts.length) out.facts = facts;
     if (b.vertical) out.vertical = b.vertical;
     if (b.claims_profile) out.claims_profile = b.claims_profile;
-    if (b.safety_note && String(b.safety_note).trim()) out.safety_note = String(b.safety_note).trim();
+    // The safety note field is hidden for the general profile, so what is sent matches what the person sees.
+    if (b.claims_profile && b.claims_profile !== "general" && b.safety_note && String(b.safety_note).trim()) out.safety_note = String(b.safety_note).trim();
     return out;
   }
 

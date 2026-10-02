@@ -606,6 +606,12 @@ test("Forge: the brief keeps the vertical, the claims profile and the safety not
   const general = forge.briefToApi(Object.assign({}, shared.brief, { claims_profile: "general", safety_note: "  ", vertical: null }));
   assert.equal(general.claims_profile, "general");
   assert.ok(!("vertical" in general) && !("safety_note" in general), "empty fields are left out");
+  // the safety note field is hidden for the general profile, so a note typed earlier is not sent with it
+  const stale = forge.briefToApi(Object.assign({}, shared.brief, { claims_profile: "general", safety_note: "Protect your eyes." }));
+  assert.equal(stale.claims_profile, "general");
+  assert.ok(!("safety_note" in stale), "a hidden safety note is not sent with the general profile");
+  const kept = forge.briefToApi(Object.assign({}, shared.brief, { claims_profile: "wellness", safety_note: "  Protect your eyes.  " }));
+  assert.equal(kept.safety_note, "Protect your eyes.", "the wellness profile sends the trimmed note");
   Object.assign(shared.brief, JSON.parse(before));
   shared.seeded = false;
 });

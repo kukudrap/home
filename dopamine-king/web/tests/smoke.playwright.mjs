@@ -12,7 +12,7 @@
 // It uses the Chromium that is already installed (never downloads one). Every run fails on any console error,
 // page error, failed request or request that leaves the machine. Per combination (390x844 and 1280x800, dark and
 // light) it plays 3 Arena rounds, types a hook in a Boss fight and checks the meter moves, opens a chest, runs a Lab
-// duel, switches language, and screenshots every view in both languages. Extra checks: no horizontal scroll at 360px,
+// duel, switches language, and screenshots every view in both languages. Extra checks: no horizontal scroll at 320px,
 // Tab order and visible focus rings, the break card (fake clock), reduced motion, and live mode.
 // The default build is the MITO LIGHT edition, so every combination also checks the claims features: the Boss claims
 // panel (a medical claim is an error, a compliant hook passes and wins), the Vault Claims map and its "Check your own
@@ -787,29 +787,49 @@ async function reducedMotionFlow(browser, combo) {
   await context.close();
 }
 
-// -- layout at 360px ----------------------------------------------------------------------------------------------
+// -- layout at 320px ----------------------------------------------------------------------------------------------
 async function narrowFlow(browser) {
   for (const locale of ["en-US", "cs-CZ"]) {
-    const { context, page } = await open(browser, { w: 360, h: 740, scheme: "dark" }, { locale });
-    const problems = watch(page, "360px");
+    const { context, page } = await open(browser, { w: 320, h: 640, scheme: "dark" }, { locale });
+    const problems = watch(page, "320px");
     await boot(page);
     for (const [name, route] of VIEWS) {
       await go(page, route);
       const o = await overflow(page);
-      check(o.sw <= o.cw, `360px ${locale} ${name}: no horizontal scroll (${o.sw} > ${o.cw})`);
+      check(o.sw <= o.cw, `320px ${locale} ${name}: no horizontal scroll (${o.sw} > ${o.cw})`);
     }
+    // The claims features at the narrowest width: findings in the Boss fight and its result, the Claims map with the
+    // checker's result and every card's details open.
+    const lang = locale.startsWith("cs") ? "cs" : "en";
+    await go(page, "boss");
+    await page.locator(".boss-card").first().click();
+    await page.waitForSelector("#hook-input");
+    await page.fill("#hook-input", BAD_HOOK[lang] + ". " + (lang === "cs" ? "Výsledky za 14 dní. Terapie." : "Results in 14 days. Therapy."));
+    await page.waitForSelector(".claims-card .finding");
+    let ow = await overflow(page);
+    check(ow.sw <= ow.cw, `320px ${locale} boss fight with claims findings: no horizontal scroll (${ow.sw} > ${ow.cw})`);
+    await page.click(".attack-btn");
+    await page.waitForSelector(".fight-result");
+    ow = await overflow(page);
+    check(ow.sw <= ow.cw, `320px ${locale} boss result with claims findings: no horizontal scroll (${ow.sw} > ${ow.cw})`);
+    await go(page, "vault/claims");
+    await page.click(".claims-check-bar button:nth-child(2)");
+    await page.waitForSelector(".claims-check .finding");
+    await page.evaluate(() => document.querySelectorAll(".claim-more").forEach((el) => { el.open = true; }));
+    ow = await overflow(page);
+    check(ow.sw <= ow.cw, `320px ${locale} claims map with a check result and open details: no horizontal scroll (${ow.sw} > ${ow.cw})`);
     await page.click(".level-chip");
     await page.waitForSelector("dialog[open]");
     const o = await overflow(page);
-    check(o.sw <= o.cw, `360px ${locale} profile dialog: no horizontal scroll`);
+    check(o.sw <= o.cw, `320px ${locale} profile dialog: no horizontal scroll`);
     const fits = await page.evaluate(() => { const r = document.querySelector("dialog[open]").getBoundingClientRect(); return r.left >= 0 && r.right <= document.documentElement.clientWidth; });
-    check(fits, `360px ${locale} profile dialog fits`);
+    check(fits, `320px ${locale} profile dialog fits`);
     await page.keyboard.press("Escape");
     await go(page, "guru");
     await page.locator(".cal-item").first().click();
     await page.waitForSelector("dialog[open] .cal-detail");
     const o2 = await overflow(page);
-    check(o2.sw <= o2.cw, `360px ${locale} guru dialog: no horizontal scroll`);
+    check(o2.sw <= o2.cw, `320px ${locale} guru dialog: no horizontal scroll`);
     flush(problems);
     await context.close();
   }
@@ -974,7 +994,7 @@ try {
   if (!ONLY) {
     log("\n== extras");
     if (!LIVE_ONLY) {
-      await narrowFlow(browser); log("  360px ok");
+      await narrowFlow(browser); log("  320px ok");
       await breakCardFlow(browser, { w: 1280, h: 800, scheme: "dark" }); log("  break card ok");
       await reducedMotionFlow(browser, { w: 390, h: 844, scheme: "dark" }); log("  reduced motion ok");
     }

@@ -1458,6 +1458,9 @@ button.legend-class:hover { background: var(--surface-3); border-color: var(--bd
 .study-line { flex: 1 1 200px; min-width: 0; overflow-wrap: anywhere; }
 .study-links .muted { white-space: nowrap; }
 
+/* long cohort names of an edition (for example "Domácí zařízení (PBM)") wrap instead of pushing a 320px screen sideways */
+.boss-head-body .chip, .boss-card .chip { max-width: 100%; white-space: normal; text-align: left; }
+
 /* forge: readable names for claims check codes, claims profile pill */
 .issue-name { display: block; font-size: 14.5px; }
 .profile-pill { max-width: 100%; font-weight: 800; white-space: normal; line-height: 1.25; }
