@@ -314,6 +314,21 @@ test("Boss: attacking with a claim error loses and says why; a clean strong hook
   assert.equal(ctx.profile().stats.bossWins, 1);
 });
 
+test("Boss: a win with a warning is still a win, and the result says the note is left", () => {
+  const env = loadUi(["ui/boss.js"]);
+  const ctx = makeCtx(env, bundle);
+  const boss = bundle.bosses.find((b) => b.lang === "en");
+  const host = env.document.createElement("div");
+  env.document.body.appendChild(host);
+  env.DK.ui.boss.mount(host, ctx, { sub: boss.id });
+  host.querySelector("#hook-input").value = GOOD_HOOK + ": results in 14 days";
+  host.querySelector(".attack-btn").click();
+  const win = host.querySelector(".fight-result.is-win");
+  assert.ok(win, "a warning does not block a win");
+  assert.match(win.textContent, /Claims check passed, 1 note to review/);
+  assert.ok(win.querySelector(".chip.tone-warn"));
+});
+
 test("Boss: without a claims profile the screen is the old one", async () => {
   const env = loadUi(["ui/boss.js"]);
   const b = generic();

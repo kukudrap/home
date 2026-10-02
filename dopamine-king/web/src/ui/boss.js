@@ -400,6 +400,14 @@
       }
     }
 
+    /** A win means no error; warnings and notes do not block it, but the win says they are still there. */
+    function claimsWinChip(report) {
+      var n = report ? report.summary.total : 0;
+      return n > 0
+        ? d.h("span.chip.tone-warn", null, icons.icon("alert", { size: 14 }), d.h("span", null, ctx.tp("boss.victoryClaimsNotes", n)))
+        : d.h("span.chip.tone-ok", null, icons.icon("shieldCheck", { size: 14 }), d.h("span", null, t("boss.victoryClaims")));
+    }
+
     function resultCard(result, resolution, out, report) {
       if (out.won) {
         var xpNum = d.h("strong.xp-gain", null, "+0 XP");
@@ -409,7 +417,7 @@
           d.h("div.result-head", null, xpNum, d.h("span.small.muted", null, out.firstWin ? t("boss.xpFirst") : t("boss.xpRepeat", { n: Math.round(game.XP.bossRepeatShare * 100) }))),
           d.h("div.chip-row", null,
             out.honest ? d.h("span.chip.tone-ok", null, icons.icon("shieldCheck", { size: 14 }), d.h("span", null, t("boss.honestWin"))) : null,
-            engine ? d.h("span.chip.tone-ok", null, icons.icon("shieldCheck", { size: 14 }), d.h("span", null, t("boss.victoryClaims"))) : null,
+            engine ? claimsWinChip(report) : null,
             out.chestGranted ? d.h("span.chip.tone-xp", null, icons.icon("vault", { size: 14 }), d.h("span", null, t("boss.chestGained"))) : d.h("span.chip", null, t("boss.noChestRepeat")),
             d.h("span.chip.tone-brand", null, t("boss.winPct", { p: Math.round(resolution.percentile) }))),
           d.h("div.row.wrap", null,
