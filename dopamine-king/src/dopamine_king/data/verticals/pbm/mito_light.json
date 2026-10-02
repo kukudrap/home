@@ -1,0 +1,242 @@
+{
+ "version": 1,
+ "note": "What public sources say about MITO LIGHT, gathered from web search snippets only (the brand's own pages could not be opened from the build environment). Every item has its source and a confidence level. The brand must confirm or correct all of it before use. No prices, contact details or personal names are stored.",
+ "facts": [
+  {
+   "fact_cs": "MITO LIGHT je česká značka panelů a žárovek s červeným a blízkým infračerveným světlem; zboží prodává ve vlastním českém e-shopu mitolight.cz, jehož úvodní stránka se jmenuje 'Terapie červeným a infračerveným světlem MITO LIGHT®'.",
+   "fact_en": "MITO LIGHT is a Czech brand of red and near-infrared light panels and bulbs, sold through its own Czech e-shop mitolight.cz, whose home page is titled 'Terapie červeným a infračerveným světlem MITO LIGHT®'.",
+   "source_url": "https://www.mitolight.cz/",
+   "confidence": "high",
+   "origin": "brand"
+  },
+  {
+   "fact_cs": "Forbes.cz píše, že Mito Light nabízel panely s červeným světlem na českém trhu jako jeden z úplně prvních (zhruba sedm let před článkem), že zařízení vyvíjí a navrhuje v Česku, komponenty vybírá z různých zemí světa a výrobu podle svých specifikací a pod svou kontrolou zajišťuje dlouhodobý partner v Číně.",
+   "fact_en": "Forbes.cz reports that Mito Light was one of the very first to offer red light panels on the Czech market (about seven years before the article), that it develops and designs its devices in Czechia, selects components from various countries, and has them manufactured to its specification and under its control by a long-term partner in China.",
+   "source_url": "https://forbes.cz/cesi-objevuji-terapii-cervenym-svetlem-roste-z-ni-dalsi-miliardovy-byznys/",
+   "confidence": "high",
+   "origin": "third-party"
+  },
+  {
+   "fact_cs": "Další česká média psala o červeném světle obecně (Seznam Zprávy, cc.cz, Deník, Dr. Max, Newstream); úryvky neukazují, zda zmiňují MITO LIGHT. Zmínka o značce byla potvrzena jen u Forbes.cz.",
+   "fact_en": "Other Czech media covered red light in general (Seznam Zprávy, cc.cz, Deník, Dr. Max, Newstream); the snippets do not show whether they mention MITO LIGHT. A mention of the brand was confirmed only for Forbes.cz.",
+   "source_url": "https://www.seznamzpravy.cz/clanek/magazin-zivotni-styl-posvitte-si-cervene-proc-v-cervenem-svetle-jedou-sportovci-herci-i-astronauti-265068",
+   "confidence": "medium",
+   "origin": "third-party"
+  },
+  {
+   "fact_cs": "Časová osa na stránce O nás začíná obdobím 2016 až 2019: náhodné setkání v posilovně přerostlo v přátelství a společný cíl přinést terapii červeným světlem do Česka, lidé za značkou dovezli panel z USA a vyzkoušeli ho; v roce 2019 následoval první prototyp (Generace 1.0), v listopadu 2019 e-shop MITO LIGHT, v únoru 2021 spolupráce s fotbalovým klubem FC Viktoria Plzeň a později přesun z domácí kanceláře do kanceláře a skladu, televizní reklama, nový web, offline akce a Generace 3.0.",
+   "fact_en": "The About page timeline opens with a 2016 to 2019 period: a chance gym meeting turned into a friendship and a shared goal of bringing red light therapy to Czechia, and the people behind the brand imported a panel from the USA and tested it; a first prototype followed in 2019 (Generation 1.0), the MITO LIGHT e-shop launched in November 2019, a partnership with football club FC Viktoria Plzeň started in February 2021, and the team later moved from a home office to an office and warehouse and launched TV advertising, a new website, offline events and Generation 3.0.",
+   "source_url": "https://www.mitolight.cz/o-nas/",
+   "confidence": "medium",
+   "origin": "brand"
+  },
+  {
+   "fact_cs": "Viditelné kanály značky: vlastní e-shop s blogem (mitolight.cz), mobilní aplikace v App Store, stránky značky a obchodu na Heurece, profily recenzí na Trustpilotu a Trusted Shops a prodejní weby třetích stran; stránka O nás zmiňuje také televizní reklamu a offline akce. Oficiální sociální sítě, newsletter ani podcast se ve výsledcích neobjevily.",
+   "fact_en": "Brand channels visible in search results: its own e-shop with a blog (mitolight.cz), a mobile app in the App Store, brand and shop pages on Heureka, review profiles on Trustpilot and Trusted Shops, and third-party reseller sites; the About page also mentions TV advertising and offline events. No official social profiles, newsletter or podcast appeared in the results.",
+   "source_url": "https://www.mitolight.cz/o-nas/",
+   "confidence": "medium",
+   "origin": "brand"
+  },
+  {
+   "fact_cs": "Český web vede panely po generacích (stránky generací 3.0, 4.0 a 5.0, dále stránka Mitohacker 2.0). Mezi modely se objevují Intro, Starter, Expert, Biohacker, Mitohacker, Master a žárovky Bulb 3.0, 4.0 a 5.0; z příslušenství stojany, lampička k žárovce a brýle proti modrému světlu.",
+   "fact_en": "The Czech site organises products by generation (pages for generations 3.0, 4.0 and 5.0, plus a Mitohacker 2.0 page). Models seen are Intro, Starter, Expert, Biohacker, Mitohacker, Master and Bulb 3.0, 4.0 and 5.0; accessories seen are stands, a flex lamp for the bulb and blue-light-blocking glasses.",
+   "source_url": "https://www.mitolight.cz/znacka/mito-light/",
+   "confidence": "high",
+   "origin": "brand"
+  },
+  {
+   "fact_cs": "Panely generací 4.0 a 5.0 používají šest vlnových délek (630, 660, 670, 810, 830 a 850 nm), LED technologii Multi-Wavelength Dual Chip (každá LED vyzařuje červené i blízké infračervené světlo), úhel svícení 30 stupňů a podle výrobce technologii flicker-free (bez blikání).",
+   "fact_en": "Generation 4.0 and 5.0 panels use six wavelengths (630, 660, 670, 810, 830 and 850 nm), Multi-Wavelength Dual Chip LEDs (each LED emits both red and near-infrared light), a 30 degree beam angle and, according to the brand, flicker-free technology.",
+   "source_url": "https://www.mitolight.cz/generace-5-0/",
+   "confidence": "high",
+   "origin": "brand"
+  },
+  {
+   "fact_cs": "Generace 5.0 podle výrobce nabízí dotykový displej se čtyřmi přednastavenými režimy, u větších modelů nastavení jednotlivých vlnových délek, bezplatnou mobilní aplikaci (oblíbená nastavení, světelný budík s červeným světlem, večerní ambientní osvětlení), možnost bezdrátově propojit více panelů a integrovaný stojan.",
+   "fact_en": "According to the brand, Generation 5.0 offers a touchscreen with four preset modes, per-wavelength adjustment on larger models, a free mobile app (saved favourite settings, a light alarm that wakes with red light, evening ambient light), wireless linking of several panels and an integrated stand.",
+   "source_url": "https://www.mitolight.cz/generace-5-0/",
+   "confidence": "medium",
+   "origin": "brand"
+  },
+  {
+   "fact_cs": "Vysvětlující stránka o fungování terapie popisuje mechanismus přes mitochondrie a ATP, oxid dusnatý a cytochrom c a uvádí, že vlnové délky 630 až 850 nm leží v 'optickém okně' tkání; NASA podle ní testovala červené světlo v 90. letech (rok 1996). Pro náš obsah je nutné formulace zmírnit na 'může' a doplnit zdroje.",
+   "fact_en": "The 'how it works' explainer describes the mechanism via mitochondria and ATP, nitric oxide and cytochrome c, says wavelengths of 630 to 850 nm sit in the tissue 'optical window', and refers to NASA testing red light in the 1990s (1996). For our content the wording must be softened to 'may' and backed with sources.",
+   "source_url": "https://www.mitolight.cz/jak-funguje-terapie-cervenym-a-infracervenym-svetlem/",
+   "confidence": "high",
+   "origin": "brand"
+  },
+  {
+   "fact_cs": "Bulb 5.0 (žárovka pro lokální použití) má 18 LED s úhlem svícení 30 stupňů, deklarované ozáření 65 mW/cm², šest vlnových délek a ovládání z aplikace s nastavením červené a NIR intenzity po 1 % a časovačem; ve výpisu byla cena 2 690 Kč (původně 3 190 Kč), cena se může měnit.",
+   "fact_en": "Bulb 5.0 (a bulb for local use) has 18 LEDs at a 30 degree angle, a stated 65 mW/cm², six wavelengths and app control with red and NIR intensity in 1% steps and a timer;",
+   "source_url": "https://www.mitolight.cz/mito-light-bulb-5-0/",
+   "confidence": "high",
+   "origin": "brand"
+  },
+  {
+   "fact_cs": "Intro je nový základní panel generace 5.0 s kompaktními rozměry pro jednu oblast, deklarovaným ozářením 70 mW/cm² a cenou 7 900 Kč ve výpisu (cena se může měnit).",
+   "fact_en": "Intro is the new basic Generation 5.",
+   "source_url": "https://www.mitolight.cz/cervene-a-infracervene-panely/",
+   "confidence": "medium",
+   "origin": "brand"
+  },
+  {
+   "fact_cs": "Starter 5.0 má 112 LED, rozměry 43 x 31 cm a je podle výrobce o 48 % větší a má o 56 % více LED čipů než předchůdce; ozáření ve vzdálenosti 15 cm uvádí jako 71 mW/cm² (měřeno spektrometrem) nebo 130 mW/cm² (měřeno solárním měřičem). Nabízí čtyři přednastavené režimy, světelný budík se simulací východu slunce a bezdrátové propojení.",
+   "fact_en": "Starter 5.0 has 112 LEDs and measures 43 x 31 cm; the brand says it is 48% larger with 56% more LED chips than its predecessor. At 15 cm it lists 71 mW/cm² (spectrometer) or 130 mW/cm² (solar meter). It offers four preset modes, a light alarm with sunrise simulation and wireless linking.",
+   "source_url": "https://www.mitolight.cz/mito-light-starter-5-0/",
+   "confidence": "high",
+   "origin": "brand"
+  },
+  {
+   "fact_cs": "Expert 5.0 má 208 LED, rozměry 74,5 x 30,5 x 6,5 cm, hmotnost 11 kg, deklarované ozáření 80 mW/cm² a osvítí zhruba polovinu těla; podle výrobce je o 38 % větší a má o 44 % více LED čipů než předchůdce a velmi nízké hodnoty EMF. Ve výpisu byla cena 22 900 Kč (původně 25 900 Kč).",
+   "fact_en": "Expert 5.0 has 208 LEDs, measures 74.5 x 30.5 x 6.5 cm, weighs 11 kg, lists a stated 80 mW/cm² and covers roughly half of the body; the brand says it is 38% larger with 44% more LED chips than its predecessor and has very low EMF values.",
+   "source_url": "https://www.mitolight.cz/mito-light-expert-5-0/",
+   "confidence": "high",
+   "origin": "brand"
+  },
+  {
+   "fact_cs": "Biohacker 5.0 má 288 LED a deklarované ozáření 82 mW/cm², osvítí více než polovinu těla, je podle výrobce o 35 % větší a má o 41 % více LED čipů než předchůdce a má integrovaný stojan; ve výpisu byla cena 31 900 Kč a hodnocení 4,8 z 5.",
+   "fact_en": "Biohacker 5.0 has 288 LEDs and a stated 82 mW/cm², covers more than half of the body, is 35% larger with 41% more LED chips than its predecessor according to the brand, and has an integrated stand;8 out of 5 rating.",
+   "source_url": "https://www.mitolight.cz/generace-5-0/",
+   "confidence": "medium",
+   "origin": "brand"
+  },
+  {
+   "fact_cs": "Master 5.0 je podle výrobce dosud největší model: 990 LED, rozměry 183 x 53 cm, hmotnost 49 kg, šest vlnových délek, úhel svícení 30 stupňů, osvítí celé tělo najednou a umožňuje nastavit intenzitu každé vlnové délky zvlášť; ve výpisu byla cena 89 900 Kč.",
+   "fact_en": "According to the brand, Master 5.0 is its largest model so far: 990 LEDs, 183 x 53 cm, 49 kg, six wavelengths, a 30 degree angle, whole-body coverage at once and per-wavelength intensity control;",
+   "source_url": "https://www.mitolight.cz/mito-light-master-5-0/",
+   "confidence": "high",
+   "origin": "brand"
+  },
+  {
+   "fact_cs": "Nezávislé zdroje (Light Therapy Insiders, PCWelt) popisují Mitohacker 4.0 jako tehdy největší panel značky s 408 LED a šesti vlnovými délkami; PCWelt uvádí ozáření 90 mW/cm² a pokrytí zhruba poloviny těla. Stránka produktu existuje i na mitolight.cz.",
+   "fact_en": "Independent coverage (Light Therapy Insiders, PCWelt) describes the Mitohacker 4.0 as the brand's largest panel at the time, with 408 LEDs and six wavelengths; PCWelt cites 90 mW/cm² and coverage of about half of the body. A product page also exists on mitolight.cz.",
+   "source_url": "https://www.lighttherapyinsiders.com/mito-light-mitohacker-4-review/",
+   "confidence": "medium",
+   "origin": "third-party"
+  },
+  {
+   "fact_cs": "Light Therapy Insiders uvádí, že Mitohacker 5.0 má 504 dual-chip LED (o 24 % více než předchozí generace), šest vlnových délek (630, 660, 670, 810, 830 a 850 nm), špičkové ozáření téměř 100 mW/cm², rozměry asi 50 cm na šířku a něco přes 1 m na výšku a individuální ovládání každé vlnové délky.",
+   "fact_en": "Light Therapy Insiders reports that the Mitohacker 5.0 has 504 dual-chip LEDs (24% more than the previous generation), six wavelengths (630, 660, 670, 810, 830 and 850 nm), nearly 100 mW/cm² peak irradiance, a size of about 50 cm wide by just over 1 m tall and individual control of each wavelength.",
+   "source_url": "https://www.lighttherapyinsiders.com/mitohacker-5-0-review-wide-powerful/",
+   "confidence": "medium",
+   "origin": "third-party"
+  },
+  {
+   "fact_cs": "FAQ na mitolight.cz doporučuje zhruba 10 až 20 minut na sezení ve vzdálenosti přibližně 15 až 50 cm (čím dál od zdroje, tím déle), stejnou část těla svítit nejvýše 30 minut denně rozdělených do 2 až 3 sezení (každé do 20 minut na oblast) a NIR na břiše použít z větší vzdálenosti kolem 40 až 70 cm; upozorňuje na opatrnost při lécích způsobujících fotosenzitivitu (například některá antibiotika), uvádí, že většina zákazníků oči prostě zavře a brýle jsou možnost, a že produkty ani informace nenahrazují lékařskou radu.",
+   "fact_en": "The FAQ on mitolight.cz suggests roughly 10 to 20 minutes per session at about 15 to 50 cm (longer the further from the source), at most 30 minutes per day for the same body area split into 2 to 3 sessions (each under 20 minutes per area), and NIR on the abdomen from a greater distance of about 40 to 70 cm; it cautions about photosensitising medication (for example some antibiotics), says most customers simply close their eyes while glasses are an option, and states that the products and information do not replace medical advice.",
+   "source_url": "https://www.mitolight.cz/casto-kladene-otazky/",
+   "confidence": "high",
+   "origin": "brand"
+  },
+  {
+   "fact_cs": "Dokument na webu zlinskykraj.cz, který cituje stanovisko Ministerstva zdravotnictví, uvádí, že MITO LIGHT 3.0 (červené a infračervené světlo) není registrován jako zdravotnický prostředek v Národním registru zdravotnických prostředků, má sloužit jako podpůrný prostředek regenerace zdravého organismu, v rámci živnostenského práva jej lze využívat jen k neterapeutickým účelům u zdravých osob a popis jeho účinků nesmí obsahovat diagnostiku, léčbu ani prevenci jakéhokoli onemocnění; použití nenahrazuje osobní konzultaci s lékařem. Dokument jmenuje generaci 3.0, u novějších generací je třeba stav potvrdit.",
+   "fact_en": "A document hosted on zlinskykraj.cz that cites a Czech Ministry of Health position states that MITO LIGHT 3.0 (red and infrared light) is not registered as a medical device in the National Register of Medical Devices, is intended as a supporting tool for the regeneration of a healthy organism, may be used under trade law only for non-therapeutic purposes on healthy people, and that descriptions of its effects must not include diagnosis, treatment or prevention of any disease; its use does not replace a personal doctor consultation. The document names generation 3.0, so the status of newer generations must be confirmed.",
+   "source_url": "https://zlinskykraj.cz/file/660594d5b291b6cebd054114",
+   "confidence": "high",
+   "origin": "third-party"
+  },
+  {
+   "fact_cs": "Blog a vysvětlující stránky značky rámují světlo jako 'vědecky podložený biohack' a lákají na regeneraci a výkon 'bez chemie'; mitochondrie přirovnávají k elektrárnám a světlo k 'nabíječce mitochondrií'. Takový tón je pro náš compliance rámec příliš silný a je třeba ho zjemnit.",
+   "fact_en": "The brand's blog and explainer pages frame light as a 'scientifically backed biohack' and talk about recovery and performance 'without chemistry', compare mitochondria to power plants and light to a 'charger for mitochondria'. That tone is stronger than this project's compliance frame allows and needs softening.",
+   "source_url": "https://www.mitolight.cz/blog/sila-svetla-rychlejsi-regenerace-vyssi-vykon-bez-chemie/",
+   "confidence": "medium",
+   "origin": "brand"
+  },
+  {
+   "fact_cs": "Stránka 'Účinky a studie' uvádí číselné výsledky ze studií (například téměř 13 % více opakování cviku a o více než 11 % delší čas do svalové únavy, nebo po 84 dnech o 38,3 % menší hloubku vrásek), tedy tvrzení o výsledcích; lze je použít jen s plnou citací, opatrnou formulací a právní kontrolou.",
+   "fact_en": "The 'Účinky a studie' (effects and studies) page cites numeric study outcomes (for example nearly 13% more repetitions and over 11% longer time to muscle fatigue, or 38.3% lower wrinkle depth after 84 days), which are outcome claims; use them only with full citations, hedged wording and legal review.",
+   "source_url": "https://www.mitolight.cz/ucinky-a-studie/",
+   "confidence": "medium",
+   "origin": "brand"
+  },
+  {
+   "fact_cs": "Profil 'MITO LIGHT® Europe' (mitolight.com) na Trustpilotu měl podle různých zachycených verzí TrustScore zhruba 4,8 až 5 z 5 a přibližně 400 až 430 recenzí; recenzenti chválí kvalitu zpracování, zákaznický servis, rychlé doručení a pečlivé balení, značka odpovídá na negativní recenze obvykle do 24 hodin. Některé recenze popisují zdravotní výsledky, které nelze přebírat.",
+   "fact_en": "The 'MITO LIGHT® Europe' (mitolight.com) Trustpilot profile showed, across cached versions, a TrustScore of roughly 4.8 to 5 out of 5 and about 400 to 430 reviews; reviewers praise build quality, customer service, fast delivery and careful packaging, and the brand typically replies to negative reviews within 24 hours. Some reviews describe health outcomes, which must not be reused.",
+   "source_url": "https://www.trustpilot.com/review/mitolight.com",
+   "confidence": "medium",
+   "origin": "third-party"
+  },
+  {
+   "fact_cs": "Samostatný profil 'MITO LIGHT® UK' (mitolight.co.uk) na Trustpilotu měl zhruba 133 recenzí.",
+   "fact_en": "A separate 'MITO LIGHT® UK' (mitolight.co.uk) Trustpilot profile showed about 133 reviews.",
+   "source_url": "https://ca.trustpilot.com/review/mitolight.co.uk",
+   "confidence": "medium",
+   "origin": "third-party"
+  },
+  {
+   "fact_cs": "Německý profil 'MITO LIGHT® Deutschland' na Trusted Shops měl hodnocení 4,73 z 5 z 479 recenzí, platnou pečeť kvality a ochranu kupujícího a nabízí 30denní záruku vrácení peněz.",
+   "fact_en": "The German-language 'MITO LIGHT® Deutschland' Trusted Shops profile showed 4.73 out of 5 from 479 reviews, a valid quality seal and buyer protection, and a 30-day money-back guarantee.",
+   "source_url": "https://www.trustedshops.de/bewertung/info_X6B7B728ADA2E4B7E3824C64752E45CDD.html?page=2",
+   "confidence": "medium",
+   "origin": "third-party"
+  },
+  {
+   "fact_cs": "Na profilu Trusted Shops se značka označuje jako 'Europäischer Marktführer für Rotlichttherapiegeräte' (evropský tržní lídr v zařízeních pro terapii červeným světlem); jde o superlativ bez doloženého zdroje, který tento projekt nesmí převzít.",
+   "fact_en": "On its Trusted Shops profile the brand calls itself 'Europäischer Marktführer für Rotlichttherapiegeräte' (European market leader in red light therapy devices); this is an unsourced superlative that this project must not reuse.",
+   "source_url": "https://www.trustedshops.de/company/mito_light_europe_s_r_o_/",
+   "confidence": "medium",
+   "origin": "brand"
+  },
+  {
+   "fact_cs": "Recenze obchodu mitolight.cz na Heurece zmiňují rychlé doručení, perfektní balení a rychlou komunikaci; jedinou drobnou výtkou byly ceny o něco vyšší než u konkurence. Heureka má také stránku značky se všemi modely MITO LIGHT.",
+   "fact_en": "Heureka shop reviews for mitolight.cz mention fast delivery, perfect packaging and quick communication; the one minor criticism seen was prices slightly higher than competitors. Heureka also has a brand page listing all MITO LIGHT models.",
+   "source_url": "https://obchody.heureka.cz/mitolight-cz/recenze/",
+   "confidence": "medium",
+   "origin": "third-party"
+  },
+  {
+   "fact_cs": "Nezávislé zahraniční zdroje o MITO LIGHT píšou: PCWelt (Německo) a M3 (Švédsko) mají texty o Mitohackeru 4.0 a americký web Light Therapy Insiders recenzoval Mitohacker 4.0 i 5.0 a srovnával ho s BioMax, PowerPanel, Rojo a Refine; kupujícím v EU, kteří chtějí panel rychle, značku doporučuje s odkazem na evropské sídlo a poštovné zdarma do zahraničí.",
+   "fact_en": "Independent foreign outlets cover MITO LIGHT: PCWelt (Germany) and M3 (Sweden) published pieces on the Mitohacker 4.0, and the US site Light Therapy Insiders reviewed the Mitohacker 4.0 and 5.0 and compared it with BioMax, PowerPanel, Rojo and Refine; for EU buyers who want a panel fast it suggests the brand, citing its European base and free international shipping.",
+   "source_url": "https://www.lighttherapyinsiders.com/mito-light-mitohacker-4-review/",
+   "confidence": "medium",
+   "origin": "third-party"
+  },
+  {
+   "fact_cs": "MITO LIGHT (česká značka, mitolight.cz, mitolight.com, mitolight.co.uk) není stejná firma jako Mito Red Light (americká značka, mitoredlight.com); recenzenti na to výslovně upozorňují a ve výsledcích našeho vyhledávání se u dotazů s názvem 'mito light' často objevovaly stránky Mito Red Light, proto je třeba rozdíl vysvětlit neutrálně.",
+   "fact_en": "MITO LIGHT (Czech brand, mitolight.cz, mitolight.com, mitolight.co.uk) is not the same company as Mito Red Light (an American brand, mitoredlight.com); reviewers say so explicitly and, in our own search results, queries with the name 'mito light' often returned Mito Red Light pages, so a neutral disambiguation is needed.",
+   "source_url": "https://www.lighttherapyinsiders.com/mito-light-mitohacker-4-review/",
+   "confidence": "high",
+   "origin": "third-party"
+  },
+  {
+   "fact_cs": "Značka má profily recenzí pro mitolight.com ('MITO LIGHT® Europe'), mitolight.co.uk ('MITO LIGHT® UK') a německý profil na Trusted Shops ('MITO LIGHT® Deutschland', firma MITO LIGHT Europe s.r.o.); český e-shop běží na mitolight.cz. Slovenský, polský ani jiný národní web se v hledání nenašel.",
+   "fact_en": "The brand has review profiles for mitolight.com ('MITO LIGHT® Europe'), mitolight.co.uk ('MITO LIGHT® UK') and a German Trusted Shops profile ('MITO LIGHT® Deutschland', company MITO LIGHT Europe s.r.o.); the Czech e-shop runs on mitolight.cz. No Slovak, Polish or other country site turned up in the searches.",
+   "source_url": "https://www.trustedshops.de/company/mito_light_europe_s_r_o_/",
+   "confidence": "medium",
+   "origin": "third-party"
+  },
+  {
+   "fact_cs": "Panely MITO LIGHT představují i další české weby (onlinemedical.cz, f-rehab.cz, zelenyzvon.cz, liviny.cz) a objevují se ve srovnávačích Heureka; texty prodejců mohou přebírat silnější tvrzení, než jaká smíme používat my.",
+   "fact_en": "MITO LIGHT panels are also presented by other Czech sites (onlinemedical.cz, f-rehab.cz, zelenyzvon.cz, liviny.cz) and appear in Heureka comparison listings; reseller copy may repeat stronger claims than we may use.",
+   "source_url": "https://www.onlinemedical.cz/nase-novinky-blog/mito-light---revolucni-svetelna-terapie-pro-zdravi--regeneraci-a-vykon/",
+   "confidence": "medium",
+   "origin": "third-party"
+  },
+  {
+   "fact_cs": "Signály cílové skupiny z názvů a obsahu: biohacking (modely Biohacker a Mitohacker, rámování 'biohack'), sport a regenerace (partnerství s fotbalovým klubem, sportovní články na blogu), domácí rutina (kategorie pro spánek, světelný budík v aplikaci) a péče o pleť (články o pleti); nabídka sahá od žárovky po celotělový panel. Jde o odvozený závěr, ne o oficiální personas.",
+   "fact_en": "Audience signals from naming and content: biohacking (Biohacker and Mitohacker models, 'biohack' framing), sport and recovery (football club partnership, sport blog posts), home routines (a sleep-themed category, the app's light alarm) and skin care (skin articles); the range runs from a bulb to a whole-body panel. This is an inference, not official personas.",
+   "source_url": "https://www.mitolight.cz/blog/",
+   "confidence": "low",
+   "origin": "brand"
+  }
+ ],
+ "unknowns": [
+  "Legal entity that owns the brand and sells in each market, registration details and registered address (names seen: MITO LIGHT Europe s.r.o., MITO LIGHT Česko s.r.o., MITO LIGHT Logistics s.r.o.; their roles are unconfirmed).",
+  "Official social channels, handles and posting cadence (Instagram, Facebook, YouTube, TikTok, LinkedIn). Searches surfaced none, so the brand's own social content could not be audited.",
+  "Brand voice rules: tykání or vykání, approved vocabulary (for example how to use 'terapie' versus 'světelná rutina' or 'sezení'), use of the registered sign, preferred claim wording, and the list of studies the brand is comfortable citing.",
+  "Legal and compliance sign-off: current regulatory statement for generations 4.0 and 5.0 (the Ministry of Health position seen names generation 3.0), CE, LVD, EMC and photobiological safety (IEC 62471) documents, and a decision on site copy that goes beyond the supportive-tool position (hair, scars, inflammation, 'no headaches', 'more effective than cryotherapy').",
+  "Independent measurements: irradiance per model with distance and method (Starter 5.0 lists 71 mW/cm2 by spectrometer and 130 mW/cm2 by solar meter), spectral output, flicker and EMF test reports.",
+  "Warranty and lifetime terms per model (one snippet for a 504-LED panel suggested a 3-year warranty and LED life up to 50,000 hours, unconfirmed) and the return policy (Trusted Shops mentions a 30-day money-back guarantee).",
+  "Current prices, discounts and shipping terms per market; the prices in this file are snapshots from search snippets and may be outdated.",
+  "Exact current lineup and dimensions: Mitohacker 4.0 versus 5.0 on the Czech site, and conflicting dimension data across snippets.",
+  "Markets and language sites beyond CZ, DE and UK (Slovak, Polish, Austrian and others), sales split by market and shipping coverage.",
+  "Target personas and sales mix (athletes, biohackers, home wellness, skin-care users), B2B segments (clubs, gyms, clinics) and the status of sport partnerships (FC Viktoria Plzeň from 2021 per the About page; an MMA athlete is quoted by Forbes.cz, but no ambassador agreement is confirmed).",
+  "Origin wording: confirm 'vyvinuto a navrženo v Česku' and the manufacturing disclosure (Forbes.cz says production is by a long-term partner in China); do not use 'vyrobeno v Česku' unless confirmed.",
+  "Superlative self-claims to avoid unless substantiated: 'European market leader' (Trusted Shops profile), a possible 'first in Czechia' wording (Forbes.cz says only 'one of the very first') and Light Therapy Insiders' statement that it is 'the only Czech company' (Lighthacker is another Czech brand).",
+  "Creative assets and permissions: product photography and video, user-generated content rights, customer quotes that contain no health outcomes, and athlete or influencer release forms.",
+  "Owned-channel data: Search Console and Seznam data, analytics, email list size and flows, ad accounts, and Android app status (only an iOS listing was found).",
+  "Trademark position and preferred neutral wording for the name overlap with Mito Red Light (US)."
+ ],
+ "tone_notes_cs": "Odvozeno jen z úryvků vyhledávání (stránky mitolight.cz, karta aplikace, stránky s recenzemi); je třeba potvrdit se značkou. Pozorovaný hlas: sebevědomý, zaměřený na přínosy a s nádechem vědy (mitochondrie jako 'elektrárny', světlo jako 'nabíječka', slovník biohackingu, procenta ze studií, příběh o původu u NASA), produktové názvy začínají parametry ('Červený a infračervený panel MITO LIGHT® Starter 5.0'), značka se píše vždy MITO LIGHT® velkými písmeny a modely se číslují po generacích (3.0, 4.0, 5.0). Stránka O nás je přátelský příběh zakladatelů; FAQ je praktické a opatrné (dávka, vzdálenost, oči, lékař). Některé titulky blogu a shrnutí studií přesahují náš compliance rámec (vlasy, jizvy, záněty, 'žádné bolesti hlavy', srovnání s kryoterapií), proto přebírejte strukturu, ne tvrzení. Doporučený hlas pro tento engine: klidný, praktický, zvědavý a respektující důkazy; krátké věty; každé číslo vysvětlit (co měří a z jaké vzdálenosti); opatrně formulovat ('může', 'některé studie') a uvádět zdroj; v titulcích dávat přednost slovům 'světelná rutina', 'sezení' a 'panel' před 'terapie' či 'léčba' (výraz 'terapie červeným světlem' ponechat hlavně jako hledaný dotaz a pravidlo potvrdit s právníkem); psát 'vyvinuto a navrženo v Česku', ne 'vyrobeno v Česku'; nikdy žádné superlativy, záruky, 'klinicky prokázáno', odpočítávání ani falešný nedostatek. V češtině výchozí vykání, dokud značka nepotvrdí, zda používá tykání.",
+ "tone_notes_en": "Inferred only from search snippets (mitolight.cz pages, App Store listing, review pages); confirm with the brand. Observed voice: confident, benefit-forward and science-flavoured (mitochondria as 'power plants', light as a 'charger', 'biohack' vocabulary, study percentages, the NASA origin story), with spec-first product titles ('Červený a infračervený panel MITO LIGHT® Starter 5.0'), the brand always written MITO LIGHT® in capitals and models named by generation (3.0, 4.0, 5.0). The About page is a friendly founder story; the FAQ is practical and cautious (dose, distance, eyes, doctor). Several blog titles and study summaries go beyond this project's compliance frame (hair, scars, inflammation, 'no headaches', comparisons with cryotherapy), so mirror the structure but not the claims. Recommended voice for this engine: calm, practical, curious and evidence-aware; short sentences; explain every number (what it measures, at what distance); hedge with 'may' and 'some studies' and name the source; prefer 'light routine', 'session' and 'panel' over 'therapy' or 'treatment' in headlines (keep 'red light therapy' mainly as the search term and confirm the policy with legal); write 'developed and designed in Czechia', not 'made in Czechia'; never use superlatives, guarantees, 'clinically proven', countdowns or scarcity. Default to formal address (vykání) in Czech until the brand confirms whether it uses tykání."
+}

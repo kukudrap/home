@@ -1,0 +1,4620 @@
+{
+ "rules": {
+  "profile": "wellness",
+  "topics": [
+   {
+    "id": "pbm-mechanism",
+    "class": "context",
+    "name_en": "How it works (cellular mechanism)",
+    "name_cs": "Jak to funguje (buněčný mechanismus)",
+    "nouns_en": [
+     "mitochondria*",
+     "mitochondrial*",
+     "ATP",
+     "cellular energy",
+     "energy production",
+     "cytochrome*"
+    ],
+    "nouns_cs": [
+     "mitochondri*",
+     "ATP",
+     "buněčn* energi*",
+     "produkc* energie",
+     "produkc* ATP",
+     "cytochrom*"
+    ],
+    "patterns": [],
+    "safe_en": [
+     "In laboratory studies, red and near-infrared light has been observed to be absorbed by cells and may influence cellular processes, although exactly how this happens is still being studied.",
+     "Scientists have proposed that light may interact with mitochondria in cells, and they still debate which explanation is correct."
+    ],
+    "safe_cs": [
+     "V laboratorních studiích bylo pozorováno, že buňky mohou červené a blízké infračervené světlo pohlcovat a že může ovlivňovat buněčné procesy; jak přesně k tomu dochází, se stále zkoumá.",
+     "Vědci navrhli, že světlo může působit na mitochondrie v buňkách, a stále diskutují, které vysvětlení je správné."
+    ],
+    "label_cap": "limited"
+   },
+   {
+    "id": "pbm-dose-response",
+    "class": "context",
+    "name_en": "Dose and wavelength matter",
+    "name_cs": "Záleží na dávce a vlnové délce",
+    "nouns_en": [],
+    "nouns_cs": [],
+    "patterns": [],
+    "safe_en": [
+     "In laboratory studies, the response to light depends on wavelength, intensity and dose, and smaller doses sometimes work better than larger ones, so more light is not automatically better.",
+     "Because dose seems to matter in research, follow the session length and distance given in the manufacturer's instructions instead of using the panel for longer."
+    ],
+    "safe_cs": [
+     "V laboratorních studiích odpověď na světlo závisí na vlnové délce, intenzitě a dávce a menší dávky někdy fungují lépe než větší, takže více světla neznamená automaticky lepší výsledek.",
+     "Protože se ve výzkumu zdá, že na dávce záleží, řiďte se délkou sezení a vzdáleností uvedenými v návodu výrobce a panel nepoužívejte déle."
+    ],
+    "label_cap": "limited"
+   },
+   {
+    "id": "pbm-device-specs",
+    "class": "context",
+    "name_en": "Devices differ in output",
+    "name_cs": "Zařízení se liší výkonem",
+    "nouns_en": [],
+    "nouns_cs": [],
+    "patterns": [],
+    "safe_en": [
+     "Red light panels differ in wavelengths, irradiance and coverage area, so compare the published specifications, including the distance at which irradiance is stated, before choosing a device.",
+     "Independent measurements of a device's output, where available, can give a more reliable picture than nominal numbers on the box."
+    ],
+    "safe_cs": [
+     "Světelné panely se liší vlnovými délkami, intenzitou ozáření i plochou záběru, proto před výběrem porovnejte zveřejněné parametry včetně vzdálenosti, při které je intenzita ozáření uvedena.",
+     "Nezávislá měření výkonu zařízení, pokud jsou k dispozici, mohou poskytnout spolehlivější obraz než čísla uvedená na krabici."
+    ],
+    "label_cap": "limited"
+   },
+   {
+    "id": "pbm-safety-eyes",
+    "class": "context",
+    "name_en": "Eye safety",
+    "name_cs": "Bezpečnost očí",
+    "nouns_en": [],
+    "nouns_cs": [],
+    "patterns": [],
+    "safe_en": [
+     "Do not stare directly into bright LED panels; follow the manufacturer's instructions on distance, session length and eye protection.",
+     "Close your eyes or use the supplied eye protection if the instructions advise it, and discontinue use if you notice eye discomfort."
+    ],
+    "safe_cs": [
+     "Nedívejte se přímo do jasných LED panelů; řiďte se návodem výrobce ohledně vzdálenosti, délky sezení a ochrany očí.",
+     "Pokud to návod doporučuje, zavřete oči nebo použijte přiložené ochranné brýle a při potížích s očima přestaňte panel používat."
+    ],
+    "label_cap": "limited"
+   },
+   {
+    "id": "pbm-safety-general",
+    "class": "context",
+    "name_en": "General safety and cautions",
+    "name_cs": "Obecná bezpečnost a upozornění",
+    "nouns_en": [],
+    "nouns_cs": [],
+    "patterns": [],
+    "safe_en": [
+     "Use the panel as directed by the manufacturer, discontinue use if you notice skin irritation or discomfort, and ask a doctor first if you have a medical condition, are pregnant or take medication.",
+     "International guidelines set exposure limits for visible and infrared light to protect eyes and skin, which is why session length and distance should follow the manufacturer's instructions."
+    ],
+    "safe_cs": [
+     "Panel používejte podle pokynů výrobce, při podráždění kůže nebo nepříjemných pocitech přestaňte a pokud máte zdravotní potíže, jste těhotná nebo užíváte léky, poraďte se nejdřív s lékařem.",
+     "Mezinárodní směrnice stanovují expoziční limity pro viditelné a infračervené světlo na ochranu očí a kůže, proto se délka sezení a vzdálenost mají řídit návodem výrobce."
+    ],
+    "label_cap": "limited"
+   },
+   {
+    "id": "pbm-muscle-recovery",
+    "class": "wellness",
+    "name_en": "Muscle recovery after exercise",
+    "name_cs": "Regenerace svalů po cvičení",
+    "nouns_en": [
+     "recovery",
+     "recover",
+     "muscle soreness",
+     "sore muscles",
+     "soreness",
+     "DOMS",
+     "muscle fatigue",
+     "muscle repair",
+     "regeneration",
+     "post-workout"
+    ],
+    "nouns_cs": [
+     "regenerac*",
+     "zotaven*",
+     "svalov* bolestivost*",
+     "bolav* sval*",
+     "únav* sval*",
+     "svalov* únav*",
+     "svalov* regenerac*"
+    ],
+    "patterns": [],
+    "safe_en": [
+     "Some studies of light applied to the muscles around exercise report lower soreness scores or lower muscle-damage markers, but results are mixed and many trials are small.",
+     "Researchers are still studying whether red and near-infrared light has a place in a post-workout routine; it does not replace rest, sleep or normal recovery."
+    ],
+    "safe_cs": [
+     "Některé studie světla aplikovaného na svaly kolem cvičení uvádějí nižší bolestivost nebo nižší ukazatele svalového poškození, výsledky jsou však nejednotné a řada studií je malá.",
+     "Vědci dál zkoumají, zda mají červené a blízké infračervené světlo místo v rutině po tréninku; nenahrazuje odpočinek, spánek ani běžnou regeneraci."
+    ],
+    "label_cap": "limited"
+   },
+   {
+    "id": "pbm-exercise-performance",
+    "class": "wellness",
+    "name_en": "Exercise performance",
+    "name_cs": "Sportovní výkon",
+    "nouns_en": [
+     "performance",
+     "endurance",
+     "stamina",
+     "athletic performance",
+     "power output",
+     "repetitions",
+     "reps",
+     "time to exhaustion"
+    ],
+    "nouns_cs": [
+     "výkon*",
+     "vytrvalost*",
+     "sportovn* výkon*",
+     "počet opakování",
+     "kondic*"
+    ],
+    "patterns": [],
+    "safe_en": [
+     "In some studies in healthy adults, red and near-infrared light applied to the working muscles before exercise was linked to slightly more repetitions or a longer time to exhaustion; effects were small and not seen for strength or sprints.",
+     "Research on light before exercise is still developing, and results differ by type of exercise."
+    ],
+    "safe_cs": [
+     "V některých studiích u zdravých dospělých bylo červené a blízké infračervené světlo aplikované před cvičením na zapojené svaly spojeno s o něco vyšším počtem opakování nebo delším časem do vyčerpání; účinky byly malé a u síly ani sprintů se neprojevily.",
+     "Výzkum světla před cvičením se stále vyvíjí a výsledky se liší podle typu zátěže."
+    ],
+    "label_cap": "limited"
+   },
+   {
+    "id": "pbm-skin-appearance",
+    "class": "cosmetic",
+    "name_en": "Skin appearance",
+    "name_cs": "Vzhled pleti",
+    "nouns_en": [
+     "wrinkle*",
+     "fine lines",
+     "collagen",
+     "elastin",
+     "skin texture",
+     "skin tone",
+     "complexion",
+     "skin firmness",
+     "pores",
+     "anti-aging",
+     "anti-ageing",
+     "younger-looking",
+     "glowing skin",
+     "skin rejuvenation",
+     "aging skin",
+     "ageing skin"
+    ],
+    "nouns_cs": [
+     "vrásk*",
+     "vrásek",
+     "jemn* linky",
+     "jemn* linek",
+     "kolagen*",
+     "elastin*",
+     "textur* pleti",
+     "pleť",
+     "pleti",
+     "omlaz*",
+     "zpevn*",
+     "vzhled pleti",
+     "rozzářen*",
+     "póry",
+     "anti-age",
+     "antiaging",
+     "stárnutí"
+    ],
+    "patterns": [],
+    "safe_en": [
+     "Some small studies report modest improvements in the appearance of fine lines and skin roughness after regular red light sessions; results vary between people and between studies.",
+     "Skin appearance is an area of ongoing research on red and near-infrared light; we do not promise a specific result."
+    ],
+    "safe_cs": [
+     "Některé malé studie uvádějí mírné zlepšení vzhledu jemných linek a hrubosti pleti po pravidelných sezeních pod červeným světlem; výsledky se liší mezi lidmi i mezi studiemi.",
+     "Vzhled pleti je oblast probíhajícího výzkumu červeného a blízkého infračerveného světla; konkrétní výsledek neslibujeme."
+    ],
+    "label_cap": "moderate"
+   },
+   {
+    "id": "pbm-body-contouring",
+    "class": "cosmetic",
+    "name_en": "Body contouring",
+    "name_cs": "Tvar postavy",
+    "nouns_en": [
+     "cellulite",
+     "body contouring",
+     "circumference",
+     "fat loss",
+     "fat reduction",
+     "slimming",
+     "weight loss",
+     "burn fat",
+     "belly fat"
+    ],
+    "nouns_cs": [
+     "celulitid*",
+     "celulit*",
+     "obvod těla",
+     "obvodu těla",
+     "spalov* tuk*",
+     "hubnut*",
+     "hubnutí",
+     "ztrát* hmotnosti",
+     "břišní tuk*",
+     "zeštíhl*",
+     "tvar postavy"
+    ],
+    "patterns": [],
+    "safe_en": [
+     "Body contouring is an area of ongoing research on light; we do not promise changes in body size or in the look of cellulite.",
+     "Light sessions are not a substitute for nutrition, exercise or medical advice."
+    ],
+    "safe_cs": [
+     "Tvarování postavy je oblast probíhajícího výzkumu světla; změny velikosti těla ani vzhledu celulitidy neslibujeme.",
+     "Sezení pod světlem nenahrazují výživu, pohyb ani lékařskou radu."
+    ],
+    "label_cap": "limited"
+   },
+   {
+    "id": "pbm-sleep",
+    "class": "wellness",
+    "name_en": "Sleep quality",
+    "name_cs": "Kvalita spánku",
+    "nouns_en": [
+     "sleep",
+     "sleep quality",
+     "fall asleep",
+     "falling asleep",
+     "circadian",
+     "melatonin"
+    ],
+    "nouns_cs": [
+     "spánek",
+     "spánku",
+     "spánkem",
+     "spánkov*",
+     "usínání",
+     "usínat",
+     "cirkadi*",
+     "melatonin*",
+     "kvalit* spánku"
+    ],
+    "patterns": [],
+    "safe_en": [
+     "Small studies have looked at whether red light exposure may support sleep quality; the evidence is limited and results are mixed.",
+     "MITO LIGHT is a wellness product and experience with sleep varies from person to person; it is not intended to diagnose, treat or prevent sleep disorders."
+    ],
+    "safe_cs": [
+     "Malé studie zkoumaly, zda by expozice červenému světlu mohla podporovat kvalitu spánku; důkazy jsou zatím omezené a výsledky nejednotné.",
+     "MITO LIGHT je wellness produkt a zkušenost se spánkem je u každého jiná; není určen k diagnostice, léčbě ani prevenci poruch spánku."
+    ],
+    "label_cap": "limited"
+   },
+   {
+    "id": "pbm-energy-wellbeing",
+    "class": "wellness",
+    "name_en": "Energy and well-being",
+    "name_cs": "Energie a pohoda",
+    "nouns_en": [
+     "energy",
+     "energy levels",
+     "vitality",
+     "wellbeing",
+     "well-being",
+     "mood",
+     "feel better",
+     "feel great"
+    ],
+    "nouns_cs": [
+     "energi*",
+     "vitalit*",
+     "pohod*",
+     "nálad*",
+     "cítit se lépe",
+     "životní síl*"
+    ],
+    "patterns": [],
+    "safe_en": [
+     "One placebo-controlled trial reported better mood and less drowsiness with near-infrared light at a single dose, in winter only; research on everyday energy is still limited.",
+     "MITO LIGHT is a wellness product, and how people feel after a session varies from person to person."
+    ],
+    "safe_cs": [
+     "Jedna placebem kontrolovaná studie uvedla lepší náladu a menší ospalost po blízkém infračerveném světle při jediné dávce, a to jen v zimě; výzkum každodenní energie je zatím omezený.",
+     "MITO LIGHT je wellness produkt a pocity po sezení se u každého liší."
+    ],
+    "label_cap": "limited"
+   },
+   {
+    "id": "pbm-hair",
+    "class": "medical",
+    "name_en": "Hair growth",
+    "name_cs": "Růst vlasů",
+    "nouns_en": [
+     "hair growth",
+     "hair loss",
+     "hair regrowth",
+     "alopecia",
+     "balding",
+     "thinning hair",
+     "hair thinning",
+     "hair density",
+     "hair follicle*"
+    ],
+    "nouns_cs": [
+     "růst vlasů",
+     "růstu vlasů",
+     "vypadávání vlasů",
+     "alopeci*",
+     "plešat*",
+     "řídnoucí vlasy",
+     "řídnutí vlasů",
+     "hustot* vlasů",
+     "vlasov* folikul*"
+    ],
+    "patterns": [
+     "\\bvlas\\w*(?:[^\\w.!?;\\n]+\\w+){0,4}[^\\w.!?;\\n]+(?:dorost\\w*|vypada\\w*|zhust\\w*|narost\\w*)",
+     "\\b(?:dorost\\w*|zhust\\w*|narost\\w*)(?:[^\\w.!?;\\n]+\\w+){0,3}[^\\w.!?;\\n]+vlas\\w*",
+     "\\bpresta\\w+\\s+vypadavat",
+     "\\bregrow\\w*",
+     "\\bstop\\w*\\s+(?:\\w+\\s+){0,2}hair\\s+loss\\b"
+    ],
+    "safe_en": [
+     "At most (research exists only, no product claim): studies of low-level light and scalp hair have been published.",
+     "This product makes no claim about hair growth or hair loss."
+    ],
+    "safe_cs": [
+     "Nanejvýš (jen že výzkum existuje, bez tvrzení o produktu): o nízkoúrovňovém světle a vlasech na pokožce hlavy byly publikovány studie.",
+     "Tento produkt netvrdí nic o růstu ani vypadávání vlasů."
+    ],
+    "label_cap": "limited"
+   },
+   {
+    "id": "pbm-pain-joints",
+    "class": "medical",
+    "name_en": "Pain and joints",
+    "name_cs": "Bolest a klouby",
+    "nouns_en": [
+     "pain",
+     "aches",
+     "aching",
+     "arthritis",
+     "osteoarthritis",
+     "rheumat*",
+     "joint stiffness",
+     "stiffness",
+     "tendin*",
+     "sciatica",
+     "fibromyalgia",
+     "plantar fasciitis",
+     "carpal tunnel",
+     "chronic pain",
+     "back pain",
+     "migraine*",
+     "headache*"
+    ],
+    "nouns_cs": [
+     "bolest",
+     "bolesti",
+     "bolestí",
+     "bolestem",
+     "bolestmi",
+     "artrit*",
+     "artróz*",
+     "revmat*",
+     "ztuhlost*",
+     "ischias*",
+     "fibromyalgi*",
+     "tenisov* loket",
+     "plantárn* fasciitid*",
+     "migrén*",
+     "bolest* hlavy"
+    ],
+    "patterns": [
+     "\\b(?:stop|stops|stopped|end|ends|ended|kill|kills)\\s+(?:\\w+\\s+){0,2}(?:pain|aches)\\b",
+     "\\b(?:zastavi|ukonci|zbavi)\\w*\\s+(?:\\w+\\s+){0,2}bolest\\w*"
+    ],
+    "safe_en": [
+     "At most: researchers study light therapy for pain in clinical settings; make no statement that MITO LIGHT relieves or helps any pain.",
+     "Safe wording only: MITO LIGHT is a wellness product, not a medical device, and is not intended to treat pain or joint problems."
+    ],
+    "safe_cs": [
+     "Nanejvýš lze uvést, že se světelná terapie bolesti zkoumá v klinickém prostředí; netvrďte, že MITO LIGHT jakoukoli bolest zmírňuje nebo jí pomáhá.",
+     "Bezpečná formulace: MITO LIGHT je wellness produkt, nikoli zdravotnický prostředek, a není určen k léčbě bolesti ani potíží s klouby."
+    ],
+    "label_cap": "limited"
+   },
+   {
+    "id": "pbm-inflammation",
+    "class": "medical",
+    "name_en": "Inflammation",
+    "name_cs": "Zánět",
+    "nouns_en": [
+     "inflammation",
+     "inflammatory",
+     "anti-inflammatory",
+     "swelling",
+     "oedema",
+     "edema"
+    ],
+    "nouns_cs": [
+     "zánět*",
+     "záněty",
+     "zánětliv*",
+     "protizánět*",
+     "otok*",
+     "otek*",
+     "oteky"
+    ],
+    "patterns": [],
+    "safe_en": [
+     "At most: researchers study how light may influence inflammation-related processes in cells and tissues; make no claim that MITO LIGHT reduces inflammation.",
+     "Say only that MITO LIGHT is a wellness product and is not intended to treat inflammatory conditions."
+    ],
+    "safe_cs": [
+     "Nanejvýš lze uvést, že vědci zkoumají, jak může světlo ovlivňovat procesy související se zánětem v buňkách a tkáních; netvrďte, že MITO LIGHT snižuje zánět.",
+     "Uvádějte jen, že MITO LIGHT je wellness produkt a není určen k léčbě zánětlivých stavů."
+    ],
+    "label_cap": "limited"
+   },
+   {
+    "id": "pbm-wound-healing",
+    "class": "medical",
+    "name_en": "Wound healing",
+    "name_cs": "Hojení ran",
+    "nouns_en": [
+     "wound*",
+     "wound healing",
+     "ulcer*",
+     "sores",
+     "burns",
+     "bedsores",
+     "diabetic foot",
+     "scar tissue"
+    ],
+    "nouns_cs": [
+     "hojení",
+     "hojen*",
+     "rána",
+     "rány",
+     "ránu",
+     "ráně",
+     "ranám",
+     "ranách",
+     "vřed*",
+     "dekubit*",
+     "popálenin*",
+     "diabetick* noh*"
+    ],
+    "patterns": [],
+    "safe_en": [
+     "At most: wound care with light is studied in clinical settings and the certainty of the evidence is low in a review checked here; MITO LIGHT makes no claim about wounds.",
+     "State only that MITO LIGHT is a wellness product that is not for wounds, ulcers or skin injuries; people with a wound should see a doctor."
+    ],
+    "safe_cs": [
+     "Nanejvýš lze uvést, že se péče o rány pomocí světla zkoumá v klinickém prostředí a jistota důkazů je v ověřeném přehledu nízká; MITO LIGHT netvrdí nic o ranách.",
+     "Uvádějte jen, že MITO LIGHT je wellness produkt, který není určen pro rány, vředy ani kožní poranění; lidé s ranou mají navštívit lékaře."
+    ],
+    "label_cap": "limited"
+   },
+   {
+    "id": "pbm-mood-brain",
+    "class": "medical",
+    "name_en": "Mood and brain function",
+    "name_cs": "Nálada a funkce mozku",
+    "nouns_en": [
+     "depression",
+     "depressive",
+     "anxiety",
+     "mood disorder*",
+     "ADHD",
+     "autism",
+     "dementia",
+     "alzheimer*",
+     "parkinson*",
+     "brain injury",
+     "TBI",
+     "concussion",
+     "stroke",
+     "cognitive decline",
+     "brain fog",
+     "brain disorder*",
+     "memory loss",
+     "mental health",
+     "mental illness"
+    ],
+    "nouns_cs": [
+     "depres*",
+     "úzkost*",
+     "úzkostn*",
+     "ADHD",
+     "autism*",
+     "demenc*",
+     "alzheimer*",
+     "parkinson*",
+     "mrtvic*",
+     "otřes* mozku",
+     "kognitivn* pokles*",
+     "mozkov* mlh*",
+     "ztrát* paměti",
+     "duševní zdraví",
+     "duševního zdraví",
+     "psychick* zdraví",
+     "mentáln* zdraví"
+    ],
+    "patterns": [],
+    "safe_en": [
+     "At most: researchers are testing near-infrared light applied to the head in clinical trials for depression; make no claim that MITO LIGHT affects mood, memory or any brain condition.",
+     "Say only that MITO LIGHT is a wellness product, not a medical device, and is not intended to treat depression or any other condition."
+    ],
+    "safe_cs": [
+     "Nanejvýš lze uvést, že vědci v klinických studiích testují blízké infračervené světlo přikládané na hlavu u deprese; netvrďte, že MITO LIGHT ovlivňuje náladu, paměť ani jakékoli onemocnění mozku.",
+     "Uvádějte jen, že MITO LIGHT je wellness produkt, nikoli zdravotnický prostředek, a není určen k léčbě deprese ani jiného onemocnění."
+    ],
+    "label_cap": "limited"
+   },
+   {
+    "id": "pbm-eye-vision",
+    "class": "medical",
+    "name_en": "Vision and the retina",
+    "name_cs": "Zrak a sítnice",
+    "nouns_en": [
+     "vision",
+     "eyesight",
+     "retina*",
+     "macular degeneration",
+     "myopia",
+     "cataract*",
+     "glaucoma",
+     "dry eye*",
+     "eye health",
+     "visual acuity"
+    ],
+    "nouns_cs": [
+     "zrak*",
+     "vidění",
+     "sítnic*",
+     "makulárn* degenerac*",
+     "krátkozrak*",
+     "katarakt*",
+     "šed* zákal",
+     "glaukom*",
+     "suché oko",
+     "zdraví očí"
+    ],
+    "patterns": [],
+    "safe_en": [
+     "At most: researchers are studying specific red-light protocols for eye health under clinical supervision; make no claim that MITO LIGHT improves vision.",
+     "Safety wording only: do not stare into the panel and follow the manufacturer's eye-protection instructions; MITO LIGHT is not intended to improve vision or treat eye conditions."
+    ],
+    "safe_cs": [
+     "Nanejvýš lze uvést, že vědci zkoumají konkrétní protokoly červeného světla pro zdraví očí pod klinickým dohledem; netvrďte, že MITO LIGHT zlepšuje zrak.",
+     "Pouze bezpečnostní formulace: nedívejte se do panelu a dodržujte pokyny výrobce k ochraně očí; MITO LIGHT není určen ke zlepšení zraku ani k léčbě očních onemocnění."
+    ],
+    "label_cap": "limited"
+   },
+   {
+    "id": "pbm-testosterone",
+    "class": "avoid",
+    "name_en": "Hormones and fertility",
+    "name_cs": "Hormony a plodnost",
+    "nouns_en": [
+     "testosterone",
+     "fertility",
+     "sperm",
+     "libido",
+     "testicle*",
+     "testes",
+     "erectile",
+     "hormone*",
+     "sex drive"
+    ],
+    "nouns_cs": [
+     "testosteron*",
+     "plodnost*",
+     "neplodnost*",
+     "spermi*",
+     "libid*",
+     "varlat*",
+     "erektiln*",
+     "hormon*",
+     "sexuáln* touh*"
+    ],
+    "patterns": [],
+    "safe_en": [
+     "Say nothing about testosterone, hormones or fertility for MITO LIGHT; at most, state that the panels are wellness products and make no claims about hormones.",
+     "If asked, say that research on light and male reproductive health is at an early stage and mostly laboratory-based, and that MITO LIGHT makes no claim in this area."
+    ],
+    "safe_cs": [
+     "O testosteronu, hormonech ani plodnosti u MITO LIGHT nic netvrďte; nanejvýš uveďte, že panely jsou wellness produkty a netvrdí nic o hormonech.",
+     "Na dotaz uveďte, že výzkum světla a mužského reprodukčního zdraví je v rané fázi a většinou laboratorní a že MITO LIGHT v této oblasti nic netvrdí."
+    ],
+    "label_cap": "none"
+   },
+   {
+    "id": "pbm-detox-immunity",
+    "class": "avoid",
+    "name_en": "Detox and immunity",
+    "name_cs": "Detox a imunita",
+    "nouns_en": [
+     "detox*",
+     "toxin*",
+     "immune system",
+     "immunity",
+     "cleanse*",
+     "boost immunity"
+    ],
+    "nouns_cs": [
+     "detox*",
+     "toxin*",
+     "imunit*",
+     "imunitn*",
+     "očist* organism*",
+     "očist* těla"
+    ],
+    "patterns": [
+     "\\bdetox\\w*",
+     "\\bdetoxif\\w*"
+    ],
+    "safe_en": [
+     "Do not mention detox or immunity for MITO LIGHT; at most, say that the panels are wellness products and that no health or immune benefit is claimed.",
+     "MITO LIGHT does not claim to detoxify the body or to boost the immune system."
+    ],
+    "safe_cs": [
+     "O detoxu ani imunitě u MITO LIGHT nic neuvádějte; nanejvýš řekněte, že panely jsou wellness produkty a že se netvrdí žádný zdravotní ani imunitní přínos.",
+     "MITO LIGHT netvrdí, že detoxikuje tělo nebo posiluje imunitní systém."
+    ],
+    "label_cap": "none"
+   }
+  ],
+  "treatment_verbs": {
+   "en": [
+    "cure*",
+    "heal",
+    "heals",
+    "healed",
+    "healing",
+    "treat*",
+    "relieve*",
+    "relief",
+    "alleviate*",
+    "ease",
+    "eases",
+    "eased",
+    "easing",
+    "soothe*",
+    "fight*",
+    "combat*",
+    "eliminate*",
+    "reverse*",
+    "prevent*",
+    "remedy",
+    "fix",
+    "fixes",
+    "fixing",
+    "repair*",
+    "get rid of",
+    "gets rid of",
+    "stops",
+    "stopping",
+    "manage",
+    "manages",
+    "managing",
+    "tackle*",
+    "therapy for",
+    "treatment for",
+    "cure",
+    "cures",
+    "cured",
+    "curing",
+    "cure for",
+    "treat",
+    "treats",
+    "treated",
+    "treating",
+    "treatment",
+    "treatments",
+    "treatment of",
+    "heal faster",
+    "relieve",
+    "relieves",
+    "relieved",
+    "relieving",
+    "relief from",
+    "relief of",
+    "pain relief",
+    "symptom relief",
+    "symptomatic relief",
+    "alleviate",
+    "alleviates",
+    "alleviated",
+    "alleviating",
+    "alleviation",
+    "mitigate",
+    "mitigates",
+    "mitigating",
+    "mitigation",
+    "soothe pain",
+    "soothes pain",
+    "ease pain",
+    "eases pain",
+    "ease symptoms",
+    "eases symptoms",
+    "reduce pain",
+    "reduces pain",
+    "reducing pain",
+    "reduce inflammation",
+    "reduces inflammation",
+    "lower inflammation",
+    "lowers inflammation",
+    "reduce symptoms",
+    "reduces symptoms",
+    "fight",
+    "fights",
+    "fighting",
+    "combat",
+    "combats",
+    "combating",
+    "battle",
+    "battles",
+    "eliminate",
+    "eliminates",
+    "eliminating",
+    "elimination of",
+    "eradicate",
+    "eradicates",
+    "rid your body of",
+    "remove pain",
+    "removes pain",
+    "kill",
+    "kills",
+    "killing",
+    "destroy",
+    "destroys",
+    "reverse",
+    "reverses",
+    "reversing",
+    "reversal of",
+    "undo damage",
+    "repair damaged",
+    "repairs damaged",
+    "repair damage",
+    "repair nerves",
+    "repairs nerves",
+    "heal nerves",
+    "regenerate damaged",
+    "regenerates damaged",
+    "rebuild damaged",
+    "regrow",
+    "regrows",
+    "restore function",
+    "restores function",
+    "restore health",
+    "restores health",
+    "prevent",
+    "prevents",
+    "preventing",
+    "prevention",
+    "preventive",
+    "protect against",
+    "protects against",
+    "protection against",
+    "shield against",
+    "defend against",
+    "ward off",
+    "stops hair loss",
+    "stop hair loss",
+    "stops pain",
+    "stop pain",
+    "halt",
+    "halts",
+    "slow the progression",
+    "slows the progression",
+    "slow progression",
+    "slows progression",
+    "reduce the risk of",
+    "reduces the risk of",
+    "lower the risk of",
+    "lowers the risk of",
+    "lowers your risk",
+    "reduce your risk",
+    "reduces your risk",
+    "decrease the risk",
+    "therapy",
+    "therapies",
+    "therapeutic",
+    "therapeutic effect",
+    "therapeutic effects",
+    "therapeutic benefits",
+    "therapeutic use",
+    "remedy for",
+    "remedies",
+    "medicine for",
+    "drug-free alternative",
+    "alternative to medication",
+    "alternative to drugs",
+    "alternative to surgery",
+    "alternative to painkillers",
+    "instead of medication",
+    "instead of drugs",
+    "instead of painkillers",
+    "replace medication",
+    "replaces medication",
+    "replace your medication",
+    "replace your painkillers",
+    "replaces your painkillers",
+    "replace painkillers",
+    "replaces painkillers",
+    "replaces your doctor",
+    "replace your doctor",
+    "no need for a doctor",
+    "no need to see a doctor",
+    "stop taking your medication",
+    "stop taking medication",
+    "quit your medication",
+    "indicated for",
+    "prescribed by",
+    "diagnose",
+    "diagnoses",
+    "diagnosing",
+    "diagnostic",
+    "detect disease",
+    "cure-all",
+    "miracle cure",
+    "cures all",
+    "disappear*",
+    "vanish*",
+    "clear up",
+    "cleared up",
+    "resolved",
+    "went away",
+    "go away",
+    "gone",
+    "regrow*",
+    "regrew",
+    "reversed"
+   ],
+   "cs": [
+    "léč*",
+    "vyléč*",
+    "uzdrav*",
+    "zmírň*",
+    "zmírn*",
+    "uleví",
+    "úlev*",
+    "odstraň*",
+    "odstran*",
+    "zbav*",
+    "bojuj*",
+    "boj proti",
+    "bojovat proti",
+    "předchá*",
+    "předchaz*",
+    "zabrán*",
+    "zabran*",
+    "zabraň*",
+    "prevenc*",
+    "zastaví",
+    "zastavuje",
+    "zastavit",
+    "hojí",
+    "hojit",
+    "hojení",
+    "hojením",
+    "zahojí",
+    "zhojí",
+    "hojiv*",
+    "zmírní",
+    "zmírnit",
+    "zmírníte",
+    "zmírňuje",
+    "zmírňují",
+    "zmírnění",
+    "zmírňování",
+    "ulevit",
+    "ulevuje",
+    "ulevují",
+    "úleva",
+    "úlevu",
+    "úlevy",
+    "úlevě",
+    "úlevou",
+    "odstraní",
+    "odstranit",
+    "odstraníte",
+    "odstraňuje",
+    "odstraňují",
+    "zbaví",
+    "zbavit",
+    "zbavuje",
+    "zbavují",
+    "zbavíte",
+    "zbavte se",
+    "bojuje proti",
+    "bojuje s",
+    "bojují proti",
+    "boj s",
+    "potlač*",
+    "tlumí",
+    "utiš*",
+    "snižuje riziko",
+    "sníží riziko",
+    "snížení rizika",
+    "snižují riziko",
+    "snižuje bolest",
+    "sníží bolest",
+    "snížení bolesti",
+    "snižuje zánět",
+    "sníží zánět",
+    "snížení zánětu",
+    "snižuje příznaky",
+    "sníží příznaky",
+    "zmírňuje příznaky",
+    "předchází",
+    "předcházet",
+    "předejde",
+    "preventivn*",
+    "profylakt*",
+    "chrání před nemocemi",
+    "chrání před nemocí",
+    "chrání před infekcemi",
+    "chrání před rakovinou",
+    "chrání před viry",
+    "chrání před bakteriemi",
+    "ochrání před nemocemi",
+    "brání vzniku",
+    "brání rozvoji",
+    "zabrání vzniku",
+    "zabraňuje vzniku",
+    "zpomalí progresi",
+    "zpomaluje progresi",
+    "zpomalení progrese",
+    "zvrát*",
+    "reverz*",
+    "obnoví funkci",
+    "obnovuje funkci",
+    "obnoví zdraví",
+    "obnovení zdraví",
+    "opraví poškozené",
+    "opravuje poškozené",
+    "oprava poškozených",
+    "regeneruje poškozené",
+    "regenerace poškozených",
+    "ničí",
+    "zničí",
+    "zabíjí",
+    "zabije",
+    "likviduje",
+    "terapi*",
+    "terapeutick*",
+    "lék na",
+    "léku na",
+    "lékem na",
+    "lék proti",
+    "léku proti",
+    "lékem proti",
+    "všelék*",
+    "zázračný lék",
+    "prostředek proti",
+    "prostředek na",
+    "indikován*",
+    "indikováno",
+    "diagnostik*",
+    "diagnostikuje",
+    "diagnostikovat",
+    "diagnóz*",
+    "alternativa k lékům",
+    "alternativa léků",
+    "náhrada léků",
+    "místo léků",
+    "alternativa k operaci",
+    "místo operace",
+    "místo analgetik",
+    "nahrazuje léky",
+    "nahradí léky",
+    "nahraďte léky",
+    "nahrazuje lékaře",
+    "nahradí lékaře",
+    "nemusíte k lékaři",
+    "není třeba lékaře",
+    "přestaňte užívat léky",
+    "přestaňte brát léky",
+    "vysaďte léky",
+    "vysadit léky",
+    "zvrac*",
+    "zmiz*",
+    "vymiz*",
+    "ustoup*",
+    "odezn*",
+    "dorost*",
+    "zahoj*",
+    "zhoj*"
+   ]
+  },
+  "benefit_verbs": {
+   "en": [
+    "improve*",
+    "improving",
+    "boost*",
+    "enhance*",
+    "increase*",
+    "increasing",
+    "support",
+    "supports",
+    "supported",
+    "supporting",
+    "promote*",
+    "promoting",
+    "help",
+    "helps",
+    "helped",
+    "helping",
+    "speed up",
+    "speeds up",
+    "accelerate*",
+    "stimulate*",
+    "activate*",
+    "restore*",
+    "rejuvenate*",
+    "optimi*",
+    "recharge*",
+    "reduce*",
+    "reducing",
+    "lower*",
+    "decrease*",
+    "calms",
+    "calming",
+    "relax*",
+    "energi*"
+   ],
+   "cs": [
+    "zlepš*",
+    "vylepš*",
+    "podpor*",
+    "podpoř*",
+    "pomáh*",
+    "pomůž*",
+    "pomuz*",
+    "pomoz*",
+    "urychl*",
+    "zvyš*",
+    "zvys*",
+    "posil*",
+    "stimul*",
+    "aktivuj*",
+    "aktivac*",
+    "obnov*",
+    "omlaz*",
+    "omlaz*",
+    "optimaliz*",
+    "nabíj*",
+    "snižuj*",
+    "sniž*",
+    "zklid*",
+    "uvolň*",
+    "uvoln*",
+    "usnadň*",
+    "usnadn*"
+   ]
+  },
+  "disease_terms": {
+   "en": [
+    "cancer*",
+    "tumor*",
+    "tumour*",
+    "diabet*",
+    "depression",
+    "depressive",
+    "anxiety",
+    "anxiety disorder*",
+    "panic attack*",
+    "ADHD",
+    "autism",
+    "dementia",
+    "alzheimer*",
+    "parkinson*",
+    "multiple sclerosis",
+    "stroke",
+    "heart disease",
+    "hypertension",
+    "high blood pressure",
+    "arthritis",
+    "osteoarthritis",
+    "rheumat*",
+    "osteoporosis",
+    "fibromyalgia",
+    "chronic pain",
+    "back pain",
+    "neck pain",
+    "joint pain",
+    "knee pain",
+    "muscle pain",
+    "nerve pain",
+    "pain",
+    "aches",
+    "neuropathy",
+    "sciatica",
+    "tendinitis",
+    "tendonitis",
+    "tendinopathy",
+    "plantar fasciitis",
+    "carpal tunnel",
+    "migraine*",
+    "headache*",
+    "insomnia",
+    "sleep disorder*",
+    "sleep apnea",
+    "sleep apnoea",
+    "psoriasis",
+    "eczema",
+    "dermatitis",
+    "rosacea",
+    "acne",
+    "vitiligo",
+    "wound*",
+    "ulcer*",
+    "bedsore*",
+    "infection*",
+    "covid*",
+    "coronavirus",
+    "influenza",
+    "herpes",
+    "cold sore*",
+    "hair loss",
+    "alopecia",
+    "baldness",
+    "infertility",
+    "erectile dysfunction",
+    "thyroid",
+    "hypothyroidism",
+    "hashimoto*",
+    "endometriosis",
+    "lymphedema",
+    "lymphoedema",
+    "mucositis",
+    "macular degeneration",
+    "glaucoma",
+    "cataract*",
+    "dry eye*",
+    "tinnitus",
+    "asthma",
+    "copd",
+    "obesity",
+    "inflammation",
+    "inflammatory",
+    "carcinoma*",
+    "melanoma*",
+    "leukemia",
+    "lymphoma",
+    "metastasis",
+    "metastases",
+    "chemotherapy",
+    "radiotherapy",
+    "oncology",
+    "oral mucositis",
+    "radiation dermatitis",
+    "prediabetes",
+    "insulin resistance",
+    "high blood sugar",
+    "blood sugar levels",
+    "lower blood pressure",
+    "blood pressure",
+    "cardiovascular disease",
+    "heart attack",
+    "atherosclerosis",
+    "high cholesterol",
+    "metabolic syndrome",
+    "varicose veins",
+    "poor circulation",
+    "edema",
+    "oedema",
+    "swelling",
+    "depress*",
+    "depressive disorder",
+    "ptsd",
+    "post-traumatic stress",
+    "bipolar",
+    "schizophrenia",
+    "seasonal affective disorder",
+    "mood disorder",
+    "mood disorders",
+    "mental illness",
+    "mental disorder",
+    "brain disorder",
+    "brain disorders",
+    "neurological disorder",
+    "neurological disorders",
+    "neurodegenerative",
+    "epilepsy",
+    "traumatic brain injury",
+    "concussion",
+    "cognitive decline",
+    "cognitive impairment",
+    "memory loss",
+    "sleep disorder",
+    "sleep disorders",
+    "restless legs",
+    "cluster headache",
+    "osteopenia",
+    "gout",
+    "neuralgia",
+    "bursitis",
+    "heel spur",
+    "tennis elbow",
+    "golfer's elbow",
+    "frozen shoulder",
+    "rotator cuff",
+    "herniated disc",
+    "slipped disc",
+    "disc herniation",
+    "spinal stenosis",
+    "scoliosis",
+    "tmj",
+    "temporomandibular",
+    "lower back pain",
+    "shoulder pain",
+    "hip pain",
+    "foot pain",
+    "period pain",
+    "menstrual pain",
+    "pains",
+    "painful",
+    "pain relief",
+    "joint stiffness",
+    "stiff joints",
+    "bone healing",
+    "sports injury",
+    "sports injuries",
+    "ligament injury",
+    "muscle injury",
+    "post-surgical",
+    "postoperative",
+    "post-operative",
+    "anti-inflammatory",
+    "chronic inflammation",
+    "wound healing",
+    "heal wounds",
+    "diabetic foot",
+    "pressure sore",
+    "pressure sores",
+    "bedsores",
+    "burn injuries",
+    "burn wounds",
+    "keloid*",
+    "hypertrophic scar",
+    "hypertrophic scars",
+    "surgical scar",
+    "surgical scars",
+    "burn scars",
+    "atopic dermatitis",
+    "androgenetic alopecia",
+    "hair thinning",
+    "thinning hair",
+    "balding",
+    "hair regrowth",
+    "regrow hair",
+    "hair growth",
+    "shingles",
+    "cold sores",
+    "warts",
+    "fungal infection",
+    "nail fungus",
+    "onychomycosis",
+    "athlete's foot",
+    "bacterial infection",
+    "viral infection",
+    "bacteria",
+    "virus",
+    "viruses",
+    "pathogens",
+    "sars-cov-2",
+    "long covid",
+    "flu",
+    "common cold",
+    "sinusitis",
+    "bronchitis",
+    "pneumonia",
+    "hay fever",
+    "allergic rhinitis",
+    "sepsis",
+    "hepatitis",
+    "hiv",
+    "lyme disease",
+    "tuberculosis",
+    "thyroid disease",
+    "hyperthyroidism",
+    "graves disease",
+    "autoimmune",
+    "autoimmune disease",
+    "lupus",
+    "celiac disease",
+    "crohn*",
+    "ulcerative colitis",
+    "irritable bowel",
+    "ibs",
+    "constipation",
+    "diarrhea",
+    "diarrhoea",
+    "acid reflux",
+    "gerd",
+    "gastritis",
+    "fatty liver",
+    "liver disease",
+    "kidney disease",
+    "kidney stones",
+    "gallstones",
+    "impotence",
+    "pcos",
+    "polycystic ovary",
+    "menstrual cramps",
+    "premenstrual syndrome",
+    "pms",
+    "menopause symptoms",
+    "hot flashes",
+    "incontinence",
+    "urinary tract infection",
+    "uti",
+    "prostatitis",
+    "enlarged prostate",
+    "bph",
+    "vaginal atrophy",
+    "pelvic pain",
+    "dry eye",
+    "nearsightedness",
+    "short-sightedness",
+    "retinopathy",
+    "vision loss",
+    "poor vision",
+    "vision decline",
+    "improve vision",
+    "improves vision",
+    "improved vision",
+    "improve eyesight",
+    "improves eyesight",
+    "better eyesight",
+    "hearing loss",
+    "periodontitis",
+    "gum disease",
+    "gingivitis",
+    "canker sores",
+    "mouth ulcers",
+    "toothache",
+    "jaundice",
+    "chronic fatigue",
+    "chronic fatigue syndrome",
+    "mitochondrial disease",
+    "mitochondrial dysfunction",
+    "anemia",
+    "anaemia",
+    "arthrit*",
+    "osteoarthr*",
+    "anxi*",
+    "panic*",
+    "infect*",
+    "inflamm*",
+    "allerg*",
+    "seizure*",
+    "myopi*",
+    "fractur*",
+    "sprain*",
+    "injur*",
+    "neuropath*",
+    "tendin*",
+    "tendonit*",
+    "achilles tendon",
+    "achy",
+    "aching",
+    "sore joints",
+    "achy joints",
+    "aching joints",
+    "swollen joints",
+    "stiffness",
+    "bald",
+    "shin splints",
+    "disease*",
+    "illness*",
+    "disorder*",
+    "syndrome*",
+    "ailment*",
+    "medical condition*",
+    "health condition*",
+    "health problem*",
+    "health issues",
+    "symptom*",
+    "patient*",
+    "diagnos*"
+   ],
+   "cs": [
+    "rakovin*",
+    "nádor*",
+    "cukrovk*",
+    "diabet*",
+    "deprese",
+    "depres*",
+    "úzkost*",
+    "úzkostn*",
+    "panick*",
+    "ADHD",
+    "autism*",
+    "demenc*",
+    "alzheimer*",
+    "parkinson*",
+    "roztroušen* skleróz*",
+    "mrtvic*",
+    "srdeční onemocnění",
+    "hypertenz*",
+    "vysok* tlak*",
+    "artrit*",
+    "artróz*",
+    "revmat*",
+    "osteopor*",
+    "fibromyalgi*",
+    "chronick* bolest*",
+    "bolest*",
+    "neuropati*",
+    "ischias*",
+    "tendinit*",
+    "tendinopati*",
+    "zánět šlach",
+    "plantární fasciitid*",
+    "syndrom karpálního tunelu",
+    "migrén*",
+    "nespavost*",
+    "insomni*",
+    "poruch* spánku",
+    "spánkov* apnoe",
+    "lupénk*",
+    "ekzém*",
+    "dermatitid*",
+    "rosace*",
+    "akné",
+    "vitiligo",
+    "vřed*",
+    "dekubit*",
+    "infekc*",
+    "covid*",
+    "koronavir*",
+    "chřipk*",
+    "opar*",
+    "vypadávání vlasů",
+    "alopeci*",
+    "plešat*",
+    "neplodnost*",
+    "erektiln* dysfunkc*",
+    "štítn* žláz*",
+    "hypotyre*",
+    "hashimot*",
+    "endometrió*",
+    "návaly horka",
+    "lymfedém*",
+    "makulárn* degenerac*",
+    "glaukom*",
+    "katarakt*",
+    "šed* zákal",
+    "suché oko",
+    "krátkozrak*",
+    "tinnit*",
+    "astma*",
+    "obezit*",
+    "zánět*",
+    "záněty",
+    "zánětliv*",
+    "karcinom*",
+    "melanom*",
+    "leukemi*",
+    "lymfom*",
+    "metastáz*",
+    "onkolog*",
+    "chemoterapi*",
+    "radioterapi*",
+    "mukozit*",
+    "cukrovc*",
+    "prediabet*",
+    "inzulin*",
+    "vysoký tlak",
+    "vysokého tlaku",
+    "vysokým tlakem",
+    "vysokém tlaku",
+    "krevní tlak",
+    "krevního tlaku",
+    "krevním tlakem",
+    "kardiovaskulár*",
+    "srdeční choroby",
+    "srdečních chorob",
+    "srdečními chorobami",
+    "onemocnění srdce",
+    "infarkt*",
+    "mozková příhoda",
+    "mozkové příhody",
+    "mozkovou příhodu",
+    "mozkové příhodě",
+    "ateroskleróz*",
+    "cholesterol*",
+    "metabolický syndrom",
+    "metabolického syndromu",
+    "křečové žíly",
+    "křečových žil",
+    "křečovým žilám",
+    "křečovými žilami",
+    "špatné prokrvení",
+    "špatného prokrvení",
+    "špatným prokrvením",
+    "poruchy prokrvení",
+    "poruch prokrvení",
+    "otok*",
+    "otékání",
+    "posttraumatick*",
+    "ptsd",
+    "bipolárn*",
+    "schizofreni*",
+    "afektivní porucha",
+    "afektivní poruchy",
+    "afektivních poruch",
+    "sezónní depres*",
+    "duševní nemoc*",
+    "duševní onemocnění",
+    "duševních onemocnění",
+    "psychická onemocnění",
+    "psychických onemocnění",
+    "psychické poruchy",
+    "psychických poruch",
+    "mozková onemocnění",
+    "mozkových onemocnění",
+    "neurologick*",
+    "neurodegenerativ*",
+    "roztroušená skleróza",
+    "roztroušené sklerózy",
+    "roztroušenou sklerózou",
+    "roztroušenou sklerózu",
+    "skleróz*",
+    "epilepsi*",
+    "epileptick*",
+    "záchvat*",
+    "traumatické poranění mozku",
+    "traumatického poranění mozku",
+    "otřes mozku",
+    "otřesu mozku",
+    "otřesem mozku",
+    "kognitivní pokles",
+    "kognitivního poklesu",
+    "kognitivní poruchy",
+    "kognitivních poruch",
+    "ztráta paměti",
+    "ztráty paměti",
+    "ztrátou paměti",
+    "poruchy paměti",
+    "poruch paměti",
+    "spánková apnoe",
+    "spánkové apnoe",
+    "spánkovou apnoe",
+    "spánkovou apnoí",
+    "poruchy spánku",
+    "poruch spánku",
+    "poruchami spánku",
+    "poruchám spánku",
+    "syndrom neklidných nohou",
+    "syndromu neklidných nohou",
+    "bolest hlavy",
+    "bolesti hlavy",
+    "bolestem hlavy",
+    "bolestmi hlavy",
+    "osteoartr*",
+    "osteoporóz*",
+    "osteopeni*",
+    "dnav*",
+    "polyneuropati*",
+    "neuralgi*",
+    "karpáln*",
+    "entezopati*",
+    "burzit*",
+    "fasciit*",
+    "patní ostruha",
+    "patní ostruhy",
+    "patní ostruhu",
+    "patní ostruhou",
+    "patních ostruh",
+    "tenisový loket",
+    "tenisového loktu",
+    "tenisovým loktem",
+    "golfový loket",
+    "golfového loktu",
+    "zmrzlé rameno",
+    "zmrzlého ramene",
+    "zmrzlým ramenem",
+    "výhřez*",
+    "ploténk*",
+    "stenóz*",
+    "skolióz*",
+    "bolest",
+    "bolesti",
+    "bolestem",
+    "bolestmi",
+    "bolestech",
+    "bolestivý",
+    "bolestivá",
+    "bolestivé",
+    "bolestivých",
+    "bolestivým",
+    "bolestivými",
+    "bolest zad",
+    "bolesti zad",
+    "bolestem zad",
+    "bolestmi zad",
+    "bolest kloubů",
+    "bolesti kloubů",
+    "bolestem kloubů",
+    "bolestmi kloubů",
+    "bolest svalů",
+    "bolesti svalů",
+    "bolestem svalů",
+    "bolestmi svalů",
+    "bolest šíje",
+    "bolesti šíje",
+    "bolest krku",
+    "bolesti krku",
+    "bolest kolen",
+    "bolesti kolen",
+    "bolest ramen",
+    "bolesti ramen",
+    "chronická bolest",
+    "chronické bolesti",
+    "chronickou bolest",
+    "chronickou bolestí",
+    "chronických bolestí",
+    "chronickými bolestmi",
+    "nervová bolest",
+    "nervové bolesti",
+    "ztuhl*",
+    "křeč*",
+    "podvrtnutí",
+    "podvrtnut*",
+    "zlomenin*",
+    "poraněn*",
+    "zraněn*",
+    "úraz*",
+    "poúrazov*",
+    "pooperačn*",
+    "protizánět*",
+    "rána",
+    "rány",
+    "ráně",
+    "ránu",
+    "ránou",
+    "ranách",
+    "ranami",
+    "hojení ran",
+    "hojení rány",
+    "chronické rány",
+    "chronických ran",
+    "proleženin*",
+    "bércov*",
+    "diabetická noha",
+    "diabetické nohy",
+    "diabetickou nohu",
+    "diabetickou nohou",
+    "popálenin*",
+    "keloid*",
+    "hypertrofické jizvy",
+    "hypertrofických jizev",
+    "pooperační jizvy",
+    "pooperačních jizev",
+    "popáleninové jizvy",
+    "popáleninových jizev",
+    "lupénc*",
+    "psoriáz*",
+    "atopick*",
+    "plešin*",
+    "vypadáváním vlasů",
+    "vypadávají vlasy",
+    "řídnutí vlasů",
+    "řídnoucí vlasy",
+    "řídké vlasy",
+    "řídkých vlasů",
+    "ztráta vlasů",
+    "ztráty vlasů",
+    "ztrátou vlasů",
+    "růst vlasů",
+    "růstu vlasů",
+    "růstem vlasů",
+    "obnova vlasů",
+    "obnovu vlasů",
+    "obnovy vlasů",
+    "herpes*",
+    "herpet*",
+    "pásový opar",
+    "pásového oparu",
+    "pásovým oparem",
+    "bradavic*",
+    "mykóz*",
+    "onychomykóz*",
+    "plíseň",
+    "plísn*",
+    "infekčn*",
+    "virus*",
+    "viry",
+    "virů",
+    "virům",
+    "virech",
+    "virov*",
+    "bakteri*",
+    "patogen*",
+    "postcovid*",
+    "dlouhý covid",
+    "dlouhého covidu",
+    "chřipc*",
+    "nachlazen*",
+    "rýma",
+    "rýmy",
+    "rýmou",
+    "senná rýma",
+    "senné rýmy",
+    "sinusit*",
+    "angín*",
+    "bronchit*",
+    "pneumoni*",
+    "zápal plic",
+    "zápalu plic",
+    "zápalem plic",
+    "astmat*",
+    "chopn",
+    "alergi*",
+    "alergick*",
+    "sepse",
+    "hepatit*",
+    "hiv",
+    "borelióz*",
+    "tuberkulóz*",
+    "štítnic*",
+    "hypotyreóz*",
+    "hypertyreóz*",
+    "graves*",
+    "autoimunitn*",
+    "autoimunn*",
+    "lupus*",
+    "celiak*",
+    "crohn*",
+    "kolitid*",
+    "dráždivého tračníku",
+    "syndrom dráždivého tračníku",
+    "syndromu dráždivého tračníku",
+    "zácp*",
+    "průjem",
+    "průjmy",
+    "průjmu",
+    "průjm*",
+    "reflux*",
+    "refluxn*",
+    "pálení žáhy",
+    "žáh*",
+    "gastritid*",
+    "vředov*",
+    "steatóz*",
+    "tuková játra",
+    "tukových jater",
+    "tukovým játrům",
+    "tukovými játry",
+    "tukových játrech",
+    "jaterní onemocnění",
+    "jaterních onemocnění",
+    "onemocnění jater",
+    "onemocnění ledvin",
+    "ledvinové kameny",
+    "ledvinových kamenů",
+    "žlučové kameny",
+    "žlučových kamenů",
+    "erektiln*",
+    "impoten*",
+    "pcos",
+    "polycystick*",
+    "endometrióz*",
+    "menstruační bolesti",
+    "menstruačních bolestí",
+    "menstruační křeče",
+    "menstruačních křečí",
+    "bolestivá menstruace",
+    "bolestivé menstruace",
+    "bolestivou menstruaci",
+    "premenstruační*",
+    "pms",
+    "klimakterick*",
+    "návalů horka",
+    "návalům horka",
+    "inkontinenc*",
+    "prostat*",
+    "vaginální atrofi*",
+    "pánevní bolesti",
+    "pánevních bolestí",
+    "makulárn*",
+    "zelený zákal",
+    "zeleného zákalu",
+    "zeleným zákalem",
+    "šedý zákal",
+    "šedého zákalu",
+    "šedým zákalem",
+    "myopi*",
+    "suchého oka",
+    "suchým okem",
+    "retinopati*",
+    "ztráta zraku",
+    "ztráty zraku",
+    "ztrátou zraku",
+    "zhoršení zraku",
+    "zhoršeného zraku",
+    "špatný zrak",
+    "špatného zraku",
+    "špatným zrakem",
+    "zlepšení zraku",
+    "zlepšuje zrak",
+    "zlepšit zrak",
+    "zlepší zrak",
+    "zlepšený zrak",
+    "zlepšeného zraku",
+    "tinnitus*",
+    "ušní šelest",
+    "ušního šelestu",
+    "zvonění v uších",
+    "ztráta sluchu",
+    "ztráty sluchu",
+    "nedoslýchavost*",
+    "parodont*",
+    "paradont*",
+    "zubní kaz",
+    "zubního kazu",
+    "gingivitid*",
+    "afty",
+    "žloutenk*",
+    "žloutenc*",
+    "chronická únava",
+    "chronické únavy",
+    "chronickou únavu",
+    "chronickou únavou",
+    "únavový syndrom",
+    "únavového syndromu",
+    "mitochondriální onemocnění",
+    "mitochondriálních onemocnění",
+    "mitochondriální choroba",
+    "mitochondriální choroby",
+    "mitochondriální dysfunkce",
+    "mitochondriální dysfunkci",
+    "anémi*",
+    "chudokrevnost*",
+    "chudokrevn*",
+    "cukrovek",
+    "lupének",
+    "chřipek",
+    "žloutenek",
+    "křečových žilách",
+    "nemoc*",
+    "onemocněn*",
+    "chorob*",
+    "syndrom*",
+    "příznak*",
+    "pacient*",
+    "zdravotní potíže",
+    "zdravotní potíž*",
+    "zdravotní problém*",
+    "diagnóz*"
+   ]
+  },
+  "device_words": {
+   "en": [
+    "light",
+    "lights",
+    "red light",
+    "near-infrared",
+    "infrared",
+    "NIR",
+    "LED",
+    "LEDs",
+    "panel",
+    "panels",
+    "lamp",
+    "lamps",
+    "device",
+    "devices",
+    "therapy",
+    "treatment",
+    "treatments",
+    "session",
+    "sessions",
+    "photobiomodulation",
+    "PBM",
+    "irradiation",
+    "mito light"
+   ],
+   "cs": [
+    "světl*",
+    "panel*",
+    "lamp*",
+    "přístroj*",
+    "zařízení",
+    "terapi*",
+    "ošetření",
+    "osvit*",
+    "sezení",
+    "ozáření",
+    "fotobiomodulac*",
+    "LED",
+    "mito light"
+   ]
+  },
+  "indication_prepositions": {
+   "en": [
+    "for",
+    "against",
+    "vs",
+    "versus"
+   ],
+   "cs": [
+    "na",
+    "proti",
+    "při",
+    "pro"
+   ]
+  },
+  "regulated_status": {
+   "en": [
+    "FDA approved",
+    "FDA cleared",
+    "FDA registered",
+    "FDA certified",
+    "FDA approval",
+    "approved by the FDA",
+    "cleared by the FDA",
+    "medical device",
+    "medical devices",
+    "medical grade",
+    "clinical grade",
+    "hospital grade",
+    "pharmaceutical grade",
+    "doctor recommended",
+    "doctor approved",
+    "physician recommended",
+    "recommended by doctors",
+    "recommended by physicians",
+    "certified medical",
+    "medically certified",
+    "medically proven",
+    "medically tested",
+    "FDA-approved",
+    "FDA-cleared",
+    "FDA clearance",
+    "FDA-registered",
+    "FDA registration",
+    "FDA listed",
+    "FDA compliant",
+    "FDA authorized",
+    "FDA authorised",
+    "registered with the FDA",
+    "510k",
+    "510 k",
+    "510k cleared",
+    "PMA approved",
+    "CE medical",
+    "CE certified medical device",
+    "CE-marked medical device",
+    "MDR certified",
+    "MDR compliant",
+    "certified medical device",
+    "registered medical device",
+    "listed medical device",
+    "class I medical device",
+    "class II medical device",
+    "class IIa",
+    "class IIb",
+    "medical-grade",
+    "medical quality",
+    "medical-quality",
+    "medical equipment",
+    "hospital-grade",
+    "clinical-grade",
+    "clinic grade",
+    "pharmaceutical-grade",
+    "therapeutic grade",
+    "professional medical device",
+    "clinically proven",
+    "clinically tested",
+    "clinically validated",
+    "clinically verified",
+    "clinically shown",
+    "clinically demonstrated",
+    "clinically studied",
+    "clinically researched",
+    "clinically effective",
+    "clinical studies prove",
+    "clinical trials prove",
+    "clinical studies show",
+    "clinical trials show",
+    "clinical studies confirm",
+    "clinical studies demonstrate",
+    "proven in clinical trials",
+    "backed by clinical trials",
+    "backed by clinical studies",
+    "scientifically proven",
+    "scientifically proved",
+    "scientifically validated",
+    "scientifically verified",
+    "scientifically tested",
+    "science proves",
+    "proven to work",
+    "proven effective",
+    "proven results",
+    "medically approved",
+    "medically validated",
+    "medically recommended",
+    "doctor-recommended",
+    "doctor-approved",
+    "doctors recommend",
+    "recommended by dermatologists",
+    "recommended by physiotherapists",
+    "recommended by chiropractors",
+    "recommended by dentists",
+    "physician approved",
+    "dermatologist tested",
+    "dermatologist recommended",
+    "dermatologist approved",
+    "used by doctors",
+    "used in hospitals",
+    "trusted by doctors",
+    "approved by the Ministry of Health",
+    "approved by the Czech Ministry of Health",
+    "approved by Czech Ministry of Health",
+    "Ministry of Health approved",
+    "Czech Ministry of Health approved",
+    "endorsed by the Ministry of Health",
+    "certified by the Ministry of Health",
+    "SUKL approved",
+    "approved by SUKL",
+    "registered with SUKL",
+    "certified by SUKL",
+    "NASA approved",
+    "NASA-approved",
+    "NASA tested",
+    "NASA certified",
+    "NASA recommended",
+    "government approved",
+    "government certified",
+    "EU approved",
+    "EU certified",
+    "approved by the European Union",
+    "physiotherapists recommend",
+    "dermatologists recommend",
+    "doctors love it",
+    "doctors use it",
+    "doctors swear by",
+    "doctor tested",
+    "doctor-tested",
+    "approved by doctors",
+    "approved by physicians"
+   ],
+   "cs": [
+    "schváleno FDA",
+    "schválený FDA",
+    "schválená FDA",
+    "certifikováno FDA",
+    "FDA schválen*",
+    "zdravotnick* prostředek",
+    "zdravotnick* prostředk*",
+    "zdravotnick* přístroj*",
+    "lékařsk* přístroj*",
+    "lékařsk* zařízení",
+    "lékařsk* kvalit*",
+    "klinick* kvalit*",
+    "nemocniční kvalit*",
+    "doporučen* lékař*",
+    "doporučuj* lékař*",
+    "lékařsky doporuč*",
+    "lékařsky schválen*",
+    "lékařsky ověřen*",
+    "lékařsky testován*",
+    "certifikovan* zdravotnick*",
+    "schválené FDA",
+    "schválen FDA",
+    "schváleno úřadem FDA",
+    "schváleno americkým úřadem FDA",
+    "FDA schváleno",
+    "FDA schválený",
+    "FDA schválená",
+    "FDA schválené",
+    "FDA schválení",
+    "schválení FDA",
+    "schválením FDA",
+    "povoleno FDA",
+    "povolený FDA",
+    "FDA povolení",
+    "s povolením FDA",
+    "se schválením FDA",
+    "FDA certifikace",
+    "FDA certifikováno",
+    "certifikovaný FDA",
+    "registrováno u FDA",
+    "registrovaný u FDA",
+    "registrace u FDA",
+    "registrace FDA",
+    "FDA registrace",
+    "FDA cleared",
+    "FDA clearance",
+    "s certifikací FDA",
+    "510k",
+    "510 k",
+    "zdravotnický prostředek",
+    "zdravotnického prostředku",
+    "zdravotnickému prostředku",
+    "zdravotnickém prostředku",
+    "zdravotnickým prostředkem",
+    "zdravotnické prostředky",
+    "zdravotnických prostředků",
+    "zdravotnickým prostředkům",
+    "zdravotnických prostředcích",
+    "zdravotnickými prostředky",
+    "certifikovaný zdravotnický prostředek",
+    "certifikovaného zdravotnického prostředku",
+    "registrovaný zdravotnický prostředek",
+    "registrováno jako zdravotnický prostředek",
+    "zdravotnický prostředek třídy I",
+    "třída IIa",
+    "třídy IIa",
+    "třída IIb",
+    "třídy IIb",
+    "MDR certifikace",
+    "certifikace MDR",
+    "certifikováno podle MDR",
+    "splňuje MDR",
+    "CE zdravotnický",
+    "lékařské zařízení",
+    "lékařského zařízení",
+    "lékařskému zařízení",
+    "lékařským zařízením",
+    "lékařském zařízení",
+    "lékařský přístroj",
+    "lékařského přístroje",
+    "lékařskému přístroji",
+    "lékařským přístrojem",
+    "zdravotnický přístroj",
+    "zdravotnického přístroje",
+    "zdravotnickým přístrojem",
+    "zdravotnická pomůcka",
+    "zdravotnické pomůcky",
+    "zdravotnickou pomůckou",
+    "zdravotní pomůcka",
+    "léčebný přístroj",
+    "léčebného přístroje",
+    "léčebným přístrojem",
+    "léčebné zařízení",
+    "léčebného zařízení",
+    "terapeutický přístroj",
+    "terapeutického přístroje",
+    "terapeutické zařízení",
+    "terapeutického zařízení",
+    "medical grade",
+    "medical-grade",
+    "lékařská kvalita",
+    "lékařské kvality",
+    "lékařské kvalitě",
+    "lékařskou kvalitu",
+    "v lékařské kvalitě",
+    "medicínská kvalita",
+    "medicínské kvality",
+    "medicínské kvalitě",
+    "nemocniční kvalita",
+    "nemocniční kvality",
+    "nemocniční třída",
+    "farmaceutická kvalita",
+    "farmaceutické kvality",
+    "lékárenská kvalita",
+    "klinicky prokázáno",
+    "klinicky prokázán*",
+    "klinicky prokazatelný",
+    "klinicky prokazatelná",
+    "klinicky prokazatelné",
+    "klinicky ověřeno",
+    "klinicky ověřen*",
+    "klinicky testováno",
+    "klinicky testován*",
+    "klinicky otestováno",
+    "klinicky otestován*",
+    "klinicky potvrzeno",
+    "klinicky potvrzen*",
+    "klinicky účinn*",
+    "klinické studie prokázaly",
+    "klinické studie potvrzují",
+    "klinické studie dokazují",
+    "klinické studie ukazují",
+    "klinické testy prokázaly",
+    "klinické testy potvrdily",
+    "klinickými studiemi prokázáno",
+    "prokázáno klinickými studiemi",
+    "prokázáno v klinických studiích",
+    "vědecky prokázáno",
+    "vědecky prokázán*",
+    "vědecky potvrzeno",
+    "vědecky potvrzen*",
+    "vědecky ověřeno",
+    "vědecky ověřen*",
+    "vědecky testováno",
+    "vědecky testován*",
+    "věda dokazuje",
+    "prokazatelně účinn*",
+    "prokazatelné výsledky",
+    "prokázaná účinnost",
+    "prokázané účinky",
+    "lékařsky doporučeno",
+    "lékařsky doporučen*",
+    "lékařsky schváleno",
+    "lékařsky testováno",
+    "lékařsky ověřeno",
+    "lékařsky certifikováno",
+    "lékařsky certifikován*",
+    "lékařsky prokázáno",
+    "doporučeno lékaři",
+    "doporučeno lékařem",
+    "doporučují lékaři",
+    "doporučováno lékaři",
+    "doporučuje lékař",
+    "doporučeno fyzioterapeuty",
+    "doporučeno fyzioterapeutem",
+    "doporučeno dermatology",
+    "doporučeno odborníky",
+    "doporučeno chiropraktiky",
+    "doporučeno zubaři",
+    "používají lékaři",
+    "používají nemocnice",
+    "používáno v nemocnicích",
+    "dermatologicky testováno",
+    "dermatologicky testován*",
+    "dermatologicky ověřeno",
+    "schváleno ministerstvem zdravotnictví",
+    "schválený ministerstvem zdravotnictví",
+    "schváleno Ministerstvem zdravotnictví ČR",
+    "potvrzeno ministerstvem zdravotnictví",
+    "doporučeno ministerstvem zdravotnictví",
+    "certifikováno ministerstvem zdravotnictví",
+    "schváleno SÚKL",
+    "schválený SÚKL",
+    "registrováno SÚKL",
+    "registrováno u SÚKL",
+    "certifikováno SÚKL",
+    "potvrzeno SÚKL",
+    "NASA schváleno",
+    "schváleno NASA",
+    "testováno NASA",
+    "certifikováno NASA",
+    "doporučeno NASA",
+    "schváleno státem",
+    "státem schváleno",
+    "schváleno EU",
+    "schváleno Evropskou unií",
+    "doporučují ho lékaři",
+    "doporučují ho fyzioterapeuti",
+    "doporučuje ho lékař",
+    "lékaři doporučují",
+    "lékaři ho doporučují",
+    "fyzioterapeuti doporučují",
+    "dermatologové doporučují",
+    "odborníci doporučují",
+    "doporučují fyzioterapeuti",
+    "doporučují odborníci",
+    "doporučují dermatologové",
+    "doporučují zubaři",
+    "doporučují chiropraktici",
+    "lékaři ho milují",
+    "lékaři používají",
+    "schváleno lékaři",
+    "ověřeno lékaři",
+    "testováno lékaři"
+   ]
+  },
+  "safety_absolute": {
+   "en": [
+    "completely safe",
+    "totally safe",
+    "absolutely safe",
+    "perfectly safe",
+    "entirely safe",
+    "100% safe",
+    "100 percent safe",
+    "safe for everyone",
+    "safe for everybody",
+    "safe for all",
+    "safe for anyone",
+    "no side effects",
+    "zero side effects",
+    "without side effects",
+    "side-effect free",
+    "free of side effects",
+    "no known side effects",
+    "no adverse effects",
+    "no risk",
+    "zero risk",
+    "risk-free",
+    "without any risk",
+    "harmless",
+    "cannot harm",
+    "can't hurt",
+    "no contraindications",
+    "100 % safe",
+    "fully safe",
+    "guaranteed safe",
+    "proven safe",
+    "clinically proven safe",
+    "safe for all ages",
+    "safe for any age",
+    "safe for children",
+    "safe for kids",
+    "safe for babies",
+    "safe for infants",
+    "safe for pregnant women",
+    "safe during pregnancy",
+    "safe for pregnancy",
+    "safe while pregnant",
+    "safe for breastfeeding",
+    "safe for all skin types",
+    "safe for any skin type",
+    "safe for long-term use",
+    "safe for unlimited use",
+    "safe for eyes",
+    "eye safe",
+    "eye-safe",
+    "safe to look at",
+    "safe to stare",
+    "no need for eye protection",
+    "no eye protection needed",
+    "no eye protection required",
+    "no goggles needed",
+    "no goggles required",
+    "you can look directly",
+    "look directly at the light",
+    "no side-effects",
+    "side effect free",
+    "side-effect-free",
+    "no adverse reactions",
+    "no negative effects",
+    "no risks",
+    "risk free",
+    "without risk",
+    "no danger",
+    "completely harmless",
+    "totally harmless",
+    "100% harmless",
+    "can't harm",
+    "can not harm",
+    "cannot hurt",
+    "will not harm",
+    "no known contraindications",
+    "contraindication-free",
+    "you can't overdo it",
+    "cannot overdo",
+    "can't overdo it",
+    "no overdose",
+    "can't overdose",
+    "cannot overdose",
+    "no such thing as too much",
+    "use as much as you like",
+    "use as often as you like",
+    "unlimited use",
+    "unlimited sessions",
+    "painless",
+    "completely painless",
+    "radiation-free",
+    "radiation free",
+    "no radiation",
+    "zero radiation",
+    "emf free",
+    "emf-free",
+    "zero emf",
+    "no emf"
+   ],
+   "cs": [
+    "naprosto bezpečn*",
+    "zcela bezpečn*",
+    "absolutně bezpečn*",
+    "úplně bezpečn*",
+    "100 % bezpečn*",
+    "100% bezpečn*",
+    "bezpečn* pro každého",
+    "bezpečn* pro všechny",
+    "bez vedlejších účinků",
+    "žádné vedlejší účinky",
+    "žádné vedlejší účink*",
+    "bez rizika",
+    "žádné riziko",
+    "nulové riziko",
+    "neškodn*",
+    "nezpůsobuje žádn*",
+    "bez kontraindikací",
+    "žádné kontraindikace",
+    "stoprocentně bezpečn*",
+    "zaručeně bezpečn*",
+    "garantovaně bezpečn*",
+    "prokazatelně bezpečn*",
+    "klinicky prokázaná bezpečnost",
+    "bezpečné pro každého",
+    "bezpečný pro každého",
+    "bezpečná pro každého",
+    "bezpečné pro všechny",
+    "bezpečný pro všechny",
+    "bezpečná pro všechny",
+    "vhodné pro každého",
+    "vhodný pro každého",
+    "vhodné pro všechny",
+    "pro všechny věkové kategorie",
+    "pro každý věk",
+    "bezpečné pro děti",
+    "bezpečný pro děti",
+    "bezpečná pro děti",
+    "bezpečné pro těhotné",
+    "bezpečné v těhotenství",
+    "bezpečné během těhotenství",
+    "bezpečný v těhotenství",
+    "bezpečné pro kojící",
+    "bezpečné pro všechny typy pleti",
+    "bezpečné pro dlouhodobé používání",
+    "bez vedlejšího účinku",
+    "žádné vedlejší efekty",
+    "bez vedlejších efektů",
+    "nemá žádné vedlejší účinky",
+    "nemá vedlejší účinky",
+    "nulové vedlejší účinky",
+    "bez nežádoucích účinků",
+    "žádné nežádoucí účinky",
+    "bez rizik",
+    "bez jakéhokoli rizika",
+    "žádná rizika",
+    "bezrizikov*",
+    "používání bez omezení",
+    "používejte bez omezení",
+    "bez omezení používání",
+    "naprosto neškodn*",
+    "zcela neškodn*",
+    "nemůže uškodit",
+    "nemůže ublížit",
+    "nemůžete si ublížit",
+    "nelze se zranit",
+    "nelze předávkovat",
+    "nelze přehnat",
+    "nemůžete přehnat",
+    "nemůžete se předávkovat",
+    "používejte neomezeně",
+    "používat neomezeně",
+    "neomezené používání",
+    "neomezeně dlouho",
+    "používejte kolik chcete",
+    "bez ochrany očí",
+    "bez nutnosti ochrany očí",
+    "není třeba chránit oči",
+    "není nutná ochrana očí",
+    "ochrana očí není nutná",
+    "nevyžaduje ochranu očí",
+    "oči nejsou ohroženy",
+    "bezpečné pro oči",
+    "bezpečný pro oči",
+    "bezpečné pro zrak",
+    "můžete se dívat přímo",
+    "můžete se dívat do světla",
+    "bezbolestn*",
+    "bez záření",
+    "žádné záření",
+    "nulové záření",
+    "bez škodlivého záření",
+    "bez elektromagnetického záření",
+    "bez EMF",
+    "nulové EMF"
+   ]
+  },
+  "therapy_words": {
+   "en": [
+    "therapy",
+    "therapies",
+    "therapeutic"
+   ],
+   "cs": [
+    "terapi*",
+    "terapeutick*"
+   ]
+  },
+  "hedge_words": {
+   "en": [
+    "may",
+    "might",
+    "could",
+    "possibly",
+    "potentially",
+    "some studies",
+    "studies suggest",
+    "research suggests",
+    "evidence suggests",
+    "suggest*",
+    "in a small",
+    "in one study",
+    "in some people",
+    "for some people",
+    "preliminary",
+    "early research",
+    "appears to",
+    "seems to",
+    "tend to",
+    "tends to",
+    "individual results vary",
+    "results vary",
+    "according to",
+    "may help",
+    "may support",
+    "may contribute",
+    "may be associated with",
+    "potential",
+    "perhaps",
+    "is thought to",
+    "is believed to",
+    "is designed to",
+    "is intended to support",
+    "intended to support",
+    "aims to",
+    "some research",
+    "some users",
+    "some people",
+    "users report",
+    "many users report",
+    "preliminary evidence",
+    "preliminary results",
+    "in a small trial",
+    "in a small study",
+    "in a pilot study",
+    "small study",
+    "small trial",
+    "pilot study",
+    "limited evidence",
+    "evidence is limited",
+    "more research is needed",
+    "further research is needed",
+    "not conclusive",
+    "inconclusive",
+    "mixed results",
+    "your results may vary",
+    "individual response",
+    "subjective",
+    "in laboratory studies",
+    "in vitro",
+    "in animal studies",
+    "not proven in humans",
+    "emerging evidence"
+   ],
+   "cs": [
+    "může",
+    "mohou",
+    "mohl*",
+    "možná",
+    "případně",
+    "některé studie",
+    "studie naznačuj*",
+    "výzkum naznačuje",
+    "naznačuj*",
+    "v malé studii",
+    "v jedné studii",
+    "u některých lidí",
+    "předběžn*",
+    "zdá se",
+    "bývá",
+    "bývají",
+    "výsledky se liší",
+    "podle studie",
+    "podle studií",
+    "může pomoci",
+    "mohou pomoci",
+    "může podpořit",
+    "mohou podpořit",
+    "může přispět",
+    "mohou přispět",
+    "by mohl",
+    "by mohla",
+    "by mohlo",
+    "by mohly",
+    "potenciálně",
+    "potenciální",
+    "zřejmě",
+    "patrně",
+    "pravděpodobně",
+    "je považováno za",
+    "předpokládá se",
+    "je určen k podpoře",
+    "je určeno k podpoře",
+    "slouží jako podpora",
+    "podpůrný",
+    "podpůrná",
+    "podpůrné",
+    "pro podporu",
+    "některé studie naznačují",
+    "některé výzkumy",
+    "někteří uživatelé",
+    "někteří lidé",
+    "uživatelé uvádějí",
+    "mnoho uživatelů uvádí",
+    "podle zkušeností uživatelů",
+    "studie naznačují",
+    "důkazy naznačují",
+    "předběžné studie",
+    "předběžný výzkum",
+    "předběžné výsledky",
+    "předběžné důkazy",
+    "v malé pilotní studii",
+    "v pilotní studii",
+    "malá studie",
+    "malá pilotní studie",
+    "omezené důkazy",
+    "důkazy jsou omezené",
+    "je potřeba další výzkum",
+    "je potřeba dalšího výzkumu",
+    "je třeba dalšího výzkumu",
+    "je třeba další výzkum",
+    "nejsou jednoznačné",
+    "nejednoznačné",
+    "smíšené výsledky",
+    "individuální výsledky se mohou lišit",
+    "výsledky se mohou lišit",
+    "individuální odpověď",
+    "subjektivní",
+    "ve studiích na buňkách",
+    "v laboratorních studiích",
+    "ve studiích na zvířatech",
+    "zatím neprokázáno u lidí",
+    "nově vznikající důkazy"
+   ]
+  },
+  "negation_words": {
+   "en": [
+    "not",
+    "no",
+    "never",
+    "cannot",
+    "can't",
+    "isn't",
+    "aren't",
+    "doesn't",
+    "don't",
+    "won't",
+    "without",
+    "nor",
+    "neither"
+   ],
+   "cs": [
+    "ne",
+    "není",
+    "nejsou",
+    "nelze",
+    "nesmí",
+    "nikdy",
+    "žádný",
+    "žádná",
+    "žádné",
+    "žádnou",
+    "bez",
+    "ani",
+    "nemá",
+    "nemají",
+    "nejde",
+    "nebude",
+    "nemůže",
+    "nemohou",
+    "nenahrazuje",
+    "neslouží"
+   ]
+  },
+  "negated_verb_stems": [
+   "slouž",
+   "nahrazuj",
+   "nahraď",
+   "pomáh",
+   "pomůž",
+   "léč",
+   "vyléč",
+   "zlepšuj",
+   "zmírňuj",
+   "odstraňuj",
+   "podporuj",
+   "zaruč",
+   "tvrd",
+   "slibuj",
+   "snižuj",
+   "předchází",
+   "zabraňuj",
+   "uzdrav"
+  ],
+  "timeline_patterns": {
+   "en": [
+    "\\b(?:in|within|after)\\s+(?:just\\s+|only\\s+|as little as\\s+)?\\d+\\s+(?:days?|weeks?|sessions?|minutes?)\\b[^.!?\\n]{0,30}\\b(?:you(?:'ll| will| can expect)?|expect|see|notice|feel|get)\\b",
+    "\\byou(?:'ll| will| can expect to)\\s+(?:see|notice|feel|get)\\b[^.!?\\n]{0,50}\\b(?:in|within|after)\\s+(?:just\\s+|only\\s+)?\\d+\\s+(?:days?|weeks?|sessions?)\\b",
+    "\\b(?:results?|difference|changes?)\\s+(?:in|within|after)\\s+(?:just\\s+|only\\s+)?\\d+\\s+(?:days?|weeks?|sessions?)\\b"
+   ],
+   "cs": [
+    "\\b(?:za|behem|po)\\s+(?:jen\\s+|pouze\\s+)?\\d+\\s+(?:dn\\w*|tyd\\w*|hodin\\w*|minut\\w*|sezeni\\w*)\\b[^.!?\\n]{0,30}\\b(?:uvidite|ucitite|pocitite|zaznamenate|zpozorujete|dosahnete|ziskate)\\b",
+    "\\b(?:uvidite|pocitite|zaznamenate|zpozorujete|dosahnete|ziskate)\\b[^.!?\\n]{0,50}\\b(?:za|behem|po)\\s+(?:jen\\s+|pouze\\s+)?\\d+\\s+(?:dn\\w*|tyd\\w*|sezeni\\w*)\\b",
+    "\\bvysledk\\w*\\s+(?:za|behem|po)\\s+(?:jen\\s+|pouze\\s+)?\\d+\\s+(?:dn\\w*|tyd\\w*|sezeni\\w*)\\b"
+   ]
+  },
+  "dose_patterns": {
+   "en": [
+    "\\b\\d+(?:[.,]\\d+)?\\s?(?:min(?:utes?)?|cm|centimet\\w+|inch(?:es)?|j/cm2|joules?|mw/cm2|w/m2)(?!\\w)"
+   ],
+   "cs": [
+    "\\b\\d+(?:[.,]\\d+)?\\s?(?:min(?:ut\\w*)?|cm|centimetr\\w*|j/cm2|joul\\w*|mw/cm2)(?!\\w)"
+   ]
+  },
+  "dose_context": {
+   "en": [
+    "session*",
+    "exposure",
+    "exposed",
+    "irradiat*",
+    "daily",
+    "per day",
+    "a day",
+    "a week",
+    "per week",
+    "times a week",
+    "distance",
+    "away from",
+    "from the panel",
+    "stand",
+    "sit",
+    "use it",
+    "use for",
+    "treat*"
+   ],
+   "cs": [
+    "sezení",
+    "expozic*",
+    "ozař*",
+    "ozár*",
+    "osvit*",
+    "denně",
+    "týdně",
+    "za den",
+    "vzdálen*",
+    "od panelu",
+    "od přístroje",
+    "před panelem",
+    "používej*",
+    "použít",
+    "použití",
+    "stoj*",
+    "seď*"
+   ]
+  },
+  "safety_terms": {
+   "en": [
+    "eye protection",
+    "protective eyewear",
+    "protective goggles",
+    "protective glasses",
+    "do not stare",
+    "don't stare",
+    "not to stare",
+    "do not look",
+    "consult a doctor",
+    "consult your doctor",
+    "consult a physician",
+    "speak to your doctor",
+    "talk to your doctor",
+    "pregnan*",
+    "photosensitiv*",
+    "contraindication*",
+    "manufacturer's instructions",
+    "manufacturers instructions",
+    "user manual",
+    "instructions for use",
+    "eye protector",
+    "goggles",
+    "safety glasses",
+    "wear eye protection",
+    "protect your eyes",
+    "close your eyes",
+    "keep your eyes closed",
+    "do not look directly",
+    "do not look into",
+    "avoid looking directly",
+    "avoid direct eye exposure",
+    "avoid eye exposure",
+    "do not look at the light",
+    "consult a healthcare professional",
+    "consult a health professional",
+    "ask your doctor",
+    "seek medical advice",
+    "breastfeeding",
+    "nursing mothers",
+    "photosensitis*",
+    "photosensitiz*",
+    "light-sensitive",
+    "sensitivity to light",
+    "sensitive to light",
+    "medication",
+    "medications",
+    "epilep*",
+    "seizure*",
+    "contraindicated",
+    "precaution*",
+    "warning*",
+    "caution",
+    "cautions",
+    "follow the manufacturer's instructions",
+    "follow the instructions",
+    "follow the instructions for use",
+    "read the instructions",
+    "read the manual",
+    "manufacturer's guidelines",
+    "manufacturer's recommendations",
+    "recommended exposure time",
+    "recommended distance",
+    "exposure time",
+    "session length",
+    "short sessions",
+    "start with short sessions",
+    "do not exceed",
+    "limit exposure",
+    "gradually increase",
+    "discontinue use",
+    "stop using",
+    "stop use if",
+    "if you experience",
+    "irritation",
+    "redness",
+    "skin reaction",
+    "skin reactions",
+    "burning sensation",
+    "overheating",
+    "keep out of reach of children",
+    "not for children",
+    "minors",
+    "under 18",
+    "adults only",
+    "pacemaker*",
+    "implant*",
+    "not a medical device",
+    "not intended to diagnose",
+    "does not replace",
+    "healthy adults",
+    "healthy people",
+    "general wellness"
+   ],
+   "cs": [
+    "ochran* očí",
+    "ochran* zraku",
+    "ochrann* brýl*",
+    "nedívejte se",
+    "nedívej se",
+    "poraďte se s lékařem",
+    "konzultac* s lékařem",
+    "těhotenstv*",
+    "těhotn*",
+    "fotosenzitiv*",
+    "kontraindikac*",
+    "návod* výrobce",
+    "návod* k použití",
+    "podle návodu",
+    "řiďte se návodem",
+    "ochrana očí",
+    "ochranu očí",
+    "ochranou očí",
+    "ochraně očí",
+    "ochranné brýle",
+    "ochranných brýlí",
+    "ochranným brýlím",
+    "ochrannými brýlemi",
+    "chraňte si oči",
+    "chraňte oči",
+    "zavřete oči",
+    "mějte zavřené oči",
+    "nedívejte se přímo",
+    "nedívejte se do světla",
+    "nedívejte se do LED",
+    "nedívejte se přímo do světla",
+    "vyvarujte se přímého pohledu",
+    "vyvarujte se pohledu do světla",
+    "nedívejte se dlouho",
+    "poraďte se se svým lékařem",
+    "konzultujte s lékařem",
+    "konzultace s lékařem",
+    "konzultujte se svým lékařem",
+    "zeptejte se lékaře",
+    "obraťte se na lékaře",
+    "vyhledejte lékaře",
+    "kojení",
+    "kojící",
+    "fotosenzibiliz*",
+    "citlivost na světlo",
+    "citlivosti na světlo",
+    "citlivý na světlo",
+    "citlivá na světlo",
+    "léky zvyšující citlivost na světlo",
+    "epilepsi*",
+    "epileptick*",
+    "záchvat*",
+    "kontraindikován*",
+    "upozornění",
+    "varování",
+    "bezpečnostní upozornění",
+    "bezpečnostní pokyny",
+    "opatrnost",
+    "dbejte opatrnosti",
+    "dodržujte návod",
+    "dodržujte pokyny výrobce",
+    "dodržujte doporučení výrobce",
+    "postupujte podle návodu",
+    "návod výrobce",
+    "návodem výrobce",
+    "návod k použití",
+    "návodu k použití",
+    "pokyny výrobce",
+    "pokynů výrobce",
+    "uživatelská příručka",
+    "doporučená doba",
+    "doporučenou dobu",
+    "doporučená vzdálenost",
+    "doporučenou vzdálenost",
+    "doba expozice",
+    "dobu expozice",
+    "délka sezení",
+    "krátká sezení",
+    "krátkými sezeními",
+    "nepřekračujte",
+    "omezte expozici",
+    "postupně prodlužujte",
+    "přestaňte používat",
+    "ukončete používání",
+    "pokud pocítíte",
+    "podráždění",
+    "zarudnutí",
+    "kožní reakc*",
+    "pálení",
+    "přehřátí",
+    "mimo dosah dětí",
+    "nevhodné pro děti",
+    "nezletilí",
+    "nezletilých",
+    "do 18 let",
+    "pouze pro dospělé",
+    "kardiostimulátor*",
+    "implantát*",
+    "není zdravotnický prostředek",
+    "není zdravotnickým prostředkem",
+    "neslouží k diagnostice",
+    "nenahrazuje",
+    "zdraví dospělí",
+    "zdravých dospělých",
+    "zdravé osoby",
+    "zdraví lidé",
+    "zdravých lidí",
+    "obecné wellness",
+    "obecné použití",
+    "nezdravotnické použití"
+   ]
+  },
+  "long_form_formats": [
+   "seo_article",
+   "geo_answer_page",
+   "landing_page",
+   "newsletter",
+   "youtube_script",
+   "podcast_outline",
+   "email_sequence"
+  ],
+  "masking_phrases": {
+   "en": [
+    "not a medical device",
+    "is not a medical device",
+    "not intended to diagnose",
+    "not intended to treat",
+    "not intended to cure",
+    "not intended to prevent",
+    "not intended to diagnose, treat, cure or prevent any disease",
+    "does not diagnose",
+    "does not treat",
+    "does not cure",
+    "does not prevent",
+    "does not replace",
+    "cannot replace",
+    "not a substitute for medical advice",
+    "not a substitute for your doctor",
+    "does not replace a visit to the doctor",
+    "for general wellness use only",
+    "for general, non-medical use",
+    "for general non-medical use",
+    "not for medical use",
+    "makes no medical claims",
+    "no medical claims are made",
+    "individual results may vary",
+    "consult your doctor",
+    "if you experience pain",
+    "if you feel pain",
+    "if you have epilepsy",
+    "people with epilepsy",
+    "persons with epilepsy",
+    "photosensitive epilepsy",
+    "history of seizures",
+    "if you are pregnant",
+    "if you have a pacemaker",
+    "do not use on open wounds",
+    "do not use over a tumor",
+    "do not use over tumours",
+    "risk-free trial",
+    "risk free trial",
+    "risk-free purchase",
+    "risk-free returns",
+    "risk-free guarantee",
+    "safe checkout",
+    "secure checkout",
+    "100% safe checkout",
+    "100% safe payment",
+    "100% secure payment",
+    "safe payment",
+    "does not diagnose, treat, cure or prevent any disease",
+    "do not diagnose, treat, cure or prevent any disease",
+    "does not diagnose, treat, cure or prevent disease",
+    "is not intended to diagnose, treat, cure or prevent any disease",
+    "not designed to diagnose, treat, cure or prevent any disease",
+    "not meant to diagnose, treat, cure or prevent any disease",
+    "cannot diagnose, treat, cure or prevent any disease",
+    "will not diagnose, treat, cure or prevent any disease",
+    "not intended to diagnose, treat, cure or prevent disease",
+    "does not treat or prevent any medical condition",
+    "not intended to treat any medical condition",
+    "makes no claim to diagnose, treat, cure or prevent any disease",
+    "does not provide medical treatment",
+    "is not medical treatment"
+   ],
+   "cs": [
+    "není zdravotnický prostředek",
+    "není zdravotnickým prostředkem",
+    "není určen k diagnostice",
+    "není určen k léčbě",
+    "není určen k prevenci",
+    "není určeno k diagnostice, léčbě ani prevenci nemocí",
+    "není určeno k diagnostice",
+    "není určeno k léčbě",
+    "neslouží k diagnostice",
+    "neslouží k léčbě",
+    "neslouží k prevenci",
+    "nediagnostikuje",
+    "neléčí",
+    "nenahrazuje lékaře",
+    "nenahrazuje lékařskou péči",
+    "nenahrazuje osobní konzultaci s lékařem",
+    "nenahrazuje návštěvu lékaře",
+    "nelze nahradit lékaře",
+    "pouze pro obecné použití",
+    "pro obecné nezdravotnické použití",
+    "pro obecné použití v rámci wellness",
+    "bez zdravotních tvrzení",
+    "nečiní zdravotní tvrzení",
+    "individuální výsledky se mohou lišit",
+    "poraďte se s lékařem",
+    "pokud pocítíte bolest",
+    "pokud ucítíte bolest",
+    "při bolesti přestaňte používat",
+    "osoby s epilepsií",
+    "lidé s epilepsií",
+    "při epilepsii se poraďte s lékařem",
+    "jste-li těhotná",
+    "jste-li těhotný",
+    "máte-li kardiostimulátor",
+    "nepoužívejte na otevřené rány",
+    "nepoužívejte na nádory",
+    "vyzkoušejte bez rizika",
+    "vyzkoušet bez rizika",
+    "nákup bez rizika",
+    "objednejte bez rizika",
+    "vrácení bez rizika",
+    "zkušební doba bez rizika",
+    "bezpečná platba",
+    "100% bezpečná platba",
+    "100 % bezpečná platba",
+    "bezpečný nákup",
+    "100% bezpečný nákup",
+    "neslouží k diagnostice, léčbě ani prevenci nemocí",
+    "neslouží k diagnostice, léčbě ani prevenci žádných nemocí",
+    "neslouží k diagnostice, léčbě ani prevenci žádného onemocnění",
+    "není určen k diagnostice, léčbě ani prevenci nemocí",
+    "není určena k diagnostice, léčbě ani prevenci nemocí",
+    "není určeno k diagnostice, léčbě ani prevenci žádných nemocí",
+    "nenahrazuje diagnostiku ani léčbu",
+    "nenahrazuje diagnostiku, léčbu ani prevenci",
+    "neposkytuje zdravotní péči",
+    "není zdravotní péče",
+    "nejde o zdravotní péči",
+    "nejde o zdravotnický prostředek"
+   ]
+  },
+  "targeting_phrases": {
+   "en": [
+    "if you suffer from",
+    "do you suffer from",
+    "are you suffering from",
+    "are you struggling with",
+    "for sufferers of",
+    "sufferers",
+    "for patients",
+    "for patients with",
+    "for people with",
+    "for those with",
+    "tired of living with",
+    "living with chronic",
+    "stop suffering",
+    "end your suffering"
+   ],
+   "cs": [
+    "trpíte",
+    "trpíš",
+    "trpí",
+    "trpěli",
+    "trápí vás",
+    "trápí tě",
+    "bojujete s",
+    "pro pacienty",
+    "pro pacienty s",
+    "pro nemocné",
+    "pro lidi s",
+    "pro osoby s",
+    "pro ty, kdo trpí",
+    "pro trpící",
+    "konec utrpení",
+    "přestaňte trpět"
+   ]
+  },
+  "clause_breakers": {
+   "en": [
+    "it",
+    "this",
+    "that",
+    "they",
+    "we",
+    "you",
+    "but",
+    "however",
+    "because",
+    "so"
+   ],
+   "cs": [
+    "je",
+    "jsou",
+    "to",
+    "ten",
+    "ta",
+    "ale",
+    "však",
+    "takže",
+    "protože",
+    "ona",
+    "oni"
+   ]
+  },
+  "medication_patterns": {
+   "en": [
+    "\\b(?:replace|replaces|replacing|substitute|substitutes|instead of)\\s+(?:\\w+\\s+){0,2}(?:medication|medications|medicine|medicines|drugs|painkillers|pills|prescriptions?|therapy|treatments?|surgery)\\b",
+    "\\b(?:stop|stops|quit|quits|skip|skips|ditch|ditches|abandon|abandons)\\s+(?:taking|using)\\s+(?:\\w+\\s+){0,2}(?:medication|medications|medicine|medicines|drugs|painkillers|pills)\\b",
+    "\\bno (?:more )?(?:need|use) for (?:\\w+\\s+){0,2}(?:medication|medications|medicine|drugs|painkillers|doctor|doctors|surgery)\\b",
+    "\\b(?:avoid|avoids|skip|skips)\\s+(?:the\\s+)?(?:doctor|doctors|surgery|medication)\\b",
+    "\\bwithout (?:a |any )?(?:doctor|doctors|medication|medicine|drugs|surgery)\\b",
+    "\\bgoodbye\\s+to\\s+(?:\\w+\\s+){0,2}(?:doctor|doctors|medication|medicine|drugs|pills|surgery)\\b"
+   ],
+   "cs": [
+    "\\b(?:nahrad\\w*|nahrazuj\\w*|misto)\\s+(?:\\w+\\s+){0,2}(?:lek\\w*|medikac\\w*|prasky|tablet\\w*|leciv\\w*|operac\\w*|lekar\\w*|lecb\\w*)\\b",
+    "\\b(?:prestan\\w*|nechte)\\s+(?:uzivat|brat|pouzivat)\\s+(?:\\w+\\s+){0,2}(?:lek\\w*|medikac\\w*|prasky|tablet\\w*)\\b",
+    "\\bbez\\s+(?:lek\\w*|medikac\\w*|operac\\w*|lekar\\w*)\\b",
+    "\\bnemusit\\w*\\s+(?:uz\\s+)?(?:k\\s+)?(?:lekar\\w*|brat\\s+lek\\w*|uzivat\\s+lek\\w*)\\b",
+    "\\bvyhnete se\\s+(?:lekar\\w*|operac\\w*|lek\\w*)\\b",
+    "\\brozluc\\w*\\s+se\\s+s\\s+(?:\\w+\\s+){0,2}(?:lekar\\w*|lek\\w*|medikac\\w*)\\b"
+   ]
+  }
+ },
+ "cases": [
+  {
+   "text": "Červené světlo léčí bolest kloubů.",
+   "hits": [
+    {
+     "code": "CLAIM_MEDICAL",
+     "topic": "pbm-pain-joints",
+     "start": 15,
+     "end": 26
+    }
+   ]
+  },
+  {
+   "text": "Panel zmírňuje zánět a bolest zad.",
+   "hits": [
+    {
+     "code": "CLAIM_MEDICAL",
+     "topic": "pbm-pain-joints",
+     "start": 6,
+     "end": 29
+    }
+   ]
+  },
+  {
+   "text": "Vyléčí depresi i úzkost.",
+   "hits": [
+    {
+     "code": "CLAIM_MEDICAL",
+     "topic": "pbm-mood-brain",
+     "start": 0,
+     "end": 23
+    }
+   ]
+  },
+  {
+   "text": "Zvyšuje testosteron a plodnost.",
+   "hits": [
+    {
+     "code": "CLAIM_AVOID",
+     "topic": "pbm-testosterone",
+     "start": 0,
+     "end": 30
+    }
+   ]
+  },
+  {
+   "text": "Detoxikuje tělo a posiluje imunitu.",
+   "hits": [
+    {
+     "code": "CLAIM_AVOID",
+     "topic": "pbm-detox-immunity",
+     "start": 0,
+     "end": 26
+    }
+   ]
+  },
+  {
+   "text": "Panel je zdravotnický prostředek schválený FDA.",
+   "hits": [
+    {
+     "code": "STATUS_CLAIM",
+     "topic": null,
+     "start": 9,
+     "end": 32
+    },
+    {
+     "code": "STATUS_CLAIM",
+     "topic": null,
+     "start": 33,
+     "end": 46
+    }
+   ]
+  },
+  {
+   "text": "Bez vedlejších účinků, bezpečné pro každého.",
+   "hits": [
+    {
+     "code": "SAFETY_ABSOLUTE",
+     "topic": null,
+     "start": 0,
+     "end": 21
+    }
+   ]
+  },
+  {
+   "text": "Za 4 týdny uvidíte výrazně méně vrásek.",
+   "hits": [
+    {
+     "code": "OUTCOME_PROMISE",
+     "topic": null,
+     "start": 0,
+     "end": 18
+    }
+   ]
+  },
+  {
+   "text": "Podporuje růst vlasů.",
+   "hits": [
+    {
+     "code": "CLAIM_MEDICAL",
+     "topic": "pbm-hair",
+     "start": 0,
+     "end": 20
+    }
+   ]
+  },
+  {
+   "text": "Červené světlo pomáhá při artritidě.",
+   "hits": [
+    {
+     "code": "CLAIM_MEDICAL",
+     "topic": "pbm-pain-joints",
+     "start": 15,
+     "end": 35
+    }
+   ]
+  },
+  {
+   "text": "Světlo na bolest zad.",
+   "hits": [
+    {
+     "code": "CLAIM_MEDICAL",
+     "topic": "pbm-pain-joints",
+     "start": 0,
+     "end": 16
+    }
+   ]
+  },
+  {
+   "text": "Zlepšuje spánek a regeneraci svalů.",
+   "hits": [
+    {
+     "code": "CLAIM_UNHEDGED",
+     "topic": "pbm-muscle-recovery",
+     "start": 0,
+     "end": 28
+    }
+   ]
+  },
+  {
+   "text": "Aktivuje mitochondrie a zvyšuje produkci ATP.",
+   "hits": [
+    {
+     "code": "CLAIM_UNHEDGED",
+     "topic": "pbm-mechanism",
+     "start": 0,
+     "end": 44
+    }
+   ]
+  },
+  {
+   "text": "Terapie červeným světlem",
+   "hits": [
+    {
+     "code": "THERAPY_WORD",
+     "topic": null,
+     "start": 0,
+     "end": 7
+    }
+   ]
+  },
+  {
+   "text": "Panel proti migréně",
+   "hits": [
+    {
+     "code": "CLAIM_MEDICAL",
+     "topic": "pbm-pain-joints",
+     "start": 0,
+     "end": 19
+    }
+   ]
+  },
+  {
+   "text": "Zmírňuje depresi",
+   "hits": [
+    {
+     "code": "CLAIM_MEDICAL",
+     "topic": "pbm-mood-brain",
+     "start": 0,
+     "end": 16
+    }
+   ]
+  },
+  {
+   "text": "Urychluje hojení ran.",
+   "hits": [
+    {
+     "code": "CLAIM_MEDICAL",
+     "topic": "pbm-wound-healing",
+     "start": 0,
+     "end": 16
+    }
+   ]
+  },
+  {
+   "text": "Zlepšuje zrak u seniorů.",
+   "hits": [
+    {
+     "code": "CLAIM_MEDICAL",
+     "topic": "pbm-eye-vision",
+     "start": 0,
+     "end": 13
+    }
+   ]
+  },
+  {
+   "text": "Pomáhá při nespavosti.",
+   "hits": [
+    {
+     "code": "DISEASE_MENTION",
+     "topic": null,
+     "start": 0,
+     "end": 21
+    }
+   ]
+  },
+  {
+   "text": "Snižuje obvod pasu a odstraňuje celulitidu.",
+   "hits": [
+    {
+     "code": "CLAIM_UNHEDGED",
+     "topic": "pbm-body-contouring",
+     "start": 0,
+     "end": 42
+    }
+   ]
+  },
+  {
+   "text": "Mnoho lidí zařazuje sezení pod červeným světlem do večerní rutiny.",
+   "hits": []
+  },
+  {
+   "text": "Některé studie naznačují, že červené světlo před cvičením může podpořit sportovní výkon u zdravých lidí.",
+   "hits": []
+  },
+  {
+   "text": "Podle návodu výrobce se panel používá z doporučené vzdálenosti.",
+   "hits": []
+  },
+  {
+   "text": "Fotobiomodulace je název pro působení červeného a blízkého infračerveného světla na buňky.",
+   "hits": []
+  },
+  {
+   "text": "Přístroj neslouží k léčbě nemocí a nenahrazuje lékařskou péči.",
+   "hits": []
+  },
+  {
+   "text": "Přístroj není zdravotnický prostředek.",
+   "hits": []
+  },
+  {
+   "text": "Jak vybrat panel: vlnové délky, výkon a velikost plochy",
+   "hits": []
+  },
+  {
+   "text": "Může červené světlo podpořit regeneraci po tréninku?",
+   "hits": []
+  },
+  {
+   "text": "Léčí červené světlo bolest zad?",
+   "hits": []
+  },
+  {
+   "text": "Panel má 408 LED diod a šest vlnových délek.",
+   "hits": []
+  },
+  {
+   "text": "5 chyb při výběru červeného světla",
+   "hits": []
+  },
+  {
+   "text": "Mýty o červeném světle: co je pravda?",
+   "hits": []
+  },
+  {
+   "text": "Nebojte se. Červené světlo léčí bolest kloubů.",
+   "hits": [
+    {
+     "code": "CLAIM_MEDICAL",
+     "topic": "pbm-pain-joints",
+     "start": 27,
+     "end": 38
+    }
+   ]
+  },
+  {
+   "text": "Přístroj nelze použít jako léčbu bolesti.",
+   "hits": []
+  },
+  {
+   "text": "Lékařsky doporučeno a v nemocniční kvalitě.",
+   "hits": [
+    {
+     "code": "STATUS_CLAIM",
+     "topic": null,
+     "start": 0,
+     "end": 19
+    },
+    {
+     "code": "STATUS_CLAIM",
+     "topic": null,
+     "start": 24,
+     "end": 42
+    }
+   ]
+  },
+  {
+   "text": "Naprosto bezpečné a bez rizika.",
+   "hits": [
+    {
+     "code": "SAFETY_ABSOLUTE",
+     "topic": null,
+     "start": 0,
+     "end": 17
+    },
+    {
+     "code": "SAFETY_ABSOLUTE",
+     "topic": null,
+     "start": 20,
+     "end": 30
+    }
+   ]
+  },
+  {
+   "text": "Do dvou týdnů pocítíte rozdíl, výsledky za 14 dní.",
+   "hits": [
+    {
+     "code": "OUTCOME_PROMISE",
+     "topic": null,
+     "start": 14,
+     "end": 49
+    },
+    {
+     "code": "OUTCOME_PROMISE",
+     "topic": null,
+     "start": 31,
+     "end": 49
+    }
+   ]
+  },
+  {
+   "text": "Posiluje energii a pohodu.",
+   "hits": [
+    {
+     "code": "CLAIM_UNHEDGED",
+     "topic": "pbm-energy-wellbeing",
+     "start": 0,
+     "end": 25
+    }
+   ]
+  },
+  {
+   "text": "Zlepšuje vzhled pleti a zpevňuje obličej.",
+   "hits": [
+    {
+     "code": "CLAIM_UNHEDGED",
+     "topic": "pbm-skin-appearance",
+     "start": 0,
+     "end": 32
+    }
+   ]
+  },
+  {
+   "text": "Pomáhá při úzkosti i při bolesti hlavy.",
+   "hits": [
+    {
+     "code": "CLAIM_MEDICAL",
+     "topic": "pbm-pain-joints",
+     "start": 0,
+     "end": 38
+    }
+   ]
+  },
+  {
+   "text": "Cervene svetlo leci bolest kloubu.",
+   "hits": [
+    {
+     "code": "CLAIM_MEDICAL",
+     "topic": "pbm-pain-joints",
+     "start": 15,
+     "end": 26
+    }
+   ]
+  },
+  {
+   "text": "Pomaha pri artritide a zmirnuje zanet.",
+   "hits": [
+    {
+     "code": "CLAIM_MEDICAL",
+     "topic": "pbm-pain-joints",
+     "start": 0,
+     "end": 20
+    }
+   ]
+  },
+  {
+   "text": "Bez vedlejsich ucinku a bez rizika.",
+   "hits": [
+    {
+     "code": "SAFETY_ABSOLUTE",
+     "topic": null,
+     "start": 0,
+     "end": 21
+    }
+   ]
+  },
+  {
+   "text": "Za tri tydny uvidite rozdil, vysledky za 21 dni.",
+   "hits": [
+    {
+     "code": "OUTCOME_PROMISE",
+     "topic": null,
+     "start": 13,
+     "end": 47
+    },
+    {
+     "code": "OUTCOME_PROMISE",
+     "topic": null,
+     "start": 29,
+     "end": 47
+    }
+   ]
+  },
+  {
+   "text": "Doporučeno lékaři, klinická kvalita.",
+   "hits": [
+    {
+     "code": "STATUS_CLAIM",
+     "topic": null,
+     "start": 0,
+     "end": 17
+    },
+    {
+     "code": "STATUS_CLAIM",
+     "topic": null,
+     "start": 19,
+     "end": 35
+    }
+   ]
+  },
+  {
+   "text": "Červené světlo na vypadávání vlasů.",
+   "hits": [
+    {
+     "code": "CLAIM_MEDICAL",
+     "topic": "pbm-hair",
+     "start": 8,
+     "end": 34
+    }
+   ]
+  },
+  {
+   "text": "Zlepšuje paměť a chrání před Alzheimerovou chorobou.",
+   "hits": [
+    {
+     "code": "CLAIM_MEDICAL",
+     "topic": "pbm-mood-brain",
+     "start": 0,
+     "end": 42
+    }
+   ]
+  },
+  {
+   "text": "Pomůže vám usnout a zlepší kvalitu spánku.",
+   "hits": [
+    {
+     "code": "CLAIM_UNHEDGED",
+     "topic": "pbm-sleep",
+     "start": 0,
+     "end": 41
+    }
+   ]
+  },
+  {
+   "text": "Jak funguje fotobiomodulace v buňkách?",
+   "hits": []
+  },
+  {
+   "text": "Pro lidi s artritidou: panel pro každodenní použití.",
+   "hits": [
+    {
+     "code": "DISEASE_MENTION",
+     "topic": null,
+     "start": 0,
+     "end": 21
+    }
+   ]
+  },
+  {
+   "text": "Panel pomáhá sportovcům s regenerací.",
+   "hits": [
+    {
+     "code": "CLAIM_UNHEDGED",
+     "topic": "pbm-muscle-recovery",
+     "start": 6,
+     "end": 36
+    }
+   ]
+  },
+  {
+   "text": "Podporuje vaši regeneraci po každém tréninku!",
+   "hits": [
+    {
+     "code": "CLAIM_UNHEDGED",
+     "topic": "pbm-muscle-recovery",
+     "start": 0,
+     "end": 25
+    }
+   ]
+  },
+  {
+   "text": "Stačí 10 minut denně a bolest zmizí.",
+   "hits": [
+    {
+     "code": "DOSE_NOT_FROM_MANUAL",
+     "topic": null,
+     "start": 6,
+     "end": 14
+    },
+    {
+     "code": "CLAIM_MEDICAL",
+     "topic": "pbm-pain-joints",
+     "start": 23,
+     "end": 35
+    }
+   ]
+  },
+  {
+   "text": "Světelná rutina před spaním může podpořit pohodu.",
+   "hits": []
+  },
+  {
+   "text": "",
+   "hits": []
+  },
+  {
+   "text": "Red light cures joint pain.",
+   "hits": [
+    {
+     "code": "CLAIM_MEDICAL",
+     "topic": "pbm-pain-joints",
+     "start": 10,
+     "end": 26
+    }
+   ]
+  },
+  {
+   "text": "It relieves inflammation and back pain.",
+   "hits": [
+    {
+     "code": "CLAIM_MEDICAL",
+     "topic": "pbm-pain-joints",
+     "start": 3,
+     "end": 38
+    }
+   ]
+  },
+  {
+   "text": "Treats depression and anxiety.",
+   "hits": [
+    {
+     "code": "CLAIM_MEDICAL",
+     "topic": "pbm-mood-brain",
+     "start": 0,
+     "end": 29
+    }
+   ]
+  },
+  {
+   "text": "Boosts testosterone.",
+   "hits": [
+    {
+     "code": "CLAIM_AVOID",
+     "topic": "pbm-testosterone",
+     "start": 0,
+     "end": 19
+    }
+   ]
+  },
+  {
+   "text": "FDA approved medical device.",
+   "hits": [
+    {
+     "code": "STATUS_CLAIM",
+     "topic": null,
+     "start": 0,
+     "end": 12
+    },
+    {
+     "code": "STATUS_CLAIM",
+     "topic": null,
+     "start": 13,
+     "end": 27
+    }
+   ]
+  },
+  {
+   "text": "No side effects, safe for everyone.",
+   "hits": [
+    {
+     "code": "SAFETY_ABSOLUTE",
+     "topic": null,
+     "start": 0,
+     "end": 15
+    }
+   ]
+  },
+  {
+   "text": "You will see fewer wrinkles in 4 weeks.",
+   "hits": [
+    {
+     "code": "OUTCOME_PROMISE",
+     "topic": null,
+     "start": 0,
+     "end": 38
+    }
+   ]
+  },
+  {
+   "text": "Red light for hair loss.",
+   "hits": [
+    {
+     "code": "CLAIM_MEDICAL",
+     "topic": "pbm-hair",
+     "start": 0,
+     "end": 23
+    }
+   ]
+  },
+  {
+   "text": "Supports muscle recovery and sleep quality.",
+   "hits": [
+    {
+     "code": "CLAIM_UNHEDGED",
+     "topic": "pbm-muscle-recovery",
+     "start": 0,
+     "end": 24
+    }
+   ]
+  },
+  {
+   "text": "Boosts mitochondria and ATP production.",
+   "hits": [
+    {
+     "code": "CLAIM_UNHEDGED",
+     "topic": "pbm-mechanism",
+     "start": 0,
+     "end": 27
+    }
+   ]
+  },
+  {
+   "text": "Sessions last 10 minutes at 15 cm.",
+   "hits": [
+    {
+     "code": "DOSE_NOT_FROM_MANUAL",
+     "topic": null,
+     "start": 14,
+     "end": 24
+    },
+    {
+     "code": "DOSE_NOT_FROM_MANUAL",
+     "topic": null,
+     "start": 28,
+     "end": 33
+    }
+   ]
+  },
+  {
+   "text": "Red light therapy",
+   "hits": [
+    {
+     "code": "THERAPY_WORD",
+     "topic": null,
+     "start": 10,
+     "end": 17
+    }
+   ]
+  },
+  {
+   "text": "Speeds up wound healing.",
+   "hits": [
+    {
+     "code": "CLAIM_MEDICAL",
+     "topic": "pbm-wound-healing",
+     "start": 0,
+     "end": 23
+    }
+   ]
+  },
+  {
+   "text": "Improves eyesight in older adults.",
+   "hits": [
+    {
+     "code": "CLAIM_MEDICAL",
+     "topic": "pbm-eye-vision",
+     "start": 0,
+     "end": 17
+    }
+   ]
+  },
+  {
+   "text": "Helps with insomnia.",
+   "hits": [
+    {
+     "code": "DISEASE_MENTION",
+     "topic": null,
+     "start": 0,
+     "end": 19
+    }
+   ]
+  },
+  {
+   "text": "A panel for arthritis.",
+   "hits": [
+    {
+     "code": "CLAIM_MEDICAL",
+     "topic": "pbm-pain-joints",
+     "start": 2,
+     "end": 21
+    }
+   ]
+  },
+  {
+   "text": "Reduces swelling.",
+   "hits": [
+    {
+     "code": "CLAIM_MEDICAL",
+     "topic": "pbm-inflammation",
+     "start": 0,
+     "end": 16
+    }
+   ]
+  },
+  {
+   "text": "Detoxifies your body and boosts immunity.",
+   "hits": [
+    {
+     "code": "CLAIM_AVOID",
+     "topic": "pbm-detox-immunity",
+     "start": 0,
+     "end": 31
+    }
+   ]
+  },
+  {
+   "text": "Lose inches from your waist and melt cellulite.",
+   "hits": []
+  },
+  {
+   "text": "Improves skin tone and reduces wrinkles.",
+   "hits": [
+    {
+     "code": "CLAIM_UNHEDGED",
+     "topic": "pbm-skin-appearance",
+     "start": 0,
+     "end": 39
+    }
+   ]
+  },
+  {
+   "text": "Many people add a red light session to an evening routine.",
+   "hits": []
+  },
+  {
+   "text": "How to choose a panel: wavelengths, power and size.",
+   "hits": []
+  },
+  {
+   "text": "Can red light support recovery after training?",
+   "hits": []
+  },
+  {
+   "text": "Read the manufacturer's instructions and protect your eyes.",
+   "hits": []
+  },
+  {
+   "text": "The panel has 408 LEDs and six wavelengths.",
+   "hits": []
+  },
+  {
+   "text": "The device does not treat disease and does not replace medical care.",
+   "hits": []
+  },
+  {
+   "text": "This is not a medical device and it cannot cure pain.",
+   "hits": []
+  },
+  {
+   "text": "It is not FDA approved and makes no medical claims.",
+   "hits": []
+  },
+  {
+   "text": "Some studies suggest red light may support muscle recovery after exercise in healthy adults.",
+   "hits": []
+  },
+  {
+   "text": "Red light may support recovery, according to some studies.",
+   "hits": []
+  },
+  {
+   "text": "It is simple. Red light cures joint pain.",
+   "hits": [
+    {
+     "code": "CLAIM_MEDICAL",
+     "topic": "pbm-pain-joints",
+     "start": 24,
+     "end": 40
+    }
+   ]
+  },
+  {
+   "text": "Stop overcomplicating recovery routines",
+   "hits": []
+  },
+  {
+   "text": "Does red light cure pain?",
+   "hits": []
+  },
+  {
+   "text": "Completely safe and risk-free.",
+   "hits": [
+    {
+     "code": "SAFETY_ABSOLUTE",
+     "topic": null,
+     "start": 0,
+     "end": 15
+    },
+    {
+     "code": "SAFETY_ABSOLUTE",
+     "topic": null,
+     "start": 20,
+     "end": 29
+    }
+   ]
+  },
+  {
+   "text": "Doctor recommended, medical grade.",
+   "hits": [
+    {
+     "code": "STATUS_CLAIM",
+     "topic": null,
+     "start": 0,
+     "end": 18
+    },
+    {
+     "code": "STATUS_CLAIM",
+     "topic": null,
+     "start": 20,
+     "end": 33
+    }
+   ]
+  },
+  {
+   "text": "Results in 14 days.",
+   "hits": [
+    {
+     "code": "OUTCOME_PROMISE",
+     "topic": null,
+     "start": 0,
+     "end": 18
+    }
+   ]
+  },
+  {
+   "text": "In just 2 weeks you will notice a difference.",
+   "hits": [
+    {
+     "code": "OUTCOME_PROMISE",
+     "topic": null,
+     "start": 0,
+     "end": 31
+    }
+   ]
+  },
+  {
+   "text": "Treats and prevents infections.",
+   "hits": [
+    {
+     "code": "DISEASE_MENTION",
+     "topic": null,
+     "start": 0,
+     "end": 30
+    }
+   ]
+  },
+  {
+   "text": "Improves memory and helps with brain fog.",
+   "hits": [
+    {
+     "code": "CLAIM_MEDICAL",
+     "topic": "pbm-mood-brain",
+     "start": 0,
+     "end": 40
+    }
+   ]
+  },
+  {
+   "text": "Red light for sleep, energy and well-being.",
+   "hits": []
+  },
+  {
+   "text": "Boosts your energy every day.",
+   "hits": [
+    {
+     "code": "CLAIM_UNHEDGED",
+     "topic": "pbm-energy-wellbeing",
+     "start": 0,
+     "end": 18
+    }
+   ]
+  },
+  {
+   "text": "Light panels for athletes with knee pain.",
+   "hits": [
+    {
+     "code": "CLAIM_MEDICAL",
+     "topic": "pbm-pain-joints",
+     "start": 6,
+     "end": 40
+    }
+   ]
+  },
+  {
+   "text": "Hair growth and hair regrowth in 3 months.",
+   "hits": [
+    {
+     "code": "CLAIM_MEDICAL",
+     "topic": "pbm-hair",
+     "start": 0,
+     "end": 29
+    }
+   ]
+  },
+  {
+   "text": "Anti-aging glow with fine lines gone.",
+   "hits": [
+    {
+     "code": "CLAIM_UNHEDGED",
+     "topic": "pbm-skin-appearance",
+     "start": 0,
+     "end": 36
+    }
+   ]
+  },
+  {
+   "text": "Supports your recovery.",
+   "hits": [
+    {
+     "code": "CLAIM_UNHEDGED",
+     "topic": "pbm-muscle-recovery",
+     "start": 0,
+     "end": 22
+    }
+   ]
+  },
+  {
+   "text": "5 mistakes people make with red light panels",
+   "hits": []
+  },
+  {
+   "text": "Is red light therapy the same as a tanning bed?",
+   "hits": [
+    {
+     "code": "THERAPY_WORD",
+     "topic": null,
+     "start": 13,
+     "end": 20
+    }
+   ]
+  },
+  {
+   "text": "A harmless way to relax.",
+   "hits": [
+    {
+     "code": "SAFETY_ABSOLUTE",
+     "topic": null,
+     "start": 2,
+     "end": 10
+    }
+   ]
+  },
+  {
+   "text": "No risk, no contraindications.",
+   "hits": [
+    {
+     "code": "SAFETY_ABSOLUTE",
+     "topic": null,
+     "start": 0,
+     "end": 7
+    }
+   ]
+  },
+  {
+   "text": "Mitochondria are cell structures that make energy.",
+   "hits": []
+  },
+  {
+   "text": "Reduce stress and calm your mind.",
+   "hits": []
+  },
+  {
+   "text": "A calm evening light routine.",
+   "hits": []
+  },
+  {
+   "text": "",
+   "hits": []
+  },
+  {
+   "text": "Red light léčí bolest kloubů",
+   "hits": [
+    {
+     "code": "CLAIM_MEDICAL",
+     "topic": "pbm-pain-joints",
+     "start": 10,
+     "end": 21
+    }
+   ]
+  },
+  {
+   "text": "Detox & imunita: červené světlo",
+   "hits": [
+    {
+     "code": "CLAIM_AVOID",
+     "topic": "pbm-detox-immunity",
+     "start": 0,
+     "end": 5
+    }
+   ]
+  },
+  {
+   "text": "Zlepšuje spánek (may support sleep).",
+   "hits": []
+  },
+  {
+   "text": "ČERVENÉ SVĚTLO LÉČÍ BOLEST!!!",
+   "hits": [
+    {
+     "code": "CLAIM_MEDICAL",
+     "topic": "pbm-pain-joints",
+     "start": 15,
+     "end": 26
+    }
+   ]
+  },
+  {
+   "text": "Světlo pro regeneraci. Světlo proti bolesti. Světlo na zánět.",
+   "hits": [
+    {
+     "code": "CLAIM_MEDICAL",
+     "topic": "pbm-pain-joints",
+     "start": 23,
+     "end": 43
+    },
+    {
+     "code": "CLAIM_MEDICAL",
+     "topic": "pbm-inflammation",
+     "start": 45,
+     "end": 60
+    }
+   ]
+  },
+  {
+   "text": "Red light. Léčba. Vyléčí.",
+   "hits": []
+  },
+  {
+   "text": "Ne, nelze to použít jako léčbu depresí.",
+   "hits": []
+  },
+  {
+   "text": "[[ADD: Explain how red light cures pain]]",
+   "hits": [
+    {
+     "code": "CLAIM_MEDICAL",
+     "topic": "pbm-pain-joints",
+     "start": 29,
+     "end": 39
+    }
+   ]
+  },
+  {
+   "text": "Léčí  bolest   zad",
+   "hits": [
+    {
+     "code": "CLAIM_MEDICAL",
+     "topic": "pbm-pain-joints",
+     "start": 0,
+     "end": 12
+    }
+   ]
+  },
+  {
+   "text": "léčí\nbolest",
+   "hits": []
+  },
+  {
+   "text": "Uleví od bolesti? Ne.",
+   "hits": []
+  },
+  {
+   "text": "Zmírňuje bolest, ale jen u zdravých? Možná.",
+   "hits": []
+  },
+  {
+   "text": "Pomáhá při bolesti, pomáhá při artritidě, pomáhá při migréně.",
+   "hits": [
+    {
+     "code": "CLAIM_MEDICAL",
+     "topic": "pbm-pain-joints",
+     "start": 0,
+     "end": 40
+    },
+    {
+     "code": "CLAIM_MEDICAL",
+     "topic": "pbm-pain-joints",
+     "start": 42,
+     "end": 60
+    }
+   ]
+  },
+  {
+   "text": "Naprosto bezpečné. Zcela bezpečné. 100 % bezpečné.",
+   "hits": [
+    {
+     "code": "SAFETY_ABSOLUTE",
+     "topic": null,
+     "start": 0,
+     "end": 17
+    },
+    {
+     "code": "SAFETY_ABSOLUTE",
+     "topic": null,
+     "start": 19,
+     "end": 33
+    },
+    {
+     "code": "SAFETY_ABSOLUTE",
+     "topic": null,
+     "start": 35,
+     "end": 49
+    }
+   ]
+  },
+  {
+   "text": "Replace your painkillers with red light.",
+   "hits": [
+    {
+     "code": "MEDICATION_ADVICE",
+     "topic": null,
+     "start": 0,
+     "end": 24
+    }
+   ]
+  },
+  {
+   "text": "Say goodbye to your doctor.",
+   "hits": [
+    {
+     "code": "MEDICATION_ADVICE",
+     "topic": null,
+     "start": 4,
+     "end": 26
+    }
+   ]
+  },
+  {
+   "text": "Do you suffer from migraines? Try our panel.",
+   "hits": [
+    {
+     "code": "DISEASE_MENTION",
+     "topic": null,
+     "start": 0,
+     "end": 28
+    }
+   ]
+  },
+  {
+   "text": "For people with diabetes: a new panel.",
+   "hits": [
+    {
+     "code": "DISEASE_MENTION",
+     "topic": null,
+     "start": 0,
+     "end": 24
+    }
+   ]
+  },
+  {
+   "text": "This device is not intended to diagnose, treat, cure, or prevent any disease.",
+   "hits": []
+  },
+  {
+   "text": "Risk-free trial for 60 days.",
+   "hits": []
+  },
+  {
+   "text": "People with epilepsy should ask a doctor first.",
+   "hits": []
+  },
+  {
+   "text": "You do not need eye protection, it is completely harmless.",
+   "hits": [
+    {
+     "code": "SAFETY_ABSOLUTE",
+     "topic": null,
+     "start": 38,
+     "end": 57
+    }
+   ]
+  },
+  {
+   "text": "My arthritis vanished in a month.",
+   "hits": [
+    {
+     "code": "CLAIM_MEDICAL",
+     "topic": "pbm-pain-joints",
+     "start": 3,
+     "end": 21
+    }
+   ]
+  },
+  {
+   "text": "Stop taking your medication and use red light instead.",
+   "hits": [
+    {
+     "code": "MEDICATION_ADVICE",
+     "topic": null,
+     "start": 0,
+     "end": 27
+    }
+   ]
+  },
+  {
+   "text": "100% safe checkout and safe payment.",
+   "hits": []
+  },
+  {
+   "text": "Nahraďte léky světlem a přestaňte užívat léky.",
+   "hits": [
+    {
+     "code": "MEDICATION_ADVICE",
+     "topic": null,
+     "start": 0,
+     "end": 13
+    },
+    {
+     "code": "MEDICATION_ADVICE",
+     "topic": null,
+     "start": 24,
+     "end": 45
+    }
+   ]
+  },
+  {
+   "text": "Trpíte artritidou? Vyzkoušejte panel.",
+   "hits": [
+    {
+     "code": "DISEASE_MENTION",
+     "topic": null,
+     "start": 0,
+     "end": 17
+    }
+   ]
+  },
+  {
+   "text": "Pro lidi s cukrovkou: nový panel.",
+   "hits": [
+    {
+     "code": "DISEASE_MENTION",
+     "topic": null,
+     "start": 0,
+     "end": 20
+    }
+   ]
+  },
+  {
+   "text": "Přístroj neslouží k diagnostice, léčbě ani prevenci nemocí.",
+   "hits": []
+  },
+  {
+   "text": "Vyzkoušejte bez rizika, bezpečná platba.",
+   "hits": []
+  },
+  {
+   "text": "Jste-li těhotná, poraďte se s lékařem.",
+   "hits": []
+  },
+  {
+   "text": "Ochrana očí není nutná, je to naprosto neškodné.",
+   "hits": [
+    {
+     "code": "SAFETY_ABSOLUTE",
+     "topic": null,
+     "start": 0,
+     "end": 22
+    },
+    {
+     "code": "SAFETY_ABSOLUTE",
+     "topic": null,
+     "start": 30,
+     "end": 47
+    }
+   ]
+  },
+  {
+   "text": "Moje fibromyalgie zmizela po třech týdnech.",
+   "hits": [
+    {
+     "code": "CLAIM_MEDICAL",
+     "topic": "pbm-pain-joints",
+     "start": 5,
+     "end": 25
+    }
+   ]
+  },
+  {
+   "text": "Zaručeně vám do 30 dnů dorostou vlasy a přestanou vypadávat.",
+   "hits": [
+    {
+     "code": "CLAIM_MEDICAL",
+     "topic": "pbm-hair",
+     "start": 23,
+     "end": 37
+    },
+    {
+     "code": "CLAIM_MEDICAL",
+     "topic": "pbm-hair",
+     "start": 40,
+     "end": 59
+    }
+   ]
+  },
+  {
+   "text": "Rozlučte se s lékařem.",
+   "hits": [
+    {
+     "code": "MEDICATION_ADVICE",
+     "topic": null,
+     "start": 0,
+     "end": 21
+    }
+   ]
+  },
+  {
+   "text": "Tento produkt netvrdí nic o růstu ani vypadávání vlasů.",
+   "hits": []
+  },
+  {
+   "text": "Zastaví bolest okamžitě.",
+   "hits": [
+    {
+     "code": "CLAIM_MEDICAL",
+     "topic": "pbm-pain-joints",
+     "start": 0,
+     "end": 14
+    }
+   ]
+  },
+  {
+   "text": "Stops pain instantly.",
+   "hits": [
+    {
+     "code": "CLAIM_MEDICAL",
+     "topic": "pbm-pain-joints",
+     "start": 0,
+     "end": 10
+    }
+   ]
+  },
+  {
+   "text": "Panel není schválen FDA a není zdravotnický prostředek.",
+   "hits": []
+  },
+  {
+   "text": "Schváleno ministerstvem zdravotnictví jako terapeutické zařízení.",
+   "hits": [
+    {
+     "code": "STATUS_CLAIM",
+     "topic": null,
+     "start": 0,
+     "end": 37
+    },
+    {
+     "code": "THERAPY_WORD",
+     "topic": null,
+     "start": 43,
+     "end": 55
+    },
+    {
+     "code": "STATUS_CLAIM",
+     "topic": null,
+     "start": 43,
+     "end": 64
+    }
+   ]
+  }
+ ]
+}

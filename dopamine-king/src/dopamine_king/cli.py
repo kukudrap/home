@@ -114,10 +114,10 @@ def _brief_flags(p: argparse.ArgumentParser) -> None:
     p.add_argument("--safety-note", help="the manufacturer's own safety text for long-form content")
 
 
-def _synthetic_analyses():
+def _synthetic_analyses(vertical: Any = None):
     from .analysis import analyze_items
     from .synth import generate_corpus
-    brands, items = generate_corpus()
+    brands, items = generate_corpus(config=vertical.synth() if vertical is not None else None)
     cohort = {b.id: b.cohort for b in brands}
     return items, cohort, analyze_items(items, cohort)
 
@@ -481,9 +481,11 @@ def cmd_demo(args: argparse.Namespace) -> int:
         print(f"\n=== {text} " + "=" * max(0, 70 - len(text)))
 
     t0 = time.perf_counter()
-    print(f"DOPAMINE KING {__version__}  demo (synthetic data, offline)")
+    vertical = _vertical(args)
+    edition = f" | {vertical.meta.get('edition_en', vertical.name('en'))}" if vertical is not None else ""
+    print(f"DOPAMINE KING {__version__}  demo (synthetic data, offline){edition}")
     head("1. Corpus: fictional brands with planted effects")
-    items, cohort, analyses = _synthetic_analyses()
+    items, cohort, analyses = _synthetic_analyses(vertical)
     print(f"{len(items)} items, {len(set(cohort.values()))} cohorts, Success Index computed from engagement RATES per cohort and platform")
     bench = Benchmark(analyses)
 
@@ -495,13 +497,32 @@ def cmd_demo(args: argparse.Namespace) -> int:
     print(f"  calibration: out-of-fold rank correlation {cal.cv_spearman_default:.2f} -> {cal.cv_spearman_calibrated:.2f}")
 
     head("3. Score and benchmark hooks")
-    for text in ("7 mistakes every beginner runner makes (and how to fix them)", "Our Q3 company update",
-                 "You won't BELIEVE this one trick!!!", "7 chyb, které dělá každý začátečník v běhu"):
+    if vertical is not None:
+        hooks = ("5 mistakes people make when choosing a red light panel", "Our Q3 update on light panels",
+                 "You won't BELIEVE this one trick!!!", "5 chyb při výběru červeného světla")
+        local = "pbm-cz-sk"
+    else:
+        hooks = ("7 mistakes every beginner runner makes (and how to fix them)", "Our Q3 company update",
+                 "You won't BELIEVE this one trick!!!", "7 chyb, které dělá každý začátečník v běhu")
+        local = "cz-local"
+    for text in hooks:
         r = score_hook(text)
-        pct = bench.percentile(r.total, "cz-local" if r.lang == "cs" else None)
+        pct = bench.percentile(r.total, local if r.lang == "cs" else None)
         print(f"  {r.total:5.1f} {_bar(r.total, 12)} p{pct:3.0f}  risk {r.clickbait_risk:4.0%}  {text}")
-    c = compare_hooks("Why most marketing dashboards lie to you", "A new dashboard release")
+    if vertical is not None:
+        c = compare_hooks("How to choose a red light panel without reading a spec sheet", "A new panel release")
+    else:
+        c = compare_hooks("Why most marketing dashboards lie to you", "A new dashboard release")
     print(f"  duel: P(A wins) {c.p_a_wins:.0%}  " + "; ".join(c.reasons_en[:1]))
+    if vertical is not None:
+        from .generate import claims as claims_mod
+        profile = claims_mod.load_profile(vertical.id, vertical.claims_profile)
+        print("  claims check (non-medical wellness profile):")
+        for text in ("Red light cures joint pain.", "Some studies suggest red light may support recovery after exercise.",
+                     "Za 4 týdny uvidíte méně vrásek.", "Panel není zdravotnický prostředek."):
+            found = sorted({h.code for h in profile.scan_text(text)})
+            print(f"    {'BLOCKED' if {'CLAIM_MEDICAL', 'CLAIM_AVOID', 'DISEASE_MENTION', 'STATUS_CLAIM', 'SAFETY_ABSOLUTE'} & set(found) else 'ok     ' if not found else 'review '}  "
+                  f"{text}  {', '.join(found)}")
 
     head("4. Lab: honest experimentation")
     f = two_proportion_test(100, 1000, 130, 1000)
@@ -512,21 +533,31 @@ def cmd_demo(args: argparse.Namespace) -> int:
 
     head("5. Evidence ledger")
     try:
-        ledger = _ledger(None)
-        for tid in ("dopamine-myth", "geo-cite-sources", "ab-testing-peeking"):
-            s = ledger.summary(tid)
-            print(f"  {tid:<22} {s.label:<10} {s.headline_en}")
+        ledger = _ledger(None, vertical)
+        if vertical is not None:
+            for row in vertical.claim_map(ledger):
+                if row["id"] in ("pbm-exercise-performance", "pbm-muscle-recovery", "pbm-skin-appearance", "pbm-pain-joints"):
+                    print(f"  {row['id']:<26} {row['class']:<9} {row['label']:<10} verified studies {row['n_studies']}, pending {row['n_pending']}")
+        else:
+            for tid in ("dopamine-myth", "geo-cite-sources", "ab-testing-peeking"):
+                s = ledger.summary(tid)
+                print(f"  {tid:<22} {s.label:<10} {s.headline_en}")
         st = ledger.stats()
-        print(f"  {len(ledger.studies)} studies in the seed ledger (unverified until `kingctl evidence verify`): {st.get('by_grade', {})}")
+        print(f"  {len(ledger.studies)} studies in the ledger, {st.get('verified', 0)} verified (the rest wait for `kingctl evidence verify`): {st.get('by_grade', {})}")
     except Exception as err:
         print(f"  (research module not available: {err})")
 
     head("6. Forge: a content pack from one brief (offline writer)")
     try:
         from .generate.packs import build_pack
-        brief = Brief(brand="Zorvia", topic="running shoes", audience="beginner runners", cohort="sport", keyword="running shoes for beginners",
-                      facts=["Our Aero 2 weighs 210 g."], cta="Try the Aero 2 for 30 days")
-        pack = build_pack(brief, ["hook_set", "linkedin_post", "short_video_script", "seo_article", "geo_answer_page"], ledger=ledger if "ledger" in dir() else None)
+        if vertical is not None:
+            brief = vertical.briefs(ledger)["mito-light-en"]
+            formats = ["hook_set", "instagram_caption", "short_video_script", "seo_article", "geo_answer_page"]
+        else:
+            brief = Brief(brand="Zorvia", topic="running shoes", audience="beginner runners", cohort="sport", keyword="running shoes for beginners",
+                          facts=["Our Aero 2 weighs 210 g."], cta="Try the Aero 2 for 30 days")
+            formats = ["hook_set", "linkedin_post", "short_video_script", "seo_article", "geo_answer_page"]
+        pack = build_pack(brief, formats, ledger=ledger if "ledger" in dir() else None)
         for item in pack.items:
             print(f"  {item.format:<20} hook {item.scores['dopamine']:5.1f}  {item.verdict:<8} open slots {len(item.slots_open):2d}  {item.hook[:46]}")
         print("  The offline writer never invents prose: open slots show [[ADD: ...]]. Use --writer anthropic for Claude.")
@@ -536,7 +567,8 @@ def cmd_demo(args: argparse.Namespace) -> int:
     head("7. Guru: 4 week plan")
     try:
         from .guru import build_plan
-        plan = build_plan(Brief(brand="Zorvia", topic="running shoes", audience="beginner runners", cohort="sport", facts=["Our Aero 2 weighs 210 g."]))
+        plan = build_plan(vertical.briefs()["mito-light-en"] if vertical is not None else
+                          Brief(brand="Zorvia", topic="running shoes", audience="beginner runners", cohort="sport", facts=["Our Aero 2 weighs 210 g."]))
         print(f"  channels: {', '.join(c['id'] for c in plan.channels)}; {len(plan.calendar)} calendar slots; {len(plan.experiments)} experiments")
         print(f"  first slot: week {plan.calendar[0]['week']} {plan.calendar[0]['day']} {plan.calendar[0]['channel']} -> {plan.calendar[0]['hook']}")
     except Exception as err:
@@ -553,7 +585,9 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--db", help="SQLite database (default: $KING_DB or .king/king.sqlite)")
     sub = p.add_subparsers(dest="cmd", required=True)
 
-    sub.add_parser("demo", help="end to end tour on synthetic data (offline)").set_defaults(fn=cmd_demo)
+    s = sub.add_parser("demo", help="end to end tour on synthetic data (offline)")
+    s.add_argument("--vertical", help="tour of an edition, for example pbm (MITO LIGHT)")
+    s.set_defaults(fn=cmd_demo)
 
     s = sub.add_parser("score", help="Dopamine Score of a hook")
     s.add_argument("text"), s.add_argument("--body"), s.add_argument("--lang", choices=["en", "cs"]), s.add_argument("--json", action="store_true")

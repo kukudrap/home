@@ -554,7 +554,13 @@
     "hustot* vlasů",
     "vlasov* folikul*"
    ],
-   "patterns": [],
+   "patterns": [
+    "\\bvlas\\w*(?:[^\\w.!?;\\n]+\\w+){0,4}[^\\w.!?;\\n]+(?:dorost\\w*|vypada\\w*|zhust\\w*|narost\\w*)",
+    "\\b(?:dorost\\w*|zhust\\w*|narost\\w*)(?:[^\\w.!?;\\n]+\\w+){0,3}[^\\w.!?;\\n]+vlas\\w*",
+    "\\bpresta\\w+\\s+vypadavat",
+    "\\bregrow\\w*",
+    "\\bstop\\w*\\s+(?:\\w+\\s+){0,2}hair\\s+loss\\b"
+   ],
    "safe_en": [
     "At most (research exists only, no product claim): studies of low-level light and scalp hair have been published.",
     "This product makes no claim about hair growth or hair loss."
@@ -621,7 +627,10 @@
     "migrén*",
     "bolest* hlavy"
    ],
-   "patterns": [],
+   "patterns": [
+    "\\b(?:stop|stops|stopped|end|ends|ended|kill|kills)\\s+(?:\\w+\\s+){0,2}(?:pain|aches)\\b",
+    "\\b(?:zastavi|ukonci|zbavi)\\w*\\s+(?:\\w+\\s+){0,2}bolest\\w*"
+   ],
    "safe_en": [
     "At most: researchers study light therapy for pain in clinical settings; make no statement that MITO LIGHT relieves or helps any pain.",
     "Safe wording only: MITO LIGHT is a wellness product, not a medical device, and is not intended to treat pain or joint problems."

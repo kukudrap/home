@@ -229,6 +229,50 @@ class CompliantCopyTests(unittest.TestCase):
             self.assertEqual(codes(text, EN) - {"THERAPY_WORD"}, set(), text)
 
 
+class IndependentExamplesTests(unittest.TestCase):
+    """Wording written by the regulation research run, not by the rule author: a check on blind spots."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.examples = json.loads((DATA / "examples.json").read_text("utf-8"))
+
+    def brief(self, lang):
+        return Brief(brand="MITO LIGHT", topic="red light panels", audience="x", lang=lang, vertical="pbm", claims_profile="wellness",
+                     facts=[self.examples["brand_purpose_fact"][lang]])
+
+    def test_unsafe_wording_is_blocked(self):
+        for lang in ("en", "cs"):
+            for text in self.examples["unsafe"][lang]:
+                errors = [i.code for i in SH.check(text, self.brief(lang)) if i.severity == "error"]
+                self.assertTrue(errors, text)
+
+    def test_safe_wording_passes_cleanly(self):
+        for lang in ("en", "cs"):
+            for text in self.examples["safe"][lang]:
+                found = [(i.code, i.severity) for i in SH.check(text, self.brief(lang)) if i.severity != "info"]
+                self.assertEqual(found, [], text)
+
+    def test_medication_advice_and_testimonials_are_caught(self):
+        for text in ("Replace your painkillers with red light.", "Nahraďte léky světlem a přestaňte užívat léky.",
+                     "Say goodbye to your doctor.", "Moje fibromyalgie zmizela po třech týdnech.", "My arthritis vanished in a month."):
+            self.assertTrue(codes(text, EN if text.isascii() else CS) & {"MEDICATION_ADVICE", "CLAIM_MEDICAL", "DISEASE_MENTION"}, text)
+
+    def test_ads_that_address_people_with_a_condition_are_caught_even_as_questions(self):
+        for text in ("Trpíte artritidou? Vyzkoušejte panel.", "Do you suffer from migraines? Try our panel.", "Pro lidi s cukrovkou: nový panel."):
+            self.assertIn("DISEASE_MENTION", codes(text, EN if text.isascii() else CS), text)
+
+    def test_standard_disclaimers_and_commerce_phrases_are_not_flagged(self):
+        for text in ("This device is not intended to diagnose, treat, cure, or prevent any disease.", "Risk-free trial for 60 days.",
+                     "People with epilepsy should ask a doctor first.", "Přístroj neslouží k diagnostice, léčbě ani prevenci nemocí.",
+                     "Vyzkoušejte bez rizika, bezpečná platba.", "Jste-li těhotná, poraďte se s lékařem."):
+            found = codes(text, EN if text.isascii() else CS)
+            self.assertEqual(found & {"CLAIM_MEDICAL", "DISEASE_MENTION", "SAFETY_ABSOLUTE", "STATUS_CLAIM", "MEDICATION_ADVICE"}, set(), text)
+
+    def test_a_new_clause_ends_the_negation(self):
+        self.assertIn("SAFETY_ABSOLUTE", codes("Ochrana očí není nutná, je to naprosto neškodné."))
+        self.assertIn("SAFETY_ABSOLUTE", codes("You do not need eye protection, it is completely harmless.", EN))
+
+
 class DataTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):

@@ -73,6 +73,11 @@ RULES: dict[str, tuple[str, str, str]] = {
         "light-sensitising medicine, follow the manual).",
         "Delší obsah o používání světelného přístroje potřebuje bezpečnostní upozornění (oči, lékař při těhotenství "
         "nebo lécích zvyšujících citlivost na světlo, řídit se návodem)."),
+    "MEDICATION_ADVICE": ("error",
+        "Advice to replace or stop medication or medical care. Never suggest this: a light device does not replace "
+        "treatment or a doctor.",
+        "Rada nahradit nebo vysadit léky či lékařskou péči. Nikdy ji neuvádějte: světelný přístroj nenahrazuje léčbu "
+        "ani lékaře."),
     "THERAPY_WORD": ("info",
         "The word 'therapy' can suggest medical treatment. For a non-medical device consider 'session', "
         "'light routine' or 'photobiomodulation'. Check the wording with your regulatory adviser.",
@@ -157,7 +162,13 @@ class ClaimsProfile:
         self.hedge_re = re.compile(terms_regex(_both(guard.get("hedge_words"))))
         self.safety_terms_re = re.compile(terms_regex(_both(guard.get("safety_terms"))))
         negation = [re.escape(fold(w.lower())) for w in _both(guard.get("negation_words"))]
-        self.neg_re = re.compile(r"\b(?:" + "|".join(negation) + r")\b[^.!?;\n]{0,40}$") if negation else re.compile(r"(?!x)x")
+        self.neg_re = re.compile(r"\b(?:" + "|".join(negation) + r")\b") if negation else re.compile(r"(?!x)x")
+        breakers = [re.escape(fold(w.lower())) for w in _both(guard.get("clause_breakers"))]
+        self.clause_break = re.compile(r",\s*(?:" + "|".join(breakers) + r")\b") if breakers else re.compile(r"(?!x)x")
+        self.mask_re = re.compile(terms_regex(_both(guard.get("masking_phrases"))))
+        self.targeting_re = terms_regex(_both(guard.get("targeting_phrases")))
+        self.medication = [re.compile(p) for p in _both({"en": guard.get("medication_patterns", {}).get("en", []),
+                                                         "cs": guard.get("medication_patterns", {}).get("cs", [])})]
         stems = guard.get("negated_verb_stems") or []
         self.neg_verb_re = re.compile(r"\bne(?:" + "|".join(stems) + r")\w*\b") if stems else re.compile(r"(?!x)x")
         self.timeline = [re.compile(p) for p in (guard.get("timeline_patterns", {}).get("en", []) + guard.get("timeline_patterns", {}).get("cs", []))]
@@ -181,6 +192,7 @@ class ClaimsProfile:
             topic.patterns += [re.compile(p) for p in t.get("patterns", [])]
             self.topics.append(topic)
         self.disease_regex = re.compile(proximity(self.verb_re, self.disease_re))
+        self.targeting_regex = re.compile(proximity(self.targeting_re, self.disease_re, 8))
         self.disease_indication = re.compile(rf"{indication}{self.disease_re}")
 
     # -- helpers ---------------------------------------------------------------------------------------
@@ -192,12 +204,25 @@ class ClaimsProfile:
         return spans[-1] if spans else (0, 0)
 
     def negated(self, low: str, start: int, end: int, spans: list[tuple[int, int]]) -> bool:
-        """The hit sits in a negated clause ("does not treat", "neslouží k léčbě", "bez rizika")."""
+        """The hit sits in a negated clause ("does not treat", "neslouží k léčbě", "bez rizika").
+
+        The nearest negation word before the hit counts when it is close (40 characters) and no new clause starts
+        between them (a comma followed by "it", "je", "but"...). So "ochrana očí není nutná, je to neškodné" is not negated.
+        """
         a, _ = self._sentence_of(spans, start)
         before = low[max(a, start - 60):start]
-        if self.neg_re.search(before):
-            return True
+        last = None
+        for m in self.neg_re.finditer(before):
+            last = m
+        if last is not None:
+            gap = before[last.end():]
+            if len(gap) <= 40 and not self.clause_break.search(gap):
+                return True
         return bool(self.neg_verb_re.search(low[max(a, start - 40):end]))
+
+    def masked(self, low: str) -> list[tuple[int, int]]:
+        """Spans of standard disclaimers and commerce phrases ("not a medical device", "risk-free trial") that no rule judges."""
+        return [m.span() for m in self.mask_re.finditer(low)]
 
     def hedged(self, low: str, start: int, spans: list[tuple[int, int]]) -> bool:
         a, b = self._sentence_of(spans, start)
@@ -209,8 +234,10 @@ class ClaimsProfile:
              format_id: str | None = None) -> list[Hit]:
         hits: list[Hit] = []
 
+        masks = self.masked(low)
+
         def usable(a: int, b: int) -> bool:
-            return not skip(a, b) and not self.negated(low, a, b, spans)
+            return not skip(a, b) and not any(x < b and a < y for x, y in masks) and not self.negated(low, a, b, spans)
 
         candidates: list[Hit] = []
         for topic in self.topics:
@@ -239,12 +266,18 @@ class ClaimsProfile:
         def free(a: int, b: int) -> bool:
             return not any(x < b and a < y for x, y in taken)
 
-        for rx in (self.disease_regex, self.disease_indication):
+        for rx in (self.disease_regex, self.disease_indication, self.targeting_regex):
             for m in rx.finditer(low):
                 a, b = m.span()
-                if usable(a, b) and free(a, b) and not is_question(b):
+                # an ad that addresses people with a condition is a claim even as a question ("Trpíte bolestí zad?")
+                if usable(a, b) and free(a, b) and (rx is self.targeting_regex or not is_question(b)):
                     hits.append(Hit("DISEASE_MENTION", a, b))
                     taken.append((a, b))
+        for rx in self.medication:
+            for m in rx.finditer(low):
+                a, b = m.span()
+                if usable(a, b):
+                    hits.append(Hit("MEDICATION_ADVICE", a, b))
         for m in self.status_re.finditer(low):
             a, b = m.span()
             if usable(a, b) and not backed(m.group()):
@@ -274,6 +307,21 @@ class ClaimsProfile:
         if format_id in self.long_form and not self.safety_terms_re.search(low):
             hits.append(Hit("SAFETY_NOTE_MISSING", 0, 0))
         return hits
+
+
+    def scan_text(self, text: str, *, format_id: str | None = None) -> list[Hit]:
+        """Hits for plain text with no facts, citations or placeholders in play (hooks, headlines, the game's Boss Battle).
+
+        The JavaScript port in ``web/src/claims.js`` reproduces exactly this function; ``scripts/gen_golden_claims.py``
+        writes the cases that keep the two identical.
+        """
+        from .guard import _is_question_at, _sentence_spans, fold_aligned          # local import: guard imports this module
+
+        low = fold_aligned(text)
+        return self.scan(
+            text, low, spans=_sentence_spans(text), skip=lambda a, b: False, backed=lambda s: False,
+            cited_near=lambda pos: False, is_question=lambda end: _is_question_at(low, end), format_id=format_id,
+        )
 
 
 # -- loading -----------------------------------------------------------------------------------------------

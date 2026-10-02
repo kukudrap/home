@@ -104,6 +104,97 @@
    "brief_cs": "Titulek k novému panelu, který slibuje jen to, co lze doložit.",
    "taunt_en": "Promise a miracle and people buy.",
    "taunt_cs": "Slib zázrak a lidi to koupí."
+  },
+  {
+   "id": "boss-pbm-spec-golem",
+   "cohort": "pbm-home-devices",
+   "lang": "en",
+   "tier": 1,
+   "percentile": 60,
+   "xp": 60,
+   "brief_en": "Write a hook that makes a first-time buyer curious about how to read the wavelength and irradiance numbers on a panel spec sheet, without any promises.",
+   "brief_cs": "Napište hook, který zaujme začátečníka a ukáže mu, jak číst vlnové délky a mW/cm² v parametrech panelu, bez jakýchkoli slibů.",
+   "taunt_en": "Numbers, numbers, numbers. Nobody ever clicked on a table. Prove me wrong.",
+   "taunt_cs": "Čísla, čísla, čísla. Na tabulku ještě nikdo neklikl. Přesvědčte mě o opaku.",
+   "name": "The Spec-Sheet Golem"
+  },
+  {
+   "id": "boss-pbm-count-clickbait",
+   "cohort": "pbm-home-devices",
+   "lang": "cs",
+   "tier": 2,
+   "percentile": 75,
+   "xp": 100,
+   "brief_en": "Write a curiosity hook about choosing a panel that earns the click without superlatives, promises or fake urgency.",
+   "brief_cs": "Napište hook o výběru panelu, který vzbudí zvědavost a zaslouží si klik, bez superlativů, slibů a falešného spěchu.",
+   "taunt_en": "I only write exclamation marks and countdowns. What have you got, a footnote?",
+   "taunt_cs": "Já píšu jen vykřičníky a odpočítávání. A vy co, poznámku pod čarou?",
+   "name": "Hrabě Klikbajt"
+  },
+  {
+   "id": "boss-pbm-placebo-phantom",
+   "cohort": "pbm-recovery-sport",
+   "lang": "en",
+   "tier": 3,
+   "percentile": 90,
+   "xp": 180,
+   "brief_en": "Write a hook about recovery routines after training that stays hedged ('some studies', 'may') and still makes an active reader want to know more.",
+   "brief_cs": "Napište hook o rutině po tréninku, který zůstane opatrný (například 'některé studie', 'může') a přesto aktivního čtenáře zaujme.",
+   "taunt_en": "It is all in your head, you know. Convince a skeptic without promising a thing.",
+   "taunt_cs": "Všechno je jen v hlavě, víte? Přesvědčte skeptika, aniž byste cokoli slíbili.",
+   "name": "The Placebo Phantom"
+  },
+  {
+   "id": "boss-pbm-general-burpee",
+   "cohort": "pbm-recovery-sport",
+   "lang": "cs",
+   "tier": 1,
+   "percentile": 60,
+   "xp": 60,
+   "brief_en": "Write a practical hook that places a light panel inside a post-training routine next to sleep, food and easy movement.",
+   "brief_cs": "Napište praktický hook, který zasadí světelný panel do rutiny po tréninku vedle spánku, jídla a lehkého pohybu.",
+   "taunt_en": "A hundred burpees before breakfast and I need no lamp. What could you possibly add?",
+   "taunt_cs": "Sto burpees před snídaní a žádnou lampu nepotřebuju. Co byste mi mohli nabídnout?",
+   "name": "Generál Burpee"
+  },
+  {
+   "id": "boss-pbm-sir-scroll",
+   "cohort": "pbm-skin-led",
+   "lang": "en",
+   "tier": 1,
+   "percentile": 60,
+   "xp": 60,
+   "brief_en": "Write the first line of an Instagram caption about a calm evening skin routine that makes a scrolling thumb pause, with no promises.",
+   "brief_cs": "Napište první řádek popisku na Instagram o klidné večerní péči o pleť, který přiměje prolistovávající palec zpomalit, bez slibů.",
+   "taunt_en": "My thumb has seen everything. Make it stop.",
+   "taunt_cs": "Můj palec už viděl všechno. Zkuste ho zaujmout.",
+   "name": "Sir Scroll-a-Lot"
+  },
+  {
+   "id": "boss-pbm-baron-calque",
+   "cohort": "pbm-cz-sk",
+   "lang": "cs",
+   "tier": 2,
+   "percentile": 75,
+   "xp": 100,
+   "brief_en": "Write a natural Czech hook about choosing a panel for a small flat, with no word-for-word calques from English and no promises.",
+   "brief_cs": "Napište přirozený český hook o výběru panelu do malého bytu, bez doslovných překladů z angličtiny a bez slibů.",
+   "taunt_en": "I translate everything word for word. Tell me why a Czech reader would notice.",
+   "taunt_cs": "Já přeložím cokoli. Doslova. Řekněte mi, proč by si toho český čtenář všiml.",
+   "name": "Baron Kalk"
+  },
+  {
+   "id": "boss-pbm-inspector-doubt",
+   "cohort": "pbm-cz-sk",
+   "lang": "cs",
+   "tier": 3,
+   "percentile": 90,
+   "xp": 180,
+   "brief_en": "Write a hook about using a panel safely that reassures through practical detail (eyes, distance, time) and points to the manual, not to promises.",
+   "brief_cs": "Napište hook o bezpečném používání panelu, který uklidní praktickými detaily (oči, vzdálenost, čas) a odkáže na návod, ne na sliby.",
+   "taunt_en": "Safety is boring and nobody reads it. Prove me wrong.",
+   "taunt_cs": "Bezpečnost je nuda a nikdo to nečte. Dokažte mi opak.",
+   "name": "Inspektor Pochyba"
   }
  ]
 }

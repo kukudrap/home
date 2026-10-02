@@ -1,0 +1,70 @@
+{
+ "version": 1,
+ "note": "Example wording for the claims profile. The safe examples must pass without errors or warnings (when the brief states the brand's purpose as a fact), the unsafe ones must be blocked. They come from the regulation research run and are used as regression tests.",
+ "brand_purpose_fact": {
+  "en": "The panel is designed as a supporting tool for the regeneration of a healthy body.",
+  "cs": "Panel slouží jako podpůrný nástroj pro regeneraci zdravého organismu."
+ },
+ "safe": {
+  "en": [
+   "MITO LIGHT is a wellness light panel that emits red and near-infrared light and is intended for general, non-medical use by healthy adults.",
+   "The panel is designed as a supporting tool for the regeneration of a healthy body, for example after exercise.",
+   "Some studies in healthy people suggest that red and near-infrared light after exercise may support muscle recovery, but individual results vary.",
+   "Many users add a short evening session to their relaxation routine.",
+   "Protect your eyes: do not stare directly into the LEDs and use the supplied eye protection during sessions.",
+   "Start with short sessions at the recommended distance and follow the manufacturer's instructions in the user manual.",
+   "If you are pregnant or take medication that increases light sensitivity, ask your doctor before use.",
+   "The listed wavelengths and irradiance are measured device specifications, not a promise of any particular result.",
+   "This product is for general wellness use and does not replace a visit to the doctor.",
+   "Research on photobiomodulation is still evolving, and more studies are needed on how consumer panels compare with clinical devices."
+  ],
+  "cs": [
+   "MITO LIGHT je wellness panel s červeným a blízkým infračerveným světlem, určený k obecnému nezdravotnickému použití zdravými dospělými.",
+   "Panel slouží jako podpůrný nástroj pro regeneraci zdravého organismu, například po sportovním výkonu.",
+   "Některé studie u zdravých lidí naznačují, že červené a blízké infračervené světlo po cvičení může podpořit regeneraci svalů, individuální výsledky se však mohou lišit.",
+   "Mnoho uživatelů si zařazuje krátké večerní sezení do své relaxační rutiny.",
+   "Chraňte si oči: nedívejte se přímo do LED diod a během sezení používejte přiložené ochranné brýle.",
+   "Začněte krátkými sezeními v doporučené vzdálenosti a řiďte se návodem výrobce.",
+   "Jste-li těhotná nebo užíváte léky zvyšující citlivost na světlo, poraďte se před použitím s lékařem.",
+   "Uvedené vlnové délky a ozáření jsou naměřené parametry zařízení, nikoli příslib určitého výsledku.",
+   "Přístroj je určen k obecnému použití v rámci wellness a nenahrazuje návštěvu lékaře.",
+   "Výzkum fotobiomodulace se stále vyvíjí a je potřeba dalšího výzkumu, jak se spotřebitelské panely srovnávají s klinickými přístroji."
+  ]
+ },
+ "unsafe": {
+  "en": [
+   "Cures arthritis and joint pain in just 14 days.",
+   "FDA approved red light therapy for pain relief.",
+   "Clinically proven to treat depression and anxiety.",
+   "100% safe with no side effects, even for pregnant women and children.",
+   "A medical-grade device that heals wounds and reduces inflammation.",
+   "Doctor recommended: eliminates psoriasis and eczema naturally.",
+   "Replace your painkillers with red light and stop taking your medication.",
+   "Our panel reverses Alzheimer's and Parkinson's symptoms.",
+   "Prevents cancer by boosting your immune system.",
+   "Guaranteed to regrow your hair and stop hair loss in 30 days.",
+   "Approved by the Czech Ministry of Health as a therapeutic device.",
+   "Say goodbye to back pain forever: instant relief for sciatica.",
+   "\"My fibromyalgia disappeared after three weeks of daily use,\" says Jana.",
+   "No need for eye protection, it is completely harmless to your eyes.",
+   "Scientifically proven to fight infections and COVID-19 and to cure diabetes."
+  ],
+  "cs": [
+   "Léčí artritidu a bolesti kloubů už za 14 dní.",
+   "Schváleno FDA jako léčebný přístroj pro úlevu od bolesti.",
+   "Klinicky prokázáno: zmírňuje depresi a úzkost.",
+   "100% bezpečné bez vedlejších účinků, i pro těhotné a děti.",
+   "Zdravotnický prostředek v lékařské kvalitě, který hojí rány a zmírňuje záněty.",
+   "Doporučeno lékaři: odstraní lupénku i ekzém přírodní cestou.",
+   "Nahraďte léky světlem a přestaňte užívat léky.",
+   "Panel zvrátí příznaky Alzheimerovy a Parkinsonovy choroby.",
+   "Předchází rakovině a posiluje imunitu.",
+   "Zaručeně vám do 30 dnů dorostou vlasy a přestanou vypadávat.",
+   "Schváleno ministerstvem zdravotnictví jako terapeutické zařízení.",
+   "Rozlučte se s bolestí zad navždy: okamžitá úleva od ischiasu.",
+   "Recenze: Moje fibromyalgie zmizela po třech týdnech pravidelného používání.",
+   "Ochrana očí není nutná, je to naprosto neškodné.",
+   "Vědecky prokázáno: bojuje proti infekcím, covidu i cukrovce a léčí ji."
+  ]
+ }
+}

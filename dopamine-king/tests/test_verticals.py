@@ -153,6 +153,56 @@ def all_pairs(ledger):
     return out
 
 
+class ResearchDataTests(unittest.TestCase):
+    """Brand profile and strategy gathered from public sources: sourced, modest and free of personal data."""
+
+    def test_brand_profile_is_sourced_and_free_of_personal_data(self):
+        profile = V.brand_profile()
+        self.assertGreaterEqual(len(profile["facts"]), 20)
+        self.assertGreaterEqual(len(profile["unknowns"]), 8)
+        text = json.dumps(profile, ensure_ascii=False)
+        self.assertNotRegex(text, r"[\w.+-]+@[\w-]+\.[\w.]+")              # no e-mail address
+        self.assertNotRegex(text, r"\d[\d ,.]*\s?CZK")                      # no price snapshots
+        for name in ("Procházk", "Žufánek", "Schlesinger"):
+            self.assertNotIn(name, text)                                   # no individuals
+        for fact in profile["facts"]:
+            self.assertTrue(fact["fact_cs"] and fact["fact_en"], fact)
+            self.assertTrue(fact["source_url"].startswith("https://"), fact)
+            self.assertIn(fact["confidence"], ("high", "medium", "low"))
+            self.assertIn(fact["origin"], ("brand", "third-party"))
+
+    def test_the_two_similar_brand_names_are_kept_apart(self):
+        text = json.dumps(V.brand_profile(), ensure_ascii=False)
+        self.assertIn("Mito Red Light", text)
+
+    def test_hook_bank_passes_the_claims_profile(self):
+        hooks = V.strategy()["hooks"]
+        self.assertGreaterEqual(len(hooks["cs"]), 30)
+        self.assertGreaterEqual(len(hooks["en"]), 30)
+        shield = TrustShield()
+        for lang in ("cs", "en"):
+            brief = V.briefs()[f"mito-light-{lang}"]
+            for item in hooks[lang]:
+                self.assertLessEqual(len(item["text"]), 90, item["text"])
+                errors = [i.code for i in shield.check(item["text"], brief) if i.severity == "error"]
+                self.assertEqual(errors, [], item["text"])
+
+    def test_strategy_sections_are_complete(self):
+        st = V.strategy()
+        self.assertEqual(len(st["topic_clusters"]), 10)
+        for cluster in st["topic_clusters"]:
+            self.assertTrue(cluster["questions_cs"] and cluster["questions_en"] and cluster["keywords_cs"], cluster["id"])
+            for topic in cluster["claim_topics"]:
+                self.assertIn(topic, {t["id"] for t in V.claims()["topics"]}, cluster["id"])
+        self.assertGreaterEqual(len(st["observed_patterns"]), 20)
+        self.assertEqual(len(st["calendar_themes"]), 4)
+        self.assertIn("research_notes", st)
+
+    def test_added_bosses_fit_the_game(self):
+        self.assertGreaterEqual(len(V.bosses()), 12)
+        self.assertEqual(sum(1 for b in V.bosses() if b["lang"] == "cs") >= 4, True)
+
+
 class SampleBriefTests(unittest.TestCase):
     def test_sample_briefs_use_only_verified_sources(self):
         briefs = V.briefs()

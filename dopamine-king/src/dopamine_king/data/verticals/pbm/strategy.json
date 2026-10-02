@@ -139,5 +139,1524 @@
  "guardrails_cs": [
   "Profil tvrzení: každý kus projde Štítem důvěry pro nezdravotnický přístroj. Žádná diagnostika, léčba, prevence ani zmírnění nemoci, stavu či příznaku; přínosy jen opatrně a se zdrojem.",
   "Doby používání, vzdálenosti a dávky pocházejí z návodu výrobce, nikdy z odhadu autora. Delší texty končí bezpečnostním upozorněním."
- ]
+ ],
+ "observed_patterns": [
+  {
+   "brand": "Mito Red Light (US)",
+   "pattern_en": "[Observed from web search snippets] Series pages lead with a value metric ('light energy delivered per $ invested'), a price anchor ('starting at $369' and '$449') and a short feature list (touchscreen, alarm, brightness control, six wavelengths).",
+   "pattern_cs": "[Pozorováno z úryvků webového vyhledávání] Stránky řad panelů začínají metrikou hodnoty ('světelná energie na investovaný dolar'), cenovou kotvou ('od 369 a 449 USD') a krátkým výčtem funkcí (dotykový displej, budík, regulace jasu, šest vlnových délek).",
+   "source_urls": [
+    "https://mitoredlight.com/en-ca/collections/panel-series.oembed",
+    "https://mitoredlight.com/products/mitopro-series",
+    "https://mitoredlight.com/en-ca/products/mitopro-x-series"
+   ]
+  },
+  {
+   "brand": "Mito Red Light (US)",
+   "pattern_en": "[Observed from web search snippets] Use-case landing pages by body area or need (face and neck, full body, a skin-focused best-of collection) share the same 'Find your panel' page title, which suggests that every entry point routes to a panel finder.",
+   "pattern_cs": "[Pozorováno z úryvků webového vyhledávání] Vstupní stránky podle části těla či potřeby (obličej a krk, celé tělo, kolekce zaměřená na pleť ve stylu best-of) sdílejí stejný titulek 'Find your panel', což naznačuje, že každý vstup vede k vyhledávači panelů.",
+   "source_urls": [
+    "https://mitoredlight.com/pages/red-light-therapy-face-neck",
+    "https://mitoredlight.com/pages/red-light-therapy-full-body",
+    "https://mitoredlight.com/en-ca/collections/best-red-light-therapy-for-skin"
+   ]
+  },
+  {
+   "brand": "Mito Red Light (US)",
+   "pattern_en": "[Observed from web search snippets] The brand blog mixes beginner guides ('red light therapy for beginners') with roundup listicles ('10 red light therapy tools biohackers trust').",
+   "pattern_cs": "[Pozorováno z úryvků webového vyhledávání] Blog značky kombinuje průvodce pro začátečníky ('red light therapy for beginners') s výčtovými články ('10 red light therapy tools biohackers trust').",
+   "source_urls": [
+    "https://mitoredlight.com/fr-ca/blogs/mito-red-blog/red-light-therapy-for-beginners",
+    "https://mitoredlight.com/fr-ca/blogs/mito-red-blog/10-red-light-therapy-tools-biohackers-trust"
+   ]
+  },
+  {
+   "brand": "Mito Red Light (US)",
+   "pattern_en": "[Observed from web search snippets] Credibility content: a post on independent third-party testing, a 'Mito Red vs. everyone' comparison page on the help subdomain and a 'Why Choose Mito Red Light?' differentiator page.",
+   "pattern_cs": "[Pozorováno z úryvků webového vyhledávání] Obsah budující důvěryhodnost: článek o nezávislém testování třetí stranou, srovnávací stránka 'Mito Red vs. everyone' na poddoméně nápovědy a stránka 'Why Choose Mito Red Light?' o odlišnostech.",
+   "source_urls": [
+    "https://mitoredlight.com/blogs/mito-red-blog/independent-third-party-testing",
+    "https://help.mitoredlight.com/pages/mitored-vs-competitors",
+    "https://mitoredlight.com/en-ca/pages/mito-red-difference"
+   ]
+  },
+  {
+   "brand": "Mito Red Light (US)",
+   "pattern_en": "[Observed from web search snippets] Hero copy leans on authority and superlative claims ('award winning', 'patent pending', 'trusted by more professionals than any other brand'). This project must not reuse such wording.",
+   "pattern_cs": "[Pozorováno z úryvků webového vyhledávání] Úvodní texty stojí na autoritě a superlativech ('award winning', 'patent pending', 'trusted by more professionals than any other brand'). Takové formulace tento projekt nesmí přebírat.",
+   "source_urls": [
+    "https://mitoredlight.com/?afmc=64",
+    "https://mitoredlight.com/products/mitopro-series"
+   ]
+  },
+  {
+   "brand": "Mito Red Light (US)",
+   "pattern_en": "[Observed from web search snippets] Social-proof hubs: a community page ('real people, real results'), a reviews page and an in-the-press page.",
+   "pattern_cs": "[Pozorováno z úryvků webového vyhledávání] Huby sociálního důkazu: stránka komunity ('real people, real results'), stránka recenzí a stránka 'v tisku'.",
+   "source_urls": [
+    "https://mitoredlight.com/fr-ca/pages/community",
+    "https://mitoredlight.com/pages/reviews",
+    "https://mitoredlight.com/en-ca/pages/in-the-press-blogs"
+   ]
+  },
+  {
+   "brand": "Mito Red Light (US)",
+   "pattern_en": "[Observed from web search snippets] Press-style partnership content with fitness and sport brands (Crunch Fitness framed around fitness recovery, Arizona Coyotes), plus partners and commercial-products pages for B2B.",
+   "pattern_cs": "[Pozorováno z úryvků webového vyhledávání] Partnerská sdělení ve stylu tiskové zprávy s fitness a sportovními značkami (Crunch Fitness v rámci regenerace po cvičení, Arizona Coyotes) a stránky pro partnery a komerční produkty pro B2B.",
+   "source_urls": [
+    "https://mitoredlight.com/pages/crunch-fitness-partnership",
+    "https://nhl.com/news/arizona-coyotes-announce-partnership-with-mito-red-light-331104228",
+    "https://mitoredlight.com/pages/partners",
+    "https://mitoredlight.com/collections/commercial-products"
+   ]
+  },
+  {
+   "brand": "Mito Red Light (US)",
+   "pattern_en": "[Observed from web search snippets] Promotion mechanics: banners with free shipping and HSA/FSA eligibility, seasonal bundles ('Free $100 Skincare Bundle', 'Limited time, no code needed') and affiliate or creator links (an ?afmc= parameter and personal vanity paths). This project's frame excludes fake scarcity.",
+   "pattern_cs": "[Pozorováno z úryvků webového vyhledávání] Promo mechaniky: pruhy s dopravou zdarma a způsobilostí HSA/FSA, sezónní balíčky ('Free $100 Skincare Bundle', 'Limited time, no code needed') a affiliate či influencer odkazy (parametr ?afmc= a osobní krátké adresy). Náš rámec vylučuje falešný nedostatek.",
+   "source_urls": [
+    "https://mitoredlight.com/products/mitopro-x-series?afmc=2us",
+    "https://www.mitoredlight.com/CHADBYERS",
+    "https://www.mitoredlight.com/RACHAEL74779"
+   ]
+  },
+  {
+   "brand": "Mito Red Light (US)",
+   "pattern_en": "[Observed from web search snippets] Segment discount pages (military discounts) and downloadable PDFs (MitoADAPT quick guide, MitoADAPT 3.0 spec sheet) that serve 'how to use' and specification queries.",
+   "pattern_cs": "[Pozorováno z úryvků webového vyhledávání] Stránky slev pro segmenty (vojenské slevy) a stažitelná PDF (rychlý návod MitoADAPT, parametry MitoADAPT 3.0), která obsluhují dotazy na návod a parametry.",
+   "source_urls": [
+    "https://mitoredlight.com/fr-ca/pages/military-discounts",
+    "https://mitoredlight.com/cdn/shop/files/mitoadapt-quick-guide-_Sept_2023_5.5_x_8.5_in_1.pdf",
+    "https://mitoredlight.com/cdn/shop/files/MitoADAPT_3.0_-_Oct2024.pdf"
+   ]
+  },
+  {
+   "brand": "Mito Red Light (US)",
+   "pattern_en": "[Observed from web search snippets] Ad-library trackers list creatives with routine and portability angles ('take your wellness journey on the go', 'simplify your wellness routine') for Facebook and Instagram.",
+   "pattern_cs": "[Pozorováno z úryvků webového vyhledávání] Sledovače reklam uvádějí kreativy s úhly rutiny a přenosnosti ('take your wellness journey on the go', 'simplify your wellness routine') pro Facebook a Instagram.",
+   "source_urls": [
+    "https://www.particl.com/mito-red-light/take-your-wellness-journey-on-the-go-1367226-666aa1ef",
+    "https://www.particl.com/mito-red-light/simplify-your-wellness-routine-1367226-6c1308b9",
+    "https://adlibrary.com/brands/mito-red-light-facebook-ads"
+   ]
+  },
+  {
+   "brand": "Mito Red Light (US)",
+   "pattern_en": "[Observed from web search snippets] Founder-led credibility: an interview with the founder on Light Therapy Insiders and a WIPO IP Advantage story about the brand's wellness and design approach.",
+   "pattern_cs": "[Pozorováno z úryvků webového vyhledávání] Důvěra přes zakladatele: rozhovor se zakladatelem na Light Therapy Insiders a příběh WIPO IP Advantage o přístupu značky k wellness a designu.",
+   "source_urls": [
+    "https://www.lighttherapyinsiders.com/mitoredlight-scott-chaverri-interview/",
+    "https://www.wipo.int/de/web/ip-advantage/w/stories/mito-red-light"
+   ]
+  },
+  {
+   "brand": "Mito Red Light (US)",
+   "pattern_en": "[Observed from web search snippets] A wide product ecosystem (panels, a mask, belts, a helmet, an intranasal device, skincare) gives the content calendar many body-area angles and separate collections such as belts and skincare.",
+   "pattern_cs": "[Pozorováno z úryvků webového vyhledávání] Široký produktový ekosystém (panely, maska, pásy, helma, intranazální zařízení, péče o pleť) dává obsahovému kalendáři mnoho úhlů podle části těla a samostatné kolekce, například pásy a péče o pleť.",
+   "source_urls": [
+    "https://medindexer.com/directory/mito-red-light",
+    "https://mitoredlight.com/collections/red-light-therapy-belts",
+    "https://mitoredlight.com/collections/skincare"
+   ]
+  },
+  {
+   "brand": "Light Therapy Insiders (independent reviewer)",
+   "pattern_en": "[Observed from web search snippets] Reviewer formats with read-time labels: single-product reviews (Mitohacker 4.0), generation-update reviews (Mitohacker 5.0 'wide, powerful'), a four-rival 'versus' comparison (BioMax, PowerPanel, Rojo, Refine) and 'are they still worth it' refresh posts.",
+   "pattern_cs": "[Pozorováno z úryvků webového vyhledávání] Formáty nezávislého recenzenta se štítkem doby čtení: recenze jednoho produktu (Mitohacker 4.0), recenze nové generace (Mitohacker 5.0), srovnání se čtyřmi konkurenty (BioMax, PowerPanel, Rojo, Refine) a aktualizační články 'stojí to ještě za to'.",
+   "source_urls": [
+    "https://www.lighttherapyinsiders.com/mito-light-mitohacker-4-review/",
+    "https://www.lighttherapyinsiders.com/mitohacker-5-0-review-wide-powerful/",
+    "https://www.lighttherapyinsiders.com/mito-light-mitohacker-vs-biomax-powerpanel-rojo-refine/",
+    "https://www.lighttherapyinsiders.com/mito-red-light-review-are-they-still-worth-it/"
+   ]
+  },
+  {
+   "brand": "Light Therapy Insiders and Red Light Therapy Expert (independent reviewers)",
+   "pattern_en": "[Observed from web search snippets] Regional roundups ('red light therapy Europe UK best options', 'best red light therapy UK') and company-level reviews target buyers who filter by shipping region.",
+   "pattern_cs": "[Pozorováno z úryvků webového vyhledávání] Regionální přehledy ('red light therapy Europe UK best options', 'best red light therapy UK') a recenze celých firem míří na kupující, kteří vybírají podle regionu dodání.",
+   "source_urls": [
+    "https://www.lighttherapyinsiders.com/red-light-therapy-europe-uk-best-options/",
+    "https://www.lighttherapyinsiders.com/mito-red-light-company-review/",
+    "https://redlighttherapy.expert/best-red-light-therapy-uk/"
+   ]
+  },
+  {
+   "brand": "Wareable (tech media)",
+   "pattern_en": "[Observed from web search snippets] A mainstream tech-media review with a verdict-first sub-headline hedged as 'supporting skin health and muscle recovery' and a 'best for / not suitable if' structure (stationary use versus on the go).",
+   "pattern_cs": "[Pozorováno z úryvků webového vyhledávání] Recenze v mainstreamovém technickém médiu s verdiktem v podtitulku opatrně formulovaným jako 'podpora zdraví pleti a regenerace svalů' a strukturou 'pro koho je / pro koho není' (stacionární použití versus na cesty).",
+   "source_urls": [
+    "https://wareable.com/health-tech/mito-red-light-therapy-review"
+   ]
+  },
+  {
+   "brand": "PCWelt and M3 (European media)",
+   "pattern_en": "[Observed from web search snippets] European consumer-tech and health outlets cover MITO LIGHT: PCWelt (Germany) under 'Mito Light Mitohacker 4.0' and the Swedish M3 in a piece framed as 'infrared therapy for recovery and wellbeing'.",
+   "pattern_cs": "[Pozorováno z úryvků webového vyhledávání] Evropská spotřebitelská technologická a zdravotní média píší o MITO LIGHT: PCWelt (Německo) pod názvem 'Mito Light Mitohacker 4.0' a švédský M3 v textu rámovaném jako 'infračervená terapie pro regeneraci a pohodu'.",
+   "source_urls": [
+    "https://www.pcwelt.de/?p=2627686",
+    "https://www.m3.se/article/2617243/infrarod-terapi-for-aterhamtning-och-valmaende.html"
+   ]
+  },
+  {
+   "brand": "MITO LIGHT (own site)",
+   "pattern_en": "[Observed from web search snippets] Generation architecture: separate hub pages for generations 3.0, 4.0 and 5.0, and a Generation 5.0 page that quantifies upgrades against the previous generation ('48% larger', '56% more LED chips').",
+   "pattern_cs": "[Pozorováno z úryvků webového vyhledávání] Architektura po generacích: samostatné stránky generací 3.0, 4.0 a 5.0 a stránka Generace 5.0, která vyčísluje vylepšení oproti předchozí generaci ('o 48 % větší', 'o 56 % více LED čipů').",
+   "source_urls": [
+    "https://www.mitolight.cz/generace-5-0/",
+    "https://www.mitolight.cz/generace-4-0/",
+    "https://www.mitolight.cz/generace-3-0/"
+   ]
+  },
+  {
+   "brand": "MITO LIGHT (own site)",
+   "pattern_en": "[Observed from web search snippets] Spec-first product pages: LED count, 30 degree beam angle, mW/cm2, dimensions, weight, six wavelengths, a crossed-out old price, stock status and a star rating.",
+   "pattern_cs": "[Pozorováno z úryvků webového vyhledávání] Produktové stránky s parametry na prvním místě: počet LED, úhel svícení 30 stupňů, mW/cm2, rozměry, hmotnost, šest vlnových délek, přeškrtnutá původní cena, stav skladu a hvězdičkové hodnocení.",
+   "source_urls": [
+    "https://www.mitolight.cz/mito-light-expert-5-0/",
+    "https://www.mitolight.cz/mito-light-master-5-0/",
+    "https://www.mitolight.cz/mito-light-bulb-5-0/"
+   ]
+  },
+  {
+   "brand": "MITO LIGHT (own site)",
+   "pattern_en": "[Observed from web search snippets] An explainer ('how it works': mitochondria, ATP, nitric oxide, optical window) plus a studies hub with numeric outcomes. This is the brand's research-summary format, but several outcome claims go beyond this project's compliance frame.",
+   "pattern_cs": "[Pozorováno z úryvků webového vyhledávání] Vysvětlující stránka ('jak to funguje': mitochondrie, ATP, oxid dusnatý, optické okno) a stránka studií s číselnými výsledky. Je to formát shrnutí výzkumu této značky, ale několik tvrzení o výsledcích přesahuje náš compliance rámec.",
+   "source_urls": [
+    "https://www.mitolight.cz/jak-funguje-terapie-cervenym-a-infracervenym-svetlem/",
+    "https://www.mitolight.cz/ucinky-a-studie/"
+   ]
+  },
+  {
+   "brand": "MITO LIGHT (own site)",
+   "pattern_en": "[Observed from web search snippets] A practical FAQ with dosing (distance, minutes, daily limits per body area), eye-protection advice, photosensitivity notes and doctor-consult disclaimers.",
+   "pattern_cs": "[Pozorováno z úryvků webového vyhledávání] Praktické FAQ s dávkováním (vzdálenost, minuty, denní limity na část těla), radami k ochraně očí, poznámkami o fotosenzitivitě a upozorněním na konzultaci s lékařem.",
+   "source_urls": [
+    "https://www.mitolight.cz/casto-kladene-otazky/"
+   ]
+  },
+  {
+   "brand": "MITO LIGHT (own site)",
+   "pattern_en": "[Observed from web search snippets] The blog maps to use cases (sport and recovery, skin, hair, sleep, '5 benefits', biohacking framing) with benefit-led titles; some titles contain outcome claims that are not reusable here.",
+   "pattern_cs": "[Pozorováno z úryvků webového vyhledávání] Blog odpovídá způsobům použití (sport a regenerace, pleť, vlasy, spánek, '5 benefitů', rámování biohackingu) a má titulky vedené přínosy; některé obsahují tvrzení o výsledcích, která zde nelze převzít.",
+   "source_urls": [
+    "https://www.mitolight.cz/blog/",
+    "https://www.mitolight.cz/blog/5-benefitu-infracerveneho-zareni-na-nase-zdravi/",
+    "https://www.mitolight.cz/blog/zvysovani-sportovniho-vykonu-a-podpora-regenerace-pomoci-svetla/",
+    "https://www.mitolight.cz/blog/problemy-se-spankem-proc-se-nam-nedari-vypnout/"
+   ]
+  },
+  {
+   "brand": "MITO LIGHT (own site)",
+   "pattern_en": "[Observed from web search snippets] An origin-story timeline page: a chance gym meeting, a panel imported from the USA, a 2019 prototype, the November 2019 e-shop, a 2021 football-club partnership, then TV advertising and offline events.",
+   "pattern_cs": "[Pozorováno z úryvků webového vyhledávání] Stránka s časovou osou příběhu značky: náhodné setkání v posilovně, panel dovezený z USA, prototyp v roce 2019, e-shop v listopadu 2019, spolupráce s fotbalovým klubem v roce 2021, pak televizní reklama a offline akce.",
+   "source_urls": [
+    "https://www.mitolight.cz/o-nas/"
+   ]
+  },
+  {
+   "brand": "MITO LIGHT (own site)",
+   "pattern_en": "[Observed from web search snippets] Trust hubs across channels: an on-site paginated shop-rating page, Heureka shop reviews, and Trustpilot and Trusted Shops profiles for several countries.",
+   "pattern_cs": "[Pozorováno z úryvků webového vyhledávání] Huby důvěry napříč kanály: stránkované hodnocení obchodu přímo na webu, recenze obchodu na Heurece a profily na Trustpilotu a Trusted Shops pro několik zemí.",
+   "source_urls": [
+    "https://www.mitolight.cz/hodnoceni-obchodu/",
+    "https://obchody.heureka.cz/mitolight-cz/recenze/",
+    "https://www.trustpilot.com/review/mitolight.com",
+    "https://www.trustedshops.de/company/mito_light_europe_s_r_o_/"
+   ]
+  },
+  {
+   "brand": "MITO LIGHT (own site)",
+   "pattern_en": "[Observed from web search snippets] Accessory and evening content: a buying guide for blue-light-blocking glasses ('Jaké brýle Blue Blockers vybrat?'), a sleep-themed product category and an app with a Light Alarm Clock.",
+   "pattern_cs": "[Pozorováno z úryvků webového vyhledávání] Obsah o příslušenství a večerní rutině: průvodce výběrem brýlí proti modrému světlu ('Jaké brýle Blue Blockers vybrat?'), kategorie produktů se spánkovou tematikou a aplikace se Světelným budíkem.",
+   "source_urls": [
+    "https://www.mitolight.cz/jake-bryle-vybrat/",
+    "https://www.mitolight.cz/pro-lepsi-spanek/",
+    "https://apps.apple.com/app/mito-light/id6502370809"
+   ]
+  },
+  {
+   "brand": "Forbes.cz",
+   "pattern_en": "[Observed from web search snippets] Business-trend framing in the headline ('Czechs discover red light therapy. Is another billion-level business growing from it?'), with named athlete and entrepreneur quotes, the NASA origin story and supply-chain transparency (development in Czechia, manufacturing partner in China).",
+   "pattern_cs": "[Pozorováno z úryvků webového vyhledávání] Rámování jako obchodní trend už v titulku ('Češi objevují terapii červeným světlem. Roste z ní další miliardový byznys?'), s citacemi jmenovaného sportovce a podnikatele, příběhem o původu u NASA a otevřeností o dodavatelském řetězci (vývoj v Česku, výrobní partner v Číně).",
+   "source_urls": [
+    "https://forbes.cz/cesi-objevuji-terapii-cervenym-svetlem-roste-z-ni-dalsi-miliardovy-byznys/"
+   ]
+  },
+  {
+   "brand": "Seznam Zprávy",
+   "pattern_en": "[Observed from web search snippets] Lifestyle-magazine framing by who uses it: 'Posviťte si červeně: proč v červeném světle jedou sportovci, herci i astronauti' (why athletes, actors and astronauts go for red light).",
+   "pattern_cs": "[Pozorováno z úryvků webového vyhledávání] Magazínové rámování podle toho, kdo světlo používá: 'Posviťte si červeně: proč v červeném světle jedou sportovci, herci i astronauti'.",
+   "source_urls": [
+    "https://www.seznamzpravy.cz/clanek/magazin-zivotni-styl-posvitte-si-cervene-proc-v-cervenem-svetle-jedou-sportovci-herci-i-astronauti-265068"
+   ]
+  },
+  {
+   "brand": "cc.cz",
+   "pattern_en": "[Observed from web search snippets] A skeptical explainer headline that lists a string of big promises first and then asks what red light really can do ('Co všechno ale červené světlo opravdu umí?'), a myth-versus-evidence angle this project can use in a hedged form.",
+   "pattern_cs": "[Pozorováno z úryvků webového vyhledávání] Skeptický vysvětlující titulek, který nejdřív vyjmenuje řadu velkých slibů a pak se ptá, co červené světlo opravdu umí ('Co všechno ale červené světlo opravdu umí?'); úhel mýty versus důkazy, který lze použít v opatrné podobě.",
+   "source_urls": [
+    "https://cc.cz/slibuje-mladsi-plet-hustsi-vlasy-i-pomoc-pri-alzheimerovi-co-vsechno-ale-cervene-svetlo-opravdu-umi/"
+   ]
+  },
+  {
+   "brand": "Lighthacker (Czech competitor, via cc.cz)",
+   "pattern_en": "[Observed from web search snippets] A founder-interview headline with a quotable line ('Světlo je hack budoucnosti') and sports-club proof (Sparta and Slavia bought the panels); the Czech brand Lighthacker came about after developers contacted the founder through his blog.",
+   "pattern_cs": "[Pozorováno z úryvků webového vyhledávání] Titulek rozhovoru se zakladatelem s citovatelnou větou ('Světlo je hack budoucnosti') a důkazem ze sportovních klubů (panely si pořídily Sparta a Slavia); česká značka Lighthacker vznikla poté, co zakladatele kontaktovali vývojáři přes jeho blog.",
+   "source_urls": [
+    "https://cc.cz/svetlo-je-hack-budoucnosti-rika-vit-schlesinger-jeho-infracervene-panely-si-poridila-i-fotbalova-sparta-a-slavia/"
+   ]
+  },
+  {
+   "brand": "Deník and Newstream (Czech media)",
+   "pattern_en": "[Observed from web search snippets] Mainstream explainers pair the NASA origin with wellbeing promises (Deník) or place red light within biohacking and longevity (Newstream: 'Biohacking, longevity a moderní zdraví').",
+   "pattern_cs": "[Pozorováno z úryvků webového vyhledávání] Mainstreamové vysvětlující články spojují původ u NASA se sliby o pohodě (Deník) nebo řadí červené světlo do biohackingu a dlouhověkosti (Newstream: 'Biohacking, longevity a moderní zdraví').",
+   "source_urls": [
+    "https://www.denik.cz/zdravi/terapie-cervenym-svetlem-zlepsi-psychiku-i-spanek/",
+    "https://www.newstream.cz/enjoy/biohacking-terapie-cervenym-svetlem"
+   ]
+  },
+  {
+   "brand": "Dr. Max (Czech pharmacy chain)",
+   "pattern_en": "[Observed from web search snippets] A pharmacy-chain Q&A format ('Zeptejte se lékárníka') answers 'jak funguje terapie lampou?' (how does lamp therapy work?), borrowing trust from a health profession.",
+   "pattern_cs": "[Pozorováno z úryvků webového vyhledávání] Formát otázek a odpovědí lékárenského řetězce ('Zeptejte se lékárníka') odpovídá na 'jak funguje terapie lampou?' a půjčuje si důvěru zdravotnické profese.",
+   "source_urls": [
+    "https://www.drmax.cz/zeptejte-se-lekarnika/cervene-svetlo-jak-funguje-terapie-lampou"
+   ]
+  },
+  {
+   "brand": "poradte.cz (Czech advice portal)",
+   "pattern_en": "[Observed from web search snippets] A thread titled as a buying question ('Jaký panel pro terapii červeným a near infra red světlem') signals demand for how-to-choose guidance in Czech.",
+   "pattern_cs": "[Pozorováno z úryvků webového vyhledávání] Vlákno pojmenované jako nákupní otázka ('Jaký panel pro terapii červeným a near infra red světlem') ukazuje poptávku po českém průvodci výběrem.",
+   "source_urls": [
+    "https://www.poradte.cz/nejen-pro-zeny/16528-jaky-panel-pro-terapii-cervenym-a-near-infra-red-svetlem.html"
+   ]
+  },
+  {
+   "brand": "Heureka (Czech price comparison)",
+   "pattern_en": "[Observed from web search snippets] Comparison listings use a '<model> od <price> Kč - Heureka.cz' title pattern, have a brand hub for all MITO LIGHT models and file panels under 'Lampy pro světelnou terapii'.",
+   "pattern_cs": "[Pozorováno z úryvků webového vyhledávání] Srovnávací výpisy používají titulek '<model> od <cena> Kč - Heureka.cz', mají stránku značky se všemi modely MITO LIGHT a řadí panely do kategorie 'Lampy pro světelnou terapii'.",
+   "source_urls": [
+    "https://www.heureka.cz/znacky/mito-light/",
+    "https://lampy-pro-svetelnou-terapii.heureka.cz/mito-light-expert-3_0-infracerveny-panel/",
+    "https://lampy-pro-svetelnou-terapii.heureka.cz/mito-light-bulb-3_0/"
+   ]
+  },
+  {
+   "brand": "Czech resellers and clinics",
+   "pattern_en": "[Observed from web search snippets] Resellers and clinics (onlinemedical.cz, f-rehab.cz, zelenyzvon.cz, liviny.cz) publish their own MITO LIGHT pages, for example 'světelná terapie pro zdraví, regeneraci a výkon'; third-party copy can exceed this project's claim frame and should be monitored.",
+   "pattern_cs": "[Pozorováno z úryvků webového vyhledávání] Prodejci a kliniky (onlinemedical.cz, f-rehab.cz, zelenyzvon.cz, liviny.cz) publikují vlastní stránky o MITO LIGHT, například 'světelná terapie pro zdraví, regeneraci a výkon'; texty třetích stran mohou přesáhnout náš rámec tvrzení a je třeba je sledovat.",
+   "source_urls": [
+    "https://www.onlinemedical.cz/nase-novinky-blog/mito-light---revolucni-svetelna-terapie-pro-zdravi--regeneraci-a-vykon/",
+    "https://www.f-rehab.cz/mito-light",
+    "https://www.zelenyzvon.cz/mito-light/",
+    "https://www.liviny.cz/terapie-cervenym-a-infracervenym-svetlem-starter-4-0-mito-light/"
+   ]
+  },
+  {
+   "brand": "Slevomat (Czech deal portal)",
+   "pattern_en": "[Observed from web search snippets] A daily-deal listing sells local red light sessions in packs of 1, 3 or 5 visits, a try-before-you-buy path.",
+   "pattern_cs": "[Pozorováno z úryvků webového vyhledávání] Slevový portál nabízí sezení s červeným světlem v balíčcích po 1, 3 nebo 5 návštěvách, tedy cestu 'nejdřív vyzkoušet, pak koupit'.",
+   "source_urls": [
+    "https://www.slevomat.cz/akce/2385920-terapie-cervenym-svetlem-1-3-nebo-5-navstev"
+   ]
+  },
+  {
+   "brand": "Alza and Pilulka (Czech retailers)",
+   "pattern_en": "[Observed from web search snippets] Retailer-hosted PDF manuals appear in results for red light queries, which suggests that 'návod' (manual) queries may reach third-party PDFs rather than brand pages.",
+   "pattern_cs": "[Pozorováno z úryvků webového vyhledávání] Prodejcem hostované PDF návody se objevují ve výsledcích dotazů na červené světlo, což naznačuje, že dotazy na návod mohou vést na PDF třetích stran místo na stránky značky.",
+   "source_urls": [
+    "https://dwn.alza.cz/manual/160634",
+    "https://pilulka.s3-central.vshosting.cloud/vms-prod-cs/vms/product/listing/2026/07/manual_rl300_a2_6a5766f897d218.71495783.pdf"
+   ]
+  },
+  {
+   "brand": "Substack creator (nidal)",
+   "pattern_en": "[Observed from web search snippets] A creator newsletter post whose address reads 'please stop asking me what LED light ...' uses an exasperated-expert hook about the repeated 'which panel should I buy' question.",
+   "pattern_cs": "[Pozorováno z úryvků webového vyhledávání] Příspěvek tvůrčího newsletteru, jehož adresa zní 'please stop asking me what LED light ...', používá hook unaveného experta, který odpovídá na stále stejnou otázku 'který panel koupit'.",
+   "source_urls": [
+    "https://nidal.substack.com/p/please-stop-asking-me-what-led-light"
+   ]
+  },
+  {
+   "brand": "Joovv (US)",
+   "pattern_en": "[Observed from web search snippets, URL level only, page not opened] An educational explainer ('how does red light therapy work') lives in the brand blog next to an About page, and Joovv is the benchmark other brands compare against ('Apex vs Joovv', 'Mito Red Light vs Joovv', 'best Joovv alternatives').",
+   "pattern_cs": "[Pozorováno z úryvků webového vyhledávání, jen na úrovni adres URL, stránka neotevřena] Vysvětlující článek ('how does red light therapy work') je v blogu značky vedle stránky O nás a Joovv je měřítkem, s nímž se porovnávají jiné značky ('Apex vs Joovv', 'Mito Red Light vs Joovv', 'best Joovv alternatives').",
+   "source_urls": [
+    "https://joovv.com/blogs/joovv-blog/how-does-red-light-therapy-work",
+    "https://joovv.com/pages/about",
+    "https://www.irestorelaser.com/blogs/content/irestore-apex-vs-joovv-comparison",
+    "https://shop.liftbigeatbig.com/blogs/reviews/mito-red-light-vs-joovv",
+    "https://outliyr.com/best-joovv-alternatives"
+   ]
+  },
+  {
+   "brand": "Hooga Health (US)",
+   "pattern_en": "[Observed from web search snippets, URL level only, page not opened] A year-stamped roundup ('best red light therapy panels 2026') sits in the brand's own news blog, a brand-run best-of list that this project cannot copy because of its superlative framing.",
+   "pattern_cs": "[Pozorováno z úryvků webového vyhledávání, jen na úrovni adres URL, stránka neotevřena] Roční přehled ('best red light therapy panels 2026') je v blogu značky, tedy best-of seznam vedený značkou, který kvůli superlativnímu rámování nelze kopírovat.",
+   "source_urls": [
+    "https://hoogahealth.com/blogs/news/best-red-light-therapy-panels-2026"
+   ]
+  },
+  {
+   "brand": "Mito Red Light (US)",
+   "pattern_en": "[Observed from web search snippets, URL level only, page not opened] The brand blog hosts a year-stamped best-of ('best red light therapy panels of 2026') and a named-competitor comparison for masks ('MitoGLOW vs Omnilux, Dr. Dennis Gross, CurrentBody 2026').",
+   "pattern_cs": "[Pozorováno z úryvků webového vyhledávání, jen na úrovni adres URL, stránka neotevřena] Blog značky obsahuje roční best-of ('best red light therapy panels of 2026') a srovnání masek s jmenovanými konkurenty ('MitoGLOW vs Omnilux, Dr. Dennis Gross, CurrentBody 2026').",
+   "source_urls": [
+    "https://mitoredlight.com/blogs/mito-red-blog/best-red-light-therapy-panels-of-2026",
+    "https://mitoredlight.com/blogs/mito-red-blog/mitoglow-vs-omnilux-dr-dennis-gross-currentbody-2026"
+   ]
+  },
+  {
+   "brand": "PlatinumLED (US)",
+   "pattern_en": "[Observed from web search snippets, URL level only, page not opened] The brand surfaces mainly as product pages (BioMax Pro) and inside third-party best-of and market-trend articles; no own-domain blog path appeared in the results seen.",
+   "pattern_cs": "[Pozorováno z úryvků webového vyhledávání, jen na úrovni adres URL, stránka neotevřena] Značka se objevuje hlavně jako produktové stránky (BioMax Pro) a v best-of a trendových článcích třetích stran; ve zjištěných výsledcích se neobjevila žádná vlastní blogová cesta.",
+   "source_urls": [
+    "https://platinumtherapylights.com/products/biomax-pro",
+    "https://www.stackingyears.com/blog/best-red-light-therapy-device-2026",
+    "https://www.lighttherapyinsiders.com/red-light-therapy-market-trends/"
+   ]
+  },
+  {
+   "brand": "Sunlighten (US)",
+   "pattern_en": "[Observed from web search snippets, URL level only, page not opened] A product-category architecture (/products/, infrared sauna ranges) with a separate US shop subdomain; no blog path appeared in the results seen.",
+   "pattern_cs": "[Pozorováno z úryvků webového vyhledávání, jen na úrovni adres URL, stránka neotevřena] Architektura po produktových kategoriích (/products/, řady infrasaun) se samostatnou poddoménou obchodu pro USA; ve zjištěných výsledcích se neobjevila žádná blogová cesta.",
+   "source_urls": [
+    "https://www.sunlighten.com/products/",
+    "https://www.sunlighten.com/saunas/mpulse-infrared-saunas/",
+    "https://shop-us.sunlighten.com/products/solo-system-chromo"
+   ]
+  },
+  {
+   "brand": "Red Light Rising",
+   "pattern_en": "[Observed from web search snippets, URL level only, page not opened] Red Light Rising uses a 'compare our red light therapy devices' page, panel collections and series-named products (Advantage 2.0 series) as range-comparison steps in the buying path.",
+   "pattern_cs": "[Pozorováno z úryvků webového vyhledávání, jen na úrovni adres URL, stránka neotevřena] Red Light Rising používá stránku 'compare our red light therapy devices', kolekce panelů a produkty pojmenované podle řad (řada Advantage 2.0) jako srovnávací kroky v nákupní cestě.",
+   "source_urls": [
+    "https://redlightrising.com/pages/compare-our-red-light-therapy-devices",
+    "https://redlightrising.com/collections/red-light-therapy-panels",
+    "https://redlightrising.com/products/advantage-2-0-series-red-light-therapy-full-body-panel"
+   ]
+  },
+  {
+   "brand": "Solawave (US)",
+   "pattern_en": "[Observed from web search snippets, URL level only, page not opened] A multi-blog content hub: a red light therapy FAQ, a year-stamped best-of for face devices and a 'top red light wands' news post.",
+   "pattern_cs": "[Pozorováno z úryvků webového vyhledávání, jen na úrovni adres URL, stránka neotevřena] Obsahový hub z několika blogů: FAQ o terapii červeným světlem, roční best-of pro přístroje na obličej a příspěvek 'top red light wands'.",
+   "source_urls": [
+    "https://www.solawave.co/blogs/red-light-therapy/red-light-therapy-faq",
+    "https://www.solawave.co/blogs/skincare-devices/best-red-light-therapy-devices-for-face-2026",
+    "https://www.solawave.co/blogs/news/top-red-light-wands"
+   ]
+  },
+  {
+   "brand": "Therabody (US)",
+   "pattern_en": "[Observed from web search snippets, URL level only, page not opened] A product FAQ is delivered as a blog post ('TheraFace Mask: your most common questions answered').",
+   "pattern_cs": "[Pozorováno z úryvků webového vyhledávání, jen na úrovni adres URL, stránka neotevřena] Produktové FAQ je podáno jako blogový příspěvek ('TheraFace Mask: your most common questions answered').",
+   "source_urls": [
+    "https://www.therabody.com/blogs/news/theraface-mask-your-most-common-questions-answered"
+   ]
+  },
+  {
+   "brand": "LiteCure (US)",
+   "pattern_en": "[Observed from web search snippets, URL level only, page not opened] An education section on photobiomodulation dosing ('understanding dosing') sits under an 'about photobiomodulation' path, a dose-explainer format.",
+   "pattern_cs": "[Pozorováno z úryvků webového vyhledávání, jen na úrovni adres URL, stránka neotevřena] Vzdělávací sekce o dávkování ve fotobiomodulaci ('understanding dosing') je pod cestou 'about photobiomodulation', tedy formát vysvětlení dávky.",
+   "source_urls": [
+    "https://www.litecure.com/about-photobiomodulation/understanding-dosing/"
+   ]
+  },
+  {
+   "brand": "Erchonia (US)",
+   "pattern_en": "[Observed from web search snippets, URL level only, page not opened] A research-overview hub page ('low level laser therapy research overview') sits next to condition-based product categories (pain management lasers); the medical positioning is outside this project's frame.",
+   "pattern_cs": "[Pozorováno z úryvků webového vyhledávání, jen na úrovni adres URL, stránka neotevřena] Přehledová stránka výzkumu ('low level laser therapy research overview') stojí vedle produktových kategorií podle onemocnění (lasery pro léčbu bolesti); lékařské pozicování je mimo náš rámec.",
+   "source_urls": [
+    "https://www.erchonia.com/low-level-laser-therapy-research-overview/",
+    "https://www.erchonia.com/products/pain-management-lasers/"
+   ]
+  },
+  {
+   "brand": "Celluma (US)",
+   "pattern_en": "[Observed from web search snippets, URL level only, page not opened] A dedicated 'for professionals' page sits next to the product pages, a B2B segmentation pattern.",
+   "pattern_cs": "[Pozorováno z úryvků webového vyhledávání, jen na úrovni adres URL, stránka neotevřena] Vyhrazená stránka 'for professionals' stojí vedle produktových stránek, tedy vzorec B2B segmentace.",
+   "source_urls": [
+    "https://www.celluma.com/pages/for-professionals"
+   ]
+  },
+  {
+   "brand": "Independent best-of media (Wareable, Who What Wear UK)",
+   "pattern_en": "[Observed from web search snippets, URL level only, page not opened] Independent best-of lists exist for panels, full-body devices and LED masks, a format this project can answer with honest how-to-choose content instead of rankings.",
+   "pattern_cs": "[Pozorováno z úryvků webového vyhledávání, jen na úrovni adres URL, stránka neotevřena] Existují nezávislé best-of přehledy panelů, celotělových přístrojů a LED masek, tedy formát, na který tento projekt odpoví poctivým průvodcem výběrem místo žebříčků.",
+   "source_urls": [
+    "https://www.wareable.com/health-tech/best-red-light-therapy-panels",
+    "https://www.wareable.com/health-tech/best-full-body-red-light-therapy-devices",
+    "https://www.whowhatwear.com/uk/best-led-face-masks"
+   ]
+  },
+  {
+   "brand": "Outliyr and Stacking Years (affiliate-style review sites)",
+   "pattern_en": "[Observed from web search snippets, URL level only, page not opened] Review sites run '<brand> review' and '<brand> alternatives' pages and year-stamped best-of lists, capturing competitor-name searches.",
+   "pattern_cs": "[Pozorováno z úryvků webového vyhledávání, jen na úrovni adres URL, stránka neotevřena] Recenzní weby vedou stránky '<značka> review' a '<značka> alternatives' a roční best-of přehledy, čímž zachytávají hledání podle jmen konkurentů.",
+   "source_urls": [
+    "https://outliyr.com/joovv-review",
+    "https://outliyr.com/best-joovv-alternatives",
+    "https://www.stackingyears.com/blog/best-red-light-therapy-devices-2026"
+   ]
+  },
+  {
+   "brand": "LLMrefs (GEO tracking tool)",
+   "pattern_en": "[Observed from web search snippets, URL level only, page not opened] A tracking page exists for the keyword 'red light therapy', which indicates that visibility in AI answers is measured for this topic and supports building answer-ready pages (GEO).",
+   "pattern_cs": "[Pozorováno z úryvků webového vyhledávání, jen na úrovni adres URL, stránka neotevřena] Existuje sledovací stránka pro dotaz 'red light therapy', což naznačuje, že se pro toto téma měří viditelnost v odpovědích umělé inteligence, a podporuje tvorbu stránek připravených na odpovědi (GEO).",
+   "source_urls": [
+    "https://llmrefs.com/keywords/red-light-therapy"
+   ]
+  },
+  {
+   "brand": "Grand View Research and WALT (authority sources)",
+   "pattern_en": "[Observed from web search snippets, URL level only, page not opened] A market-size report page and the site of the World Association for Photobiomodulation Therapy (with an about and history section) surfaced as reference sources for red light content; usable as context citations, not as proof of claims.",
+   "pattern_cs": "[Pozorováno z úryvků webového vyhledávání, jen na úrovni adres URL, stránka neotevřena] Stránka se zprávou o velikosti trhu a web Světové asociace pro fotobiomodulační terapii (s částí o asociaci a historii) se objevily jako referenční zdroje pro obsah o červeném světle; lze je citovat pro souvislosti, ne jako důkaz tvrzení.",
+   "source_urls": [
+    "https://www.grandviewresearch.com/industry-analysis/red-light-therapy-market-report",
+    "https://waltpbm.org/about-walt/history/"
+   ]
+  }
+ ],
+ "topic_clusters": [
+  {
+   "id": "cl-what-is-pbm",
+   "name_en": "What red light and photobiomodulation are",
+   "name_cs": "Co je červené světlo a fotobiomodulace",
+   "intent": "informational",
+   "keywords_cs": [
+    "terapie červeným světlem",
+    "fotobiomodulace",
+    "co je fotobiomodulace",
+    "červené světlo",
+    "infračervené světlo",
+    "blízké infračervené světlo",
+    "red light therapy",
+    "jak funguje červené světlo",
+    "vlnové délky červeného světla",
+    "LED světelná terapie"
+   ],
+   "keywords_en": [
+    "red light therapy",
+    "photobiomodulation",
+    "what is photobiomodulation",
+    "near infrared light",
+    "how does red light therapy work",
+    "red light therapy wavelengths",
+    "PBM light therapy",
+    "low level light therapy",
+    "red vs near infrared light",
+    "red light therapy explained"
+   ],
+   "questions_cs": [
+    "Co je terapie červeným světlem?",
+    "Jak funguje červené světlo?",
+    "Co je fotobiomodulace?",
+    "Jaký je rozdíl mezi červeným a infračerveným světlem?",
+    "Jaké vlnové délky se u červeného světla používají?",
+    "Jak hluboko proniká blízké infračervené světlo?",
+    "Je pravda, že červené světlo vzešlo z výzkumu NASA?",
+    "Je červené světlo stejné jako UV záření?"
+   ],
+   "questions_en": [
+    "What is red light therapy?",
+    "How does red light therapy work?",
+    "What is photobiomodulation?",
+    "What is the difference between red and near-infrared light?",
+    "Which wavelengths are used in red light therapy?",
+    "How deep does near-infrared light penetrate?",
+    "Did red light therapy really come from NASA research?",
+    "Is red light the same as UV light?"
+   ],
+   "claim_topics": [
+    "pbm-mechanism"
+   ],
+   "compliance_note_en": "Describe the mechanism as a hedged model ('light may be absorbed by enzymes in mitochondria') and cite the source. Keep NASA to its history (plants, LEDs). No disease examples, no absolute 'charges your cells', no wound-healing or astronaut-health claims.",
+   "compliance_note_cs": "Mechanismus popisujte jako opatrný model ('světlo může být pohlcováno enzymy v mitochondriích') a uvádějte zdroj. NASA jen jako historii (rostliny, LED). Žádné příklady nemocí, žádné absolutní 'nabíjí buňky', žádná tvrzení o hojení ran ani zdraví astronautů."
+  },
+  {
+   "id": "cl-dose-distance",
+   "name_en": "Dose: irradiance, distance and session time",
+   "name_cs": "Dávka: ozáření, vzdálenost a délka sezení",
+   "intent": "informational",
+   "keywords_cs": [
+    "jak dlouho svítit červeným světlem",
+    "vzdálenost od červeného panelu",
+    "mW/cm2 červený panel",
+    "ozáření panelu",
+    "dávka červeného světla",
+    "jak často používat červený panel",
+    "délka sezení u panelu",
+    "intenzita červeného světla",
+    "červené světlo 10 minut",
+    "joule na cm2 světelná terapie"
+   ],
+   "keywords_en": [
+    "red light therapy dosage",
+    "how long to use red light therapy",
+    "red light therapy distance",
+    "irradiance red light panel",
+    "mW/cm2 explained",
+    "how often red light therapy",
+    "joules per cm2 red light",
+    "red light session length",
+    "red light therapy dose response",
+    "red light panel distance chart"
+   ],
+   "questions_cs": [
+    "Jak dlouho se má svítit červeným světlem?",
+    "Jak daleko od panelu stát?",
+    "Co znamená mW/cm² u červeného panelu?",
+    "Jak často je rozumné panel používat?",
+    "Je lepší delší sezení, nebo vyšší intenzita?",
+    "Mění se intenzita světla se vzdáleností od panelu?",
+    "Kolik joulů na cm² se používá ve studiích?",
+    "Musím panel používat každý den?"
+   ],
+   "questions_en": [
+    "How long should a red light session last?",
+    "How far should I stand from a red light panel?",
+    "What does mW/cm² mean on a red light panel?",
+    "How often is it reasonable to use a panel?",
+    "Is a longer session or a higher irradiance better?",
+    "Does light intensity drop as I move away from the panel?",
+    "How many joules per cm² do studies use?",
+    "Do I have to use a panel every day?"
+   ],
+   "claim_topics": [
+    "pbm-dose-response",
+    "pbm-device-specs",
+    "pbm-safety-general"
+   ],
+   "compliance_note_en": "Present dose as physics plus the manufacturer's manual (the MITO LIGHT FAQ suggests roughly 10 to 20 minutes at about 15 to 50 cm and at most 30 minutes per day per area; verify the current text). Never imply that more time or a shorter distance gives more benefit. Say that irradiance depends on distance and measurement method.",
+   "compliance_note_cs": "Dávku podávejte jako fyziku a pokyny z návodu výrobce (FAQ MITO LIGHT doporučuje zhruba 10 až 20 minut z 15 až 50 cm a nejvýše 30 minut denně na oblast; aktuální znění ověřte). Nikdy nenaznačujte, že víc času nebo menší vzdálenost přinese víc. Uveďte, že ozáření závisí na vzdálenosti a metodě měření."
+  },
+  {
+   "id": "cl-choose-panel",
+   "name_en": "How to choose a red light panel",
+   "name_cs": "Jak vybrat panel s červeným světlem",
+   "intent": "commercial",
+   "keywords_cs": [
+    "jaký panel pro terapii červeným světlem",
+    "jak vybrat červený panel",
+    "panel červené světlo",
+    "led panel červené světlo",
+    "infračervený led panel",
+    "panel 660 850 nm",
+    "velikost panelu červené světlo",
+    "červený panel do bytu",
+    "panel pro celé tělo červené světlo",
+    "parametry červeného panelu"
+   ],
+   "keywords_en": [
+    "how to choose a red light therapy panel",
+    "red light therapy panel buying guide",
+    "red light panel size",
+    "660 nm 850 nm panel",
+    "full body red light panel",
+    "red light panel for home use",
+    "red light panel irradiance",
+    "red light panel flicker",
+    "red light panel EMF",
+    "red light panel specs"
+   ],
+   "questions_cs": [
+    "Jaký panel s červeným světlem vybrat pro domácí použití?",
+    "Kolik mW/cm² by měl panel mít?",
+    "Jaké vlnové délky má panel obsahovat?",
+    "Jak velký panel potřebuji?",
+    "Na čem záleží víc: na počtu LED, nebo na ozáření?",
+    "Co je flicker a proč se u panelů řeší?",
+    "Jak poznám dobře zpracovaný panel?",
+    "Potřebuje panel aplikaci nebo dotykový displej?"
+   ],
+   "questions_en": [
+    "Which red light panel should I choose for home use?",
+    "How many mW/cm² should a panel have?",
+    "Which wavelengths should a panel include?",
+    "How big a panel do I need?",
+    "What matters more, LED count or irradiance?",
+    "What is flicker and why does it matter for panels?",
+    "How can I tell a well-built panel from a cheap copy?",
+    "Do I need an app or a touchscreen on my panel?"
+   ],
+   "claim_topics": [
+    "pbm-device-specs"
+   ],
+   "compliance_note_en": "Compare specifications and use cases, not outcomes. State irradiance with its measurement distance and method, and mark brand-stated values as brand-stated. No superlatives ('most powerful', 'best'), no 'medical grade' wording, and no claim that a bigger or stronger panel works better for the body.",
+   "compliance_note_cs": "Porovnávejte parametry a způsoby použití, ne výsledky. Ozáření uvádějte s měřicí vzdáleností a metodou a hodnoty od výrobce označte jako deklarované. Žádné superlativy ('nejvýkonnější', 'nejlepší'), žádné 'medical grade' a žádné tvrzení, že větší nebo silnější panel pro tělo funguje lépe."
+  },
+  {
+   "id": "cl-compare-value",
+   "name_en": "Comparisons, reviews and value",
+   "name_cs": "Srovnání, recenze a poměr ceny a výkonu",
+   "intent": "commercial",
+   "keywords_cs": [
+    "srovnání panelů červené světlo",
+    "panel nebo žárovka červené světlo",
+    "červená infračervená žárovka",
+    "recenze červený panel",
+    "cena panelu červené světlo",
+    "domácí panel nebo studio",
+    "terapie červeným světlem studio",
+    "kolik stojí panel červeného světla",
+    "test panelů červené světlo",
+    "červená lampa infračervená"
+   ],
+   "keywords_en": [
+    "red light therapy panel comparison",
+    "red light panel vs bulb",
+    "red light therapy panel review",
+    "red light panel price",
+    "home panel vs studio",
+    "red light therapy panel Europe",
+    "red light panel worth it",
+    "red light mask vs panel",
+    "red light device comparison",
+    "red light therapy cost"
+   ],
+   "questions_cs": [
+    "Je lepší panel, nebo žárovka s červeným světlem?",
+    "Vyplatí se domácí panel, nebo chodit do studia?",
+    "Kolik stojí kvalitní panel s červeným světlem?",
+    "Čím se liší panely různých generací?",
+    "Jak číst recenze panelů s červeným světlem?",
+    "Na co si dát pozor u velmi levných panelů?",
+    "Jak dlouho panel vydrží a jaká bývá záruka?",
+    "Kde si panel s červeným světlem mohu vyzkoušet?"
+   ],
+   "questions_en": [
+    "Is a panel better than a red light bulb?",
+    "Is a home panel worth it compared with studio sessions?",
+    "How much does a good red light panel cost?",
+    "How do panel generations differ?",
+    "How do I read red light panel reviews?",
+    "What should I watch out for with very cheap panels?",
+    "How long does a panel last and what warranty is normal?",
+    "Where can I try a red light panel before buying?"
+   ],
+   "claim_topics": [
+    "pbm-device-specs"
+   ],
+   "compliance_note_en": "Keep comparisons fair and factual, with no disparagement of named brands. Quote only verified current prices and no savings promises against clinics. Reuse reviews only for service, delivery and build quality, never for health outcomes.",
+   "compliance_note_cs": "Srovnání držte férová a věcná, bez očerňování jmenovaných značek. Uvádějte jen ověřené aktuální ceny a žádné sliby úspor oproti klinikám. Recenze využívejte jen pro servis, doručení a zpracování, nikdy pro zdravotní výsledky."
+  },
+  {
+   "id": "cl-brand-mito",
+   "name_en": "MITO LIGHT brand and models",
+   "name_cs": "Značka MITO LIGHT a její modely",
+   "intent": "navigational",
+   "keywords_cs": [
+    "mito light",
+    "mito light panel",
+    "mito light recenze",
+    "mito light starter 5.0",
+    "mito light expert 5.0",
+    "mito light biohacker",
+    "mito light mitohacker",
+    "mito light master 5.0",
+    "mito light aplikace",
+    "mitolight.cz"
+   ],
+   "keywords_en": [
+    "mito light",
+    "mito light europe",
+    "mito light review",
+    "mito light mitohacker 5.0",
+    "mito light vs mito red light",
+    "mito light starter 5.0 review",
+    "mito light panel price",
+    "mito light uk",
+    "mito light trustpilot",
+    "mito light app"
+   ],
+   "questions_cs": [
+    "Je MITO LIGHT česká značka?",
+    "Jaké modely panelů MITO LIGHT existují?",
+    "Čím se liší Starter, Expert, Biohacker a Master?",
+    "Co je nového v generaci 5.0?",
+    "Jaké vlnové délky panely MITO LIGHT používají?",
+    "Co umí aplikace MITO LIGHT?",
+    "Je MITO LIGHT zdravotnický prostředek?",
+    "Jaké recenze má MITO LIGHT?"
+   ],
+   "questions_en": [
+    "Is MITO LIGHT a Czech brand?",
+    "Which MITO LIGHT panel models exist?",
+    "How do Starter, Expert, Biohacker and Master differ?",
+    "What is new in generation 5.0?",
+    "Which wavelengths do MITO LIGHT panels use?",
+    "What can the MITO LIGHT app do?",
+    "Is MITO LIGHT a medical device?",
+    "Is MITO LIGHT the same company as Mito Red Light?"
+   ],
+   "claim_topics": [
+    "pbm-device-specs"
+   ],
+   "compliance_note_en": "Use only facts from the verified fact base and check current specs and prices on mitolight.cz before publishing. Write MITO LIGHT consistently. Disambiguation from Mito Red Light must be neutral and factual. Do not reuse 'European market leader' or 'only Czech brand'. Say 'developed and designed in Czechia', not 'made in Czechia'. On device pages state the supportive-tool, non-medical-device position.",
+   "compliance_note_cs": "Používejte jen ověřená fakta a před zveřejněním zkontrolujte aktuální parametry a ceny na mitolight.cz. Značku pište jednotně jako MITO LIGHT. Odlišení od Mito Red Light musí být neutrální a věcné. Nepřebírejte 'evropský tržní lídr' ani 'jediná česká značka'. Pište 'vyvinuto a navrženo v Česku', ne 'vyrobeno v Česku'. U zařízení uvádějte pozici podpůrného prostředku, nikoli zdravotnického prostředku."
+  },
+  {
+   "id": "cl-safety-use",
+   "name_en": "Safety and correct use",
+   "name_cs": "Bezpečnost a správné používání",
+   "intent": "informational",
+   "keywords_cs": [
+    "je červené světlo bezpečné",
+    "červené světlo oči",
+    "brýle k červenému světlu",
+    "jak správně používat červený panel",
+    "bezpečná vzdálenost od panelu",
+    "červený panel EMF",
+    "červený panel flicker",
+    "návod k použití červený panel",
+    "červené světlo a léky",
+    "kdy se poradit s lékařem červené světlo"
+   ],
+   "keywords_en": [
+    "is red light therapy safe",
+    "red light therapy eye safety",
+    "red light therapy goggles",
+    "how to use a red light panel",
+    "red light therapy safe distance",
+    "red light panel EMF",
+    "red light panel flicker",
+    "red light therapy precautions",
+    "red light therapy and medication",
+    "red light therapy talk to your doctor"
+   ],
+   "questions_cs": [
+    "Mám při používání červeného panelu chránit oči?",
+    "Potřebuji k panelu ochranné brýle?",
+    "Jak daleko od panelu mám stát?",
+    "Jaké jsou základní zásady použití panelu na obličeji?",
+    "Mohu panel používat, když beru léky?",
+    "Je EMF u panelů důvod k obavám?",
+    "Co znamená, když výrobce uvádí flicker-free?",
+    "Kde najdu návod k použití a jak ho číst?"
+   ],
+   "questions_en": [
+    "Is red light safe for my eyes?",
+    "Do I need protective glasses with a panel?",
+    "How far should I stand from the panel?",
+    "What are the basic rules for using a panel on the face?",
+    "Can I use a panel while taking medication?",
+    "Should I worry about EMF from a panel?",
+    "What does flicker-free mean on a panel?",
+    "Where do I find the manual and how do I read it?"
+   ],
+   "claim_topics": [
+    "pbm-safety-eyes",
+    "pbm-safety-general"
+   ],
+   "compliance_note_en": "Always point to the manual, and to a doctor for anyone with a health condition or on medication. Never imply that the panel treats or prevents anything or is risk-free. Give no advice for children, pregnancy or specific conditions unless sourced and legally reviewed. Present EMF and flicker only as measured, sourced facts.",
+   "compliance_note_cs": "Vždy odkazujte na návod a u lidí se zdravotním omezením nebo užívajících léky na lékaře. Nikdy nenaznačujte, že panel něco léčí či předchází, ani že je bez rizika. Žádné rady pro děti, těhotné ani konkrétní stavy bez zdroje a právní kontroly. EMF a blikání uvádějte jen jako změřená a doložená fakta."
+  },
+  {
+   "id": "cl-recovery-training",
+   "name_en": "Recovery and training routines",
+   "name_cs": "Regenerace a rutiny kolem tréninku",
+   "intent": "informational",
+   "keywords_cs": [
+    "červené světlo po tréninku",
+    "regenerace po cvičení světlo",
+    "fotobiomodulace sport",
+    "červené světlo pro sportovce",
+    "regenerace svalů panel",
+    "infračervený panel regenerace",
+    "terapie červeným světlem fitness",
+    "regenerace po běhu",
+    "rutina po tréninku",
+    "červené světlo a sportovní výkon"
+   ],
+   "keywords_en": [
+    "red light therapy after workout",
+    "red light therapy muscle recovery",
+    "photobiomodulation sports recovery",
+    "red light therapy for athletes",
+    "red light therapy before workout",
+    "post workout recovery routine",
+    "red light therapy gym",
+    "red light vs cold plunge",
+    "red light therapy running recovery",
+    "red light therapy exercise performance"
+   ],
+   "questions_cs": [
+    "Kdy použít červené světlo: před tréninkem, nebo po něm?",
+    "Co říkají studie o červeném světle a regeneraci po cvičení?",
+    "Jak zařadit panel do rutiny po tréninku?",
+    "Používají červené světlo profesionální sportovci?",
+    "Dá se červené světlo srovnávat se studenou lázní?",
+    "Jak dlouho svítit po tréninku?",
+    "Co zatím víme o červeném světle a sportovním výkonu?",
+    "Jak velký panel se hodí pro aktivního člověka?"
+   ],
+   "questions_en": [
+    "Should I use red light before or after training?",
+    "What do studies say about red light and recovery after exercise?",
+    "How do I fit a panel into my post-workout routine?",
+    "Do professional athletes use red light panels?",
+    "Can red light be compared with cold plunges?",
+    "How long should a session be after training?",
+    "What do we know so far about red light and exercise performance?",
+    "How big a panel suits an active person?"
+   ],
+   "claim_topics": [
+    "pbm-muscle-recovery",
+    "pbm-exercise-performance"
+   ],
+   "compliance_note_en": "Recovery routines for healthy, active people only. Use 'may' and 'some studies', cite them, and keep the panel as one tool next to sleep, food and movement. No injury, pain, soreness-relief or inflammation language, no performance guarantees, no claim of being better than cryotherapy, and no athlete endorsement without a signed agreement.",
+   "compliance_note_cs": "Jen rutiny regenerace pro zdravé aktivní lidi. Používejte 'může' a 'některé studie', citujte je a panel držte jako jeden nástroj vedle spánku, jídla a pohybu. Žádná řeč o zranění, bolesti, úlevě od svalové bolesti ani zánětu, žádné sliby výkonu, žádné tvrzení, že je světlo lepší než kryoterapie, a žádné doporučení sportovce bez podepsané smlouvy."
+  },
+  {
+   "id": "cl-skin-appearance",
+   "name_en": "Skin appearance and routines",
+   "name_cs": "Vzhled pleti a rutiny",
+   "intent": "informational",
+   "keywords_cs": [
+    "červené světlo pleť",
+    "červené světlo obličej",
+    "LED maska na obličej",
+    "červené světlo kolagen",
+    "péče o pleť světlem",
+    "panel na obličej červené světlo",
+    "červené světlo jemné linky",
+    "rutina péče o pleť červené světlo",
+    "LED terapie pleti doma",
+    "červené světlo a pleťové sérum"
+   ],
+   "keywords_en": [
+    "red light therapy skin",
+    "red light therapy face",
+    "LED face mask",
+    "red light therapy collagen",
+    "red light skincare routine",
+    "red light therapy fine lines",
+    "red light therapy glow",
+    "red light before or after skincare",
+    "red light face panel",
+    "red light skin appearance"
+   ],
+   "questions_cs": [
+    "Může červené světlo ovlivnit vzhled pleti?",
+    "Co o červeném světle a pleti říkají studie?",
+    "Používá se panel před péčí o pleť, nebo po ní?",
+    "Jak dlouho svítit na obličej podle návodu?",
+    "Je lepší LED maska, nebo panel?",
+    "Jak daleko od obličeje panel držet?",
+    "Potřebuji při sezení na obličej ochranu očí?",
+    "Co o červeném světle a kolagenu říkají studie?"
+   ],
+   "questions_en": [
+    "Can red light influence how skin looks?",
+    "What do studies say about red light and skin?",
+    "Should I use the panel before or after skincare?",
+    "How long should I light my face according to the manual?",
+    "Is an LED mask or a panel better for the face?",
+    "How far from my face should the panel be?",
+    "Do I need eye protection for face sessions?",
+    "What do studies say about red light and collagen?"
+   ],
+   "claim_topics": [
+    "pbm-skin-appearance"
+   ],
+   "compliance_note_en": "Appearance wording only ('may influence how skin looks', 'some small studies'), always with a source. No wrinkle-removal, scar, acne, rosacea, pigmentation, wound or anti-aging promises, no before and after photos without legal review, and no 'collagen boost' as a promise.",
+   "compliance_note_cs": "Jen formulace o vzhledu ('může ovlivnit, jak pleť vypadá', 'některé menší studie') a vždy se zdrojem. Žádné sliby odstranění vrásek, jizev, akné, růžovky, pigmentace, ran ani omlazení, žádné fotografie před a po bez právní kontroly a žádné 'posílení kolagenu' jako příslib."
+  },
+  {
+   "id": "cl-sleep-evening",
+   "name_en": "Evening routine, light hygiene and daily energy",
+   "name_cs": "Večerní rutina, světelná hygiena a denní energie",
+   "intent": "informational",
+   "keywords_cs": [
+    "červené světlo večer",
+    "červené světlo a spánek",
+    "večerní rutina světlo",
+    "světelný budík",
+    "brýle proti modrému světlu",
+    "blue blockers brýle",
+    "cirkadiánní rytmus světlo",
+    "červená lampa do ložnice",
+    "světlo před spaním",
+    "ranní rutina světlo"
+   ],
+   "keywords_en": [
+    "red light before bed",
+    "red light therapy sleep",
+    "evening routine light",
+    "sunrise alarm clock",
+    "blue light blocking glasses",
+    "circadian rhythm light",
+    "red light bedroom lamp",
+    "red light morning routine",
+    "light hygiene",
+    "red light therapy energy"
+   ],
+   "questions_cs": [
+    "Dá se červené světlo používat večer?",
+    "Co víme o červeném světle a spánku?",
+    "Jak vypadá večerní rutina bez modrého světla?",
+    "Co je světelný budík a jak funguje?",
+    "Kdy dávají smysl brýle proti modrému světlu?",
+    "Je rozdíl mezi červenou lampou a panelem v ložnici?",
+    "Jak si nastavit světelnou rutinu na ráno?",
+    "Co je cirkadiánní rytmus a jak ho ovlivňuje světlo?"
+   ],
+   "questions_en": [
+    "Can I use red light in the evening?",
+    "What do we know about red light and sleep?",
+    "What does an evening routine without blue light look like?",
+    "What is a light alarm clock and how does it work?",
+    "When do blue-light blocking glasses make sense?",
+    "Is a red lamp different from a panel in the bedroom?",
+    "How do I set up a morning light routine?",
+    "What is the circadian rhythm and how does light affect it?"
+   ],
+   "claim_topics": [
+    "pbm-sleep",
+    "pbm-energy-wellbeing"
+   ],
+   "compliance_note_en": "Allowed as wellness content with hedged wording and a source. Never mention insomnia or sleep disorders, melatonin or hormones, and do not promise better sleep or more energy. The light alarm and the glasses are features and routine tools, not outcomes. Use 'may' and cite sources for any sleep study.",
+   "compliance_note_cs": "Přípustné jako wellness obsah s opatrnou formulací a zdrojem. Nikdy nezmiňujte nespavost ani poruchy spánku, melatonin či hormony a neslibujte lepší spánek ani více energie. Světelný budík a brýle jsou funkce a nástroje rutiny, ne výsledky. Používejte 'může' a u každé studie o spánku uvádějte zdroj."
+  },
+  {
+   "id": "cl-evidence-myths",
+   "name_en": "Evidence, limits and myths",
+   "name_cs": "Důkazy, limity a mýty",
+   "intent": "informational",
+   "keywords_cs": [
+    "červené světlo studie",
+    "funguje terapie červeným světlem",
+    "červené světlo mýty",
+    "červené světlo placebo",
+    "fotobiomodulace výzkum",
+    "červené světlo důkazy",
+    "červené světlo NASA",
+    "červené světlo pravda",
+    "přehledová studie fotobiomodulace",
+    "červené světlo a modelace postavy"
+   ],
+   "keywords_en": [
+    "does red light therapy work",
+    "red light therapy studies",
+    "red light therapy myths",
+    "red light therapy placebo",
+    "photobiomodulation research",
+    "red light therapy evidence",
+    "red light therapy NASA",
+    "red light therapy hype",
+    "red light therapy systematic review",
+    "red light therapy body contouring"
+   ],
+   "questions_cs": [
+    "Funguje terapie červeným světlem, nebo je to jen marketing?",
+    "Jak číst studie o fotobiomodulaci?",
+    "Co je placebo efekt a jak ho výzkum řeší?",
+    "Která tvrzení o červeném světle jsou zatím nejistá?",
+    "Proč se výsledky studií o světle tolik liší?",
+    "Je tvarování postavy červeným světlem mýtus, nebo má oporu ve studiích?",
+    "Jak poznám nepoctivou reklamu na světelné panely?",
+    "Kde najdu původní studie a jak ověřit, že jsou kvalitní?"
+   ],
+   "questions_en": [
+    "Does red light therapy work, or is it just marketing?",
+    "How do I read studies on photobiomodulation?",
+    "What is the placebo effect and how does research handle it?",
+    "Which claims about red light are still uncertain?",
+    "Why do study results on light differ so much?",
+    "Is body contouring with red light a myth or backed by studies?",
+    "How can I spot dishonest advertising for light panels?",
+    "Where do I find the original studies and check their quality?"
+   ],
+   "claim_topics": [
+    "pbm-mechanism",
+    "pbm-dose-response",
+    "pbm-body-contouring"
+   ],
+   "compliance_note_en": "Myth-checking must stay hedged and sourced. Body contouring is a cosmetic claim with mixed evidence, so show only what studies do and do not report, never promise a result and never use numbers as a promise. No 'clinically proven', 'scientifically proven' or 'prokázaně'.",
+   "compliance_note_cs": "Ověřování mýtů musí zůstat opatrné a doložené zdroji. Tvarování postavy je kosmetické tvrzení s nejednoznačnými důkazy, proto ukazujte jen to, co studie uvádějí a neuvádějí, nikdy neslibujte výsledek a nepoužívejte čísla jako příslib. Žádné 'klinicky prokázáno', 'vědecky prokázáno' ani 'prokázaně'."
+  }
+ ],
+ "hooks": {
+  "cs": [
+   {
+    "text": "Co je fotobiomodulace? Vysvětlení bez zbytečně složitých slov",
+    "pattern": "question",
+    "cluster": "cl-what-is-pbm"
+   },
+   {
+    "text": "3 věci, které byste měli vědět o červeném a blízkém infračerveném světle",
+    "pattern": "number",
+    "cluster": "cl-what-is-pbm"
+   },
+   {
+    "text": "Od experimentů NASA s rostlinami k panelům doma: krátká historie fotobiomodulace",
+    "pattern": "story",
+    "cluster": "cl-what-is-pbm"
+   },
+   {
+    "text": "Červené vs. blízké infračervené světlo: čím se liší vlnové délky?",
+    "pattern": "contrast",
+    "cluster": "cl-what-is-pbm"
+   },
+   {
+    "text": "Jak číst graf vlnových délek: průvodce pro úplné začátečníky",
+    "pattern": "practical",
+    "cluster": "cl-what-is-pbm"
+   },
+   {
+    "text": "Dávka světla v 3 krocích: čas, vzdálenost a výkon panelu",
+    "pattern": "number",
+    "cluster": "cl-dose-distance"
+   },
+   {
+    "text": "Co znamená mW/cm² na krabici panelu a proč bez vzdálenosti nic neříká?",
+    "pattern": "curiosity",
+    "cluster": "cl-dose-distance"
+   },
+   {
+    "text": "Týdenní plán se světelným panelem: jak si rozvrhnout sezení podle návodu",
+    "pattern": "practical",
+    "cluster": "cl-dose-distance"
+   },
+   {
+    "text": "Víc minut, nebo vyšší výkon? Jak o dávce uvažují studie a výrobci",
+    "pattern": "contrast",
+    "cluster": "cl-dose-distance"
+   },
+   {
+    "text": "Jak se mění intenzita světla se vzdáleností od panelu? Vysvětlení s příklady",
+    "pattern": "question",
+    "cluster": "cl-dose-distance"
+   },
+   {
+    "text": "5 parametrů, na které se podívat dřív, než si koupíte panel",
+    "pattern": "number",
+    "cluster": "cl-choose-panel"
+   },
+   {
+    "text": "Jaký panel se vejde do vašeho bytu a kolik těla osvítí?",
+    "pattern": "question",
+    "cluster": "cl-choose-panel"
+   },
+   {
+    "text": "Kontrolní seznam před koupí panelu: vlnové délky, výkon, velikost, blikání",
+    "pattern": "practical",
+    "cluster": "cl-choose-panel"
+   },
+   {
+    "text": "Malý panel, nebo velký? Co se mění v pokrytí, ceně i v rutině",
+    "pattern": "contrast",
+    "cluster": "cl-choose-panel"
+   },
+   {
+    "text": "Proč dva panely se stejným číslem mW/cm² nemusí svítit stejně?",
+    "pattern": "curiosity",
+    "cluster": "cl-choose-panel"
+   },
+   {
+    "text": "Panel, nebo žárovka? Kdy dává smysl menší lokální zdroj světla",
+    "pattern": "question",
+    "cluster": "cl-compare-value"
+   },
+   {
+    "text": "Srovnání panelů: 4 otázky, které si položte u každé značky",
+    "pattern": "number",
+    "cluster": "cl-compare-value"
+   },
+   {
+    "text": "Jak číst recenze panelů: na co se dívat a čemu nevěřit",
+    "pattern": "practical",
+    "cluster": "cl-compare-value"
+   },
+   {
+    "text": "Domácí panel vs. sezení ve studiu: co spočítat, než se rozhodnete",
+    "pattern": "contrast",
+    "cluster": "cl-compare-value"
+   },
+   {
+    "text": "Co všechno se skrývá v ceně světelného panelu? Pohled pod kapotu",
+    "pattern": "curiosity",
+    "cluster": "cl-compare-value"
+   },
+   {
+    "text": "Od posilovny k prototypu: příběh české značky MITO LIGHT®",
+    "pattern": "story",
+    "cluster": "cl-brand-mito"
+   },
+   {
+    "text": "6 vlnových délek na jednom panelu: co znamenají 630 až 850 nm?",
+    "pattern": "number",
+    "cluster": "cl-brand-mito"
+   },
+   {
+    "text": "Intro, Starter, Expert, Biohacker, Master: který panel sedí k vašemu prostoru?",
+    "pattern": "practical",
+    "cluster": "cl-brand-mito"
+   },
+   {
+    "text": "Panel s budíkem? Jak funguje světelný budík v aplikaci MITO LIGHT®",
+    "pattern": "curiosity",
+    "cluster": "cl-brand-mito"
+   },
+   {
+    "text": "Generace 4.0 vs. 5.0: co se u panelů MITO LIGHT® změnilo a co zůstalo",
+    "pattern": "contrast",
+    "cluster": "cl-brand-mito"
+   },
+   {
+    "text": "Oči a červený panel: co říká návod a kdy sáhnout po brýlích",
+    "pattern": "practical",
+    "cluster": "cl-safety-use"
+   },
+   {
+    "text": "5 chyb při prvním použití světelného panelu a jak se jim vyhnout",
+    "pattern": "number",
+    "cluster": "cl-safety-use"
+   },
+   {
+    "text": "Kdy se před použitím panelu poradit s lékařem? Obecný přehled",
+    "pattern": "question",
+    "cluster": "cl-safety-use"
+   },
+   {
+    "text": "Podělte se o tip: kam jste doma umístili panel a co byste změnili?",
+    "pattern": "social",
+    "cluster": "cl-safety-use"
+   },
+   {
+    "text": "Rutina po tréninku: jak do ní zařadit panel a nezkomplikovat si den",
+    "pattern": "practical",
+    "cluster": "cl-recovery-training"
+   },
+   {
+    "text": "Co říkají studie o červeném světle a regeneraci po cvičení? Čtivý přehled",
+    "pattern": "curiosity",
+    "cluster": "cl-recovery-training"
+   },
+   {
+    "text": "Jak vypadá vaše rutina po tréninku? Sdílejte ji a sesbíráme nápady",
+    "pattern": "social",
+    "cluster": "cl-recovery-training"
+   },
+   {
+    "text": "4 složky regenerace po tréninku a kde mezi nimi může být světlo",
+    "pattern": "number",
+    "cluster": "cl-recovery-training"
+   },
+   {
+    "text": "Co zatím víme o červeném světle a vzhledu pleti? Přehled bez příslibů",
+    "pattern": "curiosity",
+    "cluster": "cl-skin-appearance"
+   },
+   {
+    "text": "Pleť a panel: jak si složit večerní rutinu krok za krokem",
+    "pattern": "practical",
+    "cluster": "cl-skin-appearance"
+   },
+   {
+    "text": "Maska, nebo panel? Rozdíly v pokrytí, pohodlí a ceně",
+    "pattern": "contrast",
+    "cluster": "cl-skin-appearance"
+   },
+   {
+    "text": "Jakou otázku o pleti a světle chcete probrat? Napište nám a my odpovíme",
+    "pattern": "social",
+    "cluster": "cl-skin-appearance"
+   },
+   {
+    "text": "5 nápadů na večerní světelnou rutinu bez zbytečných slibů",
+    "pattern": "number",
+    "cluster": "cl-sleep-evening"
+   },
+   {
+    "text": "Ráno se světelným budíkem: jeden den s aplikací krok za krokem",
+    "pattern": "story",
+    "cluster": "cl-sleep-evening"
+   },
+   {
+    "text": "Brýle proti modrému světlu: kdy dávají smysl a jak je vybrat?",
+    "pattern": "question",
+    "cluster": "cl-sleep-evening"
+   },
+   {
+    "text": "Proč se o červeném světle večer mluví a co o něm zatím víme?",
+    "pattern": "curiosity",
+    "cluster": "cl-sleep-evening"
+   },
+   {
+    "text": "Slibů je hodně, důkazů méně: jak číst studie o červeném světle",
+    "pattern": "contrast",
+    "cluster": "cl-evidence-myths"
+   },
+   {
+    "text": "Červené světlo: co je doloženo, co ne a co je zatím otevřená otázka?",
+    "pattern": "question",
+    "cluster": "cl-evidence-myths"
+   },
+   {
+    "text": "4 mýty o červeném světle a co o nich říká dostupný výzkum",
+    "pattern": "number",
+    "cluster": "cl-evidence-myths"
+   },
+   {
+    "text": "Slyšeli jste o červeném světle něco nepravděpodobného? Pošlete to a ověříme",
+    "pattern": "social",
+    "cluster": "cl-evidence-myths"
+   }
+  ],
+  "en": [
+   {
+    "text": "What is photobiomodulation? A plain-language explanation, no jargon",
+    "pattern": "question",
+    "cluster": "cl-what-is-pbm"
+   },
+   {
+    "text": "3 things worth knowing about red and near-infrared light",
+    "pattern": "number",
+    "cluster": "cl-what-is-pbm"
+   },
+   {
+    "text": "From NASA plant experiments to panels at home: a short history of photobiomodulation",
+    "pattern": "story",
+    "cluster": "cl-what-is-pbm"
+   },
+   {
+    "text": "Red vs. near-infrared light: how do the wavelengths differ?",
+    "pattern": "contrast",
+    "cluster": "cl-what-is-pbm"
+   },
+   {
+    "text": "How to read a wavelength chart: a beginner's walkthrough",
+    "pattern": "practical",
+    "cluster": "cl-what-is-pbm"
+   },
+   {
+    "text": "Light dose in 3 steps: time, distance and panel output",
+    "pattern": "number",
+    "cluster": "cl-dose-distance"
+   },
+   {
+    "text": "What does mW/cm² on the box really tell you? Not much without a distance",
+    "pattern": "curiosity",
+    "cluster": "cl-dose-distance"
+   },
+   {
+    "text": "A weekly plan for your light panel: how to schedule sessions by the manual",
+    "pattern": "practical",
+    "cluster": "cl-dose-distance"
+   },
+   {
+    "text": "More minutes or higher output? How studies and manufacturers think about dose",
+    "pattern": "contrast",
+    "cluster": "cl-dose-distance"
+   },
+   {
+    "text": "How does light intensity change with distance from the panel? Worked examples",
+    "pattern": "question",
+    "cluster": "cl-dose-distance"
+   },
+   {
+    "text": "5 specs to check before you buy a red light panel",
+    "pattern": "number",
+    "cluster": "cl-choose-panel"
+   },
+   {
+    "text": "Which panel fits your room, and how much of your body does it cover?",
+    "pattern": "question",
+    "cluster": "cl-choose-panel"
+   },
+   {
+    "text": "Pre-purchase checklist: wavelengths, output, size and flicker",
+    "pattern": "practical",
+    "cluster": "cl-choose-panel"
+   },
+   {
+    "text": "Small panel or big? What changes in coverage, cost and routine",
+    "pattern": "contrast",
+    "cluster": "cl-choose-panel"
+   },
+   {
+    "text": "Why two panels with the same mW/cm² number may not shine the same",
+    "pattern": "curiosity",
+    "cluster": "cl-choose-panel"
+   },
+   {
+    "text": "Panel or bulb? When a smaller, local light source makes sense",
+    "pattern": "question",
+    "cluster": "cl-compare-value"
+   },
+   {
+    "text": "Comparing panel brands: 4 questions to ask every one of them",
+    "pattern": "number",
+    "cluster": "cl-compare-value"
+   },
+   {
+    "text": "How to read panel reviews: what to look for and what to ignore",
+    "pattern": "practical",
+    "cluster": "cl-compare-value"
+   },
+   {
+    "text": "Home panel vs. studio sessions: what to calculate before you decide",
+    "pattern": "contrast",
+    "cluster": "cl-compare-value"
+   },
+   {
+    "text": "What is hiding in the price of a light panel? A look under the hood",
+    "pattern": "curiosity",
+    "cluster": "cl-compare-value"
+   },
+   {
+    "text": "From a gym to a prototype: the story of Czech brand MITO LIGHT®",
+    "pattern": "story",
+    "cluster": "cl-brand-mito"
+   },
+   {
+    "text": "6 wavelengths on one panel: what do 630 to 850 nm actually mean?",
+    "pattern": "number",
+    "cluster": "cl-brand-mito"
+   },
+   {
+    "text": "Intro, Starter, Expert, Biohacker, Master: which panel suits your space?",
+    "pattern": "practical",
+    "cluster": "cl-brand-mito"
+   },
+   {
+    "text": "A panel with an alarm clock? How the MITO LIGHT® light alarm works in the app",
+    "pattern": "curiosity",
+    "cluster": "cl-brand-mito"
+   },
+   {
+    "text": "Generation 4.0 vs. 5.0: what changed in MITO LIGHT® panels and what did not",
+    "pattern": "contrast",
+    "cluster": "cl-brand-mito"
+   },
+   {
+    "text": "Eyes and a red light panel: what the manual says and when to use goggles",
+    "pattern": "practical",
+    "cluster": "cl-safety-use"
+   },
+   {
+    "text": "5 first-use mistakes with a light panel and how to avoid them",
+    "pattern": "number",
+    "cluster": "cl-safety-use"
+   },
+   {
+    "text": "When should you talk to a doctor before using a panel? A general overview",
+    "pattern": "question",
+    "cluster": "cl-safety-use"
+   },
+   {
+    "text": "Share a tip: where did you place your panel at home, and what would you change?",
+    "pattern": "social",
+    "cluster": "cl-safety-use"
+   },
+   {
+    "text": "Post-workout routine: how to fit a panel in without complicating your day",
+    "pattern": "practical",
+    "cluster": "cl-recovery-training"
+   },
+   {
+    "text": "What do studies say about red light and recovery after exercise? A readable summary",
+    "pattern": "curiosity",
+    "cluster": "cl-recovery-training"
+   },
+   {
+    "text": "What does your post-training routine look like? Share it and we will collect ideas",
+    "pattern": "social",
+    "cluster": "cl-recovery-training"
+   },
+   {
+    "text": "4 building blocks of recovery after training, and where light may fit in",
+    "pattern": "number",
+    "cluster": "cl-recovery-training"
+   },
+   {
+    "text": "What do we know so far about red light and skin appearance? A no-promises overview",
+    "pattern": "curiosity",
+    "cluster": "cl-skin-appearance"
+   },
+   {
+    "text": "Skin and panel: how to build an evening routine step by step",
+    "pattern": "practical",
+    "cluster": "cl-skin-appearance"
+   },
+   {
+    "text": "Mask or panel? Differences in coverage, comfort and cost",
+    "pattern": "contrast",
+    "cluster": "cl-skin-appearance"
+   },
+   {
+    "text": "Which skin and light question should we cover next? Tell us and we will answer",
+    "pattern": "social",
+    "cluster": "cl-skin-appearance"
+   },
+   {
+    "text": "5 ideas for an evening light routine without the empty promises",
+    "pattern": "number",
+    "cluster": "cl-sleep-evening"
+   },
+   {
+    "text": "Morning with a light alarm: one day with the app, step by step",
+    "pattern": "story",
+    "cluster": "cl-sleep-evening"
+   },
+   {
+    "text": "Blue-light blocking glasses: when do they make sense and how to choose?",
+    "pattern": "question",
+    "cluster": "cl-sleep-evening"
+   },
+   {
+    "text": "Why is red light discussed for evenings, and what do we know so far?",
+    "pattern": "curiosity",
+    "cluster": "cl-sleep-evening"
+   },
+   {
+    "text": "Many promises, less evidence: how to read studies about red light",
+    "pattern": "contrast",
+    "cluster": "cl-evidence-myths"
+   },
+   {
+    "text": "Red light: what is shown, what is not, and what is still an open question?",
+    "pattern": "question",
+    "cluster": "cl-evidence-myths"
+   },
+   {
+    "text": "4 myths about red light and what the available research says",
+    "pattern": "number",
+    "cluster": "cl-evidence-myths"
+   },
+   {
+    "text": "Heard a red light claim that sounds off? Send it and we will check it",
+    "pattern": "social",
+    "cluster": "cl-evidence-myths"
+   }
+  ]
+ },
+ "calendar_themes": [
+  {
+   "week": 1,
+   "theme_en": "Light 101: how red and near-infrared light works, and what is still open",
+   "theme_cs": "Světlo od základu: jak červené a blízké infračervené světlo funguje a co je zatím otevřené",
+   "focus_pillar": "pillar-how-it-works"
+  },
+  {
+   "week": 2,
+   "theme_en": "Choose with confidence: reading a panel spec sheet without the jargon",
+   "theme_cs": "Vybírejte s jistotou: jak číst parametry panelu bez zbytečné omáčky",
+   "focus_pillar": "pillar-choose-panel"
+  },
+  {
+   "week": 3,
+   "theme_en": "Use it right: eyes, distance, time and a post-training routine",
+   "theme_cs": "Správné a bezpečné použití: oči, vzdálenost, čas a rutina po tréninku",
+   "focus_pillar": "pillar-safe-use"
+  },
+  {
+   "week": 4,
+   "theme_en": "Routines and community: evenings, skin and the story of a Czech brand",
+   "theme_cs": "Rutiny a komunita: večery, pleť a příběh české značky",
+   "focus_pillar": "pillar-community-brand"
+  }
+ ],
+ "research_notes": "Research date 2026-10-02. Tool: WebSearch only (standard mode, one extended query); WebFetch and scraping were not used. About 50 queries in three groups. (1) MITO LIGHT identity and facts: brand and Czech domain (mitolight.cz, mitolight.com, mitolight.co.uk), About page, FAQ, how-it-works, studies page, blog, generation pages 3.0 to 5.0, model pages (Intro, Starter, Expert, Biohacker, Mitohacker, Master, Bulb), accessories, the App Store listing, social channels, founders, legal entities. (2) Regulatory position, reviews and press: the Ministry of Health position hosted by the Zlín Region, Trustpilot, Trusted Shops, Heureka, Forbes.cz, other Czech media, Czech resellers, and independent reviews (Light Therapy Insiders, PCWelt, M3, Wareable). (3) Competitor and context content: Mito Red Light (US), independent review sites, Czech media and portals, retailer and deal sites, ad-library trackers. LIMITS. The WebSearch tool returns a short synthesised answer plus result titles and URLs, not raw page snippets, so numbers and quotes are as relayed by that summary; repeated facts were cross-checked across several queries, and single-source items are marked medium or low confidence. Prices are snapshots and may be outdated. Trustpilot counts differ between cached versions. The session WebSearch budget (200 calls, shared with parallel research passes) ran out before queries for Joovv, Hooga, PlatinumLED, Sunlighten and other Western brands could run. Their entries in observed_patterns are therefore URL-level only (labelled as such): they rely on result URLs recorded by the sibling brand-discovery file brands.raw.json, and the pages were not opened. Joovv, Hooga, PlatinumLED and Sunlighten content formats, hooks and sections are NOT audited and need a rerun with a higher CLAUDE_CODE_MAX_WEB_SEARCHES_PER_SESSION; Lighthacker and other Czech competitors were not audited beyond one cc.cz interview. No scraping and no volumes: every keyword and question in topic_clusters is a HYPOTHESIS to verify in Google Search Console, Seznam Search Console and Sklik keyword planner (Seznam matters for Czech demand), Google Keyword Planner and Google Trends; no volume, difficulty or ranking figure was invented. Slovak variants were not covered. CAVEATS. MITO LIGHT (Czech) must not be confused with Mito Red Light (US); several search results mix them, so US pages are used only where labelled. The regulatory frame comes from a document that names MITO LIGHT 3.0, so newer generations need a fresh confirmation. The brand's own site and many third-party pages contain claims (hair, scars, inflammation, mood, 'more effective than cryotherapy', 'European market leader') that this project's frame excludes; they are recorded as observations, not as reusable copy. Czech copy was self-reviewed and should get a native proofread. Hooks default to formal address (vykání). Suggested pillar to cluster mapping: pillar-how-it-works with cl-what-is-pbm, cl-dose-distance and cl-evidence-myths; pillar-choose-panel with cl-choose-panel, cl-compare-value and cl-brand-mito; pillar-safe-use with cl-safety-use and cl-dose-distance; pillar-recovery with cl-recovery-training; pillar-skin-evening with cl-skin-appearance and cl-sleep-evening; pillar-community-brand with cl-brand-mito and cl-evidence-myths."
 }
