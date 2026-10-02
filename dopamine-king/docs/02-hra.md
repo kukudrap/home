@@ -20,6 +20,17 @@ Model vychází z populárního rámce Hooked (Eyal, 2014; praktická kniha, ne 
 - **Laboratoř.** (1) Duel A/B s hlídáním velikosti vzorku, (2) "Nenahlížej": simulace ukáže, že zastavit test při první hodnotě p pod 0,05 po desetinásobném nahlédnutí dává kolem 17 až 25 procent falešně pozitivních výsledků místo 5, (3) Bandit Garden: Thompson sampling proti rovnoměrnému dělení provozu.
 - **Vault.** Karty taktik a studií (s hodnocením A až D, výhradami a stavem ověření), kvíz Mýtus nebo fakt.
 
+## Edice MITO LIGHT: co je ve hře jinak
+
+Hra se sestavuje jako **edice**: stejná hra a stejný scorer, nastavené pro jeden výrobek (výchozí je fotobiomodulace a značka MITO LIGHT, viz [07-fotobiomodulace.md](07-fotobiomodulace.md)). Edice nemění pravidla hry, přidává kontrolu toho, co smí o nezdravotnickém světelném panelu zaznít:
+
+- **Boss Battle.** Vedle skóre a rizika clickbaitu běží naživo **kontrola tvrzení** (profil wellness). Boss je poražen, když hook dosáhne cílového percentilu, má riziko clickbaitu do 0,35 **a zároveň nemá žádný blokující problém s tvrzením** (zdravotní tvrzení, nemoc vedle slova o léčbě, stavová fráze typu "schváleno", absolutní bezpečnost, rada nahradit léky). Varování a poznámky výhru neblokují. U každého nálezu hra ukáže kód, vlastní text, téma, označení síly důkazů a bezpečnější formulaci.
+- **Trezor.** Záložka **Mapa tvrzení** ukazuje 19 témat v pěti třídách (wellness, vzhled, souvislosti, zdravotní, zakázáno) se silou důkazů, propojenými studiemi a bezpečnějšími formulacemi. Neověřené studie jsou vidět, ale sílu důkazů nikdy nezvedají. Pole **Zkontroluj vlastní text** pustí stejný kontrolor na libovolný vložený text.
+- **O hře.** Vysvětluje edici, kontrolu tvrzení, slovníček pojmů oboru a regulatorní poznámku (není to právní poradenství).
+- **Kovárna a Guru.** Mají volbu profilu tvrzení (obecný, wellness) a bezpečnostní upozornění; ukázkové balíčky pro značku říkají, že vznikly offline z veřejných popisů a fakta musí potvrdit značka.
+
+Kontrola tvrzení běží celá v prohlížeči (JavaScriptový port Python kontroloru, shodu hlídá 187 společných testovacích případů), text se nikam neodesílá a nic neukládá. Je to heuristika: čte slova, ne význam, může něco přehlédnout a nenahrazuje schválení člověkem.
+
 ## Progres
 
 - **Úrovně:** kumulativně `round(100 * (n - 1)^1.5)` XP; deset pojmenovaných úrovní (od Rookie po King).
