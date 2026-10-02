@@ -48,6 +48,13 @@ def _formats_list() -> list[Json]:
 def _forge(data: Json, ctx: Json) -> Json:
     from .generate.packs import build_pack
     brief = _brief(data)
+    ledger = ctx.get("ledger")
+    if brief.vertical:                    # a vertical brings its own studies, so its citations resolve
+        try:
+            from .verticals import load_vertical
+            ledger = load_vertical(brief.vertical).ledger()
+        except Exception as err:
+            raise ApiError(400, f"unknown vertical {brief.vertical!r}") from err
     try:
         writer = select_writer(data.get("writer") or ctx.get("writer", "auto"))
     except ValueError as err:
@@ -56,7 +63,7 @@ def _forge(data: Json, ctx: Json) -> Json:
     if formats is not None and not (isinstance(formats, list) and all(isinstance(f, str) for f in formats)):
         raise ApiError(400, "'formats' must be a list of format ids")
     try:
-        pack = build_pack(brief, formats, writer=writer, ledger=ctx.get("ledger"), options=data.get("options"),
+        pack = build_pack(brief, formats, writer=writer, ledger=ledger, options=data.get("options"),
                           improve_rounds=int(data.get("improve_rounds", 1)))
     except WriterRefused as err:
         raise ApiError(422, str(err)) from err

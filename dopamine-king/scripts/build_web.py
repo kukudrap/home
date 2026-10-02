@@ -12,7 +12,7 @@ samples ``web/dev/mock-forge.json`` and ``web/dev/mock-guru.json`` are used (``-
 so the Forge and Guru views are never empty in the offline file. Standard library only.
 
 The result must work from file:// with no network, so the build verifies that the output has no external
-URLs in markup or CSS, no em or en dash, and stays below 1.5 MB.
+URLs in markup or CSS, no em or en dash, and stays below 2 MB.
 """
 from __future__ import annotations
 
@@ -40,7 +40,7 @@ TEMPLATE = "index.template.html"
 STYLES = "styles.css"
 PLACEHOLDERS = {"styles": "/*@@STYLES@@*/", "bundle": "/*@@BUNDLE@@*/", "scripts": "/*@@SCRIPTS@@*/"}
 REQUIRED_BUNDLE_KEYS = ("spec", "benchmarks", "arena", "bosses", "myths", "lab", "loot")
-MAX_BYTES = 1_500_000
+MAX_BYTES = 2_000_000
 
 EM_DASH = chr(0x2014)
 EN_DASH = chr(0x2013)
@@ -78,7 +78,7 @@ def load_json(path: Path, what: str) -> Any:
         raise BuildError(f"{what} file is not valid JSON ({path}): {exc}") from exc
 
 
-def load_bundle(bundle_path: Path | None) -> dict[str, Any]:
+def load_bundle(bundle_path: Path | None, vertical: str | None = None) -> dict[str, Any]:
     if bundle_path is not None:
         bundle = load_json(bundle_path, "bundle")
     else:
@@ -88,12 +88,12 @@ def load_bundle(bundle_path: Path | None) -> dict[str, Any]:
         except ImportError as exc:
             raise BuildError(f"cannot import dopamine_king.webdata.build_bundle: {exc}") from exc
         ledger = None
-        try:  # the shipped seed ledger gives the Vault real studies and tactics instead of an empty state
+        try:  # the shipped seed ledger gives the Vault real studies and tactics instead of an empty state (a vertical brings its own)
             from dopamine_king.research.ledger import Ledger  # type: ignore
             ledger = Ledger.load()
         except Exception as exc:  # the game still builds without the evidence vault
             print(f"note: building without the evidence ledger ({exc})", file=sys.stderr)
-        bundle = build_bundle(ledger=ledger)
+        bundle = build_bundle(ledger=ledger, vertical=vertical)
     if not isinstance(bundle, dict):
         raise BuildError("the bundle must be a JSON object")
     missing = [k for k in REQUIRED_BUNDLE_KEYS if k not in bundle]
@@ -195,11 +195,11 @@ def verify(html: str) -> None:
 
 
 def build_web(bundle_path: Path | None = None, out_path: Path | None = None,
-              forge: Path | None = None, guru: Path | None = None, quiet: bool = False) -> Path:
+              forge: Path | None = None, guru: Path | None = None, quiet: bool = False, vertical: str | None = None) -> Path:
     """Build the single-file game and return the output path."""
     out_path = Path(out_path) if out_path else DEFAULT_OUT
     check_sources()
-    bundle = load_bundle(Path(bundle_path) if bundle_path else None)
+    bundle = load_bundle(Path(bundle_path) if bundle_path else None, vertical)
     inject_samples(bundle, Path(forge) if forge else None, Path(guru) if guru else None)
     counter = [0]
     bundle = sanitize(bundle, counter)
@@ -225,6 +225,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--forge", type=Path, help="sample Pack JSON, used when the bundle has no forge_samples")
     parser.add_argument("--guru", type=Path, help="sample Plan JSON, used when the bundle has no guru_sample")
     parser.add_argument("--no-samples", action="store_true", help="do not fall back to the development sample Pack and Plan in web/dev")
+    parser.add_argument("--vertical", default="pbm", help="edition computed into the bundle: pbm (MITO LIGHT, default) or general")
     parser.add_argument("--quiet", action="store_true")
     args = parser.parse_args(argv)
     forge, guru = args.forge, args.guru
@@ -232,7 +233,7 @@ def main(argv: list[str] | None = None) -> int:
         forge = forge or (DEV_FORGE if DEV_FORGE.is_file() else None)
         guru = guru or (DEV_GURU if DEV_GURU.is_file() else None)
     try:
-        build_web(args.bundle, args.out, forge, guru, args.quiet)
+        build_web(args.bundle, args.out, forge, guru, args.quiet, None if args.vertical in ("general", "none", "") else args.vertical)
     except BuildError as exc:
         print(f"build failed: {exc}", file=sys.stderr)
         return 1

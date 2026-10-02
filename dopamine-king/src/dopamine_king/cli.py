@@ -42,24 +42,60 @@ def _polite(store=None):
     return PoliteFetcher(inner, robots, store), robots
 
 
+def _vertical(args: argparse.Namespace):
+    """The vertical asked for with --vertical (or the one a brief names), else None."""
+    name = getattr(args, "vertical", None)
+    if not name or name == "general":
+        return None
+    from .verticals import VerticalError, load_vertical
+    try:
+        return load_vertical(name)
+    except VerticalError as err:
+        raise SystemExit(f"error: {err}")
+
+
 def _registry(args: argparse.Namespace):
     from .ingest.registry import load_registry
-    override = getattr(args, "registry", None) or (config.home_dir() / "sources.json")
+    explicit = getattr(args, "registry", None)
+    vertical = _vertical(args)
+    if vertical is not None and not explicit:
+        return vertical.brands()
+    override = explicit or (config.home_dir() / "sources.json")
     path = Path(override)
     return load_registry(path if path.exists() else None)
 
 
 def _load_brief(args: argparse.Namespace) -> Brief:
+    vertical = _vertical(args)
+    if getattr(args, "sample", None):
+        if vertical is None:
+            raise SystemExit("error: --sample needs --vertical (for example --vertical pbm --sample mito-light-cs)")
+        samples = vertical.briefs()
+        if args.sample not in samples:
+            raise SystemExit(f"error: no sample {args.sample!r}; available: {', '.join(samples)}")
+        return samples[args.sample]
     if getattr(args, "brief", None):
-        return Brief.from_dict(json.loads(Path(args.brief).read_text("utf-8")))
-    missing = [f for f in ("brand", "topic", "audience") if not getattr(args, f, None)]
-    if missing:
-        raise SystemExit(f"error: provide --brief FILE or all of --brand --topic --audience (missing: {', '.join(missing)})")
-    return Brief(
-        brand=args.brand, topic=args.topic, audience=args.audience, goal=args.goal, lang=args.lang, tone=args.tone,
-        keyword=args.keyword, offer=args.offer, cta=args.cta, facts=args.fact or [], avoid=args.avoid or [],
-        cohort=args.cohort, sponsored=args.sponsored,
-    )
+        brief = Brief.from_dict(json.loads(Path(args.brief).read_text("utf-8")))
+    else:
+        missing = [f for f in ("brand", "topic", "audience") if not getattr(args, f, None)]
+        if missing:
+            raise SystemExit(f"error: provide --brief FILE or all of --brand --topic --audience (missing: {', '.join(missing)})")
+        brief = Brief(
+            brand=args.brand, topic=args.topic, audience=args.audience, goal=args.goal, lang=args.lang, tone=args.tone,
+            keyword=args.keyword, offer=args.offer, cta=args.cta, facts=args.fact or [], avoid=args.avoid or [],
+            cohort=args.cohort, sponsored=args.sponsored,
+        )
+    if vertical is not None:
+        brief.vertical = vertical.id
+        if getattr(args, "claims_profile", None):
+            brief.claims_profile = args.claims_profile
+        elif brief.claims_profile == "general":
+            brief.claims_profile = vertical.claims_profile
+    elif getattr(args, "claims_profile", None):
+        brief.claims_profile = args.claims_profile
+    if getattr(args, "safety_note", None):
+        brief.safety_note = args.safety_note
+    return brief
 
 
 def _brief_flags(p: argparse.ArgumentParser) -> None:
@@ -72,6 +108,10 @@ def _brief_flags(p: argparse.ArgumentParser) -> None:
     p.add_argument("--fact", action="append", help="first-party fact, repeatable")
     p.add_argument("--avoid", action="append", help="term to avoid, repeatable")
     p.add_argument("--sponsored", action="store_true")
+    p.add_argument("--vertical", help="industry profile, for example pbm (photobiomodulation); 'general' for none")
+    p.add_argument("--sample", help="start from a sample brief of the vertical, for example mito-light-cs")
+    p.add_argument("--claims-profile", choices=["general", "wellness"], help="wellness: non-medical device, no disease or treatment claims")
+    p.add_argument("--safety-note", help="the manufacturer's own safety text for long-form content")
 
 
 def _synthetic_analyses():
@@ -284,8 +324,10 @@ def cmd_import_csv(args: argparse.Namespace) -> int:
     return 0
 
 
-def _ledger(path: str | None):
+def _ledger(path: str | None, vertical: Any = None):
     from .research.ledger import Ledger
+    if vertical is not None and path is None:
+        return vertical.ledger()
     return Ledger.load(path)
 
 
@@ -302,10 +344,18 @@ def cmd_evidence(args: argparse.Namespace) -> int:
         for e in errors:
             print("  source error: " + e, file=sys.stderr)
         return 0 if studies or not errors else 2
-    ledger = _ledger(args.ledger)
+    vertical = _vertical(args)
+    ledger = _ledger(args.ledger, vertical)
+    if args.ev_cmd == "claims":
+        if vertical is None:
+            raise SystemExit("error: the claims map belongs to a vertical, for example: kingctl evidence claims --vertical pbm")
+        for row in vertical.claim_map(ledger):
+            note = f"  ({row['n_pending']} pending verification)" if row["n_pending"] else ""
+            print(f"{row['id']:<26} {row['class']:<9} {row['label']:<10} studies {row['n_studies']}{note}  {row['name_en']}")
+        print("\nThe label counts verified studies only and never exceeds the curated cap of the topic.")
+        return 0
     if args.ev_cmd == "ledger":
-        from .research.tactics import TACTICS
-        ids = [args.tactic] if args.tactic else list(TACTICS)
+        ids = [args.tactic] if args.tactic else list(ledger.tactics)
         for tid in ids:
             s = ledger.summary(tid)
             print(f"{tid:<32} {s.label:<10} grade {s.grade or '-'}  studies {s.n_studies}  {s.headline_en}")
@@ -343,7 +393,8 @@ def cmd_forge(args: argparse.Namespace) -> int:
         raise SystemExit(f"error: {err}")
     t0 = time.perf_counter()
     try:
-        pack = build_pack(brief, formats, writer=writer, ledger=_ledger(None), improve_rounds=args.improve)
+        pack = build_pack(brief, formats, writer=writer, ledger=_ledger(None, _vertical(argparse.Namespace(vertical=brief.vertical))),
+                          improve_rounds=args.improve)
     except WriterRefused as err:
         print(f"The model declined this brief: {err}", file=sys.stderr)
         return 3
@@ -416,7 +467,8 @@ def cmd_build_web(args: argparse.Namespace) -> int:
     spec = importlib.util.spec_from_file_location("build_web", script)
     module = importlib.util.module_from_spec(spec)  # type: ignore[arg-type]
     spec.loader.exec_module(module)  # type: ignore[union-attr]
-    return int(module.main(["--out", args.out] + (["--bundle", args.bundle] if args.bundle else [])) or 0)
+    return int(module.main(["--out", args.out, "--vertical", args.vertical]
+                           + (["--bundle", args.bundle] if args.bundle else [])) or 0)
 
 
 def cmd_demo(args: argparse.Namespace) -> int:
@@ -539,6 +591,7 @@ def build_parser() -> argparse.ArgumentParser:
     for name in ("list", "verify"):
         x = ss.add_parser(name)
         x.add_argument("--cohort"), x.add_argument("--brand", action="append"), x.add_argument("--registry")
+        x.add_argument("--vertical", help="use the brand registry of a vertical, for example pbm")
         if name == "verify":
             x.add_argument("--limit", type=int), x.add_argument("--save", help="write the verified registry to this JSON file")
     s.set_defaults(fn=cmd_sources)
@@ -547,6 +600,7 @@ def build_parser() -> argparse.ArgumentParser:
     s.add_argument("--brand", action="append"), s.add_argument("--cohort"), s.add_argument("--registry"), s.add_argument("--limit", type=int)
     s.add_argument("--per-brand", type=int, default=50), s.add_argument("--since-days", type=int, default=365)
     s.add_argument("--fetch-pages", action="store_true"), s.add_argument("--only-verified", action="store_true")
+    s.add_argument("--vertical", help="scrape the brand registry of a vertical, for example pbm")
     s.set_defaults(fn=cmd_scrape)
 
     s = sub.add_parser("enrich", help="add public popularity signals (Hacker News) to scraped items (network)")
@@ -559,9 +613,10 @@ def build_parser() -> argparse.ArgumentParser:
 
     s = sub.add_parser("evidence", help="studies: search, ledger, verify (search and verify need network)")
     es = s.add_subparsers(dest="ev_cmd", required=True)
-    x = es.add_parser("search"); x.add_argument("query"); x.add_argument("--sources", default="openalex,crossref,arxiv"); x.add_argument("--limit", type=int, default=10); x.add_argument("--mailto", default=None); x.add_argument("--json", action="store_true")
-    x = es.add_parser("ledger"); x.add_argument("--tactic"); x.add_argument("--ledger")
-    x = es.add_parser("verify"); x.add_argument("--ledger"); x.add_argument("--mailto", default=None); x.add_argument("--save")
+    x = es.add_parser("search"); x.add_argument("query"); x.add_argument("--sources", default="openalex,crossref,arxiv,pubmed"); x.add_argument("--limit", type=int, default=10); x.add_argument("--mailto", default=None); x.add_argument("--json", action="store_true")
+    x = es.add_parser("ledger"); x.add_argument("--tactic"); x.add_argument("--ledger"); x.add_argument("--vertical")
+    x = es.add_parser("claims"); x.add_argument("--ledger"); x.add_argument("--vertical")
+    x = es.add_parser("verify"); x.add_argument("--ledger"); x.add_argument("--mailto", default=None); x.add_argument("--save"); x.add_argument("--vertical")
     s.set_defaults(fn=cmd_evidence)
 
     s = sub.add_parser("formats", help="list content formats")
@@ -598,6 +653,7 @@ def build_parser() -> argparse.ArgumentParser:
 
     s = sub.add_parser("build-web", help="build the single-file game")
     s.add_argument("--out", default=str(ROOT / "web" / "dist" / "dopamine-king.html")), s.add_argument("--bundle")
+    s.add_argument("--vertical", default="pbm", help="edition of the game: pbm (MITO LIGHT, default) or general")
     s.set_defaults(fn=cmd_build_web)
     return p
 

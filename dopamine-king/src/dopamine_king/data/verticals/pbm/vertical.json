@@ -1,0 +1,144 @@
+{
+ "id": "pbm",
+ "name_en": "Photobiomodulation (red and near-infrared light)",
+ "name_cs": "Fotobiomodulace (červené a blízké infračervené světlo)",
+ "short_en": "PBM",
+ "short_cs": "PBM",
+ "tagline_en": "Content intelligence for red light brands: what works, what the evidence supports and what you may say.",
+ "tagline_cs": "Obsahová inteligence pro značky červeného světla: co funguje, co podporují důkazy a co smíte říct.",
+ "edition_en": "MITO LIGHT edition",
+ "edition_cs": "Edice MITO LIGHT",
+ "default_brand": "mito-light",
+ "claims_profile": "wellness",
+ "languages": [
+  "cs",
+  "en"
+ ],
+ "regulatory_note_en": "MITO LIGHT is described in public sources as a non-medical device meant to support the regeneration of a healthy body. This edition therefore blocks claims about diagnosing, treating, preventing or relieving any disease or symptom. It is a heuristic reviewer and not legal advice: confirm the wording with your regulatory adviser.",
+ "regulatory_note_cs": "MITO LIGHT je podle veřejných zdrojů nezdravotnický přístroj určený k podpoře regenerace zdravého organismu. Tato edice proto blokuje tvrzení o diagnostice, léčbě, prevenci nebo zmírnění jakékoli nemoci či příznaku. Je to heuristický kontrolor, ne právní poradenství: formulace si ověřte u svého regulatorního poradce.",
+ "cohorts": {
+  "pbm-home-devices": {
+   "en": "PBM home devices",
+   "cs": "Domácí zařízení (PBM)"
+  },
+  "pbm-skin-led": {
+   "en": "Skin and beauty LED",
+   "cs": "LED pro pleť a krásu"
+  },
+  "pbm-clinical": {
+   "en": "Clinical and professional PBM",
+   "cs": "Klinická a profesionální PBM"
+  },
+  "pbm-recovery-sport": {
+   "en": "Recovery and sport",
+   "cs": "Regenerace a sport"
+  },
+  "pbm-science": {
+   "en": "Science and societies",
+   "cs": "Věda a odborné společnosti"
+  },
+  "pbm-media": {
+   "en": "Education and review media",
+   "cs": "Vzdělávací a recenzní média"
+  },
+  "pbm-cz-sk": {
+   "en": "Czech and Slovak PBM",
+   "cs": "České a slovenské PBM"
+  }
+ },
+ "glossary": [
+  {
+   "id": "pbm",
+   "term_en": "Photobiomodulation (PBM)",
+   "term_cs": "Fotobiomodulace (PBM)",
+   "def_en": "The use of red and near-infrared light to trigger biological effects in cells. It is studied for many purposes, and what may be said about a product depends on its regulatory status.",
+   "def_cs": "Využití červeného a blízkého infračerveného světla k vyvolání biologických účinků v buňkách. Zkoumá se k mnoha účelům a to, co smíte o výrobku říct, závisí na jeho regulatorním statusu."
+  },
+  {
+   "id": "wavelength",
+   "term_en": "Wavelength (nm)",
+   "term_cs": "Vlnová délka (nm)",
+   "def_en": "The colour of the light. Red is roughly 620 to 700 nm and near-infrared roughly 700 to 1100 nm; panels usually combine a few bands such as 630, 660, 810 and 850 nm.",
+   "def_cs": "Barva světla. Červená je zhruba 620 až 700 nm a blízké infračervené zhruba 700 až 1100 nm; panely obvykle kombinují několik pásem, například 630, 660, 810 a 850 nm."
+  },
+  {
+   "id": "irradiance",
+   "term_en": "Irradiance (mW/cm2)",
+   "term_cs": "Ozáření (mW/cm2)",
+   "def_en": "How much light power reaches each square centimetre of skin. It falls with distance, so a number is only meaningful together with the distance it was measured at.",
+   "def_cs": "Kolik výkonu světla dopadá na každý čtvereční centimetr kůže. S rostoucí vzdáleností klesá, takže číslo dává smysl jen spolu se vzdáleností, ze které bylo změřeno."
+  },
+  {
+   "id": "dose",
+   "term_en": "Dose (J/cm2)",
+   "term_cs": "Dávka (J/cm2)",
+   "def_en": "Irradiance multiplied by time: the light energy delivered per square centimetre. Research suggests that both too little and too much light may give no effect.",
+   "def_cs": "Ozáření krát čas: energie světla dodaná na čtvereční centimetr. Výzkum naznačuje, že příliš málo i příliš mnoho světla nemusí mít žádný účinek."
+  },
+  {
+   "id": "mitochondria",
+   "term_en": "Mitochondria",
+   "term_cs": "Mitochondrie",
+   "def_en": "Cell structures that make most of the cell's usable energy. They are a proposed target of photobiomodulation in laboratory research.",
+   "def_cs": "Buněčné struktury, které vyrábějí většinu využitelné energie buňky. V laboratorním výzkumu jsou navrhovaným cílem fotobiomodulace."
+  },
+  {
+   "id": "flicker",
+   "term_en": "Flicker",
+   "term_cs": "Blikání",
+   "def_en": "Rapid on and off switching of LEDs, often invisible. Some panels are built to avoid it and others use pulsing on purpose, so check the manufacturer's specification.",
+   "def_cs": "Rychlé zapínání a vypínání LED, často neviditelné. Některé panely jsou postavené tak, aby blikání neměly, jiné pulzují záměrně, proto si ověřte specifikaci výrobce."
+  },
+  {
+   "id": "emf",
+   "term_en": "EMF",
+   "term_cs": "EMF",
+   "def_en": "Electromagnetic fields given off by electronics. Devices differ, and a claim about low EMF should come with a measurement.",
+   "def_cs": "Elektromagnetická pole vyzařovaná elektronikou. Zařízení se liší a tvrzení o nízkém EMF má mít oporu v měření."
+  }
+ ],
+ "topic_forms": {
+  "fotobiomodulace": {
+   "gen": "fotobiomodulace",
+   "dat": "fotobiomodulaci",
+   "acc": "fotobiomodulaci",
+   "loc": "fotobiomodulaci",
+   "ins": "fotobiomodulací"
+  },
+  "červené světlo": {
+   "gen": "červeného světla",
+   "dat": "červenému světlu",
+   "acc": "červené světlo",
+   "loc": "červeném světle",
+   "ins": "červeným světlem"
+  },
+  "světelný panel": {
+   "gen": "světelného panelu",
+   "dat": "světelnému panelu",
+   "acc": "světelný panel",
+   "loc": "světelném panelu",
+   "ins": "světelným panelem"
+  },
+  "červené světlo a regenerace": {
+   "gen": "červeného světla a regenerace",
+   "dat": "červenému světlu a regeneraci",
+   "acc": "červené světlo a regeneraci",
+   "loc": "červeném světle a regeneraci",
+   "ins": "červeným světlem a regenerací"
+  },
+  "regenerace po tréninku": {
+   "gen": "regenerace po tréninku",
+   "dat": "regeneraci po tréninku",
+   "acc": "regeneraci po tréninku",
+   "loc": "regeneraci po tréninku",
+   "ins": "regenerací po tréninku"
+  },
+  "večerní rutina": {
+   "gen": "večerní rutiny",
+   "dat": "večerní rutině",
+   "acc": "večerní rutinu",
+   "loc": "večerní rutině",
+   "ins": "večerní rutinou"
+  }
+ }
+}

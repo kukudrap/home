@@ -1,0 +1,564 @@
+{
+ "version": 1,
+ "note": "Registry of photobiomodulation brands and organisations for the polite scraper. Every homepage was seen in web search results; nothing else is verified until `kingctl sources verify` has run. 26 entries: the research run stopped when the session's web search budget was used up, so the registry is a start to extend, not a complete list of the world's brands.",
+ "methodology": "PARTIAL RESULT: 26 entries against a target of 70+, because the session WebSearch budget (200 of 200 calls) ran out mid-run. Method: WebSearch only, standard mode. Discovery queries: best red light therapy panels 2026; top red light therapy brands 2026; best red light therapy devices Europe UK 2026; largest red light therapy companies market share; best Joovv alternatives and brand comparisons; best LED face masks 2026 (Omnilux, CurrentBody, Dr Dennis Gross, Shark, Foreo, Therabody); best red light therapy brands Australia 2026; Rotlichttherapie Panel Test 2026; Czech and Slovak queries (MITO LIGHT cervene svetlo, MITO LIGHT Starter 4.0 cena, terapie cervenym svetlem panel e-shop, terapia cervenym svetlom panel Slovensko e-shop). Verification queries: one per brand, with the allowed_domains filter set to the expected domain so that pages on the brand's own domain come back; only domains that actually appeared in results are listed. Ranking was judged qualitatively, not numerically: presence in independent 2026 best-of or tested lists (StackingYears, Wareable, Who What Wear UK, Outliyr, market report key-player summaries), depth of own-domain presence in results, and FDA or Health Canada clearance history for the lasers; why_included states the basis per entry without exact list counts. NOT COVERED before the cap: the Czech and Slovak competitor and reseller sweep (only MITO LIGHT itself is listed), German, Polish, French, Spanish, Nordic, Japanese, Korean and Chinese brands, recovery and sport brands other than Therabody, NAALT, the journals Photobiomodulation Photomedicine and Laser Surgery, and other science bodies. Domain caveats: the Vielight and Leredd domains were confirmed only through Trustpilot review URLs (review/vielight.com, review/leredd.com), not through a page on the brand's own domain; the Czech site mitolight.cz was confirmed directly, while mitolight.com (the Europe storefront) was seen only as Trustpilot review/mitolight.com, so it is not listed separately. No feed or sitemap URL appeared in any result, so those lists are empty; content_paths hold only blog paths seen in result URLs. Names seen in search text but excluded because no own-domain URL was returned: Novaalab, RLT Home, Bon Charge, Infraredi, ATaPa, BestQool, Kineon, Vellgus, Vital Red Light, Helio Cure, Shark CryoGlow, Nanoleaf, Liroma, Renovo Australia, BioLight, Verilux, CBD Star (Czech brand resold by Dr.Max).",
+ "brands": [
+  {
+   "id": "joovv",
+   "name": "Joovv",
+   "cohort": "pbm-home-devices",
+   "country": "US",
+   "homepage": "https://joovv.com/",
+   "feeds": [],
+   "sitemaps": [],
+   "content_paths": [
+    "/blogs/joovv-blog"
+   ],
+   "verified": false,
+   "synthetic": false,
+   "category": "panel",
+   "language": "en",
+   "why_included": "Pioneering US direct-to-consumer modular red light panel brand, named among key players in red light market summaries and used as the benchmark in StackingYears, Outliyr, iRestore and Lift Big Eat Big comparisons.",
+   "evidence_urls": [
+    "https://joovv.com/",
+    "https://joovv.com/blogs/joovv-blog/how-does-red-light-therapy-work",
+    "https://joovv.com/pages/about",
+    "https://www.grandviewresearch.com/industry-analysis/red-light-therapy-market-report",
+    "https://www.stackingyears.com/blog/best-red-light-therapy-device-2026",
+    "https://outliyr.com/best-joovv-alternatives"
+   ]
+  },
+  {
+   "id": "mito-red-light",
+   "name": "Mito Red Light",
+   "cohort": "pbm-home-devices",
+   "country": "US",
+   "homepage": "https://mitoredlight.com/",
+   "feeds": [],
+   "sitemaps": [],
+   "content_paths": [
+    "/blogs/mito-red-blog"
+   ],
+   "verified": false,
+   "synthetic": false,
+   "category": "panel",
+   "language": "en",
+   "why_included": "High-wattage value panel brand (MitoPRO series) named among key players in red light market summaries, compared head to head with Joovv and PlatinumLED in the StackingYears 2026 comparison and reviewed by Wareable.",
+   "evidence_urls": [
+    "https://mitoredlight.com/blogs/mito-red-blog/best-red-light-therapy-panels-of-2026",
+    "https://mitoredlight.com/products",
+    "https://www.grandviewresearch.com/industry-analysis/red-light-therapy-market-report",
+    "https://www.stackingyears.com/blog/best-red-light-therapy-device-2026",
+    "https://www.wareable.com/health-tech/mito-red-light-therapy-review"
+   ]
+  },
+  {
+   "id": "platinumled",
+   "name": "PlatinumLED Therapy Lights (Platinum Therapy Lights)",
+   "cohort": "pbm-home-devices",
+   "country": "US",
+   "homepage": "https://platinumtherapylights.com/",
+   "feeds": [],
+   "sitemaps": [],
+   "content_paths": [],
+   "verified": false,
+   "synthetic": false,
+   "category": "panel",
+   "language": "en",
+   "why_included": "Described in 2026 best-device roundup results as the consensus high-irradiance consumer panel choice (BioMax series), compared against Joovv and Mito by StackingYears and listed among significant companies in red light market summaries.",
+   "evidence_urls": [
+    "https://platinumtherapylights.com/",
+    "https://platinumtherapylights.com/products/biomax-pro",
+    "https://www.stackingyears.com/blog/best-red-light-therapy-device-2026",
+    "https://www.lighttherapyinsiders.com/red-light-therapy-market-trends/"
+   ]
+  },
+  {
+   "id": "hooga-health",
+   "name": "Hooga Health",
+   "cohort": "pbm-home-devices",
+   "country": "US",
+   "homepage": "https://hoogahealth.com/",
+   "feeds": [],
+   "sitemaps": [],
+   "content_paths": [
+    "/blogs/news"
+   ],
+   "verified": false,
+   "synthetic": false,
+   "category": "panel",
+   "language": "en",
+   "why_included": "Named the best affordable red light panel (Pro300) in the 2026 best-panel roundup results and directly compared with Joovv in a Lift Big Eat Big review.",
+   "evidence_urls": [
+    "https://hoogahealth.com/",
+    "https://hoogahealth.com/blogs/news/best-red-light-therapy-panels-2026",
+    "https://shop.liftbigeatbig.com/blogs/reviews/mito-red-light-vs-joovv",
+    "https://www.wareable.com/health-tech/best-red-light-therapy-panels"
+   ]
+  },
+  {
+   "id": "red-light-rising",
+   "name": "Red Light Rising",
+   "cohort": "pbm-home-devices",
+   "country": "GB",
+   "homepage": "https://redlightrising.com/",
+   "feeds": [],
+   "sitemaps": [],
+   "content_paths": [],
+   "verified": false,
+   "synthetic": false,
+   "category": "panel",
+   "language": "en",
+   "why_included": "UK and Europe focused home panel specialist supplying customers since 2017 with its own Advantage, Full Stack and Half Stack ranges, so a direct European competitor.",
+   "evidence_urls": [
+    "https://redlightrising.com/collections/red-light-therapy-panels",
+    "https://redlightrising.com/pages/compare-our-red-light-therapy-devices",
+    "https://redlightrising.com/products/advantage-2-0-series-red-light-therapy-full-body-panel"
+   ]
+  },
+  {
+   "id": "sunlighten",
+   "name": "Sunlighten",
+   "cohort": "pbm-home-devices",
+   "country": "US",
+   "homepage": "https://www.sunlighten.com/",
+   "feeds": [],
+   "sitemaps": [],
+   "content_paths": [],
+   "verified": false,
+   "synthetic": false,
+   "category": "sauna",
+   "language": "en",
+   "why_included": "Leading infrared sauna maker whose mPulse range combines full spectrum infrared with red light, with a main site and a separate US shop returned by search.",
+   "evidence_urls": [
+    "https://www.sunlighten.com/products/",
+    "https://www.sunlighten.com/saunas/mpulse-infrared-saunas/",
+    "https://shop-us.sunlighten.com/products/solo-system-chromo"
+   ]
+  },
+  {
+   "id": "irestore",
+   "name": "iRestore",
+   "cohort": "pbm-home-devices",
+   "country": "US",
+   "homepage": "https://www.irestorelaser.com/",
+   "feeds": [],
+   "sitemaps": [],
+   "content_paths": [
+    "/blogs/content"
+   ],
+   "verified": false,
+   "synthetic": false,
+   "category": "multi",
+   "language": "en",
+   "why_included": "Low level laser and LED device maker whose own article benchmarks its Apex panel against Joovv, showing it competes in the home red light panel segment.",
+   "evidence_urls": [
+    "https://www.irestorelaser.com/blogs/content/irestore-apex-vs-joovv-comparison"
+   ]
+  },
+  {
+   "id": "leredd",
+   "name": "Leredd",
+   "cohort": "pbm-home-devices",
+   "country": "AU",
+   "homepage": "https://leredd.com/",
+   "feeds": [],
+   "sitemaps": [],
+   "content_paths": [],
+   "verified": false,
+   "synthetic": false,
+   "category": "panel",
+   "language": "en",
+   "why_included": "Australian red light therapy device brand designed in Melbourne with 148 Trustpilot reviews, included for Australia coverage, with the domain confirmed only through Trustpilot review URLs.",
+   "evidence_urls": [
+    "https://es.trustpilot.com/review/leredd.com",
+    "https://at.trustpilot.com/review/leredd.com",
+    "https://fr-be.trustpilot.com/review/leredd.com"
+   ]
+  },
+  {
+   "id": "omnilux",
+   "name": "Omnilux",
+   "cohort": "pbm-skin-led",
+   "country": null,
+   "homepage": "https://omniluxled.com/",
+   "feeds": [],
+   "sitemaps": [],
+   "content_paths": [],
+   "verified": false,
+   "synthetic": false,
+   "category": "mask",
+   "language": "en",
+   "why_included": "Dermatologist-recommended FDA-cleared LED mask brand rated Best for LED Beginners (Contour Face) in Who What Wear UK's tested list and used as a comparison target in the MitoGLOW comparison page.",
+   "evidence_urls": [
+    "https://omniluxled.com/products/omnilux-contour-face",
+    "https://omniluxled.com/collections/all",
+    "https://www.whowhatwear.com/uk/best-led-face-masks",
+    "https://mitoredlight.com/blogs/mito-red-blog/mitoglow-vs-omnilux-dr-dennis-gross-currentbody-2026"
+   ]
+  },
+  {
+   "id": "currentbody",
+   "name": "CurrentBody",
+   "cohort": "pbm-skin-led",
+   "country": "GB",
+   "homepage": "https://www.currentbody.com/",
+   "feeds": [],
+   "sitemaps": [],
+   "content_paths": [],
+   "verified": false,
+   "synthetic": false,
+   "category": "mask",
+   "language": "en",
+   "why_included": "UK-based LED mask brand rated Best Overall LED Mask (Series 2) by Who What Wear UK and flagged by AI recommendation tracking as a leading premium mask brand.",
+   "evidence_urls": [
+    "https://www.currentbody.com/collections/currentbody-skin-devices",
+    "https://www.currentbody.com/products/currentbody-skin-led-multi-light-mask",
+    "https://www.whowhatwear.com/uk/best-led-face-masks",
+    "https://llmrefs.com/keywords/red-light-therapy"
+   ]
+  },
+  {
+   "id": "dr-dennis-gross",
+   "name": "Dr. Dennis Gross Skincare",
+   "cohort": "pbm-skin-led",
+   "country": "US",
+   "homepage": "https://www.drdennisgross.com/",
+   "feeds": [],
+   "sitemaps": [],
+   "content_paths": [],
+   "verified": false,
+   "synthetic": false,
+   "category": "mask",
+   "language": "en",
+   "why_included": "FDA-cleared DRx SpectraLite LED device line recommended in Who What Wear UK tests (EyeCare Max Pro rated best LED eye mask) and flagged by AI recommendation tracking as a leading premium mask brand.",
+   "evidence_urls": [
+    "https://www.drdennisgross.com/",
+    "https://www.drdennisgross.com/devices",
+    "https://www.whowhatwear.com/uk/best-led-face-masks",
+    "https://llmrefs.com/keywords/red-light-therapy"
+   ]
+  },
+  {
+   "id": "lightstim",
+   "name": "LightStim",
+   "cohort": "pbm-skin-led",
+   "country": "US",
+   "homepage": "https://lightstim.com/",
+   "feeds": [],
+   "sitemaps": [],
+   "content_paths": [],
+   "verified": false,
+   "synthetic": false,
+   "category": "multi",
+   "language": "en",
+   "why_included": "LED light therapy brand with 25 plus years in the market, manufactured in the USA and listed among key players in red light market summaries, with wrinkle, acne, ProPanel and LED Bed lines.",
+   "evidence_urls": [
+    "https://lightstim.com/",
+    "https://lightstim.com/products/lightstim-led-bed",
+    "https://lightstim.com/products/lightstim-propanel",
+    "https://www.grandviewresearch.com/industry-analysis/red-light-therapy-market-report"
+   ]
+  },
+  {
+   "id": "solawave",
+   "name": "Solawave",
+   "cohort": "pbm-skin-led",
+   "country": "US",
+   "homepage": "https://www.solawave.co/",
+   "feeds": [],
+   "sitemaps": [],
+   "content_paths": [
+    "/blogs/red-light-therapy",
+    "/blogs/skincare-devices",
+    "/blogs/news",
+    "/blogs/acne"
+   ],
+   "verified": false,
+   "synthetic": false,
+   "category": "wand",
+   "language": "en",
+   "why_included": "Named a top performing red light brand in the 2026 best-brands results and runs a large red light wand and mask content hub across several blogs.",
+   "evidence_urls": [
+    "https://www.solawave.co/",
+    "https://www.solawave.co/blogs/skincare-devices/best-red-light-therapy-devices-for-face-2026",
+    "https://www.solawave.co/blogs/red-light-therapy/red-light-therapy-faq",
+    "https://www.solawave.co/blogs/news/top-red-light-wands",
+    "https://www.parse.gl/rankings/medical-device/at-home-red-light-therapy-devices"
+   ]
+  },
+  {
+   "id": "celluma",
+   "name": "Celluma",
+   "cohort": "pbm-clinical",
+   "country": "US",
+   "homepage": "https://www.celluma.com/",
+   "feeds": [],
+   "sitemaps": [],
+   "content_paths": [],
+   "verified": false,
+   "synthetic": false,
+   "category": "multi",
+   "language": "en",
+   "why_included": "Professional-grade FDA-cleared LED light therapy brand (5 clearances, 11 indications) with a dedicated for-professionals line covering pain, acne, aging skin, body contouring and hair.",
+   "evidence_urls": [
+    "https://www.celluma.com/products/celluma-lite",
+    "https://www.celluma.com/pages/for-professionals",
+    "https://www.celluma.com/products/celluma-delux-series-2-full-body-light-therapy"
+   ]
+  },
+  {
+   "id": "theralase",
+   "name": "Theralase Technologies",
+   "cohort": "pbm-clinical",
+   "country": "CA",
+   "homepage": "https://theralase.com/",
+   "feeds": [],
+   "sitemaps": [],
+   "content_paths": [],
+   "verified": false,
+   "synthetic": false,
+   "category": "clinical-laser",
+   "language": "en",
+   "why_included": "Canadian cool laser therapy maker whose dual wavelength superpulsed TLC-2000 and TLC-1000 systems are FDA cleared and Health Canada cleared for knee pain.",
+   "evidence_urls": [
+    "https://theralase.com/",
+    "https://theralase.com/tlc-2000/",
+    "https://theralase.com/cool-laser-therapy/",
+    "https://fda.innolitics.com/device/K151816"
+   ]
+  },
+  {
+   "id": "erchonia",
+   "name": "Erchonia",
+   "cohort": "pbm-clinical",
+   "country": "US",
+   "homepage": "https://www.erchonia.com/",
+   "feeds": [],
+   "sitemaps": [],
+   "content_paths": [],
+   "verified": false,
+   "synthetic": false,
+   "category": "clinical-laser",
+   "language": "en",
+   "why_included": "Holder of the first FDA clearance for a low level laser in 2002 and about 25 clearances since, making it a core clinical low level laser maker (FX series, EVRL, Zerona).",
+   "evidence_urls": [
+    "https://www.erchonia.com/low-level-laser-therapy-research-overview/",
+    "https://www.erchonia.com/products/evrl/",
+    "https://www.erchonia.com/products/pain-management-lasers/",
+    "https://fdanews.com/articles/192037-fda-clears-erchonias-low-level-laser-for-treating-musculoskeletal-pain"
+   ]
+  },
+  {
+   "id": "litecure",
+   "name": "LiteCure (LightForce Therapy Lasers)",
+   "cohort": "pbm-clinical",
+   "country": "US",
+   "homepage": "https://www.litecure.com/",
+   "feeds": [],
+   "sitemaps": [],
+   "content_paths": [],
+   "verified": false,
+   "synthetic": false,
+   "category": "clinical-laser",
+   "language": "en",
+   "why_included": "Delaware maker of LightForce class IV therapy lasers and Companion veterinary lasers, acquired by DJO, with a photobiomodulation dosing education section on its site.",
+   "evidence_urls": [
+    "https://www.litecure.com/our-philosophy/about-litecure/",
+    "https://www.litecure.com/medical/lightforce-therapy-lasers-google/",
+    "https://www.litecure.com/about-photobiomodulation/understanding-dosing/",
+    "https://www.dvm360.com/view/therapy-lasers-handy-comparison-chart"
+   ]
+  },
+  {
+   "id": "vielight",
+   "name": "Vielight",
+   "cohort": "pbm-clinical",
+   "country": "CA",
+   "homepage": "https://vielight.com/",
+   "feeds": [],
+   "sitemaps": [],
+   "content_paths": [],
+   "verified": false,
+   "synthetic": false,
+   "category": "wearable",
+   "language": "en",
+   "why_included": "Canadian maker of transcranial and intranasal near infrared photobiomodulation headsets (Neuro Gamma, Neuro RX Gamma) used in several clinical trials, with the domain confirmed only through a Trustpilot review URL.",
+   "evidence_urls": [
+    "https://ca.trustpilot.com/review/vielight.com",
+    "https://clinicaltrials.gov/study/NCT04418505",
+    "https://clinicaltrials.gov/study/NCT03405662",
+    "https://www.concussionalliance.org/blog/2022/4/25/choosing-a-light-therapy-device-based-on-research"
+   ]
+  },
+  {
+   "id": "therabody",
+   "name": "Therabody",
+   "cohort": "pbm-recovery-sport",
+   "country": "US",
+   "homepage": "https://www.therabody.com/",
+   "feeds": [],
+   "sitemaps": [],
+   "content_paths": [
+    "/blogs/news"
+   ],
+   "verified": false,
+   "synthetic": false,
+   "category": "multi",
+   "language": "en",
+   "why_included": "Recovery technology brand that sells red light products (TheraFace Mask with 648 LEDs, TheraFace Mask Glo), listed among key players in red light market summaries and included in the Who What Wear UK LED mask test.",
+   "evidence_urls": [
+    "https://www.therabody.com/products/theraface-mask",
+    "https://www.therabody.com/blogs/news/theraface-mask-your-most-common-questions-answered",
+    "https://www.grandviewresearch.com/industry-analysis/red-light-therapy-market-report",
+    "https://www.whowhatwear.com/uk/best-led-face-masks"
+   ]
+  },
+  {
+   "id": "walt",
+   "name": "WALT (World Association for Photobiomodulation Therapy)",
+   "cohort": "pbm-science",
+   "country": null,
+   "homepage": "https://waltpbm.org/",
+   "feeds": [],
+   "sitemaps": [],
+   "content_paths": [],
+   "verified": false,
+   "synthetic": false,
+   "category": "association",
+   "language": "en",
+   "why_included": "Leading world association for photobiomodulation therapy, founded in 1994, issuing WALT position papers and holding biennial World Congresses (PBM2024 in London).",
+   "evidence_urls": [
+    "https://waltpbm.org/",
+    "https://waltpbm.org/about-walt/",
+    "https://waltpbm.org/about-walt/history/",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12898000/"
+   ]
+  },
+  {
+   "id": "light-therapy-insiders",
+   "name": "Light Therapy Insiders",
+   "cohort": "pbm-media",
+   "country": null,
+   "homepage": "https://www.lighttherapyinsiders.com/",
+   "feeds": [],
+   "sitemaps": [],
+   "content_paths": [],
+   "verified": false,
+   "synthetic": false,
+   "category": "media",
+   "language": "en",
+   "why_included": "Dedicated red light therapy review and comparison site that surfaced across five separate queries, including a MITO LIGHT Mitohacker 4 review, market trends and Europe and UK guides.",
+   "evidence_urls": [
+    "https://www.lighttherapyinsiders.com/best-reviews-and-comparisons-of-light-therapy-insiders-2026/",
+    "https://www.lighttherapyinsiders.com/red-light-therapy-europe-uk-best-options/",
+    "https://www.lighttherapyinsiders.com/mito-light-mitohacker-4-review/",
+    "https://www.lighttherapyinsiders.com/red-light-therapy-market-trends/"
+   ]
+  },
+  {
+   "id": "red-light-therapy-expert",
+   "name": "Red Light Therapy Expert",
+   "cohort": "pbm-media",
+   "country": null,
+   "homepage": "https://redlighttherapy.expert/",
+   "feeds": [],
+   "sitemaps": [],
+   "content_paths": [],
+   "verified": false,
+   "synthetic": false,
+   "category": "media",
+   "language": "en",
+   "why_included": "Dedicated red light therapy review site with a UK focused best-of guide returned for the Europe and UK devices query.",
+   "evidence_urls": [
+    "https://redlighttherapy.expert/best-red-light-therapy-uk/"
+   ]
+  },
+  {
+   "id": "stackingyears",
+   "name": "Stacking Years",
+   "cohort": "pbm-media",
+   "country": null,
+   "homepage": "https://www.stackingyears.com/",
+   "feeds": [],
+   "sitemaps": [],
+   "content_paths": [
+    "/blog"
+   ],
+   "verified": false,
+   "synthetic": false,
+   "category": "media",
+   "language": "en",
+   "why_included": "Biohacking oriented review blog whose 2026 posts rank Joovv, PlatinumLED and Mito and compare panels, masks and belts, returned for two separate best-brand queries.",
+   "evidence_urls": [
+    "https://www.stackingyears.com/blog/best-red-light-therapy-device-2026",
+    "https://www.stackingyears.com/blog/best-red-light-therapy-devices-2026"
+   ]
+  },
+  {
+   "id": "outliyr",
+   "name": "Outliyr",
+   "cohort": "pbm-media",
+   "country": null,
+   "homepage": "https://outliyr.com/",
+   "feeds": [],
+   "sitemaps": [],
+   "content_paths": [],
+   "verified": false,
+   "synthetic": false,
+   "category": "media",
+   "language": "en",
+   "why_included": "Review site whose Joovv review and best Joovv alternatives pages were returned for several separate best-brand queries, though its editorial independence is unverified.",
+   "evidence_urls": [
+    "https://outliyr.com/best-joovv-alternatives",
+    "https://outliyr.com/joovv-review"
+   ]
+  },
+  {
+   "id": "wareable",
+   "name": "Wareable",
+   "cohort": "pbm-media",
+   "country": null,
+   "homepage": "https://www.wareable.com/",
+   "feeds": [],
+   "sitemaps": [],
+   "content_paths": [],
+   "verified": false,
+   "synthetic": false,
+   "category": "media",
+   "language": "en",
+   "why_included": "Independent tech review site with a dedicated red light therapy tag, several 2026 panel and full-body device roundups and a Mito Red Light review, though red light is only one of its topics.",
+   "evidence_urls": [
+    "https://www.wareable.com/health-tech/best-red-light-therapy-panels",
+    "https://www.wareable.com/health-tech/best-full-body-red-light-therapy-devices",
+    "https://www.wareable.com/tag/red-light-therapy/page/2",
+    "https://www.wareable.com/health-tech/mito-red-light-therapy-review"
+   ]
+  },
+  {
+   "id": "mito-light",
+   "name": "MITO LIGHT",
+   "cohort": "pbm-cz-sk",
+   "country": "CZ",
+   "homepage": "https://www.mitolight.cz/",
+   "feeds": [],
+   "sitemaps": [],
+   "content_paths": [
+    "/blog/"
+   ],
+   "verified": false,
+   "synthetic": false,
+   "category": "panel",
+   "language": "cs",
+   "why_included": "The target brand itself: Czech Republic based red light and infrared panel brand, self-described as the first to introduce the therapy in Czechia, with a Czech shop, guides and blog and nearly 400 Trustpilot reviews for its Europe storefront.",
+   "evidence_urls": [
+    "https://www.mitolight.cz/",
+    "https://www.mitolight.cz/o-nas/",
+    "https://www.mitolight.cz/blog/zdravejsi-a-hladsi-plet-diky-vyuziti-svetla/",
+    "https://www.mitolight.cz/jak-funguje-terapie-cervenym-a-infracervenym-svetlem/",
+    "https://ca.trustpilot.com/review/mitolight.com",
+    "https://www.heureka.cz/znacky/mito-light/"
+   ]
+  }
+ ]
+}

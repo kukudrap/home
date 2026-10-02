@@ -30,7 +30,8 @@ class TacticCatalogueTests(unittest.TestCase):
     def test_every_driver_is_valid_and_every_driver_is_used(self):
         used = {t.driver for t in TACTICS.values()}
         self.assertTrue(used <= set(DRIVERS), used - set(DRIVERS))
-        self.assertEqual(set(DRIVERS) - used, set())
+        # "claim" is the driver of the claim topics a vertical adds (see tests/test_verticals.py), not of the built-in catalogue
+        self.assertEqual(set(DRIVERS) - {"claim"} - used, set())
 
     def test_names_and_summaries_exist_in_both_languages(self):
         for t in TACTICS.values():

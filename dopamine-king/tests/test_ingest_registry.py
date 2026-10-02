@@ -51,7 +51,8 @@ class SeedFileTests(unittest.TestCase):
         self.assertEqual(len({b.id for b in self.brands}), len(self.brands))
 
     def test_every_cohort_is_represented(self):
-        by_cohort = {c: [b for b in self.brands if b.cohort == c] for c in COHORTS}
+        # vertical cohorts (pbm-*) have their own registry in data/verticals, see tests/test_verticals.py
+        by_cohort = {c: [b for b in self.brands if b.cohort == c] for c in COHORTS if not c.startswith("pbm-")}
         for cohort, rows in by_cohort.items():
             with self.subTest(cohort=cohort):
                 self.assertGreaterEqual(len(rows), 5)

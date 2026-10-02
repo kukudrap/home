@@ -16,11 +16,11 @@ DESIGNS = (
     "meta-analysis", "systematic-review", "rct", "field-experiment", "lab-experiment",
     "observational", "survey", "theory", "qualitative", "book", "preprint", "guideline", "unknown",
 )
-SOURCES = ("seed", "openalex", "crossref", "arxiv")
+SOURCES = ("seed", "openalex", "crossref", "arxiv", "pubmed")
 DIRECTIONS = ("supports", "mixed", "contradicts", "context")
 DRIVERS = (
     "curiosity", "surprise", "emotion", "relevance", "utility", "fluency",
-    "integrity", "game", "geo", "testing", "structure",
+    "integrity", "game", "geo", "testing", "structure", "claim",
 )
 CONFIDENCES = ("low", "medium", "high")
 GRADES = ("A", "B", "C", "D")
@@ -148,18 +148,20 @@ def format_author(name: str | None) -> str | None:
 
 def make_study_id(
     *, doi: str | None = None, arxiv_id: str | None = None,
-    openalex_id: str | None = None, slug: str | None = None,
+    openalex_id: str | None = None, pmid: str | None = None, slug: str | None = None,
 ) -> str:
-    """Stable id with the documented priority: doi, arxiv, openalex, seed slug."""
+    """Stable id with the documented priority: doi, arxiv, openalex, pubmed id, seed slug."""
     if doi:
         return f"doi:{doi.lower()}"
     if arxiv_id:
         return f"arxiv:{arxiv_id}"
     if openalex_id:
         return f"oa:{openalex_id}"
+    if pmid:
+        return f"pmid:{pmid}"
     if slug:
         return f"seed:{slug}"
-    raise ValueError("a study id needs a doi, arxiv id, openalex id or slug")
+    raise ValueError("a study id needs a doi, arxiv id, openalex id, pubmed id or slug")
 
 
 def fold(text: str | None) -> str:

@@ -219,7 +219,8 @@ def validate_google_rsa(draft: Draft) -> list[Issue]:
     if len(bangs) > RSA_MAX_EXCLAMATION_HEADLINES:
         issues.append(Issue("warn", "EXCLAMATION_LIMIT", f"{len(bangs)} headlines use an exclamation mark, keep it to {RSA_MAX_EXCLAMATION_HEADLINES} at most."))
     for s, t in {**heads, **descs}.items():
-        if len(caps_words(t)) >= 1 and len(caps_words(t)) >= len(t.split()) / 2:
+        brand = draft.meta.get("brand")
+        if len(caps_words(t, brand)) >= 1 and len(caps_words(t, brand)) >= len(t.split()) / 2:
             issues.append(Issue("warn", "ALL_CAPS", "Avoid words in all capitals.", s))
     issues += claim_issues(draft, {**heads, **descs})
     return issues
@@ -380,7 +381,7 @@ _SPAM_WORDS_RE = re.compile("|".join((
 )))
 
 
-def subject_problems(subject: str) -> list[str]:
+def subject_problems(subject: str, brand: str | None = None) -> list[str]:
     """Deceptive or spammy patterns in a subject line (RE:/FWD: tricks, shouting, repeated punctuation)."""
     s = strip_placeholders(subject).strip()
     out = []
@@ -388,7 +389,7 @@ def subject_problems(subject: str) -> list[str]:
         out.append("fake reply or forward prefix")
     if s.count("!") >= 2 or re.search(r"[!?]{2,}", s):
         out.append("repeated exclamation or question marks")
-    if any(len(w) >= 4 for w in caps_words(s)) or len(caps_words(s)) >= 2:
+    if any(len(w) >= 4 for w in caps_words(s, brand)) or len(caps_words(s, brand)) >= 2:
         out.append("words in ALL CAPS")
     return out
 
@@ -440,7 +441,7 @@ def validate_email_subject_set(draft: Draft) -> list[Issue]:
         check_limit(issues, t, EMAIL_SUBJECT_MAX, key)
         if not t:
             continue
-        for problem in subject_problems(t):
+        for problem in subject_problems(t, draft.meta.get("brand")):
             issues.append(Issue("error", "DECEPTIVE_SUBJECT", f"Deceptive or spammy subject: {problem}.", key))
         if _SPAM_WORDS_RE.search(fold(t).lower()):
             issues.append(Issue("warn", "SPAM_WORDS", "Contains words that trigger spam filters.", key))

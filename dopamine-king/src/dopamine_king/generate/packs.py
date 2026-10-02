@@ -123,6 +123,37 @@ def _dedupe(issues: Sequence[Issue]) -> list[Issue]:
     return out
 
 
+def finalize_draft(draft: Draft, brief: Brief) -> Draft:
+    """Claims profile: long-form drafts about using a light device end with a safety note.
+
+    The brand's own text (``brief.safety_note``) is judged like any other copy; the vertical's template
+    footer is pre-approved and marked exempt, because its job is to say what the device is not.
+    """
+    from . import claims
+
+    profile = claims.profile_for(brief)
+    if profile is None or draft.format not in profile.long_form or draft.parts.get("safety_note"):
+        return draft
+    own = (brief.safety_note or "").strip()
+    footer = own or str(profile.footer.get(brief.lang) or profile.footer.get("en") or "").strip()
+    if not footer:
+        return draft
+    draft.body = draft.body.rstrip() + "\n\n" + footer
+    draft.parts["safety_note"] = footer
+    if not own:
+        draft.parts["guard_exempt"] = [*draft.parts.get("guard_exempt", []), footer]
+    return draft
+
+
+def safe_candidates(candidates: Sequence[Any], brief: Brief, shield: Any) -> list[Any]:
+    """Drop hook candidates that the claims profile would block (a hook must pass before it is offered)."""
+    from . import claims
+
+    if claims.profile_for(brief) is None:
+        return list(candidates)
+    return [c for c in candidates if not any(i.severity == "error" for i in shield.check(c.text, brief))]
+
+
 def check_draft(draft: Draft, brief: Brief, *, shield: Any = None, ledger: Any = None) -> list[Issue]:
     """Format validator + Trust Shield (+ SEO quality gate for articles)."""
     from . import formats as registry
@@ -203,7 +234,7 @@ def build_pack(
 
     writer = writer or OfflineWriter()
     shield = TrustShield(ledger)
-    candidates = generate_hooks(brief, n=n_hooks)
+    candidates = safe_candidates(generate_hooks(brief, n=n_hooks), brief, shield)
     items: list[PackItem] = []
     errors: list[str] = []
     for fid in (formats or DEFAULT_FORMATS):
@@ -214,7 +245,7 @@ def build_pack(
             continue
         skeleton = _build_with_fitting_hook(spec, brief, candidates, (options or {}).get(fid))
         fills = writer.fill(skeleton, brief)
-        draft = skeleton.render(fills)
+        draft = finalize_draft(skeleton.render(fills), brief)
         issues = check_draft(draft, brief, shield=shield)
         rounds = 0
         reviser = getattr(writer, "revise", None)
@@ -223,7 +254,7 @@ def build_pack(
             if not feedback:
                 break
             fills = reviser(skeleton, brief, fills, feedback)
-            draft = skeleton.render(fills)
+            draft = finalize_draft(skeleton.render(fills), brief)
             issues = check_draft(draft, brief, shield=shield)
             rounds += 1
         hs = score_hook(draft.hook, lang=brief.lang)
@@ -254,6 +285,7 @@ def build_pack(
         "warnings": sum(1 for i in items for x in i.issues if x["severity"] == "warn"),
         "open_slots": sum(len(i.slots_open) for i in items),
         "verdicts": {v: sum(1 for i in items if i.verdict == v) for v in ("ok", "review", "blocked")},
+        "claims_profile": brief.claims_profile,
     }
     return Pack(brief.to_dict(), getattr(writer, "name", "custom"), datetime.now(timezone.utc).isoformat(timespec="seconds"),
                 items, summary, errors)

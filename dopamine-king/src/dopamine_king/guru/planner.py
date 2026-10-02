@@ -149,10 +149,23 @@ def _fallback_hooks(brief: Brief, n: int) -> list[str]:
     return [pool[i % len(pool)] + ("" if i < len(pool) else f" ({i // len(pool) + 1})") for i in range(n)]
 
 
+def _strategy_for(brief: Brief) -> dict[str, Any]:
+    """The strategy file of the brief's vertical (pillar wording, hypotheses, queries), or nothing."""
+    if not brief.vertical:
+        return {}
+    try:
+        from ..verticals import load_vertical
+        return load_vertical(brief.vertical).strategy()
+    except Exception:
+        return {}
+
+
 def _hooks(brief: Brief, n: int) -> list[str]:
     try:
+        from ..generate.guard import TrustShield
         from ..generate.hooks import generate_hooks
-        found = [h.text for h in generate_hooks(brief, n=n)]
+        from ..generate.packs import safe_candidates
+        found = [h.text for h in safe_candidates(generate_hooks(brief, n=n * 2), brief, TrustShield())]
     except Exception:
         found = []
     if len(found) < n:
@@ -173,13 +186,17 @@ def _queries(brief: Brief, n: int = 10) -> list[str]:
 
 def build_plan(
     brief: Brief, *, weeks: int = 4, posts_per_week: int = 5, channels: list[str] | None = None,
-    baseline_ctr: float = 0.03, mde_rel: float = 0.2,
+    baseline_ctr: float = 0.03, mde_rel: float = 0.2, strategy: dict[str, Any] | None = None,
 ) -> Plan:
     cs = brief.lang == "cs"
     b2b = _is_b2b(brief)
     needs: list[str] = []
+    strategy = strategy if strategy is not None else _strategy_for(brief)
+    pillar_defs = {pid: {**PILLARS[pid], **strategy.get("pillars", {}).get(pid, {})} for pid in PILLARS}
+    hypotheses = [(h["en"], h["cs"], h["metric"]) for h in strategy.get("hypotheses", [])] or HYPOTHESES
 
-    weights = {c: 1 for c in channels} if channels else dict(B2B_WEIGHTS if b2b else B2C_WEIGHTS)
+    base_weights = strategy.get("channel_weights") or (B2B_WEIGHTS if b2b else B2C_WEIGHTS)
+    weights = {c: 1 for c in channels} if channels else dict(base_weights)
     if not channels:
         if brief.cohort in VISUAL_COHORTS:
             weights["pinterest"] = 1
@@ -196,12 +213,15 @@ def build_plan(
 
     shares = PILLAR_SHARE.get(brief.goal, PILLAR_SHARE["awareness"])
     pillar_counts = _largest_remainder(shares, slots_total)
-    pillars = [{"id": pid, "name_en": PILLARS[pid]["name_en"], "name_cs": PILLARS[pid]["name_cs"], "share": shares[pid],
-                "angles": PILLARS[pid]["angles_cs" if cs else "angles_en"], "angles_en": PILLARS[pid]["angles_en"],
-                "angles_cs": PILLARS[pid]["angles_cs"]} for pid in shares]
+    pillars = [{"id": pid, "name_en": pillar_defs[pid]["name_en"], "name_cs": pillar_defs[pid]["name_cs"], "share": shares[pid],
+                "angles": pillar_defs[pid]["angles_cs" if cs else "angles_en"], "angles_en": pillar_defs[pid]["angles_en"],
+                "angles_cs": pillar_defs[pid]["angles_cs"]} for pid in shares]
     if not brief.facts:
-        needs.append("Add 3 first-party facts (numbers, results, customer outcomes) so the Prove pillar has real material." if not cs
-                     else "Přidejte 3 vlastní fakta (čísla, výsledky, výsledky zákazníků), aby měl pilíř Dokaž skutečný materiál.")
+        if strategy.get("needs_facts"):
+            needs.append(strategy["needs_facts"]["cs" if cs else "en"])
+        else:
+            needs.append("Add 3 first-party facts (numbers, results, customer outcomes) so the Prove pillar has real material." if not cs
+                         else "Přidejte 3 vlastní fakta (čísla, výsledky, výsledky zákazníků), aby měl pilíř Dokaž skutečný materiál.")
     if not brief.sources:
         needs.append("Add 2 to 3 vetted sources (studies, standards) for citations in articles." if not cs
                      else "Přidejte 2 až 3 prověřené zdroje (studie, normy) pro citace v článcích.")
@@ -242,9 +262,9 @@ def build_plan(
     n_arm = sample_size_per_arm(baseline_ctr, mde_rel)
     for w in range(weeks):
         first = next(e for e in calendar if e["week"] == w + 1)
-        h_en, h_cs, metric = HYPOTHESES[w % len(HYPOTHESES)]
+        h_en, h_cs, metric = hypotheses[w % len(hypotheses)]
         first["experiment"] = {"hypothesis": h_cs if cs else h_en, "variant_b": hooks[slots_total + w], "metric": metric}
-    for idx, (h_en, h_cs, metric) in enumerate(HYPOTHESES):
+    for idx, (h_en, h_cs, metric) in enumerate(hypotheses):
         experiments.append({
             "id": f"e{idx + 1}", "hypothesis_en": h_en, "hypothesis_cs": h_cs, "metric": metric,
             "baseline": baseline_ctr, "mde_rel": mde_rel, "n_per_arm": n_arm,
@@ -257,7 +277,7 @@ def build_plan(
              "target_rule_cs": "Zlepšit o 10 procent proti vlastnímu předchozímu čtyřtýdennímu základu, potom základ přepočítat.",
              "primary": g == brief.goal} for g in KPI_BY_GOAL]
 
-    queries = _queries(brief)
+    queries = list(strategy.get("queries", {}).get(brief.lang, [])) or _queries(brief)
     geo = {
         "queries": queries,
         "tasks_en": [
@@ -287,6 +307,8 @@ def build_plan(
         "Označte sponzorovaný obsah a dodržujte pravidla platforem a EU pro obsah vytvořený AI nebo syntetická média; nejde o právní radu.",
         "Před publikací ověřte limity a pravidla platforem; mění se.",
     ]
+    guardrails_en = strategy.get("guardrails_en", []) + guardrails_en
+    guardrails_cs = strategy.get("guardrails_cs", []) + guardrails_cs
     positioning = (
         f"{brief.brand} | {'Publikum' if cs else 'Audience'}: {brief.audience} | {'Téma' if cs else 'Topic'}: {brief.topic} | "
         f"{'Slib' if cs else 'Promise'}: {brief.offer or ('[[DOPLŇTE jednu větu slibu]]' if cs else '[[ADD one sentence promise]]')} | "

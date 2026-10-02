@@ -1,0 +1,122 @@
+{
+ "version": 1,
+ "myths": [
+  {
+   "id": "pm-tanning",
+   "answer": "myth",
+   "ref": "Electromagnetic spectrum; check your device's specification",
+   "en": "Red light therapy is the same thing as a tanning bed.",
+   "cs": "Terapie červeným světlem je totéž co solárium.",
+   "why_en": "Tanning beds emit ultraviolet radiation, which damages skin. Red and near-infrared LEDs sit at longer wavelengths and a light panel is built without UV, but check the specification of the device you use.",
+   "why_cs": "Solária vyzařují ultrafialové záření, které kůži poškozuje. Červené a blízké infračervené LED mají delší vlnové délky a světelný panel je navržen bez UV, ale ověřte si specifikaci svého zařízení."
+  },
+  {
+   "id": "pm-more",
+   "answer": "myth",
+   "ref": "Dose response in photobiomodulation research (to be verified in the ledger)",
+   "en": "More light is always better, so double the time and you double the effect.",
+   "cs": "Víc světla je vždy lepší, takže dvojnásobná doba znamená dvojnásobný účinek.",
+   "why_en": "Many laboratory studies describe a dose response where too little light does nothing and too much may weaken the effect. How well this carries over to home panels is debated, so follow the manufacturer's manual.",
+   "why_cs": "Mnoho laboratorních studií popisuje závislost na dávce, při které příliš málo světla nedělá nic a příliš mnoho může účinek oslabit. Nakolik to platí pro domácí panely, je sporné, proto se řiďte návodem výrobce."
+  },
+  {
+   "id": "pm-treatment",
+   "answer": "myth",
+   "ref": "Regulatory status of wellness devices; see docs/07",
+   "en": "A home red light panel is a proven treatment for pain and other diseases.",
+   "cs": "Domácí panel s červeným světlem je ověřená léčba bolesti a dalších nemocí.",
+   "why_en": "Some clinical studies test specific medical devices and protocols, but that does not turn a wellness panel into a treatment. A non-medical device may not be marketed as treating, relieving or preventing any disease.",
+   "why_cs": "Některé klinické studie zkoumají konkrétní zdravotnické prostředky a postupy, ale z wellness panelu to léčbu neudělá. Nezdravotnický přístroj nesmí být propagován jako léčba, zmírnění ani prevence jakékoli nemoci."
+  },
+  {
+   "id": "pm-nir-eyes",
+   "answer": "myth",
+   "ref": "Manufacturer eye-safety guidance; photobiological safety standards",
+   "en": "Near-infrared light is invisible, so it cannot hurt your eyes.",
+   "cs": "Blízké infračervené světlo je neviditelné, takže oku uškodit nemůže.",
+   "why_en": "Invisible does not mean harmless. Your eyes cannot judge how bright near-infrared light is, so never stare into bright LEDs and follow the eye protection advice in the manual.",
+   "why_cs": "Neviditelné neznamená neškodné. Oko neumí posoudit, jak jasné je blízké infračervené světlo, proto se nedívejte do jasných LED a řiďte se radami k ochraně očí v návodu."
+  },
+  {
+   "id": "pm-watts",
+   "answer": "myth",
+   "ref": "Basic photometry: electrical power is not light output",
+   "en": "The watts on the box tell you how strong the light is.",
+   "cs": "Watty uvedené na krabici říkají, jak silné světlo je.",
+   "why_en": "Watts describe electricity drawn, not light delivered. What matters for comparison is irradiance (mW/cm2) at a stated distance, ideally measured by someone independent.",
+   "why_cs": "Watty popisují odebranou elektřinu, ne dodané světlo. Pro srovnání je důležité ozáření (mW/cm2) při uvedené vzdálenosti, nejlépe změřené někým nezávislým."
+  },
+  {
+   "id": "pm-guarantee",
+   "answer": "myth",
+   "ref": "Consumer protection and advertising rules (see docs/07)",
+   "en": "Honest marketing can promise visible results within two weeks.",
+   "cs": "Poctivý marketing může slíbit viditelné výsledky do dvou týdnů.",
+   "why_en": "Results differ between people and between studies, so a time-boxed promise cannot be backed up. Describe a routine and what research says, not a guaranteed outcome.",
+   "why_cs": "Výsledky se liší mezi lidmi i mezi studiemi, takže slib s termínem nelze doložit. Popište rutinu a to, co říká výzkum, ne zaručený výsledek."
+  },
+  {
+   "id": "pm-whole",
+   "answer": "myth",
+   "ref": "Alvarez-Martinez and Borden, 2025",
+   "en": "Whole-body red light panels are proven to speed up recovery after training.",
+   "cs": "Celotělové panely s červeným světlem prokazatelně urychlují regeneraci po tréninku.",
+   "why_en": "A 2025 systematic review of five studies on whole-body red or near-infrared light found no reported benefit on fatigue markers or performance. Few studies, so the question stays open, but 'proven' is far too strong.",
+   "why_cs": "Systematický přehled z roku 2025 s pěti studiemi o celotělovém červeném nebo blízkém infračerveném světle neuvedl žádný přínos pro ukazatele únavy ani výkon. Studií je málo, otázka zůstává otevřená, ale slovo 'prokazatelně' je příliš silné."
+  },
+  {
+   "id": "pm-recovery-mixed",
+   "answer": "fact",
+   "ref": "Nampo et al., 2016; Leal-Junior et al., 2015; Alvarez-Martinez and Borden, 2025",
+   "en": "Studies of red or near-infrared light for recovery after exercise give mixed results.",
+   "cs": "Studie červeného nebo blízkého infračerveného světla pro regeneraci po cvičení dávají nejednotné výsledky.",
+   "why_en": "Some analyses report lower soreness scores or lower creatine kinase, others find little difference, and whole-body studies reported no benefit. Many trials are small and protocols differ.",
+   "why_cs": "Některé analýzy uvádějí nižší bolestivost nebo nižší kreatinkinázu, jiné nacházejí malý rozdíl a celotělové studie nehlásily žádný přínos. Mnoho studií je malých a protokoly se liší."
+  },
+  {
+   "id": "pm-endurance",
+   "answer": "fact",
+   "ref": "Dutra et al., 2022; Li et al., 2024",
+   "en": "Meta-analyses of light applied before exercise report small to modest gains in muscle endurance in healthy adults.",
+   "cs": "Metaanalýzy světla aplikovaného před cvičením uvádějí u zdravých dospělých malé až střední zlepšení svalové vytrvalosti.",
+   "why_en": "Pooled effects were modest (around 0.3 standard deviations), appeared for some exercise types only, and differed by activity level. It is a hedged 'may', never a promise.",
+   "why_cs": "Souhrnné efekty byly mírné (kolem 0,3 směrodatné odchylky), objevily se jen u některých typů cvičení a lišily se podle úrovně aktivity. Je to opatrné 'může', nikdy slib."
+  },
+  {
+   "id": "pm-wrinkles",
+   "answer": "myth",
+   "ref": "Small controlled trials of LED skin treatment (to be verified in the ledger)",
+   "en": "Red light removes wrinkles.",
+   "cs": "Červené světlo odstraní vrásky.",
+   "why_en": "Some small trials report modest improvements in the look of fine lines and skin roughness after regular sessions. Results vary and no panel removes wrinkles, so use hedged, appearance-only wording.",
+   "why_cs": "Některé malé studie uvádějí mírné zlepšení vzhledu jemných linek a hrubosti pleti po pravidelných sezeních. Výsledky se liší a žádný panel vrásky neodstraní, proto používejte opatrné formulace týkající se jen vzhledu."
+  },
+  {
+   "id": "pm-hormones",
+   "answer": "myth",
+   "ref": "No verified evidence in the ledger",
+   "en": "Shining red light on the body is a proven way to raise testosterone.",
+   "cs": "Svícení červeným světlem na tělo je prokázaný způsob, jak zvýšit testosteron.",
+   "why_en": "Claims like this circulate online, but we found no verified evidence for them, and hormone claims are outside what a wellness device may say.",
+   "why_cs": "Taková tvrzení kolují na internetu, ale nenašli jsme pro ně žádné ověřené důkazy a tvrzení o hormonech jsou mimo to, co smí wellness přístroj říkat."
+  },
+  {
+   "id": "pm-claims-evidence",
+   "answer": "fact",
+   "ref": "Evidence ledger and claims map",
+   "en": "A claim can be common in the industry and still be off limits for your product.",
+   "cs": "Tvrzení může být v oboru běžné a přesto pro váš produkt zakázané.",
+   "why_en": "What you may say depends on your product's regulatory status and on the evidence, not on what competitors write. The claims map shows both.",
+   "why_cs": "Co smíte říct, závisí na regulatorním statusu vašeho produktu a na důkazech, ne na tom, co píší konkurenti. Mapa tvrzení ukazuje obojí."
+  },
+  {
+   "id": "pm-footer",
+   "answer": "myth",
+   "ref": "Good practice for light devices; see the manual",
+   "en": "A safety note at the end of an article is optional.",
+   "cs": "Bezpečnostní upozornění na konci článku je volitelné.",
+   "why_en": "Content about using a light device should say how to use it safely: protect your eyes, follow the manual, and talk to a doctor if you are pregnant or take light-sensitising medicine.",
+   "why_cs": "Obsah o používání světelného přístroje má říkat, jak ho používat bezpečně: chraňte si oči, řiďte se návodem a při těhotenství nebo užívání léků zvyšujících citlivost na světlo se poraďte s lékařem."
+  }
+ ]
+}

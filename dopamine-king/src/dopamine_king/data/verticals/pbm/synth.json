@@ -1,0 +1,447 @@
+{
+ "note": "Fictional brands and simulated engagement. Nothing here describes a real company. Topics avoid medical claims on purpose.",
+ "brands": {
+  "pbm-home-devices": [
+   "Redmoor Light",
+   "Photaris Home",
+   "Lumivane"
+  ],
+  "pbm-skin-led": [
+   "Glowmere Skin",
+   "Aeolux Labs",
+   "Veliora"
+  ],
+  "pbm-recovery-sport": [
+   "Ironhaven Recovery",
+   "Stridecore",
+   "Peakrest"
+  ],
+  "pbm-media": [
+   "Panel Compass",
+   "Lightbench Reviews",
+   "The Spectrum Desk"
+  ],
+  "pbm-cz-sk": [
+   "Rudá Záře",
+   "Červánek",
+   "Světlík",
+   "Paprsek Lab"
+  ]
+ },
+ "platforms": {
+  "pbm-home-devices": [
+   [
+    "instagram",
+    "post"
+   ],
+   [
+    "youtube",
+    "video"
+   ]
+  ],
+  "pbm-skin-led": [
+   [
+    "instagram",
+    "post"
+   ],
+   [
+    "tiktok",
+    "short"
+   ]
+  ],
+  "pbm-recovery-sport": [
+   [
+    "instagram",
+    "post"
+   ],
+   [
+    "youtube",
+    "video"
+   ]
+  ],
+  "pbm-media": [
+   [
+    "blog",
+    "article"
+   ],
+   [
+    "youtube",
+    "video"
+   ]
+  ],
+  "pbm-cz-sk": [
+   [
+    "instagram",
+    "post"
+   ],
+   [
+    "blog",
+    "article"
+   ]
+  ]
+ },
+ "topics_en": {
+  "pbm-home-devices": [
+   "red light panels",
+   "near-infrared panels",
+   "panel distance and timing",
+   "evening light routines",
+   "light panel specs",
+   "home light routines"
+  ],
+  "pbm-skin-led": [
+   "LED face masks",
+   "red light skincare",
+   "LED mask sessions",
+   "light skincare routines",
+   "LED wands"
+  ],
+  "pbm-recovery-sport": [
+   "recovery routines",
+   "post-workout recovery",
+   "training recovery",
+   "sleep and training",
+   "warm-up routines",
+   "mobility routines"
+  ],
+  "pbm-media": [
+   "panel reviews",
+   "panel comparisons",
+   "buying a light panel",
+   "panel specifications",
+   "red light myths"
+  ]
+ },
+ "topics_cs": [
+  {
+   "t": "červené světlo",
+   "g": "červeného světla",
+   "a": "červené světlo",
+   "l": "červeném světle"
+  },
+  {
+   "t": "světelný panel",
+   "g": "světelného panelu",
+   "a": "světelný panel",
+   "l": "světelném panelu"
+  },
+  {
+   "t": "regenerace po tréninku",
+   "g": "regenerace po tréninku",
+   "a": "regeneraci po tréninku",
+   "l": "regeneraci po tréninku"
+  },
+  {
+   "t": "večerní světelná rutina",
+   "g": "večerní světelné rutiny",
+   "a": "večerní světelnou rutinu",
+   "l": "večerní světelné rutině"
+  },
+  {
+   "t": "fotobiomodulace",
+   "g": "fotobiomodulace",
+   "a": "fotobiomodulaci",
+   "l": "fotobiomodulaci"
+  },
+  {
+   "t": "výběr panelu",
+   "g": "výběru panelu",
+   "a": "výběr panelu",
+   "l": "výběru panelu"
+  }
+ ],
+ "cs_cohorts": [
+  "pbm-cz-sk"
+ ],
+ "country": {
+  "pbm-cz-sk": "CZ"
+ },
+ "long_tail_en": " in a way that fits every schedule, every room and every lifestyle in the world",
+ "long_tail_cs": " tak, aby to sedělo každému rozvrhu, každé místnosti a každému životnímu stylu na světě",
+ "templates_en": [
+  [
+   "{N} mistakes people make with {t}",
+   [
+    "number",
+    "curiosity"
+   ]
+  ],
+  [
+   "{N} simple tips for {t}",
+   [
+    "number",
+    "practical"
+   ]
+  ],
+  [
+   "{N} questions to ask about {t}",
+   [
+    "number",
+    "practical",
+    "second"
+   ]
+  ],
+  [
+   "{N} things we wish we knew about {t}",
+   [
+    "number",
+    "curiosity",
+    "emotion"
+   ]
+  ],
+  [
+   "{N} myths about {t}",
+   [
+    "number",
+    "contrast"
+   ]
+  ],
+  [
+   "Is {t} worth your time?",
+   [
+    "question"
+   ]
+  ],
+  [
+   "Should you rethink {t}?",
+   [
+    "question",
+    "second"
+   ]
+  ],
+  [
+   "What nobody explains about {t}",
+   [
+    "curiosity",
+    "second"
+   ]
+  ],
+  [
+   "The overlooked detail in {t}",
+   [
+    "curiosity"
+   ]
+  ],
+  [
+   "Why most {t} advice falls flat",
+   [
+    "curiosity",
+    "contrast"
+   ]
+  ],
+  [
+   "Stop overcomplicating {t}",
+   [
+    "contrast"
+   ]
+  ],
+  [
+   "{t}: myths worth retiring",
+   [
+    "contrast"
+   ]
+  ],
+  [
+   "We love talking about {t}",
+   [
+    "emotion"
+   ]
+  ],
+  [
+   "Questions about {t}, answered",
+   [
+    "second"
+   ]
+  ],
+  [
+   "Everything to know about {t}",
+   [
+    "second"
+   ]
+  ],
+  [
+   "How to start with {t}",
+   [
+    "practical"
+   ]
+  ],
+  [
+   "A beginner guide to {t}",
+   [
+    "practical"
+   ]
+  ],
+  [
+   "{t}: a practical checklist",
+   [
+    "practical"
+   ]
+  ],
+  [
+   "Why athletes and creators talk about {t}",
+   [
+    "social"
+   ]
+  ],
+  [
+   "Our Q3 update on {t}",
+   [
+    "boring"
+   ]
+  ],
+  [
+   "Introducing our new {t} range",
+   [
+    "boring"
+   ]
+  ],
+  [
+   "{t} news and announcements",
+   [
+    "boring"
+   ]
+  ],
+  [
+   "Company update: {t}",
+   [
+    "boring"
+   ]
+  ],
+  [
+   "A message from our CEO on {t}",
+   [
+    "boring"
+   ]
+  ],
+  [
+   "You won't believe what happened with {t}!!!",
+   [
+    "clickbait"
+   ]
+  ],
+  [
+   "This one trick changes everything about {t}",
+   [
+    "clickbait"
+   ]
+  ],
+  [
+   "Shocking {t} secrets revealed!!!",
+   [
+    "clickbait",
+    "curiosity"
+   ]
+  ]
+ ],
+ "templates_cs": [
+  [
+   "{N} chyb, které lidé dělají u {g}",
+   [
+    "number",
+    "curiosity"
+   ]
+  ],
+  [
+   "{N} otázek, které si položit o {l}",
+   [
+    "number",
+    "practical",
+    "second"
+   ]
+  ],
+  [
+   "{N} mýtů o {l}",
+   [
+    "number",
+    "contrast"
+   ]
+  ],
+  [
+   "Vyplatí se {t}?",
+   [
+    "question"
+   ]
+  ],
+  [
+   "Pravda o {l}",
+   [
+    "curiosity"
+   ]
+  ],
+  [
+   "Co vám nikdo nevysvětlí o {l}",
+   [
+    "curiosity",
+    "second"
+   ]
+  ],
+  [
+   "Přestaňte zbytečně komplikovat {a}",
+   [
+    "contrast"
+   ]
+  ],
+  [
+   "Mýty o {l}, které si zaslouží odpočinek",
+   [
+    "contrast"
+   ]
+  ],
+  [
+   "Proč o {l} mluví sportovci i tvůrci",
+   [
+    "social"
+   ]
+  ],
+  [
+   "Milujeme {a}",
+   [
+    "emotion"
+   ]
+  ],
+  [
+   "Váš průvodce: {t}",
+   [
+    "second",
+    "practical"
+   ]
+  ],
+  [
+   "Jak na {a}",
+   [
+    "practical"
+   ]
+  ],
+  [
+   "Průvodce pro začátečníky: {t}",
+   [
+    "practical"
+   ]
+  ],
+  [
+   "Naše novinky: {t} ve třetím čtvrtletí",
+   [
+    "boring"
+   ]
+  ],
+  [
+   "Představujeme naši novou nabídku: {t}",
+   [
+    "boring"
+   ]
+  ],
+  [
+   "Aktuality: {t}",
+   [
+    "boring"
+   ]
+  ],
+  [
+   "Šokující tajemství: {t}!!!",
+   [
+    "clickbait",
+    "curiosity"
+   ]
+  ]
+ ]
+}

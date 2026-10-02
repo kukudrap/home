@@ -443,7 +443,9 @@ class ShieldBehaviourTests(unittest.TestCase):
         order = [{"error": 0, "warn": 1, "info": 2}[i.severity] for i in issues]
         self.assertEqual(order, sorted(order))
         self.assertTrue(set(codes(issues)) <= set(guard.RULE_CODES))
-        self.assertEqual(len(guard.RULE_CODES), 20)
+        # 20 general rules plus the codes of the claims profile (see test_generate_claims)
+        from dopamine_king.generate import claims
+        self.assertEqual(len(guard.RULE_CODES), 20 + len(claims.RULES))
 
     def test_issues_per_code_are_capped(self):
         text = " ".join(f"Studies show that claim number {i} is true." for i in range(12))

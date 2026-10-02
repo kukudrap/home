@@ -105,6 +105,26 @@ def _describe_slot(slot: Slot, current: str | None = None) -> str:
     return head
 
 
+def profile_block(brief: Brief) -> list[str]:
+    """Regulatory profile for the prompt: the vertical's rules and what the claim map allows."""
+    from . import claims
+    from ..verticals import load_vertical
+
+    profile = claims.profile_for(brief)
+    if profile is None:
+        return []
+    vertical = load_vertical(brief.vertical or "pbm")
+    lines = [f"Regulatory profile: {profile.profile} (non-medical product). Follow these rules strictly:"]
+    lines += [f"  {n}. {rule}" for n, rule in enumerate(vertical.writer_rules("en"), 1)]
+    blocked = [t.name_en for t in profile.topics if t.klass in ("medical", "avoid")]
+    careful = [f"{t.name_en} (evidence: {t.label})" for t in profile.topics if t.klass in ("wellness", "cosmetic")]
+    if blocked:
+        lines.append("  Never write about: " + "; ".join(blocked) + ".")
+    if careful:
+        lines.append("  Only with hedged wording and a cited source: " + "; ".join(careful) + ".")
+    return lines
+
+
 def brief_block(brief: Brief) -> str:
     lines = [
         f"Brand: {brief.brand}", f"Topic: {brief.topic}", f"Audience: {brief.audience}", f"Goal: {brief.goal}",
@@ -124,6 +144,7 @@ def brief_block(brief: Brief) -> str:
         lines.append("Avoid: " + ", ".join(brief.avoid))
     if brief.sponsored:
         lines.append("This content is sponsored and must carry a clear disclosure.")
+    lines.extend(profile_block(brief))
     lines.append("Facts you may use (first party, verified by the brand):")
     lines.extend(f"  * {f}" for f in brief.facts) if brief.facts else lines.append("  (none provided: do not invent any)")
     lines.append("Sources you may cite with [[cite:<id>]]:")

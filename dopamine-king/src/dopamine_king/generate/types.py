@@ -36,6 +36,11 @@ class Brief(Serializable):
     # Czech grammar helper: {"gen": ..., "dat": ..., "acc": ..., "loc": ..., "ins": ...} forms of topic.
     topic_forms: dict[str, str] = field(default_factory=dict)
     sponsored: bool = False                      # paid or affiliate content needs a disclosure
+    # Regulated verticals: "general" applies the standard Trust Shield; "wellness" adds the claims profile of the
+    # vertical (non-medical device: no disease, treatment or prevention claims, hedged and sourced benefits).
+    vertical: str | None = None
+    claims_profile: str = "general"
+    safety_note: str | None = None               # the manufacturer's own safety text; replaces the vertical's template
 
     def topic_in(self, case: str) -> str:
         """Topic in a grammatical case when known, else the nominative form."""

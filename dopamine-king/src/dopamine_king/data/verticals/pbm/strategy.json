@@ -1,0 +1,143 @@
+{
+ "version": 1,
+ "note": "Plan wording for the photobiomodulation vertical. Every angle is claim-safe: no disease, treatment, prevention or relief claims, benefits hedged and sourced.",
+ "pillars": {
+  "educate": {
+   "name_en": "Educate: how it works and how to choose",
+   "name_cs": "Vzdělávej: jak to funguje a jak vybrat",
+   "angles_en": [
+    "How photobiomodulation works, in plain words",
+    "How to read a spec sheet: wavelengths, irradiance and distance",
+    "Common mistakes when choosing a panel",
+    "Myth versus fact about red light"
+   ],
+   "angles_cs": [
+    "Jak funguje fotobiomodulace, srozumitelně",
+    "Jak číst technický list: vlnové délky, ozáření a vzdálenost",
+    "Časté chyby při výběru panelu",
+    "Mýtus versus fakt o červeném světle"
+   ]
+  },
+  "prove": {
+   "name_en": "Prove: specs and research, hedged",
+   "name_cs": "Dokaž: parametry a výzkum, opatrně",
+   "angles_en": [
+    "Measured specifications at a stated distance",
+    "What studies say, hedged and cited",
+    "Behind the scenes: development and output testing",
+    "Honest limits: what light panels do not do"
+   ],
+   "angles_cs": [
+    "Změřené parametry při uvedené vzdálenosti",
+    "Co říkají studie, opatrně a s citací",
+    "Zákulisí: vývoj a testování výkonu",
+    "Poctivé limity: co světelné panely nedělají"
+   ]
+  },
+  "story": {
+   "name_en": "Story: people and routines",
+   "name_cs": "Příběh: lidé a rutiny",
+   "angles_en": [
+    "A day with a light routine (first-party, no promises)",
+    "Origin of the brand and where it is developed",
+    "Community routines (with permission)",
+    "Team picks and workshop stories"
+   ],
+   "angles_cs": [
+    "Den se světelnou rutinou (vlastní zkušenost, bez slibů)",
+    "Počátky značky a kde se vyvíjí",
+    "Rutiny komunity (se svolením)",
+    "Tipy týmu a příběhy z dílny"
+   ]
+  },
+  "convert": {
+   "name_en": "Convert: choose and start",
+   "name_cs": "Prodej: vyberte a začněte",
+   "angles_en": [
+    "Which panel size fits which room",
+    "Compare models honestly, at the same measurement distance",
+    "How to start safely in three steps (from the manual)",
+    "Offer terms, only if real and current"
+   ],
+   "angles_cs": [
+    "Která velikost panelu se hodí do jaké místnosti",
+    "Férové srovnání modelů při stejné vzdálenosti měření",
+    "Jak začít bezpečně ve třech krocích (podle návodu)",
+    "Podmínky nabídky, jen pokud jsou skutečné a aktuální"
+   ]
+  }
+ },
+ "channel_weights": {
+  "instagram": 3,
+  "short_video": 3,
+  "blog": 3,
+  "email": 2,
+  "youtube": 1,
+  "facebook": 1
+ },
+ "hypotheses": [
+  {
+   "en": "A question about a routine beats a statement about the device as the opening line",
+   "cs": "Otázka o rutině porazí tvrzení o přístroji jako úvodní řádek",
+   "metric": "CTR"
+  },
+  {
+   "en": "Hooks with a concrete number beat hooks without one",
+   "cs": "Hooky s konkrétním číslem porazí hooky bez čísla",
+   "metric": "CTR"
+  },
+  {
+   "en": "Speaking to the reader (you) beats talking about our panels",
+   "cs": "Oslovení čtenáře (vy) porazí mluvení o našich panelech",
+   "metric": "saves rate"
+  },
+  {
+   "en": "A 'how to choose' headline beats a 'what is photobiomodulation' headline",
+   "cs": "Titulek 'jak vybrat' porazí titulek 'co je fotobiomodulace'",
+   "metric": "CTR"
+  },
+  {
+   "en": "Showing the panel in a real room first beats showing specifications first",
+   "cs": "Ukázat panel ve skutečné místnosti dřív porazí ukázat nejdřív parametry",
+   "metric": "completion rate"
+  }
+ ],
+ "queries": {
+  "cs": [
+   "Co je fotobiomodulace?",
+   "Jak vybrat světelný panel s červeným světlem?",
+   "Jaké vlnové délky mají panely s červeným světlem?",
+   "Čím se liší červené a blízké infračervené světlo?",
+   "Co znamená ozáření v mW/cm2?",
+   "Je červené světlo bezpečné pro oči?",
+   "Jak daleko od panelu stát podle návodu?",
+   "Co říkají studie o červeném světle po cvičení?",
+   "Kdy se před použitím světelného přístroje poradit s lékařem?",
+   "Čím se liší panel s červeným světlem od solária?"
+  ],
+  "en": [
+   "What is photobiomodulation?",
+   "How do I choose a red light panel?",
+   "Which wavelengths do red light panels use?",
+   "What is the difference between red and near-infrared light?",
+   "What does irradiance in mW/cm2 mean?",
+   "Is red light safe for the eyes?",
+   "How far should I stand from a panel according to the manual?",
+   "What do studies say about red light after exercise?",
+   "When should I talk to a doctor before using a light device?",
+   "How is a red light panel different from a tanning bed?"
+  ]
+ },
+ "needs_facts": {
+  "en": "Add the manufacturer's usage figures (time, distance), measured irradiance and the safety text from the manual so content can state them without guessing.",
+  "cs": "Přidejte údaje výrobce o používání (doba, vzdálenost), změřené ozáření a bezpečnostní text z návodu, aby je obsah mohl uvést bez odhadování."
+ },
+ "guardrails_en": [
+  "Claims profile: every piece passes the Trust Shield for a non-medical device. No diagnosis, treatment, prevention or relief of any disease, condition or symptom; benefits only hedged and sourced.",
+  "Usage times, distances and doses come from the manufacturer's manual, never from a writer's guess. Long-form pieces end with a safety note."
+ ],
+ "guardrails_cs": [
+  "Profil tvrzení: každý kus projde Štítem důvěry pro nezdravotnický přístroj. Žádná diagnostika, léčba, prevence ani zmírnění nemoci, stavu či příznaku; přínosy jen opatrně a se zdrojem.",
+  "Doby používání, vzdálenosti a dávky pocházejí z návodu výrobce, nikdy z odhadu autora. Delší texty končí bezpečnostním upozorněním."
+ ]
+}

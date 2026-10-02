@@ -16,7 +16,7 @@ from ..net import Fetcher
 from .crossref import CrossrefClient
 from .grading import apply_grade
 from .models import (
-    CONFIDENCES, DESIGNS, DIRECTIONS, DOI_RE, SOURCES, EvidenceLink, Serializable, Study,
+    CONFIDENCES, DESIGNS, DIRECTIONS, DOI_RE, SOURCES, EvidenceLink, Serializable, Study, Tactic,
     fold, normalize_doi, normalize_title,
 )
 from .tactics import TACTICS
@@ -111,9 +111,12 @@ def _headline(label: str, *, sup_ab: int, sup_c: int, con_ab: int, mixed_ab: int
 
 
 class Ledger:
-    def __init__(self, studies: list[Study] | None = None, links: list[EvidenceLink] | None = None) -> None:
+    def __init__(self, studies: list[Study] | None = None, links: list[EvidenceLink] | None = None,
+                 tactics: dict[str, Tactic] | None = None) -> None:
         self._studies: dict[str, Study] = {}
         self._links: list[EvidenceLink] = []
+        # Links may point to the built-in tactics and to the extra ones a vertical adds (for example claim topics).
+        self.tactics: dict[str, Tactic] = {**TACTICS, **(tactics or {})}
         for study in studies or []:
             self.add_study(study)
         for link in links or []:
@@ -249,7 +252,7 @@ class Ledger:
         for link in self._links:
             if link.study_id not in self._studies:
                 problems.append(f"link {link.tactic_id} -> {link.study_id}: unknown study")
-            if link.tactic_id not in TACTICS:
+            if link.tactic_id not in self.tactics:
                 problems.append(f"link {link.tactic_id} -> {link.study_id}: unknown tactic")
             if not (link.note_en and link.note_cs):
                 problems.append(f"link {link.tactic_id} -> {link.study_id}: note missing in a language")
@@ -366,7 +369,7 @@ class Ledger:
         os.replace(tmp, target)
 
     @classmethod
-    def load(cls, path: str | Path | None = None) -> "Ledger":
+    def load(cls, path: str | Path | None = None, *, tactics: dict[str, Tactic] | None = None) -> "Ledger":
         source = Path(path) if path is not None else SEED_PATH
         data = json.loads(source.read_text(encoding="utf-8"))
         version = data.get("version", LEDGER_VERSION)
@@ -377,4 +380,12 @@ class Ledger:
         if len(ids) != len(set(ids)):
             dupes = sorted({i for i in ids if ids.count(i) > 1})
             raise ValueError(f"duplicate study ids in {source}: {dupes}")
-        return cls(studies, [EvidenceLink.from_dict(d) for d in data.get("links", [])])
+        return cls(studies, [EvidenceLink.from_dict(d) for d in data.get("links", [])], tactics)
+
+    def absorb(self, other: "Ledger") -> None:
+        """Add the studies, links and tactics of another ledger (same ids replace, so a vertical can refine the base)."""
+        self.tactics.update(other.tactics)
+        for study in other.studies:
+            self.add_study(study)
+        for link in other.links:
+            self.link(link)

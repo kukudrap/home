@@ -1,0 +1,980 @@
+{
+ "version": 1,
+ "classes": {
+  "wellness": {
+   "en": "General wellness benefit. May be mentioned with hedged wording and a source, for healthy people and without disease references.",
+   "cs": "Obecný přínos pro pohodu. Lze zmínit opatrně formulovaně a se zdrojem, pro zdravé lidi a bez odkazu na nemoci."
+  },
+  "cosmetic": {
+   "en": "Appearance outcome (skin look, body contour). Hedged wording and a source are needed.",
+   "cs": "Výsledek týkající se vzhledu (pleť, tvar těla). Je třeba opatrná formulace a zdroj."
+  },
+  "medical": {
+   "en": "Diagnosis, treatment, prevention or relief of a disease, condition or symptom. Blocked in the wellness profile.",
+   "cs": "Diagnostika, léčba, prevence nebo zmírnění nemoci, stavu či příznaku. V profilu wellness je zakázáno."
+  },
+  "avoid": {
+   "en": "Unsupported or risky claim. Blocked.",
+   "cs": "Nepodložené nebo rizikové tvrzení. Zakázáno."
+  },
+  "context": {
+   "en": "Background information (mechanism, dose, device parameters, safety). May be explained with hedged, sourced wording.",
+   "cs": "Souvislosti (mechanismus, dávka, parametry zařízení, bezpečnost). Lze vysvětlit opatrně a se zdrojem."
+  }
+ },
+ "topics": [
+  {
+   "id": "pbm-mechanism",
+   "class": "context",
+   "domain": "mechanism",
+   "name_en": "How it works (cellular mechanism)",
+   "name_cs": "Jak to funguje (buněčný mechanismus)",
+   "claim_en": "Red and near-infrared light is absorbed in cells and can change cellular signalling, for example in mitochondria.",
+   "claim_cs": "Červené a blízké infračervené světlo se v buňkách pohlcuje a může měnit buněčnou signalizaci, například v mitochondriích.",
+   "nouns_en": [
+    "mitochondria*",
+    "mitochondrial*",
+    "ATP",
+    "cellular energy",
+    "energy production",
+    "cytochrome*"
+   ],
+   "nouns_cs": [
+    "mitochondri*",
+    "ATP",
+    "buněčn* energi*",
+    "produkc* energie",
+    "produkc* ATP",
+    "cytochrom*"
+   ],
+   "patterns": [],
+   "safe_en": [
+    "In laboratory studies, red and near-infrared light has been observed to be absorbed by cells and may influence cellular processes, although exactly how this happens is still being studied.",
+    "Scientists have proposed that light may interact with mitochondria in cells, and they still debate which explanation is correct."
+   ],
+   "safe_cs": [
+    "V laboratorních studiích bylo pozorováno, že buňky mohou červené a blízké infračervené světlo pohlcovat a že může ovlivňovat buněčné procesy; jak přesně k tomu dochází, se stále zkoumá.",
+    "Vědci navrhli, že světlo může působit na mitochondrie v buňkách, a stále diskutují, které vysvětlení je správné."
+   ],
+   "avoid_en": [
+    "Red light recharges your mitochondria and boosts your cellular energy.",
+    "Red light activates cytochrome c oxidase and recharges every cell in your body."
+   ],
+   "avoid_cs": [
+    "Červené světlo dobíjí vaše mitochondrie a zvyšuje energii vašich buněk.",
+    "Červené světlo nabíjí každou buňku ve vašem těle aktivací cytochrom c oxidázy."
+   ],
+   "summary_en": "Reviews and laboratory studies propose that red and near-infrared light may be absorbed in cells and influence signalling, with mitochondrial cytochrome c oxidase as the leading but disputed explanation. Critics propose other mechanisms, and in one cell study the ATP rise after light exposure was not prevented by inhibiting that enzyme.",
+   "summary_cs": "Přehledové články a laboratorní studie navrhují, že červené a blízké infračervené světlo se může v buňkách pohlcovat a ovlivňovat signalizaci, přičemž hlavním, ale sporným vysvětlením je mitochondriální cytochrom c oxidáza. Kritici navrhují jiné mechanismy a v jedné buněčné studii nárůstu ATP po osvitu nezabránila ani inhibice tohoto enzymu.",
+   "label_cap": "limited",
+   "cap_reason_en": "Support comes from cell-level research and reviews of proposed mechanisms; the leading explanation (cytochrome c oxidase) is disputed and no agreed mechanism exists, so a stronger label would overstate certainty.",
+   "cap_reason_cs": "Podklady pocházejí z výzkumu na úrovni buněk a z přehledů navrhovaných mechanismů; hlavní vysvětlení (cytochrom c oxidáza) je sporné a ustálený mechanismus neexistuje, silnější označení by proto nadsazovalo jistotu."
+  },
+  {
+   "id": "pbm-dose-response",
+   "class": "context",
+   "domain": "dosimetry",
+   "name_en": "Dose and wavelength matter",
+   "name_cs": "Záleží na dávce a vlnové délce",
+   "claim_en": "The effect depends on wavelength, irradiance, exposure time and total dose, and more light is not automatically better.",
+   "claim_cs": "Účinek závisí na vlnové délce, intenzitě ozáření, době expozice a celkové dávce a více světla neznamená automaticky lepší výsledek.",
+   "nouns_en": [],
+   "nouns_cs": [],
+   "patterns": [],
+   "safe_en": [
+    "In laboratory studies, the response to light depends on wavelength, intensity and dose, and smaller doses sometimes work better than larger ones, so more light is not automatically better.",
+    "Because dose seems to matter in research, follow the session length and distance given in the manufacturer's instructions instead of using the panel for longer."
+   ],
+   "safe_cs": [
+    "V laboratorních studiích odpověď na světlo závisí na vlnové délce, intenzitě a dávce a menší dávky někdy fungují lépe než větší, takže více světla neznamená automaticky lepší výsledek.",
+    "Protože se ve výzkumu zdá, že na dávce záleží, řiďte se délkou sezení a vzdáleností uvedenými v návodu výrobce a panel nepoužívejte déle."
+   ],
+   "avoid_en": [
+    "The longer and closer you sit to the panel, the better the results, and you cannot overdo it.",
+    "Our panel delivers the clinically established optimal dose for every person."
+   ],
+   "avoid_cs": [
+    "Čím déle a blíž u panelu sedíte, tím lepší výsledky, a nelze to přehnat.",
+    "Náš panel dodává klinicky stanovenou optimální dávku pro každého člověka."
+   ],
+   "summary_en": "Reviews of laboratory studies report that responses to light often depend on wavelength and dose, and a biphasic pattern (smaller doses sometimes working better than larger ones) is frequently observed. There is still no agreement on parameters, results are contradictory across studies, and reporting of dose and beam details is often incomplete.",
+   "summary_cs": "Přehledy laboratorních studií uvádějí, že odpověď na světlo často závisí na vlnové délce a dávce a že se často pozoruje dvoufázový průběh (menší dávky někdy fungují lépe než větší). Stále chybí shoda na parametrech, výsledky napříč studiemi jsou protichůdné a údaje o dávce a svazku bývají neúplné.",
+   "label_cap": "limited",
+   "cap_reason_en": "The evidence verified so far is reviews and cell-culture experiments; the field has no agreed optimal parameters and reports contradictory results, and no verified human dose-finding trial is linked yet.",
+   "cap_reason_cs": "Dosud ověřené podklady tvoří přehledy a pokusy na buněčných kulturách; obor nemá shodu na optimálních parametrech, uvádí protichůdné výsledky a zatím není propojena žádná ověřená studie hledání dávky u lidí."
+  },
+  {
+   "id": "pbm-device-specs",
+   "class": "context",
+   "domain": "devices",
+   "name_en": "Devices differ in output",
+   "name_cs": "Zařízení se liší výkonem",
+   "claim_en": "Consumer light panels differ widely in wavelengths, irradiance and treated area, so published and independently measured specifications matter.",
+   "claim_cs": "Spotřebitelské světelné panely se výrazně liší vlnovými délkami, intenzitou ozáření i plochou, proto záleží na zveřejněných a nezávisle změřených parametrech.",
+   "nouns_en": [],
+   "nouns_cs": [],
+   "patterns": [],
+   "safe_en": [
+    "Red light panels differ in wavelengths, irradiance and coverage area, so compare the published specifications, including the distance at which irradiance is stated, before choosing a device.",
+    "Independent measurements of a device's output, where available, can give a more reliable picture than nominal numbers on the box."
+   ],
+   "safe_cs": [
+    "Světelné panely se liší vlnovými délkami, intenzitou ozáření i plochou záběru, proto před výběrem porovnejte zveřejněné parametry včetně vzdálenosti, při které je intenzita ozáření uvedena.",
+    "Nezávislá měření výkonu zařízení, pokud jsou k dispozici, mohou poskytnout spolehlivější obraz než čísla uvedená na krabici."
+   ],
+   "avoid_en": [
+    "All red light panels deliver the same effective dose, so just pick the cheapest one.",
+    "Our panel is as powerful as a medical-grade clinical device, so it works just as well."
+   ],
+   "avoid_cs": [
+    "Všechny červené panely dodávají stejně účinnou dávku, takže stačí vybrat ten nejlevnější.",
+    "Náš panel je stejně výkonný jako klinické zařízení lékařské kvality, takže funguje stejně dobře."
+   ],
+   "summary_en": "Methodological sources stress that PBM results depend on many device parameters (wavelength, power, irradiance, beam area, timing), that these need to be reported and measured, and that output can drift as devices warm up and age. No peer-reviewed independent measurement study of consumer panels could be verified in this pass, so the claim about wide differences between panels rests on indirect evidence.",
+   "summary_cs": "Metodické zdroje zdůrazňují, že výsledky fotobiomodulace závisejí na mnoha parametrech zařízení (vlnová délka, výkon, intenzita ozáření, plocha svazku, časování), že je třeba je vykazovat a měřit a že výkon může klesat, jak se zařízení zahřívá a stárne. V tomto kole se nepodařilo ověřit žádnou recenzovanou nezávislou studii měření spotřebitelských panelů, proto tvrzení o velkých rozdílech mezi panely stojí na nepřímých důkazech.",
+   "label_cap": "limited",
+   "cap_reason_en": "Only indirect, methodological sources were verified (reporting of dose and beam parameters); no peer-reviewed independent measurement study of consumer panels is linked yet, so a higher label is not supported. Revisit after such a study is added.",
+   "cap_reason_cs": "Byly ověřeny jen nepřímé metodické zdroje (vykazování dávky a parametrů svazku); zatím není propojena žádná recenzovaná nezávislá studie měření spotřebitelských panelů, vyšší označení proto není podloženo. Po doplnění takové studie je vhodné je přehodnotit."
+  },
+  {
+   "id": "pbm-safety-eyes",
+   "class": "context",
+   "domain": "safety",
+   "name_en": "Eye safety",
+   "name_cs": "Bezpečnost očí",
+   "claim_en": "Bright LED panels should not be stared into, and eye protection is advised when the manufacturer says so.",
+   "claim_cs": "Do jasných LED panelů se nemá dlouho dívat přímo a ochrana očí se doporučuje, pokud to uvádí výrobce.",
+   "nouns_en": [],
+   "nouns_cs": [],
+   "patterns": [],
+   "safe_en": [
+    "Do not stare directly into bright LED panels; follow the manufacturer's instructions on distance, session length and eye protection.",
+    "Close your eyes or use the supplied eye protection if the instructions advise it, and discontinue use if you notice eye discomfort."
+   ],
+   "safe_cs": [
+    "Nedívejte se přímo do jasných LED panelů; řiďte se návodem výrobce ohledně vzdálenosti, délky sezení a ochrany očí.",
+    "Pokud to návod doporučuje, zavřete oči nebo použijte přiložené ochranné brýle a při potížích s očima přestaňte panel používat."
+   ],
+   "avoid_en": [
+    "Our LEDs are completely safe for your eyes, so you can look straight into the panel.",
+    "Red and near-infrared light cannot harm your eyes, so protective glasses are unnecessary."
+   ],
+   "avoid_cs": [
+    "Naše LED diody jsou pro oči zcela bezpečné, takže se můžete dívat přímo do panelu.",
+    "Červené a blízké infračervené světlo je pro oči naprosto bezpečné, takže ochranné brýle nejsou potřeba."
+   ],
+   "summary_en": "Published ICNIRP guidelines set exposure limits for incoherent (non-laser) visible and infrared radiation to protect the eyes and skin, covering hazards such as retinal thermal injury and the blue-light hazard. Eye-safety studies of specific red and near-infrared panels could not be verified in this pass, so eye precautions should follow the manufacturer's instructions.",
+   "summary_cs": "Zveřejněné směrnice ICNIRP stanovují expoziční limity pro nekoherentní (nelaserové) viditelné a infračervené záření na ochranu očí a kůže a zabývají se riziky, jako je tepelné poškození sítnice a riziko modrého světla. Studie bezpečnosti očí u konkrétních červených a blízkých infračervených panelů se v tomto kole nepodařilo ověřit, proto je třeba se u ochrany očí řídit pokyny výrobce.",
+   "label_cap": "limited",
+   "cap_reason_en": "Only a general exposure-limit guideline was verified; no device-specific ocular safety study of red or near-infrared panels is linked yet. The precaution itself is low-risk advice and can be stated as an instruction rather than as a research finding.",
+   "cap_reason_cs": "Byla ověřena jen obecná směrnice o expozičních limitech; zatím není propojena žádná studie bezpečnosti očí u konkrétních červených či infračervených panelů. Samotné upozornění je nízkorizikové doporučení a lze je uvést jako pokyn, nikoli jako výsledek výzkumu."
+  },
+  {
+   "id": "pbm-safety-general",
+   "class": "context",
+   "domain": "safety",
+   "name_en": "General safety and cautions",
+   "name_cs": "Obecná bezpečnost a upozornění",
+   "claim_en": "Adverse effects reported in photobiomodulation trials are generally mild and uncommon, and cautions and contraindications apply.",
+   "claim_cs": "Nežádoucí účinky hlášené ve studiích fotobiomodulace bývají mírné a méně časté a platí upozornění a kontraindikace.",
+   "nouns_en": [],
+   "nouns_cs": [],
+   "patterns": [],
+   "safe_en": [
+    "Use the panel as directed by the manufacturer, discontinue use if you notice skin irritation or discomfort, and ask a doctor first if you have a medical condition, are pregnant or take medication.",
+    "International guidelines set exposure limits for visible and infrared light to protect eyes and skin, which is why session length and distance should follow the manufacturer's instructions."
+   ],
+   "safe_cs": [
+    "Panel používejte podle pokynů výrobce, při podráždění kůže nebo nepříjemných pocitech přestaňte a pokud máte zdravotní potíže, jste těhotná nebo užíváte léky, poraďte se nejdřív s lékařem.",
+    "Mezinárodní směrnice stanovují expoziční limity pro viditelné a infračervené světlo na ochranu očí a kůže, proto se délka sezení a vzdálenost mají řídit návodem výrobce."
+   ],
+   "avoid_en": [
+    "Red light has no side effects and is safe for everyone.",
+    "Red light is completely harmless, so you can use it as long as you like."
+   ],
+   "avoid_cs": [
+    "Červené světlo je bezpečné pro každého a bez vedlejších účinků.",
+    "Červené světlo je zcela neškodné, takže ho můžete používat, jak dlouho chcete."
+   ],
+   "summary_en": "Exposure guidelines set general limits for visible and infrared radiation to protect eyes and skin, which is the basis for cautions on distance and session length. A verified systematic review of adverse events in photobiomodulation trials is still missing from this ledger, so statements that side effects are mild and uncommon should stay general until one is linked.",
+   "summary_cs": "Směrnice o expozici stanovují obecné limity pro viditelné a infračervené záření na ochranu očí a kůže, což je základ upozornění ohledně vzdálenosti a délky sezení. V tomto přehledu zatím chybí ověřený systematický přehled nežádoucích účinků ve studiích fotobiomodulace, proto by tvrzení o mírných a méně častých nežádoucích účincích měla zůstat obecná, dokud takový zdroj nebude propojen.",
+   "label_cap": "limited",
+   "cap_reason_en": "No adverse-event review or contraindication source could be verified in this pass; only a general exposure-limit guideline is linked. The cap can be raised once a systematic review of adverse effects in photobiomodulation trials is verified and linked.",
+   "cap_reason_cs": "Nepodařilo se ověřit žádný přehled nežádoucích účinků ani zdroj o kontraindikacích; je propojena jen obecná směrnice o expozičních limitech. Strop lze zvýšit po ověření a propojení systematického přehledu nežádoucích účinků ve studiích fotobiomodulace."
+  },
+  {
+   "id": "pbm-muscle-recovery",
+   "class": "wellness",
+   "domain": "sport",
+   "name_en": "Muscle recovery after exercise",
+   "name_cs": "Regenerace svalů po cvičení",
+   "claim_en": "Red and near-infrared light after exercise may support muscle recovery (soreness, fatigue markers) in healthy people.",
+   "claim_cs": "Červené a blízké infračervené světlo po cvičení může podporovat regeneraci svalů (svalovou bolestivost, ukazatele únavy) u zdravých lidí.",
+   "nouns_en": [
+    "recovery",
+    "recover",
+    "muscle soreness",
+    "sore muscles",
+    "soreness",
+    "DOMS",
+    "muscle fatigue",
+    "muscle repair",
+    "regeneration",
+    "post-workout"
+   ],
+   "nouns_cs": [
+    "regenerac*",
+    "zotaven*",
+    "svalov* bolestivost*",
+    "bolav* sval*",
+    "únav* sval*",
+    "svalov* únav*",
+    "svalov* regenerac*"
+   ],
+   "patterns": [],
+   "safe_en": [
+    "Some studies of light applied to the muscles around exercise report lower soreness scores or lower muscle-damage markers, but results are mixed and many trials are small.",
+    "Researchers are still studying whether red and near-infrared light has a place in a post-workout routine; it does not replace rest, sleep or normal recovery."
+   ],
+   "safe_cs": [
+    "Některé studie světla aplikovaného na svaly kolem cvičení uvádějí nižší bolestivost nebo nižší ukazatele svalového poškození, výsledky jsou však nejednotné a řada studií je malá.",
+    "Vědci dál zkoumají, zda mají červené a blízké infračervené světlo místo v rutině po tréninku; nenahrazuje odpočinek, spánek ani běžnou regeneraci."
+   ],
+   "avoid_en": [
+    "Red light panels speed up muscle recovery after every workout.",
+    "Use our panel after training and your muscle soreness and damage will disappear."
+   ],
+   "avoid_cs": [
+    "Červené světelné panely po každém tréninku urychlí regeneraci svalů.",
+    "Po tréninku pod naším panelem vaše svalová bolest i poškození svalů zmizí."
+   ],
+   "summary_en": "Pooled analyses of mostly localised laser or LED light around exercise are mixed: some report lower soreness scores at 72 hours or lower creatine kinase, while an earlier review found little difference for most outcomes. In five studies of whole-body light, none reported a benefit on fatigue markers or performance.",
+   "summary_cs": "Souhrnné analýzy převážně lokálně aplikovaného laserového či LED světla kolem cvičení jsou nejednotné: některé uvádějí nižší bolestivost po 72 hodinách nebo nižší kreatinkinázu, starší přehled však u většiny ukazatelů zjistil jen malý rozdíl. V pěti studiích celotělového světla žádná nehlásila přínos pro ukazatele únavy ani pro výkon.",
+   "label_cap": "limited",
+   "cap_reason_en": "Pooled analyses disagree across outcomes and time points, many trials are small and protocols differ, and the one review of whole-body application (five studies) reported no benefit.",
+   "cap_reason_cs": "Souhrnné analýzy se napříč ukazateli a časovými body neshodují, řada studií je malá s odlišnými protokoly a jediný přehled celotělové aplikace (pět studií) nezaznamenal žádný přínos."
+  },
+  {
+   "id": "pbm-exercise-performance",
+   "class": "wellness",
+   "domain": "sport",
+   "name_en": "Exercise performance",
+   "name_cs": "Sportovní výkon",
+   "claim_en": "Red and near-infrared light before exercise may increase performance (repetitions, time to fatigue) in healthy people.",
+   "claim_cs": "Červené a blízké infračervené světlo před cvičením může zvýšit výkon (počet opakování, čas do vyčerpání) u zdravých lidí.",
+   "nouns_en": [
+    "performance",
+    "endurance",
+    "stamina",
+    "athletic performance",
+    "power output",
+    "repetitions",
+    "reps",
+    "time to exhaustion"
+   ],
+   "nouns_cs": [
+    "výkon*",
+    "vytrvalost*",
+    "sportovn* výkon*",
+    "počet opakování",
+    "kondic*"
+   ],
+   "patterns": [],
+   "safe_en": [
+    "In some studies in healthy adults, red and near-infrared light applied to the working muscles before exercise was linked to slightly more repetitions or a longer time to exhaustion; effects were small and not seen for strength or sprints.",
+    "Research on light before exercise is still developing, and results differ by type of exercise."
+   ],
+   "safe_cs": [
+    "V některých studiích u zdravých dospělých bylo červené a blízké infračervené světlo aplikované před cvičením na zapojené svaly spojeno s o něco vyšším počtem opakování nebo delším časem do vyčerpání; účinky byly malé a u síly ani sprintů se neprojevily.",
+    "Výzkum světla před cvičením se stále vyvíjí a výsledky se liší podle typu zátěže."
+   ],
+   "avoid_en": [
+    "Red light before your workout boosts your strength and sprint speed.",
+    "Our panel guarantees more reps and a longer time to exhaustion for every athlete."
+   ],
+   "avoid_cs": [
+    "Červené světlo před tréninkem zvýší vaši sílu i rychlost sprintu.",
+    "Náš panel zaručuje každému sportovci více opakování a delší čas do vyčerpání."
+   ],
+   "summary_en": "Meta-analyses of mostly placebo-controlled trials report small gains in muscle endurance and cycling time to exhaustion when light is applied before exercise, but not in muscle strength or all-out sprints, and one found no benefit in physically active people. Evidence quality was rated very low to moderate in one review, and none of five whole-body studies reported a performance benefit.",
+   "summary_cs": "Metaanalýzy převážně placebem kontrolovaných studií uvádějí malé zlepšení svalové vytrvalosti a času do vyčerpání na kole, pokud se světlo aplikuje před cvičením, ale ne svalové síly ani sprintů naplno; jedna analýza nezjistila přínos u fyzicky aktivních lidí. Kvalita důkazů byla v jednom přehledu hodnocena jako velmi nízká až střední a žádná z pěti studií celotělového světla nehlásila zlepšení výkonu.",
+   "label_cap": "limited",
+   "cap_reason_en": "Small effects on selected outcomes only (endurance, cycling time to exhaustion), evidence certainty very low to moderate in one review, no benefit in one subgroup and in five whole-body studies; localised protocols may not carry over to consumer panels.",
+   "cap_reason_cs": "Malé účinky jen u vybraných ukazatelů (vytrvalost, čas do vyčerpání na kole), jistota důkazů v jednom přehledu velmi nízká až střední, žádný přínos v jedné podskupině ani v pěti studiích celotělového světla; lokální protokoly se nemusejí přenést na spotřebitelské panely."
+  },
+  {
+   "id": "pbm-skin-appearance",
+   "class": "cosmetic",
+   "domain": "skin",
+   "name_en": "Skin appearance",
+   "name_cs": "Vzhled pleti",
+   "claim_en": "Regular red and near-infrared light sessions may improve skin appearance (fine lines, roughness, collagen density).",
+   "claim_cs": "Pravidelné sezení pod červeným a blízkým infračerveným světlem může zlepšit vzhled pleti (jemné linky, hrubost, hustotu kolagenu).",
+   "nouns_en": [
+    "wrinkle*",
+    "fine lines",
+    "collagen",
+    "elastin",
+    "skin texture",
+    "skin tone",
+    "complexion",
+    "skin firmness",
+    "pores",
+    "anti-aging",
+    "anti-ageing",
+    "younger-looking",
+    "glowing skin",
+    "skin rejuvenation",
+    "aging skin",
+    "ageing skin"
+   ],
+   "nouns_cs": [
+    "vrásk*",
+    "vrásek",
+    "jemn* linky",
+    "jemn* linek",
+    "kolagen*",
+    "elastin*",
+    "textur* pleti",
+    "pleť",
+    "pleti",
+    "omlaz*",
+    "zpevn*",
+    "vzhled pleti",
+    "rozzářen*",
+    "póry",
+    "anti-age",
+    "antiaging",
+    "stárnutí"
+   ],
+   "patterns": [],
+   "safe_en": [
+    "Some small studies report modest improvements in the appearance of fine lines and skin roughness after regular red light sessions; results vary between people and between studies.",
+    "Skin appearance is an area of ongoing research on red and near-infrared light; we do not promise a specific result."
+   ],
+   "safe_cs": [
+    "Některé malé studie uvádějí mírné zlepšení vzhledu jemných linek a hrubosti pleti po pravidelných sezeních pod červeným světlem; výsledky se liší mezi lidmi i mezi studiemi.",
+    "Vzhled pleti je oblast probíhajícího výzkumu červeného a blízkého infračerveného světla; konkrétní výsledek neslibujeme."
+   ],
+   "avoid_en": [
+    "Red light panels erase wrinkles and rebuild collagen in a few weeks.",
+    "Guaranteed younger-looking skin after every session."
+   ],
+   "avoid_cs": [
+    "Panely s červeným světlem během pár týdnů vymažou vrásky a obnoví kolagen.",
+    "Zaručeně mladší vzhled pleti po každém sezení."
+   ],
+   "summary_en": "Small controlled trials and reviews of red and near-infrared LED treatment of skin exist. The records in this ledger are research leads that are not verified yet, so no strength label is shown. Protocols, device power and trial quality vary widely.",
+   "summary_cs": "Malé kontrolované studie a přehledy o ošetření pleti červenými a blízkými infračervenými LED existují. Záznamy v tomto registru jsou zatím neověřené výzkumné podněty, proto se nezobrazuje žádná síla důkazů. Protokoly, výkon zařízení i kvalita studií se výrazně liší.",
+   "label_cap": "moderate",
+   "cap_reason_en": "Small trials and reviews exist, but protocols and device power vary and many trials are small. Capped at moderate until the research leads are verified and read.",
+   "cap_reason_cs": "Malé studie a přehledy existují, ale protokoly i výkon zařízení se liší a mnoho studií je malých. Strop střední, dokud nebudou výzkumné podněty ověřeny a přečteny."
+  },
+  {
+   "id": "pbm-body-contouring",
+   "class": "cosmetic",
+   "domain": "body",
+   "name_en": "Body contouring",
+   "name_cs": "Tvar postavy",
+   "claim_en": "Red and near-infrared light may reduce body circumference or the look of cellulite.",
+   "claim_cs": "Červené a blízké infračervené světlo může zmenšit obvod těla nebo vzhled celulitidy.",
+   "nouns_en": [
+    "cellulite",
+    "body contouring",
+    "circumference",
+    "fat loss",
+    "fat reduction",
+    "slimming",
+    "weight loss",
+    "burn fat",
+    "belly fat"
+   ],
+   "nouns_cs": [
+    "celulitid*",
+    "celulit*",
+    "obvod těla",
+    "obvodu těla",
+    "spalov* tuk*",
+    "hubnut*",
+    "hubnutí",
+    "ztrát* hmotnosti",
+    "břišní tuk*",
+    "zeštíhl*",
+    "tvar postavy"
+   ],
+   "patterns": [],
+   "safe_en": [
+    "Body contouring is an area of ongoing research on light; we do not promise changes in body size or in the look of cellulite.",
+    "Light sessions are not a substitute for nutrition, exercise or medical advice."
+   ],
+   "safe_cs": [
+    "Tvarování postavy je oblast probíhajícího výzkumu světla; změny velikosti těla ani vzhledu celulitidy neslibujeme.",
+    "Sezení pod světlem nenahrazují výživu, pohyb ani lékařskou radu."
+   ],
+   "avoid_en": [
+    "Lose centimetres from your waist and thighs with red light.",
+    "Red light melts fat and removes cellulite."
+   ],
+   "avoid_cs": [
+    "Shoďte centimetry z pasu a stehen s červeným světlem.",
+    "Červené světlo rozpouští tuk a odstraňuje celulitidu."
+   ],
+   "summary_en": "Research on light for body contouring and fat reduction mostly concerns laser devices in clinics. The records here are unverified leads, and results for consumer panels are not established.",
+   "summary_cs": "Výzkum světla pro tvarování postavy a redukci tuku se týká hlavně laserových přístrojů v klinikách. Záznamy zde jsou neověřené podněty a výsledky pro spotřebitelské panely nejsou prokázány.",
+   "label_cap": "limited",
+   "cap_reason_en": "Evidence concerns clinical laser devices, not consumer panels, and the leads are not verified yet.",
+   "cap_reason_cs": "Důkazy se týkají klinických laserových přístrojů, ne spotřebitelských panelů, a podněty zatím nejsou ověřeny."
+  },
+  {
+   "id": "pbm-sleep",
+   "class": "wellness",
+   "domain": "sleep",
+   "name_en": "Sleep quality",
+   "name_cs": "Kvalita spánku",
+   "claim_en": "Red light exposure may support sleep quality.",
+   "claim_cs": "Expozice červenému světlu může podporovat kvalitu spánku.",
+   "nouns_en": [
+    "sleep",
+    "sleep quality",
+    "fall asleep",
+    "falling asleep",
+    "circadian",
+    "melatonin"
+   ],
+   "nouns_cs": [
+    "spánek",
+    "spánku",
+    "spánkem",
+    "spánkov*",
+    "usínání",
+    "usínat",
+    "cirkadi*",
+    "melatonin*",
+    "kvalit* spánku"
+   ],
+   "patterns": [],
+   "safe_en": [
+    "Small studies have looked at whether red light exposure may support sleep quality; the evidence is limited and results are mixed.",
+    "MITO LIGHT is a wellness product and experience with sleep varies from person to person; it is not intended to diagnose, treat or prevent sleep disorders."
+   ],
+   "safe_cs": [
+    "Malé studie zkoumaly, zda by expozice červenému světlu mohla podporovat kvalitu spánku; důkazy jsou zatím omezené a výsledky nejednotné.",
+    "MITO LIGHT je wellness produkt a zkušenost se spánkem je u každého jiná; není určen k diagnostice, léčbě ani prevenci poruch spánku."
+   ],
+   "avoid_en": [
+    "Red light therapy fixes insomnia and guarantees deeper sleep.",
+    "Clinically proven to raise melatonin and remove sleep problems."
+   ],
+   "avoid_cs": [
+    "Terapie červeným světlem vyřeší nespavost a zaručí hlubší spánek.",
+    "Klinicky prokázáno, že zvyšuje melatonin a odstraní problémy se spánkem."
+   ],
+   "summary_en": "A very small trial in elite female basketball players reported better sleep scores and higher melatonin after 14 nights of whole-body red light, and a 2025 systematic review of head-applied photobiomodulation describes potential for better sleep. A placebo-controlled trial in healthy people with mild sleep complaints found no significant effect of near-infrared light on sleep or circadian rhythms.",
+   "summary_cs": "Velmi malá studie u elitních basketbalistek uvedla po 14 nocích celotělového červeného světla lepší skóre spánku a vyšší melatonin a systematický přehled z roku 2025 o fotobiomodulaci na hlavu popisuje možný přínos pro spánek. Placebem kontrolovaná studie u zdravých lidí s mírnými potížemi se spánkem však nezjistila významný vliv blízkého infračerveného světla na spánek ani cirkadiánní rytmy.",
+   "label_cap": "limited",
+   "cap_reason_en": "The evidence is one very small trial in athletes (n = 20, no sham light), one placebo-controlled trial that found no sleep effect, and a review of head-applied devices; results conflict and are not specific to consumer panels.",
+   "cap_reason_cs": "Důkazy tvoří jedna velmi malá studie u sportovkyň (n = 20, bez fiktivního světla), jedna placebem kontrolovaná studie bez vlivu na spánek a přehled zařízení na hlavu; výsledky si odporují a netýkají se spotřebitelských panelů."
+  },
+  {
+   "id": "pbm-energy-wellbeing",
+   "class": "wellness",
+   "domain": "wellbeing",
+   "name_en": "Energy and well-being",
+   "name_cs": "Energie a pohoda",
+   "claim_en": "Red and near-infrared light boosts energy and general well-being.",
+   "claim_cs": "Červené a blízké infračervené světlo zvyšuje energii a celkovou pohodu.",
+   "nouns_en": [
+    "energy",
+    "energy levels",
+    "vitality",
+    "wellbeing",
+    "well-being",
+    "mood",
+    "feel better",
+    "feel great"
+   ],
+   "nouns_cs": [
+    "energi*",
+    "vitalit*",
+    "pohod*",
+    "nálad*",
+    "cítit se lépe",
+    "životní síl*"
+   ],
+   "patterns": [],
+   "safe_en": [
+    "One placebo-controlled trial reported better mood and less drowsiness with near-infrared light at a single dose, in winter only; research on everyday energy is still limited.",
+    "MITO LIGHT is a wellness product, and how people feel after a session varies from person to person."
+   ],
+   "safe_cs": [
+    "Jedna placebem kontrolovaná studie uvedla lepší náladu a menší ospalost po blízkém infračerveném světle při jediné dávce, a to jen v zimě; výzkum každodenní energie je zatím omezený.",
+    "MITO LIGHT je wellness produkt a pocity po sezení se u každého liší."
+   ],
+   "avoid_en": [
+    "Red light boosts your energy and well-being every day.",
+    "Clinically proven to recharge your cells and end fatigue."
+   ],
+   "avoid_cs": [
+    "Červené světlo zvyšuje vaši energii a pohodu každý den.",
+    "Klinicky prokázáno, že dobije vaše buňky a zbaví vás únavy."
+   ],
+   "summary_en": "Human evidence is thin: one double-blind, placebo-controlled trial in healthy people with mild sleep complaints found better mood and less drowsiness only at the highest near-infrared dose and only in winter. No study confirmed in this ledger shows a general boost in energy.",
+   "summary_cs": "Důkazů u lidí je málo: jedna dvojitě zaslepená placebem kontrolovaná studie u zdravých lidí s mírnými potížemi se spánkem zjistila lepší náladu a menší ospalost jen při nejvyšší dávce blízkého infračerveného světla a jen v zimě. Žádná studie potvrzená v tomto přehledu neukazuje obecné zvýšení energie.",
+   "label_cap": "limited",
+   "cap_reason_en": "Only one placebo-controlled trial with wellbeing outcomes was confirmed; its benefits were dose-specific and seasonal, and no direct measure of energy was seen.",
+   "cap_reason_cs": "Potvrzena byla jen jedna placebem kontrolovaná studie s ukazateli pohody; její přínosy byly vázané na dávku a roční období a přímé měření energie se neobjevilo."
+  },
+  {
+   "id": "pbm-hair",
+   "class": "medical",
+   "domain": "hair",
+   "name_en": "Hair growth",
+   "name_cs": "Růst vlasů",
+   "claim_en": "Red light promotes hair growth or treats hair loss.",
+   "claim_cs": "Červené světlo podporuje růst vlasů nebo léčí vypadávání vlasů.",
+   "nouns_en": [
+    "hair growth",
+    "hair loss",
+    "hair regrowth",
+    "alopecia",
+    "balding",
+    "thinning hair",
+    "hair thinning",
+    "hair density",
+    "hair follicle*"
+   ],
+   "nouns_cs": [
+    "růst vlasů",
+    "růstu vlasů",
+    "vypadávání vlasů",
+    "alopeci*",
+    "plešat*",
+    "řídnoucí vlasy",
+    "řídnutí vlasů",
+    "hustot* vlasů",
+    "vlasov* folikul*"
+   ],
+   "patterns": [],
+   "safe_en": [
+    "At most (research exists only, no product claim): studies of low-level light and scalp hair have been published.",
+    "This product makes no claim about hair growth or hair loss."
+   ],
+   "safe_cs": [
+    "Nanejvýš (jen že výzkum existuje, bez tvrzení o produktu): o nízkoúrovňovém světle a vlasech na pokožce hlavy byly publikovány studie.",
+    "Tento produkt netvrdí nic o růstu ani vypadávání vlasů."
+   ],
+   "avoid_en": [
+    "Red light regrows your hair and stops hair loss.",
+    "Reverses thinning hair and baldness within a few months."
+   ],
+   "avoid_cs": [
+    "Červené světlo obnoví vlasy a zastaví jejich vypadávání.",
+    "Vrátí zpět řídnoucí vlasy a plešatost během několika měsíců."
+   ],
+   "summary_en": "Low-level laser and light devices have been studied for pattern hair loss. This is a medical condition, so a non-medical device may not make hair claims at all, and the records here are unverified leads.",
+   "summary_cs": "Nízkoúrovňové laserové a světelné přístroje se zkoumaly u vypadávání vlasů. Jde o zdravotní stav, proto nezdravotnický přístroj nesmí o vlasech tvrdit nic, a záznamy zde jsou neověřené podněty.",
+   "label_cap": "limited",
+   "cap_reason_en": "Hair loss is a medical matter, so even verified evidence would not allow a product claim from a non-medical device.",
+   "cap_reason_cs": "Vypadávání vlasů je zdravotní téma, takže ani ověřené důkazy by nezdravotnickému přístroji nedovolily tvrzení o produktu."
+  },
+  {
+   "id": "pbm-pain-joints",
+   "class": "medical",
+   "domain": "pain",
+   "name_en": "Pain and joints",
+   "name_cs": "Bolest a klouby",
+   "claim_en": "Red and near-infrared light relieves muscle, joint or neck pain.",
+   "claim_cs": "Červené a blízké infračervené světlo zmírňuje bolest svalů, kloubů nebo krku.",
+   "nouns_en": [
+    "pain",
+    "aches",
+    "aching",
+    "arthritis",
+    "osteoarthritis",
+    "rheumat*",
+    "joint stiffness",
+    "stiffness",
+    "tendin*",
+    "sciatica",
+    "fibromyalgia",
+    "plantar fasciitis",
+    "carpal tunnel",
+    "chronic pain",
+    "back pain",
+    "migraine*",
+    "headache*"
+   ],
+   "nouns_cs": [
+    "bolest",
+    "bolesti",
+    "bolestí",
+    "bolestem",
+    "bolestmi",
+    "artrit*",
+    "artróz*",
+    "revmat*",
+    "ztuhlost*",
+    "ischias*",
+    "fibromyalgi*",
+    "tenisov* loket",
+    "plantárn* fasciitid*",
+    "migrén*",
+    "bolest* hlavy"
+   ],
+   "patterns": [],
+   "safe_en": [
+    "At most: researchers study light therapy for pain in clinical settings; make no statement that MITO LIGHT relieves or helps any pain.",
+    "Safe wording only: MITO LIGHT is a wellness product, not a medical device, and is not intended to treat pain or joint problems."
+   ],
+   "safe_cs": [
+    "Nanejvýš lze uvést, že se světelná terapie bolesti zkoumá v klinickém prostředí; netvrďte, že MITO LIGHT jakoukoli bolest zmírňuje nebo jí pomáhá.",
+    "Bezpečná formulace: MITO LIGHT je wellness produkt, nikoli zdravotnický prostředek, a není určen k léčbě bolesti ani potíží s klouby."
+   ],
+   "avoid_en": [
+    "Red light panels relieve neck, back and joint pain.",
+    "A clinically proven alternative to painkillers for arthritis."
+   ],
+   "avoid_cs": [
+    "Červené panely zmírňují bolest krku, zad a kloubů.",
+    "Klinicky prokázaná alternativa léků proti bolesti při artritidě."
+   ],
+   "summary_en": "Meta-analyses of randomised trials report that low-level laser therapy lowered pain more than control treatment in patients with neck pain (about 20 mm on a visual analogue scale) and knee osteoarthritis (about 14 mm, larger at recommended doses). These trials tested laser therapy in patients, not consumer panels, and relieving pain is a medical claim that MITO LIGHT, which is not a medical device, may not make.",
+   "summary_cs": "Metaanalýzy randomizovaných studií uvádějí, že nízkoúrovňová laserová terapie snížila bolest více než kontrolní léčba u pacientů s bolestí krku (asi o 20 mm na vizuální analogové škále) a s gonartrózou (asi o 14 mm, více při doporučených dávkách). Tyto studie testovaly laserovou terapii u pacientů, nikoli spotřebitelské panely, a zmírnění bolesti je zdravotní tvrzení, které MITO LIGHT, jenž není zdravotnickým prostředkem, nesmí používat.",
+   "label_cap": "limited",
+   "cap_reason_en": "Two meta-analyses of randomised trials are favourable, but they concern laser therapy in patients with specific conditions and doses, no null review was confirmed here, and no consumer-panel evidence was seen.",
+   "cap_reason_cs": "Dvě metaanalýzy randomizovaných studií jsou příznivé, týkají se ale laserové terapie u pacientů s konkrétními diagnózami a dávkami, žádný přehled s nulovým výsledkem zde nebyl potvrzen a důkazy pro spotřebitelské panely se neobjevily."
+  },
+  {
+   "id": "pbm-inflammation",
+   "class": "medical",
+   "domain": "inflammation",
+   "name_en": "Inflammation",
+   "name_cs": "Zánět",
+   "claim_en": "Red and near-infrared light has anti-inflammatory effects.",
+   "claim_cs": "Červené a blízké infračervené světlo má protizánětlivé účinky.",
+   "nouns_en": [
+    "inflammation",
+    "inflammatory",
+    "anti-inflammatory",
+    "swelling",
+    "oedema",
+    "edema"
+   ],
+   "nouns_cs": [
+    "zánět*",
+    "záněty",
+    "zánětliv*",
+    "protizánět*",
+    "otok*",
+    "otek*",
+    "oteky"
+   ],
+   "patterns": [],
+   "safe_en": [
+    "At most: researchers study how light may influence inflammation-related processes in cells and tissues; make no claim that MITO LIGHT reduces inflammation.",
+    "Say only that MITO LIGHT is a wellness product and is not intended to treat inflammatory conditions."
+   ],
+   "safe_cs": [
+    "Nanejvýš lze uvést, že vědci zkoumají, jak může světlo ovlivňovat procesy související se zánětem v buňkách a tkáních; netvrďte, že MITO LIGHT snižuje zánět.",
+    "Uvádějte jen, že MITO LIGHT je wellness produkt a není určen k léčbě zánětlivých stavů."
+   ],
+   "avoid_en": [
+    "Red light calms inflammation and reduces swelling in your body.",
+    "A natural anti-inflammatory therapy backed by science."
+   ],
+   "avoid_cs": [
+    "Červené světlo tlumí zánět a zmenšuje otoky ve vašem těle.",
+    "Přírodní protizánětlivá terapie podložená vědou."
+   ],
+   "summary_en": "A review of mechanisms and applications states that reduced inflammation is one of the most reproducible effects of photobiomodulation in tissues such as brain, wounds, lungs and spinal cord. It is a narrative review, not a systematic review of human trials, and anti-inflammatory effects are medical claims that MITO LIGHT may not make.",
+   "summary_cs": "Přehled mechanismů a aplikací uvádí, že snížení zánětu patří k nejlépe reprodukovatelným účinkům fotobiomodulace v tkáních, jako jsou mozek, rány, plíce a mícha. Jde o narativní přehled, nikoli o systematický přehled studií na lidech, a protizánětlivé účinky jsou zdravotní tvrzení, která MITO LIGHT nesmí používat.",
+   "label_cap": "limited",
+   "cap_reason_en": "Only a narrative mechanism review is confirmed in this ledger; it is not a systematic synthesis of human trials, and lower inflammation in a tissue is not a proven health outcome.",
+   "cap_reason_cs": "V tomto přehledu je potvrzen jen narativní přehled mechanismů; není to systematická syntéza studií na lidech a nižší zánět v tkáni není prokázaný zdravotní výsledek."
+  },
+  {
+   "id": "pbm-wound-healing",
+   "class": "medical",
+   "domain": "wounds",
+   "name_en": "Wound healing",
+   "name_cs": "Hojení ran",
+   "claim_en": "Red and near-infrared light speeds up wound healing.",
+   "claim_cs": "Červené a blízké infračervené světlo urychluje hojení ran.",
+   "nouns_en": [
+    "wound*",
+    "wound healing",
+    "ulcer*",
+    "sores",
+    "burns",
+    "bedsores",
+    "diabetic foot",
+    "scar tissue"
+   ],
+   "nouns_cs": [
+    "hojení",
+    "hojen*",
+    "rána",
+    "rány",
+    "ránu",
+    "ráně",
+    "ranám",
+    "ranách",
+    "vřed*",
+    "dekubit*",
+    "popálenin*",
+    "diabetick* noh*"
+   ],
+   "patterns": [],
+   "safe_en": [
+    "At most: wound care with light is studied in clinical settings and the certainty of the evidence is low in a review checked here; MITO LIGHT makes no claim about wounds.",
+    "State only that MITO LIGHT is a wellness product that is not for wounds, ulcers or skin injuries; people with a wound should see a doctor."
+   ],
+   "safe_cs": [
+    "Nanejvýš lze uvést, že se péče o rány pomocí světla zkoumá v klinickém prostředí a jistota důkazů je v ověřeném přehledu nízká; MITO LIGHT netvrdí nic o ranách.",
+    "Uvádějte jen, že MITO LIGHT je wellness produkt, který není určen pro rány, vředy ani kožní poranění; lidé s ranou mají navštívit lékaře."
+   ],
+   "avoid_en": [
+    "Red light speeds up wound healing and helps ulcers close faster.",
+    "Clinically proven to repair wounds and fade scars."
+   ],
+   "avoid_cs": [
+    "Červené světlo urychluje hojení ran a pomáhá rychlejšímu uzavření vředů.",
+    "Klinicky prokázáno, že napraví rány a zmírní jizvy."
+   ],
+   "summary_en": "A systematic review and meta-analysis of photobiomodulation after episiotomy rated the certainty of evidence for pain and wound healing as very low, and a Cochrane review of low-level light therapy for venous leg ulcers exists, though its findings were not available to this ledger. Wound healing is a medical claim, and the evidence confirmed here does not support a confident statement.",
+   "summary_cs": "Systematický přehled a metaanalýza fotobiomodulace po epiziotomii hodnotily jistotu důkazů pro bolest i hojení ran jako velmi nízkou; existuje také Cochrane přehled nízkoúrovňové světelné terapie u žilních bércových vředů, jeho výsledky však tento soubor důkazů neměl k dispozici. Hojení ran je zdravotní tvrzení a zde potvrzené důkazy nepodporují jednoznačné tvrzení.",
+   "label_cap": "limited",
+   "cap_reason_en": "The one review with a visible certainty rating (episiotomy) rated it very low and the Cochrane review's findings were not seen, so nothing stronger than limited is honest.",
+   "cap_reason_cs": "Jediný přehled s viditelným hodnocením jistoty (epiziotomie) ji označil za velmi nízkou a závěry Cochrane přehledu nebyly k dispozici, takže poctivé je nanejvýš označení omezené."
+  },
+  {
+   "id": "pbm-mood-brain",
+   "class": "medical",
+   "domain": "brain",
+   "name_en": "Mood and brain function",
+   "name_cs": "Nálada a funkce mozku",
+   "claim_en": "Light applied to the head improves mood, cognition or brain disorders.",
+   "claim_cs": "Světlo působící na hlavu zlepšuje náladu, kognici nebo poruchy mozku.",
+   "nouns_en": [
+    "depression",
+    "depressive",
+    "anxiety",
+    "mood disorder*",
+    "ADHD",
+    "autism",
+    "dementia",
+    "alzheimer*",
+    "parkinson*",
+    "brain injury",
+    "TBI",
+    "concussion",
+    "stroke",
+    "cognitive decline",
+    "brain fog",
+    "brain disorder*",
+    "memory loss",
+    "mental health",
+    "mental illness"
+   ],
+   "nouns_cs": [
+    "depres*",
+    "úzkost*",
+    "úzkostn*",
+    "ADHD",
+    "autism*",
+    "demenc*",
+    "alzheimer*",
+    "parkinson*",
+    "mrtvic*",
+    "otřes* mozku",
+    "kognitivn* pokles*",
+    "mozkov* mlh*",
+    "ztrát* paměti",
+    "duševní zdraví",
+    "duševního zdraví",
+    "psychick* zdraví",
+    "mentáln* zdraví"
+   ],
+   "patterns": [],
+   "safe_en": [
+    "At most: researchers are testing near-infrared light applied to the head in clinical trials for depression; make no claim that MITO LIGHT affects mood, memory or any brain condition.",
+    "Say only that MITO LIGHT is a wellness product, not a medical device, and is not intended to treat depression or any other condition."
+   ],
+   "safe_cs": [
+    "Nanejvýš lze uvést, že vědci v klinických studiích testují blízké infračervené světlo přikládané na hlavu u deprese; netvrďte, že MITO LIGHT ovlivňuje náladu, paměť ani jakékoli onemocnění mozku.",
+    "Uvádějte jen, že MITO LIGHT je wellness produkt, nikoli zdravotnický prostředek, a není určen k léčbě deprese ani jiného onemocnění."
+   ],
+   "avoid_en": [
+    "Red light therapy relieves depression and anxiety.",
+    "Boosts your memory and protects your brain from Alzheimer's disease."
+   ],
+   "avoid_cs": [
+    "Terapie červeným světlem zmírňuje depresi a úzkost.",
+    "Zlepšuje paměť a chrání váš mozek před Alzheimerovou chorobou."
+   ],
+   "summary_en": "A meta-analysis of 11 randomised trials found lower depression scores with photobiomodulation than with control (pooled SMD -0.55), and a sham-controlled pilot trial of 823 nm light on the prefrontal cortex reported medium to large effects in major depression. These are head-applied treatments in patients, so mood and brain claims remain medical claims that MITO LIGHT may not make.",
+   "summary_cs": "Metaanalýza 11 randomizovaných studií zjistila nižší skóre deprese po fotobiomodulaci než u kontroly (souhrnné SMD -0,55) a pilotní studie s fiktivním ošetřením (sham) se světlem 823 nm na prefrontální kůru uvedla u velké depresivní poruchy středně velké až velké účinky. Jde o léčbu přikládanou na hlavu u pacientů, takže tvrzení o náladě a mozku zůstávají zdravotními tvrzeními, která MITO LIGHT nesmí používat.",
+   "label_cap": "limited",
+   "cap_reason_en": "One meta-analysis and one pilot trial suggest a benefit in depression, but they cover head-applied devices in patients with unchecked risk of bias, and no evidence for body panels in healthy users was confirmed.",
+   "cap_reason_cs": "Jedna metaanalýza a jedna pilotní studie naznačují přínos u deprese, týkají se ale zařízení na hlavu u pacientů s neověřeným rizikem zkreslení a důkazy pro tělové panely u zdravých uživatelů nebyly potvrzeny."
+  },
+  {
+   "id": "pbm-eye-vision",
+   "class": "medical",
+   "domain": "eye",
+   "name_en": "Vision and the retina",
+   "name_cs": "Zrak a sítnice",
+   "claim_en": "Red light exposure improves vision or slows age-related vision decline.",
+   "claim_cs": "Expozice červenému světlu zlepšuje zrak nebo zpomaluje věkem podmíněné zhoršování zraku.",
+   "nouns_en": [
+    "vision",
+    "eyesight",
+    "retina*",
+    "macular degeneration",
+    "myopia",
+    "cataract*",
+    "glaucoma",
+    "dry eye*",
+    "eye health",
+    "visual acuity"
+   ],
+   "nouns_cs": [
+    "zrak*",
+    "vidění",
+    "sítnic*",
+    "makulárn* degenerac*",
+    "krátkozrak*",
+    "katarakt*",
+    "šed* zákal",
+    "glaukom*",
+    "suché oko",
+    "zdraví očí"
+   ],
+   "patterns": [],
+   "safe_en": [
+    "At most: researchers are studying specific red-light protocols for eye health under clinical supervision; make no claim that MITO LIGHT improves vision.",
+    "Safety wording only: do not stare into the panel and follow the manufacturer's eye-protection instructions; MITO LIGHT is not intended to improve vision or treat eye conditions."
+   ],
+   "safe_cs": [
+    "Nanejvýš lze uvést, že vědci zkoumají konkrétní protokoly červeného světla pro zdraví očí pod klinickým dohledem; netvrďte, že MITO LIGHT zlepšuje zrak.",
+    "Pouze bezpečnostní formulace: nedívejte se do panelu a dodržujte pokyny výrobce k ochraně očí; MITO LIGHT není určen ke zlepšení zraku ani k léčbě očních onemocnění."
+   ],
+   "avoid_en": [
+    "Red light therapy improves your eyesight and slows age-related vision loss.",
+    "Protects your retina and reverses macular degeneration."
+   ],
+   "avoid_cs": [
+    "Terapie červeným světlem zlepšuje váš zrak a zpomaluje věkem podmíněné zhoršování vidění.",
+    "Chrání vaši sítnici a zvrátí makulární degeneraci."
+   ],
+   "summary_en": "A very small study in 24 healthy volunteers reported better colour contrast sensitivity after brief daily 670 nm light in people aged 40 and over, and a double-masked sham-controlled trial in dry age-related macular degeneration reported a small vision benefit with a specific regimen. A case report of retinal damage in a child after repeated low-level red-light laser exposure shows that light aimed at the eye is not risk-free.",
+   "summary_cs": "Velmi malá studie s 24 zdravými dobrovolníky uvedla lepší citlivost na barevný kontrast po krátké každodenní expozici světlu 670 nm u lidí od 40 let a dvojitě zaslepená studie s fiktivním ošetřením u suché věkem podmíněné makulární degenerace uvedla malý přínos pro zrak při konkrétním schématu. Kazuistika poškození sítnice u dítěte po opakované expozici nízkoúrovňovému červenému laserovému světlu ukazuje, že světlo mířené do oka není bez rizika.",
+   "label_cap": "limited",
+   "cap_reason_en": "The evidence is a 24-person study, a patient trial of a specific regimen (figures taken from summaries, the 24-month paper is not fully verified) and a safety case report; no study of consumer panels was confirmed.",
+   "cap_reason_cs": "Důkazy tvoří studie s 24 lidmi, studie u pacientů s konkrétním schématem (čísla ze souhrnů, 24měsíční článek není plně ověřen) a bezpečnostní kazuistika; žádná studie spotřebitelských panelů nebyla potvrzena."
+  },
+  {
+   "id": "pbm-testosterone",
+   "class": "avoid",
+   "domain": "hormones",
+   "name_en": "Hormones and fertility",
+   "name_cs": "Hormony a plodnost",
+   "claim_en": "Red light on the testes or body raises testosterone or fertility.",
+   "claim_cs": "Červené světlo na varlata nebo tělo zvyšuje testosteron nebo plodnost.",
+   "nouns_en": [
+    "testosterone",
+    "fertility",
+    "sperm",
+    "libido",
+    "testicle*",
+    "testes",
+    "erectile",
+    "hormone*",
+    "sex drive"
+   ],
+   "nouns_cs": [
+    "testosteron*",
+    "plodnost*",
+    "neplodnost*",
+    "spermi*",
+    "libid*",
+    "varlat*",
+    "erektiln*",
+    "hormon*",
+    "sexuáln* touh*"
+   ],
+   "patterns": [],
+   "safe_en": [
+    "Say nothing about testosterone, hormones or fertility for MITO LIGHT; at most, state that the panels are wellness products and make no claims about hormones.",
+    "If asked, say that research on light and male reproductive health is at an early stage and mostly laboratory-based, and that MITO LIGHT makes no claim in this area."
+   ],
+   "safe_cs": [
+    "O testosteronu, hormonech ani plodnosti u MITO LIGHT nic netvrďte; nanejvýš uveďte, že panely jsou wellness produkty a netvrdí nic o hormonech.",
+    "Na dotaz uveďte, že výzkum světla a mužského reprodukčního zdraví je v rané fázi a většinou laboratorní a že MITO LIGHT v této oblasti nic netvrdí."
+   ],
+   "avoid_en": [
+    "Red light on the testes boosts testosterone and sperm count.",
+    "A natural testosterone booster for men, backed by science."
+   ],
+   "avoid_cs": [
+    "Červené světlo na varlata zvyšuje testosteron a počet spermií.",
+    "Přírodní posilovač testosteronu pro muže podložený vědou."
+   ],
+   "summary_en": "No human trial of red or near-infrared light on testosterone was confirmed in the searches; the one peer-reviewed source found, a systematic review of low-level laser for male infertility, rests mainly on laboratory work with semen samples plus one clinical trial and says heterogeneity limits conclusions. No authoritative caution specific to this claim was confirmed in this ledger either, so the claim should not be made.",
+   "summary_cs": "V provedeném vyhledávání nebyla potvrzena žádná studie na lidech o vlivu červeného nebo blízkého infračerveného světla na testosteron; jediný nalezený recenzovaný zdroj, systematický přehled nízkoúrovňového laseru u mužské neplodnosti, vychází hlavně z laboratorních prací se vzorky spermatu a z jedné klinické studie a uvádí, že heterogenita omezuje závěry. Ani autoritativní upozornění specifické pro toto tvrzení se v tomto přehledu nepodařilo potvrdit, proto by se tvrzení nemělo používat.",
+   "label_cap": "none",
+   "cap_reason_en": "No human testosterone trial was confirmed; the only peer-reviewed source is mostly in vitro semen-sample work on sperm motility, which says nothing about hormone levels or real-world fertility.",
+   "cap_reason_cs": "Nebyla potvrzena žádná studie na lidech o testosteronu; jediný recenzovaný zdroj jsou převážně laboratorní práce na vzorcích spermatu o pohyblivosti spermií, které nic neříkají o hladinách hormonů ani o plodnosti v reálném životě."
+  },
+  {
+   "id": "pbm-detox-immunity",
+   "class": "avoid",
+   "domain": "general",
+   "name_en": "Detox and immunity",
+   "name_cs": "Detox a imunita",
+   "claim_en": "Red light detoxifies the body or boosts the immune system.",
+   "claim_cs": "Červené světlo detoxikuje tělo nebo posiluje imunitu.",
+   "nouns_en": [
+    "detox*",
+    "toxin*",
+    "immune system",
+    "immunity",
+    "cleanse*",
+    "boost immunity"
+   ],
+   "nouns_cs": [
+    "detox*",
+    "toxin*",
+    "imunit*",
+    "imunitn*",
+    "očist* organism*",
+    "očist* těla"
+   ],
+   "patterns": [
+    "\\bdetox\\w*",
+    "\\bdetoxif\\w*"
+   ],
+   "safe_en": [
+    "Do not mention detox or immunity for MITO LIGHT; at most, say that the panels are wellness products and that no health or immune benefit is claimed.",
+    "MITO LIGHT does not claim to detoxify the body or to boost the immune system."
+   ],
+   "safe_cs": [
+    "O detoxu ani imunitě u MITO LIGHT nic neuvádějte; nanejvýš řekněte, že panely jsou wellness produkty a že se netvrdí žádný zdravotní ani imunitní přínos.",
+    "MITO LIGHT netvrdí, že detoxikuje tělo nebo posiluje imunitní systém."
+   ],
+   "avoid_en": [
+    "Red light detoxifies your body and flushes out toxins.",
+    "Boosts your immune system and helps you fight off infections."
+   ],
+   "avoid_cs": [
+    "Červené světlo detoxikuje vaše tělo a vyplavuje toxiny.",
+    "Posiluje imunitní systém a pomáhá vám bojovat s infekcemi."
+   ],
+   "summary_en": "No study or authority statement specific to red-light detox or immune claims was confirmed in this ledger; the one authoritative source recorded, US FTC staff guidance, is general and says health-related claims must be substantiated, generally with randomised controlled human trials. Without confirmed human evidence for detoxification or immune boosting, these claims should not be made.",
+   "summary_cs": "V tomto přehledu nebyla potvrzena žádná studie ani prohlášení úřadu specifické pro detox či imunitu u červeného světla; jediný zaznamenaný autoritativní zdroj, pokyn pracovníků americké FTC, je obecný a uvádí, že zdravotní tvrzení musí být podložená, obecně randomizovanými kontrolovanými studiemi na lidech. Bez potvrzených důkazů u lidí pro detoxikaci či posílení imunity by se tato tvrzení neměla používat.",
+   "label_cap": "none",
+   "cap_reason_en": "No human evidence for detoxification or immune boosting by red light panels was confirmed, and the only authoritative source recorded is general advertising-substantiation guidance.",
+   "cap_reason_cs": "Nebyl potvrzen žádný důkaz u lidí pro detoxikaci ani posílení imunity červenými panely a jediný zaznamenaný autoritativní zdroj je obecný pokyn k dokládání reklamních tvrzení."
+  }
+ ]
+}

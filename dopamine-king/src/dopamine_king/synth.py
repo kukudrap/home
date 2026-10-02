@@ -134,38 +134,49 @@ def _poisson(rng: random.Random, lam: float) -> int:
         k += 1
 
 
-def _build_title(rng: random.Random, cohort: str) -> tuple[str, tuple[str, ...], str]:
-    czech = cohort == "cz-local"
-    templates = CS_TEMPLATES if czech else EN_TEMPLATES
+def _build_title(rng: random.Random, cohort: str, topics_en: dict[str, list[str]] | None = None,
+                 topics_cs: list[dict[str, str]] | None = None, cs_cohorts: frozenset[str] = frozenset({"cz-local"}),
+                 style: dict[str, Any] | None = None) -> tuple[str, tuple[str, ...], str]:
+    style = style or {}
+    czech = cohort in cs_cohorts
+    templates = [(t, tuple(f)) for t, f in style.get("templates_cs", [])] or CS_TEMPLATES if czech \
+        else [(t, tuple(f)) for t, f in style.get("templates_en", [])] or EN_TEMPLATES
     template, flags = rng.choice(templates)
     flags = tuple(flags)
     number = rng.choice([3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 21])
     if czech:
-        forms = rng.choice(TOPICS_CS)
+        forms = rng.choice(topics_cs or TOPICS_CS)
         title = template.format(N=number, **forms)
     else:
-        topic = rng.choice(TOPICS_EN[cohort])
+        topic = rng.choice((topics_en or TOPICS_EN)[cohort])
         title = template.format(N=number, t=topic if not template.startswith("{t}") else topic.capitalize())
     if rng.random() < 0.12 and "clickbait" not in flags:
-        title += LONG_TAIL_CS if czech else LONG_TAIL
+        title += style.get("long_tail_cs", LONG_TAIL_CS) if czech else style.get("long_tail_en", LONG_TAIL)
         flags = flags + ("long",)
     return title[0].upper() + title[1:], flags, "cs" if czech else "en"
 
 
 def generate_corpus(
-    seed: int = 7, items_per_brand: int = 40, today: str = "2026-09-01"
+    seed: int = 7, items_per_brand: int = 40, today: str = "2026-09-01", config: dict[str, Any] | None = None,
 ) -> tuple[list[Brand], list[ContentItem]]:
+    """The demo corpus. ``config`` (a vertical's ``synth.json``) swaps in its own fictional brands and topics."""
     rng = random.Random(seed)
     end = date.fromisoformat(today)
     brands: list[Brand] = []
     items: list[ContentItem] = []
-    cohort_base = {c: rng.gauss(0, 0.4) for c in BRANDS}
+    brand_names = config["brands"] if config else BRANDS
+    platforms_by_cohort = {k: [tuple(p) for p in v] for k, v in config["platforms"].items()} if config else PLATFORMS_BY_COHORT
+    topics_en = config["topics_en"] if config else None
+    topics_cs = config["topics_cs"] if config else None
+    cs_cohorts = frozenset(config.get("cs_cohorts", [])) if config else frozenset({"cz-local"})
+    countries = config.get("country", {}) if config else {"cz-local": "CZ"}
+    cohort_base = {c: rng.gauss(0, 0.4) for c in brand_names}
     counter = 0
-    for cohort, names in BRANDS.items():
-        platforms = PLATFORMS_BY_COHORT[cohort]
+    for cohort, names in brand_names.items():
+        platforms = platforms_by_cohort[cohort]
         for name in names:
             brand = Brand(
-                id=f"syn-{_slug(name)}", name=name, cohort=cohort, country="CZ" if cohort == "cz-local" else None,
+                id=f"syn-{_slug(name)}", name=name, cohort=cohort, country=countries.get(cohort),
                 homepage=None, verified=False, synthetic=True,
             )
             brands.append(brand)
@@ -173,7 +184,7 @@ def generate_corpus(
             quality_bias = rng.gauss(0, 0.2)
             for _ in range(items_per_brand):
                 platform, fmt = rng.choice(platforms)
-                title, flags, lang = _build_title(rng, cohort)
+                title, flags, lang = _build_title(rng, cohort, topics_en, topics_cs, cs_cohorts, config)
                 q = sum(PLANTED_EFFECTS[f] for f in flags) + quality_bias + rng.gauss(0, 0.30)
                 exposure = math.exp(cohort_base[cohort] + reach + (0.4 if platform == "youtube" else 0.0))
                 views = max(50.0, 800.0 * exposure * math.exp(0.5 * q + 0.3 * rng.gauss(0, 1)))

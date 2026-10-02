@@ -230,19 +230,21 @@ def emoji_count(text: str) -> int:
 _ACRONYMS = frozenset({
     "SEO", "CRM", "ROI", "KPI", "CTA", "UGC", "API", "FAQ", "USA", "AI", "EU", "UK", "B2B", "B2C", "SaaS",
     "PDF", "CEO", "HR", "IT", "PR", "GEO", "RSA", "USP", "ADD", "TV", "VAT", "DPH",
+    "LED", "NIR", "PBM", "EMF", "UV", "FDA", "ETL", "WALT",
 })
 
 
-def caps_words(text: str) -> list[str]:
-    """Words of three or more letters written in capitals (known acronyms and hashtags excluded)."""
+def caps_words(text: str, brand: str | None = None) -> list[str]:
+    """Words of three or more letters written in capitals (known acronyms, hashtags and the brand name excluded)."""
     t = _HASHTAG_RE.sub(" ", _URL_RE.sub(" ", strip_placeholders(text)))
+    own = {w.upper() for w in _WORD_RE.findall(brand or "")}
     return [w for w in _WORD_RE.findall(t)
-            if len(w) >= 3 and w.isalpha() and w == w.upper() and w.upper() not in _ACRONYMS]
+            if len(w) >= 3 and w.isalpha() and w == w.upper() and w.upper() not in _ACRONYMS and w.upper() not in own]
 
 
-def caps_ratio(text: str) -> float:
+def caps_ratio(text: str, brand: str | None = None) -> float:
     ws = [w for w in words(text) if w.isalpha()]
-    return len(caps_words(text)) / len(ws) if ws else 0.0
+    return len(caps_words(text, brand)) / len(ws) if ws else 0.0
 
 
 def keyword_in(text: str, keyword: str | None, lang: str = "en") -> bool:

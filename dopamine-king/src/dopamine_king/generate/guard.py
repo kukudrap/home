@@ -16,6 +16,7 @@ from dataclasses import dataclass, field
 from typing import Any, Callable, Iterable
 
 from ..scoring import detect_lang, fold, score_hook
+from . import claims as claims_profile
 from .seo import CITE_RE, PLACEHOLDER_RE, _URL_RE, keyword_density, norm_lang, plain_text
 from .types import Brief, Draft, Issue
 
@@ -108,6 +109,7 @@ _RULES: dict[str, tuple[str, str, str]] = {
         "the brief.",
         "Citace '{id}' není mezi ověřenými zdroji a databáze studií ji nezná. Použijte zdroj ze zadání."),
 }
+_RULES.update(claims_profile.RULES)     # extra codes of the claims profile (active when a brief asks for it)
 _KINDS = {"email": ("email address", "e-mailová adresa"), "phone": ("phone number", "telefonní číslo"),
           "birth": ("birth number", "rodné číslo"), "iban": ("IBAN", "IBAN")}
 
@@ -187,6 +189,8 @@ class _Ctx:
     known_ids: set[str]
     extra: str = ""                            # machine readable parts (JSON-LD) scanned for hidden instructions
     claimed: list[tuple[int, int]] = field(default_factory=list)
+    exempt: list[tuple[int, int]] = field(default_factory=list)   # text the profile rules must not judge (approved footers)
+    profile: Any = None                        # compiled claims profile, None for the general profile
 
     def issue(self, code: str, start: int, end: int, text: str | None = None, **fmt: Any) -> Issue:
         sev, en, cs = _RULES[code]
@@ -227,6 +231,14 @@ class _Ctx:
 
     def overlaps(self, start: int, end: int) -> bool:
         return any(a < end and start < b for a, b in self.claimed)
+
+    def disclaimed(self, start: int, end: int) -> bool:
+        """With a claims profile: the text is a negated statement ("does not treat disease") or an approved footer."""
+        if self.profile is None:
+            return False
+        if any(a < end and start < b for a, b in self.exempt):
+            return True
+        return self.profile.negated(self.low, start, end, self.spans)
 
 
 def _compile(patterns: Iterable[str]) -> re.Pattern[str]:
@@ -462,6 +474,8 @@ def _personal_data(text: str) -> list[tuple[str, int, int]]:
 def _r_health(ctx: _Ctx) -> list[Issue]:
     out = []
     for m in _HEALTH_RE.finditer(ctx.low):
+        if ctx.overlaps(*m.span()) or ctx.disclaimed(*m.span()):    # the claims profile already judged this text
+            continue
         ctx.claimed.append(m.span())
         out.append(ctx.issue("HEALTH_CLAIM", *m.span()))
     return out
@@ -645,13 +659,47 @@ def _r_citations(ctx: _Ctx) -> list[Issue]:
     return out
 
 
+_LABEL_WORDS = {"strong": ("strong", "silné"), "moderate": ("moderate", "střední"), "limited": ("limited", "omezené"),
+                "contested": ("contested", "sporné"), "none": ("none", "žádné")}
+
+
+def _r_claims(ctx: _Ctx) -> list[Issue]:
+    """Evidence-aware claims profile (wellness): medical claims, hedging, status, safety and usage figures."""
+    profile = ctx.profile
+    if profile is None:
+        return []
+    blocked = [m.span() for m in PLACEHOLDER_RE.finditer(ctx.text)] + ctx.exempt
+
+    def skip(a: int, b: int) -> bool:
+        return any(x < b and a < y for x, y in blocked)
+
+    out: list[Issue] = []
+    hits = profile.scan(
+        ctx.text, ctx.low, spans=ctx.spans, skip=skip, backed=ctx.backed, cited_near=ctx.cited_near,
+        is_question=lambda end: _is_question_at(ctx.low, end), format_id=ctx.draft.format if ctx.draft else None,
+    )
+    for h in hits:
+        fmt: dict[str, Any] = {}
+        if h.topic is not None:
+            words = _LABEL_WORDS.get(h.topic.label, (h.topic.label, h.topic.label))
+            fmt = {"topic": h.topic.name(ctx.lang), "label": words[1] if ctx.lang == "cs" else words[0], "safe": h.topic.safe(ctx.lang)}
+        if h.code == "SAFETY_NOTE_MISSING":
+            sev, en, cs = _RULES[h.code]
+            out.append(Issue(sev, h.code, cs if ctx.lang == "cs" else en, None))
+            continue
+        if h.code in ("CLAIM_MEDICAL", "CLAIM_AVOID", "DISEASE_MENTION", "STATUS_CLAIM", "SAFETY_ABSOLUTE"):
+            ctx.claimed.append((h.start, h.end))
+        out.append(ctx.issue(h.code, h.start, h.end, **fmt))
+    return out
+
+
 def _r_ai_reminder(ctx: _Ctx) -> list[Issue]:
     return [ctx.issue("AI_DISCLOSURE_REMINDER", 0, 0)]
 
 
 # order matters: regulated claims first, so the softer absolute and statistic rules skip the same text
 _RULE_FUNCS: tuple[Callable[[_Ctx], list[Issue]], ...] = (
-    _r_health, _r_finance, _r_absolute, _r_stat, _r_unsupported, _r_scarcity, _r_urgency, _r_shaming, _r_bait, _r_injection,
+    _r_claims, _r_health, _r_finance, _r_absolute, _r_stat, _r_unsupported, _r_scarcity, _r_urgency, _r_shaming, _r_bait, _r_injection,
     _r_cloaking, _r_fake_review, _r_placeholder, _r_disclosure, _r_personal, _r_avoided, _r_stuffing, _r_clickbait,
     _r_citations, _r_ai_reminder,
 )
@@ -677,8 +725,16 @@ class TrustShield:
         extra = ""
         if draft and draft.parts.get("json_ld"):
             extra = json.dumps(draft.parts["json_ld"], ensure_ascii=False)
+        exempt: list[tuple[int, int]] = []
+        for snippet in (draft.parts.get("guard_exempt") or []) if draft else []:
+            snippet = str(snippet)
+            at = text.find(snippet) if snippet else -1
+            while at != -1:
+                exempt.append((at, at + len(snippet)))
+                at = text.find(snippet, at + len(snippet))
         return _Ctx(
-            text=text, low=fold_aligned(text), lang=content_lang, brief=brief, draft=draft, ledger=self.ledger,
+            text=text, low=fold_aligned(text), lang=content_lang, brief=brief, draft=draft, ledger=self.ledger, exempt=exempt,
+            profile=claims_profile.profile_for(brief),
             spans=_sentence_spans(text), fact_tokens=[set(_TOKEN_RE.findall(fold_aligned(c))) for c in corpus if c.strip()],
             sponsored=bool(brief.sponsored) if brief else bool(draft.meta.get("sponsored")) if draft else False,
             known_ids={str(s.get("id")) for s in sources if s.get("id")}, extra=extra,

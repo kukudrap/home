@@ -214,7 +214,7 @@ def build_loot(patterns: list[dict[str, Any]], ledger_cards: list[dict[str, Any]
     return cards
 
 
-def demo_samples(ledger: Any = None) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+def demo_samples(ledger: Any = None, vertical: Any = None) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
     """Real engine output for two fictional brands (English and Czech): an offline pack and a 4 week plan.
 
     Nothing here is hand written: open slots stay ``[[ADD: ...]]`` because the offline writer never
@@ -224,6 +224,11 @@ def demo_samples(ledger: Any = None) -> tuple[list[dict[str, Any]], list[dict[st
     from .generate.types import Brief
     from .guru import build_plan
 
+    if vertical is not None:
+        briefs = list(vertical.briefs(ledger).values())
+        formats = vertical.demo_formats() or DEMO_FORMATS
+        packs = [build_pack(b, formats, ledger=ledger, improve_rounds=0).to_dict() for b in briefs]
+        return packs, [build_plan(b).to_dict() for b in briefs]
     briefs = [
         Brief(brand="Zorvia Running", topic="running shoes", audience="beginner runners", cohort="sport",
               keyword="running shoes for beginners", facts=["Our Aero 2 weighs 210 g."], cta="Try the Aero 2 for 30 days",
@@ -238,9 +243,21 @@ def demo_samples(ledger: Any = None) -> tuple[list[dict[str, Any]], list[dict[st
     return packs, plans
 
 
+# Hook, A/B and attention myths that stay useful in every edition of the game.
+GENERIC_MYTH_IDS = ("m-dopamine", "m-peeking", "m-stuffing", "m-scaled", "m-geo-cite", "m-fluency")
+
+
 def build_bundle(*, seed: int = 7, ledger: Any = None, forge_samples: list[dict[str, Any]] | None = None,
-                 guru_sample: dict[str, Any] | None = None, with_samples: bool = True) -> dict[str, Any]:
-    brands, items = generate_corpus(seed=seed)
+                 guru_sample: dict[str, Any] | None = None, with_samples: bool = True,
+                 vertical: str | None = None) -> dict[str, Any]:
+    """Everything the game needs. ``vertical`` (for example "pbm") swaps in that vertical's demo corpus, bosses,
+    myths, claims map and MITO LIGHT samples; the engine underneath is the same."""
+    from .verticals import load_vertical
+
+    vert = load_vertical(vertical) if vertical else None
+    if vert is not None:
+        ledger = vert.ledger()
+    brands, items = generate_corpus(seed=seed, config=vert.synth() if vert else None)
     cohort_by_brand = {b.id: b.cohort for b in brands}
     brand_name = {b.id: b.name for b in brands}
     analyses = analyze_items(items, cohort_by_brand)
@@ -251,7 +268,7 @@ def build_bundle(*, seed: int = 7, ledger: Any = None, forge_samples: list[dict[
 
     guru_samples: list[dict[str, Any]] = [guru_sample] if guru_sample else []
     if with_samples and not forge_samples:
-        forge_samples, guru_samples = demo_samples(ledger)
+        forge_samples, guru_samples = demo_samples(ledger, vert)
         guru_sample = guru_samples[0]
 
     ledger_cards: list[dict[str, Any]] = []
@@ -259,18 +276,26 @@ def build_bundle(*, seed: int = 7, ledger: Any = None, forge_samples: list[dict[
     if ledger is not None:
         vault, ledger_cards = _vault_from_ledger(ledger)
 
+    bosses = vert.bosses() if vert else BOSSES
+    myths = (vert.myths() + [m for m in MYTHS if m["id"] in GENERIC_MYTH_IDS]) if vert else MYTHS
+    edition: dict[str, Any] = {}
+    if vert is not None:
+        edition = {"vertical": vert.public_meta(),
+                   "claims": {"classes": vert.claims()["classes"], "topics": vert.claim_map(ledger)},
+                   "claim_rules": vert.claim_rules()}
     return {
         "meta": {"version": BUNDLE_VERSION, "generated": datetime.now(timezone.utc).isoformat(timespec="seconds"),
-                 "synthetic": True, "corpus": {"brands": len(brands), "items": len(items)},
+                 "synthetic": True, "corpus": {"brands": len(brands), "items": len(items)}, "vertical": vertical,
                  "note": "All engagement data in this bundle is SIMULATED. Brands are fictional."},
         "spec": load_spec(),
         "calibration": cal.to_dict(),
+        **edition,
         "cohort_labels": COHORT_LABELS,
         "benchmarks": build_benchmarks(analyses),
         "arena": build_arena(analyses, titles, brands_by_item, logit_scale=cal.logit_scale),
-        "bosses": BOSSES,
+        "bosses": bosses,
         "patterns": patterns,
-        "myths": MYTHS,
+        "myths": myths,
         "lab": {"scenarios": LAB_SCENARIOS},
         "vault": vault,
         "loot": {"cards": build_loot(patterns, ledger_cards), "rates": DROP_RATES, "pity_after": PITY_AFTER},

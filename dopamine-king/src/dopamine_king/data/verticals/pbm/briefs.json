@@ -1,0 +1,132 @@
+{
+ "version": 1,
+ "note": "Facts come from public descriptions of MITO LIGHT and must be confirmed against the brand's own materials before use.",
+ "demo_formats": [
+  "instagram_caption",
+  "short_video_script",
+  "seo_article",
+  "geo_answer_page",
+  "newsletter"
+ ],
+ "source_ids": {
+  "vanin2018": "doi:10.1007/s10103-017-2368-6",
+  "dutra2022": "doi:10.1007/s40279-022-01714-y",
+  "li2024": "doi:10.1007/s10103-024-04079-y",
+  "nampo2016": "doi:10.1007/s10103-015-1832-4",
+  "alvarez2025": "doi:10.1007/s10103-025-04318-w",
+  "leal2015": "doi:10.1007/s10103-013-1465-4"
+ },
+ "source_claims": {
+  "vanin2018": {
+   "en": "A systematic review and meta-analysis of 39 trials in healthy people (861 participants) found some effect in favour of phototherapy on time to exhaustion, repetitions, peak torque and blood lactate; the authors rated the quality of the evidence as very low to moderate.",
+   "cs": "Systematický přehled a metaanalýza 39 studií u zdravých lidí (861 účastníků) zjistily určitý účinek ve prospěch fototerapie na čas do vyčerpání, počet opakování, maximální točivý moment a laktát v krvi; autoři hodnotili kvalitu důkazů jako velmi nízkou až střední."
+  },
+  "dutra2022": {
+   "en": "A meta-analysis of 37 placebo-controlled crossover studies in healthy young adults found that light before exercise was associated with better muscle endurance (SMD 0.27) and cycling time to exhaustion (SMD 0.35), but not single-joint strength or all-out sprints.",
+   "cs": "Metaanalýza 37 placebem kontrolovaných zkřížených studií u zdravých mladých dospělých zjistila, že světlo před cvičením souviselo s lepší svalovou vytrvalostí (SMD 0,27) a delším časem do vyčerpání na kole (SMD 0,35), nikoli však se silou jednoho kloubu ani s krátkými maximálními sprinty."
+  },
+  "li2024": {
+   "en": "A meta-analysis of randomised trials of pre-exercise photobiomodulation reported improved muscle endurance overall (SMD 0.31), with no significant benefit in physically active people.",
+   "cs": "Metaanalýza randomizovaných studií fotobiomodulace před cvičením uvedla celkově lepší svalovou vytrvalost (SMD 0,31), u fyzicky aktivních lidí však bez významného přínosu."
+  },
+  "nampo2016": {
+   "en": "A systematic review and meta-analysis of 15 studies (317 participants) found lower creatine kinase only when laser was applied before exercise and no between-group differences in swelling, range of movement or strength; the authors conclude that phototherapy may not have a substantial effect on exercise-induced muscle injury and pain.",
+   "cs": "Systematický přehled a metaanalýza 15 studií (317 účastníků) zjistily nižší kreatinkinázu jen při aplikaci laseru před cvičením a žádné rozdíly mezi skupinami v otoku, rozsahu pohybu ani síle; autoři uzavírají, že fototerapie nemusí mít podstatný vliv na svalové poškození a bolest po zátěži."
+  },
+  "alvarez2025": {
+   "en": "A systematic review of five studies (105 physically active participants) of whole-body red or near-infrared light found no reported benefit on fatigue biomarkers or exercise performance.",
+   "cs": "Systematický přehled pěti studií (105 fyzicky aktivních účastníků) o celotělovém červeném nebo blízkém infračerveném světle nezjistil žádný hlášený přínos pro ukazatele únavy ani výkon."
+  },
+  "leal2015": {
+   "en": "A systematic review with meta-analysis of randomised trials of laser or LED phototherapy before, during or after exercise used repetitions, time to exhaustion and creatine kinase as its main outcomes.",
+   "cs": "Systematický přehled s metaanalýzou randomizovaných studií fototerapie laserem nebo LED před cvičením, během něj či po něm sledoval hlavně počet opakování, čas do vyčerpání a kreatinkinázu."
+  }
+ },
+ "briefs": [
+  {
+   "id": "mito-light-cs",
+   "brand": "MITO LIGHT",
+   "topic": "červené světlo",
+   "audience": "aktivní lidé a sportovci",
+   "goal": "awareness",
+   "lang": "cs",
+   "tone": "věcný, přátelský, bez nadsázky a bez slibů",
+   "keyword": "červené světlo panel",
+   "secondary_keywords": [
+    "fotobiomodulace",
+    "regenerace po tréninku",
+    "jak vybrat světelný panel"
+   ],
+   "offer": "Světelné panely MITO LIGHT",
+   "cta": "Prohlédněte si nabídku panelů MITO LIGHT",
+   "facts": [
+    "MITO LIGHT je česká značka světelných panelů; zařízení jsou vyvíjena a navrhována v České republice.",
+    "Každý kus prochází v České republice testem výkonu.",
+    "MITO LIGHT je určen jako pomůcka k podpoře regenerace zdravého organismu a není zdravotnickým prostředkem.",
+    "Panel Mitohacker 4.0 má 408 LED diod a šest vlnových délek (630, 660, 670, 810, 830 a 850 nm)."
+   ],
+   "cohort": "pbm-cz-sk",
+   "vertical": "pbm",
+   "claims_profile": "wellness",
+   "avoid": [
+    "zázrak",
+    "revoluční"
+   ],
+   "voice_notes": "Mluvíme jako zkušený technik: jasně, konkrétně a bez slibů. Každý přínos opatrně a se zdrojem.",
+   "topic_forms": {
+    "gen": "červeného světla",
+    "dat": "červenému světlu",
+    "acc": "červené světlo",
+    "loc": "červeném světle",
+    "ins": "červeným světlem"
+   },
+   "sources": [
+    "vanin2018",
+    "dutra2022",
+    "li2024",
+    "nampo2016",
+    "alvarez2025",
+    "leal2015"
+   ]
+  },
+  {
+   "id": "mito-light-en",
+   "brand": "MITO LIGHT",
+   "topic": "red light panels",
+   "audience": "active people and athletes",
+   "goal": "awareness",
+   "lang": "en",
+   "tone": "factual, friendly, no hype and no promises",
+   "keyword": "red light panel",
+   "secondary_keywords": [
+    "photobiomodulation",
+    "post-workout recovery routine",
+    "how to choose a light panel"
+   ],
+   "offer": "MITO LIGHT light panels",
+   "cta": "See the MITO LIGHT panels",
+   "facts": [
+    "MITO LIGHT is a Czech brand of light panels; the devices are developed and designed in the Czech Republic.",
+    "Every unit goes through an output test in the Czech Republic.",
+    "MITO LIGHT is meant as an aid to support the regeneration of a healthy body and is not a medical device.",
+    "The Mitohacker 4.0 panel has 408 LEDs and six wavelengths (630, 660, 670, 810, 830 and 850 nm)."
+   ],
+   "cohort": "pbm-home-devices",
+   "vertical": "pbm",
+   "claims_profile": "wellness",
+   "avoid": [
+    "miracle",
+    "revolutionary"
+   ],
+   "voice_notes": "We speak like an experienced technician: clear, concrete and without promises. Every benefit is hedged and sourced.",
+   "sources": [
+    "vanin2018",
+    "dutra2022",
+    "li2024",
+    "nampo2016",
+    "alvarez2025",
+    "leal2015"
+   ]
+  }
+ ]
+}

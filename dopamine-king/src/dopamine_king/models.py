@@ -26,6 +26,14 @@ COHORT_LABELS: dict[str, dict[str, str]] = {
     "health-wellness": {"en": "Health and wellness", "cs": "Zdraví a wellness"},
     "home-living": {"en": "Home and living", "cs": "Domov a bydlení"},
     "cz-local": {"en": "Czech local brands", "cs": "České značky"},
+    # photobiomodulation vertical (see data/verticals/pbm)
+    "pbm-home-devices": {"en": "PBM home devices", "cs": "Domácí zařízení (PBM)"},
+    "pbm-skin-led": {"en": "Skin and beauty LED", "cs": "LED pro pleť a krásu"},
+    "pbm-clinical": {"en": "Clinical and professional PBM", "cs": "Klinická a profesionální PBM"},
+    "pbm-recovery-sport": {"en": "Recovery and sport", "cs": "Regenerace a sport"},
+    "pbm-science": {"en": "Science and societies", "cs": "Věda a odborné společnosti"},
+    "pbm-media": {"en": "Education and review media", "cs": "Vzdělávací a recenzní média"},
+    "pbm-cz-sk": {"en": "Czech and Slovak PBM", "cs": "České a slovenské PBM"},
 }
 COHORTS = tuple(COHORT_LABELS)
 

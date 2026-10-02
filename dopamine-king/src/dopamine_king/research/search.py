@@ -14,8 +14,10 @@ from .crossref import CrossrefClient
 from .grading import apply_grade
 from .models import Study, normalize_title
 from .openalex import OpenAlexClient
+from .pubmed import PubMedClient
 
 SOURCES = ("openalex", "crossref", "arxiv")
+ALL_SOURCES = SOURCES + ("pubmed",)       # PubMed is opt-in: it is the right place for biomedical topics
 _ARXIV_DOI_PREFIX = "10.48550/arxiv."      # DataCite DOIs minted for arXiv preprints
 _MAX_PER_SOURCE = 50
 
@@ -99,6 +101,7 @@ def _run_source(
         "openalex": lambda: OpenAlexClient(fetcher, mailto).search(query, per_page=size, year_from=year_from),
         "crossref": lambda: CrossrefClient(fetcher, mailto).search(query, rows=size),
         "arxiv": lambda: ArxivClient(fetcher).search(query, max_results=size),
+        "pubmed": lambda: PubMedClient(fetcher, mailto).search(query, retmax=size, year_from=year_from),
     }
     if name not in runners:
         raise ValueError(f"unknown source {name!r}")

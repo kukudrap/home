@@ -1,0 +1,109 @@
+{
+ "version": 1,
+ "bosses": [
+  {
+   "id": "boss-pbm-overthinker",
+   "cohort": "pbm-home-devices",
+   "lang": "en",
+   "name": "The Panel Overthinker",
+   "tier": 1,
+   "percentile": 60,
+   "xp": 60,
+   "brief_en": "Product page headline for a home red light panel aimed at first-time buyers. No promises about health outcomes.",
+   "brief_cs": "Titulek produktové stránky domácího panelu s červeným světlem pro prvokupující. Žádné sliby o zdravotních výsledcích.",
+   "taunt_en": "Fifty tabs of specs and still no decision.",
+   "taunt_cs": "Padesát otevřených panelů se specifikacemi a pořád žádné rozhodnutí."
+  },
+  {
+   "id": "boss-pbm-jargon",
+   "cohort": "pbm-home-devices",
+   "lang": "en",
+   "name": "Captain Jargon",
+   "tier": 2,
+   "percentile": 75,
+   "xp": 100,
+   "brief_en": "Explain wavelengths and irradiance in one headline for people who never read a spec sheet.",
+   "brief_cs": "Vysvětlete vlnové délky a ozáření v jednom titulku pro lidi, kteří nikdy nečetli technický list.",
+   "taunt_en": "Photonic synergistic bioactive optimisation!",
+   "taunt_cs": "Fotonická synergická bioaktivní optimalizace!"
+  },
+  {
+   "id": "boss-pbm-ghost",
+   "cohort": "pbm-recovery-sport",
+   "lang": "en",
+   "name": "The Scroll Ghost",
+   "tier": 1,
+   "percentile": 60,
+   "xp": 60,
+   "brief_en": "Instagram caption for a post-workout routine that includes a light session. Hedge every benefit.",
+   "brief_cs": "Popisek na Instagram k rutině po tréninku, která zahrnuje sezení pod světlem. Každý přínos formulujte opatrně.",
+   "taunt_en": "Nobody reads another recovery caption.",
+   "taunt_cs": "Další popisek o regeneraci nikdo nečte."
+  },
+  {
+   "id": "boss-pbm-hype",
+   "cohort": "pbm-skin-led",
+   "lang": "en",
+   "name": "Doctor Hype",
+   "tier": 3,
+   "percentile": 90,
+   "xp": 180,
+   "brief_en": "Post about a light mask in an evening skincare routine, without a single promise about results.",
+   "brief_cs": "Příspěvek o světelné masce ve večerní péči o pleť, bez jediného slibu výsledků.",
+   "taunt_en": "Say 'miracle' and watch them click.",
+   "taunt_cs": "Napiš 'zázrak' a uvidíš, jak se kliká."
+  },
+  {
+   "id": "boss-pbm-detox",
+   "cohort": "pbm-recovery-sport",
+   "lang": "en",
+   "name": "Captain Detox",
+   "tier": 2,
+   "percentile": 75,
+   "xp": 100,
+   "brief_en": "Video title for a recovery panel. It must not claim that anything is detoxed, cured or boosted.",
+   "brief_cs": "Titulek videa o regeneračním panelu. Nesmí tvrdit, že se cokoli detoxikuje, léčí nebo posiluje.",
+   "taunt_en": "Everything detoxes everything!",
+   "taunt_cs": "Všechno všechno detoxikuje!"
+  },
+  {
+   "id": "boss-pbm-tma",
+   "cohort": "pbm-cz-sk",
+   "lang": "cs",
+   "name": "Pan Tma",
+   "tier": 1,
+   "percentile": 60,
+   "xp": 60,
+   "brief_en": "Newsletter subject line: an evening light routine for people who sit at a computer all day.",
+   "brief_cs": "Předmět newsletteru: večerní světelná rutina pro lidi, kteří celý den sedí u počítače.",
+   "taunt_en": "Light? A desk lamp is enough for me.",
+   "taunt_cs": "Světlo? Mně stačí lampička."
+  },
+  {
+   "id": "boss-pbm-mlha",
+   "cohort": "pbm-cz-sk",
+   "lang": "cs",
+   "name": "Mlha specifikací",
+   "tier": 2,
+   "percentile": 75,
+   "xp": 100,
+   "brief_en": "Article headline: how to choose a panel, for readers who first hear about photobiomodulation.",
+   "brief_cs": "Titulek článku: jak vybrat panel, pro čtenáře, kteří o fotobiomodulaci slyší poprvé.",
+   "taunt_en": "Specifications, specifications, specifications.",
+   "taunt_cs": "Specifikace, specifikace, specifikace."
+  },
+  {
+   "id": "boss-pbm-sliby",
+   "cohort": "pbm-cz-sk",
+   "lang": "cs",
+   "name": "Hejno slibů",
+   "tier": 3,
+   "percentile": 90,
+   "xp": 180,
+   "brief_en": "Headline for a new panel that promises only what can be backed up.",
+   "brief_cs": "Titulek k novému panelu, který slibuje jen to, co lze doložit.",
+   "taunt_en": "Promise a miracle and people buy.",
+   "taunt_cs": "Slib zázrak a lidi to koupí."
+  }
+ ]
+}

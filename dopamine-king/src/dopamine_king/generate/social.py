@@ -198,8 +198,9 @@ def check_social(draft: Draft, rule: Rule, text: str | None = None) -> list[Issu
             issues.append(Issue("warn", "HASHTAG_COUNT", f"{n} hashtags, use at least {lo}."))
     if emoji_count(first_line(clean)) > FIRST_LINE_EMOJI_MAX:
         issues.append(Issue("warn", "EMOJI_OVERUSE", f"More than {FIRST_LINE_EMOJI_MAX} emojis in the first line."))
-    if len(caps_words(clean)) >= 2 and caps_ratio(clean) > CAPS_RATIO_WARN:
-        issues.append(Issue("warn", "ALL_CAPS", "Many words are written in capitals: " + ", ".join(caps_words(clean)[:5])))
+    brand = draft.meta.get("brand")
+    if len(caps_words(clean, brand)) >= 2 and caps_ratio(clean, brand) > CAPS_RATIO_WARN:
+        issues.append(Issue("warn", "ALL_CAPS", "Many words are written in capitals: " + ", ".join(caps_words(clean, brand)[:5])))
     bait = engagement_bait(clean)
     if bait:
         issues.append(Issue("warn", "ENGAGEMENT_BAIT", "Engagement bait phrasing: " + "; ".join(bait)))
