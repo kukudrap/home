@@ -109,7 +109,8 @@ Prohlížečový test celé hry (Playwright + Chromium, mimo CI, protože potře
 
 ```bash
 python3 -m dopamine_king build-web
-node web/tests/smoke.playwright.mjs     # projde všechny pohledy v cs i en, světlém i tmavém režimu a na mobilu
+node web/tests/smoke.playwright.mjs     # projde všechny pohledy v cs i en, světlém i tmavém režimu a na mobilu, včetně kontroly tvrzení
+                                        # (potřebuje balíček playwright; když je nainstalovaný globálně, nastavte NODE_PATH na jeho složku)
 ```
 
 ## Poctivost a limity
