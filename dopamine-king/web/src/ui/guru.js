@@ -192,7 +192,7 @@
             d.h("span.chip", null, icons.icon("calendar", { size: 13 }), d.h("span", null, ctx.tp("guru.weeks", weeks) + ", " + ctx.tp("guru.posts", cal.length))))),
         d.h("h3.sub", null, t("guru.positioning")),
         posView,
-        isSample ? d.h("p.small.sim-note", null, icons.icon("flask", { size: 15 }), d.h("span", null, t("guru.sampleNote"))) : d.h("p.small.muted", null, t("guru.liveNote")),
+        isSample ? d.h("p.small.sim-note", null, icons.icon("flask", { size: 15 }), d.h("span", null, forge.isEdition(plan) ? t("guru.sampleNoteEdition", { brand: brand }) : t("guru.sampleNote"))) : d.h("p.small.muted", null, t("guru.liveNote")),
         d.h("div.row.wrap", null,
           widgets.copyButton(markdown, t("guru.copyMd")),
           d.h("button.btn.btn-ghost.btn-sm", { type: "button", onclick: function () {

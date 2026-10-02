@@ -8,6 +8,7 @@ const { spawnSync } = require("node:child_process");
 
 const i18n = require("../src/i18n.js");
 const game = require("../src/game.js");
+const claims = require("../src/claims.js");
 
 const SRC = path.resolve(__dirname, "..", "src");
 const ROOT = path.resolve(__dirname, "..", "..");
@@ -152,6 +153,13 @@ test("keys composed at run time exist for every possible value", () => {
   family("guru.dayShort.", ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]);
   family("profile.importErr.", ["empty", "too_large", "invalid_json", "wrong_app", "invalid_profile", "read"]);
   family("boss.tier", ["1", "2", "3"]);
+  family("claims.sev.", claims.SEVERITIES);
+  family("claims.code.", claims.CODES);
+  family("claims.name.", claims.CODES);
+  family("claims.class.", ["wellness", "cosmetic", "context", "medical", "avoid"]);
+  family("vault.ev.", ["strong", "moderate", "limited", "contested", "none"]);
+  family("vault.dir.", ["supports", "mixed", "contradicts", "context"]);
+  family("forge.profile.", ["general", "wellness"]);
   for (const k of need) assert.ok(k in EN || k + ".other" in EN, `missing ${k}`);
 });
 

@@ -512,16 +512,24 @@
     return b && Array.isArray(b.quantiles) && b.quantiles.length ? b.quantiles : null;
   }
 
-  /** Win condition: percentile inside the boss cohort >= boss.percentile AND clickbait risk <= 0.35. */
-  function resolveBoss(boss, score, benchmarks) {
+  /**
+   * Win condition: percentile inside the boss cohort >= boss.percentile AND clickbait risk <= 0.35, and in an edition
+   * with a claims profile also NO error level finding of the claims check. `extra.claimErrors` is that count (the
+   * check itself lives in claims.js); without it the claims condition does not apply, so older editions behave as before.
+   */
+  function resolveBoss(boss, score, benchmarks, extra) {
     var q = bossQuantiles(boss, benchmarks);
     var pct = q ? percentileOf(score.total, q) : null;
     var risk = score.clickbait_risk;
     var pctOk = pct !== null && pct >= boss.percentile;
     var riskOk = risk <= BOSS_MAX_RISK;
+    var claimsChecked = !!extra && typeof extra.claimErrors === "number" && isFinite(extra.claimErrors);
+    var claimErrors = claimsChecked ? Math.max(0, Math.floor(extra.claimErrors)) : 0;
+    var claimsOk = claimErrors === 0;
     return {
       percentile: pct, needPercentile: boss.percentile, needScore: q ? thresholdScore(boss.percentile, q) : null,
-      risk: risk, riskOk: riskOk, pctOk: pctOk, won: pctOk && riskOk, honest: risk < HONEST_RISK,
+      risk: risk, riskOk: riskOk, pctOk: pctOk, claimsChecked: claimsChecked, claimErrors: claimErrors, claimsOk: claimsOk,
+      won: pctOk && riskOk && claimsOk, honest: risk < HONEST_RISK,
       hasBenchmark: !!q
     };
   }

@@ -1,7 +1,10 @@
-/* Vault: evidence cards, studies and the Myth or Fact quiz.
+/* Vault: evidence cards, studies, the claims map and the Myth or Fact quiz.
  *  Cards: chests with PUBLISHED drop rates and a visible pity counter, the loot collection with rarity
  *         frames (locked silhouettes until owned), and the evidence tactics from the research ledger.
- *  Studies: the ledger with grade, design, year, venue and a verified flag (seed entries are unverified).
+ *  Studies: the ledger with grade, design, year, venue and a verified flag; links resolve to evidence tactics
+ *         and to claim topics, and a study that is not verified yet is always marked.
+ *  Claims map (editions with bundle.claims): the claim topics grouped by class with their evidence label, safer
+ *         wording and studies, the regulatory note, and a box that runs the claims checker on any pasted text.
  *  Myth or Fact: swipe or click, with the explanation, reference and caveat.
  * Missing or empty data always gets a friendly empty state.
  */
@@ -14,10 +17,10 @@
   var RARITIES = ["common", "rare", "epic", "legendary"];
   var DESIGNS = ["meta-analysis", "systematic-review", "rct", "field-experiment", "lab-experiment", "observational", "survey", "theory", "qualitative", "book", "preprint", "guideline", "unknown"];
   var KIND_ICON = { pattern: "chart", tip: "bulb", study: "book", tactic: "layers" };
-  var EVIDENCE_LEVEL = { strong: 4, moderate: 3, limited: 2, contested: 2, none: 0 };
   var CONFETTI_BY_RARITY = { common: 0, rare: 70, epic: 130, legendary: 230 };
 
-  var state = { tab: "cards", studyFilter: "all", lootFilter: "all", tacticTheme: "all", tacticEvidence: "all", myth: { current: null, answered: null, correctRun: 0, played: 0 } };
+  var state = { tab: "cards", studyFilter: "all", lootFilter: "all", tacticTheme: "all", tacticEvidence: "all", checkText: "", focusCheck: false, myth: { current: null, answered: null, correctRun: 0, played: 0 } };
+  var TABS = ["cards", "studies", "claims", "myths"];
 
   function rarityOf(card) { return RARITIES.indexOf(card.rarity) >= 0 ? card.rarity : "common"; }
 
@@ -25,13 +28,19 @@
     var d = root.DK.ui.dom, icons = root.DK.ui.icons, widgets = root.DK.ui.widgets;
     var t = d.t;
     var sub = (route && route.sub) || (route && route.params && route.params.tab) || null;
-    if (sub === "cards" || sub === "studies" || sub === "myths") state.tab = sub;
+    var hasClaims = !!root.DK.ui.claimsui.claimsMap(ctx.bundle, ctx.lang());     // only editions with a claims map get the tab
+    if (TABS.indexOf(sub) >= 0) state.tab = sub;
+    if (hasClaims && route && route.params && route.params.focus === "check") { state.tab = "claims"; state.focusCheck = true; }
+    if (state.tab === "claims" && !hasClaims) state.tab = "cards";
     var page = d.h("div.page.vault");
     var current = null;
-    var builders = { cards: buildCards, studies: buildStudies, myths: buildMyths };
+    var builders = { cards: buildCards, studies: buildStudies, claims: buildClaims, myths: buildMyths };
+    var items = [{ id: "cards", label: t("vault.tab.cards"), icon: "gem" }, { id: "studies", label: t("vault.tab.studies"), icon: "book" }];
+    if (hasClaims) items.push({ id: "claims", label: t("vault.tab.claims"), icon: "shieldCheck" });
+    items.push({ id: "myths", label: t("vault.tab.myths"), icon: "bulb" });
     var tabs = widgets.tabs({
       label: t("vault.tabs"), active: state.tab,
-      items: [{ id: "cards", label: t("vault.tab.cards"), icon: "gem" }, { id: "studies", label: t("vault.tab.studies"), icon: "book" }, { id: "myths", label: t("vault.tab.myths"), icon: "bulb" }],
+      items: items,
       onChange: function (id, panel) {
         state.tab = id;
         if (current && current.destroy) current.destroy();
@@ -43,7 +52,7 @@
     d.fill(page, [
       d.h("div.arena-head", null,
         d.h("h1.page-title", { id: "view-title", tabindex: "-1" }, t("vault.title")),
-        d.h("p.page-lead", null, t("vault.lead"))),
+        d.h("p.page-lead", null, t("vault.lead") + (hasClaims ? " " + t("vault.leadClaims") : ""))),
       tabs.el, tabs.panel
     ]);
     container.appendChild(page);
@@ -171,13 +180,7 @@
     }
 
     // -- evidence tactics
-    function evidenceChip(label) {
-      var lv = EVIDENCE_LEVEL[label];
-      if (lv === undefined) label = "none";
-      var segs = d.h("span.ev-segs", { "aria-hidden": "true" });
-      for (var i = 1; i <= 4; i++) segs.appendChild(d.h("i" + (i <= (EVIDENCE_LEVEL[label] || 0) ? ".on" : "")));
-      return d.h("span.chip.ev-" + label, null, segs, label === "contested" ? icons.icon("alert", { size: 13 }) : null, d.h("span", null, t("vault.ev." + label)));
-    }
+    function evidenceChip(label) { return root.DK.ui.claimsui.evidenceChip(label); }
 
     function themeLabel(id) {
       var labels = (ctx.bundle.spec && ctx.bundle.spec.labels) || {};
@@ -311,11 +314,9 @@
   function buildStudies(panel, ctx) {
     var d = root.DK.ui.dom, icons = root.DK.ui.icons, widgets = root.DK.ui.widgets;
     var t = d.t;
+    var ui = root.DK.ui.claimsui;
     var vault = ctx.bundle.vault || {};
     var studies = (vault.studies || []).slice();
-    var links = vault.links || [];
-    var tactics = {};
-    (vault.tactics || []).forEach(function (x) { tactics[x.id] = x; });
     var host = d.h("div.vault-studies");
     d.fill(panel, host);
 
@@ -324,14 +325,17 @@
       var first = String(list[0]).split(",")[0];
       return list.length > 1 ? first + " " + t("vault.etAl") : first;
     }
-    function usedBy(id) {
-      return links.filter(function (l) { return l.study_id === id; }).map(function (l) { return tactics[l.tactic_id] ? (ctx.pick(tactics[l.tactic_id], "name") || l.tactic_id) : l.tactic_id; })
-        .filter(function (x, i, arr) { return arr.indexOf(x) === i; });
+    /** The topics a study is linked to, with names from the evidence tactics and the claim topics, and how it bears on each. */
+    function linkNodes(id) {
+      var links = ui.studyLinks(ctx.bundle, id, ctx.lang());
+      if (!links.length) return null;
+      return d.h("p.small.study-links", null, d.h("strong", null, t("vault.linkedTopics") + " "), links.map(function (l, i) {
+        return d.h("span.study-link", null, i ? ", " : "", l.name, d.h("span.muted", null, " (" + t("vault.dir." + l.direction) + ")"));
+      }));
     }
 
     function studyCard(s) {
       var verified = s.verified === true;
-      var tacticNames = usedBy(s.id);
       var doi = s.doi ? String(s.doi) : null;
       return d.h("li", null, d.h("article.study", { "data-grade": s.grade || "" },
         d.h("div.study-head", null,
@@ -347,7 +351,7 @@
           typeof s.cited_by === "number" ? d.h("span.chip", null, t("vault.cited", { n: d.fmt(s.cited_by) })) : null,
           s.peer_reviewed === true ? d.h("span.chip", null, t("vault.peer")) : (s.peer_reviewed === false ? d.h("span.chip", null, t("vault.notPeer")) : null)),
         s.verification_note ? d.h("p.small.muted", null, s.verification_note) : null,
-        tacticNames.length ? d.h("p.small", null, d.h("strong", null, t("vault.usedBy") + " "), tacticNames.join(", ")) : null,
+        linkNodes(s.id),
         doi ? d.h("div.row.wrap.doi-row", null, d.h("code.doi", null, "doi:" + doi), widgets.copyButton(doi, t("vault.copyDoi"))) : null));
     }
 
@@ -379,6 +383,204 @@
     }
     render();
     return { destroy: function () {} };
+  }
+
+  // ===== Claims map ==========================================================================================
+  function buildClaims(panel, ctx) {
+    var d = root.DK.ui.dom, icons = root.DK.ui.icons, widgets = root.DK.ui.widgets, ui = root.DK.ui.claimsui, game = root.DK.game;
+    var t = d.t;
+    var model = ui.claimsMap(ctx.bundle, ctx.lang());
+    var host = d.h("div.vault-claims");
+    d.fill(panel, host);
+    if (!model || !model.total) {
+      d.fill(host, widgets.emptyState({ icon: "shieldCheck", title: t("vault.claims.noTopics.title"), text: t("vault.claims.noTopics.text") }));
+      return { destroy: function () {} };
+    }
+    var engine = ui.engine(ctx.bundle);
+    var groupEls = {};
+    var legendEl = null;
+
+    /** Back to the class list: the page is long, so every group offers a way up. */
+    function jumpLegend() {
+      if (!legendEl) return;
+      legendEl.scrollIntoView({ block: "start", behavior: ctx.reducedMotion() ? "auto" : "smooth" });
+      var h = legendEl.querySelector("h3");
+      if (h) { h.setAttribute("tabindex", "-1"); try { h.focus({ preventScroll: true }); } catch (e) { /* ignore */ } }
+    }
+
+    function jump(klass) {
+      var el = groupEls[klass];
+      if (!el) return;
+      el.scrollIntoView({ block: "start", behavior: ctx.reducedMotion() ? "auto" : "smooth" });
+      var h = el.querySelector("h3");
+      if (h) { h.setAttribute("tabindex", "-1"); try { h.focus({ preventScroll: true }); } catch (e) { /* ignore */ } }
+    }
+
+    // -- class legend: five classes with icon and meaning, each a button that jumps to its topics
+    function legendSection() {
+      var items = model.legend.map(function (g) {
+        var meta = ui.CLASS_META[g.klass];
+        var n = g.topics.length;
+        var meaningId = "claims-meaning-" + g.klass;
+        var body = [
+          d.h("span.legend-head", null, icons.icon(meta.icon, { size: 18 }), d.h("strong", null, t("claims.class." + g.klass)), d.h("span.chip.tone-" + meta.tone, null, String(n))),
+          d.h("span.small.muted.legend-meaning", { id: meaningId }, g.meaning)
+        ];
+        return d.h("li", null, n
+          ? d.h("button.legend-class.class-" + g.klass, { type: "button", "aria-describedby": meaningId, onclick: function () { jump(g.klass); } }, body)
+          : d.h("div.legend-class.class-" + g.klass, null, body));
+      });
+      legendEl = d.h("section.card.claims-legend", { "aria-labelledby": "claims-legend-h" },
+        d.h("h3.card-title", { id: "claims-legend-h" }, t("vault.claims.legendTitle")),
+        d.h("p.small.muted", null, t("vault.claims.legendHint")),
+        d.h("ul.class-legend", null, items));
+      return legendEl;
+    }
+
+    function regNote() {
+      if (!model.note) return null;
+      return d.h("section.card.note-card.reg-note", { role: "note", "aria-labelledby": "claims-reg-h" },
+        d.h("div.editor-head", null,
+          d.h("h3.card-title", { id: "claims-reg-h" }, icons.icon("scale", { size: 20 }), d.h("span", null, t("vault.claims.regTitle"))),
+          d.h("span.chip.tone-warn.legal-chip", null, icons.icon("info", { size: 13 }), d.h("span", null, t("vault.claims.notLegal")))),
+        d.h("p", null, model.note));
+    }
+
+    // -- check your own text: the same checker as in the Boss Battle, on pasted copy, in this page only
+    function checker() {
+      if (!engine) return null;
+      var max = ui.CHECK_MAX_CHARS;
+      var input = d.h("textarea.input.claims-input", {
+        id: "claims-check-input", rows: 5, maxlength: String(max), spellcheck: "true", "aria-describedby": "claims-check-count claims-check-privacy",
+        placeholder: t("vault.check.placeholder")
+      });
+      input.value = state.checkText || "";
+      var count = d.h("span.small.muted", { id: "claims-check-count" }, "");
+      var out = d.h("div.claims-result");
+      var statusEl = d.h("div.claims-status.is-idle", { role: "status" });
+
+      function updateCount() { count.textContent = t("vault.check.count", { c: Array.from(input.value).length, max: max }); }
+      function drawEmpty(msg) {
+        d.fill(out, d.h("p.small.muted.claims-empty", null, icons.icon("info", { size: 16 }), d.h("span", null, msg || t("vault.check.empty"))));
+      }
+      function draw(report) {
+        statusEl.removeAttribute("data-key");
+        var st = ui.fillStatus(statusEl, report);
+        d.fill(out, [
+          d.h("h4.sub", null, t("vault.check.resultTitle")),
+          statusEl,
+          report.findings.length ? ui.findingList(report.findings) : d.h("p.small.claims-clean", null, t("claims.okText")),
+          d.h("p.small.muted", null, t("claims.heuristic"))
+        ]);
+        d.announce(ui.statusText(st));
+      }
+      function run() {
+        state.checkText = input.value;
+        if (!input.value.trim()) {
+          drawEmpty(t("vault.check.needText"));
+          d.announce(t("vault.check.needText"));
+          input.focus();
+          return;
+        }
+        draw(ui.check(engine, input.value, ctx.lang()));
+      }
+      input.addEventListener("input", function () { state.checkText = input.value; updateCount(); });
+      input.addEventListener("keydown", function (e) { if ((e.ctrlKey || e.metaKey) && e.key === "Enter") { e.preventDefault(); run(); } });
+      updateCount();
+      if (input.value.trim()) draw(ui.check(engine, input.value, ctx.lang())); else drawEmpty();
+
+      return d.h("section.card.claims-check", { "aria-labelledby": "claims-check-h" },
+        d.h("h3.card-title", { id: "claims-check-h" }, icons.icon("pencil", { size: 20 }), d.h("span", null, t("vault.check.title"))),
+        d.h("p.small", null, t("vault.check.lead")),
+        widgets.field(t("vault.check.label"), input),
+        d.h("div.row.wrap.claims-check-bar", null,
+          d.h("button.btn.btn-primary", { type: "button", onclick: function () { run(); } }, icons.icon("shieldCheck", { size: 18 }), d.h("span", null, t("vault.check.run"))),
+          d.h("button.btn.btn-ghost", { type: "button", onclick: function () { input.value = t("vault.check.exampleText"); updateCount(); run(); } }, d.h("span", null, t("vault.check.example"))),
+          d.h("button.btn.btn-ghost", { type: "button", onclick: function () { input.value = ""; state.checkText = ""; updateCount(); drawEmpty(); input.focus(); } }, d.h("span", null, t("vault.check.clear"))),
+          count),
+        out,
+        d.h("p.small.muted", { id: "claims-check-privacy" }, icons.icon("lock", { size: 14 }), " ", t("vault.check.privacy")));
+    }
+
+    // -- one claim topic
+    function studyRow(s) {
+      return d.h("li.claim-study" + (s.verified ? "" : ".is-unverified"), null,
+        d.h("span.study-line", null, d.h("span.study-name", null, s.title), s.year ? d.h("span.muted", null, " (" + s.year + ")") : null),
+        s.verified
+          ? d.h("span.chip.tone-ok", null, icons.icon("shieldCheck", { size: 13 }), d.h("span", null, t("vault.verified")))
+          : d.h("span.chip.tone-warn", null, icons.icon("alert", { size: 13 }), d.h("span", null, t("vault.unverified"))));
+    }
+
+    function bulletList(items, icon, cls) {
+      return d.h("ul.claim-list." + cls, null, items.map(function (x) { return d.h("li", null, icons.icon(icon, { size: 15 }), d.h("span", null, x)); }));
+    }
+
+    function topicCard(tp) {
+      var nameId = "claim-" + tp.id;
+      var chips = [ui.classChip(tp.klass), ui.evidenceChip(tp.label)];
+      if (tp.grade) chips.push(d.h("span.chip.grade-" + String(tp.grade).toLowerCase(), null, t("vault.grade", { g: tp.grade })));
+      var countChips = [tp.nVerified > 0
+        ? d.h("span.chip.tone-ok", null, icons.icon("shieldCheck", { size: 13 }), d.h("span", null, ctx.tp("vault.claims.verified", tp.nVerified)))
+        : d.h("span.chip", null, icons.icon("shield", { size: 13 }), d.h("span", null, ctx.tp("vault.claims.verified", tp.nVerified)))];
+      if (tp.nPending > 0) countChips.push(d.h("span.chip.tone-warn", null, icons.icon("alert", { size: 13 }), d.h("span", null, ctx.tp("vault.claims.pending", tp.nPending))));
+      var more = d.h("details.claim-more", null,
+        d.h("summary", null, d.h("span", null, t("vault.claims.more")), icons.icon("chevronDown", { size: 16, class: "chev" })),
+        tp.caveats.length ? d.h("div", null, d.h("h5.sub", null, t("vault.caveats")),
+          d.h("ul.reason-list", null, tp.caveats.map(function (c) { return d.h("li", null, icons.icon("alert", { size: 14 }), d.h("span", null, c)); }))) : null,
+        d.h("div", null, d.h("h5.sub", null, t("vault.claims.studies")),
+          tp.studies.length ? d.h("ul.claim-studies", null, tp.studies.map(studyRow)) : d.h("p.small.muted", null, t("vault.claims.noLinked"))));
+      more.addEventListener("toggle", function () { if (more.open) ctx.apply(game.applyVaultOpen, null); });
+      return d.h("li", null, d.h("article.claim-card.klass-" + tp.klass + (tp.blocked ? ".is-blocked" : ""), { "aria-labelledby": nameId, "data-topic": tp.id },
+        d.h("div.claim-head", null,
+          d.h("h4.claim-name", { id: nameId }, tp.name),
+          tp.blocked ? ui.blockedBadge() : null),
+        d.h("div.chip-row", null, chips),
+        tp.claim ? d.h("p.claim-sentence", null, d.h("span.finding-label", null, t("vault.claims.claim")), " ", d.quote(tp.claim)) : null,
+        tp.capped ? d.h("div.callout.cap-box", null, icons.icon("scale", { size: 20 }),
+          d.h("div", null, d.h("strong", null, t("vault.claims.capped")),
+            d.h("p.small", null, t("vault.claims.cappedLine", { from: t("vault.ev." + tp.computedLabel), to: t("vault.ev." + tp.label) })),
+            tp.capReason ? d.h("p.small", null, tp.capReason) : null)) : null,
+        d.h("div.chip-row.claim-counts", null, countChips),
+        tp.summary ? d.h("div.claim-summary", null, d.h("h5.sub", null, t("vault.claims.summary")), d.h("p", null, tp.summary), tp.headline ? d.h("p.small.muted", null, tp.headline) : null) : null,
+        d.h("div.claim-lists", null,
+          tp.safe.length ? d.h("div.safe-box", null, d.h("h5.sub", null, icons.icon("check", { size: 15, stroke: 2.6 }), d.h("span", null, t("claims.safer"))), bulletList(tp.safe, "check", "safe-list")) : null,
+          tp.avoid.length ? d.h("div.avoid-box", null, d.h("h5.sub", null, icons.icon("x", { size: 15, stroke: 2.6 }), d.h("span", null, t("vault.claims.avoid"))), bulletList(tp.avoid, "x", "avoid-list")) : null),
+        more));
+    }
+
+    function groupSection(g) {
+      var meta = ui.CLASS_META[g.klass] || ui.CLASS_META.context;
+      var hid = "claims-group-" + g.klass;
+      var el = d.h("section.claim-group.klass-" + g.klass, { "aria-labelledby": hid },
+        d.h("div.claim-group-head", null,
+          d.h("h3.claim-group-title", { id: hid }, icons.icon(meta.icon, { size: 20 }),
+            d.h("span", null, ui.CLASS_META[g.klass] ? t("claims.class." + g.klass) : String(g.klass)),
+            d.h("span.chip.tone-" + meta.tone, null, ctx.tp("vault.claims.topics", g.topics.length))),
+          d.h("div.claim-group-tools", null,
+            g.blocked ? ui.blockedBadge() : null,
+            d.h("button.btn.btn-ghost.btn-sm.to-legend", { type: "button", onclick: function () { jumpLegend(); } }, icons.icon("chevronUp", { size: 16 }), d.h("span", null, t("vault.claims.toLegend"))))),
+        g.meaning ? d.h("p.small.muted", null, g.meaning) : null,
+        d.h("ul.claim-grid", null, g.topics.map(topicCard)));
+      groupEls[g.klass] = el;
+      return el;
+    }
+
+    d.fill(host, [
+      widgets.heading(2, t("vault.claims.title"), t("vault.claims.lead")),
+      legendSection(),
+      regNote(),
+      checker(),
+      model.groups.map(groupSection)
+    ]);
+    if (state.focusCheck) {
+      state.focusCheck = false;
+      d.raf(function () {
+        var el = host.querySelector("#claims-check-input");
+        if (!el) return;
+        try { el.scrollIntoView({ block: "center", behavior: "auto" }); el.focus({ preventScroll: true }); } catch (e) { /* ignore */ }
+      });
+    }
+    return { destroy: function () { groupEls = {}; } };
   }
 
   // ===== Myth or Fact =========================================================================================

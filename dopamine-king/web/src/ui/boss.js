@@ -1,7 +1,9 @@
 /* Boss Battle: write a hook for a brief and beat a benchmark. Live scoring (debounced) drives the
  * Dopamine meter against the boss threshold percentile, six driver bars, the Trust Shield for clickbait
  * risk, scorer tips, and matched phrases highlighted inside the text. Attack resolves the fight.
- * Victory needs: percentile in the boss cohort >= boss.percentile AND clickbait risk <= 0.35.
+ * Victory needs: percentile in the boss cohort >= boss.percentile AND clickbait risk <= 0.35. In an edition with
+ * a claims profile (bundle.claim_rules) the typed hook also runs through the claims checker (claims.js) live, and
+ * victory needs no error level finding: a hook for a non-medical device must not claim to treat anything.
  */
 (function (root, factory) {
   if (typeof module === "object" && module.exports) module.exports = factory(root);
@@ -23,6 +25,7 @@
   var langChoice = "auto";
 
   function groupOf(cat) { return GROUP[cat] || "tone"; }
+  function claimsui() { return root.DK.ui.claimsui; }
 
   function mount(container, ctx, route) {
     if (route && route.sub) return fight(container, ctx, route.sub);
@@ -69,7 +72,7 @@
     d.fill(page, [
       d.h("div.arena-head", null,
         d.h("h1.page-title", { id: "view-title", tabindex: "-1" }, t("boss.title")),
-        d.h("p.page-lead", null, t("boss.lead"))),
+        d.h("p.page-lead", null, t("boss.lead") + (claimsui().engine(ctx.bundle) ? " " + t("boss.leadClaims") : ""))),
       bosses.length
         ? d.h("ul.boss-grid", null, bosses.map(card))
         : widgets.emptyState({ icon: "skull", title: t("boss.empty.title"), text: t("boss.empty.text") }),
@@ -83,6 +86,7 @@
     var d = root.DK.ui.dom, icons = root.DK.ui.icons, charts = root.DK.ui.charts, widgets = root.DK.ui.widgets;
     var game = root.DK.game, scoring = root.DK.scoring;
     var t = d.t;
+    var engine = claimsui().engine(ctx.bundle);       // null in an edition without a claims profile
     var page = d.h("div.page.boss-fight");
     container.appendChild(page);
     var timers = [];
@@ -106,7 +110,7 @@
 
     var els = {};
     var legendHost = d.h("div.legend-host");
-    var last = { result: null, resolution: null, shown: 0 };
+    var last = { result: null, resolution: null, report: null, shown: 0 };
 
     // -- editor ---------------------------------------------------------------------------------------
     var input = d.h("textarea.hl-input", {
@@ -214,6 +218,15 @@
         quantiles ? null : d.h("p.small.upset-note", null, icons.icon("alert", { size: 15 }), d.h("span", null, t("boss.noBench"))),
         d.h("p.small.sim-note", null, icons.icon("flask", { size: 15 }), d.h("span", null, t("boss.benchLine", { n: bench && bench.stats ? bench.stats.n : "?", cohort: cohort }))));
 
+      els.claimsStatus = d.h("div.claims-status.is-idle", { role: "status" });
+      els.claimsHost = d.h("div.claims-host");
+      var claimsCard = !engine ? null : d.h("section.card.claims-card", { "aria-labelledby": "claims-h" },
+        d.h("div.editor-head", null,
+          d.h("h2.card-title", { id: "claims-h" }, icons.icon("shieldCheck", { size: 20 }), d.h("span", null, t("claims.title"))),
+          d.h("span.chip.tone-info", { title: t("claims.profileHint") }, icons.icon("lock", { size: 13 }), d.h("span", null, t("claims.profile")))),
+        els.claimsStatus, els.claimsHost,
+        d.h("p.small.muted", null, t("boss.claimsNote")));
+
       var driversCard = d.h("section.card", { "aria-labelledby": "drv-h" },
         d.h("h2.card-title", { id: "drv-h" }, t("boss.driversTitle")), drivers,
         d.h("p.small.muted", null, t("boss.driversNote")));
@@ -235,13 +248,20 @@
       var phraseCard = d.h("section.card.phrase-card", { "aria-labelledby": "ph-h" },
         d.h("h2.card-title", { id: "ph-h" }, t("boss.phrasesTitle")), phraseHost);
 
-      return d.h("div.analysis", null, scoreCard, shieldCard, driversCard, tipsCard, phraseCard);
+      return d.h("div.analysis", null, scoreCard, claimsCard, shieldCard, driversCard, tipsCard, phraseCard);
     }
 
     // -- scoring ------------------------------------------------------------------------------------------------
     function scoreNow() {
       var text = input.value;
       return scoring.scoreHook(text, "", { lang: langChoice === "auto" ? undefined : langChoice, spec: ctx.bundle.spec });
+    }
+
+    /** The claims check of a text (null without a claims profile) and the matching resolution of the fight. */
+    function judge(text, result) {
+      var report = engine && text.trim() ? claimsui().check(engine, text, ctx.lang()) : null;
+      var extra = engine ? { claimErrors: report ? report.errors : 0 } : undefined;
+      return { report: report, resolution: game.resolveBoss(boss, result, benchmarks, extra) };
     }
 
     function analyze(immediate) {
@@ -253,8 +273,9 @@
       resize();
       var result = text.trim() ? scoreNow() : null;
       var shownResult = result || scoring.scoreHook("", "", { lang: langChoice === "auto" ? undefined : langChoice, spec: ctx.bundle.spec });
-      var resolution = game.resolveBoss(boss, shownResult, benchmarks);
-      last.result = result; last.resolution = result ? resolution : null;
+      var judged = judge(text, shownResult);
+      var resolution = judged.resolution;
+      last.result = result; last.resolution = result ? resolution : null; last.report = judged.report;
       renderLayer(text, result);
       input.setAttribute("lang", shownResult.lang);
 
@@ -275,7 +296,16 @@
       conds.push(conditionRow(!!(result && resolution.pctOk), t("boss.condPct", { p: boss.percentile }),
         result ? (pct === null ? "-" : t("boss.condNow", { p: Math.round(pct) })) + (needScore !== null ? " · " + t("boss.condScore", { n: d.fmt(needScore, 1) }) : "") : t("boss.condWait")));
       conds.push(conditionRow(!!(result && resolution.riskOk), t("boss.condRisk"), result ? t("boss.condNowRisk", { n: Math.round(shownResult.clickbait_risk * 100) }) : t("boss.condWait")));
+      if (engine) conds.push(conditionRow(!!(result && resolution.claimsOk), t("boss.condClaims"), result ? t("boss.condClaimsNow", { n: resolution.claimErrors }) : t("boss.condWait")));
       d.fill(els.conds, conds);
+
+      // claims check
+      if (engine) {
+        claimsui().fillStatus(els.claimsStatus, judged.report);
+        d.fill(els.claimsHost, judged.report
+          ? (judged.report.findings.length ? claimsui().findingList(judged.report.findings) : d.h("p.small.claims-clean", null, t("claims.okText")))
+          : null);
+      }
 
       // drivers
       els.drivers.update(result ? shownResult.parts : {});
@@ -304,7 +334,7 @@
       d.fill(els.phraseHost, phrases(result));
       d.fill(els.legendHost, legend(result));
       attackBtn.disabled = !result;
-      liveStrip(result ? shownResult : null, resolution);
+      liveStrip(result ? shownResult : null, resolution, judged.report);
     }
 
     var onInput = d.debounce(function () { analyze(false); }, 120);
@@ -314,17 +344,27 @@
     });
 
     // -- the live strip with the attack button ---------------------------------------------------------------------------
-    var strip = d.h("div.live-strip", { "aria-label": t("boss.liveStrip"), role: "group" });
+    var strip = d.h("div.live-strip" + (engine ? ".has-claims" : ""), { "aria-label": t("boss.liveStrip"), role: "group" });
     var attackBtn = d.h("button.btn.btn-primary.btn-lg.attack-btn", { type: "button", onclick: function () { attack(); } },
       icons.icon("swords", { size: 20 }), d.h("span", null, t("boss.attack")));
 
-    function liveStrip(result, resolution) {
+    function claimsStripValue(report) {
+      var st = claimsui().statusOf(report);
+      if (st.kind === "idle") return "-";
+      var meta = claimsui().SEVERITY_META[st.kind === "blocked" ? "error" : st.kind === "advice" ? "warn" : "info"];
+      var icon = st.kind === "clean" ? "check" : meta.icon;
+      var text = st.kind === "clean" ? t("boss.stripClaimsOk") : st.kind === "blocked" ? t("boss.stripClaimsBlocked", { n: st.n }) : t("boss.stripClaimsNotes", { n: st.n });
+      return d.h("strong.strip-claims.is-" + st.kind, null, icons.icon(icon, { size: 14, stroke: 2.6 }), d.h("span", null, text));
+    }
+
+    function liveStrip(result, resolution, report) {
       var pctTxt = result && resolution.percentile !== null ? "P" + Math.round(resolution.percentile) : "-";
       var st = result ? scoring.shieldState(result.clickbait_risk) : null;
       d.fill(strip, [
         d.h("div.strip-item", null, d.h("span.strip-label", null, t("boss.stripScore")), d.h("strong.num", null, result ? result.total.toFixed(1) : "-")),
         d.h("div.strip-item", null, d.h("span.strip-label", null, t("boss.stripPct", { p: boss.percentile })), d.h("strong.num", null, pctTxt)),
         d.h("div.strip-item", null, d.h("span.strip-label", null, t("boss.stripShield")), d.h("strong", null, st ? t("boss.shield." + st) : "-")),
+        engine ? d.h("div.strip-item", null, d.h("span.strip-label", null, t("boss.stripClaims")), claimsStripValue(report)) : null,
         attackBtn
       ]);
     }
@@ -342,9 +382,10 @@
       onInput.cancel();
       analyze(true);
       var result = scoreNow();
-      var resolution = game.resolveBoss(boss, result, benchmarks);
+      var judged = judge(input.value, result);
+      var resolution = judged.resolution;
       var out = ctx.apply(game.applyBoss, { boss: boss, resolution: resolution, lang: result.lang });
-      d.fill(resultHost, resultCard(result, resolution, out));
+      d.fill(resultHost, resultCard(result, resolution, out, judged.report));
       d.raf(function () {
         var card = resultHost.firstChild;
         if (card && card.scrollIntoView) card.scrollIntoView({ block: "center", behavior: ctx.reducedMotion() ? "auto" : "smooth" });
@@ -359,7 +400,7 @@
       }
     }
 
-    function resultCard(result, resolution, out) {
+    function resultCard(result, resolution, out, report) {
       if (out.won) {
         var xpNum = d.h("strong.xp-gain", null, "+0 XP");
         tweens.push(d.countUp(xpNum, out.xp, { prefix: "+", suffix: " XP", ms: 900 }));
@@ -368,6 +409,7 @@
           d.h("div.result-head", null, xpNum, d.h("span.small.muted", null, out.firstWin ? t("boss.xpFirst") : t("boss.xpRepeat", { n: Math.round(game.XP.bossRepeatShare * 100) }))),
           d.h("div.chip-row", null,
             out.honest ? d.h("span.chip.tone-ok", null, icons.icon("shieldCheck", { size: 14 }), d.h("span", null, t("boss.honestWin"))) : null,
+            engine ? d.h("span.chip.tone-ok", null, icons.icon("shieldCheck", { size: 14 }), d.h("span", null, t("boss.victoryClaims"))) : null,
             out.chestGranted ? d.h("span.chip.tone-xp", null, icons.icon("vault", { size: 14 }), d.h("span", null, t("boss.chestGained"))) : d.h("span.chip", null, t("boss.noChestRepeat")),
             d.h("span.chip.tone-brand", null, t("boss.winPct", { p: Math.round(resolution.percentile) }))),
           d.h("div.row.wrap", null,
@@ -381,9 +423,12 @@
         reasons.push(d.h("li", null, icons.icon("chevronRight", { size: 14 }), d.h("span", null, resolution.hasBenchmark ? t("boss.lostPct", { p: Math.round(resolution.percentile), need: boss.percentile, gap: d.fmt(gap, 1) }) : t("boss.noBench"))));
       }
       if (!resolution.riskOk) reasons.push(d.h("li", null, icons.icon("chevronRight", { size: 14 }), d.h("span", null, t("boss.lostRisk", { n: Math.round(resolution.risk * 100) }))));
+      if (!resolution.claimsOk) reasons.push(d.h("li", null, icons.icon("chevronRight", { size: 14 }), d.h("span", null, ctx.tp("boss.lostClaims", resolution.claimErrors))));
+      var blocking = report ? report.findings.filter(function (f) { return f.severity === "error"; }) : [];
       return d.h("section.card.fight-result.is-lose", { tabindex: "-1" },
         d.h("div.victory-banner.soft", null, icons.icon("heart", { size: 30 }), d.h("div", null, d.h("h2.result-title", null, t("boss.notYet")), d.h("p", null, t("boss.notYetText", { name: boss.name })))),
         d.h("ul.reason-list", null, reasons),
+        blocking.length ? d.h("div.result-claims", null, d.h("h3.sub", null, t("claims.title")), claimsui().findingList(blocking)) : null,
         result.tips.length ? d.h("div", null, d.h("h3.sub", null, t("boss.tryThis")), d.h("ul.tip-list", null, result.tips.map(function (tip) { return d.h("li", null, icons.icon("bulb", { size: 16 }), d.h("span", null, d.typo(tip[ctx.lang()] || tip.en))); }))) : null,
         d.h("div.row.wrap", null,
           d.h("button.btn.btn-primary", { type: "button", onclick: function () { resultHost.textContent = ""; input.focus(); } }, t("boss.tryAgain")),
@@ -407,7 +452,7 @@
     var briefCard = d.h("section.card.brief", { "aria-labelledby": "brief-h" },
       d.h("h2.card-title", { id: "brief-h" }, t("boss.briefTitle")),
       d.h("p.brief-text", null, ctx.pick(boss, "brief")),
-      d.h("p.small.muted", null, t("boss.winRule", { p: boss.percentile, cohort: cohort })),
+      d.h("p.small.muted", null, t(engine ? "boss.winRuleClaims" : "boss.winRule", { p: boss.percentile, cohort: cohort })),
       boss.lang !== ctx.lang() ? d.h("p.small.lang-hint", null, icons.icon("globe", { size: 15 }), d.h("span", null, t("boss.langHint", { lang: t("boss.langName." + boss.lang) }))) : null);
 
     var editorCard = d.h("section.card.editor", { "aria-labelledby": "editor-h" },

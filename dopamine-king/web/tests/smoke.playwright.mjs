@@ -7,12 +7,17 @@
 //   --only <WxH:scheme>   run one combination, for example 390x844:dark
 //   --skip-live       skip the live mode check (a tiny local server stands in for kingctl serve)
 //   --live-only       run only the live mode check
+//   --skip-generic    skip the check of the generic edition (it needs python3 to build a second file)
 //
 // It uses the Chromium that is already installed (never downloads one). Every run fails on any console error,
 // page error, failed request or request that leaves the machine. Per combination (390x844 and 1280x800, dark and
 // light) it plays 3 Arena rounds, types a hook in a Boss fight and checks the meter moves, opens a chest, runs a Lab
 // duel, switches language, and screenshots every view in both languages. Extra checks: no horizontal scroll at 360px,
 // Tab order and visible focus rings, the break card (fake clock), reduced motion, and live mode.
+// The default build is the MITO LIGHT edition, so every combination also checks the claims features: the Boss claims
+// panel (a medical claim is an error, a compliant hook passes and wins), the Vault Claims map and its "Check your own
+// text" box, the Home banner, and the Studies tab marking studies that are not verified yet. A second build of the
+// generic edition (python3 scripts/build_web.py --vertical general) must show none of it; --skip-generic turns that off.
 // `node --test web/tests/` may pick this file up on older Node versions. It needs a browser, so it only runs when started directly.
 if (process.env.NODE_TEST_CONTEXT) {
   console.log("smoke.playwright.mjs is a browser test: run it directly with node, skipping under node --test");
@@ -25,6 +30,7 @@ import http from "node:http";
 import os from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { spawnSync } from "node:child_process";
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(HERE, "..", "..");
@@ -37,6 +43,7 @@ const SHOTS = path.resolve(opt("--shots", path.join(os.tmpdir(), "dopamine-king-
 const ONLY = opt("--only", null);
 const SKIP_LIVE = argv.includes("--skip-live");
 const LIVE_ONLY = argv.includes("--live-only");
+const SKIP_GENERIC = argv.includes("--skip-generic");
 const CHROMIUM = process.env.CHROMIUM_PATH || "/opt/pw-browsers/chromium";
 
 function loadPlaywright() {
@@ -67,7 +74,7 @@ const COMBOS = [
 
 const VIEWS = [
   ["home", "home"], ["arena", "arena"], ["boss", "boss"], ["lab", "lab"], ["lab-peek", "lab/peek"], ["lab-bandit", "lab/bandit"],
-  ["vault-cards", "vault/cards"], ["vault-studies", "vault/studies"], ["vault-myths", "vault/myths"],
+  ["vault-cards", "vault/cards"], ["vault-studies", "vault/studies"], ["vault-claims", "vault/claims"], ["vault-myths", "vault/myths"],
   ["forge", "forge"], ["guru", "guru"], ["about", "about"]
 ];
 
@@ -450,6 +457,211 @@ async function guruDialogFlow(page, tag) {
   check(/cal-item/.test(focused || ""), `${tag} focus returns to the calendar item (${focused})`);
 }
 
+// -- the MITO LIGHT edition: claims check, claims map, banner, studies ---------------------------------------------------
+const BAD_HOOK = { en: "Red light cures joint pain", cs: "Červené světlo léčí bolest kloubů" };
+const GOOD_HOOK = { en: "5 mistakes people make when choosing a red light panel", cs: "5 chyb při výběru červeného světla" };
+const RE = {
+  claimsTitle: { en: /Claims check/, cs: /Kontrola tvrzení/ }, error: { en: /Error/, cs: /Chyba/ }, blocking: { en: /blocking problem/, cs: /blokující problém/ },
+  // Czech text keeps one letter words with the next word through a no-break space, so spaces are matched with \s
+  clean: { en: /No claim problems/, cs: /Žádné\sproblémy\ss\stvrzeními/ }, passed: { en: /Claims check passed/, cs: /Kontrola\stvrzení\sprošla/ },
+  lostClaims: { en: /claims check found 1 blocking problem/, cs: /Kontrola\stvrzení\snašla\s1\sblokující\sproblém/ }
+};
+
+// The Boss claims panel in one language: a medical claim is an error with severity text, icon, topic, evidence label and a
+// safer wording; a compliant hook is clean; an error loses the fight and says why; a strong clean hook wins.
+async function claimsBossFlow(page, tag, lang) {
+  const t = `${tag}-${lang}`;
+  await setLang(page, lang);
+  await go(page, "boss");
+  await page.waitForSelector(".boss-card", { timeout: 5000 });
+  await page.locator(".boss-card").first().click();
+  await page.waitForSelector("#hook-input", { timeout: 5000 });
+  check((await page.locator(".claims-card").count()) === 1, `${t} boss: the claims check panel is on the page`);
+  check(RE.claimsTitle[lang].test((await page.textContent(".claims-card h2")) || ""), `${t} boss: the panel is titled in ${lang}`);
+  check((await page.locator(".cond").count()) === 3, `${t} boss: three win conditions are listed`);
+  await page.fill("#hook-input", BAD_HOOK[lang]);
+  await page.waitForSelector('.claims-card .finding[data-code="CLAIM_MEDICAL"]', { timeout: 4000 });
+  const sev = (await page.textContent(".claims-card .finding .sev-chip")) || "";
+  check(RE.error[lang].test(sev), `${t} boss: the finding names its severity in words (${sev.trim()})`);
+  check((await page.locator(".claims-card .finding .sev-chip svg").count()) >= 1, `${t} boss: and with an icon, not colour alone`);
+  check(RE.blocking[lang].test((await page.textContent(".claims-status")) || ""), `${t} boss: the status counts blocking problems`);
+  check(((await page.textContent(".claims-card .finding-topic strong")) || "").trim().length > 3, `${t} boss: the finding names the topic`);
+  check((await page.locator('.claims-card .finding-topic .chip[class*="ev-"]').count()) === 1, `${t} boss: and shows its evidence label`);
+  check(((await page.textContent(".claims-card .finding-safer")) || "").length > 40, `${t} boss: and a safer wording`);
+  check((await page.locator(".cond.is-no").count()) >= 3 || (await page.locator(".cond:nth-child(3).is-no").count()) === 1, `${t} boss: the claims condition is not met`);
+  check((await page.locator(".strip-claims.is-blocked").count()) === 1, `${t} boss: the live strip shows the claims state`);
+  await shot(page, `${t}-boss-claims-error`);
+  await page.fill("#hook-input", GOOD_HOOK[lang]);
+  await page.waitForSelector(".claims-status.is-clean", { timeout: 4000 });
+  check(RE.clean[lang].test((await page.textContent(".claims-status")) || ""), `${t} boss: a compliant hook shows "no claim problems"`);
+  check((await page.locator(".claims-card .finding").count()) === 0, `${t} boss: and lists no findings`);
+  await shot(page, `${t}-boss-claims-clean`);
+  const wins = (await profile(page)).stats.bossWins;
+  await page.fill("#hook-input", BAD_HOOK[lang]);
+  await page.waitForSelector('.claims-card .finding[data-code="CLAIM_MEDICAL"]');
+  await page.click(".attack-btn");
+  await page.waitForSelector(".fight-result.is-lose", { timeout: 6000 });
+  check(RE.lostClaims[lang].test((await page.textContent(".fight-result")) || ""), `${t} boss: the result says the claims check failed`);
+  check((await page.locator(".fight-result .result-claims .finding").count()) === 1, `${t} boss: and repeats the blocking finding`);
+  check((await profile(page)).stats.bossWins === wins, `${t} boss: a claim error is no win`);
+  await shot(page, `${t}-boss-claims-lost`);
+  await page.fill("#hook-input", GOOD_HOOK[lang]);
+  await page.waitForSelector(".claims-status.is-clean");
+  await page.click(".attack-btn");
+  await page.waitForSelector(".fight-result.is-win", { timeout: 6000 });
+  check(RE.passed[lang].test((await page.textContent(".fight-result")) || ""), `${t} boss: the win says the claims check passed`);
+  check((await profile(page)).stats.bossWins === wins + 1, `${t} boss: a compliant strong hook wins`);
+  await shot(page, `${t}-boss-claims-won`);
+}
+
+// The Vault Claims map: legend, regulatory note, class groups, cards with badges, counts and studies, jump buttons and
+// the "Check your own text" box.
+async function claimsMapFlow(page, tag, lang) {
+  const t = `${tag}-${lang}`;
+  await setLang(page, lang);
+  await go(page, "vault/claims");
+  const info = await page.evaluate(() => {
+    const b = DK.app.bundle;
+    const studies = Object.fromEntries(b.vault.studies.map((s) => [s.id, s]));
+    const topics = b.claims.topics;
+    return {
+      topics: topics.length, blocked: topics.filter((x) => x.class === "medical" || x.class === "avoid").length, capped: topics.filter((x) => x.capped).length,
+      pending: topics.reduce((n, x) => n + x.study_ids.filter((id) => !studies[id] || studies[id].verified !== true).length, 0), note: b.vertical["regulatory_note_" + DK.i18n.getLang()]
+    };
+  });
+  const tab = ((await page.textContent('[role="tab"][aria-selected="true"]')) || "").trim();
+  check(/Claims map|Mapa tvrzení/.test(tab), `${t} claims: the Claims map tab is selected (${tab})`);
+  check((await page.locator('[role="tab"]').count()) === 4, `${t} claims: the Vault has four tabs`);
+  check((await page.locator(".class-legend > li").count()) === 5, `${t} claims: the legend lists five classes`);
+  check((await page.locator(".class-legend > li svg").count()) >= 5, `${t} claims: each with an icon`);
+  const note = (await page.textContent(".reg-note")) || "";
+  check(note.includes(info.note.slice(0, 60)), `${t} claims: the regulatory note is shown`);
+  check(/Not legal advice|Není to právní poradenství/.test(note), `${t} claims: and marked as not legal advice`);
+  check((await page.locator(".claim-group").count()) === 5, `${t} claims: five class groups`);
+  check((await page.locator(".claim-card").count()) === info.topics, `${t} claims: one card per topic (${info.topics})`);
+  check((await page.locator(".claim-card.is-blocked").count()) === info.blocked && (await page.locator(".claim-card .blocked-badge").count()) === info.blocked && (await page.locator(".claim-card:not(.is-blocked) .blocked-badge").count()) === 0, `${t} claims: every medical and avoid card, and only those, is badged as blocked (${info.blocked})`);
+  check((await page.locator(".claim-group-head .blocked-badge").count()) === 2, `${t} claims: and so are the two blocked groups`);
+  const badge = ((await page.textContent(".blocked-badge")) || "").trim();
+  check(/Blocked for this product|Pro tento výrobek zakázáno/.test(badge) && (await page.locator(".blocked-badge svg").count()) >= 1, `${t} claims: the badge has an icon and words (${badge})`);
+  check((await page.locator(".claim-card .cap-box").count()) === info.capped, `${t} claims: a capped label is explained (${info.capped})`);
+  check((await page.locator(".claim-card .safe-list li").count()) >= info.topics, `${t} claims: safer wording is listed`);
+  check((await page.locator(".claim-card .avoid-list li").count()) >= info.topics, `${t} claims: and what to avoid`);
+  check((await page.locator(".claim-study.is-unverified").count()) === info.pending, `${t} claims: every unverified link is tagged (${info.pending})`);
+  const tag1 = ((await page.locator(".claim-study.is-unverified .chip").first().textContent()) || "").trim();
+  check(/Not verified yet|Zatím neověřeno/.test(tag1), `${t} claims: the tag says not verified yet (${tag1})`);
+  // the legend jumps to a group and moves focus there
+  await page.click(".class-legend .legend-class.class-medical");
+  await page.waitForFunction(() => document.activeElement && document.activeElement.id === "claims-group-medical", null, { timeout: 3000 }).then(
+    () => check(true, "claims"), () => check(false, `${t} claims: the legend button moves focus to its group`));
+  // a card's details open and list the studies
+  const more = page.locator(".claim-card.klass-medical .claim-more").first();
+  await more.locator("summary").click();
+  check((await more.locator(".claim-study").count()) >= 1, `${t} claims: the details list the linked studies`);
+  await more.scrollIntoViewIfNeeded();
+  await shot(page, `${t}-claims-medical-open`);
+  // check your own text
+  await page.locator("#claims-check-input").scrollIntoViewIfNeeded();
+  const bar = page.locator(".claims-check-bar button");
+  await bar.nth(2).click(); // an earlier pass may have left text in the box (it is kept while the page stays open)
+  check((await page.locator(".claims-check .claims-empty").count()) === 1, `${t} claims: an empty checker explains what it does`);
+  await bar.nth(0).click();
+  check(/Paste some text first|Nejdřív vlož/.test((await page.textContent(".claims-check .claims-empty")) || ""), `${t} claims: an empty check asks for text`);
+  await page.fill("#claims-check-input", BAD_HOOK[lang] + ". " + (lang === "cs" ? "Výsledky za 14 dní." : "Results in 14 days."));
+  await bar.nth(0).click();
+  await page.waitForSelector(".claims-check .finding", { timeout: 3000 });
+  const codes = await page.$$eval(".claims-check .finding", (els) => els.map((e) => e.getAttribute("data-code")));
+  check(codes.includes("CLAIM_MEDICAL") && codes.includes("OUTCOME_PROMISE"), `${t} claims: the checker finds the medical claim and the promise (${codes.join(", ")})`);
+  const first = page.locator(".claims-check .finding").first();
+  check(RE.error[lang].test((await first.locator(".sev-chip").textContent()) || ""), `${t} claims: severity as text`);
+  check((await first.locator(".finding-topic strong").count()) === 1 && (await first.locator('.finding-topic .chip[class*="ev-"]').count()) === 1 && (await first.locator(".finding-safer").count()) === 1, `${t} claims: topic, evidence label and safer wording`);
+  await shot(page, `${t}-claims-check`);
+  await bar.nth(1).click();
+  check(((await page.inputValue("#claims-check-input")) || "").length > 60, `${t} claims: the example fills the box`);
+  await bar.nth(2).click();
+  check((await page.inputValue("#claims-check-input")) === "" && (await page.locator(".claims-check .finding").count()) === 0, `${t} claims: clear empties the box and the result`);
+  await page.fill("#claims-check-input", GOOD_HOOK[lang]);
+  await page.keyboard.press("Control+Enter");
+  await page.waitForSelector(".claims-check .claims-status.is-clean", { timeout: 3000 });
+  check(true, `${t} claims: Ctrl+Enter checks, and clean copy is clean`);
+  // nothing is sent anywhere while checking
+  check(/nothing is sent anywhere|nic se nikam neodesílá/.test(((await page.textContent(".claims-check")) || "")), `${t} claims: the box says nothing leaves the page`);
+}
+
+// The Studies tab: claim topics are named, each link says how the study bears on it, studies that are not verified yet are tagged.
+async function studiesFlow(page, tag) {
+  await setLang(page, "en");
+  await go(page, "vault/studies");
+  const info = await page.evaluate(() => {
+    const b = DK.app.bundle;
+    const claimLinks = b.vault.links.filter((l) => /^pbm-/.test(l.tactic_id)).length;
+    return { studies: b.vault.studies.length, unverified: b.vault.studies.filter((s) => s.verified !== true).length, claimLinks, names: b.claims.topics.map((x) => x.name_en) };
+  });
+  check((await page.locator(".study").count()) === info.studies, `${tag} studies: every study is listed (${info.studies})`);
+  check((await page.locator(".study .chip:has-text('Not verified yet')").count()) === info.unverified, `${tag} studies: ${info.unverified} are tagged not verified yet`);
+  const links = (await page.$$eval(".study-links", (els) => els.map((e) => e.textContent))).join(" | ");
+  check(info.names.some((n) => links.includes(n)) && !/pbm-[a-z-]+/.test(links), `${tag} studies: links show claim topic names, not ids`);
+  check(/\((supports|mixed results|contradicts|background)\)/.test(links), `${tag} studies: each link says how the study bears on the topic`);
+  await page.click('.seg-btn:has-text("Not verified yet")');
+  check((await page.locator(".study").count()) === info.unverified, `${tag} studies: the filter shows the unverified ones`);
+  await page.click('.seg-btn:has-text("All")');
+}
+
+// Home banner and its two links.
+async function editionFlow(page, tag) {
+  await setLang(page, "en");
+  await go(page, "home");
+  const name = await page.evaluate(() => DK.app.bundle.vertical.edition_en);
+  check((await page.locator(".edition-banner").count()) === 1, `${tag} home: the edition banner is shown`);
+  check(((await page.textContent(".edition-banner .edition-name")) || "").trim() === name, `${tag} home: it names the edition (${name})`);
+  check(/confirmed by the brand/.test((await page.textContent(".edition-banner")) || ""), `${tag} home: and says the facts need the brand's confirmation`);
+  await page.click('.edition-banner a:has-text("Open the Claims map")');
+  await page.waitForSelector(".vault-claims .claim-card", { timeout: 4000 });
+  check(/Claims map/.test((await page.textContent('[role="tab"][aria-selected="true"]')) || ""), `${tag} home: the first link opens the Claims map`);
+  await go(page, "home");
+  await page.click('.edition-banner a:has-text("Check your own text")');
+  await page.waitForFunction(() => document.activeElement && document.activeElement.id === "claims-check-input", null, { timeout: 4000 }).then(
+    () => check(true, "home"), () => check(false, `${tag} home: the second link focuses the text box`));
+  await go(page, "about");
+  check((await page.locator(".glossary-item").count()) >= 5 && (await page.locator(".reg-note .legal-chip").count()) === 1, `${tag} about: the glossary and the regulatory note are there`);
+  await go(page, "forge");
+  check(/Claims profile/.test((await page.textContent(".pack-head .profile-pill")) || ""), `${tag} forge: the pack header shows the claims profile`);
+  check(/not confirmed any fact/.test((await page.textContent(".pack-head .sim-note")) || ""), `${tag} forge: the sample says its facts are unconfirmed`);
+}
+
+// The generic edition, built from the same sources, shows none of the claims features and still works.
+async function genericFlow(browser) {
+  const file = path.join(os.tmpdir(), "dopamine-king-generic.html");
+  const build = spawnSync("python3", [path.join(ROOT, "scripts", "build_web.py"), "--vertical", "general", "--out", file, "--quiet"], {
+    cwd: ROOT, encoding: "utf8", env: Object.assign({}, process.env, { PYTHONPATH: path.join(ROOT, "src") })
+  });
+  if (build.status !== 0) { log("  (the generic edition could not be built, check skipped: " + String(build.stderr).split("\n")[0] + ")"); return; }
+  const { context, page } = await open(browser, { w: 1280, h: 800, scheme: "dark" });
+  const problems = watch(page, "generic");
+  await boot(page, "file://" + file);
+  check((await page.evaluate(() => !DK.app.bundle.vertical && !DK.app.bundle.claims && !DK.app.bundle.claim_rules)), "generic: the bundle has no vertical, claims or rules");
+  check((await page.locator(".edition-banner").count()) === 0, "generic: the Home page has no edition banner");
+  await go(page, "vault");
+  check((await page.locator('[role="tab"]').count()) === 3, "generic: the Vault has three tabs");
+  await go(page, "vault/claims");
+  check(/Cards|Karty/.test((await page.textContent('[role="tab"][aria-selected="true"]')) || "") && (await page.locator(".claim-card").count()) === 0, "generic: a claims deep link falls back to the cards");
+  await go(page, "boss");
+  await page.locator(".boss-card").first().click();
+  await page.waitForSelector("#hook-input");
+  await page.fill("#hook-input", BAD_HOOK.en);
+  await page.waitForTimeout(500);
+  check((await page.locator(".claims-card").count()) === 0 && (await page.locator(".cond").count()) === 2, "generic: the Boss fight has no claims check and two win conditions");
+  await go(page, "about");
+  check((await page.locator(".glossary-list, .reg-note, .edition-card").count()) === 0, "generic: About has no glossary or regulatory note");
+  await go(page, "forge");
+  check((await page.locator(".profile-pill").count()) === 0, "generic: the Forge pack has no claims profile pill");
+  await shot(page, "generic-forge");
+  const o = await overflow(page);
+  check(o.sw <= o.cw, "generic: no horizontal scroll");
+  flush(problems);
+  await context.close();
+  fs.rmSync(file, { force: true });
+}
+
 // -- keyboard ---------------------------------------------------------------------------------------------------
 async function keyboardFlow(page, tag) {
   await go(page, "home");
@@ -662,15 +874,33 @@ async function liveFlow(browser) {
     await page.fill("#bf-brand", "Acme Shoes");
     await page.fill("#bf-topic", "trail running shoes");
     await page.fill("#bf-audience", "weekend hikers");
+    // The brief is seeded from the MITO LIGHT sample: the claims profile select is visible and so is the safety note.
+    const edition = await page.evaluate(() => !!DK.app.bundle.vertical);
+    if (edition) {
+      check((await page.inputValue("#bf-profile")) === "wellness", "live: the claims profile select is seeded with wellness");
+      check((await page.locator("#bf-profile option").allTextContents()).length === 2, "live: it offers General and Wellness");
+      check(await page.locator("#bf-safety_note").isVisible(), "live: the safety note field is visible with the wellness profile");
+      await page.fill("#bf-safety_note", "Follow the manual and protect your eyes.");
+    }
     await page.click(".live-form button[type=submit]");
     await page.waitForSelector('.pack-head:has-text("Acme Shoes")', { timeout: 8000 });
+    if (edition) {
+      const b = seen.forge[0].brief;
+      check(b.vertical === "pbm" && b.claims_profile === "wellness" && b.safety_note === "Follow the manual and protect your eyes.", `live: the request keeps the vertical, the claims profile and the safety note (${b.vertical} ${b.claims_profile})`);
+      check((await page.locator(".pack-head .profile-pill").count()) === 1, "live: the pack header shows the claims profile");
+    }
     check(seen.forge.length === 1 && seen.forge[0].brief.brand === "Acme Shoes" && Array.isArray(seen.forge[0].formats) && seen.forge[0].formats.length >= 1, "live: forge request has the brief and formats");
     check((await page.locator(".sim-note").count()) === 0, "live: a server pack is not labelled as the offline sample");
     await shot(page, "live-forge-result");
+    if (edition) {
+      await page.selectOption("#bf-profile", "general");
+      check(!(await page.locator("#bf-safety_note").isVisible()), "live: the safety note is hidden for the general profile");
+    }
     await page.fill("#bf-topic", "FAIL please");
     await page.click(".live-form button[type=submit]");
     await page.waitForSelector(".form-msg.is-bad:has-text('writer unavailable')", { timeout: 5000 });
     check(true, "live: a server error is shown in the form");
+    if (edition) check(seen.forge[1].brief.claims_profile === "general" && !("safety_note" in seen.forge[1].brief), "live: the general profile is sent as general, without a safety note");
     await go(page, "guru");
     await page.waitForSelector(".live-form");
     check((await page.inputValue("#bf-brand")) === "Acme Shoes", "live: the Guru form keeps the brief from the Forge");
@@ -714,6 +944,13 @@ try {
       await vaultFlow(page, tag); log("  vault ok"); flush(problems);
       await labFlow(page, tag); log("  lab ok"); flush(problems);
       await mythFlow(page, tag); log("  myths ok"); flush(problems);
+      await claimsBossFlow(page, tag, "en"); log("  claims check in the Boss Battle (en) ok"); flush(problems);
+      await claimsMapFlow(page, tag, "en"); log("  claims map (en) ok"); flush(problems);
+      await studiesFlow(page, tag); log("  studies ok"); flush(problems);
+      await editionFlow(page, tag); log("  edition banner, about and forge ok"); flush(problems);
+      await claimsBossFlow(page, tag, "cs"); log("  claims check in the Boss Battle (cs) ok"); flush(problems);
+      await claimsMapFlow(page, tag, "cs"); log("  claims map (cs) ok"); flush(problems);
+      await setLang(page, "en");
       await dialogFlow(page, tag); flush(problems);
       if (combo.w < 600 && combo.scheme === "dark") { await navFlow(page, tag); log("  mobile navigation ok"); flush(problems); }
       if (combo.w >= 1000 && combo.scheme === "dark") { await profileFlow(page, tag); log("  profile export, reset and import ok"); flush(problems); }
@@ -742,6 +979,7 @@ try {
       await reducedMotionFlow(browser, { w: 390, h: 844, scheme: "dark" }); log("  reduced motion ok");
     }
     if (!SKIP_LIVE) { await liveFlow(browser); log("  live mode done"); }
+    if (!LIVE_ONLY && !SKIP_GENERIC) { await genericFlow(browser); log("  generic edition done"); }
   }
 } finally {
   await browser.close();

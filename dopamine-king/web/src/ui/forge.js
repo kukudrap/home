@@ -1,7 +1,9 @@
-/* Forge: content packs. Renders a Pack (bundle.forge_samples[0], or the result of /api/forge in live mode):
- * one tab per format with the hook and its score meter, the body with open [[ADD: ...]] slots highlighted,
- * issues as severity badges, the Trust Shield verdict and alternative hooks. In live mode (kingctl serve) a
- * brief form posts to /api/forge. Every field is optional: missing data never breaks the view.
+/* Forge: content packs. Renders a Pack (the bundle.forge_samples entry in the UI language, or the result of
+ * /api/forge in live mode): one tab per format with the hook and its score meter, the body with open
+ * [[ADD: ...]] slots highlighted, issues as severity badges with readable names for the claims check codes, the
+ * Trust Shield verdict and alternative hooks. A pack made with a claims profile (wellness) shows it as a pill.
+ * In live mode (kingctl serve) a brief form posts to /api/forge, including the vertical, the claims profile and
+ * the manufacturer's safety note. Every field is optional: missing data never breaks the view.
  */
 (function (root, factory) {
   if (typeof module === "object" && module.exports) module.exports = factory(root);
@@ -17,10 +19,17 @@
 
   // Shared by Forge and Guru: what the player typed and what the server returned last.
   var shared = {
-    brief: { brand: "", topic: "", audience: "", goal: "awareness", lang: null, tone: "friendly, direct, no hype", keyword: "", facts: "", offer: "", cta: "" },
+    brief: { brand: "", topic: "", audience: "", goal: "awareness", lang: null, tone: "friendly, direct, no hype", keyword: "", facts: "", offer: "", cta: "", vertical: null, claims_profile: "general", safety_note: "" },
     formats: [], offline: false, seeded: false
   };
   var forgeState = { pack: null, active: null, busy: false, message: null };
+
+  /** A pack or plan written for a vertical edition (a brief with a vertical, or a claims profile other than general). */
+  function isEdition(item) {
+    var brief = (item && item.brief) || {};
+    var cp = (item && item.summary && item.summary.claims_profile) || brief.claims_profile || "general";
+    return !!brief.vertical || cp !== "general";
+  }
 
   /** The sample written in the UI language, else the first one. */
   function pickByLang(samples, lang) {
@@ -34,7 +43,7 @@
     if (shared.seeded || !brief) return;
     shared.seeded = true;
     var b = shared.brief;
-    ["brand", "topic", "audience", "goal", "tone", "keyword", "offer", "cta"].forEach(function (k) { if (brief[k]) b[k] = brief[k]; });
+    ["brand", "topic", "audience", "goal", "tone", "keyword", "offer", "cta", "vertical", "claims_profile", "safety_note"].forEach(function (k) { if (brief[k]) b[k] = brief[k]; });
     if (Array.isArray(brief.facts)) b.facts = brief.facts.join("\n");
     if (brief.lang === "cs" || brief.lang === "en") b.lang = brief.lang;
   }
@@ -47,6 +56,9 @@
     if (b.cta.trim()) out.cta = b.cta.trim();
     var facts = b.facts.split(/\r?\n/).map(function (x) { return x.trim(); }).filter(Boolean);
     if (facts.length) out.facts = facts;
+    if (b.vertical) out.vertical = b.vertical;
+    if (b.claims_profile) out.claims_profile = b.claims_profile;
+    if (b.safety_note && String(b.safety_note).trim()) out.safety_note = String(b.safety_note).trim();
     return out;
   }
 
@@ -70,6 +82,13 @@
       GOALS.map(function (g) { return d.h("option", { value: g, selected: b.goal === g }, t("forge.goal." + g)); }));
     var langSel = d.h("select.input", { id: "bf-lang", onchange: function () { b.lang = langSel.value; } },
       ["cs", "en"].map(function (l) { return d.h("option", { value: l, selected: b.lang === l }, l === "cs" ? t("arena.langCs") : t("arena.langEn")); }));
+    // The claims profile decides whether the Trust Shield also runs the claims check (vertical editions); the vertical itself
+    // and the manufacturer's safety note travel with the brief.
+    if (!b.claims_profile) b.claims_profile = "general";
+    var safetyField = text("safety_note", t("forge.safetyNote"), { area: true, hint: t("forge.safetyNoteHint"), max: 1000 });
+    safetyField.hidden = b.claims_profile === "general";
+    var profileSel = d.h("select.input", { id: "bf-profile", onchange: function () { b.claims_profile = profileSel.value; safetyField.hidden = profileSel.value === "general"; } },
+      ["general", "wellness"].map(function (p) { return d.h("option", { value: p, selected: b.claims_profile === p }, t("forge.profile." + p)); }));
 
     var formatHost = d.h("fieldset.fieldset", null, d.h("legend", null, t("forge.formats")));
     function drawFormats() {
@@ -117,11 +136,13 @@
         text("audience", t("forge.audience"), { required: true }),
         widgets.field(t("forge.goal"), goalSel),
         widgets.field(t("forge.language"), langSel),
+        widgets.field(t("forge.profileLabel"), profileSel, t("forge.profileHint")),
         text("tone", t("forge.tone")),
         text("keyword", t("forge.keyword")),
         text("offer", t("forge.offer")),
         text("cta", t("forge.cta")),
-        d.h("div.span-2", null, text("facts", t("forge.facts"), { area: true, hint: t("forge.factsHint"), max: 1500 }))),
+        d.h("div.span-2", null, text("facts", t("forge.facts"), { area: true, hint: t("forge.factsHint"), max: 1500 })),
+        d.h("div.span-2", null, safetyField)),
       opts.withFormats ? formatHost : null,
       offlineSw ? offlineSw.el : null,
       opts.extra || null,
@@ -241,6 +262,19 @@
         d.h("p.small.muted", null, t("forge.scoreNote")));
     }
 
+    /** Readable name of a claims check code (the engine has many codes; only these have names so far). */
+    function issueName(code) {
+      var key = "claims.name." + code;
+      return code && root.DK.i18n.has(key) ? d.h("strong.issue-name", null, t(key)) : null;
+    }
+
+    function profilePill() {
+      var cp = (pack.summary && pack.summary.claims_profile) || (pack.brief && pack.brief.claims_profile) || "general";
+      if (cp === "general") return null;
+      var key = "forge.profile." + cp;
+      return d.h("span.chip.tone-ok.profile-pill", { title: t("claims.profileHint") }, icons.icon("shieldCheck", { size: 13 }), d.h("span", null, t("forge.profilePill", { p: root.DK.i18n.has(key) ? t(key) : cp })));
+    }
+
     function issuesCard(item) {
       var issues = item.issues || [];
       var v = VERDICT[item.verdict] ? item.verdict : "review";
@@ -255,7 +289,7 @@
             var sv = SEVERITY[is.severity] ? is.severity : "info";
             return d.h("li.issue.sev-" + sv, null,
               d.h("span.chip.tone-" + SEVERITY[sv].tone, null, icons.icon(SEVERITY[sv].icon, { size: 13 }), d.h("span", null, t("forge.sev." + sv))),
-              d.h("div.issue-text", null, d.h("code.issue-code", null, is.code || ""), d.h("span", null, is.message || ""), is.where ? d.h("span.small.muted", null, t("forge.where", { w: is.where })) : null));
+              d.h("div.issue-text", null, issueName(is.code), d.h("code.issue-code", null, is.code || ""), d.h("span", null, is.message || ""), is.where ? d.h("span.small.muted", null, t("forge.where", { w: is.where })) : null));
           }))
           : d.h("p.small.muted", null, t("forge.noIssues")));
     }
@@ -327,6 +361,7 @@
             d.h("h2.card-title", { id: "pack-h" }, isSample ? t("forge.sampleTitle", { brand: (pack.brief && pack.brief.brand) || "" }) : t("forge.packTitle", { brand: (pack.brief && pack.brief.brand) || "" })),
             d.h("div.chip-row", null,
               d.h("span.chip.tone-info", null, icons.icon("pencil", { size: 13 }), d.h("span", null, t("forge.writer", { w: pack.writer || "offline" }))),
+              profilePill(),
               pack.created ? d.h("span.chip", null, String(pack.created).slice(0, 10)) : null)),
           d.h("div.stat-boxes.five", null,
             scoreTile(t("forge.sumItems"), sum.n_items === undefined ? items.length : sum.n_items, null, 0),
@@ -334,7 +369,7 @@
             scoreTile(t("forge.sumErrors"), sum.errors, null, 0),
             scoreTile(t("forge.sumWarnings"), sum.warnings, null, 0),
             scoreTile(t("forge.sumSlots"), sum.open_slots, null, 0)),
-          isSample ? d.h("p.small.sim-note", null, icons.icon("flask", { size: 15 }), d.h("span", null, t("forge.sampleNote"))) : d.h("p.small.muted", null, t("forge.liveNote"))),
+          isSample ? d.h("p.small.sim-note", null, icons.icon("flask", { size: 15 }), d.h("span", null, isEdition(pack) ? t("forge.sampleNoteEdition", { brand: (pack.brief && pack.brief.brand) || "" }) : t("forge.sampleNote"))) : d.h("p.small.muted", null, t("forge.liveNote"))),
         pack.errors && pack.errors.length
           ? d.h("div.card.pack-errors", { role: "note" }, d.h("p.small", null, icons.icon("alert", { size: 16 }), d.h("strong", null, " " + t("forge.packErrors"))), d.h("ul.small", null, pack.errors.map(function (e) { return d.h("li", null, String(e)); })))
           : null,
@@ -396,5 +431,5 @@
     return { destroy: function () { alive = false; current = null; } };
   }
 
-  return { mount: mount, briefForm: briefForm, briefToApi: briefToApi, renderBody: renderBody, slotNodes: slotNodes, seedBrief: seedBrief, pickByLang: pickByLang, showResult: showResult, _shared: shared, _state: forgeState };
+  return { mount: mount, briefForm: briefForm, briefToApi: briefToApi, renderBody: renderBody, slotNodes: slotNodes, seedBrief: seedBrief, pickByLang: pickByLang, isEdition: isEdition, showResult: showResult, _shared: shared, _state: forgeState };
 });

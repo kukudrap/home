@@ -45,7 +45,7 @@ test("arena duels are well formed", () => {
     const disagree = (d.model_p_a >= 0.5) !== (d.winner === "a");
     if (d.upset) assert.ok(disagree, `${d.id}: an upset means the model favoured the loser`);
     else assert.ok(!disagree || Math.abs(d.model_p_a - 0.5) < 0.03, `${d.id}: a model miss that is not an upset must be a near tie`);
-    assert.ok(d.reasons_en.length && d.reasons_cs.length, d.id);
+    assert.equal(d.reasons_en.length, d.reasons_cs.length, `${d.id}: both languages explain the same points (a close duel may have none)`);
   }
   for (const lang of ["cs", "en"]) for (const diff of ["easy", "medium", "hard"]) assert.ok(bundle.arena.some((d) => d.lang === lang && d.difficulty === diff), `${lang} ${diff}`);
 });
@@ -67,7 +67,7 @@ test("shipped constants are consistent", () => {
 });
 
 // -- Forge sample -------------------------------------------------------------------------------
-test("the sample pack agrees with the JavaScript scorer and with its own summary", () => {
+function checkPack(pack, { everyVerdict }) {
   const lang = pack.brief.lang;
   let sumDopamine = 0, n = 0;
   for (const it of pack.items) {
@@ -89,7 +89,29 @@ test("the sample pack agrees with the JavaScript scorer and with its own summary
   const counts = { ok: 0, review: 0, blocked: 0 };
   pack.items.forEach((i) => { counts[i.verdict] += 1; });
   assert.deepEqual(pack.summary.verdicts, counts);
-  assert.ok(pack.items.some((i) => i.verdict === "blocked") && pack.items.some((i) => i.verdict === "ok"), "the sample shows every verdict");
+  if (everyVerdict) assert.ok(pack.items.some((i) => i.verdict === "blocked") && pack.items.some((i) => i.verdict === "ok"), "the sample shows every verdict");
+}
+
+test("the development sample pack agrees with the JavaScript scorer and with its own summary", () => {
+  checkPack(pack, { everyVerdict: true });
+});
+
+test("the sample packs shipped in the bundle (one per language) agree with the JavaScript scorer and their own summary", () => {
+  assert.deepEqual(bundle.forge_samples.map((p) => p.brief.lang).sort(), ["cs", "en"]);
+  for (const p of bundle.forge_samples) checkPack(p, { everyVerdict: false });
+});
+
+test("the shipped sample packs are written for the edition: vertical, claims profile and the claims check codes it can produce", () => {
+  const known = new Set(["CLAIM_MEDICAL", "CLAIM_AVOID", "CLAIM_UNHEDGED", "DISEASE_MENTION", "STATUS_CLAIM", "SAFETY_ABSOLUTE", "OUTCOME_PROMISE", "DOSE_NOT_FROM_MANUAL", "SAFETY_NOTE_MISSING", "MEDICATION_ADVICE", "THERAPY_WORD"]);
+  for (const p of bundle.forge_samples) {
+    assert.equal(p.brief.vertical, bundle.vertical.id);
+    assert.equal(p.brief.claims_profile, bundle.vertical.claims_profile);
+    assert.equal(p.summary.claims_profile, bundle.vertical.claims_profile);
+    assert.equal(p.brief.brand, "MITO LIGHT");
+    assert.ok(p.brief.facts.length >= 3, "facts come from public descriptions and are listed in the brief");
+    const codes = p.items.flatMap((i) => i.issues.map((x) => x.code)).filter((c) => known.has(c));
+    assert.ok(codes.every((c) => bundle.claim_rules && require("../src/claims.js").CODES.includes(c)), "codes the UI can name");
+  }
 });
 
 test("Forge helpers: briefToApi trims, drops empty fields and splits the facts", () => {
@@ -99,7 +121,7 @@ test("Forge helpers: briefToApi trims, drops empty fields and splits the facts",
 });
 
 // -- Guru sample --------------------------------------------------------------------------------
-test("the sample plan is internally consistent and uses the Lab's sample size formula", () => {
+function checkPlan(plan, { needsInput } = {}) {
   assert.ok(Math.abs(plan.pillars.reduce((s, p) => s + p.share, 0) - 1) < 1e-9, "pillar shares sum to 1");
   assert.deepEqual([...new Set(plan.calendar.map((c) => c.week))].sort(), [1, 2, 3, 4]);
   const pillarIds = new Set(plan.pillars.map((p) => p.id)), channelIds = new Set(plan.channels.map((c) => c.id));
@@ -117,8 +139,18 @@ test("the sample plan is internally consistent and uses the Lab's sample size fo
     assert.ok(e.variantB && e.metric);
   }
   assert.ok(plan.kpis.some((k) => k.primary) && plan.kpis.every((k) => k.target_rule_en && k.target_rule_cs));
-  assert.ok(plan.needs_input.length >= 1, "the plan must say what it cannot know");
+  assert.ok(Array.isArray(plan.needs_input), "the plan lists what it still needs from the brand (possibly nothing)");
+  if (needsInput) assert.ok(plan.needs_input.length >= 1, "the plan must say what it cannot know");
   assert.equal(plan.guardrails_en.length, plan.guardrails_cs.length);
+}
+
+test("the development sample plan is internally consistent and uses the Lab's sample size formula", () => {
+  checkPlan(plan, { needsInput: true });
+});
+
+test("the sample plans shipped in the bundle (one per language) are consistent too", () => {
+  assert.deepEqual(bundle.guru_samples.map((p) => p.brief.lang).sort(), ["cs", "en"]);
+  for (const p of bundle.guru_samples) checkPlan(p);
 });
 
 test("Guru helpers: parsePositioning, groupWeeks and normExperiment", () => {
@@ -147,6 +179,62 @@ test("About helper: references are split, unique and sorted", () => {
   assert.deepEqual(refs, ["Alpha, 1999", "Beta and Co, 2010", "Zed, 2001"]);
   const real = about.collectRefs(bundle.myths);
   assert.ok(real.length >= 8 && real.every((r) => !/;/.test(r)));
+});
+
+// -- claims data of the edition ----------------------------------------------------------------------
+test("the claims map in the bundle is consistent with the vault and the checker rules", () => {
+  assert.ok(bundle.vertical && bundle.claims && bundle.claim_rules, "the development bundle is the MITO LIGHT edition");
+  assert.equal(bundle.meta.vertical, bundle.vertical.id);
+  const classes = Object.keys(bundle.claims.classes).sort();
+  assert.deepEqual(classes, ["avoid", "context", "cosmetic", "medical", "wellness"]);
+  for (const c of classes) assert.ok(bundle.claims.classes[c].en && bundle.claims.classes[c].cs, c);
+  const studies = new Map(bundle.vault.studies.map((x) => [x.id, x]));
+  const ruleIds = new Set(bundle.claim_rules.topics.map((t) => t.id));
+  const labels = ["strong", "moderate", "limited", "contested", "none"];
+  const ids = new Set();
+  for (const t of bundle.claims.topics) {
+    assert.ok(!ids.has(t.id), `duplicate topic ${t.id}`);
+    ids.add(t.id);
+    assert.ok(classes.includes(t.class), t.id);
+    assert.ok(labels.includes(t.label) && labels.includes(t.computed_label), t.id);
+    for (const f of ["name", "claim", "summary"]) assert.ok(t[f + "_en"] && t[f + "_cs"], `${t.id} ${f}`);
+    assert.equal(t.safe_en.length > 0, t.safe_cs.length > 0, `${t.id}: safer wording in both languages`);
+    assert.equal(t.avoid_en.length, t.avoid_cs.length, t.id);
+    assert.equal(t.capped, t.label !== t.computed_label && t.computed_label !== "contested", `${t.id}: capped means the shown label is below the computed one`);
+    if (t.capped) assert.ok(t.cap_reason_en && t.cap_reason_cs, `${t.id}: a cap is explained`);
+    assert.ok(ruleIds.has(t.id), `${t.id}: the checker knows the topic`);
+    const linked = t.study_ids.map((id) => studies.get(id));
+    assert.ok(linked.every(Boolean), `${t.id}: every linked study is in the vault`);
+    assert.ok(t.n_studies <= linked.filter((x) => x.verified === true).length, `${t.id}: only verified studies are counted`);
+    assert.equal(t.n_pending, linked.filter((x) => x.verified !== true).length, `${t.id}: the others are pending`);
+  }
+  for (const link of bundle.vault.links) {
+    const known = ids.has(link.tactic_id) || bundle.vault.tactics.some((x) => x.id === link.tactic_id);
+    assert.ok(known, `link to ${link.tactic_id} resolves to a claim topic or a tactic`);
+    assert.ok(studies.has(link.study_id), link.study_id);
+    assert.ok(["supports", "mixed", "contradicts", "context"].includes(link.direction), link.direction);
+  }
+  assert.ok(bundle.vault.studies.some((x) => x.verified !== true), "research leads that are not verified yet ship in the bundle");
+  assert.ok(bundle.vault.studies.some((x) => x.verified === true));
+});
+
+test("the vertical metadata has both languages, the glossary and the regulatory note", () => {
+  const v = bundle.vertical;
+  for (const f of ["name", "short", "tagline", "edition", "regulatory_note"]) assert.ok(v[f + "_en"] && v[f + "_cs"], f);
+  assert.ok(v.glossary.length >= 5);
+  for (const g of v.glossary) assert.ok(g.id && g.term_en && g.term_cs && g.def_en && g.def_cs, g.id);
+  assert.match(v.regulatory_note_en, /not legal advice/i);
+  assert.match(v.regulatory_note_cs, /nejde|ne právní poradenství/i);
+  for (const [k, lab] of Object.entries(v.cohorts)) assert.ok(bundle.cohort_labels[k] && lab.en && lab.cs, k);
+});
+
+test("every boss of the edition has benchmark data to be judged against", () => {
+  for (const b of bundle.bosses) {
+    assert.ok(bundle.benchmarks[b.cohort] || bundle.benchmarks.all, b.id);
+    assert.ok(bundle.cohort_labels[b.cohort], `${b.id}: the cohort has a name`);
+    assert.ok(b.brief_en && b.brief_cs && b.taunt_en && b.taunt_cs, b.id);
+  }
+  assert.ok(bundle.bosses.some((b) => b.lang === "cs") && bundle.bosses.some((b) => b.lang === "en"));
 });
 
 // -- chart helpers ------------------------------------------------------------------------------

@@ -1,5 +1,6 @@
 /* Home: the daily loop in one place. Three quests, the chest, Oracle rating, play time today, the next
- * best action and a plain-language "How XP works" panel.
+ * best action and a plain-language "How XP works" panel. An edition banner (bundle.vertical) says which
+ * product this edition is set up for; the generic edition has none.
  */
 (function (root, factory) {
   if (typeof module === "object" && module.exports) module.exports = factory(root);
@@ -45,6 +46,28 @@
           ? d.h("span.chip.tone-ok", null, icons.icon("check", { size: 13 }), d.h("span", null, t("home.quests.done")))
           : d.h("a.btn.btn-ghost.btn-sm", { href: routeHref(q.route, q.params), "aria-label": t("home.quests.go") + ": " + t("quest." + q.id, { n: def.target }) }, t("home.quests.go")),
         d.h("span.chip.tone-xp.quest-xp", null, "+" + q.xp + " XP"));
+    }
+
+    /** Edition banner: name, tagline, what is switched on and where to start (only when the bundle has a vertical). */
+    function editionBanner() {
+      var v = ctx.bundle.vertical;
+      if (!v) return null;
+      var ui = root.DK.ui.claimsui;
+      var lang = ctx.lang();
+      var chips = [];
+      if (v.claims_profile && v.claims_profile !== "general") chips.push(widgets.chip(t("edition.nonMedical"), { tone: "ok", icon: "shieldCheck" }));
+      if (ctx.bundle.claim_rules) chips.push(widgets.chip(t("edition.claimsOn"), { tone: "info", icon: "lock" }));
+      return d.h("section.card.edition-banner", { "aria-labelledby": "edition-title" },
+        d.h("div.edition-icon", { "aria-hidden": "true" }, icons.icon("sun", { size: 34 })),
+        d.h("div.edition-body", null,
+          d.h("p.eyebrow", null, t("edition.label")),
+          d.h("h2.edition-name", { id: "edition-title" }, ui.pickLang(v, "edition", lang) || ui.pickLang(v, "name", lang)),
+          d.h("p.edition-tagline", null, ui.pickLang(v, "tagline", lang)),
+          chips.length ? d.h("div.chip-row", null, chips) : null,
+          d.h("p.small.muted", null, t("edition.built")),
+          ctx.bundle.claims ? d.h("div.row.wrap", null,
+            d.h("a.btn.btn-ghost.btn-sm", { href: "#/vault/claims" }, icons.icon("shieldCheck", { size: 16 }), d.h("span", null, t("edition.openMap"))),
+            d.h("a.btn.btn-ghost.btn-sm", { href: "#/vault/claims?focus=check" }, icons.icon("pencil", { size: 16 }), d.h("span", null, t("edition.checkText")))) : null));
     }
 
     function statCard(title, body) {
@@ -151,6 +174,7 @@
 
       d.fill(page, [
         hero,
+        editionBanner(),
         d.h("div.home-grid", null, questsCard, chestCard),
         d.h("div.stat-grid-4", null, oracleCard, timeCard, streakCard, accCard),
         modes,

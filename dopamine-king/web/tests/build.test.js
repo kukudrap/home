@@ -43,7 +43,7 @@ function jsOrder() {
 test("the build produces one self-contained file", () => {
   const html = build("a.html");
   assert.ok(html.startsWith("<!doctype html>") || html.startsWith("<!DOCTYPE html>"));
-  assert.ok(Buffer.byteLength(html) < 1_500_000, "size limit");
+  assert.ok(Buffer.byteLength(html) < 2_000_000, "size limit (the build refuses 2 MB and more)");
   assert.equal((html.match(/<style\b/g) || []).length, 1, "one inline stylesheet");
   assert.equal((html.match(/<script\b/g) || []).length, 2, "the bundle and the code, nothing else");
   const links = html.match(/<link\b[^>]*>/gi) || [];
@@ -87,25 +87,42 @@ test("every source file is in the build order and the dev page loads the same fi
   assert.deepEqual(devOrder, order);
 });
 
-test("the data bundle is embedded intact, with the development samples as a fallback", () => {
+test("the data bundle is embedded intact, and the development samples only fill in when the bundle has none", () => {
   const source = JSON.parse(fs.readFileSync(BUNDLE, "utf8"));
+  assert.ok(source.forge_samples.length >= 2 && source.guru_samples.length >= 2, "the shipped bundle carries its own samples");
   const html = build("samples.html", ["--forge", FORGE, "--guru", GURU]);
   const b = embeddedBundle(html);
-  assert.deepEqual(Object.keys(b).sort(), Object.keys(source).concat(source.guru_sample ? [] : ["guru_sample"]).sort());
+  assert.deepEqual(Object.keys(b).sort(), Object.keys(source).sort());
   assert.deepEqual(b.arena, source.arena);
   assert.deepEqual(b.spec, source.spec);
-  assert.equal(b.forge_samples.length, 1);
-  assert.equal(b.forge_samples[0].items.length, 4);
-  assert.equal(b.guru_sample.calendar.length, 20);
-  const plain = build("plain.html", ["--no-samples"]);
-  const p = embeddedBundle(plain);
+  assert.deepEqual(b.forge_samples, source.forge_samples, "the real samples win over the development ones");
+  assert.deepEqual(b.guru_samples, source.guru_samples);
+  assert.deepEqual(b.claim_rules, source.claim_rules);
+  assert.deepEqual(b.claims, source.claims);
+
+  // A bundle without samples (an older export): the development samples are the fallback.
+  const bare = Object.assign({}, source);
+  delete bare.forge_samples; delete bare.guru_sample; delete bare.guru_samples;
+  const bareFile = path.join(TMP, "bare.json");
+  fs.writeFileSync(bareFile, JSON.stringify(bare));
+  const withMocks = path.join(TMP, "bare-mocks.html");
+  let res = run(["--bundle", bareFile, "--out", withMocks, "--quiet", "--forge", FORGE, "--guru", GURU]);
+  assert.equal(res.status, 0, res.err);
+  const m = embeddedBundle(fs.readFileSync(withMocks, "utf8"));
+  assert.equal(m.forge_samples.length, 1);
+  assert.equal(m.forge_samples[0].items.length, 4);
+  assert.equal(m.guru_sample.calendar.length, 20);
+  const plain = path.join(TMP, "bare-plain.html");
+  res = run(["--bundle", bareFile, "--out", plain, "--quiet", "--no-samples"]);
+  assert.equal(res.status, 0, res.err);
+  const p = embeddedBundle(fs.readFileSync(plain, "utf8"));
   assert.deepEqual(p.forge_samples || [], []);
   assert.ok(!p.guru_sample);
   // Without flags the development samples are picked up on their own.
-  const out = path.join(TMP, "default.html");
-  const res = run(["--bundle", BUNDLE, "--out", out, "--quiet"]);
+  const dflt = path.join(TMP, "bare-default.html");
+  res = run(["--bundle", bareFile, "--out", dflt, "--quiet"]);
   assert.equal(res.status, 0, res.err);
-  assert.equal(embeddedBundle(fs.readFileSync(out, "utf8")).forge_samples.length, 1);
+  assert.equal(embeddedBundle(fs.readFileSync(dflt, "utf8")).forge_samples.length, 1);
 });
 
 test("a real sample in the bundle wins over the development one", () => {
@@ -159,19 +176,44 @@ test("problems are reported plainly with a non-zero exit code and no output file
   assert.ok(!fs.existsSync(out), "nothing is written when the build fails");
 });
 
-test("the real default path (bundle computed by the Python package) builds too", (t) => {
+test("the real default path (bundle computed by the Python package) is the MITO LIGHT edition", (t) => {
   const out = path.join(TMP, "computed.html");
   const res = run(["--out", out, "--quiet"]);
   if (res.status !== 0 && /cannot import/.test(res.err)) { t.skip(res.err); return; }
   assert.equal(res.status, 0, res.err);
-  const b = embeddedBundle(fs.readFileSync(out, "utf8"));
+  const html = fs.readFileSync(out, "utf8");
+  assert.ok(Buffer.byteLength(html) < 2_000_000);
+  const b = embeddedBundle(html);
   assert.equal(b.meta.synthetic, true, "the bundle says its data is simulated");
+  assert.equal(b.meta.vertical, "pbm");
+  assert.equal(b.vertical.id, "pbm");
+  assert.match(b.vertical.edition_en, /MITO LIGHT/);
   assert.ok(b.arena.length >= 100);
+  assert.ok(b.claims && b.claims.topics.length >= 15 && Object.keys(b.claims.classes).sort().join() === "avoid,context,cosmetic,medical,wellness");
+  assert.ok(b.claim_rules && b.claim_rules.topics.length >= b.claims.topics.length - 1, "the rules the checker compiles");
   assert.equal(b.forge_samples.length, 2, "one real offline pack per language");
-  assert.deepEqual(b.forge_samples.map((p) => p.brief.lang), ["en", "cs"]);
-  assert.deepEqual(b.guru_samples.map((p) => p.brief.lang), ["en", "cs"]);
+  assert.deepEqual(b.forge_samples.map((p) => p.brief.lang).sort(), ["cs", "en"]);
+  assert.deepEqual(b.guru_samples.map((p) => p.brief.lang).sort(), ["cs", "en"]);
   assert.ok(b.guru_sample, "the legacy single sample stays available");
   assert.ok(b.forge_samples.every((p) => p.writer === "offline" && p.summary.open_slots > 0), "samples are engine output, gaps stay open");
+  assert.ok(b.forge_samples.every((p) => p.brief.vertical === "pbm" && p.brief.claims_profile === "wellness" && p.summary.claims_profile === "wellness"));
+  assert.ok(b.guru_samples.every((p) => p.brief.vertical === "pbm" && p.brief.claims_profile === "wellness"));
+  assert.ok(b.bosses.every((x) => /^boss-pbm-/.test(x.id)), "the bosses are the edition's own");
+  const unverified = b.vault.studies.filter((x) => x.verified !== true);
+  assert.ok(unverified.length > 0, "leads that are not verified yet ship with the edition and the UI marks them");
+  const topicIds = new Set(b.claims.topics.map((x) => x.id));
+  assert.ok(b.vault.links.some((l) => topicIds.has(l.tactic_id)), "links point at claim topics");
+});
+
+test("the generic edition is still available and has no claims data", (t) => {
+  const out = path.join(TMP, "general.html");
+  const res = run(["--out", out, "--quiet", "--vertical", "general"]);
+  if (res.status !== 0 && /cannot import/.test(res.err)) { t.skip(res.err); return; }
+  assert.equal(res.status, 0, res.err);
+  const b = embeddedBundle(fs.readFileSync(out, "utf8"));
+  assert.ok(!b.meta.vertical);
+  assert.ok(!b.vertical && !b.claims && !b.claim_rules, "no vertical, claims map or rules");
+  assert.ok(b.bosses.length >= 5 && b.arena.length >= 100);
 });
 
 test("the demo data is labelled as simulated inside the bundle", () => {

@@ -1333,6 +1333,135 @@ output.calc-out { display: block; }
 .parity-list .is-diff svg { color: var(--risk-ink); }
 
 
+/* ---- 13b. claims check, claims map and the edition ------------------------------------------------- */
+/* status line: icon and text, never colour alone */
+.claims-status { display: flex; align-items: center; gap: 10px; padding: 10px 14px; font-size: 16px; background: var(--surface-2); border: 1px solid var(--line); border-radius: 14px; }
+.claims-status svg { flex: none; }
+.claims-status.is-idle { color: var(--text-2); }
+.claims-status.is-clean { background: var(--tint-ok); border-color: var(--bd-ok); }
+.claims-status.is-clean svg { color: var(--ok-ink); }
+.claims-status.is-blocked { background: var(--tint-risk); border-color: var(--bd-risk); }
+.claims-status.is-blocked svg { color: var(--risk-ink); }
+.claims-status.is-advice { background: var(--tint-warn); border-color: var(--bd-warn); }
+.claims-status.is-advice svg { color: var(--warn-ink); }
+.claims-card > * + *, .claims-result > * + * { margin-top: 12px; }
+.claims-card .card-title { display: flex; align-items: center; gap: 10px; }
+.claims-card .card-title svg { color: var(--accent-ink); }
+.claims-host:empty { display: none; }
+.claims-clean { color: var(--text-2); }
+.claims-empty { display: flex; align-items: flex-start; gap: 8px; padding: 12px 14px; color: var(--text-2); border: 1px dashed var(--line-2); border-radius: 14px; }
+.claims-empty svg { flex: none; margin-top: 3px; }
+.finding-list { display: grid; gap: 10px; }
+.finding { display: grid; gap: 6px; padding: 10px 12px; background: var(--surface-2); border: 1px solid var(--line); border-left-width: 5px; border-radius: 12px; }
+.finding.sev-error { border-left-color: var(--risk-ink); }
+.finding.sev-warn { border-left-color: var(--warn-ink); }
+.finding.sev-info { border-left-color: var(--info-ink); }
+.finding-head { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; }
+.finding-code { margin-left: auto; font: 700 11.5px var(--mono); letter-spacing: .02em; color: var(--text-3); overflow-wrap: anywhere; }
+.finding-msg { font-size: 14.5px; line-height: 1.4; }
+.finding-phrase q { font-weight: 800; overflow-wrap: anywhere; }
+.finding-topic { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; font-size: 14px; }
+.finding-safer { font-size: 14px; color: var(--text-2); }
+.finding-label { font-size: 11.5px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--text-3); }
+.result-claims > * + * { margin-top: 8px; }
+.live-strip.has-claims { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (min-width: 720px) { .live-strip.has-claims { grid-template-columns: repeat(4, minmax(0, 1fr)) auto; } }
+.strip-claims { display: inline-flex; align-items: center; gap: 6px; }
+.strip-item .strip-claims { font-size: 17px; }
+.strip-claims.is-clean { color: var(--ok-ink); }
+.strip-claims.is-blocked { color: var(--risk-ink); }
+.strip-claims.is-advice { color: var(--warn-ink); }
+
+/* edition banner (home) and edition card (about) */
+.edition-banner { display: flex; align-items: flex-start; gap: 16px; border-color: var(--bd-xp); background: radial-gradient(520px 220px at 0% 0%, var(--tint-xp), transparent 70%), linear-gradient(180deg, var(--surface-hi), var(--surface)); }
+.edition-banner > * + * { margin-top: 0; }
+.edition-icon { flex: none; display: grid; place-items: center; width: 60px; height: 60px; border-radius: 18px; color: var(--xp-ink); background: var(--tint-xp); border: 1px solid var(--bd-xp); }
+.edition-body { display: grid; gap: 8px; min-width: 0; }
+.edition-body > * + * { margin-top: 0; }
+.edition-name { font-size: clamp(22px, 4.4vw, 30px); font-weight: 850; letter-spacing: -.02em; line-height: 1.15; }
+.edition-tagline { max-width: 62ch; color: var(--text-2); }
+@media (max-width: 479.98px) { .edition-banner { flex-direction: column; gap: 12px; } .edition-icon { width: 48px; height: 48px; border-radius: 14px; } }
+.edition-card > * + * { margin-top: 12px; }
+.glossary-list { display: grid; gap: 0 28px; margin: 0; }
+@media (min-width: 800px) { .glossary-list { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.glossary-item { padding: 10px 0; border-top: 1px solid var(--line); }
+.glossary-item dt { font-weight: 800; }
+.glossary-item dd { margin: 2px 0 0; color: var(--text-2); font-size: 14.5px; }
+.claims-about .fact-list li { align-items: center; }
+.reg-note { border-color: var(--bd-warn); background: linear-gradient(180deg, var(--tint-warn), transparent 90%), linear-gradient(180deg, var(--surface-hi), var(--surface)); }
+.legal-chip { font-weight: 800; }
+
+/* vault: claims map */
+.vault-claims > * + * { margin-top: 18px; }
+.vault-claims > .heading { margin-top: 0; }
+.claims-legend > * + * { margin-top: 10px; }
+.class-legend { display: grid; gap: 10px; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 700px) { .class-legend { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1000px) { .class-legend { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.class-legend > li { display: flex; min-width: 0; }
+.legend-class { display: grid; gap: 4px; align-content: start; width: 100%; padding: 11px 14px; text-align: left; color: var(--text); background: var(--surface-2); border: 1px solid var(--line-2); border-left-width: 5px; border-radius: 14px; }
+button.legend-class { cursor: pointer; font: inherit; transition: background .2s, border-color .2s, transform .2s var(--spring); }
+button.legend-class:hover { background: var(--surface-3); border-color: var(--bd-brand); transform: translateY(-1px); }
+.legend-class.class-wellness { border-left-color: var(--ok-ink); }
+.legend-class.class-cosmetic { border-left-color: var(--info-ink); }
+.legend-class.class-context { border-left-color: var(--text-3); }
+.legend-class.class-medical, .legend-class.class-avoid { border-left-color: var(--risk-ink); }
+.legend-head { display: flex; align-items: center; gap: 8px; }
+.legend-head .chip { margin-left: auto; }
+.legend-meaning { line-height: 1.4; }
+.claims-check > * + * { margin-top: 12px; }
+.claims-check .card-title, .claims-legend .card-title { display: flex; align-items: center; gap: 10px; }
+.claims-check .card-title svg { color: var(--accent-ink); }
+.claim-summary p { font-size: 15px; line-height: 1.5; }
+.claim-summary p + p { margin-top: 6px; }
+.claims-input { min-height: 120px; }
+.claims-check-bar { gap: 10px; }
+.claims-check-bar > .small { margin-left: auto; }
+.claim-group > * + * { margin-top: 10px; }
+.claim-group-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 14px; }
+.claim-group-tools { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; }
+.claim-group-title { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; font-size: 20px; font-weight: 850; letter-spacing: -.01em; outline: none; }
+.claim-group-title svg { flex: none; }
+.claim-grid { display: grid; gap: 14px; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 900px) { .claim-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.claim-grid > li { display: flex; min-width: 0; }
+.claim-card { display: grid; gap: 10px; align-content: start; width: 100%; padding: 16px; background: linear-gradient(180deg, var(--surface-hi), var(--surface)); border: 1px solid var(--line); border-radius: 18px; box-shadow: var(--shadow-1); }
+.claim-card > * + * { margin-top: 0; }
+.claim-card.is-blocked { border-color: var(--bd-risk); background: radial-gradient(420px 200px at 100% 0%, var(--tint-risk), transparent 70%), linear-gradient(180deg, var(--surface-hi), var(--surface)); }
+.claim-head { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 8px 12px; }
+.claim-name { flex: 1 1 200px; min-width: 0; font-size: 17px; font-weight: 800; line-height: 1.25; }
+.blocked-badge { flex: none; font-weight: 850; color: var(--risk-ink); background: var(--tint-risk); border: 2px solid var(--risk-ink); }
+.claim-sentence { padding: 10px 12px; font-size: 15px; background: var(--surface-2); border: 1px solid var(--line); border-left: 4px solid var(--line-2); border-radius: 4px 12px 12px 4px; }
+.claim-card.is-blocked .claim-sentence { border-left-color: var(--risk-ink); }
+.cap-box { background: var(--tint-warn); border-color: var(--bd-warn); }
+.cap-box > svg { color: var(--warn-ink); }
+.claim-card h5.sub { margin: 0 0 6px; font-size: 14px; font-weight: 800; color: var(--text-2); }
+.claim-lists { display: grid; gap: 10px; grid-template-columns: minmax(0, 1fr); }
+.safe-box, .avoid-box { padding: 10px 12px; border: 1px solid var(--line); border-radius: 14px; }
+.safe-box { background: var(--tint-ok); border-color: var(--bd-ok); }
+.avoid-box { background: var(--tint-risk); border-color: var(--bd-risk); }
+.safe-box h5.sub, .avoid-box h5.sub { display: flex; align-items: center; gap: 6px; color: var(--text); }
+.safe-box h5.sub svg { color: var(--ok-ink); }
+.avoid-box h5.sub svg { color: var(--risk-ink); }
+.claim-list { display: grid; gap: 8px; }
+.claim-list li { display: flex; align-items: flex-start; gap: 8px; font-size: 14px; line-height: 1.4; }
+.claim-list svg { flex: none; margin-top: 3px; }
+.safe-list svg { color: var(--ok-ink); }
+.avoid-list svg { color: var(--risk-ink); }
+.claim-more > summary { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 6px 0; font-size: 14px; font-weight: 750; color: var(--accent-ink); }
+.claim-more .chev { transition: transform .25s var(--ease); }
+.claim-more[open] .chev { transform: rotate(180deg); }
+.claim-more > * + * { margin-top: 12px; }
+.claim-studies { display: grid; gap: 8px; }
+.claim-study { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 6px 10px; padding: 8px 10px; font-size: 14px; background: var(--surface-2); border: 1px solid var(--line); border-radius: 12px; }
+.claim-study.is-unverified { border-style: dashed; border-color: var(--bd-warn); }
+.study-line { flex: 1 1 200px; min-width: 0; overflow-wrap: anywhere; }
+.study-links .muted { white-space: nowrap; }
+
+/* forge: readable names for claims check codes, claims profile pill */
+.issue-name { display: block; font-size: 14.5px; }
+.profile-pill { max-width: 100%; font-weight: 800; white-space: normal; line-height: 1.25; }
+
 /* ---- 14. motion ------------------------------------------------------------------------------------- */
 @keyframes pulse { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.08); opacity: .85; } }
 @keyframes spin { to { transform: rotate(360deg); } }

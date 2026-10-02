@@ -1,7 +1,9 @@
 /* About: what is real and what is simulated, how the Dopamine Score works (weights and limits are read from
  * the scoring spec in the bundle), the Trust Shield, the ethics of the game with the published chest odds,
- * privacy, keyboard help, sources and build information. Everything here is reference text, so every number
- * comes from the bundle or from game.js and never from a second copy.
+ * privacy, keyboard help, sources and build information. In an edition with a vertical (bundle.vertical) it
+ * also describes the edition, the claims check, the glossary and the regulatory note (not legal advice).
+ * Everything here is reference text, so every number comes from the bundle or from game.js and never from a
+ * second copy.
  */
 (function (root, factory) {
   if (typeof module === "object" && module.exports) module.exports = factory(root);
@@ -58,6 +60,55 @@
             widgets.chip(t("about.chipOffline"), { tone: "ok", icon: "lock" }),
             widgets.chip(t("about.chipNoTrack"), { tone: "info", icon: "shieldCheck" }))),
         d.h("div.hero-art", { "aria-hidden": "true" }, icons.logo(120)));
+    }
+
+    // -- the edition (vertical) -------------------------------------------------------------------------------
+    var vertical = b.vertical || null;
+    var ui = root.DK.ui.claimsui;
+    var claimsOn = !!ui.engine(b);
+
+    function editionCard() {
+      if (!vertical) return null;
+      return d.h("section", { "aria-labelledby": "edition-h" },
+        d.h("div.heading", null, d.h("div.heading-main", null, d.h("h2.heading-title", { id: "edition-h" }, t("about.edition.title")), d.h("p.heading-sub", null, t("about.edition.sub")))),
+        d.h("div.card.edition-card", null,
+          d.h("h3.edition-name", null, ui.pickLang(vertical, "edition", lang) || ui.pickLang(vertical, "name", lang)),
+          d.h("p.edition-tagline", null, ui.pickLang(vertical, "tagline", lang)),
+          bullets(["about.edition.1", "about.edition.2", "about.edition.3", "about.edition.4"], "check"),
+          d.h("p.small.muted", null, t("edition.built"))));
+    }
+
+    function claimsCard() {
+      if (!claimsOn) return null;
+      var rows = [["about.claims.error", "error"], ["about.claims.warn", "warn"], ["about.claims.info", "info"]];
+      return card("claims-h", t("about.claims.title"), "shieldCheck", [
+        d.h("p.small.muted", null, t("about.claims.sub")),
+        d.h("p", null, t("about.claims.intro")),
+        d.h("ul.fact-list", null, rows.map(function (r) { return d.h("li", null, ui.severityChip(r[1]), d.h("span", null, t(r[0]))); })),
+        d.h("p.small.muted", null, t("about.claims.limits")),
+        d.h("a.btn.btn-ghost.btn-sm", { href: "#/vault/claims" }, icons.icon("shieldCheck", { size: 16 }), d.h("span", null, t("edition.openMap")))
+      ], "claims-about");
+    }
+
+    function glossaryCard() {
+      var list = vertical && Array.isArray(vertical.glossary) ? vertical.glossary : [];
+      if (!list.length) return null;
+      return card("glossary-h", t("about.glossary.title"), "book", [
+        d.h("p.small.muted", null, t("about.glossary.sub")),
+        d.h("dl.glossary-list", null, list.map(function (g) {
+          return d.h("div.glossary-item", null, d.h("dt", null, ui.pickLang(g, "term", lang) || g.id), d.h("dd", null, ui.pickLang(g, "def", lang)));
+        }))
+      ], "glossary-card");
+    }
+
+    function regCard() {
+      var note = vertical ? ui.pickLang(vertical, "regulatory_note", lang) : "";
+      if (!note) return null;
+      return d.h("section.card.about-card.note-card.reg-note", { role: "note", "aria-labelledby": "reg-h" },
+        d.h("div.editor-head", null,
+          d.h("h2.card-title", { id: "reg-h" }, icons.icon("scale", { size: 20 }), d.h("span", null, t("about.reg.title"))),
+          d.h("span.chip.tone-warn.legal-chip", null, icons.icon("info", { size: 13 }), d.h("span", null, t("about.reg.badge")))),
+        d.h("p", null, note));
     }
 
     // -- real versus simulated ----------------------------------------------------------------------------
@@ -130,7 +181,8 @@
         d.h("div.shield-opts", null, SHIELDS.map(function (s) {
           return d.h("div.shield-opt.is-" + s, null, icons.shield(s, 30), d.h("strong", null, t("boss.shield." + s)), d.h("span", null, t("boss.shieldRange." + s)));
         })),
-        d.h("p.small.muted", null, t("about.shield.rule", { risk: d.fmtPct(game.BOSS_MAX_RISK, 0) }))
+        d.h("p.small.muted", null, t("about.shield.rule", { risk: d.fmtPct(game.BOSS_MAX_RISK, 0) })),
+        claimsOn ? d.h("p.small.muted", null, t("about.shield.claims")) : null
       ]);
     }
 
@@ -279,9 +331,13 @@
 
     d.fill(page, [
       intro(),
+      editionCard(),
       honesty(),
       scoreCard(),
       shieldCard(),
+      claimsCard(),
+      glossaryCard(),
+      regCard(),
       d.h("div.grid-2.about-pair", null, ethicsCard(), oddsCard()),
       privacyCard(),
       keysCard(),

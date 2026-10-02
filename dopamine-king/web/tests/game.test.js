@@ -214,7 +214,7 @@ test("percentile uses interpolation and mid rank for ties", () => {
   near(game.percentileOf(37.5, q), 37.5, 1e-12);
   const tied = [0, 0, 0, 0, 10, 20];
   assert.equal(game.percentileOf(0, tied), 1.5, "mid rank of a run of ties");
-  const real = bundle.benchmarks.sport.quantiles;
+  const real = bundle.benchmarks.all.quantiles;
   let prev = -1;
   for (let s = 0; s <= 100; s += 0.5) {
     const v = game.percentileOf(s, real);
@@ -226,7 +226,7 @@ test("percentile uses interpolation and mid rank for ties", () => {
 });
 
 test("thresholdScore inverts the percentile", () => {
-  const real = bundle.benchmarks.sport.quantiles;
+  const real = bundle.benchmarks.all.quantiles;
   for (const p of [60, 75, 90]) {
     const s = game.thresholdScore(p, real);
     assert.ok(game.percentileOf(s, real) >= p, `score ${s} reaches p${p}`);
@@ -588,7 +588,8 @@ test("chests prefer cards you do not own yet, duplicates become 5 XP dust", () =
 });
 
 test("an edition without epic or legendary cards still always yields a card", () => {
-  const cards = bundle.loot.cards;
+  const cards = bundle.loot.cards.filter((c) => c.rarity === "common" || c.rarity === "rare");
+  assert.ok(cards.some((c) => c.rarity === "common") && cards.some((c) => c.rarity === "rare"));
   const rng = mulberry32(4);
   let pity = 0, longest = 0, run = 0;
   const seen = new Set();
@@ -603,6 +604,22 @@ test("an edition without epic or legendary cards still always yields a card", ()
   assert.deepEqual([...seen].sort(), ["common", "rare"]);
   assert.ok(longest <= bundle.loot.pity_after);
   assert.equal(game.drawChest({ cards: [], rates: RATES, pityAfter: 8, owned: [], pity: 0 }, rng), null);
+});
+
+test("the shipped edition yields every rarity it has cards for, and the pity timer still holds", () => {
+  const cards = bundle.loot.cards;
+  const rng = mulberry32(11);
+  const seen = new Set();
+  let pity = 0, run = 0, longest = 0;
+  for (let i = 0; i < 4000; i++) {
+    const res = game.drawChest({ cards, rates: bundle.loot.rates, pityAfter: bundle.loot.pity_after, owned: [], pity }, rng);
+    seen.add(res.rarity);
+    run = res.rarity === "common" ? run + 1 : 0;
+    longest = Math.max(longest, run);
+    pity = res.pity;
+  }
+  assert.deepEqual([...seen].sort(), [...new Set(cards.map((c) => c.rarity))].sort());
+  assert.ok(longest <= bundle.loot.pity_after, `${longest} commons in a row, pity after ${bundle.loot.pity_after}`);
 });
 
 test("openChest updates the profile: inventory, deck, pity, dust XP", () => {

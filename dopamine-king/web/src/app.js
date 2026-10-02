@@ -35,7 +35,7 @@
       if (!(b.forge_samples && b.forge_samples.length)) {
         jobs.push(fetchJson("./mock-forge.json").then(function (j) { b.forge_samples = Array.isArray(j) ? j : [j]; }, function () {}));
       }
-      if (!b.guru_sample) {
+      if (!b.guru_sample && !(b.guru_samples && b.guru_samples.length)) {
         jobs.push(fetchJson("./mock-guru.json").then(function (j) { b.guru_sample = j; }, function () {}));
       }
       return Promise.all(jobs).then(function () { return b; });

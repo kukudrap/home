@@ -2,6 +2,7 @@
 
     python3 scripts/build_web.py [--bundle web/dev/bundle.json] [--out web/dist/dopamine-king.html]
                                  [--forge web/dev/mock-forge.json --guru web/dev/mock-guru.json]
+                                 [--vertical pbm|general]
 
 The script reads ``web/src/index.template.html``, inlines ``styles.css`` and the JavaScript files in
 dependency order, and embeds the data bundle as ``<script id="dk-bundle" type="application/json">``.
@@ -9,7 +10,9 @@ Without ``--bundle`` the bundle is computed by ``dopamine_king.webdata.build_bun
 shipped seed evidence ledger (so the Vault shows studies and tactics). ``--forge`` and
 ``--guru`` inject a sample Pack and Plan when the bundle has none; when they are not given, the development
 samples ``web/dev/mock-forge.json`` and ``web/dev/mock-guru.json`` are used (``--no-samples`` turns that off),
-so the Forge and Guru views are never empty in the offline file. Standard library only.
+so the Forge and Guru views are never empty in the offline file. The edition is chosen with ``--vertical``: ``pbm``
+(the default) is the MITO LIGHT edition with the claims map, the claims checker rules and the claims profile samples;
+``general`` is the generic edition without them. Standard library only.
 
 The result must work from file:// with no network, so the build verifies that the output has no external
 URLs in markup or CSS, no em or en dash, and stays below 2 MB.
@@ -31,8 +34,8 @@ DEV_GURU = ROOT / "web" / "dev" / "mock-guru.json"
 
 # Dependency order: logic modules first, then the UI toolkit, then views, then the bootstrap.
 JS_ORDER = [
-    "scoring.js", "labstats.js", "game.js", "i18n.js", "store.js",
-    "ui/dom.js", "ui/icons.js", "ui/charts.js", "ui/widgets.js", "ui/fx.js", "ui/shell.js",
+    "scoring.js", "labstats.js", "claims.js", "game.js", "i18n.js", "store.js",
+    "ui/dom.js", "ui/icons.js", "ui/charts.js", "ui/widgets.js", "ui/claimsui.js", "ui/fx.js", "ui/shell.js",
     "ui/home.js", "ui/arena.js", "ui/boss.js", "ui/lab.js", "ui/vault.js", "ui/forge.js", "ui/guru.js", "ui/about.js",
     "app.js",
 ]
@@ -110,7 +113,7 @@ def inject_samples(bundle: dict[str, Any], forge: Path | None, guru: Path | None
             bundle["forge_samples"] = pack if isinstance(pack, list) else [pack]
     if guru is not None:
         plan = load_json(guru, "guru")
-        if not bundle.get("guru_sample"):
+        if not bundle.get("guru_sample") and not bundle.get("guru_samples"):
             bundle["guru_sample"] = plan
 
 
