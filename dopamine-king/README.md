@@ -58,7 +58,7 @@ python3 -m dopamine_king audit stranka.txt                          # kontrola e
 python3 -m dopamine_king evidence search "photobiomodulation sleep" --sources pubmed   # nové studie (síť)
 ```
 
-Podrobnosti v [docs/07-fotobiomodulace.md](docs/07-fotobiomodulace.md), regulace a zdroje v [docs/08-regulace-pbm.md](docs/08-regulace-pbm.md). **Pravidla nejsou právní poradenství.** Zjištění o stavu přístroje (nezdravotnický prostředek) vychází z jediného nepotvrzeného zdroje, viz docs/08.
+Hotová ukázka textů pro MITO LIGHT (pět formátů, napsal Claude, Štít důvěry: 0 chyb): [examples/mito-light-cs](examples/mito-light-cs/README.md). Podrobnosti v [docs/07-fotobiomodulace.md](docs/07-fotobiomodulace.md), regulace a zdroje v [docs/08-regulace-pbm.md](docs/08-regulace-pbm.md). **Pravidla nejsou právní poradenství.** Zjištění o stavu přístroje (nezdravotnický prostředek) vychází z jediného nepotvrzeného zdroje, viz docs/08.
 
 ### Živý sběr a studie (potřebují síť)
 

@@ -117,6 +117,21 @@ class FileWriterTests(FileCase):
         _, pack = self.pack({"instagram_caption": {"body": self.BODY}})
         self.assertEqual([i for i in pack.items[0].issues if i["severity"] == "error"], [])
 
+    def test_citation_marks_become_numbers_in_the_readable_files_but_not_in_pack_json(self):
+        _, pack = self.pack({"seo_article": {"sec_2": "Metaanalýza uvádí malé efekty [[cite:dutra2022]], jiná žádný přínos [[cite:li2024]]."}}, formats=("seo_article",))
+        body = pack.items[0].body
+        self.assertIn("[[cite:dutra2022]]", body)                       # the raw mark stays in the data
+        readable = pack.readable(body)
+        self.assertNotIn("[[cite:", readable)
+        sources = [s["id"] for s in pack.brief["sources"]]
+        self.assertIn(f"[{sources.index('dutra2022') + 1}]", readable)
+        self.assertIn(f"[{sources.index('li2024') + 1}]", readable)
+        self.assertNotIn("[[cite:", pack.to_markdown("cs"))
+        outdir = Path(self.dir.name) / "out"
+        pack.save(outdir)
+        self.assertNotIn("[[cite:", (outdir / "01-seo_article.md").read_text("utf-8"))
+        self.assertIn("[[cite:dutra2022]]", (outdir / "pack.json").read_text("utf-8").replace("\\", ""))
+
     def test_a_bad_file_is_a_clear_error(self):
         for data in ("{not json", "[1, 2]", '"text"'):
             with self.assertRaises(WriterError):

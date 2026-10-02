@@ -114,6 +114,8 @@ python3 -m dopamine_king audit stranka.txt          # návratový kód 1 při ch
 3. **Kontrola.** Každý kus projde Štítem důvěry. Delší texty dostanou bezpečnostní upozornění (oči, návod výrobce, lékař při těhotenství nebo lécích zvyšujících citlivost na světlo). Šablona upozornění je předschválená; pokud máte vlastní text z návodu, předejte ho přes `--safety-note`.
 4. **Člověk.** Výstup je koncept. Nic se nepublikuje samo.
 
+Hotovou ukázku (Instagram, krátké video, SEO článek, GEO stránka, newsletter) najdete v [examples/mito-light-cs](../examples/mito-light-cs/README.md): texty napsal Claude, Štít důvěry je zkontroloval (0 chyb) a údaje, které nikdo nesmí vymyslet (autor, datum, citace odborníka, adresa odesílatele), zůstaly jako `[[ADD: ...]]`.
+
 ## Co víme o MITO LIGHT z veřejných zdrojů
 
 Soubor `mito_light.json` obsahuje **31 sourcovaných faktů** a **15 otevřených otázek**. Vše pochází z výsledků vyhledávání, ne z otevření webu značky, a značka to musí potvrdit nebo opravit. Hlavní body: česká značka (mitolight.cz), zařízení vyvíjená a navrhovaná v Česku, výroba u dlouhodobého partnera v Číně, řada panelů a žárovek, šest vlnových délek 630 až 850 nm, na webu praktické FAQ k dávkování a očím. **Pozor na záměnu:** americká značka Mito Red Light je jiná firma, tvrzení se mezi nimi nesmí přenášet.

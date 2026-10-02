@@ -61,6 +61,11 @@ class Pack:
         return {"brief": self.brief, "writer": self.writer, "created": self.created,
                 "items": [i.to_dict() for i in self.items], "summary": self.summary, "errors": self.errors}
 
+    def readable(self, text: str) -> str:
+        """Citation marks as numbers that match the Sources list; pack.json keeps the raw [[cite:id]] marks for tools."""
+        from .seo import render_citations
+        return render_citations(text, self.brief.get("sources") or [])
+
     def to_markdown(self, lang: str | None = None) -> str:
         cs = (lang or self.brief.get("lang", "en")) == "cs"
         s = self.summary
@@ -74,7 +79,7 @@ class Pack:
                     f"**Hook:** {item.hook}  ", f"**{'Skóre' if cs else 'Score'}:** dopamine {item.scores.get('dopamine')}"
                     + (f", SEO {item.scores['seo']}" if item.scores.get("seo") is not None else "")
                     + (f", GEO {item.scores['geo']}" if item.scores.get("geo") is not None else "")
-                    + f" | {'verdikt' if cs else 'verdict'}: **{item.verdict}**", "", item.body, ""]
+                    + f" | {'verdikt' if cs else 'verdict'}: **{item.verdict}**", "", self.readable(item.body), ""]
             if item.issues:
                 out.append(f"**{'Poznámky' if cs else 'Remarks'}:**")
                 out += [f"- [{i['severity']}] {i['code']}: {i['message']}" for i in item.issues]
@@ -94,7 +99,7 @@ class Pack:
             written.append(root / name)
         for i, item in enumerate(self.items, 1):
             base = f"{i:02d}-{item.format}"
-            (root / f"{base}.md").write_text(f"# {item.hook}\n\n{item.body}\n", "utf-8")
+            (root / f"{base}.md").write_text(f"# {item.hook}\n\n{self.readable(item.body)}\n", "utf-8")
             written.append(root / f"{base}.md")
             if item.parts.get("srt"):
                 (root / f"{base}.srt").write_text(item.parts["srt"], "utf-8")

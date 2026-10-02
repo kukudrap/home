@@ -1,0 +1,53 @@
+[
+ {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Panel s červeným světlem: co o něm říkají studie",
+  "description": "Panel s červeným světlem pro aktivní lidi: co o světle před cvičením říkají studie, jak panel používat bezpečně a proč u MITO LIGHT nic neslibujeme.",
+  "inLanguage": "cs",
+  "publisher": {
+   "@type": "Organization",
+   "name": "MITO LIGHT"
+  },
+  "keywords": "panel s červeným světlem",
+  "wordCount": 1074
+ },
+ {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+   {
+    "@type": "Question",
+    "name": "Pomůže panel s červeným světlem po tréninku?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Studie u zdravých lidí dávají smíšený obraz. Některé metaanalýzy popisují malé zlepšení svalové vytrvalosti po světle před cvičením , jiné u fyzicky aktivních lidí žádný významný přínos nenašly . Výsledek proto slíbit nelze. Panel je pomůcka k podpoře regenerace zdravého organismu."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Jak panel s červeným světlem používat bezpečně?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Řiďte se návodem výrobce, chraňte oči a nedívejte se přímo do zapnutého panelu. Jste-li těhotná, užíváte léky zvyšující citlivost na světlo nebo máte pochybnosti, poraďte se předem s lékařem. Panel nenahrazuje lékaře."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Je panel s červeným světlem zdravotnický prostředek?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Ne. MITO LIGHT je určen jako pomůcka k podpoře regenerace zdravého organismu a není zdravotnickým prostředkem. Neslouží k diagnostice, léčbě ani prevenci nemocí a nenahrazuje lékaře."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Pro koho je panel s červeným světlem určen?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Pro zdravé lidi, kteří chtějí zařadit světelnou rutinu například po sportu. Panel neslouží k léčbě potíží a nenahrazuje lékaře. Máte-li zdravotní potíže nebo užíváte léky, poraďte se nejdřív s lékařem."
+    }
+   }
+  ]
+ }
+]
