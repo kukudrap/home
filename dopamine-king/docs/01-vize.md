@@ -33,7 +33,7 @@ Dopamin **není** "hormon štěstí" ani látka slasti. Souvisí hlavně s *cht�
 | Generátory (články, SEO, GEO, sociální sítě, video, reklamy), Trust Shield | Hotovo; offline režim nevymýšlí prózu, zapisuje `[[ADD: ...]]`; psaní prózy zajišťuje Claude (`--writer anthropic`) |
 | Šetrný sběr (robots.txt, TDM, feedy, sitemapy), import vlastních analytik | Hotovo a testováno offline; **živý sběr vyžaduje síť** |
 | Hledání studií (OpenAlex, Crossref, arXiv) | Hotovo a testováno offline; **živé hledání vyžaduje síť** |
-| Seed ledger studií | Sepsáno z paměti autora; do ověření přes Crossref (`kingctl evidence verify`) je označeno jako **neověřené** |
+| Seed ledger studií | 32 záznamů, z toho **23 potvrzeno** veřejnými zdroji (název, časopis, rok, DOI); ostatní nesou poznámku, jak daleko ověření došlo. `kingctl evidence verify` je znovu ověří přes Crossref (potřebuje síť). |
 | Skutečná data značek | Nejsou součástí repozitáře (autorská práva, výkonnostní čísla nejsou veřejná). Demo používá fiktivní značky a **simulovaná** čísla. |
 
 Podrobnosti v `03-architektura.md`, metodika v `04-metodika.md`, pravidla sběru dat v `05-scraping-a-pravo.md`.

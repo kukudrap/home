@@ -54,7 +54,7 @@ Výkon obsahu se **normalizuje**, aby nevyhrávaly velké účty: engagement se 
 ## 5. Důkazy (`research/`)
 - **Hodnocení studie:** hierarchie designu (metaanalýza a systematický přehled 1,0; RCT a polní experiment 0,85; laboratorní experiment 0,7; observační studie 0,55; průzkum 0,5; teorie 0,4; kvalitativní 0,35; preprint 0,4; kniha 0,3; neznámé 0,25), malý bonus za citace za rok, preprint nemůže přesáhnout B, stažená práce je vždy D. Práh: A od 0,8, B od 0,6, C od 0,4.
 - **Souhrn taktiky:** `strong` (aspoň dvě podporující studie A nebo B a žádná protichůdná A nebo B), `contested`, `moderate`, `limited`, `none`.
-- **Ověření:** `kingctl evidence verify` porovná každou studii s Crossref (shoda názvu a roku). Do té doby je záznam označen jako neověřený.
+- **Ověření:** `kingctl evidence verify` porovná každou studii s Crossref (shoda názvu a roku). Seed ledger je z větší části už ověřen přes veřejné zdroje (23 z 32); ostatní záznamy zůstávají označené jako neověřené, dokud ověření neproběhne.
 
 ## 6. SEO, GEO, Trust Shield (`generate/`)
 - **SEO skóre:** délka titulku a meta popisu, klíčové slovo v titulku, H1 a prvních 100 slovech, hustota 0,5 až 2,5 procenta, délka vět, FAQ, zdroje, délka textu. **Quality gate** odmítne článek bez vlastní zkušenosti nebo faktů jako nepublikovatelný (hromadně vyráběný obsah s nízkou hodnotou je podle zásad vyhledávačů riziko).
