@@ -162,11 +162,14 @@ class ResearchDataTests(unittest.TestCase):
         self.assertGreaterEqual(len(profile["unknowns"]), 8)
         text = json.dumps(profile, ensure_ascii=False)
         self.assertNotRegex(text, r"[\w.+-]+@[\w-]+\.[\w.]+")              # no e-mail address
-        self.assertNotRegex(text, r"\d[\d ,.]*\s?CZK")                      # no price snapshots
+        self.assertNotRegex(text, r"\d[\d ,.]*\s?(?:CZK|Kč|EUR|€)")        # no price snapshots
         for name in ("Procházk", "Žufánek", "Schlesinger"):
             self.assertNotIn(name, text)                                   # no individuals
         for fact in profile["facts"]:
             self.assertTrue(fact["fact_cs"] and fact["fact_en"], fact)
+            for key in ("fact_cs", "fact_en"):
+                self.assertRegex(fact[key].rstrip(), r"[.)\"']$", fact)                    # no truncated sentence
+            self.assertTrue(0.4 < len(fact["fact_en"]) / len(fact["fact_cs"]) < 2.5, fact)  # the two languages say the same amount
             self.assertTrue(fact["source_url"].startswith("https://"), fact)
             self.assertIn(fact["confidence"], ("high", "medium", "low"))
             self.assertIn(fact["origin"], ("brand", "third-party"))

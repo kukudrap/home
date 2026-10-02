@@ -66,15 +66,15 @@
    "origin": "brand"
   },
   {
-   "fact_cs": "Bulb 5.0 (žárovka pro lokální použití) má 18 LED s úhlem svícení 30 stupňů, deklarované ozáření 65 mW/cm², šest vlnových délek a ovládání z aplikace s nastavením červené a NIR intenzity po 1 % a časovačem; ve výpisu byla cena 2 690 Kč (původně 3 190 Kč), cena se může měnit.",
-   "fact_en": "Bulb 5.0 (a bulb for local use) has 18 LEDs at a 30 degree angle, a stated 65 mW/cm², six wavelengths and app control with red and NIR intensity in 1% steps and a timer;",
+   "fact_cs": "Bulb 5.0 (žárovka pro lokální použití) má 18 LED s úhlem svícení 30 stupňů, deklarované ozáření 65 mW/cm², šest vlnových délek a ovládání z aplikace s nastavením červené a NIR intenzity po 1 % a časovačem.",
+   "fact_en": "Bulb 5.0 (a bulb for local use) has 18 LEDs at a 30 degree angle, a stated 65 mW/cm², six wavelengths and app control with red and NIR intensity in 1% steps and a timer.",
    "source_url": "https://www.mitolight.cz/mito-light-bulb-5-0/",
    "confidence": "high",
    "origin": "brand"
   },
   {
-   "fact_cs": "Intro je nový základní panel generace 5.0 s kompaktními rozměry pro jednu oblast, deklarovaným ozářením 70 mW/cm² a cenou 7 900 Kč ve výpisu (cena se může měnit).",
-   "fact_en": "Intro is the new basic Generation 5.",
+   "fact_cs": "Intro je nový základní panel generace 5.0 s kompaktními rozměry pro jednu oblast a deklarovaným ozářením 70 mW/cm².",
+   "fact_en": "Intro is the new basic Generation 5.0 panel with compact dimensions for a single area and a stated 70 mW/cm².",
    "source_url": "https://www.mitolight.cz/cervene-a-infracervene-panely/",
    "confidence": "medium",
    "origin": "brand"
@@ -87,22 +87,22 @@
    "origin": "brand"
   },
   {
-   "fact_cs": "Expert 5.0 má 208 LED, rozměry 74,5 x 30,5 x 6,5 cm, hmotnost 11 kg, deklarované ozáření 80 mW/cm² a osvítí zhruba polovinu těla; podle výrobce je o 38 % větší a má o 44 % více LED čipů než předchůdce a velmi nízké hodnoty EMF. Ve výpisu byla cena 22 900 Kč (původně 25 900 Kč).",
+   "fact_cs": "Expert 5.0 má 208 LED, rozměry 74,5 x 30,5 x 6,5 cm, hmotnost 11 kg, deklarované ozáření 80 mW/cm² a osvítí zhruba polovinu těla; podle výrobce je o 38 % větší a má o 44 % více LED čipů než předchůdce a velmi nízké hodnoty EMF.",
    "fact_en": "Expert 5.0 has 208 LEDs, measures 74.5 x 30.5 x 6.5 cm, weighs 11 kg, lists a stated 80 mW/cm² and covers roughly half of the body; the brand says it is 38% larger with 44% more LED chips than its predecessor and has very low EMF values.",
    "source_url": "https://www.mitolight.cz/mito-light-expert-5-0/",
    "confidence": "high",
    "origin": "brand"
   },
   {
-   "fact_cs": "Biohacker 5.0 má 288 LED a deklarované ozáření 82 mW/cm², osvítí více než polovinu těla, je podle výrobce o 35 % větší a má o 41 % více LED čipů než předchůdce a má integrovaný stojan; ve výpisu byla cena 31 900 Kč a hodnocení 4,8 z 5.",
-   "fact_en": "Biohacker 5.0 has 288 LEDs and a stated 82 mW/cm², covers more than half of the body, is 35% larger with 41% more LED chips than its predecessor according to the brand, and has an integrated stand;8 out of 5 rating.",
+   "fact_cs": "Biohacker 5.0 má 288 LED a deklarované ozáření 82 mW/cm², osvítí více než polovinu těla, je podle výrobce o 35 % větší a má o 41 % více LED čipů než předchůdce a má integrovaný stojan.",
+   "fact_en": "Biohacker 5.0 has 288 LEDs and a stated 82 mW/cm², covers more than half of the body, is 35% larger with 41% more LED chips than its predecessor according to the brand, and has an integrated stand.",
    "source_url": "https://www.mitolight.cz/generace-5-0/",
    "confidence": "medium",
    "origin": "brand"
   },
   {
-   "fact_cs": "Master 5.0 je podle výrobce dosud největší model: 990 LED, rozměry 183 x 53 cm, hmotnost 49 kg, šest vlnových délek, úhel svícení 30 stupňů, osvítí celé tělo najednou a umožňuje nastavit intenzitu každé vlnové délky zvlášť; ve výpisu byla cena 89 900 Kč.",
-   "fact_en": "According to the brand, Master 5.0 is its largest model so far: 990 LEDs, 183 x 53 cm, 49 kg, six wavelengths, a 30 degree angle, whole-body coverage at once and per-wavelength intensity control;",
+   "fact_cs": "Master 5.0 je podle výrobce dosud největší model: 990 LED, rozměry 183 x 53 cm, hmotnost 49 kg, šest vlnových délek, úhel svícení 30 stupňů, osvítí celé tělo najednou a umožňuje nastavit intenzitu každé vlnové délky zvlášť.",
+   "fact_en": "According to the brand, Master 5.0 is its largest model so far: 990 LEDs, 183 x 53 cm, 49 kg, six wavelengths, a 30 degree angle, whole-body coverage at once and per-wavelength intensity control.",
    "source_url": "https://www.mitolight.cz/mito-light-master-5-0/",
    "confidence": "high",
    "origin": "brand"
