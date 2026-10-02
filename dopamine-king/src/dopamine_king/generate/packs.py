@@ -218,6 +218,43 @@ def _build_with_fitting_hook(spec: Any, brief: Brief, candidates: Sequence[Any],
     return first  # type: ignore[return-value]
 
 
+def slot_template(
+    brief: Brief,
+    formats: Sequence[str] | None = None,
+    *,
+    ledger: Any = None,
+    options: dict[str, dict[str, Any]] | None = None,
+    n_hooks: int = 12,
+) -> dict[str, Any]:
+    """Every slot of the chosen formats with its instruction and limits, to be filled by a person or another model.
+
+    The shape is what ``FileWriter`` reads: ``{format_id: {slot_id: {"text": "", ...}}}``. Leave ``text`` empty to keep the default.
+    """
+    from . import formats as registry
+    from .guard import TrustShield
+    from .hooks import generate_hooks
+
+    candidates = safe_candidates(generate_hooks(brief, n=n_hooks), brief, TrustShield(ledger))
+    out: dict[str, Any] = {"_help": (
+        "Fill the text fields (plain text or Markdown, language of the brief, no long dashes), leave a text empty to keep the "
+        "default, delete the formats you do not need, then run: kingctl forge ... --writer file --fills THIS_FILE. "
+        "The Trust Shield checks everything you write, so facts and sources must come from the brief.")}
+    for fid in (formats or DEFAULT_FORMATS):
+        try:
+            spec = registry.get_format(fid)
+        except KeyError:
+            continue
+        skeleton = _build_with_fitting_hook(spec, brief, candidates, (options or {}).get(fid))
+        slots: dict[str, Any] = {}
+        for s in skeleton.slots:
+            limits = {k: v for k, v in (("max_chars", s.max_chars), ("min_chars", s.min_chars), ("max_words", s.max_words)) if v is not None}
+            if s.must_include:
+                limits["must_include"] = list(s.must_include)
+            slots[s.id] = {"kind": s.kind, "instruction": s.instruction, "limits": limits, "default": s.default or "", "text": ""}
+        out[fid] = slots
+    return out
+
+
 def build_pack(
     brief: Brief,
     formats: Sequence[str] | None = None,

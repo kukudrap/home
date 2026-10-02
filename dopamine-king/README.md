@@ -32,6 +32,12 @@ python3 -m dopamine_king forge --brand Zorvia --topic "běžecké boty" --audien
 # s modelem Claude (potřebuje ANTHROPIC_API_KEY a `pip install anthropic`)
 python3 -m dopamine_king forge ... --writer anthropic --formats seo_article,linkedin_post,short_video_script
 python3 -m dopamine_king formats                  # všech 28 formátů
+
+# bez API klíče: vlastní pisatel (vy nebo libovolný jazykový model) vyplní sloty a štít je zkontroluje
+python3 -m dopamine_king forge --brand Zorvia --topic "běžecké boty" --audience "začínající běžci" --lang cs \
+    --formats instagram_caption,seo_article --emit-slots sloty.json      # šablona: každý slot má zadání a limity
+python3 -m dopamine_king forge --brand Zorvia --topic "běžecké boty" --audience "začínající běžci" --lang cs \
+    --formats instagram_caption,seo_article --writer file --fills sloty.json --out out/zorvia
 python3 -m dopamine_king guru plan --brand Zorvia --topic "běžecké boty" --audience "začínající běžci"
 ```
 

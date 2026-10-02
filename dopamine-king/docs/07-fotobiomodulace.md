@@ -97,6 +97,10 @@ python3 -m dopamine_king evidence claims --vertical pbm      # mapa tvrzení
 python3 -m dopamine_king forge --vertical pbm --sample mito-light-cs --writer offline --out out/mito-cs
 python3 -m dopamine_king guru plan --vertical pbm --sample mito-light-cs
 
+# bez klíče k AI: vyplníte sloty sami nebo je necháte napsat jiným modelem a štít je zkontroluje
+python3 -m dopamine_king forge --vertical pbm --sample mito-light-cs --formats instagram_caption,seo_article --emit-slots sloty.json
+python3 -m dopamine_king forge --vertical pbm --sample mito-light-cs --formats instagram_caption,seo_article --writer file --fills sloty.json --out out/mito-cs
+
 # vlastní zadání (profil wellness se zapne sám)
 python3 -m dopamine_king forge --vertical pbm --brand "MITO LIGHT" --topic "regenerace po tréninku" --audience "sportovci" --lang cs \
     --fact "Doporučená doba sezení je podle návodu 10 minut." --formats instagram_caption,seo_article --writer offline
@@ -106,7 +110,7 @@ python3 -m dopamine_king audit stranka.txt          # návratový kód 1 při ch
 ```
 
 1. **Zadání.** Značka, téma, publikum a **jen pravdivá fakta**. Doby používání, vzdálenosti a dávky patří do faktů zadání z návodu výrobce, jinak je štít označí.
-2. **Generování.** Bez klíče k AI generátor nic nevymýšlí a míst, která vyžadují vaši zkušenost, se drží jako `[[ADD: ...]]` (u českých balíčků je zadání u těchto míst anglicky). S klíčem `--writer anthropic` píše prózu Claude a pravidla profilu dostává přímo v zadání. Živé volání API jsem zde nemohl vyzkoušet.
+2. **Generování.** Bez klíče k AI generátor nic nevymýšlí a míst, která vyžadují vaši zkušenost, se drží jako `[[ADD: ...]]` (u českých balíčků je zadání u těchto míst anglicky). S klíčem `--writer anthropic` píše prózu Claude a pravidla profilu dostává přímo v zadání. Živé volání API jsem zde nemohl vyzkoušet. Třetí cesta bez klíče je `--emit-slots` a `--writer file`: do šablony (každý slot má zadání a limity) napíšete text sami nebo ho dodá jiný jazykový model a Štít důvěry ho zkontroluje stejně jako text od Claude.
 3. **Kontrola.** Každý kus projde Štítem důvěry. Delší texty dostanou bezpečnostní upozornění (oči, návod výrobce, lékař při těhotenství nebo lécích zvyšujících citlivost na světlo). Šablona upozornění je předschválená; pokud máte vlastní text z návodu, předejte ho přes `--safety-note`.
 4. **Člověk.** Výstup je koncept. Nic se nepublikuje samo.
 

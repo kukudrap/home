@@ -1,6 +1,7 @@
 """Writers: fill the slots of a skeleton.
 
 ``OfflineWriter`` (in types.py) only uses deterministic defaults and never invents prose.
+``FileWriter`` takes the slot texts from a JSON file a person (or any other model) wrote: bring your own writer.
 ``AnthropicWriter`` asks Claude for one JSON object with a string per slot, checks the slot
 constraints, and runs a short repair loop for violations. It uses the official SDK, structured
 outputs (``output_config.format``), an explicit effort level, handles ``refusal`` before reading
@@ -12,6 +13,7 @@ import json
 import os
 import re
 from dataclasses import dataclass, field
+from pathlib import Path
 from typing import Any, Sequence
 
 from ..config import anthropic_model
@@ -298,15 +300,78 @@ def offline_revise(skeleton: Skeleton, brief: Brief, fills: dict[str, str], feed
     return fills
 
 
+class FileWriter:
+    """Fills slots from a JSON file written by a person or by another model ("bring your own writer").
+
+    The file maps format ids to slot texts, ``{"seo_article": {"answer": "..."}}``; ``forge --emit-slots`` writes a template with
+    every slot, its instruction and its limits. A flat ``{"slot_id": "text"}`` applies to every format that has the slot, a value may
+    also be ``{"text": "..."}`` (the template's shape), and keys that start with an underscore are notes. Slots the file leaves
+    empty keep their defaults (and stay ``[[ADD: ...]]`` when they have none). The text is checked against the slot limits; problems
+    are collected in ``violations`` and the draft still goes through the validators and the Trust Shield like any other.
+    """
+
+    name = "file"
+
+    def __init__(self, path: str | os.PathLike[str]) -> None:
+        try:
+            data = json.loads(Path(path).read_text("utf-8"))
+        except OSError as err:
+            raise WriterError(f"cannot read the fills file: {err}") from err
+        except ValueError as err:
+            raise WriterError(f"the fills file is not valid JSON: {err}") from err
+        if not isinstance(data, dict):
+            raise WriterError("the fills file must be a JSON object")
+        self.by_format: dict[str, dict[str, str]] = {}
+        self.flat: dict[str, str] = {}
+        for key, value in data.items():
+            if str(key).startswith("_"):
+                continue
+            if isinstance(value, dict) and not self._is_text_object(value):
+                self.by_format[str(key)] = {str(k): text for k, v in value.items() if not str(k).startswith("_") and (text := self._text(v))}
+            elif text := self._text(value):
+                self.flat[str(key)] = text
+        self.violations: dict[str, list[str]] = {}
+        self.used: set[tuple[str, str]] = set()
+
+    @staticmethod
+    def _is_text_object(value: dict[str, Any]) -> bool:
+        return isinstance(value.get("text"), str) and all(k == "text" or str(k).startswith("_") or k in ("kind", "limits", "instruction", "default") for k in value)
+
+    @staticmethod
+    def _text(value: Any) -> str:
+        if isinstance(value, dict):
+            value = value.get("text")
+        return value.strip() if isinstance(value, str) else ""
+
+    def fill(self, skeleton: Skeleton, brief: Brief) -> dict[str, str]:
+        out: dict[str, str] = {}
+        own = self.by_format.get(skeleton.format, {})
+        for slot in skeleton.slots:
+            text = own.get(slot.id) or self.flat.get(slot.id) or ""
+            if text:
+                text = normalize_dashes(text)
+                self.used.add((skeleton.format, slot.id))
+                problems = slot_violations(slot, text)
+                if problems:
+                    self.violations[f"{skeleton.format}.{slot.id}"] = problems
+            else:
+                text = slot.default or ""
+            if text:
+                out[slot.id] = text
+        return out
+
+
 def select_writer(name: str | None = "auto", **kwargs: Any) -> Writer:
-    """``offline``, ``anthropic`` or ``auto`` (Claude when credentials exist, otherwise offline)."""
+    """``offline``, ``file`` (needs ``path=``), ``anthropic`` or ``auto`` (Claude when credentials exist, otherwise offline)."""
     name = (name or "auto").lower()
     if name == "offline":
         return OfflineWriter()
+    if name == "file":
+        return FileWriter(kwargs["path"])
     if name == "anthropic":
         return AnthropicWriter(**kwargs)
     if name == "auto":
         if os.environ.get("ANTHROPIC_API_KEY") or os.environ.get("ANTHROPIC_AUTH_TOKEN"):
             return AnthropicWriter(**kwargs)
         return OfflineWriter()
-    raise ValueError(f"unknown writer {name!r} (use offline, anthropic or auto)")
+    raise ValueError(f"unknown writer {name!r} (use offline, file, anthropic or auto)")

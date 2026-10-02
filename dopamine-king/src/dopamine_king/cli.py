@@ -382,19 +382,32 @@ def cmd_formats(args: argparse.Namespace) -> int:
 
 
 def cmd_forge(args: argparse.Namespace) -> int:
-    from .generate.packs import DEFAULT_FORMATS, build_pack
-    from .generate.providers import WriterError, WriterRefused, select_writer
+    from .generate.packs import DEFAULT_FORMATS, build_pack, slot_template
+    from .generate.providers import FileWriter, WriterError, WriterRefused, select_writer
     from .generate import formats as registry
     brief = _load_brief(args)
     formats = list(registry.all_formats()) if args.formats == "all" else (args.formats.split(",") if args.formats else list(DEFAULT_FORMATS))
+    ledger = _ledger(None, _vertical(argparse.Namespace(vertical=brief.vertical)))
+    if args.emit_slots:
+        template = slot_template(brief, formats, ledger=ledger)
+        Path(args.emit_slots).write_text(json.dumps(template, ensure_ascii=False, indent=1) + "\n", "utf-8")
+        print(f"Wrote the slots of {len(template) - 1} formats to {args.emit_slots}. Fill the text fields (yourself or with any model), then run "
+              f"forge with --writer file --fills {args.emit_slots}")
+        return 0
     try:
-        writer = select_writer(args.writer, tier=args.tier) if args.writer != "offline" else select_writer("offline")
+        if args.writer == "file":
+            if not args.fills:
+                raise SystemExit("error: --writer file needs --fills PATH (write a template with --emit-slots PATH)")
+            writer = FileWriter(args.fills)
+        else:
+            writer = select_writer(args.writer, tier=args.tier) if args.writer != "offline" else select_writer("offline")
     except ValueError as err:
+        raise SystemExit(f"error: {err}")
+    except WriterError as err:
         raise SystemExit(f"error: {err}")
     t0 = time.perf_counter()
     try:
-        pack = build_pack(brief, formats, writer=writer, ledger=_ledger(None, _vertical(argparse.Namespace(vertical=brief.vertical))),
-                          improve_rounds=args.improve)
+        pack = build_pack(brief, formats, writer=writer, ledger=ledger, improve_rounds=args.improve)
     except WriterRefused as err:
         print(f"The model declined this brief: {err}", file=sys.stderr)
         return 3
@@ -414,6 +427,10 @@ def cmd_forge(args: argparse.Namespace) -> int:
     usage = getattr(writer, "usage", None)
     if usage and usage.calls:
         print(f"[tokens] calls {usage.calls}, input {usage.input_tokens}, output {usage.output_tokens}", file=sys.stderr)
+    if isinstance(writer, FileWriter):
+        print(f"[file] {len(writer.used)} slots filled from {args.fills}", file=sys.stderr)
+        for where, problems in sorted(writer.violations.items()):
+            print(f"[file] {where} breaks its limits: {'; '.join(problems)}", file=sys.stderr)
     return 0
 
 
@@ -698,7 +715,10 @@ def build_parser() -> argparse.ArgumentParser:
     s = sub.add_parser("forge", help="generate a content pack (articles, posts, video scripts, ads) from one brief")
     _brief_flags(s)
     s.add_argument("--formats", help="comma separated ids, or 'all' (default: a balanced set)")
-    s.add_argument("--writer", default="auto", choices=["auto", "offline", "anthropic"])
+    s.add_argument("--writer", default="auto", choices=["auto", "offline", "file", "anthropic"],
+                   help="offline (structure only), file (texts from --fills), anthropic (Claude) or auto")
+    s.add_argument("--fills", help="JSON file with the slot texts for --writer file (write a template with --emit-slots)")
+    s.add_argument("--emit-slots", help="write every slot of the chosen formats, with instructions and limits, to this JSON file and stop")
     s.add_argument("--tier", default="balanced", choices=["premium", "balanced", "economy", "fast"])
     s.add_argument("--improve", type=int, default=1, help="revision rounds with the writer")
     s.add_argument("--out", help="directory for pack.json, report.md and per-format files")
