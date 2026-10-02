@@ -246,6 +246,28 @@ class PlaceholderTests(unittest.TestCase):
         self.assertIn("zástupných", issue.message)
 
 
+class PlaceholderNoteTests(unittest.TestCase):
+    """A model sometimes leaves an instruction in single brackets instead of an empty slot."""
+
+    def test_bracketed_notes_for_the_editor_are_flagged(self):
+        for text in ("Autor: [Doplňte jméno autora, jeho roli a kvalifikaci]", "By [Add the author's name and role].", "Datum: [vložte datum]",
+                     "Footer [TODO]", "Name: [Your name here]"):
+            self.assertTrue(flagged(text, "PLACEHOLDER_NOTE"), text)
+
+    def test_ordinary_brackets_are_left_alone(self):
+        for text in ("See [1] and [2].", "A [link](https://example.com) here.", "Some text [[ADD: something]] more", "Cited [[cite:s1]] text",
+                     "The [brackets] stay.", "Use the [Add to cart] button.", "[Photo: the panel on a stand]"):
+            self.assertFalse(flagged(text, "PLACEHOLDER_NOTE"), text)
+
+    def test_the_issue_names_the_note_in_both_languages(self):
+        en = next(i for i in SH.check("By [Add the author's name].", EN) if i.code == "PLACEHOLDER_NOTE")
+        self.assertEqual(en.severity, "warn")
+        self.assertIn("Add the author's name", en.message)
+        cs = next(i for i in SH.check("Autor: [Doplňte jméno autora]", lang="cs") if i.code == "PLACEHOLDER_NOTE")
+        self.assertIn("poznámka pro redaktora", cs.message)
+        self.assertIn("Doplňte jméno autora", cs.message)
+
+
 class DisclosureTests(unittest.TestCase):
     def sponsored(self, **kw):
         return Brief(brand="Zorvia", topic="t", audience="a", sponsored=True, **kw)
@@ -443,9 +465,9 @@ class ShieldBehaviourTests(unittest.TestCase):
         order = [{"error": 0, "warn": 1, "info": 2}[i.severity] for i in issues]
         self.assertEqual(order, sorted(order))
         self.assertTrue(set(codes(issues)) <= set(guard.RULE_CODES))
-        # 20 general rules plus the codes of the claims profile (see test_generate_claims)
+        # 21 general rules plus the codes of the claims profile (see test_generate_claims)
         from dopamine_king.generate import claims
-        self.assertEqual(len(guard.RULE_CODES), 20 + len(claims.RULES))
+        self.assertEqual(len(guard.RULE_CODES), 21 + len(claims.RULES))
 
     def test_issues_per_code_are_capped(self):
         text = " ".join(f"Studies show that claim number {i} is true." for i in range(12))

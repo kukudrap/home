@@ -85,6 +85,8 @@ class TextHelperTests(unittest.TestCase):
             self.assertIn(needle, prompt)
         self.assertIn("(none provided: do not invent any)", brief_block(Brief(brand="B", topic="t", audience="a")))
         self.assertIn("Never invent statistics", SYSTEM_PROMPT)
+        self.assertIn("return an empty string", SYSTEM_PROMPT)               # real data the brief lacks stays an open slot
+        self.assertIn("never mention the brief", SYSTEM_PROMPT)
         self.assertNotIn(EM, SYSTEM_PROMPT + prompt)
 
     def test_schema(self):

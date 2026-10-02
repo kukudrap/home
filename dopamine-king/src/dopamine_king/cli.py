@@ -715,8 +715,9 @@ def build_parser() -> argparse.ArgumentParser:
     s = sub.add_parser("forge", help="generate a content pack (articles, posts, video scripts, ads) from one brief")
     _brief_flags(s)
     s.add_argument("--formats", help="comma separated ids, or 'all' (default: a balanced set)")
-    s.add_argument("--writer", default="auto", choices=["auto", "offline", "file", "anthropic"],
-                   help="offline (structure only), file (texts from --fills), anthropic (Claude) or auto")
+    s.add_argument("--writer", default="auto", choices=["auto", "offline", "file", "claude-code", "anthropic"],
+                   help="offline (structure only), file (texts from --fills), claude-code (your logged-in Claude account via "
+                        "the claude command), anthropic (Claude API, needs ANTHROPIC_API_KEY) or auto")
     s.add_argument("--fills", help="JSON file with the slot texts for --writer file (write a template with --emit-slots)")
     s.add_argument("--emit-slots", help="write every slot of the chosen formats, with instructions and limits, to this JSON file and stop")
     s.add_argument("--tier", default="balanced", choices=["premium", "balanced", "economy", "fast"])
@@ -747,7 +748,7 @@ def build_parser() -> argparse.ArgumentParser:
 
     s = sub.add_parser("serve", help="run the game with the local API")
     s.add_argument("--host", default="127.0.0.1"), s.add_argument("--port", type=int, default=8765)
-    s.add_argument("--writer", default="auto", choices=["auto", "offline", "anthropic"]), s.add_argument("--page")
+    s.add_argument("--writer", default="auto", choices=["auto", "offline", "claude-code", "anthropic"]), s.add_argument("--page")
     s.add_argument("--allow-remote", action="store_true"), s.add_argument("--verbose", action="store_true")
     s.set_defaults(fn=cmd_serve)
 

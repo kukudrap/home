@@ -79,6 +79,9 @@ _RULES: dict[str, tuple[str, str, str]] = {
     "PLACEHOLDER_OPEN": ("warn",
         "{n} placeholder(s) still open ({names}). Fill or remove them before publishing.",
         "Stále zbývá otevřených zástupných textů: {n} ({names}). Vyplňte je nebo odstraňte před zveřejněním."),
+    "PLACEHOLDER_NOTE": ("warn",
+        "A bracketed note for the editor is still in the text ('{note}'). Fill in real information or remove it before publishing.",
+        "V textu zůstala poznámka pro redaktora v hranatých závorkách ('{note}'). Doplňte skutečný údaj nebo ji před zveřejněním odstraňte."),
     "DISCLOSURE_MISSING": ("error",
         "Sponsored or affiliate content without a disclosure. Add #ad, 'sponsored', 'affiliate' or the local "
         "equivalent where readers see it first.",
@@ -589,6 +592,24 @@ def _r_placeholder(ctx: _Ctx) -> list[Issue]:
     return [ctx.issue("PLACEHOLDER_OPEN", start, end, n=len(found) or len(names), names=label)]
 
 
+# Models sometimes leave an instruction in single brackets instead of an empty slot ("[Doplňte jméno autora]").
+_NOTE_RE = re.compile(
+    r"(?<!\[)\[(?!\[)\s*(?:"
+    r"(?:doplňte|doplň|doplnit|vložte|napište|zadejte|uveďte|upravte)\b[^\]\n]{0,200}"          # Czech imperatives are never button labels
+    r"|(?:add|insert|fill in|enter|your)\b(?:(?=[^\]\n]*\bhere\b)|(?=(?:\s+[^\s\]]+){3,}\s*\]))[^\]\n]{0,200}"    # "[Add to cart]" stays alone
+    r"|(?:todo|tbd|xxx)\b[^\]\n]{0,200}"
+    r")\](?!\()",
+    re.IGNORECASE)
+
+
+def _r_placeholder_note(ctx: _Ctx) -> list[Issue]:
+    out = []
+    for m in _NOTE_RE.finditer(ctx.text):
+        if not any(a <= m.start() < b for a, b in ctx.exempt):
+            out.append(ctx.issue("PLACEHOLDER_NOTE", m.start(), m.end(), note=m.group()[1:-1].strip()[:80]))
+    return out
+
+
 def _r_disclosure(ctx: _Ctx) -> list[Issue]:
     if ctx.sponsored and not _SPONSOR_RE.search(ctx.low):
         return [ctx.issue("DISCLOSURE_MISSING", 0, 0)]
@@ -700,7 +721,7 @@ def _r_ai_reminder(ctx: _Ctx) -> list[Issue]:
 # order matters: regulated claims first, so the softer absolute and statistic rules skip the same text
 _RULE_FUNCS: tuple[Callable[[_Ctx], list[Issue]], ...] = (
     _r_claims, _r_health, _r_finance, _r_absolute, _r_stat, _r_unsupported, _r_scarcity, _r_urgency, _r_shaming, _r_bait, _r_injection,
-    _r_cloaking, _r_fake_review, _r_placeholder, _r_disclosure, _r_personal, _r_avoided, _r_stuffing, _r_clickbait,
+    _r_cloaking, _r_fake_review, _r_placeholder, _r_placeholder_note, _r_disclosure, _r_personal, _r_avoided, _r_stuffing, _r_clickbait,
     _r_citations, _r_ai_reminder,
 )
 RULE_CODES = tuple(_RULES)

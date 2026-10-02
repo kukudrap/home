@@ -2,6 +2,8 @@
 
 ``OfflineWriter`` (in types.py) only uses deterministic defaults and never invents prose.
 ``FileWriter`` takes the slot texts from a JSON file a person (or any other model) wrote: bring your own writer.
+``ClaudeCodeWriter`` asks Claude through the local Claude Code command (``claude -p``): it uses the Claude subscription the
+person is logged in with (for example Max) instead of API credits.
 ``AnthropicWriter`` asks Claude for one JSON object with a string per slot, checks the slot
 constraints, and runs a short repair loop for violations. It uses the official SDK, structured
 outputs (``output_config.format``), an explicit effort level, handles ``refusal`` before reading
@@ -12,9 +14,12 @@ from __future__ import annotations
 import json
 import os
 import re
+import subprocess
+import tempfile
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Any, Sequence
+from types import SimpleNamespace
+from typing import Any, Callable, Sequence
 
 from ..config import anthropic_model
 from .types import Brief, OfflineWriter, Skeleton, Slot, Writer
@@ -34,7 +39,8 @@ Hard rules:
 3. No clickbait, no fake scarcity or urgency, no guilt-tripping, no engagement bait, no unverifiable superlatives. A hook must deliver what it promises.
 4. Write in the language of the brief (cs means Czech with correct diacritics and natural grammar, en means English) and match the requested tone.
 5. Respect every slot constraint (max_chars, max_words, min_chars, must_include). Use plain text or Markdown as the template implies. Never use the long dash characters (em dash or en dash); use commas, colons, parentheses or a plain hyphen.
-6. Return a JSON object with one string value per requested slot id and nothing else."""
+6. If a slot needs real information that the brief does not contain (an author's name and credentials, a date, a named person's quote, a postal address), return an empty string for it. Never write a placeholder, a bracketed note or an instruction to an editor in its place, and never mention the brief, the slots or these rules in the text.
+7. Return a JSON object with one string value per requested slot id and nothing else."""
 
 
 class WriterError(RuntimeError):
@@ -185,8 +191,50 @@ class Usage:
         self.cache_read_input_tokens += int(getattr(usage, "cache_read_input_tokens", 0) or 0)
 
 
-class AnthropicWriter:
-    """Fills skeleton slots with Claude. See the module docstring for the API choices."""
+class _SlotJsonWriter:
+    """Fills skeleton slots with a model that answers one JSON object per request; subclasses supply ``_complete_json``."""
+
+    max_repairs = 2
+    usage: Usage
+
+    def _complete_json(self, user: str, slot_ids: Sequence[str]) -> dict[str, str]:  # pragma: no cover - interface
+        raise NotImplementedError
+
+    # -- Writer protocol ------------------------------------------------------------
+    def fill(self, skeleton: Skeleton, brief: Brief) -> dict[str, str]:
+        slots = skeleton.slots
+        if not slots:
+            return {}
+        fills = self._complete_json(build_user_prompt(skeleton, brief, slots), [s.id for s in slots])
+        for s in slots:                                   # keep deterministic defaults for anything missing
+            if not fills.get(s.id) and s.default:
+                fills[s.id] = s.default
+        return self._repair(skeleton, brief, fills)
+
+    def revise(self, skeleton: Skeleton, brief: Brief, fills: dict[str, str], feedback: dict[str, list[str]]) -> dict[str, str]:
+        """Rewrite only the slots named in ``feedback`` (validator, guard or scoring remarks)."""
+        targets = [s for s in skeleton.slots if feedback.get(s.id)]
+        if not targets:
+            return fills
+        prompt = build_user_prompt(skeleton, brief, targets, fills, feedback)
+        updated = self._complete_json(prompt, [s.id for s in targets])
+        merged = {**fills, **{k: v for k, v in updated.items() if v.strip()}}
+        return self._repair(skeleton, brief, merged)
+
+    def _repair(self, skeleton: Skeleton, brief: Brief, fills: dict[str, str]) -> dict[str, str]:
+        for _ in range(self.max_repairs):
+            bad = all_violations(skeleton, fills)
+            if not bad:
+                break
+            targets = [s for s in skeleton.slots if s.id in bad]
+            prompt = build_user_prompt(skeleton, brief, targets, fills, bad)
+            fixed = self._complete_json(prompt, [s.id for s in targets])
+            fills = {**fills, **{k: v for k, v in fixed.items() if v.strip()}}
+        return fills
+
+
+class AnthropicWriter(_SlotJsonWriter):
+    """Fills skeleton slots with Claude through the API. See the module docstring for the API choices."""
 
     name = "anthropic"
 
@@ -263,38 +311,6 @@ class AnthropicWriter:
             raise WriterError(f"The model did not return valid JSON: {text[:120]!r}") from err
         return {k: normalize_dashes(str(v)) for k, v in data.items() if k in slot_ids}
 
-    # -- Writer protocol ------------------------------------------------------------
-    def fill(self, skeleton: Skeleton, brief: Brief) -> dict[str, str]:
-        slots = skeleton.slots
-        if not slots:
-            return {}
-        fills = self._complete_json(build_user_prompt(skeleton, brief, slots), [s.id for s in slots])
-        for s in slots:                                   # keep deterministic defaults for anything missing
-            if not fills.get(s.id) and s.default:
-                fills[s.id] = s.default
-        return self._repair(skeleton, brief, fills)
-
-    def revise(self, skeleton: Skeleton, brief: Brief, fills: dict[str, str], feedback: dict[str, list[str]]) -> dict[str, str]:
-        """Rewrite only the slots named in ``feedback`` (validator, guard or scoring remarks)."""
-        targets = [s for s in skeleton.slots if feedback.get(s.id)]
-        if not targets:
-            return fills
-        prompt = build_user_prompt(skeleton, brief, targets, fills, feedback)
-        updated = self._complete_json(prompt, [s.id for s in targets])
-        merged = {**fills, **{k: v for k, v in updated.items() if v.strip()}}
-        return self._repair(skeleton, brief, merged)
-
-    def _repair(self, skeleton: Skeleton, brief: Brief, fills: dict[str, str]) -> dict[str, str]:
-        for _ in range(self.max_repairs):
-            bad = all_violations(skeleton, fills)
-            if not bad:
-                break
-            targets = [s for s in skeleton.slots if s.id in bad]
-            prompt = build_user_prompt(skeleton, brief, targets, fills, bad)
-            fixed = self._complete_json(prompt, [s.id for s in targets])
-            fills = {**fills, **{k: v for k, v in fixed.items() if v.strip()}}
-        return fills
-
 
 def offline_revise(skeleton: Skeleton, brief: Brief, fills: dict[str, str], feedback: dict[str, list[str]]) -> dict[str, str]:
     return fills
@@ -361,17 +377,104 @@ class FileWriter:
         return out
 
 
+_CLAUDE_CODE_MODELS = {"premium": "opus", "balanced": "sonnet", "economy": "haiku", "fast": "haiku"}
+
+
+class ClaudeCodeWriter(_SlotJsonWriter):
+    """Fills slots with Claude through the local Claude Code command in print mode (``claude -p``).
+
+    The call runs under the Claude account the person is logged in with, so a subscription such as Max pays for it instead of
+    API credits. ``ANTHROPIC_API_KEY`` is removed from the child's environment unless ``use_api_key`` is set, because Claude Code
+    would otherwise bill that key. The prompt goes in on standard input, the answer is checked against a JSON schema by the
+    command itself, no tools are enabled and no session is stored. Tiers map to the model aliases opus, sonnet and haiku
+    (``--model``, ``KING_CLAUDE_MODEL``); the effort is ``low`` unless ``KING_EFFORT`` says otherwise; ``KING_CLAUDE_BIN`` names another executable.
+    """
+
+    name = "claude-code"
+
+    def __init__(
+        self,
+        model: str | None = None,
+        *,
+        tier: str = "balanced",
+        effort: str | None = None,
+        executable: str | None = None,
+        timeout: float = 600.0,
+        max_repairs: int = 2,
+        use_api_key: bool = False,
+        runner: Callable[..., Any] | None = None,
+    ) -> None:
+        self.model = model or os.environ.get("KING_CLAUDE_MODEL") or _CLAUDE_CODE_MODELS.get(tier, "sonnet")
+        self.effort = effort or os.environ.get("KING_EFFORT") or "low"          # slot writing needs little thinking: low is much faster and cheaper on the limits
+        self.executable = executable or os.environ.get("KING_CLAUDE_BIN") or "claude"
+        self.timeout = timeout
+        self.max_repairs = max_repairs
+        self.use_api_key = use_api_key
+        self.usage = Usage()
+        self._runner = runner or subprocess.run
+
+    def command(self, slot_ids: Sequence[str]) -> list[str]:
+        cmd = [self.executable, "-p", "--output-format", "json", "--tools", "", "--no-session-persistence",
+               "--system-prompt", SYSTEM_PROMPT, "--json-schema", json.dumps(slots_schema(slot_ids)), "--model", self.model]
+        if self.effort:
+            cmd += ["--effort", self.effort]
+        return cmd
+
+    def _environment(self) -> dict[str, str]:
+        env = dict(os.environ)
+        if not self.use_api_key:
+            env.pop("ANTHROPIC_API_KEY", None)
+        return env
+
+    def _complete_json(self, user: str, slot_ids: Sequence[str]) -> dict[str, str]:
+        try:
+            with tempfile.TemporaryDirectory() as workdir:            # no project files or instructions of the caller are read
+                proc = self._runner(self.command(slot_ids), input=user, capture_output=True, text=True, timeout=self.timeout,
+                                    env=self._environment(), cwd=workdir)
+        except FileNotFoundError as err:
+            raise WriterError(f"The command {self.executable!r} was not found. Install Claude Code and log in with your Claude "
+                              "account (run claude, then /login), or use --writer file.") from err
+        except subprocess.TimeoutExpired as err:
+            raise WriterError(f"Claude Code did not answer within {self.timeout:.0f} seconds.") from err
+        if proc.returncode != 0:
+            tail = (proc.stderr or proc.stdout or "").strip()[-300:]
+            raise WriterError(f"Claude Code failed (exit {proc.returncode}): {tail or 'no message'}")
+        try:
+            data = json.loads(proc.stdout)
+        except ValueError as err:
+            raise WriterError(f"Unexpected output from Claude Code: {proc.stdout[:120]!r}") from err
+        if not isinstance(data, dict):
+            raise WriterError("Unexpected output from Claude Code: not a JSON object")
+        if data.get("is_error"):
+            raise WriterError(f"Claude Code reported an error: {str(data.get('result') or data.get('subtype') or 'unknown')[:300]}")
+        usage = data.get("usage") if isinstance(data.get("usage"), dict) else {}
+        self.usage.add(SimpleNamespace(**{k: usage.get(k, 0) for k in ("input_tokens", "output_tokens", "cache_read_input_tokens")}))
+        payload = data.get("structured_output")
+        if not isinstance(payload, dict):
+            text = str(data.get("result") or "").strip()
+            text = re.sub(r"^```(?:json)?\s*|\s*```$", "", text)
+            try:
+                payload = json.loads(text)
+            except ValueError as err:
+                raise WriterError(f"Claude Code did not return valid JSON: {text[:120]!r}") from err
+            if not isinstance(payload, dict):
+                raise WriterError("Claude Code did not return a JSON object")
+        return {k: normalize_dashes(str(v)) for k, v in payload.items() if k in slot_ids}
+
+
 def select_writer(name: str | None = "auto", **kwargs: Any) -> Writer:
-    """``offline``, ``file`` (needs ``path=``), ``anthropic`` or ``auto`` (Claude when credentials exist, otherwise offline)."""
+    """``offline``, ``file`` (needs ``path=``), ``claude-code`` (the local Claude Code command), ``anthropic`` or ``auto`` (Claude through the API when credentials exist, otherwise offline)."""
     name = (name or "auto").lower()
     if name == "offline":
         return OfflineWriter()
     if name == "file":
         return FileWriter(kwargs["path"])
+    if name == "claude-code":
+        return ClaudeCodeWriter(tier=kwargs.get("tier", "balanced"))
     if name == "anthropic":
         return AnthropicWriter(**kwargs)
     if name == "auto":
         if os.environ.get("ANTHROPIC_API_KEY") or os.environ.get("ANTHROPIC_AUTH_TOKEN"):
             return AnthropicWriter(**kwargs)
         return OfflineWriter()
-    raise ValueError(f"unknown writer {name!r} (use offline, file, anthropic or auto)")
+    raise ValueError(f"unknown writer {name!r} (use offline, file, claude-code, anthropic or auto)")

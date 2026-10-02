@@ -110,9 +110,21 @@ python3 -m dopamine_king audit stranka.txt          # návratový kód 1 při ch
 ```
 
 1. **Zadání.** Značka, téma, publikum a **jen pravdivá fakta**. Doby používání, vzdálenosti a dávky patří do faktů zadání z návodu výrobce, jinak je štít označí.
-2. **Generování.** Bez klíče k AI generátor nic nevymýšlí a míst, která vyžadují vaši zkušenost, se drží jako `[[ADD: ...]]` (u českých balíčků je zadání u těchto míst anglicky). S klíčem `--writer anthropic` píše prózu Claude a pravidla profilu dostává přímo v zadání. Živé volání API jsem zde nemohl vyzkoušet. Třetí cesta bez klíče je `--emit-slots` a `--writer file`: do šablony (každý slot má zadání a limity) napíšete text sami nebo ho dodá jiný jazykový model a Štít důvěry ho zkontroluje stejně jako text od Claude.
+2. **Generování.** Bez klíče k AI generátor nic nevymýšlí a míst, která vyžadují vaši zkušenost, se drží jako `[[ADD: ...]]` (u českých balíčků je zadání u těchto míst anglicky). S klíčem `--writer anthropic` píše prózu Claude a pravidla profilu dostává přímo v zadání. Živé volání API jsem zde nemohl vyzkoušet. Cesta bez API klíče je `--writer claude-code` (viz níže), nebo `--emit-slots` a `--writer file`: do šablony (každý slot má zadání a limity) napíšete text sami nebo ho dodá jiný jazykový model a Štít důvěry ho zkontroluje stejně jako text od Claude.
 3. **Kontrola.** Každý kus projde Štítem důvěry. Delší texty dostanou bezpečnostní upozornění (oči, návod výrobce, lékař při těhotenství nebo lécích zvyšujících citlivost na světlo). Šablona upozornění je předschválená; pokud máte vlastní text z návodu, předejte ho přes `--safety-note`.
 4. **Člověk.** Výstup je koncept. Nic se nepublikuje samo.
+
+### Psaní přes váš Claude účet místo placeného API
+
+API Anthropic se platí zvlášť (kredity) a předplatné Claude Max ani Pro ho nezahrnuje. Pisatel `claude-code` proto nevolá API: spustí na vašem počítači příkaz `claude -p` (Claude Code), který běží pod vaším přihlášením, takže spotřebu pokrývá předplatné a jeho limity.
+
+1. Nainstalujte Claude Code a přihlaste se svým účtem (`claude`, pak `/login`).
+2. Nenastavujte `ANTHROPIC_API_KEY`. Claude Code by jinak účtoval ten klíč; pisatel ho proto před voláním z prostředí odstraní.
+3. Spusťte: `python3 -m dopamine_king forge --vertical pbm --sample mito-light-cs --writer claude-code --tier balanced --out out/mito-cs`
+
+Úrovně: `premium` je Opus, `balanced` Sonnet (výchozí, dobrý poměr kvality a spotřeby limitu), `economy` a `fast` Haiku (u češtiny občas chybí diakritika, pro texty nedoporučuji). Výchozí úroveň přemýšlení je nejnižší (`low`), což pro psaní slotů stačí a je mnohonásobně rychlejší i úspornější na limity (u zkoušky 16 sekund místo 138); pro náročnější texty nastavte `KING_EFFORT=medium`. Volání jde přes standardní vstup, bez nástrojů a bez ukládání relace, v prázdné složce, takže se nečtou žádné soubory.
+
+**Co jsem vyzkoušel:** živé volání `claude -p` v prostředí, kde nástroj vznikl (krátký příspěvek a SEO článek, oboje Sonnet): Štít nenašel chyby ani varování, citace seděly se zdroji a čeština byla správně. **Co ne:** váš vlastní účet Max (testoval jsem pod přihlášením tohoto prostředí) a dlouhé dávky všech 28 formátů. Podmínky předplatného a limity řídí Anthropic; automatizované používání si ověřte v aktuálních podmínkách.
 
 Hotovou ukázku (Instagram, krátké video, SEO článek, GEO stránka, newsletter) najdete v [examples/mito-light-cs](../examples/mito-light-cs/README.md): texty napsal Claude, Štít důvěry je zkontroloval (0 chyb) a údaje, které nikdo nesmí vymyslet (autor, datum, citace odborníka, adresa odesílatele), zůstaly jako `[[ADD: ...]]`.
 

@@ -29,11 +29,15 @@ python3 -m dopamine_king forge --brand Zorvia --topic "běžecké boty" --audien
     --lang cs --keyword "běžecké boty pro začátečníky" --fact "Aero 2 váží 210 g." \
     --cta "Vyzkoušejte Aero 2 na 30 dní" --writer offline --out out/zorvia
 
-# s modelem Claude (potřebuje ANTHROPIC_API_KEY a `pip install anthropic`)
+# s modelem Claude přes API (potřebuje ANTHROPIC_API_KEY a `pip install anthropic`, účtuje se zvlášť od předplatného)
 python3 -m dopamine_king forge ... --writer anthropic --formats seo_article,linkedin_post,short_video_script
 python3 -m dopamine_king formats                  # všech 28 formátů
 
-# bez API klíče: vlastní pisatel (vy nebo libovolný jazykový model) vyplní sloty a štít je zkontroluje
+# přes váš Claude účet (Max, Pro) bez API klíče: píše lokální Claude Code, `claude` musí být nainstalovaný a přihlášený
+python3 -m dopamine_king forge --brand Zorvia --topic "běžecké boty" --audience "začínající běžci" --lang cs \
+    --formats instagram_caption,seo_article --writer claude-code --tier balanced --out out/zorvia
+
+# bez API klíče a bez Claude Code: vlastní pisatel (vy nebo libovolný jazykový model) vyplní sloty a štít je zkontroluje
 python3 -m dopamine_king forge --brand Zorvia --topic "běžecké boty" --audience "začínající běžci" --lang cs \
     --formats instagram_caption,seo_article --emit-slots sloty.json      # šablona: každý slot má zadání a limity
 python3 -m dopamine_king forge --brand Zorvia --topic "běžecké boty" --audience "začínající běžci" --lang cs \
