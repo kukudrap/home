@@ -67,22 +67,43 @@
       <span class="brand-name">Oberreiter</span>
       <span class="brand-sub">pneuservis</span>
     </a>
-    <nav class="nav-links" aria-label="Hlavní navigace">
-      <a href="#sluzby">Služby</a>
-      <a href="#postup">Postup</a>
-      <a href="#poradna">Poradna</a>
-      <a href="#kontakt">Kontakt</a>
+    <nav class="nav-links" aria-label="Hlavní navigace" data-nav-links>
+      <span class="nav-ind" aria-hidden="true" data-nav-ind></span>
+      <a href="#sluzby" data-spy="sluzby">Služby a ceny</a>
+      <a href="#postup" data-spy="postup">Jak to probíhá</a>
+      <a href="#poradna" data-spy="poradna">Rady</a>
+      <a href="#otazky" data-spy="otazky">Otázky</a>
+      <a href="#kontakt" data-spy="kontakt">Kontakt</a>
     </nav>
-    <div class="season-switch" role="radiogroup" aria-label="Sezóna">
+    <div class="season-switch" role="radiogroup" aria-label="Sezóna: zimní nebo letní pneumatiky" title="Přepnout sezónu">
       <span class="season-thumb" aria-hidden="true"></span>
-      <button type="button" role="radio" data-season-btn="winter">Zima</button>
-      <button type="button" role="radio" data-season-btn="summer">Léto</button>
+      <button type="button" role="radio" data-season-btn="winter"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5v19M3.8 7.25l16.4 9.5M3.8 16.75l16.4-9.5M9.4 4.3 12 6.4l2.6-2.1M9.4 19.7 12 17.6l2.6 2.1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Zima</span></button>
+      <button type="button" role="radio" data-season-btn="summer"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span>Léto</span></button>
     </div>
     <a class="btn btn-accent nav-call" href="tel:+420XXXXXXXXX">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2Z" fill="currentColor"/></svg>
       <span>Zavolat</span>
     </a>
+    <button class="burger" type="button" aria-expanded="false" aria-controls="menu" aria-label="Otevřít menu" data-burger>
+      <span></span><span></span>
+    </button>
   </header>
+
+  <!-- celoobrazovkové menu pro mobil a tablet -->
+  <div class="menu dark" id="menu" data-menu inert>
+    <nav class="menu-links" aria-label="Menu">
+      <a href="#sluzby"><span class="menu-num">01</span>Služby a ceny</a>
+      <a href="#postup"><span class="menu-num">02</span>Jak to probíhá</a>
+      <a href="#poradna"><span class="menu-num">03</span>Rady u kola</a>
+      <a href="#otazky"><span class="menu-num">04</span>Časté otázky</a>
+      <a href="#kontakt"><span class="menu-num">05</span>Kontakt a mapa</a>
+    </nav>
+    <div class="menu-foot">
+      <a class="btn btn-accent btn-lg btn-block" href="tel:+420XXXXXXXXX"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2Z" fill="currentColor"/></svg><span>Zavolat Romanovi</span></a>
+      <a class="btn btn-ghost btn-lg btn-block" href="#objednat">Napsat SMS</a>
+      <p class="menu-addr">Merklín 7, 362 34 Merklín · u Karlových Varů</p>
+    </div>
+  </div>
 
   <main id="top">
 
@@ -96,13 +117,19 @@
           <span class="hl">Pro vaše auto.</span>
         </h1>
         <div class="hero-bottom">
-          <p class="hero-lead">Přezujeme vaše auto v&nbsp;Merklíně, kousek od Karlových Varů. Pečlivě, v&nbsp;klidu a&nbsp;s&nbsp;člověkem, který vám rovnou řekne, jak na tom vaše gumy jsou.</p>
+          <p class="hero-lead" data-only="winter">První sníh jednou přijde v&nbsp;noci, bez varování. Přezujte včas a&nbsp;ráno vyjedete v&nbsp;klidu, i&nbsp;když ostatní zůstanou stát v&nbsp;kopci. V&nbsp;Merklíně, kousek od Karlových Varů.</p>
+          <p class="hero-lead" data-only="summer">Zimní gumy v&nbsp;teple brzdí hůř a&nbsp;rychle se sjíždějí. Přezujte na letní a&nbsp;užijte si výlety i&nbsp;dovolenou bez starostí. V&nbsp;Merklíně, kousek od Karlových Varů.</p>
           <div class="hero-cta">
-            <a class="btn btn-accent btn-lg" href="#kontakt">Domluvit přezutí
+            <a class="btn btn-accent btn-lg" href="#objednat">Objednat přezutí
               <svg class="arr" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11m-4-4 4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
-            <a class="btn btn-ghost btn-lg" href="#postup">Jak to probíhá</a>
+            <a class="btn btn-ghost btn-lg" href="tel:+420XXXXXXXXX"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2Z" fill="currentColor"/></svg><span>Zavolat Romanovi</span></a>
           </div>
+          <ul class="hero-trust">
+            <li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m5 10.5 3.2 3L15 6.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Termín po telefonu nebo SMS</li>
+            <li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m5 10.5 3.2 3L15 6.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Kontrola gum při každém přezutí</li>
+            <li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m5 10.5 3.2 3L15 6.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Šrouby dotažené do hvězdy</li>
+          </ul>
         </div>
       </div>
 
@@ -229,8 +256,10 @@
     <!-- ============ MANIFEST ============ -->
     <section class="manifest light" id="manifest">
       <div class="wrap">
-        <p class="mono-label" data-reveal>Proč na tom záleží</p>
-        <p class="manifest-text" data-highlight>Pneumatiky jsou jediná část auta, která se dotýká silnice. Každá jen plochou zhruba jako dlaň. Na těch čtyřech dlaních brzdíte, zatáčíte a&nbsp;vezete děti do školy. Proto je přezouváme pořádně.</p>
+        <p class="mono-label" data-reveal><span data-only="winter">Představte si to ráno</span><span data-only="summer">Představte si ten víkend</span></p>
+        <p class="manifest-text" data-highlight data-only="winter">Je půl sedmé a&nbsp;venku je poprvé bílo. Soused škrábe okna a&nbsp;doufá, že to vyjede. Vy nasednete, zařadíte a&nbsp;v&nbsp;klidu vezete děti do školy. Protože jste byli v&nbsp;Merklíně včas.</p>
+        <p class="manifest-text" data-highlight data-only="summer">První horký víkend. Kufr plný, děti vzadu, před vámi dálnice k&nbsp;moři. Auto drží stopu, brzdí nakrátko a&nbsp;vy myslíte jen na dovolenou. Protože jste byli v&nbsp;Merklíně včas.</p>
+        <p class="manifest-note" data-reveal>Pneumatiky jsou jediná část auta, která se dotýká silnice. Každá jen plochou zhruba jako dlaň. Na těch čtyřech dlaních brzdíte, zatáčíte a&nbsp;vezete ty nejdražší. Proto je přezouváme pořádně.</p>
       </div>
     </section>
 
@@ -299,8 +328,8 @@
       <div class="wrap">
         <div class="section-head">
           <div>
-            <p class="mono-label" data-reveal>Služby a ceník</p>
-            <h2 class="h2" data-split>Co pro vás uděláme</h2>
+            <p class="mono-label" data-reveal>01 · Služby a ceny</p>
+            <h2 class="h2" data-split>Postaráme se o&nbsp;všechno</h2>
           </div>
           <p class="section-lead" data-reveal>Všechno, co kola potřebují ke změně sezóny. Přesnou cenu vám řekneme do telefonu podle auta a&nbsp;rozměru.</p>
         </div>
@@ -310,31 +339,31 @@
             <span class="s-num">01</span>
             <h3 class="s-title">Přezutí kol</h3>
             <p class="s-desc">Gumy máte na discích? Kola sundáme, nasadíme, dotáhneme a&nbsp;zkontrolujeme tlak.</p>
-            <span class="s-price">od XXX Kč</span>
+            <div class="s-side"><span class="s-price">od XXX Kč</span><a class="s-cta" href="#objednat" data-pick="Přezutí kol">Objednat <svg class="arr" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11m-4-4 4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
           </li>
           <li class="service" data-reveal>
             <span class="s-num">02</span>
             <h3 class="s-title">Přezutí pneumatik</h3>
             <p class="s-desc">Jedna sada disků a&nbsp;dvě sady gum. Pneumatiky přemontujeme a&nbsp;kola rovnou vyvážíme.</p>
-            <span class="s-price">od XXX Kč</span>
+            <div class="s-side"><span class="s-price">od XXX Kč</span><a class="s-cta" href="#objednat" data-pick="Přezutí pneumatik">Objednat <svg class="arr" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11m-4-4 4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
           </li>
           <li class="service" data-reveal>
             <span class="s-num">03</span>
             <h3 class="s-title">Vyvážení</h3>
             <p class="s-desc">Klepe vám volant v&nbsp;osmdesáti? Kolo vyvážíme, aby jelo hladce a&nbsp;šetřilo podvozek.</p>
-            <span class="s-price">od XXX Kč</span>
+            <div class="s-side"><span class="s-price">od XXX Kč</span><a class="s-cta" href="#objednat" data-pick="Vyvážení">Objednat <svg class="arr" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11m-4-4 4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
           </li>
           <li class="service" data-reveal>
             <span class="s-num">04</span>
             <h3 class="s-title">Oprava defektu</h3>
             <p class="s-desc">Hřebík nebo šroub v&nbsp;pneumatice? Když to jde opravit, opravíme. Když ne, řekneme to na rovinu.</p>
-            <span class="s-price">od XXX Kč</span>
+            <div class="s-side"><span class="s-price">od XXX Kč</span><a class="s-cta" href="#objednat" data-pick="Oprava defektu">Objednat <svg class="arr" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11m-4-4 4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
           </li>
           <li class="service" data-reveal>
             <span class="s-num">05</span>
             <h3 class="s-title">Kontrola pneumatik</h3>
             <p class="s-desc">Dezén, stáří, praskliny, boule. Při každém přezutí vám řekneme, jak na tom gumy jsou.</p>
-            <span class="s-price">při přezutí</span>
+            <div class="s-side"><span class="s-price">při přezutí</span><a class="s-cta" href="#objednat" data-pick="Kontrola pneumatik">Objednat <svg class="arr" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11m-4-4 4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
           </li>
         </ol>
         <p class="footnote" data-reveal>Ceny jsou orientační, za sadu čtyř kol osobního auta.</p>
@@ -346,7 +375,7 @@
       <div class="process-sticky">
         <div class="wrap process-grid">
           <div class="process-copy">
-            <p class="mono-label">Jak to probíhá</p>
+            <p class="mono-label">02 · Jak to probíhá</p>
             <h2 class="h2 process-title">Čtyři kroky.<br>Žádné drama.</h2>
             <ol class="steps">
               <li class="step is-active" data-step>
@@ -412,7 +441,7 @@
       <div class="wrap">
         <div class="section-head">
           <div>
-            <p class="mono-label" data-reveal>Poradna u kola</p>
+            <p class="mono-label" data-reveal>03 · Rady u kola</p>
             <h2 class="h2" data-split>Než přijedete</h2>
           </div>
           <p class="section-lead" data-reveal>Dvě věci, které zvládnete sami u&nbsp;auta. Klidně s&nbsp;telefonem v&nbsp;ruce.</p>
@@ -506,6 +535,68 @@
           <h2 class="h2" data-split>Roman Oberreiter</h2>
           <p class="about-lead" data-reveal>Žádné call centrum ani recepce. Zavoláte Romanovi, přijedete za Romanem do Merklína a&nbsp;kola vám přezuje Roman.</p>
           <p data-reveal>Když něco nesedí, dozvíte se to hned a&nbsp;na rovinu. Když je všechno v&nbsp;pořádku, nebudeme vám nic vnucovat. Pneuservis pro Merklín, Vary a&nbsp;celé okolí.</p>
+          <ul class="benefits">
+            <li data-reveal><span class="b-num">01</span><div><h3>Jeden člověk, celá práce</h3><p>Od telefonu po dotažení posledního šroubu. Nikdo si vás nepřehazuje.</p></div></li>
+            <li data-reveal><span class="b-num">02</span><div><h3>Pravda o&nbsp;vašich gumách</h3><p>I&nbsp;když to znamená, že nové zatím nepotřebujete.</p></div></li>
+            <li data-reveal><span class="b-num">03</span><div><h3>Kousek od Varů</h3><p>Bez městského shonu. Přijedete, domluvíte se a&nbsp;jedete dál.</p></div></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ OTÁZKY ============ -->
+    <section class="faq light" id="otazky">
+      <div class="wrap faq-grid">
+        <div class="faq-head">
+          <p class="mono-label" data-reveal>04 · Časté otázky</p>
+          <h2 class="h2" data-split>Na co se lidé ptají</h2>
+          <p class="section-lead" data-reveal>Nenašli jste odpověď? Zavolejte, Roman vám poradí.</p>
+          <a class="btn btn-dark" href="tel:+420XXXXXXXXX" data-reveal><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2Z" fill="currentColor"/></svg><span>Zavolat</span></a>
+        </div>
+        <div class="faq-list">
+          <details class="qa" data-reveal>
+            <summary><span>Musím se předem objednat?</span><span class="qa-ic" aria-hidden="true"></span></summary>
+            <div class="qa-body"><p>Vyplatí se to. Zavolejte nebo pošlete SMS a&nbsp;domluvíme čas, který vám sedí. Přijedete a&nbsp;nečekáte.</p></div>
+          </details>
+          <details class="qa" data-reveal>
+            <summary><span>Mám jen pneumatiky bez disků. Přezujete je?</span><span class="qa-ic" aria-hidden="true"></span></summary>
+            <div class="qa-body"><p>Ano. Pneumatiky přemontujeme na vaše disky a&nbsp;kola rovnou vyvážíme, aby jela hladce.</p></div>
+          </details>
+          <details class="qa" data-reveal>
+            <summary><span>Jak poznám, že potřebuju nové gumy?</span><span class="qa-ic" aria-hidden="true"></span></summary>
+            <div class="qa-body"><p>Podívejte se na hloubku dezénu (na zimu aspoň 4&nbsp;mm), na datum výroby a&nbsp;na praskliny na boku. Vyzkoušejte si to v&nbsp;<a href="#poradna">radách u&nbsp;kola</a>, nebo přijeďte a&nbsp;Roman vám to řekne na rovinu.</p></div>
+          </details>
+          <details class="qa" data-reveal>
+            <summary><span>Kdy je nejlepší čas přezout?</span><span class="qa-ic" aria-hidden="true"></span></summary>
+            <div class="qa-body"><p>Na zimní, jakmile teploty klesají pod 7&nbsp;°C, u&nbsp;nás obvykle v&nbsp;říjnu. Na letní, až přestane mrznout. Těsně před prvním sněhem chce přezouvat každý, takže kdo zavolá dřív, vybírá si termín.</p></div>
+          </details>
+          <details class="qa" data-reveal>
+            <summary><span>Co si mám vzít s&nbsp;sebou?</span><span class="qa-ic" aria-hidden="true"></span></summary>
+            <div class="qa-body"><p>Auto a&nbsp;druhou sadu kol nebo pneumatik. Máte bezpečnostní šrouby? Nezapomeňte k&nbsp;nim klíč (adaptér), bez něj kolo nejde sundat.</p></div>
+          </details>
+          <details class="qa" data-reveal>
+            <summary><span>Musím po přezutí něco hlídat?</span><span class="qa-ic" aria-hidden="true"></span></summary>
+            <div class="qa-body"><p>Po 50 až 100&nbsp;km je dobré šrouby zkontrolovat a&nbsp;dotáhnout. A&nbsp;občas zkontrolovat tlak, v&nbsp;zimě klesá s&nbsp;teplotou.</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ VÝZVA ============ -->
+    <section class="cta-band" data-cta>
+      <svg class="cta-ring" viewBox="-200 -200 400 400" aria-hidden="true" data-cta-ring>
+        <circle r="180" fill="none" stroke="currentColor" stroke-width="26" stroke-dasharray="14 7"/>
+        <circle r="128" fill="none" stroke="currentColor" stroke-width="2"/>
+        <circle r="52" fill="none" stroke="currentColor" stroke-width="2"/>
+      </svg>
+      <div class="wrap cta-inner">
+        <p class="mono-label cta-label" data-reveal><span data-only="winter">Zimní období začíná 1. listopadu</span><span data-only="summer">Sezóna letních pneumatik</span></p>
+        <h2 class="cta-title" data-only="winter" data-split>Nečekejte na první sníh.</h2>
+        <h2 class="cta-title" data-only="summer" data-split>Nečekejte na první vedro.</h2>
+        <p class="cta-sub" data-reveal><span data-only="winter">Zavolejte teď a&nbsp;přezujte v&nbsp;klidu. Ne ve frontě s&nbsp;půlkou okresu, až začne padat.</span><span data-only="summer">Zavolejte teď a&nbsp;vyrazte na výlety i&nbsp;dovolenou na správných gumách.</span></p>
+        <div class="cta-actions" data-reveal>
+          <a class="btn btn-invert btn-lg" href="tel:+420XXXXXXXXX"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2Z" fill="currentColor"/></svg><span>Zavolat Romanovi</span></a>
+          <a class="btn btn-outline btn-lg" href="#objednat">Napsat SMS</a>
         </div>
       </div>
     </section>
@@ -514,8 +605,8 @@
     <section class="contact dark" id="kontakt">
       <div class="wrap contact-grid">
         <div class="contact-main">
-          <p class="mono-label" data-reveal>Kontakt</p>
-          <h2 class="h2" data-split>Zavolejte. Domluvíme termín.</h2>
+          <p class="mono-label" data-reveal>05 · Kontakt</p>
+          <h2 class="h2" data-split>Zavolejte. Zbytek vyřešíme za vás.</h2>
           <a class="big-phone" href="tel:+420XXXXXXXXX" data-reveal>+420 XXX XXX XXX</a>
           <address class="addr" data-reveal>
             <span>Roman Oberreiter</span>
@@ -529,10 +620,23 @@
           <p class="muted" data-reveal>Nejlíp je zavolat předem, ať na vás máme čas a&nbsp;nemusíte čekat.</p>
         </div>
 
-        <form class="sms-card" data-sms data-reveal novalidate>
+        <form class="sms-card" id="objednat" data-sms data-reveal novalidate>
           <p class="mono-label">Nebo napište SMS</p>
-          <h3>Zprávu vám připravíme</h3>
+          <h3>Objednávka za 30 vteřin</h3>
           <p class="muted small">Vyplňte, co víte. Telefon otevře SMS s&nbsp;hotovým textem, stačí odeslat.</p>
+          <div class="field">
+            <label for="f-service">Co potřebujete</label>
+            <div class="select">
+              <select id="f-service" name="service">
+                <option>Přezutí kol</option>
+                <option>Přezutí pneumatik</option>
+                <option>Vyvážení</option>
+                <option>Oprava defektu</option>
+                <option>Kontrola pneumatik</option>
+                <option value="">Nevím, poraďte mi</option>
+              </select>
+            </div>
+          </div>
           <div class="field">
             <label for="f-car">Auto</label>
             <input id="f-car" name="car" type="text" autocomplete="off" placeholder="třeba Škoda Octavia">
@@ -545,7 +649,7 @@
             <label for="f-when">Kdy se vám hodí</label>
             <input id="f-when" name="when" type="text" autocomplete="off" placeholder="třeba příští týden odpoledne">
           </div>
-          <fieldset class="field seg-field">
+          <fieldset class="field seg-field" data-rims-field>
             <legend>Gumy máte na discích?</legend>
             <div class="seg">
               <label><input type="radio" name="rims" value="ano" checked><span>Ano</span></label>
@@ -561,7 +665,7 @@
             <span class="mono-label">Náhled zprávy</span>
             <p data-sms-preview></p>
           </div>
-          <button class="btn btn-accent btn-lg btn-block" type="submit">Otevřít SMS</button>
+          <button class="btn btn-accent btn-lg btn-block" type="submit">Odeslat objednávku přes SMS <svg class="arr" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11m-4-4 4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
           <p class="sms-note small" data-sms-note hidden></p>
         </form>
       </div>
@@ -575,6 +679,11 @@
       </div>
     </section>
   </main>
+
+  <div class="mbar" data-mbar>
+    <a class="btn btn-accent" href="tel:+420XXXXXXXXX"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2Z" fill="currentColor"/></svg><span>Zavolat</span></a>
+    <a class="btn btn-mbar" href="#objednat">Objednat přes SMS</a>
+  </div>
 
   <footer class="footer dark">
     <div class="wrap footer-top">

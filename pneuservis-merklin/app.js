@@ -1,5 +1,5 @@
 /* Pneuservis Merklín · Roman Oberreiter
-   Bez knihoven. Jedna smyčka requestAnimationFrame řídí kolo, pás, manifest a připnutou sekci. */
+   Bez knihoven. Jedna smyčka requestAnimationFrame řídí kolo, pás, příběh, připnutou sekci, navigaci a mobilní lištu. */
 (() => {
   'use strict';
 
@@ -80,7 +80,7 @@
   /* ---------- odhalování při scrollu ---------- */
   function setupReveal() {
     // sourozenci se odhalují s malým zpožděním za sebou
-    $$('.facts, .service-list, .tools-grid, .map-links').forEach(group => {
+    $$('.facts, .service-list, .tools-grid, .map-links, .benefits, .faq-list').forEach(group => {
       $$(':scope > [data-reveal]', group).forEach((el, i) => el.style.setProperty('--d', `${i * 0.09}s`));
     });
     if (!('IntersectionObserver' in window)) {
@@ -199,35 +199,141 @@
     }
   }
 
-  /* ---------- manifest: slova se rozsvěcují se scrollem ---------- */
-  const manifest = $('[data-highlight]');
-  let manifestWords = [];
-  let manifestLit = -1;
+  /* ---------- příběh: slova se rozsvěcují se scrollem ---------- */
+  const stories = $$('[data-highlight]').map(el => ({ el, words: [], lit: -1 }));
   function setupManifest() {
-    if (!manifest) return;
-    const frag = document.createDocumentFragment();
-    manifest.textContent.trim().split(/([ \t\n\r]+)/).forEach(part => {
-      if (/^[ \t\n\r]+$/.test(part)) frag.appendChild(document.createTextNode(' '));
-      else {
-        const s = document.createElement('span');
-        s.className = 'mw';
-        s.textContent = part;
-        frag.appendChild(s);
-      }
+    stories.forEach(st => {
+      const frag = document.createDocumentFragment();
+      st.el.textContent.trim().split(/([ \t\n\r]+)/).forEach(part => {
+        if (/^[ \t\n\r]+$/.test(part)) frag.appendChild(document.createTextNode(' '));
+        else {
+          const w = document.createElement('span');
+          w.className = 'mw';
+          w.textContent = part;
+          frag.appendChild(w);
+        }
+      });
+      st.el.textContent = '';
+      st.el.appendChild(frag);
+      st.words = $$('.mw', st.el);
     });
-    manifest.textContent = '';
-    manifest.appendChild(frag);
-    manifestWords = $$('.mw', manifest);
   }
   function updateManifest(vh) {
-    if (!manifest) return;
-    const r = manifest.getBoundingClientRect();
-    if (r.bottom < -100 || r.top > vh + 100) return;
-    const p = clamp((vh * 0.82 - r.top) / (r.height + vh * 0.32));
-    const lit = Math.round(p * manifestWords.length);
-    if (lit === manifestLit) return;
-    manifestLit = lit;
-    manifestWords.forEach((w, i) => w.classList.toggle('on', i < lit));
+    stories.forEach(st => {
+      if (!st.el.offsetParent) return; // druhá sezóna je skrytá
+      const r = st.el.getBoundingClientRect();
+      if (r.bottom < -100 || r.top > vh + 100) return;
+      const p = clamp((vh * 0.82 - r.top) / (r.height + vh * 0.32));
+      const lit = Math.round(p * st.words.length);
+      if (lit === st.lit) return;
+      st.lit = lit;
+      st.words.forEach((w, i) => w.classList.toggle('on', i < lit));
+    });
+  }
+
+  /* ---------- navigace: zvýraznění sekce, ve které právě jste ---------- */
+  const spyLinks = $$('[data-spy]');
+  const spyMap = new Map(spyLinks.map(a => [a.dataset.spy, a]));
+  const mainSections = $$('main > section');
+  const navInd = $('[data-nav-ind]');
+  let spyCurrent = null;
+  function placeIndicator() {
+    if (!navInd) return;
+    const a = spyMap.get(spyCurrent);
+    if (!a || !a.offsetParent) { navInd.classList.remove('on'); return; }
+    navInd.style.width = `${a.offsetWidth}px`;
+    navInd.style.transform = `translateX(${a.offsetLeft}px)`;
+    navInd.classList.add('on');
+  }
+  function updateSpy(vh) {
+    let cur = null;
+    for (const sec of mainSections) {
+      if (sec.getBoundingClientRect().top <= vh * 0.38) cur = spyMap.has(sec.id) ? sec.id : null;
+      else break;
+    }
+    if (cur === spyCurrent) return;
+    spyCurrent = cur;
+    spyLinks.forEach(l => {
+      const on = l.dataset.spy === cur;
+      l.classList.toggle('is-current', on);
+      if (on) l.setAttribute('aria-current', 'location'); else l.removeAttribute('aria-current');
+    });
+    placeIndicator();
+  }
+
+  /* ---------- menu pro mobil a tablet ---------- */
+  const burger = $('[data-burger]');
+  const menu = $('[data-menu]');
+  let menuOpen = false;
+  function setMenu(open) {
+    if (!menu || !burger) return;
+    menuOpen = open;
+    menu.classList.toggle('open', open);
+    if (open) menu.removeAttribute('inert'); else menu.setAttribute('inert', '');
+    burger.setAttribute('aria-expanded', String(open));
+    burger.setAttribute('aria-label', open ? 'Zavřít menu' : 'Otevřít menu');
+    root.classList.toggle('menu-open', open);
+    if (open) {
+      setNavTheme('dark');
+      setTimeout(() => { const first = $('a', menu); if (first && menuOpen) first.focus({ preventScroll: true }); }, 380);
+    }
+  }
+  function setupMenu() {
+    if (!menu || !burger) return;
+    $$('.menu-links a', menu).forEach((a, i) => a.style.setProperty('--i', i));
+    burger.addEventListener('click', () => setMenu(!menuOpen));
+    // zámek scrollu se uvolní ještě před skokem na kotvu
+    menu.addEventListener('click', e => { if (e.target.closest('a')) setMenu(false); });
+    addEventListener('keydown', e => {
+      if (e.key === 'Escape' && menuOpen) { setMenu(false); burger.focus(); }
+    });
+    matchMedia('(min-width: 1101px)').addEventListener('change', e => { if (e.matches && menuOpen) setMenu(false); });
+  }
+
+  /* ---------- časté otázky: plynulé rozbalení, otevřená je vždy jen jedna ---------- */
+  function setupFaq() {
+    const items = $$('.qa');
+    const close = d => {
+      const body = $('.qa-body', d);
+      d.dataset.anim = '1';
+      d.classList.add('closing');
+      const a = body.animate([{ height: `${body.scrollHeight}px`, opacity: 1 }, { height: '0px', opacity: 0 }],
+        { duration: 380, easing: 'cubic-bezier(.4,0,.2,1)' });
+      a.onfinish = () => { d.open = false; d.classList.remove('closing'); delete d.dataset.anim; };
+    };
+    const open = d => {
+      const body = $('.qa-body', d);
+      d.open = true;
+      d.dataset.anim = '1';
+      const a = body.animate([{ height: '0px', opacity: 0 }, { height: `${body.scrollHeight}px`, opacity: 1 }],
+        { duration: 560, easing: 'cubic-bezier(.22,1,.36,1)' });
+      a.onfinish = () => { delete d.dataset.anim; };
+    };
+    items.forEach(d => {
+      $('summary', d).addEventListener('click', e => {
+        if (reduce) return;
+        e.preventDefault();
+        if (d.dataset.anim) return;
+        if (d.open) { close(d); return; }
+        items.forEach(o => { if (o !== d && o.open && !o.dataset.anim) close(o); });
+        open(d);
+      });
+    });
+  }
+
+  /* ---------- objednání služby přímo z ceníku ---------- */
+  function setupPick() {
+    const sel = $('#f-service');
+    if (!sel) return;
+    $$('[data-pick]').forEach(a => a.addEventListener('click', () => {
+      sel.value = a.dataset.pick;
+      sel.dispatchEvent(new Event('change', { bubbles: true }));
+      const wrap = sel.parentElement;
+      wrap.classList.remove('picked');
+      void wrap.offsetWidth;
+      wrap.classList.add('picked');
+      setTimeout(() => wrap.classList.remove('picked'), 2200);
+    }));
   }
 
   /* ---------- připnutá sekce "Jak to probíhá" ---------- */
@@ -288,6 +394,11 @@
   const nav = $('[data-nav]');
   const lightSections = $$('main > .light');
   let navTheme = 'dark';
+  function setNavTheme(t) { if (nav && t !== navTheme) { navTheme = t; nav.dataset.theme = t; } }
+  const mbar = $('[data-mbar]');
+  const contactSec = $('#kontakt');
+  let mbarOn = false;
+  const ctaRing = $('[data-cta-ring]');
   let scrollY = window.scrollY;
   let smooth = scrollY;
   let last = smooth;
@@ -352,10 +463,22 @@
     updateManifest(vh);
     updateProcess(vh);
 
-    if (nav) {
+    updateSpy(vh);
+
+    if (nav && !menuOpen) {
       const mid = 42;
-      const theme = lightSections.some(sec => { const r = sec.getBoundingClientRect(); return r.top <= mid && r.bottom >= mid; }) ? 'light' : 'dark';
-      if (theme !== navTheme) { navTheme = theme; nav.dataset.theme = theme; }
+      setNavTheme(lightSections.some(sec => { const r = sec.getBoundingClientRect(); return r.top <= mid && r.bottom >= mid; }) ? 'light' : 'dark');
+    }
+
+    // mobilní lišta: ukáže se po úvodu, schová se u kontaktu
+    if (mbar && contactSec) {
+      const show = scrollY > vh * 0.75 && contactSec.getBoundingClientRect().top > vh * 0.9;
+      if (show !== mbarOn) { mbarOn = show; mbar.classList.toggle('show', show); }
+    }
+
+    if (ctaRing && !reduce) {
+      const r = ctaRing.parentElement.getBoundingClientRect();
+      if (r.bottom > 0 && r.top < vh) ctaRing.style.transform = `rotate(${(smooth * 0.06).toFixed(2)}deg)`;
     }
     requestAnimationFrame(frame);
   }
@@ -479,15 +602,21 @@
     const phone = tel ? tel.getAttribute('href').slice(4) : '';
     const val = n => (form.elements[n] ? form.elements[n].value.trim() : '');
     const compose = () => {
-      const lines = ['Dobrý den, prosím o termín na přezutí.'];
+      const svc = val('service');
+      const lines = [svc ? `Dobrý den, prosím o termín: ${svc.toLowerCase()}.` : 'Dobrý den, potřebuji poradit s pneumatikami.'];
       if (val('car')) lines.push(`Auto: ${val('car')}`);
       if (val('size')) lines.push(`Rozměr: ${val('size')}`);
-      lines.push(`Gumy na discích: ${val('rims') || 'nevím'}`);
+      if (!svc || svc.startsWith('Přezutí')) lines.push(`Gumy na discích: ${val('rims') || 'nevím'}`);
       if (val('when')) lines.push(`Hodí se mi: ${val('when')}`);
       lines.push(val('name') ? `Děkuji, ${val('name')}` : 'Děkuji');
       return lines.join('\n');
     };
-    const render = () => { preview.textContent = compose(); };
+    const rimsField = $('[data-rims-field]', form);
+    const render = () => {
+      // otázka na disky dává smysl jen u přezutí
+      if (rimsField) { const svc = val('service'); rimsField.hidden = !!svc && !svc.startsWith('Přezutí'); }
+      preview.textContent = compose();
+    };
     form.addEventListener('input', render);
     form.addEventListener('change', render);
     form.addEventListener('submit', e => {
@@ -526,6 +655,9 @@
   setupTread();
   updateTread();
   setupSms();
+  setupMenu();
+  setupFaq();
+  setupPick();
   setupReveal();
   requestAnimationFrame(frame);
 
@@ -536,11 +668,12 @@
     fitFooter();
     fillMarquee();
     measure();
+    placeIndicator();
     root.classList.add('is-loaded');
     $('[data-hero-title]').classList.add('in');
     introStart = performance.now() + 120;
   };
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(start);
   setTimeout(start, 1500);
-  addEventListener('resize', () => { fitFooter(); fillMarquee(); measure(); });
+  addEventListener('resize', () => { fitFooter(); fillMarquee(); measure(); placeIndicator(); });
 })();
