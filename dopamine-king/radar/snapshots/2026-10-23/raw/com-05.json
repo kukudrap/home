@@ -1,0 +1,62 @@
+{
+ "query": "Platinum LED panel Česko",
+ "query_sent": "Platinum LED panel Česko",
+ "allowed_domains": [],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:24:42Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "www.ideal.co.nz",
+   "url": "https://www.ideal.co.nz/products/purnw60120bl"
+  },
+  {
+   "rank": 2,
+   "title": "www.ideal.co.nz",
+   "url": "https://www.ideal.co.nz/products/purplcct60120"
+  },
+  {
+   "rank": 3,
+   "title": "www.ideal.co.nz",
+   "url": "https://www.ideal.co.nz/products/purnw6060bl"
+  },
+  {
+   "rank": 4,
+   "title": "Montážní rám pro LED panely 600x600mm",
+   "url": "https://www.kaufland.cz/product/348305265/"
+  },
+  {
+   "rank": 5,
+   "title": "ideal.co.nz",
+   "url": "https://ideal.co.nz/nzi/Category/Lighting/Troffer-and-Panel/Platinum-LED-Panel-600x1200mm-50W-5000lm-4000K-IP40-Backlit/p/PURNW60120BL"
+  },
+  {
+   "rank": 6,
+   "title": "www.ideal.co.nz",
+   "url": "https://www.ideal.co.nz/products/PURPLCCT6060"
+  },
+  {
+   "rank": 7,
+   "title": "www.ideal.co.nz",
+   "url": "https://www.ideal.co.nz/products/PURNW6060BL"
+  },
+  {
+   "rank": 8,
+   "title": "Platinum led цена",
+   "url": "https://www.kaina24.lt/ru/s/platinum-led/"
+  },
+  {
+   "rank": 9,
+   "title": "7021721 led panel plata eu 40w830 mp a1upas eu",
+   "url": "https://www.ahlsell.se/products/el/belysning-armaturer-ljuskallor-70-83/70-interiorarmaturer/infallda-armaturer-och-tillbehor/infallda-armaturer/7021721---led-panel-plata-eu-40w830-mp-a1upas-eu"
+  }
+ ],
+ "summary": "The search didn't turn up a Czech seller of Platinum-branded LED panels. The results are mostly New Zealand listings for Platinum panels, plus some unrelated Czech results.\n\n- **Platinum panels (New Zealand retailer Ideal):** The retailer lists several Platinum models, including a 600x1200mm 50W, 4000K, IP40 backlit panel that lists the Ideal part number PURNW60120BL and manufacturer number NW-60120BL. Other listings include a 600x600mm 36W, 4000K panel (Platinum LED Panel 600x600mm 36W 3600lm 4000K IP40 Backlit) and a colour-selectable CCT version (Platinum LED Panel 600x600mm 36W CCT 4/5/6K IP40 Backlit).\n- **Czech results:** A Kaufland.cz listing is a mounting frame for 600x600mm LED panels that ships from Česko. It is not a Platinum product. The same page shows other LED panels from brands such as Paulmann and Briloner.\n\nIf you need Czech pricing or availability for Platinum panels, a search for the specific model number on Czech retail sites would be the next step.",
+ "id": "com-05",
+ "group": "competitor",
+ "persona": "",
+ "purpose": "Konkurent PlatinumLED"
+}

@@ -1,0 +1,62 @@
+{
+ "query": "jak často a jak dlouho terapie červeným světlem",
+ "query_sent": "jak často a jak dlouho terapie červeným světlem",
+ "allowed_domains": [],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:23:15Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "cesi objevuji terapii cervenym svetlem roste z ni dalsi miliardovy byznys",
+   "url": "https://forbes.cz/cesi-objevuji-terapii-cervenym-svetlem-roste-z-ni-dalsi-miliardovy-byznys/"
+  },
+  {
+   "rank": 2,
+   "title": "dwn.alza.cz",
+   "url": "https://dwn.alza.cz/manual/160634"
+  },
+  {
+   "rank": 3,
+   "title": "Hlavní obsah",
+   "url": "https://www.seznamzpravy.cz/clanek/magazin-zivotni-styl-posvitte-si-cervene-proc-v-cervenem-svetle-jedou-sportovci-herci-i-astronauti-265068"
+  },
+  {
+   "rank": 4,
+   "title": "manual rl300 a2 6a5766f897d218.71495783",
+   "url": "https://pilulka.s3-central.vshosting.cloud/vms-prod-cs/vms/product/listing/2026/07/manual_rl300_a2_6a5766f897d218.71495783.pdf"
+  },
+  {
+   "rank": 5,
+   "title": "Červené světlo, jak funguje terapie lampou?",
+   "url": "https://www.drmax.cz/zeptejte-se-lekarnika/cervene-svetlo-jak-funguje-terapie-lampou"
+  },
+  {
+   "rank": 6,
+   "title": "Biohacking, longevity a moderní zdraví",
+   "url": "https://www.newstream.cz/enjoy/biohacking-terapie-cervenym-svetlem"
+  },
+  {
+   "rank": 7,
+   "title": "Biohacking, longevity a moderní zdraví",
+   "url": "https://www.newstream.cz/stitek/terapie"
+  },
+  {
+   "rank": 8,
+   "title": "Biohacking, longevity a moderní zdraví",
+   "url": "https://www.newstream.cz/stitek/cervene-svetlo"
+  },
+  {
+   "rank": 9,
+   "title": "Strečová terapia s červeným svetlom",
+   "url": "https://sk.airbnb.com/services/6692126"
+  }
+ ],
+ "summary": "Výsledky nedávají jednotný protokol (kolik minut a jak často). Konkrétní doporučení jsou spíše individuální zkušenosti a údaje od výrobců.\n\n- **Příklady z praxe:** Podnikatel Martin Žufánek používá panel ráno deset minut a po tréninku dalších deset minut, a to třikrát týdně. Mistr světa v Double Ironmanu Petr Vabroušek se snaží svítit každý den ráno patnáct minut a v případě potřeby ještě jednou během dne, zejména v zimě. Tyto údaje nejsou doporučením lékařů.\n- **Pravidelnost:** Podle lékárníka z Dr. Max je účinek pozvolný a mírný a závisí na pravidelnosti používání i na individuální reakci pokožky.\n- **Míra důkazů:** Nejvíce klinických dat je pro léčbu bolesti, podporu hojení a některé kožní indikace. U spánku a kognitivních funkcí jsou důkazy zatím slabší.\n- **Bezpečnost:** Při správném použití se terapie považuje za bezpečnou. Pokud máte kožní onemocnění, užíváte léky zvyšující citlivost na světlo, nebo si nejste jistí, poraďte se s lékařem. Některá séra s vitamínem C nebo retinolem mohou zvyšovat citlivost na světlo, proto je podle lékárníka lepší nanášet je až po terapii.\n- **Návod výrobce:** Panely mají obvykle časovač a doporučené nastavení, takže pro konkrétní zařízení je nejspolehlivější řídit se jeho návodem.\n\nVýsledky neobsahovaly oficiální doporučení odborných společností pro frekvenci a délku expozice, takže konkrétní dávkování je třeba ověřit u zdroje, který jste našli, nebo u lékaře.",
+ "id": "cat-13",
+ "group": "category",
+ "persona": "",
+ "purpose": "Frekvence a délka sezení"
+}

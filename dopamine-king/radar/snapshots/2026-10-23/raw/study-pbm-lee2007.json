@@ -1,0 +1,67 @@
+{
+ "query": "A prospective, randomized, placebo-controlled, double-blinded, and split-face clinical study on LED phototherapy for skin rejuvenation: clinical, profilometric, histologic, ultrastructural, and biochemical evaluations and comparison of three different treatment settings",
+ "query_sent": "A prospective, randomized, placebo-controlled, double-blinded, and split-face clinical study on LED phototherapy for skin rejuvenation: clinical, profilometric, histologic, ultrastructural, and biochemical evaluations and comparison of three different treatment settings",
+ "allowed_domains": [],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:26:39Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "a prospective randomized placebo controlled double blinded and sp",
+   "url": "https://pure.korea.ac.kr/en/publications/a-prospective-randomized-placebo-controlled-double-blinded-and-sp/"
+  },
+  {
+   "rank": 2,
+   "title": "pubmed.ncbi.nlm.nih.gov",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/17566756/"
+  },
+  {
+   "rank": 3,
+   "title": "pure.korea.ac.kr",
+   "url": "https://pure.korea.ac.kr/en/publications/a-prospective-randomized-placebo-controlled-double-blinded-and-sp/fingerprints/"
+  },
+  {
+   "rank": 4,
+   "title": "oalib-perpustakaan.upi.edu",
+   "url": "https://oalib-perpustakaan.upi.edu/Record/doaj_b4c9e52ba6b9474096011df4b095775c/Description"
+  },
+  {
+   "rank": 5,
+   "title": "Clinical, Cosmetic and Investigational Dermatology (May 2016)",
+   "url": "https://doaj.org/article/b4c9e52ba6b9474096011df4b095775c"
+  },
+  {
+   "rank": 6,
+   "title": "Back to Journals » Clinical, Cosmetic and Investigational Dermatology » Volume 9",
+   "url": "https://www.dovepress.com/a-randomized-placebo-controlled-single-blinded-split-faced-clinical-tr-peer-reviewed-article-CCID"
+  },
+  {
+   "rank": 7,
+   "title": "pmc.ncbi.nlm.nih.gov",
+   "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4874553"
+  },
+  {
+   "rank": 8,
+   "title": "informahealthcare.com",
+   "url": "https://informahealthcare.com/doi/full/10.2147/CCID.S100697"
+  },
+  {
+   "rank": 9,
+   "title": "doaj b4c9e52ba6b9474096011df4b095775c",
+   "url": "https://oalib-perpustakaan.upi.edu/Record/doaj_b4c9e52ba6b9474096011df4b095775c"
+  },
+  {
+   "rank": 10,
+   "title": "oalib-perpustakaan.upi.edu",
+   "url": "https://oalib-perpustakaan.upi.edu/Record/doaj_b4c9e52ba6b9474096011df4b095775c/SMS"
+  }
+ ],
+ "summary": "The search found the study you named: Lee et al., published in *Journal of Photochemistry and Photobiology B* in 2007 (PubMed 17566756). The results include only the abstract, so I couldn't check the full methods or results.\n\n- **Design:** Seventy-six patients with facial wrinkles had quasimonochromatic LED devices applied to the right half of their faces. Subjects were randomly divided into four groups receiving 830 nm alone, 633 nm alone, a combination of the two, or a sham light. Sessions ran twice weekly for four weeks.\n- **Follow-up and blinding:** The study included serial photography, profilometry, and objective measurements of skin elasticity and melanin during treatment, with a three-month follow-up period. The subject's and investigator's assessments were double-blinded.\n- **Lab work:** Skin specimens were examined histologically and by electron microscopy, and tissue levels of matrix metalloproteinases, their inhibitors, and several inflammatory and connexin 43 markers were measured.\n- **Reported results:** The abstract states that objectively measured data showed significant reductions of wrinkles (maximum: 36%) and increases of skin elasticity (maximum: 19%). The snippet cuts off before the full findings, so I couldn't confirm which wavelength or setting performed best.\n\nA separate trial, a 2016 single-blinded split-face study of a KLOX gel with KLOX LED light, showed up in the results. It is a different study, so don't confuse the two.",
+ "id": "study-pbm-lee2007",
+ "group": "study",
+ "persona": "",
+ "purpose": "Ověření studie z registru: seed:pbm-lee2007"
+}

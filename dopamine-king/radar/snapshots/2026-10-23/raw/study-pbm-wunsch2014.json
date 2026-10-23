@@ -1,0 +1,67 @@
+{
+ "query": "A controlled trial to determine the efficacy of red and near-infrared light treatment in patient satisfaction, reduction of fine lines, wrinkles, skin roughness, and intradermal collagen density increase",
+ "query_sent": "A controlled trial to determine the efficacy of red and near-infrared light treatment in patient satisfaction, reduction of fine lines, wrinkles, skin roughness, and intradermal collagen density increase",
+ "allowed_domains": [],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:26:29Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "pmc.ncbi.nlm.nih.gov",
+   "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3926176/"
+  },
+  {
+   "rank": 2,
+   "title": "pubmed.ncbi.nlm.nih.gov",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/24286286/"
+  },
+  {
+   "rank": 3,
+   "title": "Light Therapy for Anti-Aging: A Study on Red & Near-Infrared Efficacy, Patient Satisfaction, and Skin Texture",
+   "url": "https://www.lumaflex.com/blogs/clinical-trials/light-therapy-for-anti-aging-a-study-on-red-near-infrared-efficacy-patient-satisfaction-and-skin-texture-light-therapy-for-anti-aging"
+  },
+  {
+   "rank": 4,
+   "title": "Find Your Skincare Solution",
+   "url": "https://www.irestorelaser.com/blogs/content/does-red-light-therapy-tighten-skin"
+  },
+  {
+   "rank": 5,
+   "title": "Mini Header - Login",
+   "url": "https://pleijsalon.com/improve-the-health-of-your-skin-with-red-and-near-infrared-light-therapy/"
+  },
+  {
+   "rank": 6,
+   "title": "Mini Header - Login",
+   "url": "https://pleijsalon.com/?p=26240"
+  },
+  {
+   "rank": 7,
+   "title": "red light therapy for skin and anti aging clinical evidence",
+   "url": "https://mitoredlight.com/en-ca/pages/red-light-therapy-for-skin-and-anti-aging-clinical-evidence"
+  },
+  {
+   "rank": 8,
+   "title": "red light therapy for skin and anti aging clinical evidence",
+   "url": "https://mitoredlight.com/fr-ca/pages/red-light-therapy-for-skin-and-anti-aging-clinical-evidence"
+  },
+  {
+   "rank": 9,
+   "title": "red light therapy skin research",
+   "url": "https://coldture.com/blogs/news/red-light-therapy-skin-research"
+  },
+  {
+   "rank": 10,
+   "title": "how effective red light therapy is for skin rejuvenation in relation to green yellow and orange",
+   "url": "https://lipotherapeia.com/the-peach-factor-blog/how-effective-red-light-therapy-is-for-skin-rejuvenation-in-relation-to-green-yellow-and-orange"
+  }
+ ],
+ "summary": "The original study is Wunsch and Matuschka's 2014 trial in *Photomedicine and Laser Surgery*, indexed as PubMed 24286286 and PMC3926176. The PubMed abstract is the most reliable source here.\n\n- **Design and outcomes:** The abstract reports that treated subjects showed significantly better skin complexion and skin feeling, with improved profilometric roughness and ultrasound-measured collagen density. Blinded clinical evaluation of photographs confirmed significant improvement in the intervention groups compared with the control.\n- **Main conclusion:** Broadband polychromatic PBM showed no advantage over the red-light-only spectrum. Both novel light sources were judged effective and safe.\n- **Sample:** One secondary source describes 144 recruited volunteers, with 128 completing the study: 57 on red light, 48 on the enhanced broadband light, and 23 controls. Participants received treatments two times a week, while a control group received no treatment. No participants dropped out due to adverse events, and no severe adverse events were reported during the study or follow-up.\n- **Discrepancy to note:** One of those summaries (Lumaflex) says the control group exhibited a higher mean collagen density and lower mean skin roughness compared to both treatment groups. That contradicts the abstract's findings, so check the full paper before relying on the group-level numbers.\n- **Secondary sources:** Several results are vendor blogs or marketing pages (Mito Red Light, Coldture, iRestore, Lumaflex). I'd treat their characterizations with caution and verify against the full text.",
+ "id": "study-pbm-wunsch2014",
+ "group": "study",
+ "persona": "",
+ "purpose": "Ověření studie z registru: seed:pbm-wunsch2014"
+}

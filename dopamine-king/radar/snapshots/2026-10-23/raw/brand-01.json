@@ -1,0 +1,57 @@
+{
+ "query": "MITO LIGHT",
+ "query_sent": "MITO LIGHT",
+ "allowed_domains": [],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:22:18Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "Mito Light Mitohacker 4.0",
+   "url": "https://www.pcwelt.de/?p=2627686"
+  },
+  {
+   "rank": 2,
+   "title": "MITO LIGHT® Europe Reviews 397",
+   "url": "https://ca.trustpilot.com/review/mitolight.com"
+  },
+  {
+   "rank": 3,
+   "title": "sigmaaldrich.com",
+   "url": "https://sigmaaldrich.com/AN/en/product/mm/apt242"
+  },
+  {
+   "rank": 4,
+   "title": "wwwqws.sigmaaldrich.com",
+   "url": "https://wwwqws.sigmaaldrich.com/PH/en/product/mm/apt242"
+  },
+  {
+   "rank": 5,
+   "title": "Table of Contents",
+   "url": "https://mitoredlight.com/en-ca/blogs/mito-red-blog/mitopro-series-learn"
+  },
+  {
+   "rank": 6,
+   "title": "www.finn.no",
+   "url": "https://www.finn.no/407783308"
+  },
+  {
+   "rank": 7,
+   "title": "www.finn.no",
+   "url": "https://www.finn.no/recommerce/forsale/item/413233479"
+  },
+  {
+   "rank": 8,
+   "title": "MITO RED LIGHT THERAPY",
+   "url": "https://mitoredlight.com/?afmc=64"
+  }
+ ],
+ "summary": "The results cover three different things called \"MITO LIGHT,\" so it's worth clarifying which one you mean.\n\n1. **Mito Light (European red light therapy brand):** Its flagship Mitohacker 4.0 panel is described as one of the most powerful panels on the market, covering half the body at 90 milliwatts per square centimeter, with 408 LEDs emitting six wavelengths. A Trustpilot page for the company's European site shows an overall rating of 4.8 out of 5, though that score is based on reviews that are not verified, so treat it with caution.\n\n2. **MitoLight (Sigma-Aldrich / Merck research reagent):** This is a lab product. Its apoptosis detection kit uses a lipophilic cation, termed as MitoLight, as a mitochondrial activity marker. The kit is for research use only.\n\n3. **Mito Red Light (a separate US-facing brand):** Its MitoPRO series is marketed as general wellness devices aimed at affecting the body through topical heating. I didn't confirm whether it's related to the European Mito Light company.\n\nIf you meant a specific one, let me know and I can search more narrowly.",
+ "id": "brand-01",
+ "group": "brand",
+ "persona": "",
+ "purpose": "Samotný název značky"
+}

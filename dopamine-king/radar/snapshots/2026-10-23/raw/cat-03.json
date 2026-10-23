@@ -1,0 +1,62 @@
+{
+ "query": "terapie červeným světlem panel",
+ "query_sent": "terapie červeným světlem panel",
+ "allowed_domains": [],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:22:38Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "dwn.alza.cz",
+   "url": "https://dwn.alza.cz/manual/160634"
+  },
+  {
+   "rank": 2,
+   "title": "Skupina produktů:",
+   "url": "https://www.drmax.cz/cbd-star-red-light-panel-300-w-terapie-cervenym-svetlem"
+  },
+  {
+   "rank": 3,
+   "title": "Hlavní obsah",
+   "url": "https://www.seznamzpravy.cz/clanek/magazin-zivotni-styl-posvitte-si-cervene-proc-v-cervenem-svetle-jedou-sportovci-herci-i-astronauti-265068"
+  },
+  {
+   "rank": 4,
+   "title": "Červené světlo, jak funguje terapie lampou?",
+   "url": "https://www.drmax.cz/zeptejte-se-lekarnika/cervene-svetlo-jak-funguje-terapie-lampou"
+  },
+  {
+   "rank": 5,
+   "title": "cesi objevuji terapii cervenym svetlem roste z ni dalsi miliardovy byznys",
+   "url": "https://forbes.cz/cesi-objevuji-terapii-cervenym-svetlem-roste-z-ni-dalsi-miliardovy-byznys/"
+  },
+  {
+   "rank": 6,
+   "title": "Welzo Max Red Light Therapy Full Body Panel - Professional Max verze 5",
+   "url": "https://welzo.com/cs-eu/products/welzo-max-red-light-therapy-full-body-panel-professional-max-verze-5"
+  },
+  {
+   "rank": 7,
+   "title": "16528 jaky panel pro terapii cervenym a near infra red svetlem",
+   "url": "https://www.poradte.cz/nejen-pro-zeny/16528-jaky-panel-pro-terapii-cervenym-a-near-infra-red-svetlem.html"
+  },
+  {
+   "rank": 8,
+   "title": "Biohacking, longevity a moderní zdraví",
+   "url": "https://www.newstream.cz/enjoy/biohacking-terapie-cervenym-svetlem"
+  },
+  {
+   "rank": 9,
+   "title": "manual rl300 a2 6a5766f897d218.71495783",
+   "url": "https://pilulka.s3-central.vshosting.cloud/vms-prod-cs/vms/product/listing/2026/07/manual_rl300_a2_6a5766f897d218.71495783.pdf"
+  }
+ ],
+ "summary": "The search returned mostly Czech-language sources on red light therapy panels, a mix of product pages, news articles, and a forum thread.\n\n- **Evidence:** A Czech news site notes that the quantity and quality of evidence differ markedly between areas of use. Clinical data are strongest for pain, healing support and some dermatological indications, while evidence for sleep or cognitive effects is less convincing.\n- **Wavelengths:** Products typically use red light and near-infrared, and one source says wavelengths of roughly 600 to 1100 nanometres are mainly used.\n- **Mechanism and terminology:** A product manual describes the therapy as a non-invasive treatment using red and near-infrared light to stimulate cell activity and support healing. It also goes by photobiomodulation.\n- **Consumer panels:** Panels are sold for home use, and product pages describe them as wellness or cosmetic aids rather than medical devices. One comparison thread lists panels from about 12,900 to 18,800 CZK, differing in power and wavelength count.\n- **Claims to treat with caution:** Several sources make broad claims, such as improved sleep, serotonin effects, or hair growth. These come from marketing material, testimonials, or a forum, not from robust clinical studies. The Forbes.cz article is largely anecdotal.\n\nI did not verify safety considerations, such as contraindications for people on medications like warfarin. One forum question raised that concern without a clear answer.",
+ "id": "cat-03",
+ "group": "category",
+ "persona": "",
+ "purpose": "Hledání přístroje (panelu)"
+}

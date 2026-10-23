@@ -1,0 +1,62 @@
+{
+ "query": "terapie červeným světlem studie",
+ "query_sent": "terapie červeným světlem studie",
+ "allowed_domains": [],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:23:26Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "Biohacking, longevity a moderní zdraví",
+   "url": "https://www.newstream.cz/enjoy/biohacking-terapie-cervenym-svetlem"
+  },
+  {
+   "rank": 2,
+   "title": "cesi objevuji terapii cervenym svetlem roste z ni dalsi miliardovy byznys",
+   "url": "https://forbes.cz/cesi-objevuji-terapii-cervenym-svetlem-roste-z-ni-dalsi-miliardovy-byznys/"
+  },
+  {
+   "rank": 3,
+   "title": "Červené světlo, jak funguje terapie lampou?",
+   "url": "https://www.drmax.cz/zeptejte-se-lekarnika/cervene-svetlo-jak-funguje-terapie-lampou"
+  },
+  {
+   "rank": 4,
+   "title": "Hlavní obsah",
+   "url": "https://www.seznamzpravy.cz/clanek/magazin-zivotni-styl-posvitte-si-cervene-proc-v-cervenem-svetle-jedou-sportovci-herci-i-astronauti-265068"
+  },
+  {
+   "rank": 5,
+   "title": "Biohacking, longevity a moderní zdraví",
+   "url": "https://www.newstream.cz/stitek/terapie"
+  },
+  {
+   "rank": 6,
+   "title": "manual rl300 a2 6a5766f897d218.71495783",
+   "url": "https://pilulka.s3-central.vshosting.cloud/vms-prod-cs/vms/product/listing/2026/07/manual_rl300_a2_6a5766f897d218.71495783.pdf"
+  },
+  {
+   "rank": 7,
+   "title": "Využívajú ho biohackeri, podnikatelia aj športovci. Účinná „červená“ terapia má skryté benefity",
+   "url": "https://www.startitup.sk/?p=873094"
+  },
+  {
+   "rank": 8,
+   "title": "16373 terapie cervenym a blizko infra cervenym svetlem zkusenosti",
+   "url": "https://www.poradte.cz/nejen-pro-zeny/16373-terapie-cervenym-a-blizko-infra-cervenym-svetlem-zkusenosti.html"
+  },
+  {
+   "rank": 9,
+   "title": "2385920 terapie cervenym svetlem 1 3 nebo 5 navstev",
+   "url": "https://www.slevomat.cz/akce/2385920-terapie-cervenym-svetlem-1-3-nebo-5-navstev"
+  }
+ ],
+ "summary": "The search returned mostly consumer and marketing pages, with little primary research.\n\n- **Evidence strength varies by use.** A Czech health article says clinical data are strongest for pain, wound healing and some skin conditions, and weaker for sleep and cognition (newstream.cz, index 1-2:1-3).\n- **Mechanism.** Red and near-infrared wavelengths, roughly 600 to 1100 nm, are the ones typically used (newstream.cz, index 1-5). One product manual describes the effect as stimulating cell activity, and it mentions the name photobiomodulation (pilulka manual, index 6-5).\n- **Popular claims.** Forbes.cz reports that therapy-related claims include better skin, energy, sleep and mood, and it attributes the mood effect to serotonin, but the article is framed as \"reportedly\" (forbes.cz, index 2-1). Sports-focused pages link it to muscle recovery (startitup.sk, index 7-1).\n- **Source quality.** Several results are commercial: a voucher listing (slevomat.cz, index 9-2), a product manual (pilulka), and a clinic promoting its service (forbes.cz, index 2-11). Their claims are not peer-reviewed evidence.\n\nFor actual trial results, a follow-up search on PubMed or Cochrane-style reviews of photobiomodulation would be more useful.",
+ "id": "cat-16",
+ "group": "category",
+ "persona": "",
+ "purpose": "Odborné studie"
+}

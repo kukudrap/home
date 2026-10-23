@@ -1,0 +1,62 @@
+{
+ "query": "Effects of Photomodulation Therapy for Delayed Onset Muscle Soreness: A Systematic Review and Meta-Analysis",
+ "query_sent": "\"Effects of Photomodulation Therapy for Delayed Onset Muscle Soreness: A Systematic Review and Meta-Analysis\"",
+ "allowed_domains": [],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:28:41Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "Effects of Photomodulation Therapy for Delayed Onset Muscle Soreness: A Systematic Review and Meta-Analysis",
+   "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12286287/"
+  },
+  {
+   "rank": 2,
+   "title": "jfmk 10 00277",
+   "url": "https://mdpi-res.com/d_attachment/jfmk/jfmk-10-00277/article_deploy/jfmk-10-00277.pdf"
+  },
+  {
+   "rank": 3,
+   "title": "apcz.umk.pl",
+   "url": "https://apcz.umk.pl/QS/article/view/70853"
+  },
+  {
+   "rank": 4,
+   "title": "effect of low level phototherapy on delayed onset muscle soreness a systematic review and meta analysis",
+   "url": "https://infraredsauna.com/blog/effect-of-low-level-phototherapy-on-delayed-onset-muscle-soreness-a-systematic-review-and-meta-analysis"
+  },
+  {
+   "rank": 5,
+   "title": "effect of low level phototherapy on delayed onset muscle soreness a systematic review and meta analysis",
+   "url": "https://nutrition-evidence.com/article/242259/effect-of-low-level-phototherapy-on-delayed-onset-muscle-soreness-a-systematic-review-and-meta-analysis"
+  },
+  {
+   "rank": 6,
+   "title": "Next Article in Journal",
+   "url": "https://www.mdpi.com/2411-5142/10/3/277"
+  },
+  {
+   "rank": 7,
+   "title": "researchgate.net",
+   "url": "https://www.researchgate.net/profile/Vinicius_Cavalheri/publication/283786343_Effect_of_low-level_phototherapy_on_delayed_onset_muscle_soreness_a_systematic_review_and_meta-analysis/links/564c141208ae020ae9f8693d.pdf"
+  },
+  {
+   "rank": 8,
+   "title": "Red Light Therapy and Muscle Recovery: What the Research Actually Shows",
+   "url": "https://mitoredlight.com/blogs/mito-red-blog/speed-up-post-workout-muscle-recovery-with-red-light-therapy"
+  },
+  {
+   "rank": 9,
+   "title": "search.pedro.org.au",
+   "url": "https://search.pedro.org.au/search-results/record-detail/44266"
+  }
+ ],
+ "summary": "The exact paper is available. It's Tsou, Chang, and Chang, published July 17, 2025 in *Journal of Functional Morphology and Kinesiology* (DOI 10.3390/jfmk10030277). The review included 14 studies, all of which evaluated PMT after DOMS was induced. The search covered PubMed and EMBASE. Four studies were pooled, comparing PMT with placebo for visual analog scale (VAS) scores and muscle strength at 24 to 96 hours. The results showed a statistically significant reduction in VAS scores at 72 hours (pooled SMD = −0.55). The search result cuts off before the remaining findings, so I couldn't confirm the strength outcomes or the 96-hour results.\n\nA earlier related review by Nampo and colleagues (2016, *Lasers in Medical Science*) reached more cautious conclusions. It identified 15 studies involving 317 participants. Compared to placebo, CK reduction was only observed when LASER therapy was applied before an exercise protocol. No between-group difference in edema, range of movement, and strength was detected when phototherapy was applied before or after exercise.",
+ "id": "study-10-3390-jfmk10030277",
+ "group": "study",
+ "persona": "",
+ "purpose": "Ověření studie z registru: doi:10.3390/jfmk10030277"
+}

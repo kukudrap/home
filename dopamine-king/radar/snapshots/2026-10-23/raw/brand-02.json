@@ -1,0 +1,62 @@
+{
+ "query": "mitolight.cz",
+ "query_sent": "mitolight.cz",
+ "allowed_domains": [],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:22:05Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "Více Mito Light produktu",
+   "url": "https://www.heureka.cz/znacky/mito-light/"
+  },
+  {
+   "rank": 2,
+   "title": "MITO LIGHT® Europe Reviews 397",
+   "url": "https://ca.trustpilot.com/review/mitolight.com"
+  },
+  {
+   "rank": 3,
+   "title": "cn.panjiva.com",
+   "url": "https://cn.panjiva.com/Mit-Lighting-Co-Ltd/1184536"
+  },
+  {
+   "rank": 4,
+   "title": "ČESKÉSTAVBY.cz - vše o stavbě, zahradě a bydlení",
+   "url": "https://www.ceskestavby.cz/firmy/mitol-cz.html"
+  },
+  {
+   "rank": 5,
+   "title": "[Date Prev][Date Next][Thread Prev][Thread Next][Date Index][Thread Index]",
+   "url": "https://amper.ped.muni.cz/svetlo/a/msg00254.html"
+  },
+  {
+   "rank": 6,
+   "title": "Electric Lighting Equipment Manufacturing Companies in Czech Republic",
+   "url": "https://www.dnb.com/business-directory/company-information.electric_lighting_equipment_manufacturing.cz.html?page=4"
+  },
+  {
+   "rank": 7,
+   "title": "MITON CZ opět třetí nejrychleji rostoucí technologickou firmou v ČR",
+   "url": "https://www.lupa.cz/tiskove-zpravy/miton-cz-opet-treti-nejrychleji-rostouci-firmou/"
+  },
+  {
+   "rank": 8,
+   "title": "Electric Lighting Equipment Manufacturing Companies in Czech Republic",
+   "url": "https://www.dnb.com/business-directory/company-information.electric_lighting_equipment_manufacturing.cz.html?page=3"
+  },
+  {
+   "rank": 9,
+   "title": "MITON Mirrors s.r.o., IČO (11809027), sídlo Praha",
+   "url": "https://www.mesec.cz/rejstrik-firem/firma-miton-mirrors-s-r-o-11809027"
+  }
+ ],
+ "summary": "The search didn't return mitolight.cz itself. The results mostly point to MITO LIGHT, a red and infrared light therapy brand, which may be the same business.\n\n- **Czech product listings:** A Heureka.cz brand page lists MITO LIGHT products, including bulbs, panels (Starter, Expert, Master, Biohacker), and a sleep mask. Několik produktů je k dispozici pod značkou Mito Light, například červené a infračervené panely a žárovky. I can't confirm from the snippet which of these the .cz site sells.\n- **Reviews:** Trustpilot lists reviews for mitolight.com, not mitolight.cz. Reviewers are mixed. One criticized a bulb's heat output and a flexible arm that couldn't hold the bulb. Others praised delivery and results, and one mentioned living in Sweden. The company replied to several reviews.\n- **Unrelated results:** The other hits, such as MITON CZ, Mit Lighting Co., and a light-pollution law page, don't relate to this brand.\n\nTo confirm whether mitolight.cz is an official site for this brand, I'd suggest opening it directly or checking whether it links to mitolight.com.",
+ "id": "brand-02",
+ "group": "brand",
+ "persona": "",
+ "purpose": "Adresa webu"
+}

@@ -1,0 +1,62 @@
+{
+ "query": "Long-term efficacy and safety of photobiomodulation in dry age-related macular degeneration (LIGHTSITE III: 24-month analysis)",
+ "query_sent": "Long-term efficacy and safety of photobiomodulation in dry age-related macular degeneration (LIGHTSITE III: 24-month analysis)",
+ "allowed_domains": [],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:26:15Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "lightsite iii photobiomodulation slows onset of geographic atrophy in dry amd",
+   "url": "https://hcplive.com/view/lightsite-iii-photobiomodulation-slows-onset-of-geographic-atrophy-in-dry-amd"
+  },
+  {
+   "rank": 2,
+   "title": "LumiThera Announces Sustained Vision Improvement for 24 months in Dry Age Related Macular Degeneration Subjects from US LIGHTSITE III Clinical Trial Data",
+   "url": "https://www.businesswire.com/news/home/20230315005170/en/LumiThera-Announces-Sustained-Vision-Improvement-for-24-months-in-Dry-Age-Related-Macular-Degeneration-Subjects-from-US-LIGHTSITE-III-Clinical-Trial-Data"
+  },
+  {
+   "rank": 3,
+   "title": "egms.de",
+   "url": "https://www.egms.de/static/de/meetings/doc2023/23doc090.shtml"
+  },
+  {
+   "rank": 4,
+   "title": "www.ansa.it",
+   "url": "https://www.ansa.it/sito/notizie/economia/business_wire/news/2023-03-15_115522411.html"
+  },
+  {
+   "rank": 5,
+   "title": "reachmd.com",
+   "url": "https://reachmd.com/news/photobiomodulation-vision-gains-dry-amd/2486895/"
+  },
+  {
+   "rank": 6,
+   "title": "lightsite iii photobiomodulation slows onset of geographic atrophy in dry amd",
+   "url": "https://www.consultantlive.com/view/lightsite-iii-photobiomodulation-slows-onset-of-geographic-atrophy-in-dry-amd"
+  },
+  {
+   "rank": 7,
+   "title": "june 2026 volume 22 number 6",
+   "url": "https://www.reviewofophthalmology.com/newsletter/retinaonline/june-2026-volume-22-number-6"
+  },
+  {
+   "rank": 8,
+   "title": "6708 clinical trial shows sustained vision improvement in light delivery system for dry amd",
+   "url": "https://eyesmart.com.au/newsarticle/6708-clinical-trial-shows-sustained-vision-improvement-in-light-delivery-system-for-dry-amd"
+  },
+  {
+   "rank": 9,
+   "title": "Published in Pipeline",
+   "url": "https://glance.eyesoneyecare.com/stories/2023-03-15/lumithera-reports-24-month-data-from-lightsite-iii-trial-for-dry-amd/"
+  }
+ ],
+ "summary": "The search didn't return the full Retina paper itself, but several summaries cover the 24-month results.\n\n- **Publication:** A listing gives the citation as Jaffe GJ, Boyer D, Hu A, et al., *Retina* 2026;46:5:783-95. The authors describe multiwavelength photobiomodulation as an interventional therapy that restores visual function and has potential disease-modifying effects in intermediate dry AMD.\n- **Design:** The trial was a double-masked, randomized, sham-controlled, parallel-group, multicenter trial with 100 individuals (148 eyes). Treatment was given 3 times per week, delivered every 4 months over 24 months.\n- **Vision:** The company-reported 24-month figure is 5.9 vs 1.0 letters (p = 0.0015) for treated versus sham eyes. A later readout reports a +6.2-letter BCVA gain at month 21.\n- **Progression:** Investigators reported an approximately 53% reduction in vision loss and 73% reduction in incident GA over a 24-month study period.\n- **Safety:** One summary states no phototoxicity was reported, ocular adverse-event rates were similar between groups, and neovascular AMD occurred in both groups.\n\nCaveats: most sources are press or conference coverage, and some were funded or promoted by the device maker, LumiThera. The 2023 company release and the 2026 ReachMD piece also report different timepoints (24 months versus month 21) for the BCVA gain. Check the full *Retina* article for the primary data.",
+ "id": "study-pbm-lightsite3-2026",
+ "group": "study",
+ "persona": "",
+ "purpose": "Ověření studie z registru: seed:pbm-lightsite3-2026"
+}

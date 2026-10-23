@@ -1,0 +1,62 @@
+{
+ "query": "terapie červeným světlem kolagen",
+ "query_sent": "terapie červeným světlem kolagen",
+ "allowed_domains": [],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:23:36Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "Červené světlo, jak funguje terapie lampou?",
+   "url": "https://www.drmax.cz/zeptejte-se-lekarnika/cervene-svetlo-jak-funguje-terapie-lampou"
+  },
+  {
+   "rank": 2,
+   "title": "900076 kolagenova terapia horuca novinka pre omladenie tela a obnovu pokozky",
+   "url": "https://www.zlavomat.sk/akcia/900076-kolagenova-terapia-horuca-novinka-pre-omladenie-tela-a-obnovu-pokozky?mainImageId=8093510"
+  },
+  {
+   "rank": 3,
+   "title": "900076 kolagenova terapia horuca novinka pre omladenie tela a obnovu pokozky",
+   "url": "https://www.zlavomat.sk/akcia/900076-kolagenova-terapia-horuca-novinka-pre-omladenie-tela-a-obnovu-pokozky"
+  },
+  {
+   "rank": 4,
+   "title": "859204 kolagenova terapia horuca novinka pre omladenie tela a obnovu pokozky",
+   "url": "https://www.zlavomat.sk/akcia/859204-kolagenova-terapia-horuca-novinka-pre-omladenie-tela-a-obnovu-pokozky"
+  },
+  {
+   "rank": 5,
+   "title": "16373 terapie cervenym a blizko infra cervenym svetlem zkusenosti",
+   "url": "https://www.poradte.cz/nejen-pro-zeny/16373-terapie-cervenym-a-blizko-infra-cervenym-svetlem-zkusenosti.html"
+  },
+  {
+   "rank": 6,
+   "title": "Využívajú ho biohackeri, podnikatelia aj športovci. Účinná „červená“ terapia má skryté benefity",
+   "url": "https://www.startitup.sk/?p=873094"
+  },
+  {
+   "rank": 7,
+   "title": "cesi objevuji terapii cervenym svetlem roste z ni dalsi miliardovy byznys",
+   "url": "https://forbes.cz/cesi-objevuji-terapii-cervenym-svetlem-roste-z-ni-dalsi-miliardovy-byznys/"
+  },
+  {
+   "rank": 8,
+   "title": "Hlavní obsah",
+   "url": "https://www.seznamzpravy.cz/clanek/magazin-zivotni-styl-posvitte-si-cervene-proc-v-cervenem-svetle-jedou-sportovci-herci-i-astronauti-265068"
+  },
+  {
+   "rank": 9,
+   "title": "ff36fa9f 079b 4a29 919e ab3e2c98a065",
+   "url": "https://colliery-recovery-s-r-o.reservio.com/services/ff36fa9f-079b-4a29-919e-ab3e2c98a065"
+  }
+ ],
+ "summary": "The search returned mostly consumer and marketing sources, with some hedged pharmacy material.\n\n- **Pharmacy Q&A (Dr. Max):** The answer is hedged. Red light therapy mainly acts on the superficial skin layers, and according to available findings, it may improve skin quality, for example by supporting collagen formation, slightly improving skin elasticity, or aiding healing.\n- **Collagen \"sunbed\" marketing (Slovak clinic listings):** These claim that red-light tubes can kick-start the body's natural collagen production. They are promotional and give no clinical data.\n- **Startitup.sk:** It states that research also shows red light therapy effectively supports collagen formation, but cites no specific studies.\n- **Forbes.cz:** It reports athlete and entrepreneur testimonials, and the proposed mechanism is that red light acts on mitochondria, which function as the cell's power plants. It contains no controlled trial results.\n- **Forum thread (poradte.cz):** A user asks for personal experiences and notes that claims of collagen benefits come largely from online promotional material.\n\nOverall, the search found no strong clinical trial evidence in these results specifically showing collagen gains in humans. The mechanism and collagen claims come mainly from commercial or anecdotal sources. The typical device specs cited are wavelengths of 630-670 nm for red light and 810-850 nm for near-infrared light.",
+ "id": "per-03",
+ "group": "persona",
+ "persona": "beauty",
+ "purpose": "Beauty: kolagen"
+}

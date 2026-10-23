@@ -99,16 +99,23 @@ class LedgerAndClaimMapTests(unittest.TestCase):
             else:
                 self.assertFalse(note.startswith("Confirmed"), study["id"])
 
-    def test_leads_recalled_from_memory_carry_no_findings(self):
-        """A research lead states design and topic only, as context: nothing unchecked can support a claim."""
-        leads = [s for s in V.ledger().studies if "recalled from the author's knowledge" in s.verification_note]
-        self.assertGreaterEqual(len(leads), 8)
-        for study in leads:
-            self.assertFalse(study.verified)
-            self.assertIn("verify", study.verification_note.lower())
+    def test_unverified_studies_carry_no_findings(self):
+        """A record nobody confirmed states design and topic only, as context: nothing unchecked can support a claim."""
+        own = {s["id"] for s in json.loads((V.path / "ledger.json").read_text("utf-8"))["studies"]}      # the edition's own records
+        pending = {s.id for s in V.ledger().studies if s.id in own and not s.verified}
+        self.assertGreaterEqual(len(pending), 1)
+        for study in V.ledger().studies:
+            if study.id in pending:
+                self.assertTrue(study.verification_note.startswith("Not verified"), study.id)
         for study, link in all_pairs(self.ledger):
-            if study in leads:
+            if study.id in pending:
                 self.assertEqual(link.direction, "context", (study.id, link.tactic_id))
+
+    def test_every_verified_study_names_its_evidence(self):
+        own = {s["id"] for s in json.loads((V.path / "ledger.json").read_text("utf-8"))["studies"]}
+        for study in V.ledger().studies:
+            if study.verified and study.id in own:
+                self.assertTrue(study.verification_note.strip(), study.id)
 
     def test_every_topic_is_in_the_map_with_a_valid_label(self):
         self.assertEqual(set(self.map), set(self.topics))
@@ -128,8 +135,8 @@ class LedgerAndClaimMapTests(unittest.TestCase):
             counted = {s.id for s, _ in self.ledger.evidence_for(row["id"]) if s.verified}
             self.assertEqual(row["n_studies"], len(counted), row["id"])
             self.assertEqual(row["n_pending"], len(row["study_ids"]) - len(counted), row["id"])
-        self.assertEqual(self.map["pbm-skin-appearance"]["label"], "none")          # leads only until verified
-        self.assertGreater(self.map["pbm-skin-appearance"]["n_pending"], 0)
+        self.assertGreater(self.map["pbm-skin-appearance"]["n_pending"], 0)         # one review is still unconfirmed
+        self.assertGreater(self.map["pbm-wound-healing"]["n_pending"], 0)
 
     def test_medical_and_avoid_topics_stay_blocked_whatever_the_evidence(self):
         for row in self.map.values():
@@ -337,7 +344,7 @@ class SampleBriefTests(unittest.TestCase):
     def test_an_unverified_study_never_becomes_a_source(self):
         ledger = V.ledger()
         data = V._json("briefs.json")
-        broken = dict(data["source_ids"], vanin2018="seed:pbm-wunsch2014")        # an unverified lead
+        broken = dict(data["source_ids"], vanin2018="seed:pbm-glass2021")         # an unverified lead
         V._cache["briefs.json"] = {**data, "source_ids": broken}
         try:
             names = {s["id"] for s in V.briefs(ledger)["mito-light-en"].sources}

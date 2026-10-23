@@ -1,0 +1,62 @@
+{
+ "query": "červené světlo regenerace po tréninku",
+ "query_sent": "červené světlo regenerace po tréninku",
+ "allowed_domains": [],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:23:50Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "Hlavní obsah",
+   "url": "https://www.seznamzpravy.cz/clanek/magazin-zivotni-styl-posvitte-si-cervene-proc-v-cervenem-svetle-jedou-sportovci-herci-i-astronauti-265068"
+  },
+  {
+   "rank": 2,
+   "title": "ff36fa9f 079b 4a29 919e ab3e2c98a065",
+   "url": "https://colliery-recovery-s-r-o.reservio.com/services/ff36fa9f-079b-4a29-919e-ab3e2c98a065"
+  },
+  {
+   "rank": 3,
+   "title": "manual rl300 a2 6a5766f897d218.71495783",
+   "url": "https://pilulka.s3-central.vshosting.cloud/vms-prod-cs/vms/product/listing/2026/07/manual_rl300_a2_6a5766f897d218.71495783.pdf"
+  },
+  {
+   "rank": 4,
+   "title": "Biohacking, longevity a moderní zdraví",
+   "url": "https://www.newstream.cz/enjoy/biohacking-terapie-cervenym-svetlem"
+  },
+  {
+   "rank": 5,
+   "title": "Original title:",
+   "url": "https://invenio.nusl.cz/record/53195?ln=en"
+  },
+  {
+   "rank": 6,
+   "title": "Doba regenerace",
+   "url": "https://www8.garmin.com/manuals/webhelp/GUID-607F08F6-33FC-40BF-9727-84E54043D82D/CS-CZ/GUID-DAC27D10-886A-4EA8-8339-674479E9574A.html"
+  },
+  {
+   "rank": 7,
+   "title": "Co je SUPERKOMPENZACE?",
+   "url": "https://cykl.cz/slovnik-pojmu-sportovni-vyzivy-1-cast"
+  },
+  {
+   "rank": 8,
+   "title": "regenerácia po cvičení regenerácia po tréningu regenerácia potréningová zotavenie po tréningu zotavenie z cvičenia",
+   "url": "https://arl4.library.sk/arl-sllk/en/detail-sllk_un_auth-d000096062-zotavenie-po-cviceni"
+  },
+  {
+   "rank": 9,
+   "title": "Number of the records: 1",
+   "url": "https://arl4.library.sk/arl-sllk/en/detail-sllk_un_auth-d000096062-zotavenie-po-cviceni/?iset=10"
+  }
+ ],
+ "summary": "Search results on red light therapy (červené světlo) for post-training recovery are mixed: some sources are promotional, and the best-quality one is a balanced overview.\n\n- **Balanced overview (newstream.cz):** The evidence strength varies by use. Red light therapy has the most clinical data for pain, healing, and some skin conditions, while sleep and cognitive evidence is weaker. Muscle recovery is one of the areas where photobiomodulation shows fairly promising results, especially in athletes. The same article notes that studies suggest red and near-infrared light applied before intense training may reduce signs of muscle damage. The snippet is cut off, so I couldn't confirm the full findings.\n- **Promotional sources:** A clinic listing (Colliery Recovery, Ostrava) presents red light therapy as a recovery method that is suitable for muscle fatigue, back and joint pain, or as part of systematic recovery after training. A device manual (Glow RL300A) makes stronger claims, including that the light supports regeneration of damaged muscles. Neither source cites studies, so treat their claims as marketing.\n- **Popular-science piece (Seznam Zprávy):** It mentions athletes using the method and notes that research showed red light supports cell regeneration and speeds tissue healing. It is a lifestyle article rather than a scientific review.\n- **Background on recovery itself:** A Czech sports-nutrition glossary explains that recovery after training not only restores energy stores to baseline but raises them for a while, so the body becomes better prepared for the next similar load. This is the supercompensation concept that red light therapy claims would need to fit into.\n\nOverall, the search found no strong, Czech-language meta-analysis on red light for post-training recovery. The evidence appears most credible for muscle recovery and soreness, but results are mixed and the main sources are commercial or lifestyle pieces. Searching for a Czech or English systematic review or meta-analysis on photobiomodulation and muscle recovery would be the next step.",
+ "id": "per-07",
+ "group": "persona",
+ "persona": "fitness",
+ "purpose": "Fitness: regenerace"
+}

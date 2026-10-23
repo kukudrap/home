@@ -1,0 +1,64 @@
+{
+ "query": "Afifi Maranda Low-level laser therapy as a treatment for androgenetic alopecia Lasers in Surgery and Medicine",
+ "query_sent": "Afifi Maranda Low-level laser therapy as a treatment for androgenetic alopecia Lasers in Surgery and Medicine",
+ "allowed_domains": [
+  "pubmed.ncbi.nlm.nih.gov"
+ ],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:33:48Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "Novel Approach to Treating Androgenetic Alopecia in Females With Photobiomodulation (Low-Level Laser Therapy) - PubMed",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/28328705/?dopt=Abstract"
+  },
+  {
+   "rank": 2,
+   "title": "An Analysis of the Correlation between Alopecia and Chief Complaints - PubMed",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/22259727/"
+  },
+  {
+   "rank": 3,
+   "title": "Low-level laser therapy as a treatment for androgenetic alopecia - PubMed",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/27114071/"
+  },
+  {
+   "rank": 4,
+   "title": "Low-level laser therapy and narrative review of other treatment modalities in androgenetic alopecia - PubMed",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/32162134/"
+  },
+  {
+   "rank": 5,
+   "title": "Efficacy assessment for low-level laser therapy in the treatment of androgenetic alopecia: a real-world study on 1383 patients",
+   "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9343305/"
+  },
+  {
+   "rank": 6,
+   "title": "Alopecia healing apparatus using laser and LED",
+   "url": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/7722655"
+  },
+  {
+   "rank": 7,
+   "title": "Efficacy of Low-Level Laser Therapy in Androgenetic Alopecia - A Randomized Controlled Trial - PubMed",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/37305186/"
+  },
+  {
+   "rank": 8,
+   "title": "Comparative effectiveness of low-level laser therapy for adult androgenic alopecia: a system review and meta-analysis of randomized controlled trials - PubMed",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/30706177/"
+  },
+  {
+   "rank": 9,
+   "title": "Transcranial low-level laser stimulation in near infrared-II region for brain safety and protection",
+   "url": "https://arxiv.org/pdf/2407.09922"
+  }
+ ],
+ "summary": "The search turned up the paper you're looking for. It is a 2017 review in *Lasers in Surgery and Medicine* (49(1):27-39) by Afifi, Maranda and colleagues, and it is indexed on PubMed (index 3-16 to 3-18).\n\n- **Scope:** The review assessed whether low-level laser therapy works for androgenetic alopecia using objective measurements and patient satisfaction. Eleven studies were evaluated, which investigated a total of 680 patients, consisting of 444 males and 236 females.\n- **Findings:** Hair count results were positive in most studies. Nine of the eleven studies measuring hair count or density found significant gains. Hair thickness and tensile strength improved in two of four studies that measured them. Patient satisfaction was positive overall, though less pronounced than the objective results.\n- **Authors' conclusion:** They called the therapy a promising monotherapy for the condition, while urging caution in interpreting the findings.\n\nThe search results also contained some citation mix-ups. A PubMed entry (index 1-5 to 1-7) on a 2013 device study lists Afifi as first author, but its abstract is a different trial. Its results report a 51% hair count increase versus sham controls in women. I would verify that reference separately before citing it.",
+ "id": "study2-afifi2017",
+ "group": "study",
+ "persona": "",
+ "purpose": "Druhé ověření studie z registru (jen PubMed): seed:pbm-afifi2017"
+}

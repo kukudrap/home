@@ -1,0 +1,62 @@
+{
+ "query": "červené světlo svaly sportovci",
+ "query_sent": "červené světlo svaly sportovci",
+ "allowed_domains": [],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:23:57Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "Hlavní obsah",
+   "url": "https://www.seznamzpravy.cz/clanek/magazin-zivotni-styl-posvitte-si-cervene-proc-v-cervenem-svetle-jedou-sportovci-herci-i-astronauti-265068"
+  },
+  {
+   "rank": 2,
+   "title": "cesi objevuji terapii cervenym svetlem roste z ni dalsi miliardovy byznys",
+   "url": "https://forbes.cz/cesi-objevuji-terapii-cervenym-svetlem-roste-z-ni-dalsi-miliardovy-byznys/"
+  },
+  {
+   "rank": 3,
+   "title": "ff36fa9f 079b 4a29 919e ab3e2c98a065",
+   "url": "https://colliery-recovery-s-r-o.reservio.com/services/ff36fa9f-079b-4a29-919e-ab3e2c98a065"
+  },
+  {
+   "rank": 4,
+   "title": "Světlo je hack budoucnosti, říká Vít Schlesinger. Jeho infračervené panely si pořídila i fotbalová Sparta a Slavia",
+   "url": "https://cc.cz/svetlo-je-hack-budoucnosti-rika-vit-schlesinger-jeho-infracervene-panely-si-poridila-i-fotbalova-sparta-a-slavia/"
+  },
+  {
+   "rank": 5,
+   "title": "www.startitup.sk",
+   "url": "https://www.startitup.sk/?p=1028868"
+  },
+  {
+   "rank": 6,
+   "title": "manual rl300 a2 6a5766f897d218.71495783",
+   "url": "https://pilulka.s3-central.vshosting.cloud/vms-prod-cs/vms/product/listing/2026/07/manual_rl300_a2_6a5766f897d218.71495783.pdf"
+  },
+  {
+   "rank": 7,
+   "title": "Biohacking, longevity a moderní zdraví",
+   "url": "https://www.newstream.cz/enjoy/biohacking-terapie-cervenym-svetlem"
+  },
+  {
+   "rank": 8,
+   "title": "Feeling Knotted? How Red Light Therapy for Muscle Recovery Can Help Athletes",
+   "url": "https://www.lumaflex.com/blogs/lumaflex-news/feeling-knotted-how-red-light-for-muscle-recovery-red-light-therapy-for-ligaments-red-light-therapy-for-pain-inflammation"
+  },
+  {
+   "rank": 9,
+   "title": "Red Light Therapy for Injuries",
+   "url": "https://lumaflex.com/blogs/lumaflex-news/recovery-with-red-light-therapy-for-injuries"
+  }
+ ],
+ "summary": "The search returned mostly popular and commercial sources, with some evidence-based material.\n\n- **Evidence is mixed.** A Newstream article says red and near-infrared light has promising results for muscle recovery in athletes, and that before intense training it may reduce signs of muscle damage (sources note muscle recovery is one of the areas where photobiomodulation shows fairly promising results, especially in athletes). The same article says evidence is strongest for pain, healing and some skin conditions, and weaker for sleep and cognition (the amount and quality of evidence differs between areas of use; the most clinical data exist for pain treatment, healing support and some dermatological indications).\n- **Mechanism claims.** Sources describe the proposed mechanism as acting on mitochondria, the cell's energy producers (red light acts on mitochondria, which function as the cells' power plants). Note that these are mostly from the manufacturers and clinics below.\n- **Athlete use.** Athletes and clinics use it for recovery after training. One Czech clinic describes muscles recovering after exercise with red light sessions (clients use red light at any time of day, including after exercise, when their muscles recover well). A Czech article notes that athletes such as a marathon runner use panels for regeneration (a marathon runner who regularly recovers in front of a panel of red diodes after demanding performance).\n- **Commercial and promotional sources.** Several results are product or clinic pages with strong claims (for example, a Lumaflex blog says RLT speeds up muscle tissue repair by enhancing mitochondrial activity and ATP production). Treat these as marketing rather than independent evidence.\n- **Origin story.** The therapy is often traced to NASA experiments in the 1990s, though one Slovak source places early research in the 1980s (first serious research began in the 1980s, when Ron Ignatius, working with NASA and the Wisconsin Center for Space Automation, studied its use in microgravity).\n\nOverall: there is some reasonable evidence for reduced muscle soreness and faster recovery, but the data are limited and much of the promotion comes from sellers. The most useful next step would be a search for peer-reviewed meta-analyses on photobiomodulation and muscle recovery in athletes.",
+ "id": "per-08",
+ "group": "persona",
+ "persona": "fitness",
+ "purpose": "Fitness: svaly a sportovci"
+}

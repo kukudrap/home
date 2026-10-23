@@ -1,0 +1,67 @@
+{
+ "query": "Efficacy and safety of a low-level laser device in the treatment of male and female pattern hair loss: a multicenter, randomized, sham device-controlled, double-blind study",
+ "query_sent": "Efficacy and safety of a low-level laser device in the treatment of male and female pattern hair loss: a multicenter, randomized, sham device-controlled, double-blind study",
+ "allowed_domains": [],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:26:53Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "efficacy and safety of a low level laser device in the treatment",
+   "url": "https://experts.umn.edu/en/publications/efficacy-and-safety-of-a-low-level-laser-device-in-the-treatment-/"
+  },
+  {
+   "rank": 2,
+   "title": "dash.harvard.edu",
+   "url": "https://dash.harvard.edu/handle/1/12152951"
+  },
+  {
+   "rank": 3,
+   "title": "pubmed.ncbi.nlm.nih.gov",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/24474647/"
+  },
+  {
+   "rank": 4,
+   "title": "73120378 ca79 6bd4 e053 0100007fdf3b",
+   "url": "https://dash.harvard.edu/entities/publication/73120378-ca79-6bd4-e053-0100007fdf3b"
+  },
+  {
+   "rank": 5,
+   "title": "Low Level Laser Light Therapy (LLLT) for Hair Loss",
+   "url": "https://americanhairloss.org/?p=660"
+  },
+  {
+   "rank": 6,
+   "title": "Low Level Laser Light Therapy (LLLT) for Hair Loss",
+   "url": "https://www.americanhairloss.org/hair-loss-treatment/non-invasive-treatment/low-level-laser-light-therapy-lllt-for-hair-loss/"
+  },
+  {
+   "rank": 7,
+   "title": "pmc.ncbi.nlm.nih.gov",
+   "url": "https://pmc.ncbi.nlm.nih.gov/articles/3986893/"
+  },
+  {
+   "rank": 8,
+   "title": "10.1007%2Fs40257 013 0060 6",
+   "url": "https://link.springer.com/article/10.1007%2Fs40257-013-0060-6"
+  },
+  {
+   "rank": 9,
+   "title": "s40257 013 0060 6",
+   "url": "https://link.springer.com/article/10.1007/s40257-013-0060-6"
+  },
+  {
+   "rank": 10,
+   "title": "h1.qusth1 { display: none !important; }",
+   "url": "https://donovanmedical.com/hair-blog/2014/2/9/new-study-of-hairmax-lasercomb-shows-benefit-in-men-and-women"
+  }
+ ],
+ "summary": "The study is published as Jimenez et al., *American Journal of Clinical Dermatology* (2014), 15(2):115-127, PubMed ID 24474647. The search returned the abstract and bibliographic details but not the full results.\n\n- **Device and aim:** The trial tested the FDA-cleared HairMax Lasercomb to see whether it increases terminal hair density in men and women with pattern hair loss. The objective was to determine whether treatment with a low-level laser device, the US FDA-cleared HairMax Lasercomb®, increases terminal hair density in both men and women with pattern hair loss.\n- **Design:** The authors ran randomized, sham-controlled, double-blind trials at several institutional and private practices. Of those screened, 128 male and 141 female subjects were randomized to a lasercomb (one of three models) or a sham device, treated on the whole scalp three times a week for 26 weeks.\n- **Blinding:** The site investigators and the subjects remained blinded to the type of device they dispensed or received, and the evaluator of masked digital photographs was blinded to trial arm.\n- **Context:** The authors noted that there had been little peer-reviewed data on the efficacy of commercial low-level laser devices.\n\nI did not find the primary outcome results or the safety findings in these results. A secondary source describes the work as one of the first high quality independent multi centre studies in LLLT, but that is a dermatologist's blog opinion, not an independent evaluation. For the actual efficacy numbers, the full text at the Springer or PubMed link would need to be checked.",
+ "id": "study-pbm-jimenez2014",
+ "group": "study",
+ "persona": "",
+ "purpose": "Ověření studie z registru: seed:pbm-jimenez2014"
+}

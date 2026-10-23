@@ -1,0 +1,62 @@
+{
+ "query": "nejlepší panel červeného světla srovnání",
+ "query_sent": "nejlepší panel červeného světla srovnání",
+ "allowed_domains": [],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:22:54Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "Luminousred Model 2 Pro",
+   "url": "https://outliyr.com/?p=70996"
+  },
+  {
+   "rank": 2,
+   "title": "16528 jaky panel pro terapii cervenym a near infra red svetlem",
+   "url": "https://www.poradte.cz/nejen-pro-zeny/16528-jaky-panel-pro-terapii-cervenym-a-near-infra-red-svetlem.html"
+  },
+  {
+   "rank": 3,
+   "title": "# 💡 Best LED Light Panels for 2025",
+   "url": "https://shopsavvy.com/best-picks/best-led-light-panels.md"
+  },
+  {
+   "rank": 4,
+   "title": "background preloader",
+   "url": "https://www.pearltrees.com/rog2/item744123783"
+  },
+  {
+   "rank": 5,
+   "title": "Top 7 Best Red Light Therapy Panels for 2024: Ultimate Guide",
+   "url": "https://csr.hdsupply.com/?p=11009"
+  },
+  {
+   "rank": 6,
+   "title": "compare mito red light vs platinumled",
+   "url": "https://mitoredlight.com/blogs/mito-red-blog/compare-mito-red-light-vs-platinumled"
+  },
+  {
+   "rank": 7,
+   "title": "red light mask vs panel",
+   "url": "https://vtour1.ocus.com/post/red-light-mask-vs-panel"
+  },
+  {
+   "rank": 8,
+   "title": "Top 10 Best Red Light Therapy Panels of 2026: Boost Skin, Recovery, and Mood",
+   "url": "https://csr.hdsupply.com/?p=23395"
+  },
+  {
+   "rank": 9,
+   "title": "Best Red Light Therapy Panels for Optimal Results",
+   "url": "https://do2.dr-chuck.com/?p=38195"
+  }
+ ],
+ "summary": "Jediný \"nejlepší\" panel z výsledků nevyplývá. Většinou jde o anglické srovnávací články a jedna česká diskuze.\n\n- **Česká diskuze:** Na poradte.cz se uživatel rozhoduje mezi panely Mito Light Starter 3.0 a 4.0 a Lighthacker Gold. Lighthacker má podle něj vyšší výkon, ale méně vlnových délek. Odpovědi v diskuzi jsou spíše nevyhraněné, takže nejde o spolehlivé srovnání. Uvedené parametry pocházejí od uživatele a ceny (12 900 až 18 800 Kč) mohou být neaktuální.\n- **Obecná kritéria:** Jeden článek radí hledat kombinaci červeného (630-680 nm) a blízkého infračerveného světla (800-850 nm) a výkon alespoň 50 mW/cm² ([8-6](8-6), [8-9](8-9)). Další zdůrazňuje certifikace jako CE, FCC a UL ([5-3](5-3)).\n- **Anglické srovnání 2026:** Článek s žebříčkem deseti panelů uvádí jako první iRestore Pro 200 W pro celotělové ošetření ([8-19](8-19)). Jeho zdroj je ale komerční a kvalita srovnání není nezávislá.\n- **Velikost a dávka:** Vzdálenost od panelu a úhel ovlivňují dávku světla více než samotný typ panelu ([6-2](6-2)).\n\nDoporučuji ověřit specifikace přímo u výrobců (vlnové délky, mW/cm² ve stanovené vzdálenosti) a hledat nezávislé testy, protože výsledky jsou převážně marketingové. Pokud chcete, mohu dohledat konkrétní české prodejce nebo nezávislé testy.",
+ "id": "cat-06",
+ "group": "category",
+ "persona": "",
+ "purpose": "Srovnání přístrojů"
+}

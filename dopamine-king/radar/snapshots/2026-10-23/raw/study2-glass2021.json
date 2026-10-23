@@ -1,0 +1,64 @@
+{
+ "query": "Glass Photobiomodulation: The Clinical Applications of Low-Level Light Therapy Aesthetic Surgery Journal 2021",
+ "query_sent": "Glass Photobiomodulation: The Clinical Applications of Low-Level Light Therapy Aesthetic Surgery Journal 2021",
+ "allowed_domains": [
+  "pubmed.ncbi.nlm.nih.gov"
+ ],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:34:02Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "Adherence to Protocol Registration Among Systematic Reviews on Photobiomodulation: A Meta-Research Study - PubMed",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/41508740/"
+  },
+  {
+   "rank": 2,
+   "title": "Photobiomodulation: evidence and applications in ophthalmology - PubMed",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/40471752/"
+  },
+  {
+   "rank": 3,
+   "title": "Correction to: Photobiomodulation: The Clinical Applications of Low-Level Light Therapy - PubMed",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/35043142/"
+  },
+  {
+   "rank": 4,
+   "title": "The Application of Light Emitting Diode (LED) in Cosmetic Dermatology - PubMed",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/40751922/"
+  },
+  {
+   "rank": 5,
+   "title": "Photobiomodulation: A Systematic Review of the Oncologic Safety of Low-Level Light Therapy for Aesthetic Skin Rejuvenation",
+   "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10309024/"
+  },
+  {
+   "rank": 6,
+   "title": "Physical Principles of Quantum Biology",
+   "url": "https://arxiv.org/pdf/2503.11747"
+  },
+  {
+   "rank": 7,
+   "title": "Effects of Low-Level Light Therapy (LLLT) on Oxidative Stress in the Cutaneous Healing Process: A Literature Review - PubMed",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/42233112/"
+  },
+  {
+   "rank": 8,
+   "title": "Non-invasive systems and methods for in-situ photobiomodulation",
+   "url": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/10391330"
+  },
+  {
+   "rank": 9,
+   "title": "Immunomodulatory effects of photobiomodulation: a comprehensive review",
+   "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11991943/"
+  }
+ ],
+ "summary": "The search didn't return the article's full text or abstract, but it confirmed the bibliographic details and turned up related work.\n\n- **Citation details:** Other papers cite it as Glass GE, *Aesthetic Surgery Journal* 2021, vol. 41, no. 6, pp. 723-738, DOI 10.1093/asj/sjab025 (Aesthetic Surgery Journal 41, no. 6 (2021;18): 723-738, 10.1093/asj/sjab025). The author is Graeme Ewan Glass, and it is labeled a review article (PMID 33471046).\n- **Correction:** A correction notice was published in April 2022 (DOI 10.1093/asj/sjab396). It is listed under the 2021 article's citation, but the search results don't say what it changed. Check the notice before citing the article.\n- **Related work by the same author:** A 2023 systematic review on the oncologic safety of PBM for skin rejuvenation in the same journal. Its conclusion is that current clinical and preclinical evidence suggests that PBM is oncologically safe for skin rejuvenation.\n- **Citing literature:** Later reviews cite the 2021 article as a source on clinical PBM applications, including one on ophthalmology and one on LED use in cosmetic dermatology.\n\nFor the article's abstract and full text, I'd go to the journal's site or PubMed using the DOI above.",
+ "id": "study2-glass2021",
+ "group": "study",
+ "persona": "",
+ "purpose": "Druhé ověření studie z registru (jen PubMed): seed:pbm-glass2021"
+}

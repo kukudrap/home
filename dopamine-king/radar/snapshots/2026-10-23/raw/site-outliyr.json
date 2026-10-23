@@ -1,0 +1,69 @@
+{
+ "query": "Outliyr red light therapy panel review",
+ "query_sent": "Outliyr red light therapy panel review",
+ "allowed_domains": [
+  "outliyr.com"
+ ],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:32:09Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "The Best Full-Body Red Light Therapy Panels (2026 Review)",
+   "url": "https://outliyr.com/best-full-body-red-light-therapy-panels"
+  },
+  {
+   "rank": 2,
+   "title": "Best Red Light Therapy Panels 2026: 5 Spectrometer-Tested",
+   "url": "https://outliyr.com/best-home-red-light-therapy-devices"
+  },
+  {
+   "rank": 3,
+   "title": "Luminousred Review: Pro Red Light Therapy Or SCAM?",
+   "url": "https://outliyr.com/luminousred-review"
+  },
+  {
+   "rank": 4,
+   "title": "RLT Home Review: I Lab-Tested The 7-Wavelength TotalSpectrum Panels 2026",
+   "url": "https://outliyr.com/rlt-home-review"
+  },
+  {
+   "rank": 5,
+   "title": "The Best Budget Red Light Therapy Devices (2026): Lab-Tested",
+   "url": "https://outliyr.com/best-budget-red-light-therapy"
+  },
+  {
+   "rank": 6,
+   "title": "The Best Portable Red Light Therapy Devices (2026 Review)",
+   "url": "https://outliyr.com/best-portable-red-light-therapy-devices"
+  },
+  {
+   "rank": 7,
+   "title": "Red Light Therapy Buyer's Guide: Independent Testing Data",
+   "url": "https://outliyr.com/red-light-therapy-buyers-guide"
+  },
+  {
+   "rank": 8,
+   "title": "Ultimate Red Light Therapy Panels",
+   "url": "https://outliyr.com/shop/red-light-therapy"
+  },
+  {
+   "rank": 9,
+   "title": "LightpathLED Diesel Review: Best Red Light Panel?",
+   "url": "https://outliyr.com/lightpath-led-review"
+  },
+  {
+   "rank": 10,
+   "title": "BQ60",
+   "url": "https://outliyr.com/shop/bestqool-bq60"
+  }
+ ],
+ "summary": "I found several Outliyr reviews and roundups, but no dedicated review of a single \"Vital Red\" panel, so the Vital Red information comes only from roundup pages.\n\n- **Top full-body pick:** Outliyr's roundups name the RLT Home TotalSpectrum ELITE as the best for wavelength coverage. The author's own lab numbers are 70.75 mW/cm² at 12 inches, electromagnetic fields (EMF) of just 0.7 milligauss and fan noise of 51.5 decibels. The price is high, with one roundup calling $4,995 steep.\n- **Budget-leaning picks:** The Vital Red Elite is described as anti-flicker LEDs, solid build quality, and a sale price under $1,000. The PlatinumLED BioMax 900 is listed at $1,234, it sits in the mid-range for full-body panels.\n- **Lightpath Diesel:** One review calls the Diesel XL Shortie one of the strongest consumer red light panels I have tested. It is priced at $1,624, and the reviewer notes that its mode controls use numbered codes (0, 1, 2) instead of labeled LED indicators.\n- **Luminousred caveat:** The author's Luminousred review carries a note that, after an unprofessional experience with this company, I no longer recommend them.\n- **Caveats on the site:** Some specs are manufacturer-stated rather than independently verified. For example, one budget panel's listing says its manufacturer-stated irradiance, not independently verified at full distance range yet. Product pages also include shop-style links such as \"Track Rouge Pro G4 in your stack →\", so the recommendations may be commercially motivated. Independent cross-checking is worthwhile before buying.",
+ "id": "site-outliyr",
+ "group": "brandsite",
+ "persona": "",
+ "purpose": "Co zveřejňuje Outliyr (médium)"
+}

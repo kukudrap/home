@@ -1,0 +1,62 @@
+{
+ "query": "panel infračervené světlo e-shop Česko",
+ "query_sent": "panel infračervené světlo e-shop Česko",
+ "allowed_domains": [],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:24:54Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "Je Praha - Černý Most skutečně vaše prodejna?",
+   "url": "https://www.hornbach.cz/p/infracerveny-topny-panel-rozsireni-e2-infrae-sicco-127x602-mm-60-w/12498377/"
+  },
+  {
+   "rank": 2,
+   "title": "Je Praha - Černý Most skutečně vaše prodejna?",
+   "url": "https://www.hornbach.cz/p/infracerveny-topny-panel-eurom-mon-soleil-600-67x125x12-cm-600-watt-s-wi-fi/10138730/"
+  },
+  {
+   "rank": 3,
+   "title": "Je Praha - Černý Most skutečně vaše prodejna?",
+   "url": "https://www.hornbach.cz/p/infracerveny-topny-panel-eurom-mon-soleil-720-67x125-cm-720-wattu-s-wi-fi/10139542/"
+  },
+  {
+   "rank": 4,
+   "title": "Je Praha - Černý Most skutečně vaše prodejna?",
+   "url": "https://www.hornbach.cz/p/infracerveny-topny-panel-eurom-mon-soleil-350-67x88x12-cm-350-watt-s-wi-fi/10138729/"
+  },
+  {
+   "rank": 5,
+   "title": "29684 manual Infracerveny LED panel inSPORTline Lustar CZ",
+   "url": "https://www.insportline.cz/upload/file/29684_manual_Infracerveny_LED_panel_inSPORTline_Lustar_CZ.pdf"
+  },
+  {
+   "rank": 6,
+   "title": "Je Praha - Černý Most skutečně vaše prodejna?",
+   "url": "https://www.hornbach.cz/p/infrapanel-e2-infrae-smarteasy-100-x-60-cm-800-w/10583510/"
+  },
+  {
+   "rank": 7,
+   "title": "Je Praha - Černý Most skutečně vaše prodejna?",
+   "url": "https://www.hornbach.cz/p/infrapanel-infrae-base-e2-97-5-x-57-cm-450-w/10145366"
+  },
+  {
+   "rank": 8,
+   "title": "Je Praha - Černý Most skutečně vaše prodejna?",
+   "url": "https://www.hornbach.cz/p/infrapanel-complete-frame-m-700w/12297322/"
+  },
+  {
+   "rank": 9,
+   "title": "Je Praha - Černý Most skutečně vaše prodejna?",
+   "url": "https://www.hornbach.cz/p/infrapanel-eurom-mon-soleil-dsp-frame-720-w/12013141/"
+  }
+ ],
+ "summary": "The search returned two kinds of infrared panels sold in Czechia, and they are quite different products.\n\n**Infrared heating panels (mostly Hornbach.cz):** Hornbach lists several models, from a 60 W panel suited to bathrooms, workshops and living rooms to a 800 W glass-front model with adjustable output. The Eurom Mon Soleil range includes Wi-Fi models in 600 W and 770 W versions. A 700 W model with a remote control was listed as available for pickup within two hours at a store. Delivery times for the others run from about nine working days to two to three weeks.\n\n**Infrared LED therapy panel (inSPORTline):** The one non-heating result is the inSPORTline Lustar manual. It describes a 450 W panel with 300 LEDs and wavelengths from 630 nm to 850 nm. The manual states that the device is not a health aid and is not suitable for pregnant or breastfeeding women, or for children and toddlers.\n\n**Limitations:** The results contain no Czech price comparisons, and no shop other than Hornbach or the inSPORTline manual appeared. For current prices and stock, check the individual shop pages directly.",
+ "id": "com-08",
+ "group": "competitor",
+ "persona": "",
+ "purpose": "Kde se panely prodávají (infračervené)"
+}

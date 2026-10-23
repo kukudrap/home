@@ -1,0 +1,62 @@
+{
+ "query": "červené světlo panel cena",
+ "query_sent": "červené světlo panel cena",
+ "allowed_domains": [],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:22:45Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "Indikátor pro montáž do panelu 14mm Prominentní barva Červená, typ žárovky: LED Pájecí plíšek, 12V ac/dc RS PRO",
+   "url": "https://cz.rs-online.com/web/p/indikatory-pro-montaz-do-panelu/0205296"
+  },
+  {
+   "rank": 2,
+   "title": "Skupina produktů:",
+   "url": "https://www.drmax.cz/cbd-star-red-light-panel-300-w-terapie-cervenym-svetlem"
+  },
+  {
+   "rank": 3,
+   "title": "Mezisoučet (1 jednotka)*",
+   "url": "https://cz.rs-online.com/web/p/majaky/2204990"
+  },
+  {
+   "rank": 4,
+   "title": "16528 jaky panel pro terapii cervenym a near infra red svetlem",
+   "url": "https://www.poradte.cz/nejen-pro-zeny/16528-jaky-panel-pro-terapii-cervenym-a-near-infra-red-svetlem.html"
+  },
+  {
+   "rank": 5,
+   "title": "LED světla semaforu LED 1 světelný prvek barva Červená 20 → 30 V DC",
+   "url": "https://cz.rs-online.com/web/p/signalni-sloupky/2864204"
+  },
+  {
+   "rank": 6,
+   "title": "svitilna cervena",
+   "url": "https://www.reimo.com/cs/camping-shop/elektrika-pro-mobilni-domy-baterie/svetlo-vozidla-jokon/23537/svitilna-cervena"
+  },
+  {
+   "rank": 7,
+   "title": "LED displej Světelná lišta barva LED diody Červená 620 mcd Kingbright 630 nm",
+   "url": "https://cz.rs-online.com/web/p/led-displeje/8635128"
+  },
+  {
+   "rank": 8,
+   "title": "17 Nájdené výsledky pre \"light\"",
+   "url": "https://sk.farnell.com/c/optoelectronics-displays/light-pipe-led-assemblies?st=light"
+  },
+  {
+   "rank": 9,
+   "title": "LED barva Červená 630 nm 220 mcd 2,5 V 120° Kingbright Boční pohled",
+   "url": "https://cz.rs-online.com/web/p/led-diody/8624714"
+  }
+ ],
+ "summary": "The search mostly returned industrial indicator lights and LED components, not red light therapy panels. The therapy-panel results give only a few prices, and the most concrete ones come from an older forum thread.\n\n- **Therapy panels:** A forum thread on poradte.cz compares home panels. It lists the MITO LIGHT Starter 3.0 at 12,900 Kč, the Starter 4.0 at 15,900 Kč, and the Lighthacker Gold at 18,800 Kč. The thread's date isn't shown, so these prices may be outdated.\n- **Drmax product:** A Dr. Max listing for a 300 W red light panel describes the device but the snippet shows no price.\n- **Unrelated results:** RS Online's listings are for industrial indicator lights, traffic-light modules, and LED components, with prices from a few koruna to a few thousand.\n\nFor current prices, check the retailers' own pages, such as Dr. Max or MITO LIGHT's Czech site.",
+ "id": "cat-05",
+ "group": "category",
+ "persona": "",
+ "purpose": "Hledání ceny"
+}

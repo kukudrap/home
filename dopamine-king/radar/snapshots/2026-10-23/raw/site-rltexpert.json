@@ -1,0 +1,69 @@
+{
+ "query": "Red Light Therapy Expert red light therapy panel",
+ "query_sent": "Red Light Therapy Expert red light therapy panel",
+ "allowed_domains": [
+  "redlighttherapy.expert"
+ ],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:32:10Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "9 Best Red Light Therapy Panels 2026 (Irradiance Compared)",
+   "url": "https://redlighttherapy.expert/best-red-light-therapy-panels/"
+  },
+  {
+   "rank": 2,
+   "title": "Red Light Therapy: Evidence-Based Guide",
+   "url": "https://redlighttherapy.expert/"
+  },
+  {
+   "rank": 3,
+   "title": "Red Light Therapy for Back Pain",
+   "url": "https://redlighttherapy.expert/conditions/back-pain/"
+  },
+  {
+   "rank": 4,
+   "title": "Red Light Therapy for Weight Loss & Fat Reduction",
+   "url": "https://redlighttherapy.expert/conditions/weight-loss/"
+  },
+  {
+   "rank": 5,
+   "title": "Red Light Therapy for Depression: Evidence Review",
+   "url": "https://redlighttherapy.expert/conditions/depression/"
+  },
+  {
+   "rank": 6,
+   "title": "Red Light Therapy for Fibromyalgia & Chronic Pain",
+   "url": "https://redlighttherapy.expert/conditions/fibromyalgia/"
+  },
+  {
+   "rank": 7,
+   "title": "Best Tabletop Red Light Therapy Panels",
+   "url": "https://redlighttherapy.expert/best-tabletop-panels/"
+  },
+  {
+   "rank": 8,
+   "title": "Red Light Therapy for Sleep & Insomnia",
+   "url": "https://redlighttherapy.expert/conditions/sleep/"
+  },
+  {
+   "rank": 9,
+   "title": "Red Light Therapy for Eczema & Dermatitis",
+   "url": "https://redlighttherapy.expert/conditions/eczema/"
+  },
+  {
+   "rank": 10,
+   "title": "Red Light Therapy for Shoulder & Rotator Cuff",
+   "url": "https://redlighttherapy.expert/conditions/shoulder/"
+  }
+ ],
+ "summary": "The search returned a cluster of pages from redlighttherapy.expert, a site that covers panels, wavelengths, and condition-specific protocols.\n\n- **Panel recommendations:** The site's panel guide puts the Hooga HG300 forward as the best value mid-size pick and the PlatinumLED BioMax 900 as its top full-body option (the page ranks several panels by category, from mid-size units to full-body models). Its tabletop guide names the Mito Red MitoPRO 300 and Hooga HG300 as the strongest balance of performance and price (for most users, these two are presented as the best balance).\n- **Wavelengths:** The site says 660 nm and 850 nm are the usual pairing for home panels, and that 850 nm reaches deeper tissue (the wavelength table lists 850 nm as reaching roughly 4-5 cm).\n- **Use:** It suggests keeping distance at about 6-12 inches for panels and using sessions of 10-20 minutes, three to five times weekly (guidance on distance, duration, and frequency is grouped together on the basic protocol section).\n- **Claims about weight loss:** The site says home panels have no published evidence for direct fat loss, which is a more skeptical position than many marketing pages take (the weight-loss page states home LED panels have no published evidence for direct fat loss).\n\n**Caveats:** The pages contain affiliate-style Amazon \"Buy\" links, and the site's own numbers conflict. For example, the HG300's irradiance is listed as about 60 mW/cm² in one table and about 80 mW/cm² in another. The metadata marks these pages as roughly 215 days old, and the 2026 article's specs should be checked against manufacturer or independent test data before relying on them.",
+ "id": "site-rltexpert",
+ "group": "brandsite",
+ "persona": "",
+ "purpose": "Co zveřejňuje Red Light Therapy Expert (médium)"
+}

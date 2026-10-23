@@ -1,0 +1,64 @@
+{
+ "query": "PlatinumLED red light therapy panel benefits",
+ "query_sent": "PlatinumLED red light therapy panel benefits",
+ "allowed_domains": [
+  "platinumtherapylights.com"
+ ],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:31:26Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "Red Light Therapy Panels: Power & Coverage",
+   "url": "https://platinumtherapylights.com/blogs/news/red-light-therapy-panel"
+  },
+  {
+   "rank": 2,
+   "title": "630 & 660 nm Wavelength Benefits of Red Light Therapy",
+   "url": "https://platinumtherapylights.com/blogs/news/nir-the-most-advanced-led-therapy-light-spectrum"
+  },
+  {
+   "rank": 3,
+   "title": "Which Size Red Light Panel Is Right for You?",
+   "url": "https://www.platinumtherapylights.com/blogs/news/which-size-red-light-therapy-panel"
+  },
+  {
+   "rank": 4,
+   "title": "Lifestyle Benefits of Red Light Therapy",
+   "url": "https://platinumtherapylights.com/blogs/news/lifestyle-benefits-of-red-light-therapy"
+  },
+  {
+   "rank": 5,
+   "title": "DIY Red Light Therapy at Home",
+   "url": "https://platinumtherapylights.com/blogs/news/diy-red-light-therapy"
+  },
+  {
+   "rank": 6,
+   "title": "Clinical-Grade Red Light Therapy Panel",
+   "url": "https://www.platinumtherapylights.com/products/biomax-pro"
+  },
+  {
+   "rank": 7,
+   "title": "How It Works",
+   "url": "https://platinumtherapylights.com/pages/how-it-works"
+  },
+  {
+   "rank": 8,
+   "title": "The 12 Best Red Light Therapy Devices of 2024",
+   "url": "https://platinumtherapylights.com/blogs/news/red-light-therapy-at-home"
+  },
+  {
+   "rank": 9,
+   "title": "Red / NIR Therapy Lights",
+   "url": "https://platinumtherapylights.com/"
+  }
+ ],
+ "summary": "The search turned up mostly manufacturer material from PlatinumLED's own site, so the benefit claims below are the company's, not independent findings.\n\n- **Wavelengths:** The company says its R+|NIR+ spectrum covers seven wavelengths, from 480nm blue to 1060nm near-infrared, and it markets the BIOMAX line on five core wavelengths (630, 660, 810, 830, and 850nm). Its spectrum is described as optimized for broad tissue absorption, ATP production, and mitochondrial support.\n- **Claimed uses:** The site links the panels to pain relief, recovery, and skin health. Its other pages list claims such as collagen stimulation, reduced inflammation, and faster healing (per the \"How It Works\" page). Some of these claims are broad, and the company's own material is not a clinical evaluation.\n- **Power and coverage:** The company says its newer panels are stronger and cover the body better, with larger arrays for full-body use. A third-party review cites a figure of 185 mW/cm² for the BIOMAX series, against an industry average it puts at 60-100 mW/cm² (the review notes the BIOMAX Series emits 185 mW/cm²).\n- **Warranty:** A review article describes the BIOMAX line as having an industry-leading 3-year warranty.\n- **Caveats:** The company's own page concedes that results vary, and protocols are still evolving. Treat the marketing claims with caution, and check independent research before relying on any specific benefit.",
+ "id": "site-platinum",
+ "group": "brandsite",
+ "persona": "",
+ "purpose": "Co zveřejňuje PlatinumLED (USA)"
+}

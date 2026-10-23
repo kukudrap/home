@@ -1,0 +1,13 @@
+{
+ "tool": "claude-code WebSearch",
+ "plan": "mito-light-cz",
+ "records": 88,
+ "planned": 88,
+ "first_retrieved_at": "2026-10-23T20:22:05Z",
+ "last_retrieved_at": "2026-10-23T20:34:02Z",
+ "models": [
+  "claude-haiku-5-5"
+ ],
+ "missing": [],
+ "note": "Links are copied from the search tool's result exactly as returned. The summary is machine written text about the pages. Long dashes were replaced by a hyphen, nothing else was changed."
+}

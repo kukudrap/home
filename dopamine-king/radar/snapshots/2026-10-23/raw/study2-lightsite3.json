@@ -1,0 +1,69 @@
+{
+ "query": "LIGHTSITE III photobiomodulation dry age-related macular degeneration 24-month Retina Jaffe",
+ "query_sent": "LIGHTSITE III photobiomodulation dry age-related macular degeneration 24-month Retina Jaffe",
+ "allowed_domains": [
+  "pubmed.ncbi.nlm.nih.gov"
+ ],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:34:01Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "LONG-TERM EFFICACY AND SAFETY OF PHOTOBIOMODULATION IN DRY AGE-RELATED MACULAR DEGENERATION (LIGHTSITE III: 24-MONTH ANALYSIS) - PubMed",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/41791029/"
+  },
+  {
+   "rank": 2,
+   "title": "Photobiomodulation in Dry Age-Related Macular Degeneration: Promising Signal, Familiar Questions - PubMed",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/42018574/"
+  },
+  {
+   "rank": 3,
+   "title": "Observations Regarding the 24-Month Results of the LIGHTSITE III Trial - PubMed",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/42024302/"
+  },
+  {
+   "rank": 4,
+   "title": "LIGHTSITE III: 13-Month Efficacy and Safety Evaluation of Multiwavelength Photobiomodulation in Nonexudative (Dry) Age-Related Macular Degeneration Using the Lumithera Valeda Light Delivery System - PubMed",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/37972955/"
+  },
+  {
+   "rank": 5,
+   "title": "Study of Photobiomodulation to Treat Dry Age-Related Macular Degeneration (LIGHTSITE III)",
+   "url": "https://cdn.clinicaltrials.gov/large-docs/90/NCT04065490/Prot_SAP_001.pdf"
+  },
+  {
+   "rank": 6,
+   "title": "Cost-Effectiveness of Photobiomodulation for Intermediate Dry Age-Related Macular Degeneration: A Model-Based Analysis Using the LIGHTSITE III 24-Month Trial - PubMed",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/42501959/"
+  },
+  {
+   "rank": 7,
+   "title": "Study of Photobiomodulation to Treat Dry Age-Related Macular Degeneration (LIGHTSITE III)",
+   "url": "https://clinicaltrials.gov/study/NCT04065490"
+  },
+  {
+   "rank": 8,
+   "title": "A Response to: Letter to the Editor Regarding \"LIGHTSITE II Randomized Multicenter Trial: Evaluation of Multiwavelength Photobiomodulation in Non-exudative Age-Related Macular Degeneration\" - PubMed",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/38319553/"
+  },
+  {
+   "rank": 9,
+   "title": "Letter to the Editor Regarding \"Multiwavelength Photobiomodulation Improves Multiple Aspects of Visual Function in Early-Stage Dry Age-Related Macular Degeneration\" - PubMed",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/41998290/"
+  },
+  {
+   "rank": 10,
+   "title": "Comment on: 'Photobiomodulation-induced choriocapillaris perfusion enhancement and outer retinal remodelling in intermediate age-related macular degeneration: a promising therapeutic approach with short-term results' - PubMed",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/41408394/"
+  }
+ ],
+ "summary": "The LIGHTSITE III 24-month analysis was published in *Retina* in 2026 by Jaffe et al. A total of 148 eyes (100 subjects) with dry AMD were randomized into the study. The trial was double-masked and sham-controlled, using multiwavelength PBM from the Valeda system at 590, 660, and 850 nm. The authors report that the trial met the prespecified primary BCVA efficacy end point at M21 with a significant difference between treatment groups (P = 0.0036) and a +6.2 letter gain after PBM. The follow-up ran 24 months, and extended three months beyond treatment completion to assess carryover effect.\n\nCommentary has followed. A *Retina* editorial by Vavvas is titled \"Promising Signal, Familiar Questions\" (PubMed ID 42018574), and a separate piece by Zarbin addresses the 24-month results (PubMed ID 42024302). I did not retrieve the editorials' contents, so I can't say what they conclude.\n\nA model-based cost-effectiveness analysis using the 24-month data found PBM to be cost-effective at conventional US willingness-to-pay thresholds, driven primarily by a 71.7% relative reduction in incident GA at 24 months. Its authors say coverage consideration should wait pending independent replication of the GA reduction and prospective EQ-5D data collection. That GA figure comes from a model, not a direct trial endpoint, so treat it with caution.",
+ "id": "study2-lightsite3",
+ "group": "study",
+ "persona": "",
+ "purpose": "Druhé ověření studie z registru (jen PubMed): seed:pbm-lightsite3-2026"
+}

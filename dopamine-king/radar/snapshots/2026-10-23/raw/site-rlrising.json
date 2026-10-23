@@ -1,0 +1,64 @@
+{
+ "query": "Red Light Rising red light therapy panel benefits",
+ "query_sent": "Red Light Rising red light therapy panel benefits",
+ "allowed_domains": [
+  "redlightrising.com"
+ ],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:31:39Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "Stress reduction and sleep promotion system",
+   "url": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11013883"
+  },
+  {
+   "rank": 2,
+   "title": "Light therapy wearable",
+   "url": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11103722"
+  },
+  {
+   "rank": 3,
+   "title": "Light therapy wearable",
+   "url": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11130000"
+  },
+  {
+   "rank": 4,
+   "title": "Light therapy wearable",
+   "url": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11154722"
+  },
+  {
+   "rank": 5,
+   "title": "Light therapy wearable",
+   "url": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/10933253"
+  },
+  {
+   "rank": 6,
+   "title": "Advantage Red Light Therapy Panel",
+   "url": "https://redlightrising.com/products/advantage-2-0-series-red-light-therapy-full-body-panel"
+  },
+  {
+   "rank": 7,
+   "title": "Full Stack Red Light Therapy Panel",
+   "url": "https://redlightrising.com/products/full-stack-red-light-therapy-panel"
+  },
+  {
+   "rank": 8,
+   "title": "Incandescent Heat Lamps vs Red Light Therapy Panels: Key Differences",
+   "url": "https://redlightrising.com/blogs/read-more-2/incandescent-heat-lamps-vs-red-light-therapy-panels-key-differences"
+  },
+  {
+   "rank": 9,
+   "title": "Light therapy wearable",
+   "url": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11712577"
+  }
+ ],
+ "summary": "The search turned up mostly manufacturer marketing for Red Light Rising, plus some general research background from patent filings.\n\n**Red Light Rising's claims (from its own product pages):**\n- The Advantage panel comes in two sizes, 450 and 900, and uses five wavelengths (630, 660, 810, 830, and 850nm). It is a professional grade red light therapy panel available in two sizes (Advantage 450 and Advantage 900). Features 5 wavelengths (630nm, 660nm, 810nm, 830nm, 850nm), 6 preset Advantage Modes, built in touchscreen, wireless remote control, and modular connectivity.\n- The company says the near-infrared wavelengths may support joints and muscles. The page states that studies suggest they may support joint comfort, muscle wellness, and cellular energy production by interacting with cytochrome c oxidase.\n- The Full Stack model is a four-wavelength panel (630, 660, 810, 850nm). Its listing says 630nm supports circulation and skin tone, while 660nm may support collagen processes, eye comfort, and complexion.\n- One customer review on the Advantage page reports energy benefits to start the day. This is anecdotal.\n\n**General research background (from patent filings, not product-specific):**\n- One patent summarizes that red and infrared light has been found to increase blood flow to the muscles and joints, which creates an anti-inflammatory response, in addition to providing increased pliability.\n- Another says red or near-infrared light at night may aid in the production of melatonin and promote sleep.\n\n**Caveats:** The Red Light Rising pages are promotional, and the claims they make are hedged (\"may support\") rather than proven clinical outcomes. I didn't find independent clinical trials of these specific panels, and one product page appeared to be about 574 days old, so pricing and specs may have changed. The patent text is also background, not evidence about this brand.",
+ "id": "site-rlrising",
+ "group": "brandsite",
+ "persona": "",
+ "purpose": "Co zveřejňuje Red Light Rising (UK)"
+}

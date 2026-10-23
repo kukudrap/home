@@ -1,0 +1,69 @@
+{
+ "query": "Wareable red light therapy review",
+ "query_sent": "Wareable red light therapy review",
+ "allowed_domains": [
+  "wareable.com"
+ ],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:32:10Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "Best red light therapy masks of 2026: Tested picks for every skin goal",
+   "url": "https://www.wareable.com/health-tech/best-red-light-therapy-mask"
+  },
+  {
+   "rank": 2,
+   "title": "Testing the Celluma red light therapy panel: Is it worth it?",
+   "url": "https://www.wareable.com/health-tech/celluma-review"
+  },
+  {
+   "rank": 3,
+   "title": "CurrentBody red light therapy mask review - Series 2 performance tested",
+   "url": "https://www.wareable.com/health-tech/currentbody-review"
+  },
+  {
+   "rank": 4,
+   "title": "My results after trying PlatinumLED red light therapy",
+   "url": "https://www.wareable.com/health-tech/platinumled-review"
+  },
+  {
+   "rank": 5,
+   "title": "NovaaLab red light therapy pad review: Does it work?",
+   "url": "https://www.wareable.com/health-tech/novaalab-review"
+  },
+  {
+   "rank": 6,
+   "title": "My results after trying Clara Red Light Therapy Mask",
+   "url": "https://www.wareable.com/health-tech/clara-red-light-therapy-review"
+  },
+  {
+   "rank": 7,
+   "title": "Best full body red light therapy devices in 2026",
+   "url": "https://www.wareable.com/health-tech/best-full-body-red-light-therapy-devices"
+  },
+  {
+   "rank": 8,
+   "title": "Mito red light therapy review: My results after weeks of use",
+   "url": "https://www.wareable.com/health-tech/mito-red-light-therapy-review"
+  },
+  {
+   "rank": 9,
+   "title": "Flikeze red light therapy panel review: Is it worth buying?",
+   "url": "https://www.wareable.com/health-tech/flikeze-red-light-therapy-panel-review"
+  },
+  {
+   "rank": 10,
+   "title": "Testing the LifePro therapy belt: Does it help recovery?",
+   "url": "https://www.wareable.com/health-tech/lifepro-red-light-therapy-belt-review"
+  }
+ ],
+ "summary": "Wareable has reviewed a range of red light therapy devices, and its testers generally found results gradual and modest.\n\n- **Masks:** Its roundup of 2026 masks names Omnilux Contour Face as the overall pick, and its testers saw smoother, brighter skin after more than a month ([Wareable masks roundup](https://www.wareable.com/health-tech/best-red-light-therapy-mask)). Another roundup found the Solawave mask's results \"modest at best\" ([same source](https://www.wareable.com/health-tech/best-red-light-therapy-mask)). In a CurrentBody Series 2 review, the reviewer noticed \"slightly improved hydration\" and softer texture over four weeks, but the changes were not dramatic ([CurrentBody review](https://www.wareable.com/health-tech/currentbody-review)). The Clara mask, at $99, was praised for affordability and ease of use, with results described as subtle ([Clara review](https://www.wareable.com/health-tech/clara-red-light-therapy-review)).\n- **Panels and pads:** The Celluma PRO PLUS earned 4.4/5 and was called well worth a look for targeted skin support, though it costs $1,215 ([Celluma review](https://www.wareable.com/health-tech/celluma-review)). The PlatinumLED BIOMAX was described as powerful but expensive, heavy, and not beginner-friendly ([PlatinumLED review](https://www.wareable.com/health-tech/platinumled-review)). The MITO LIGHT Starter 5.0 got a 4.2/5 rating, and its reviewer reported subtle skin and recovery benefits after 3-4 weeks ([Mito review](https://www.wareable.com/health-tech/mito-red-light-therapy-review)).\n- **Budget and wearable options:** The NovaaLab pad was judged comfortable and easy to use, but its coverage is limited ([NovaaLab review](https://www.wareable.com/health-tech/novaalab-review)). The LifePro belt offered gradual relief for mild muscle soreness, but one tester saw no help for a knee problem after a month ([LifePro review](https://www.wareable.com/health-tech/lifepro-red-light-therapy-belt-review)).\n\nAcross these reviews, Wareable's testers repeatedly said results take weeks of consistent use and that devices should not replace medical treatment. Some reviews were published months ago, so pricing may have changed.",
+ "id": "site-wareable",
+ "group": "brandsite",
+ "persona": "",
+ "purpose": "Co zveřejňuje Wareable (médium)"
+}

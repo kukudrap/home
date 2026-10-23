@@ -1,0 +1,62 @@
+{
+ "query": "červené světlo bolest zad",
+ "query_sent": "červené světlo bolest zad",
+ "allowed_domains": [],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:24:02Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "ff36fa9f 079b 4a29 919e ab3e2c98a065",
+   "url": "https://colliery-recovery-s-r-o.reservio.com/services/ff36fa9f-079b-4a29-919e-ab3e2c98a065"
+  },
+  {
+   "rank": 2,
+   "title": "red eye",
+   "url": "https://www.apollohospitals.com/cs/symptoms/red-eye"
+  },
+  {
+   "rank": 3,
+   "title": "manual rl300 a2 6a5766f897d218.71495783",
+   "url": "https://pilulka.s3-central.vshosting.cloud/vms-prod-cs/vms/product/listing/2026/07/manual_rl300_a2_6a5766f897d218.71495783.pdf"
+  },
+  {
+   "rank": 4,
+   "title": "Bolest zad",
+   "url": "https://www.drmax.cz/zeptejte-se-lekarnika/bolest-zad72"
+  },
+  {
+   "rank": 5,
+   "title": "Biohacking, longevity a moderní zdraví",
+   "url": "https://www.newstream.cz/enjoy/biohacking-terapie-cervenym-svetlem"
+  },
+  {
+   "rank": 6,
+   "title": "Biohacking, longevity a moderní zdraví",
+   "url": "https://www.newstream.cz/stitek/terapie"
+  },
+  {
+   "rank": 7,
+   "title": "solen.sk",
+   "url": "https://www.solen.sk/storage/file/article/4122ea14c76b75230b77cd01952760f5.pdf"
+  },
+  {
+   "rank": 8,
+   "title": "Červené světlo, jak funguje terapie lampou?",
+   "url": "https://www.drmax.cz/zeptejte-se-lekarnika/cervene-svetlo-jak-funguje-terapie-lampou"
+  },
+  {
+   "rank": 9,
+   "title": "Výzkum Diagnostika a zobrazování 9. dubna 2026",
+   "url": "https://www.physiotutors.com/cs/research/screening-for-tumors-in-neck-pain/"
+  }
+ ],
+ "summary": "The query most likely refers to \"red flags\" (červené praporky) for back pain, or to red light therapy for back pain. The results cover both, but the clinical material is more useful.\n\n- **Red flags for back pain:** A Czech neurology article describes \"červené praporky,\" the warning signs of conditions that can seriously threaten a patient. Alarming signs include persistent severe back pain, recurrent severe blockages, pain radiating into the limbs and fingers, progressive muscle weakness with sensory disturbance, and problems with urination and walking. The same article notes that imaging is not recommended in the first weeks of acute simple back pain.\n- **Red light therapy:** Marketing pages from a Czech physio centre and a device manual claim it helps back pain. A Czech health news article says the most clinical data exist for pain treatment, wound healing and some dermatological indications, while evidence for sleep or cognitive functions is less convincing. That article does not specifically establish benefit for back pain, so the claims above should be treated as unproven.\n- **Other:** A physiotherapy research item notes that the IFOMPT international framework for red flags of potentially serious spinal pathology was designed to help identify serious underlying conditions of the spine.",
+ "id": "per-09",
+ "group": "persona",
+ "persona": "everyday",
+ "purpose": "Běžní lidé: záda (rizikové téma)"
+}

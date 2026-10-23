@@ -1,0 +1,183 @@
+{
+ "note": "Témata podle slov v názvu a adrese stránky. Jedna stránka může mít víc témat. Je to hrubé třídění podle klíčových slov, ne čtení textu.",
+ "themes": [
+  {
+   "id": "basics",
+   "name_cs": "Co to je a jak to funguje",
+   "keywords": [
+    "what is",
+    "how does",
+    "how it works",
+    "how red light therapy works",
+    "explained",
+    "beginner*",
+    "101",
+    "science of",
+    "learn",
+    "introduction",
+    "co je",
+    "jak funguje"
+   ]
+  },
+  {
+   "id": "benefits",
+   "name_cs": "Přínosy a účinky",
+   "keywords": [
+    "benefit*",
+    "effect*",
+    "results",
+    "does it work",
+    "do led",
+    "work"
+   ]
+  },
+  {
+   "id": "skin",
+   "name_cs": "Pleť, vrásky, anti-aging",
+   "keywords": [
+    "skin",
+    "wrinkle*",
+    "collagen",
+    "acne",
+    "anti aging",
+    "aging",
+    "face",
+    "facial",
+    "rosacea",
+    "pigmentation",
+    "complexion",
+    "lip",
+    "eye",
+    "pleť",
+    "vrásk*",
+    "kolagen"
+   ]
+  },
+  {
+   "id": "hair",
+   "name_cs": "Vlasy",
+   "keywords": [
+    "hair",
+    "alopecia",
+    "vlas*"
+   ]
+  },
+  {
+   "id": "recovery",
+   "name_cs": "Svaly, regenerace, sport",
+   "keywords": [
+    "muscle*",
+    "recovery",
+    "pain",
+    "joint*",
+    "injur*",
+    "arthritis",
+    "sore*",
+    "athlete*",
+    "exercise",
+    "workout",
+    "performance",
+    "sport*",
+    "regenerace",
+    "svaly",
+    "bolest*",
+    "klouby"
+   ]
+  },
+  {
+   "id": "sleep",
+   "name_cs": "Spánek, nálada, energie",
+   "keywords": [
+    "sleep",
+    "mood",
+    "energy",
+    "circadian",
+    "depression",
+    "anxiety",
+    "brain",
+    "cognitive",
+    "spanek",
+    "nalada"
+   ]
+  },
+  {
+   "id": "buying",
+   "name_cs": "Srovnání a nákupní rady",
+   "keywords": [
+    "best",
+    "vs",
+    "versus",
+    "compare",
+    "comparison",
+    "review*",
+    "buyer*",
+    "buying",
+    "alternative*",
+    "top",
+    "worth",
+    "choose",
+    "choosing",
+    "what to look for",
+    "srovnani",
+    "recenze",
+    "test"
+   ]
+  },
+  {
+   "id": "howto",
+   "name_cs": "Návod a bezpečné používání",
+   "keywords": [
+    "how to use",
+    "how long",
+    "how often",
+    "instructions",
+    "setup",
+    "manual",
+    "distance",
+    "dosage",
+    "dose",
+    "safe",
+    "safety",
+    "risk*",
+    "side effects",
+    "navod",
+    "bezpecnost",
+    "casto kladene otazky",
+    "faq"
+   ]
+  },
+  {
+   "id": "science",
+   "name_cs": "Studie a důkazy",
+   "keywords": [
+    "study",
+    "studies",
+    "research",
+    "clinical",
+    "evidence",
+    "trial*",
+    "science",
+    "scientific",
+    "dermatologist",
+    "studie",
+    "vyzkum"
+   ]
+  },
+  {
+   "id": "product",
+   "name_cs": "Produktové stránky",
+   "keywords": [
+    "products",
+    "product",
+    "collections",
+    "collection",
+    "shop",
+    "panel",
+    "mask",
+    "kit",
+    "device",
+    "bulb"
+   ]
+  }
+ ]
+}

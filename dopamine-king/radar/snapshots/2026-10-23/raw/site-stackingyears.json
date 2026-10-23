@@ -1,0 +1,69 @@
+{
+ "query": "Stacking Years best red light therapy panel",
+ "query_sent": "Stacking Years best red light therapy panel",
+ "allowed_domains": [
+  "stackingyears.com"
+ ],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:31:54Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "Best Red Light Therapy Devices of 2026: Panels, Masks, and Belts Ranked",
+   "url": "https://www.stackingyears.com/blog/best-red-light-therapy-devices-2026"
+  },
+  {
+   "rank": 2,
+   "title": "55 Longevity Interventions Ranked by Science",
+   "url": "https://www.stackingyears.com/"
+  },
+  {
+   "rank": 3,
+   "title": "Low-EMF Infrared Sauna Blanket Reviews (2026): Best Options for Longevity at Home",
+   "url": "https://www.stackingyears.com/blog/low-emf-infrared-sauna-blanket-reviews-2026"
+  },
+  {
+   "rank": 4,
+   "title": "Longevity Research Blog (2026)",
+   "url": "https://www.stackingyears.com/blog"
+  },
+  {
+   "rank": 5,
+   "title": "Best Senolytics (2026): Fisetin vs Quercetin",
+   "url": "https://www.stackingyears.com/senolytics"
+  },
+  {
+   "rank": 6,
+   "title": "Best NAD+ IV Clinics 2026: Drips vs Oral NAD+",
+   "url": "https://www.stackingyears.com/blog/best-nad-iv-drips-clinics-2026"
+  },
+  {
+   "rank": 7,
+   "title": "Senolytic Cycling Schedules: Monthly, Quarterly, and Pulse Dosing (2026)",
+   "url": "https://www.stackingyears.com/learn/senolytic-cycling-schedule"
+  },
+  {
+   "rank": 8,
+   "title": "NMN + Pterostilbene: Stack Guide, Dose, and Protocol (2026)",
+   "url": "https://www.stackingyears.com/learn/nmn-and-pterostilbene-stack"
+  },
+  {
+   "rank": 9,
+   "title": "Lactoferrin for Iron Deficiency Anemia (2026): Why It Often Beats Iron Pills",
+   "url": "https://www.stackingyears.com/blog/lactoferrin-iron-deficiency-anemia-2026"
+  },
+  {
+   "rank": 10,
+   "title": "GlyNAC Protocol 2026: Baylor Trial & Dosing",
+   "url": "https://www.stackingyears.com/blog/glynac-glycine-nac-baylor-trial-protocol"
+  }
+ ],
+ "summary": "Stacking Years' 2026 red light guide names the Mito Red Light MitoMAX as its top pick for a full-body panel. It describes that unit as a 1500W panel with 660 nm and 850 nm dual-wavelength output, irradiance ~130 mW/cm² at 6 inches at the center, low EMF, third-party irradiance tested.\n\nOther picks in the same guide:\n- **Mid-sized:** BioLight Shine, at ~$700, which the guide says suits upper- or lower-body treatment.\n- **Budget:** Hooga HG500, at ~$330, which the guide calls acceptable for the price.\n- **Travel:** Mito MitoMin, a small 60W panel for spot treatment of joints, muscles, or skin.\n\nThe guide's main buying criterion is irradiance, which it says most published clinical protocols target 30-100 mW/cm² at 6 inches from the panel. It also flags EMF, noting that premium devices use shielded drivers with very low EMF.\n\nThe article is about 173 days old, so pricing may have changed. I didn't find a separate Stacking Years panel-specific ranking, though the blog index lists a comparison titled \"Joovv vs PlatinumLED vs Mito Compared.\" I didn't open that page, so I can't say what it concludes.",
+ "id": "site-stackingyears",
+ "group": "brandsite",
+ "persona": "",
+ "purpose": "Co zveřejňuje Stacking Years (médium)"
+}

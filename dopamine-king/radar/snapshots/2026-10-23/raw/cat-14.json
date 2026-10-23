@@ -1,0 +1,62 @@
+{
+ "query": "terapie červeným světlem recenze",
+ "query_sent": "terapie červeným světlem recenze",
+ "allowed_domains": [],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:23:18Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "Biohacking, longevity a moderní zdraví",
+   "url": "https://www.newstream.cz/enjoy/biohacking-terapie-cervenym-svetlem"
+  },
+  {
+   "rank": 2,
+   "title": "Červené světlo, jak funguje terapie lampou?",
+   "url": "https://www.drmax.cz/zeptejte-se-lekarnika/cervene-svetlo-jak-funguje-terapie-lampou"
+  },
+  {
+   "rank": 3,
+   "title": "cesi objevuji terapii cervenym svetlem roste z ni dalsi miliardovy byznys",
+   "url": "https://forbes.cz/cesi-objevuji-terapii-cervenym-svetlem-roste-z-ni-dalsi-miliardovy-byznys/"
+  },
+  {
+   "rank": 4,
+   "title": "2385920 terapie cervenym svetlem 1 3 nebo 5 navstev",
+   "url": "https://www.slevomat.cz/akce/2385920-terapie-cervenym-svetlem-1-3-nebo-5-navstev"
+  },
+  {
+   "rank": 5,
+   "title": "Hlavní obsah",
+   "url": "https://www.seznamzpravy.cz/clanek/magazin-zivotni-styl-posvitte-si-cervene-proc-v-cervenem-svetle-jedou-sportovci-herci-i-astronauti-265068"
+  },
+  {
+   "rank": 6,
+   "title": "ff36fa9f 079b 4a29 919e ab3e2c98a065",
+   "url": "https://colliery-recovery-s-r-o.reservio.com/services/ff36fa9f-079b-4a29-919e-ab3e2c98a065"
+  },
+  {
+   "rank": 7,
+   "title": "Biohacking, longevity a moderní zdraví",
+   "url": "https://www.newstream.cz/stitek/terapie"
+  },
+  {
+   "rank": 8,
+   "title": "manual rl300 a2 6a5766f897d218.71495783",
+   "url": "https://pilulka.s3-central.vshosting.cloud/vms-prod-cs/vms/product/listing/2026/07/manual_rl300_a2_6a5766f897d218.71495783.pdf"
+  },
+  {
+   "rank": 9,
+   "title": "Strečová terapia s červeným svetlom",
+   "url": "https://sk.airbnb.com/services/6692126"
+  }
+ ],
+ "summary": "Czech sources on red light therapy (RLT) describe it as promising for some uses, with the evidence uneven and much of the consumer-facing material promotional.\n\n- **Uneven evidence:** A Newstream article says the amount and quality of evidence differ markedly between areas of use. The most clinical data exist for pain relief, wound healing and some dermatological indications, while evidence for sleep or cognitive function is less convincing.\n- **Proposed mechanism:** A Dr. Max pharmacist Q&A says the main mechanism is stimulation of mitochondria, and that the light prompts cells to produce more energy (ATP), which supports regeneration and helps dampen inflammatory processes.\n- **Wavelengths:** The same source gives the most common ranges as 630-670 nm for red light and 810-850 nm for near-infrared.\n- **Skin claims are hedged:** The pharmacist says that, according to available findings, red light may contribute to better skin quality, for example by supporting collagen formation, slightly improving skin elasticity or supporting healing.\n- **Promotional claims:** A Forbes.cz piece on the Czech market reports that therapy is said to have beneficial effects on skin quality and energy, and also to improve sleep and mental health, as it is supposed to stimulate serotonin production. It relies largely on athlete and businessman testimonials. A product manual for a home panel makes broader claims, including melatonin and creatine effects (8-9, 8-14), but this is manufacturer material, not independent evidence.\n- **Origin story:** Forbes.cz also notes that the effect was discovered by chance when NASA was studying how red light diodes affect plants in space.\n- **Commercial context:** Czech clinics and voucher sites sell 20-minute sessions, and one voucher listing names infectious disease as a contraindication (4-17). These are marketing listings, so they add little to the evidence.\n\nOverall, the most defensible uses are pain, wound healing and some skin indications. Claims about sleep, mood and performance rest mostly on weaker evidence and marketing. Sources were mainly Czech consumer and commercial pages; no peer-reviewed or medical-authority sources appeared in these results.",
+ "id": "cat-14",
+ "group": "category",
+ "persona": "",
+ "purpose": "Recenze kategorie"
+}

@@ -1,0 +1,62 @@
+{
+ "query": "fotobiomodulace doma panel",
+ "query_sent": "fotobiomodulace doma panel",
+ "allowed_domains": [],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:22:53Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "Skupina produktů:",
+   "url": "https://www.drmax.cz/sharpshape-red-light-panel-300"
+  },
+  {
+   "rank": 2,
+   "title": "flowlight panel 600 seven waves rodljusterapi",
+   "url": "https://www.m3.se/article/2612833/flowlight-panel-600-seven-waves-rodljusterapi.html"
+  },
+  {
+   "rank": 3,
+   "title": "Skupina produktů:",
+   "url": "https://www.drmax.cz/sharpshape-red-light-panel-1000"
+  },
+  {
+   "rank": 4,
+   "title": "Fluorescence biomodulation",
+   "url": "https://en.wikipedia.org/wiki/Fluorescence_biomodulation"
+  },
+  {
+   "rank": 5,
+   "title": "repositorio.unesp.br",
+   "url": "https://repositorio.unesp.br/bitstreams/6c1714a2-edaf-4d2e-91b5-d2afe8f443a2/download"
+  },
+  {
+   "rank": 6,
+   "title": "Instrukcja bslugi Panel LED NANOLEAF Red Light Therapy Bia y",
+   "url": "https://www.mediaexpert.pl/products/files/81/8150677/Instrukcja-bslugi-Panel-LED-NANOLEAF-Red-Light-Therapy-Bia__y.pdf"
+  },
+  {
+   "rank": 7,
+   "title": "repositorio.unesp.br",
+   "url": "https://repositorio.unesp.br/bitstreams/1db14c2a-156a-4aa2-9cfb-a339acd1e303/download"
+  },
+  {
+   "rank": 8,
+   "title": "fit 214 fotobiomodulacion tabla modelo dip 061 es",
+   "url": "https://www.ppgft.ufscar.br/es/recursos/arquivos/alunos/ementas/vigentes/fit-214_fotobiomodulacion_tabla_modelo_dip-061_es.pdf"
+  },
+  {
+   "rank": 9,
+   "title": "dlib.si",
+   "url": "https://dlib.si/URN:NBN:SI:doc-MNFZ6LBB/DC"
+  }
+ ],
+ "summary": "The search turned up mostly retail product pages for home red/infrared light panels, plus a few research and consumer-review pages.\n\n**Retail panels (Czech sites):**\n- Dr. Max sells a Sharp Shape \"Panel 300\" that it markets for home use. It covers 630 to 1060 nm, with individual wavelength control, pulsing up to 10,000 Hz and precise power regulation, and the product pages say intensity can be set from 1 to 100% for each spectrum.\n- The larger Sharp Shape \"Panel 1000\" is the most powerful model in the series, designed for full-body use. Its listing claims up to 193 mW/cm2 irradiance.\n- These are vendor claims, not independent test results.\n\n**Evidence caveats:**\n- A Swedish review of a seven-wavelength panel found it hard to judge how well the panel performs, partly because infrared light acts mainly at depth, and any benefits probably take more than a couple of weeks to appear. It also said research still has some way to go before photobiomodulation can be called a shortcut to optimized health.\n- Academic sources describe photobiomodulation as being studied for musculoskeletal injuries, wound healing and inflammation, among other uses, but the search did not surface home-panel trials.\n\nThe results don't include Czech consumer-protection guidance, medical-device classification, or price comparisons. If you need those, I'd search again with more specific terms.",
+ "id": "cat-08",
+ "group": "category",
+ "persona": "",
+ "purpose": "Odborný název a domácí použití"
+}

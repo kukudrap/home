@@ -1,0 +1,69 @@
+{
+ "query": "Barolet Regulation of skin collagen metabolism in vitro using a pulsed 660 nm LED light source Journal of Investigative Dermatology",
+ "query_sent": "Barolet Regulation of skin collagen metabolism in vitro using a pulsed 660 nm LED light source Journal of Investigative Dermatology",
+ "allowed_domains": [
+  "pubmed.ncbi.nlm.nih.gov"
+ ],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:33:47Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "Regulation of skin collagen metabolism in vitro using a pulsed 660 nm LED light source: clinical correlation with a single-blinded study - PubMed",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/19587693/"
+  },
+  {
+   "rank": 2,
+   "title": "Apoptotic mechanism activated by blue light and cisplatinum in cutaneous squamous cell carcinoma cells - PubMed",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/33576463"
+  },
+  {
+   "rank": 3,
+   "title": "A controlled trial to determine the efficacy of red and near-infrared light treatment in patient satisfaction, reduction of fine lines, wrinkles, skin roughness, and intradermal collagen density increase - PubMed",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/24286286/?dopt=Abstract"
+  },
+  {
+   "rank": 4,
+   "title": "Method for the treatment of mammalian skin tissues via pulse irradiation in the presence of a photoactive compound",
+   "url": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/9737728"
+  },
+  {
+   "rank": 5,
+   "title": "Photobiomodulation at 660 nm promotes collagen synthesis via downregulation of HIF-1α expression without photodamage in human scleral fibroblasts in vitro in a hypoxic environment - PubMed",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/37074407/"
+  },
+  {
+   "rank": 6,
+   "title": "Light Emitting Diode (LED) for the Treatment of Wrinkles",
+   "url": "https://clinicaltrials.gov/study/NCT00818246"
+  },
+  {
+   "rank": 7,
+   "title": "Device for the treatment of mammalian tissues",
+   "url": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/7887533"
+  },
+  {
+   "rank": 8,
+   "title": "Method for the treatment of mammalian tissues",
+   "url": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/7914523"
+  },
+  {
+   "rank": 9,
+   "title": "Multispectral Pulsed Photobiomodulation Enhances Re-Epithelialization via Keratinocyte Activation in Full-Thickness Skin Wounds",
+   "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12468576/"
+  },
+  {
+   "rank": 10,
+   "title": "Laser emission at 675 nm: In vitro study evidence of a promising role in skin rejuvenation",
+   "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9930151/"
+  }
+ ],
+ "summary": "The search turned up the paper itself: Barolet D. et al., published in the Journal of Investigative Dermatology in 2009 (vol. 129, pp. 2751-2759), indexed as PubMed 19587693.\n\n- **Design:** The authors first evaluated histological and biochemical changes in a tissue-engineered Human Reconstructed Skin (HRS) model after 11 sham or LED light treatments. They then tested the effects in people, using a split-face single-blinded study in aged/photoaged individuals.\n- **Key in vitro result:** The reconstructed skin treated with LED showed a mean percent difference between LED-treated and non-LED-treated HRS of 31% in levels of type-1 procollagen and of -18% in MMP-1. The paper also reported that no histological changes were observed.\n- **Related patent text:** A USPTO document describes the same lab's in vitro work, reporting that the pulsed light upregulates fibroblast type 1 procollagen synthesis, while collagenase (MMP-1) production is down-regulated following a proportional trend.\n\nI did not retrieve the full text, so details such as the exact light parameters and the profilometry results are unverified. The PubMed abstract is the best place to check them.",
+ "id": "study2-barolet2009",
+ "group": "study",
+ "persona": "",
+ "purpose": "Druhé ověření studie z registru (jen PubMed): seed:pbm-barolet2009"
+}

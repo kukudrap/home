@@ -1,0 +1,67 @@
+{
+ "query": "Photobiomodulation: lasers vs. light emitting diodes?",
+ "query_sent": "Photobiomodulation: lasers vs. light emitting diodes?",
+ "allowed_domains": [],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:27:06Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "Photobiomodulation: Lasers: vs. light emitting diodes?",
+   "url": "https://pure.uj.ac.za/en/publications/photobiomodulation-lasers-vs-light-emitting-diodes/"
+  },
+  {
+   "rank": 2,
+   "title": "Photobiomodulation: lasers vs. light emitting diodes?",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/30044464/"
+  },
+  {
+   "rank": 3,
+   "title": "Issue 8, 2018",
+   "url": "https://pubs.rsc.org/doi/c8pp00176f"
+  },
+  {
+   "rank": 4,
+   "title": "Issue 8, 2018",
+   "url": "https://pubs.rsc.org/es/content/articlelanding/2018/pp/c8pp00176f"
+  },
+  {
+   "rank": 5,
+   "title": "Issue 8, 2018",
+   "url": "https://pubs.rsc.org/en/content/articlelanding/2018/pp/c8pp00176f"
+  },
+  {
+   "rank": 6,
+   "title": "LED versus Lasers: What is the Difference?",
+   "url": "https://mitoredlight.com/en-ca/blogs/mito-red-blog/led-versus-lasers-what-is-the-difference"
+  },
+  {
+   "rank": 7,
+   "title": "LED versus Lasers: What is the Difference?",
+   "url": "https://mitoredlight.com/blogs/mito-red-blog/led-versus-lasers-what-is-the-difference"
+  },
+  {
+   "rank": 8,
+   "title": "photobiomodulation lasers vs light emitting diodes recbyjaqdscrpxvw7",
+   "url": "https://rrmacademy.org/library/photobiomodulation-lasers-vs-light-emitting-diodes-recbyjaqdscrpxvw7/"
+  },
+  {
+   "rank": 9,
+   "title": "academic.oup.com",
+   "url": "https://academic.oup.com/asjopenforum/article/8002765"
+  },
+  {
+   "rank": 10,
+   "title": "2018 Heiskanen",
+   "url": "https://dupuytrens.org/DupPDFs/2018_Heiskanen.pdf"
+  }
+ ],
+ "summary": "The main source is a 2018 perspective by Heiskanen and Hamblin in *Photochemical & Photobiological Sciences*. It finds that lasers remained by far the most commonly employed device for about 40 years of PBM research, and some authors argued they were essential to the benefit. Non-coherent sources have since become common. The authors list LED advantages such as no laser safety considerations, ease of home use, ability to irradiate a large area of tissue at once, possibility of wearable devices, and much lower cost per mW. They conclude that LED photobiomodulation is here to stay.\n\nA separate study on human skin gene expression notes that preclinical evidence is largely based on laser light, while LEDs form the mainstay of clinical studies. It also states that it is speculated the 2 technologies exhibit dissimilar biological responses. That question appears to be open, so I'd treat laser-versus-LED differences in biological effect as unsettled based on these results. I didn't find a definitive head-to-head verdict.",
+ "id": "study-pbm-heiskanen2018",
+ "group": "study",
+ "persona": "",
+ "purpose": "Ověření studie z registru: seed:pbm-heiskanen2018"
+}

@@ -1,0 +1,69 @@
+{
+ "query": "CurrentBody red light therapy mask benefits",
+ "query_sent": "CurrentBody red light therapy mask benefits",
+ "allowed_domains": [
+  "currentbody.com"
+ ],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:31:55Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "LED Face Mask",
+   "url": "https://www.currentbody.com/products/currentbody-skin-led-light-therapy-mask"
+  },
+  {
+   "rank": 2,
+   "title": "Benefits of LED Masks For Your Skin",
+   "url": "https://www.currentbody.com/blogs/editorial/led-mask-benefits-for-skin"
+  },
+  {
+   "rank": 3,
+   "title": "Red Light Therapy Mask",
+   "url": "https://us.currentbody.com/products/currentbody-skin-led-light-therapy-mask?awc=16364_1705136572_8a1be0448df23552c7bcdc12423d48ba"
+  },
+  {
+   "rank": 4,
+   "title": "Red Light Therapy for Hands",
+   "url": "https://us.currentbody.com/products/currentbody-skin-hand-perfector"
+  },
+  {
+   "rank": 5,
+   "title": "LED Neck Mask",
+   "url": "https://www.currentbody.com/products/currentbody-skin-neck-and-dec-perfector"
+  },
+  {
+   "rank": 6,
+   "title": "Multi Light Therapy Mask",
+   "url": "https://www.currentbody.com/products/currentbody-skin-led-multi-light-mask"
+  },
+  {
+   "rank": 7,
+   "title": "Which Red LED Light Therapy Devices are Right for Me?",
+   "url": "https://www.currentbody.com/blogs/editorial/what-led-device-is-right-for-me-led-light-therapy-devices-compared"
+  },
+  {
+   "rank": 8,
+   "title": "Red Light Therapy for Lips",
+   "url": "https://us.currentbody.com/products/currentbody-skin-led-lip-perfector"
+  },
+  {
+   "rank": 9,
+   "title": "LED Eye Mask",
+   "url": "https://www.currentbody.com/products/currentbody-skin-led-eye-perfector"
+  },
+  {
+   "rank": 10,
+   "title": "Dermatologist Recommendations for Better Skin",
+   "url": "https://www.currentbody.com/blogs/editorial/dermatologist-recommendations-for-better-skin-led-masks"
+  }
+ ],
+ "summary": "CurrentBody's marketing presents its LED masks as anti-aging and skin-clearing devices, but the results cited come from the company.\n\n- **Series 3 mask:** It offers four preset modes and lets users choose from six wavelengths. The company says red light reduced wrinkles by 37% and improved plumpness by 57% in 8 weeks, citing independent testing in a Series 3 product description.\n- **Wavelength targets:** Red (633nm) is described as boosting collagen production to visibly reduce fine lines and wrinkles. Near-infrared (830nm) is said to firm and tighten skin, and blue (415nm) is aimed at spots and irritation.\n- **Series 2 mask:** It uses 132 LEDs at 633nm and 830nm. The listing claims a 24% reduction in wrinkles and 20% firmer skin in just 4 weeks, and says it is FDA-cleared for brightening and balancing skin.\n- **Other claims:** The company's blog says red light can help the skin look firmer, and that green and red light may calm the look of redness. A dermatologist's blog post says that, with continued use, the mask does improve the quality of skin quite significantly.\n\n**Caveats:** These sources are the manufacturer's own pages, so the numbers are unverified. The Series 2 and Series 3 pages also report different figures for similar outcomes. The stated light penetration depth differs between listings, with one saying up to 10mm and another saying up to 4mm. Much of the evidence is testimonials or before-and-after photos. I found no independent peer-reviewed trial of the mask itself, so treat the benefits as company-reported.",
+ "id": "site-currentbody",
+ "group": "brandsite",
+ "persona": "",
+ "purpose": "Co zveřejňuje CurrentBody (masky)"
+}

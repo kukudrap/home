@@ -1,0 +1,62 @@
+{
+ "query": "červené světlo senioři",
+ "query_sent": "červené světlo senioři",
+ "allowed_domains": [],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:24:22Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "www.denik.cz",
+   "url": "https://www.denik.cz/cesko/semaforzelena20080504/"
+  },
+  {
+   "rank": 2,
+   "title": "Policie České republiky",
+   "url": "https://policie.gov.cz/clanek/cervena-svetla.aspx"
+  },
+  {
+   "rank": 3,
+   "title": "Senior Emergency Department",
+   "url": "https://en.wikipedia.org/wiki/Senior_Emergency_Department"
+  },
+  {
+   "rank": 4,
+   "title": "Western Australian Seniors Card",
+   "url": "https://en.wikipedia.org/wiki/Western_Australian_Seniors_Card"
+  },
+  {
+   "rank": 5,
+   "title": "Slibuje mladší pleť, hustší vlasy i pomoc při Alzheimerovi. Co všechno ale červené světlo opravdu umí?",
+   "url": "https://cc.cz/slibuje-mladsi-plet-hustsi-vlasy-i-pomoc-pri-alzheimerovi-co-vsechno-ale-cervene-svetlo-opravdu-umi/"
+  },
+  {
+   "rank": 6,
+   "title": "Red light could help improve vision in old age",
+   "url": "https://breakingnewsenglish.com/2007/200704-red-light-100-0.html"
+  },
+  {
+   "rank": 7,
+   "title": "Hlavní obsah",
+   "url": "https://www.seznamzpravy.cz/clanek/magazin-zivotni-styl-posvitte-si-cervene-proc-v-cervenem-svetle-jedou-sportovci-herci-i-astronauti-265068"
+  },
+  {
+   "rank": 8,
+   "title": "cesi objevuji terapii cervenym svetlem roste z ni dalsi miliardovy byznys",
+   "url": "https://forbes.cz/cesi-objevuji-terapii-cervenym-svetlem-roste-z-ni-dalsi-miliardovy-byznys/"
+  },
+  {
+   "rank": 9,
+   "title": "led orientacni 0 5 ma 3916 05445",
+   "url": "https://nizke-napeti.cz.abb.com/led-orientacni-0-5-ma-16205/led-orientacni-0-5-ma-3916-05445?mime=pdf"
+  }
+ ],
+ "summary": "Výsledky se dělí na dvě témata, podle toho, jak se výraz „červené světlo“ chápe.\n\n**1. Senioři a semafory na přechodech.** Starší článek z Chrudimi (z roku 2008) popisuje stížnosti seniorů. Podle nich je signál pro chodce krátký, takže senioři na zelenou nestihnou přejít. Zdravotní a sociální komise města zaznamenala stížnosti seniorů na příliš rychlý nástup červeného signálu na přechodech pro chodce. Odbor dopravy tehdy o změně neuvažoval. Článek je starý, takže jeho aktuálnost neověřuji.\n\n**2. Červené světlo jako terapie pro seniory.** Výsledky jsou méně jednoznačné:\n- Starší zpráva z britského serveru Breaking News English uvádí studii na 24 lidech. Podle ní se zraku starších lidí po krátkém ozáření červeným světlem zlepšil. Jde o malý vzorek a nejde o nedávný výzkum.\n- Český článek CzechCrunch shrnuje, že desítky vědeckých studií zkoumaly, co červené světlo v těle doopravdy dělá. Výsledky jsou pestré a ukazují, že nejde o wellness hračku. Zároveň upozorňuje, že řada slibovaných účinků zatím není doložena.\n- Další český článek z Forbesu uvádí, že terapii využívají i jednotlivci a kliniky, ale jde převážně o popularizační text bez ověřených klinických dat pro seniory.\n\nPokud jste myslel(a) spíše semafory, mohu hledat dál konkrétně zaměřeně na dopravu nebo bezpečnost seniorů v chodcích. Pokud jde o terapii, doporučuji hledat přímo klinické studie u starších osob.",
+ "id": "per-15",
+ "group": "persona",
+ "persona": "seniors",
+ "purpose": "Starší lidé: obecně"
+}

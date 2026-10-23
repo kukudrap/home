@@ -1,0 +1,334 @@
+{
+ "note": "Ruční zařazení webů, které se ve výsledcích objevily. Co tu není, se ve srovnání konkurentů neukazuje. Zařazení je úsudek, ne měření: u každého webu je poznámka, proč.",
+ "types": {
+  "media": "Médium",
+  "pharmacy": "Lékárna",
+  "ecommerce": "E-shop nebo prodejce",
+  "service": "Služba (sezení, voucher, rezervace)",
+  "forum": "Diskuze",
+  "reviews": "Hodnocení zákazníků",
+  "foreign_media": "Zahraniční médium nebo recenzní web",
+  "foreign_shop": "Zahraniční e-shop",
+  "maker": "Výrobce (jiná značka)",
+  "authority": "Úřad",
+  "science": "Věda a patenty",
+  "noise": "Nerelevantní výsledek"
+ },
+ "domains": {
+  "drmax.cz": {
+   "type": "pharmacy",
+   "name": "Dr.Max",
+   "note": "Poradna lékárníka 'Červené světlo, jak funguje terapie lampou?' a stránka panelu CBD Star Red Light 300 W."
+  },
+  "forbes.cz": {
+   "type": "media",
+   "name": "Forbes.cz",
+   "note": "Článek 'Češi objevují terapii červeným světlem, roste z ní další miliardový byznys'."
+  },
+  "newstream.cz": {
+   "type": "media",
+   "name": "Newstream",
+   "note": "Článek 'Biohacking, longevity a moderní zdraví'."
+  },
+  "seznamzpravy.cz": {
+   "type": "media",
+   "name": "Seznam Zprávy",
+   "note": "Magazínový článek o červeném světle u sportovců, herců a astronautů."
+  },
+  "cc.cz": {
+   "type": "media",
+   "name": "CzechCrunch"
+  },
+  "startitup.sk": {
+   "type": "media",
+   "name": "Startitup (Slovensko)"
+  },
+  "cnn.iprima.cz": {
+   "type": "media",
+   "name": "CNN Prima News"
+  },
+  "denik.cz": {
+   "type": "media",
+   "name": "Deník"
+  },
+  "blesk.cz": {
+   "type": "media",
+   "name": "Blesk"
+  },
+  "echo24.cz": {
+   "type": "media",
+   "name": "Echo24"
+  },
+  "poradte.cz": {
+   "type": "forum",
+   "name": "Poradte.cz",
+   "note": "Diskuze 'jaký panel pro terapii červeným a near infra red světlem' a 'terapie červeným a blízko infra červeným světlem zkušenosti'."
+  },
+  "dwn.alza.cz": {
+   "type": "ecommerce",
+   "name": "Alza",
+   "note": "Návod k panelu ke stažení."
+  },
+  "pilulka.s3-central.vshosting.cloud": {
+   "type": "ecommerce",
+   "name": "Pilulka",
+   "note": "Návod k panelu RL300 A2 ke stažení."
+  },
+  "insportline.cz": {
+   "type": "ecommerce",
+   "name": "inSPORTline",
+   "note": "Návody k infračerveným LED panelům."
+  },
+  "datart.cz": {
+   "type": "ecommerce",
+   "name": "Datart",
+   "note": "LED masky."
+  },
+  "kaufland.cz": {
+   "type": "ecommerce",
+   "name": "Kaufland",
+   "note": "Infračervená lampa."
+  },
+  "heureka.cz": {
+   "type": "ecommerce",
+   "name": "Heureka",
+   "note": "Srovnávač, stránka značky 'Více Mito Light produktů'."
+  },
+  "welzo.com": {
+   "type": "foreign_shop",
+   "name": "Welzo",
+   "note": "Evropský e-shop s panely, česká verze stránek."
+  },
+  "ypc.co.uk": {
+   "type": "foreign_shop",
+   "name": "YPC (Spojené království)"
+  },
+  "havenofheat.com": {
+   "type": "foreign_shop",
+   "name": "Haven of Heat"
+  },
+  "m.reach.dog": {
+   "type": "foreign_shop",
+   "name": "Reach.dog (prodej Hooga)"
+  },
+  "mitoredlight.com": {
+   "type": "maker",
+   "name": "Mito Red Light (USA)",
+   "note": "Jiná firma než MITO LIGHT."
+  },
+  "lumaflex.com": {
+   "type": "maker",
+   "name": "Lumaflex"
+  },
+  "slevomat.cz": {
+   "type": "service",
+   "name": "Slevomat",
+   "note": "Voucher na sezení s terapií červeným světlem."
+  },
+  "zlavomat.sk": {
+   "type": "service",
+   "name": "Zľavomat (Slovensko)",
+   "note": "Voucher na kolagenovou terapii."
+  },
+  "colliery-recovery-s-r-o.reservio.com": {
+   "type": "service",
+   "name": "Colliery Recovery (rezervace)"
+  },
+  "sk.airbnb.com": {
+   "type": "service",
+   "name": "Airbnb (Slovensko)"
+  },
+  "ca.trustpilot.com": {
+   "type": "reviews",
+   "name": "Trustpilot",
+   "note": "Profil 'MITO LIGHT Europe' (mitolight.com)."
+  },
+  "pt.trustpilot.com": {
+   "type": "reviews",
+   "name": "Trustpilot",
+   "note": "Profil 'MITO LIGHT Europe' (mitolight.com)."
+  },
+  "trustedshops.de": {
+   "type": "reviews",
+   "name": "Trusted Shops",
+   "note": "Profil 'MITO LIGHT Deutschland'."
+  },
+  "wareable.com": {
+   "type": "foreign_media",
+   "name": "Wareable"
+  },
+  "lighttherapyinsiders.com": {
+   "type": "foreign_media",
+   "name": "Light Therapy Insiders"
+  },
+  "outliyr.com": {
+   "type": "foreign_media",
+   "name": "Outliyr"
+  },
+  "garagegymreviews.com": {
+   "type": "foreign_media",
+   "name": "Garage Gym Reviews"
+  },
+  "pcwelt.de": {
+   "type": "foreign_media",
+   "name": "PCWelt (Německo)",
+   "note": "Text o Mitohackeru 4.0."
+  },
+  "sociallifemagazine.com": {
+   "type": "foreign_media",
+   "name": "Social Life Magazine"
+  },
+  "zlinskykraj.cz": {
+   "type": "authority",
+   "name": "Zlínský kraj",
+   "note": "Dokument se stanoviskem ministerstva k MITO LIGHT 3.0."
+  },
+  "ncbi.nlm.nih.gov": {
+   "type": "science",
+   "name": "ncbi.nlm.nih.gov"
+  },
+  "biorxiv.org": {
+   "type": "science",
+   "name": "biorxiv.org"
+  },
+  "doaj.org": {
+   "type": "science",
+   "name": "doaj.org"
+  },
+  "ppgft.ufscar.br": {
+   "type": "science",
+   "name": "ppgft.ufscar.br"
+  },
+  "repositorio.unesp.br": {
+   "type": "science",
+   "name": "repositorio.unesp.br"
+  },
+  "dspace.cuni.cz": {
+   "type": "science",
+   "name": "dspace.cuni.cz"
+  },
+  "image-ppubs.uspto.gov": {
+   "type": "science",
+   "name": "image-ppubs.uspto.gov"
+  },
+  "patents.google.com": {
+   "type": "science",
+   "name": "patents.google.com"
+  },
+  "cz.rs-online.com": {
+   "type": "noise",
+   "name": "cz.rs-online.com",
+   "note": "elektronické součástky (indikátory a majáky)"
+  },
+  "sigmaaldrich.com": {
+   "type": "noise",
+   "name": "sigmaaldrich.com",
+   "note": "laboratorní činidlo MitoLight"
+  },
+  "wwwqws.sigmaaldrich.com": {
+   "type": "noise",
+   "name": "wwwqws.sigmaaldrich.com",
+   "note": "laboratorní činidlo MitoLight"
+  },
+  "b2b.sigmaaldrich.com": {
+   "type": "noise",
+   "name": "b2b.sigmaaldrich.com",
+   "note": "laboratorní činidlo MitoLight"
+  },
+  "hornbach.cz": {
+   "type": "noise",
+   "name": "hornbach.cz",
+   "note": "stavebniny"
+  },
+  "ideal.co.nz": {
+   "type": "noise",
+   "name": "ideal.co.nz",
+   "note": "osvětlení z Nového Zélandu"
+  },
+  "en.wikipedia.org": {
+   "type": "noise",
+   "name": "en.wikipedia.org",
+   "note": "nesouvisející hesla"
+  },
+  "arl4.library.sk": {
+   "type": "noise",
+   "name": "arl4.library.sk",
+   "note": "knihovní záznamy"
+  },
+  "csr.hdsupply.com": {
+   "type": "noise",
+   "name": "csr.hdsupply.com",
+   "note": "podezřelý hostitel, nepoužito"
+  },
+  "do2.dr-chuck.com": {
+   "type": "noise",
+   "name": "do2.dr-chuck.com",
+   "note": "podezřelý hostitel, nepoužito"
+  },
+  "pro.maplin.co.uk": {
+   "type": "noise",
+   "name": "pro.maplin.co.uk",
+   "note": "elektronické součástky"
+  },
+  "reimo.com": {
+   "type": "noise",
+   "name": "reimo.com",
+   "note": "svítilny"
+  },
+  "stem.hardwario.com": {
+   "type": "noise",
+   "name": "stem.hardwario.com",
+   "note": "technická dokumentace"
+  },
+  "dnb.com": {
+   "type": "noise",
+   "name": "dnb.com",
+   "note": "firemní databáze"
+  },
+  "mediaguru.cz": {
+   "type": "noise",
+   "name": "mediaguru.cz",
+   "note": "nesouvisející články"
+  },
+  "sketchy-sync.inkandswitch.com": {
+   "type": "noise",
+   "name": "sketchy-sync.inkandswitch.com",
+   "note": "spam"
+  },
+  "parse.gl": {
+   "type": "noise",
+   "name": "parse.gl",
+   "note": "nesouvisející"
+  },
+  "finn.no": {
+   "type": "noise",
+   "name": "finn.no",
+   "note": "norský bazar"
+  },
+  "ebay.de": {
+   "type": "noise",
+   "name": "ebay.de",
+   "note": "aukce"
+  },
+  "ebay.com": {
+   "type": "noise",
+   "name": "ebay.com",
+   "note": "aukce"
+  },
+  "thomann.co.uk": {
+   "type": "noise",
+   "name": "thomann.co.uk",
+   "note": "hudební nástroje"
+  },
+  "digikey.com": {
+   "type": "noise",
+   "name": "digikey.com",
+   "note": "elektronické součástky"
+  },
+  "cined.com": {
+   "type": "noise",
+   "name": "cined.com",
+   "note": "filmová technika"
+  }
+ }
+}

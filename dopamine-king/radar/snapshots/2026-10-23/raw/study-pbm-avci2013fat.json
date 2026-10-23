@@ -1,0 +1,67 @@
+{
+ "query": "Low-level laser therapy for fat layer reduction: a comprehensive review",
+ "query_sent": "Low-level laser therapy for fat layer reduction: a comprehensive review",
+ "allowed_domains": [],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:26:52Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "Low-level laser therapy for fat layer reduction: A comprehensive review",
+   "url": "https://pure.uj.ac.za/en/publications/low-level-laser-therapy-for-fat-layer-reduction-a-comprehensive-r/"
+  },
+  {
+   "rank": 2,
+   "title": "Low-level laser therapy for fat layer reduction: A comprehensive review",
+   "url": "https://pure.uj.ac.za/en/publications/low-level-laser-therapy-for-fat-layer-reduction-a-comprehensive-r/fingerprints/"
+  },
+  {
+   "rank": 3,
+   "title": "low level laser therapy for fat layer reduction a comprehensive review",
+   "url": "https://nutrition-evidence.com/article/192211/low-level-laser-therapy-for-fat-layer-reduction-a-comprehensive-review"
+  },
+  {
+   "rank": 4,
+   "title": "pmc.ncbi.nlm.nih.gov",
+   "url": "https://pmc.ncbi.nlm.nih.gov/articles/3769994/"
+  },
+  {
+   "rank": 5,
+   "title": "THOR Literature watch for June 2013 Low Level Laser Therapy / Cold Laser / Photobiomodulation PBM",
+   "url": "https://blog.thorlaser.com/thor-literature-watch-for-june-2013-low-level-laser-therapy-cold-laser-photobiomodulation-pbm/"
+  },
+  {
+   "rank": 6,
+   "title": "THOR Literature watch for June 2013 Low Level Laser Therapy / Cold Laser / Photobiomodulation PBM",
+   "url": "https://blog.thorlaser.com/?p=1361"
+  },
+  {
+   "rank": 7,
+   "title": "Cellulite - an overview of non‐invasive therapy with energy‐based systems",
+   "url": "https://ouci.dntb.gov.ua/works/lezDOGw9"
+  },
+  {
+   "rank": 8,
+   "title": "pas zerona",
+   "url": "https://drive.uqu.edu.sa/_/physcim/files/Media%20-%20Samar/%20Committee%20of%20Graduation%20Project/pas-zerona.pdf"
+  },
+  {
+   "rank": 9,
+   "title": "pmc.ncbi.nlm.nih.gov",
+   "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5225499/"
+  },
+  {
+   "rank": 10,
+   "title": "pmc.ncbi.nlm.nih.gov",
+   "url": "https://pmc.ncbi.nlm.nih.gov/articles/5225499"
+  }
+ ],
+ "summary": "The search returned the review by Avci, Nyame, Gupta, Sadasivam, and Hamblin, published in *Lasers in Surgery and Medicine* (online 2013, volume 45, 2014). PMID: 23749426\n\n- **Scope:** The authors reviewed pre-clinical and clinical studies on LLLT as an adjuvant to liposuction, for noninvasive body contouring, reduction of cellulite, and improvement of blood lipid profile.\n- **Safety and efficacy:** The review found that LLLT has a potential to be used in fat and cellulite reduction as well as in improvement of blood lipid profile without any significant side effects.\n- **Proposed mechanisms:** One proposal is that production of transient pores in adipocytes, allowing lipids to leak out. Another involves activation of the complement cascade which could cause induction of adipocyte apoptosis and subsequent release of lipids.\n- **Limitations:** The authors concluded that studies demonstrating the efficacy of LLLT as a stand-alone procedure are still inadequate. They also said further studies are necessary to identify the mechanism of action.\n\nThe full text is available through PubMed Central (PMC3769994) and the publisher's page if you need the detailed trial data.",
+ "id": "study-pbm-avci2013fat",
+ "group": "study",
+ "persona": "",
+ "purpose": "Ověření studie z registru: seed:pbm-avci2013fat"
+}

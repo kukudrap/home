@@ -1,0 +1,64 @@
+{
+ "query": "Omnilux red light therapy mask benefits",
+ "query_sent": "Omnilux red light therapy mask benefits",
+ "allowed_domains": [
+  "omniluxled.com"
+ ],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:31:39Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "Omnilux Contour Face",
+   "url": "https://omniluxled.com/products/omnilux-contour-face"
+  },
+  {
+   "rank": 2,
+   "title": "Omnilux is the Gold Standard in LED Light Therapy",
+   "url": "https://omniluxled.com/blogs/light-reads/november-monthly-blog"
+  },
+  {
+   "rank": 3,
+   "title": "Omnilux Men",
+   "url": "https://omniluxled.com/products/omnilux-men"
+  },
+  {
+   "rank": 4,
+   "title": "1 Dermatologist Recommended Red Light Therapy Mask",
+   "url": "https://omniluxled.com/pages/5rw"
+  },
+  {
+   "rank": 5,
+   "title": "#1 LED Mask for Acne",
+   "url": "https://omniluxled.com/pages/anti-acne"
+  },
+  {
+   "rank": 6,
+   "title": "Omnilux Men",
+   "url": "https://omniluxled.com/pages/men"
+  },
+  {
+   "rank": 7,
+   "title": "A Complete Guide to Caring for Men’s Skin",
+   "url": "https://omniluxled.com/blogs/light-reads/a-complete-guide-to-caring-for-men-s-skin"
+  },
+  {
+   "rank": 8,
+   "title": "#1 Dermatologist Recommended LED Device",
+   "url": "https://omniluxled.com/pages/anti-aging"
+  },
+  {
+   "rank": 9,
+   "title": "LED Light Therapy Benefits & At-Home Results",
+   "url": "https://omniluxled.com/pages/omnilux-led-v4"
+  }
+ ],
+ "summary": "The search returned almost entirely manufacturer marketing from Omnilux's own site, so the claims below are the company's, not independent findings.\n\n- **Skin-aging claims:** The Contour Face is positioned for fine lines and wrinkles. Omnilux says its near-infrared wavelength reaches deeper skin layers and is linked to collagen and elastin production (omniluxled.com, Light Reads blog).\n- **Recommended use:** The company suggests roughly three to five sessions a week for four to six weeks, then maintenance as desired (omniluxled.com, Contour Face product page).\n- **Acne:** A separate Omnilux Clear mask combines blue light, which targets acne-linked bacteria, with red light for inflammation (omniluxled.com, LED Mask for Acne page).\n- **Men's version:** Omnilux Men uses a 1072nm near-infrared wavelength, which the company says suits thicker skin (omniluxled.com, Light Reads blog).\n- **Regulatory status:** The company says the devices are FDA-cleared, and one page notes the Men's device is FDA cleared for the treatment of full face wrinkles. FDA clearance is a narrower claim than FDA approval, and it doesn't confirm the clinical benefits marketed.\n- **Evidence:** Omnilux cites over 40 peer-reviewed clinical studies on skin rejuvenation and acne. The search did not surface those studies themselves, so their quality and whether they were company-funded are unverified.\n\nThe results lack independent reviews or dermatologist commentary. A follow-up search for third-party studies or reviews would help if you need a balanced picture.",
+ "id": "site-omnilux",
+ "group": "brandsite",
+ "persona": "",
+ "purpose": "Co zveřejňuje Omnilux (masky)"
+}

@@ -1,0 +1,62 @@
+{
+ "query": "Low-level laser therapy as a treatment for androgenetic alopecia",
+ "query_sent": "Low-level laser therapy as a treatment for androgenetic alopecia",
+ "allowed_domains": [],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:26:58Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "Low-level laser therapy for the treatment of androgenic alopecia: a review",
+   "url": "https://katalog.hcu-hamburg.de/vufind/Search2Record/SPR008767564"
+  },
+  {
+   "rank": 2,
+   "title": "Low-level laser therapy for the treatment of androgenic alopecia: a review",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/29270707/"
+  },
+  {
+   "rank": 3,
+   "title": "low level laser therapy and narrative review of other treatment m",
+   "url": "https://research.uaeu.ac.ae/en/publications/low-level-laser-therapy-and-narrative-review-of-other-treatment-m/"
+  },
+  {
+   "rank": 4,
+   "title": "comparative effectiveness of low level laser therapy for adult an",
+   "url": "https://hub.tmu.edu.tw/en/publications/comparative-effectiveness-of-low-level-laser-therapy-for-adult-an/"
+  },
+  {
+   "rank": 5,
+   "title": "www.epistemonikos.org",
+   "url": "https://www.epistemonikos.org/en/documents/97663187c1af44ab40239baaca41bf093e671aee"
+  },
+  {
+   "rank": 6,
+   "title": "en low level laser therapy for androgenetic articulo S1578219020303887",
+   "url": "https://www.actasdermo.org/en-low-level-laser-therapy-for-androgenetic-articulo-S1578219020303887"
+  },
+  {
+   "rank": 7,
+   "title": "es low level laser therapy for androgenetic articulo S1578219020303887",
+   "url": "https://www.actasdermo.org/es-low-level-laser-therapy-for-androgenetic-articulo-S1578219020303887"
+  },
+  {
+   "rank": 8,
+   "title": "Efficacy of Low-Level Laser Therapy in Androgenetic Alopecia - A Randomized Controlled Trial",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/37305186/"
+  },
+  {
+   "rank": 9,
+   "title": "pubmed.ncbi.nlm.nih.gov",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/30569416/"
+  }
+ ],
+ "summary": "Low-level laser therapy (LLLT) has a fairly positive evidence base for androgenetic alopecia, though the trials are small and the results are mixed.\n\n- **Reviews:** A 2017 review of clinical trials found that ten of 11 trials demonstrated significant improvement of androgenetic alopecia in comparison to baseline or controls when treated with LLLT. It concluded that LLLT appears to be a safe, alternative treatment, and that it can be used alone or alongside minoxidil or finasteride.\n- **Meta-analysis:** A 2019 meta-analysis of sham-controlled trials covered 8 studies comprising a total of 11 double-blinded randomized controlled trials. One summary of it noted that a low frequency regimen (less than 60 min per week) appeared more effective than the high frequency regimen (more than 60 min per week).\n- **Sham-controlled trials:** A 24-week home-helmet trial in 40 people used wavelengths of 630, 650, and 660 nm or a sham device for 18 minutes daily. A second 24-week trial in Thai men and women, with 40 participants, also used a sham-controlled design.\n- **Counterevidence:** A 2023 randomized trial compared LLLT plus 5% minoxidil with minoxidil alone over 16 weeks. The authors found that while comparing both means, P value was 0.45 which was not significant. They still judged LLLT safe and effective, but saw no added benefit over minoxidil in that study.\n\nOverall, LLLT appears safe and often beneficial, but the authors of the reviews noted that more research needs to be undertaken to determine the optimal power and wavelength to use in LLLT as well as LLLT's mechanism of action. Most included trials are small, and results vary by device and protocol.",
+ "id": "study-pbm-afifi2017",
+ "group": "study",
+ "persona": "",
+ "purpose": "Ověření studie z registru: seed:pbm-afifi2017"
+}

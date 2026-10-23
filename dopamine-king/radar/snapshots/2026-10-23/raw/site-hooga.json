@@ -1,0 +1,64 @@
+{
+ "query": "Hooga red light therapy panel benefits",
+ "query_sent": "Hooga red light therapy panel benefits",
+ "allowed_domains": [
+  "hoogahealth.com"
+ ],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:31:27Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "Light therapy wearable",
+   "url": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11103722"
+  },
+  {
+   "rank": 2,
+   "title": "Light therapy wearable",
+   "url": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11130000"
+  },
+  {
+   "rank": 3,
+   "title": "Light therapy wearable",
+   "url": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11154722"
+  },
+  {
+   "rank": 4,
+   "title": "Light therapy wearable",
+   "url": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/10933253"
+  },
+  {
+   "rank": 5,
+   "title": "Stress reduction and sleep promotion system",
+   "url": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11013883"
+  },
+  {
+   "rank": 6,
+   "title": "HG300 Red Light Therapy Panel",
+   "url": "https://hoogahealth.com/products/hooga-300w-red-and-near-infrared-light-therapy-panel"
+  },
+  {
+   "rank": 7,
+   "title": "HG1000 Full Body Red Light Therapy Panel",
+   "url": "https://hoogahealth.com/products/hooga-1000w-red-and-near-infrared-light-therapy-panel"
+  },
+  {
+   "rank": 8,
+   "title": "PRO300 Red Light Therapy Panel",
+   "url": "https://hoogahealth.com/products/hgpro300"
+  },
+  {
+   "rank": 9,
+   "title": "ULTRA360 Red Light Therapy Panel",
+   "url": "https://hoogahealth.com/products/ultra-360"
+  }
+ ],
+ "summary": "Hooga's own product pages describe its panels mainly in terms of skin, joint, and recovery uses, but these are marketing claims rather than independent evidence.\n\n**Hooga product claims:**\n- **HG300:** Hooga markets it as a basic, entry-level panel for targeted sessions on areas like the face, neck, or joints. It uses 660nm red and 850nm near-infrared wavelengths, with 60 single-chip LEDs.\n- **PRO300:** This is a more powerful version that uses two chips per LED, one emitting 660nm red light and one emitting 850nm near-infrared light. Hooga says it gives an irradiance of over 109 mW/cm² at 6 inches.\n- **HG1000:** This full-body panel is pitched for both skin work and deeper recovery work at 6-12\" away. The site says it is time-efficient, as most customers can finish a whole-body session in under 15 minutes.\n- **ULTRA360:** This is Hooga's premium model, with 630nm, 660nm, 810nm, and 850nm wavelengths and pulse control. Hooga says pulsed mode supports muscles, joints, and connective tissue recovery.\n\n**Claimed benefits across the line:** Hooga's pages list skin appearance, mood and brain function, energy, muscle performance and recovery, and inflammation and pain relief. The skin claims include stimulating collagen production, reducing fine lines and wrinkles, and improving overall skin tone.\n\n**Independent context:** The search returned no independent studies of Hooga panels specifically. The general research it did return is more cautious. A patent background section says red and infrared light has been found to increase blood flow to the muscles and joints, and it describes muscle stiffness and soreness as significantly reduced in studies. Those findings relate to red and infrared light in general, not to Hooga's devices.",
+ "id": "site-hooga",
+ "group": "brandsite",
+ "persona": "",
+ "purpose": "Co zveřejňuje Hooga (USA)"
+}

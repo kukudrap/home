@@ -1,0 +1,64 @@
+{
+ "query": "Sunlighten red light therapy benefits",
+ "query_sent": "Sunlighten red light therapy benefits",
+ "allowed_domains": [
+  "sunlighten.com"
+ ],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:31:41Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "Red Light Therapy LP",
+   "url": "https://shop-us.sunlighten.com/pages/red-light-therapy-lp"
+  },
+  {
+   "rank": 2,
+   "title": "Sunlighten Red Light LED Face Mask",
+   "url": "https://shop-uk.sunlighten.com/products/red-light-mask"
+  },
+  {
+   "rank": 3,
+   "title": "Red Light Therapy",
+   "url": "https://shop-us.sunlighten.com/collections/red-light-therapy"
+  },
+  {
+   "rank": 4,
+   "title": "RED Light Therapy Panel",
+   "url": "https://shop-uk.sunlighten.com/products/red-light-panel"
+  },
+  {
+   "rank": 5,
+   "title": "RED Light Therapy Mask",
+   "url": "https://shop-us.sunlighten.com/products/red-light-therapy-mask"
+  },
+  {
+   "rank": 6,
+   "title": "RED Light Therapy Panel",
+   "url": "https://shop-us.sunlighten.com/products/red-light-panel"
+  },
+  {
+   "rank": 7,
+   "title": "RED Light Therapy Panel",
+   "url": "https://www.sunlighten.com/sg-en/products/red-light-therapy-panel/"
+  },
+  {
+   "rank": 8,
+   "title": "RED Light Therapy Panel Mini",
+   "url": "https://shop-uk.sunlighten.com/products/red-light-therapy-panel-mini"
+  },
+  {
+   "rank": 9,
+   "title": "Red Light Panel: Winter Protocol",
+   "url": "https://shop-uk.sunlighten.com/blogs/news/sunlighten-red-light-panel-winter-protocol"
+  }
+ ],
+ "summary": "Sunlighten's own marketing lists a range of claimed benefits for its red and near-infrared (NIR) light products, but the results contain no independent clinical evidence.\n\n- **Panels:** The company lists slowing aging, better sleep, reduced inflammation, stronger immunity, reduced fat/cellulite, cellular energy, and muscle recovery. Sleep is tied to NIR, while inflammation and aging are tied to both red and NIR, according to the company's product page. The mini panel's listing repeats this set of claims with programs for skin care, muscle recovery, inflammation, energy, sleep, immune health, and cellulite.\n- **Mechanism claim:** The company says its panels boost your body's natural power by increasing cellular energy. A winter blog post adds that the light works at a cellular level to help mitochondria produce more ATP.\n- **Face mask:** Marketing focuses on skin, with claims such as reducing wrinkles and fine lines, boosting collagen, soothing redness, and reducing mild-to-moderate acne. Some listings say the device is FDA 510(k) cleared, which is a device-clearance claim rather than proof of effectiveness.\n- **Testimonials:** The site includes customer and doctor endorsements, such as a user who reported slight improvements in energy and mood, as well as reduction of pain and inflammation after a week of daily use. These are anecdotal, and some endorsers have commercial ties.\n\nOverall, the benefits are the manufacturer's claims. For independent evidence, look for peer-reviewed or systematic reviews of red and NIR light therapy, since these results don't include any.",
+ "id": "site-sunlighten",
+ "group": "brandsite",
+ "persona": "",
+ "purpose": "Co zveřejňuje Sunlighten (USA)"
+}

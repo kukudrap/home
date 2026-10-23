@@ -1,0 +1,69 @@
+{
+ "query": "Dr. Dennis Gross red light therapy mask benefits",
+ "query_sent": "Dr. Dennis Gross red light therapy mask benefits",
+ "allowed_domains": [
+  "drdennisgross.com"
+ ],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:31:54Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "DRx SpectraLite FaceWare Pro LED Face Mask",
+   "url": "https://www.drdennisgross.com/drx-spectralite-faceware-pro-3-minute-led-device/695866568117.html"
+  },
+  {
+   "rank": 2,
+   "title": "DRx SpectraLite™ LipWare Pro Lip Mask",
+   "url": "https://www.drdennisgross.com/drx-spectralite-lipware-pro-led-device/695866568216.html"
+  },
+  {
+   "rank": 3,
+   "title": "Do LED Face Masks Work? Science & Benefits",
+   "url": "https://www.drdennisgross.com/do-led-face-masks-work.html"
+  },
+  {
+   "rank": 4,
+   "title": "DRx SpectraLite™ EyeCare Max Pro LED Device",
+   "url": "https://www.drdennisgross.com/drx-spectralite-eyecare-max-pro-led-device/695866570615.html"
+  },
+  {
+   "rank": 5,
+   "title": "What is Body LED Skincare & Benefits of LED",
+   "url": "https://www.drdennisgross.com/body-led-skincare-tips-and-benefits.html"
+  },
+  {
+   "rank": 6,
+   "title": "How To Use DRx SpectraLite FaceWare Pro LED Mask",
+   "url": "https://www.drdennisgross.com/how-to-use-drx-spectralite-faceware-pro-led-mask.html"
+  },
+  {
+   "rank": 7,
+   "title": "What is Red Light Therapy for Skin?",
+   "url": "https://www.drdennisgross.com/what-is-red-light-therapy-for-skin.html"
+  },
+  {
+   "rank": 8,
+   "title": "All About the SpectraLite LipWare Pro LED Lip Mask",
+   "url": "https://drdennisgross.com/blogs/skincare-blog/all-about-the-drx-spectralite-lipware-pro-led-lip-mask"
+  },
+  {
+   "rank": 9,
+   "title": "What is Body LED Skincare & Benefits of LED",
+   "url": "https://blog.drdennisgross.com/2021/05/14/body-led-skincare-tips/"
+  },
+  {
+   "rank": 10,
+   "title": "LED Masks - Do LED Face Masks Work?",
+   "url": "https://blog.drdennisgross.com/2020/06/15/do-led-face-masks-work/"
+  }
+ ],
+ "summary": "The search results are mostly from Dr. Dennis Gross's own site, so the claims below are the brand's marketing, not independent evaluations.\n\n- **Main product:** The DRx SpectraLite FaceWare Pro is a full-face LED mask with red, blue, or combined settings, and it runs a three-minute program. Its FDA clearance is one of the selling points. The device is described as a professional-grade, FDA-cleared LED device that targets wrinkles and acne in just 3 minutes.\n- **Red light (anti-aging):** The brand says red wavelengths stimulate collagen, which it links to smoother lines and firmer skin. One of its cited studies reports a 97% improvement in fine lines, wrinkles, and skin tone after 10 weeks. Red LED light penetrates deep within the skin to boost collagen and smooth fine lines, and 97% showed an overall improvement in fine lines, wrinkles, and skin tone after 10 weeks.\n- **Blue light (acne):** Blue light is presented as targeting acne-causing bacteria. The brand reports a 97% acne improvement after 2 weeks, but that figure comes from its own clinical and consumer perception study. Blue LED light helps clear mild to moderate breakouts, and red LED light helps even skin tone and texture to prevent flare-ups. 97% showed an overall improvement in acne after 2 weeks.\n- **Timeline:** The brand says to expect initial changes within about 2 weeks of daily use, with the best wrinkle results after a 10-week course. The best results for reduction of lines and wrinkles occur after a 10-week course of treatment.\n- **Independent context:** A general article on red LED science from the same brand says that multiple peer-reviewed, published clinical studies have demonstrated that red LEDs live up to the hype. It also cautions that at-home devices can be a little trickier because they're largely unregulated.\n- **Related devices:** The brand also sells an eye mask (for eyes it firms skin, reduces wrinkles and fine lines, and diminishes puffiness and dark circles) and a lip mask (56 red LEDs aimed at the lip area to support circulation and fuller-looking lips over time).\n\nI didn't find independent, third-party trials of the FaceWare Pro itself in these results, so the effectiveness figures should be read as company-reported.",
+ "id": "site-drg",
+ "group": "brandsite",
+ "persona": "",
+ "purpose": "Co zveřejňuje Dr. Dennis Gross (masky)"
+}

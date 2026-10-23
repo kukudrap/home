@@ -1,0 +1,655 @@
+{
+ "name": "mito-light-cz",
+ "market": "cs",
+ "note": "Plán dotazů pro radar. Každý dotaz se spustí přes skutečné vyhledávání na webu a uloží se přesně to, co vrátilo. Plán se dá upravovat, výsledky se nikdy nedopisují ručně. Dotazy na weby značek obsahují název značky, protože filtr domény bez něj vracel cizí stránky.",
+ "brand": {
+  "name": "MITO LIGHT",
+  "own_domains": [
+   "mitolight.cz"
+  ],
+  "related_domains": [
+   "mitolight.com",
+   "mitolight.co.uk"
+  ],
+  "aliases": [
+   "mito light",
+   "mitolight",
+   "mitohacker"
+  ],
+  "confusable": [
+   "Mito Red Light",
+   "mitoredlight.com"
+  ],
+  "related_note": "Stejná značka na jiných trzích (podle registru značek a stránek značky), ne český web."
+ },
+ "groups": {
+  "brand": "Jak vyhledávač vidí vaši značku",
+  "category": "Co lidé hledají o terapii červeným světlem",
+  "persona": "Co hledají jednotlivé cílové skupiny",
+  "competitor": "Konkurenti a e-shopy",
+  "own": "Které vaše stránky vyhledávač zná",
+  "brandsite": "Co zveřejňují nejúspěšnější světové značky",
+  "study": "Ověření studií z registru"
+ },
+ "queries": [
+  {
+   "id": "brand-01",
+   "group": "brand",
+   "q": "MITO LIGHT",
+   "purpose": "Samotný název značky"
+  },
+  {
+   "id": "brand-02",
+   "group": "brand",
+   "q": "mitolight.cz",
+   "purpose": "Adresa webu"
+  },
+  {
+   "id": "brand-03",
+   "group": "brand",
+   "q": "MITO LIGHT panel červené světlo",
+   "purpose": "Značka a produkt dohromady"
+  },
+  {
+   "id": "brand-04",
+   "group": "brand",
+   "q": "MITO LIGHT recenze",
+   "purpose": "Co lidé najdou, když hledají recenze"
+  },
+  {
+   "id": "brand-05",
+   "group": "brand",
+   "q": "MITO LIGHT zkušenosti",
+   "purpose": "Co lidé najdou, když hledají zkušenosti"
+  },
+  {
+   "id": "brand-06",
+   "group": "brand",
+   "q": "Mito Light nebo Mito Red Light",
+   "purpose": "Zda se naše značka plete s americkou Mito Red Light"
+  },
+  {
+   "id": "brand-07",
+   "group": "brand",
+   "q": "MITO LIGHT 5.0 panel",
+   "purpose": "Nejnovější generace přístroje"
+  },
+  {
+   "id": "cat-01",
+   "group": "category",
+   "q": "terapie červeným světlem",
+   "purpose": "Název kategorie"
+  },
+  {
+   "id": "cat-02",
+   "group": "category",
+   "q": "terapie červeným světlem účinky",
+   "purpose": "Co lidé chtějí vědět o účincích"
+  },
+  {
+   "id": "cat-03",
+   "group": "category",
+   "q": "terapie červeným světlem panel",
+   "purpose": "Hledání přístroje (panelu)"
+  },
+  {
+   "id": "cat-04",
+   "group": "category",
+   "q": "panel s červeným světlem",
+   "purpose": "Hledání přístroje jinými slovy"
+  },
+  {
+   "id": "cat-05",
+   "group": "category",
+   "q": "červené světlo panel cena",
+   "purpose": "Hledání ceny"
+  },
+  {
+   "id": "cat-06",
+   "group": "category",
+   "q": "nejlepší panel červeného světla srovnání",
+   "purpose": "Srovnání přístrojů"
+  },
+  {
+   "id": "cat-07",
+   "group": "category",
+   "q": "fotobiomodulace",
+   "purpose": "Odborný název metody"
+  },
+  {
+   "id": "cat-08",
+   "group": "category",
+   "q": "fotobiomodulace doma panel",
+   "purpose": "Odborný název a domácí použití"
+  },
+  {
+   "id": "cat-09",
+   "group": "category",
+   "q": "červené a infračervené světlo rozdíl",
+   "purpose": "Rozdíl mezi červeným a infračerveným světlem"
+  },
+  {
+   "id": "cat-10",
+   "group": "category",
+   "q": "terapie červeným světlem bezpečnost",
+   "purpose": "Bezpečnost"
+  },
+  {
+   "id": "cat-11",
+   "group": "category",
+   "q": "terapie červeným světlem kontraindikace",
+   "purpose": "Kdy nepoužívat"
+  },
+  {
+   "id": "cat-12",
+   "group": "category",
+   "q": "jak používat panel s červeným světlem",
+   "purpose": "Návod k použití"
+  },
+  {
+   "id": "cat-13",
+   "group": "category",
+   "q": "jak často a jak dlouho terapie červeným světlem",
+   "purpose": "Frekvence a délka sezení"
+  },
+  {
+   "id": "cat-14",
+   "group": "category",
+   "q": "terapie červeným světlem recenze",
+   "purpose": "Recenze kategorie"
+  },
+  {
+   "id": "cat-15",
+   "group": "category",
+   "q": "kde koupit panel s červeným světlem",
+   "purpose": "Nákup"
+  },
+  {
+   "id": "cat-16",
+   "group": "category",
+   "q": "terapie červeným světlem studie",
+   "purpose": "Odborné studie"
+  },
+  {
+   "id": "per-01",
+   "group": "persona",
+   "q": "červené světlo pleť vrásky",
+   "purpose": "Beauty: pleť a vrásky",
+   "persona": "beauty"
+  },
+  {
+   "id": "per-02",
+   "group": "persona",
+   "q": "LED maska červené světlo",
+   "purpose": "Beauty: LED masky",
+   "persona": "beauty"
+  },
+  {
+   "id": "per-03",
+   "group": "persona",
+   "q": "terapie červeným světlem kolagen",
+   "purpose": "Beauty: kolagen",
+   "persona": "beauty"
+  },
+  {
+   "id": "per-04",
+   "group": "persona",
+   "q": "biohacking červené světlo",
+   "purpose": "Biohackeři: biohacking",
+   "persona": "biohacker"
+  },
+  {
+   "id": "per-05",
+   "group": "persona",
+   "q": "červené světlo mitochondrie",
+   "purpose": "Biohackeři: mitochondrie",
+   "persona": "biohacker"
+  },
+  {
+   "id": "per-06",
+   "group": "persona",
+   "q": "terapie červeným světlem longevity",
+   "purpose": "Biohackeři: dlouhověkost",
+   "persona": "biohacker"
+  },
+  {
+   "id": "per-07",
+   "group": "persona",
+   "q": "červené světlo regenerace po tréninku",
+   "purpose": "Fitness: regenerace",
+   "persona": "fitness"
+  },
+  {
+   "id": "per-08",
+   "group": "persona",
+   "q": "červené světlo svaly sportovci",
+   "purpose": "Fitness: svaly a sportovci",
+   "persona": "fitness"
+  },
+  {
+   "id": "per-09",
+   "group": "persona",
+   "q": "červené světlo bolest zad",
+   "purpose": "Běžní lidé: záda (rizikové téma)",
+   "persona": "everyday"
+  },
+  {
+   "id": "per-10",
+   "group": "persona",
+   "q": "červené světlo spánek",
+   "purpose": "Běžní lidé: spánek",
+   "persona": "everyday"
+  },
+  {
+   "id": "per-11",
+   "group": "persona",
+   "q": "červené světlo bolest kloubů",
+   "purpose": "Běžní lidé: klouby (rizikové téma)",
+   "persona": "everyday"
+  },
+  {
+   "id": "per-12",
+   "group": "persona",
+   "q": "panel červené světlo 660 nm 850 nm",
+   "purpose": "Technici: vlnové délky",
+   "persona": "tech"
+  },
+  {
+   "id": "per-13",
+   "group": "persona",
+   "q": "ozáření mW/cm2 panel červené světlo",
+   "purpose": "Technici: ozáření",
+   "persona": "tech"
+  },
+  {
+   "id": "per-14",
+   "group": "persona",
+   "q": "panel červené světlo vlnové délky srovnání parametrů",
+   "purpose": "Technici: srovnání parametrů",
+   "persona": "tech"
+  },
+  {
+   "id": "per-15",
+   "group": "persona",
+   "q": "červené světlo senioři",
+   "purpose": "Starší lidé: obecně",
+   "persona": "seniors"
+  },
+  {
+   "id": "per-16",
+   "group": "persona",
+   "q": "terapie červeným světlem kolena klouby senioři",
+   "purpose": "Starší lidé: klouby (rizikové téma)",
+   "persona": "seniors"
+  },
+  {
+   "id": "com-01",
+   "group": "competitor",
+   "q": "Lighthacker panel",
+   "purpose": "Konkurent Lighthacker"
+  },
+  {
+   "id": "com-02",
+   "group": "competitor",
+   "q": "Welzo red light therapy panel",
+   "purpose": "Konkurent Welzo"
+  },
+  {
+   "id": "com-03",
+   "group": "competitor",
+   "q": "Glow RL300 panel červené světlo",
+   "purpose": "Konkurent Glow"
+  },
+  {
+   "id": "com-04",
+   "group": "competitor",
+   "q": "Hooga red light panel Evropa",
+   "purpose": "Konkurent Hooga"
+  },
+  {
+   "id": "com-05",
+   "group": "competitor",
+   "q": "Platinum LED panel Česko",
+   "purpose": "Konkurent PlatinumLED"
+  },
+  {
+   "id": "com-06",
+   "group": "competitor",
+   "q": "Joovv Česko",
+   "purpose": "Konkurent Joovv"
+  },
+  {
+   "id": "com-07",
+   "group": "competitor",
+   "q": "červený světelný panel e-shop",
+   "purpose": "Kde se panely prodávají"
+  },
+  {
+   "id": "com-08",
+   "group": "competitor",
+   "q": "panel infračervené světlo e-shop Česko",
+   "purpose": "Kde se panely prodávají (infračervené)"
+  },
+  {
+   "id": "own-01",
+   "group": "own",
+   "q": "terapie červeným světlem",
+   "purpose": "Které stránky mitolight.cz vyhledávač zná (téma)",
+   "domains": [
+    "mitolight.cz"
+   ]
+  },
+  {
+   "id": "own-02",
+   "group": "own",
+   "q": "MITO LIGHT panel",
+   "purpose": "Které stránky mitolight.cz vyhledávač zná (produkt)",
+   "domains": [
+    "mitolight.cz"
+   ]
+  },
+  {
+   "id": "own-03",
+   "group": "own",
+   "q": "jak používat",
+   "purpose": "Které stránky mitolight.cz vyhledávač zná (návody)",
+   "domains": [
+    "mitolight.cz"
+   ]
+  },
+  {
+   "id": "own-04",
+   "group": "own",
+   "q": "red light therapy",
+   "purpose": "Které stránky mitolight.com vyhledávač zná",
+   "domains": [
+    "mitolight.com"
+   ]
+  },
+  {
+   "id": "site-joovv",
+   "group": "brandsite",
+   "q": "Joovv red light therapy panel benefits",
+   "purpose": "Co zveřejňuje Joovv (USA)",
+   "domains": [
+    "joovv.com"
+   ]
+  },
+  {
+   "id": "site-mitored",
+   "group": "brandsite",
+   "q": "Mito Red Light red light therapy panel benefits",
+   "purpose": "Co zveřejňuje Mito Red Light (USA)",
+   "domains": [
+    "mitoredlight.com"
+   ]
+  },
+  {
+   "id": "site-platinum",
+   "group": "brandsite",
+   "q": "PlatinumLED red light therapy panel benefits",
+   "purpose": "Co zveřejňuje PlatinumLED (USA)",
+   "domains": [
+    "platinumtherapylights.com"
+   ]
+  },
+  {
+   "id": "site-hooga",
+   "group": "brandsite",
+   "q": "Hooga red light therapy panel benefits",
+   "purpose": "Co zveřejňuje Hooga (USA)",
+   "domains": [
+    "hoogahealth.com"
+   ]
+  },
+  {
+   "id": "site-rlrising",
+   "group": "brandsite",
+   "q": "Red Light Rising red light therapy panel benefits",
+   "purpose": "Co zveřejňuje Red Light Rising (UK)",
+   "domains": [
+    "redlightrising.com"
+   ]
+  },
+  {
+   "id": "site-sunlighten",
+   "group": "brandsite",
+   "q": "Sunlighten red light therapy benefits",
+   "purpose": "Co zveřejňuje Sunlighten (USA)",
+   "domains": [
+    "sunlighten.com"
+   ]
+  },
+  {
+   "id": "site-leredd",
+   "group": "brandsite",
+   "q": "Leredd red light therapy panel benefits",
+   "purpose": "Co zveřejňuje Leredd (Austrálie)",
+   "domains": [
+    "leredd.com"
+   ]
+  },
+  {
+   "id": "site-omnilux",
+   "group": "brandsite",
+   "q": "Omnilux red light therapy mask benefits",
+   "purpose": "Co zveřejňuje Omnilux (masky)",
+   "domains": [
+    "omniluxled.com"
+   ]
+  },
+  {
+   "id": "site-currentbody",
+   "group": "brandsite",
+   "q": "CurrentBody red light therapy mask benefits",
+   "purpose": "Co zveřejňuje CurrentBody (masky)",
+   "domains": [
+    "currentbody.com"
+   ]
+  },
+  {
+   "id": "site-drg",
+   "group": "brandsite",
+   "q": "Dr. Dennis Gross red light therapy mask benefits",
+   "purpose": "Co zveřejňuje Dr. Dennis Gross (masky)",
+   "domains": [
+    "drdennisgross.com"
+   ]
+  },
+  {
+   "id": "site-stackingyears",
+   "group": "brandsite",
+   "q": "Stacking Years best red light therapy panel",
+   "purpose": "Co zveřejňuje Stacking Years (médium)",
+   "domains": [
+    "stackingyears.com"
+   ]
+  },
+  {
+   "id": "site-lti",
+   "group": "brandsite",
+   "q": "Light Therapy Insiders red light therapy panel review",
+   "purpose": "Co zveřejňuje Light Therapy Insiders (médium)",
+   "domains": [
+    "lighttherapyinsiders.com"
+   ]
+  },
+  {
+   "id": "site-outliyr",
+   "group": "brandsite",
+   "q": "Outliyr red light therapy panel review",
+   "purpose": "Co zveřejňuje Outliyr (médium)",
+   "domains": [
+    "outliyr.com"
+   ]
+  },
+  {
+   "id": "site-rltexpert",
+   "group": "brandsite",
+   "q": "Red Light Therapy Expert red light therapy panel",
+   "purpose": "Co zveřejňuje Red Light Therapy Expert (médium)",
+   "domains": [
+    "redlighttherapy.expert"
+   ]
+  },
+  {
+   "id": "site-wareable",
+   "group": "brandsite",
+   "q": "Wareable red light therapy review",
+   "purpose": "Co zveřejňuje Wareable (médium)",
+   "domains": [
+    "wareable.com"
+   ]
+  },
+  {
+   "id": "study-10-3390-jfmk10030277",
+   "group": "study",
+   "q": "Effects of Photomodulation Therapy for Delayed Onset Muscle Soreness: A Systematic Review and Meta-Analysis",
+   "purpose": "Ověření studie z registru: doi:10.3390/jfmk10030277"
+  },
+  {
+   "id": "study-pbm-episiotomy-sr-ma",
+   "group": "study",
+   "q": "The Effectiveness of Photobiomodulation Therapy on Perineal Pain and Wound Healing After Episiotomy - A Systematic Review and Meta-Analysis",
+   "purpose": "Ověření studie z registru: seed:pbm-episiotomy-sr-ma"
+  },
+  {
+   "id": "study-10-1002-14651858-cd013061-pub2",
+   "group": "study",
+   "q": "Low-level light therapy for treating venous leg ulcers",
+   "purpose": "Ověření studie z registru: doi:10.1002/14651858.cd013061.pub2"
+  },
+  {
+   "id": "study-pbm-lightsite3-2026",
+   "group": "study",
+   "q": "Long-term efficacy and safety of photobiomodulation in dry age-related macular degeneration (LIGHTSITE III: 24-month analysis)",
+   "purpose": "Ověření studie z registru: seed:pbm-lightsite3-2026"
+  },
+  {
+   "id": "study-pbm-lllt-male-infertility-sr",
+   "group": "study",
+   "q": "Therapeutic Effects of Low-Level Laser on Male Infertility: A Systematic Review",
+   "purpose": "Ověření studie z registru: seed:pbm-lllt-male-infertility-sr"
+  },
+  {
+   "id": "study-pbm-wunsch2014",
+   "group": "study",
+   "q": "A controlled trial to determine the efficacy of red and near-infrared light treatment in patient satisfaction, reduction of fine lines, wrinkles, skin roughness, and intradermal collagen density increase",
+   "purpose": "Ověření studie z registru: seed:pbm-wunsch2014"
+  },
+  {
+   "id": "study-pbm-barolet2009",
+   "group": "study",
+   "q": "Regulation of skin collagen metabolism in vitro using a pulsed 660 nm LED light source: clinical correlation with a single-blinded study",
+   "purpose": "Ověření studie z registru: seed:pbm-barolet2009"
+  },
+  {
+   "id": "study-pbm-lee2007",
+   "group": "study",
+   "q": "A prospective, randomized, placebo-controlled, double-blinded, and split-face clinical study on LED phototherapy for skin rejuvenation: clinical, profilometric, histologic, ultrastructural, and biochemical evaluations and comparison of three different treatment settings",
+   "purpose": "Ověření studie z registru: seed:pbm-lee2007"
+  },
+  {
+   "id": "study-pbm-jagdeo2018",
+   "group": "study",
+   "q": "Light-emitting diodes in dermatology: A systematic review of randomized controlled trials",
+   "purpose": "Ověření studie z registru: seed:pbm-jagdeo2018"
+  },
+  {
+   "id": "study-pbm-jackson2009",
+   "group": "study",
+   "q": "Low-level laser therapy as a non-invasive approach for body contouring: a randomized, controlled study",
+   "purpose": "Ověření studie z registru: seed:pbm-jackson2009"
+  },
+  {
+   "id": "study-pbm-avci2013fat",
+   "group": "study",
+   "q": "Low-level laser therapy for fat layer reduction: a comprehensive review",
+   "purpose": "Ověření studie z registru: seed:pbm-avci2013fat"
+  },
+  {
+   "id": "study-pbm-jimenez2014",
+   "group": "study",
+   "q": "Efficacy and safety of a low-level laser device in the treatment of male and female pattern hair loss: a multicenter, randomized, sham device-controlled, double-blind study",
+   "purpose": "Ověření studie z registru: seed:pbm-jimenez2014"
+  },
+  {
+   "id": "study-pbm-afifi2017",
+   "group": "study",
+   "q": "Low-level laser therapy as a treatment for androgenetic alopecia",
+   "purpose": "Ověření studie z registru: seed:pbm-afifi2017"
+  },
+  {
+   "id": "study-pbm-hamblin2018",
+   "group": "study",
+   "q": "Mechanisms and Mitochondrial Redox Signaling in Photobiomodulation",
+   "purpose": "Ověření studie z registru: seed:pbm-hamblin2018"
+  },
+  {
+   "id": "study-pbm-heiskanen2018",
+   "group": "study",
+   "q": "Photobiomodulation: lasers vs. light emitting diodes?",
+   "purpose": "Ověření studie z registru: seed:pbm-heiskanen2018"
+  },
+  {
+   "id": "study-pbm-glass2021",
+   "group": "study",
+   "q": "Photobiomodulation: The Clinical Applications of Low-Level Light Therapy",
+   "purpose": "Ověření studie z registru: seed:pbm-glass2021"
+  },
+  {
+   "id": "study2-barolet2009",
+   "group": "study",
+   "q": "Barolet Regulation of skin collagen metabolism in vitro using a pulsed 660 nm LED light source Journal of Investigative Dermatology",
+   "purpose": "Druhé ověření studie z registru (jen PubMed): seed:pbm-barolet2009",
+   "domains": [
+    "pubmed.ncbi.nlm.nih.gov"
+   ]
+  },
+  {
+   "id": "study2-jackson2009",
+   "group": "study",
+   "q": "Jackson Low-level laser therapy as a non-invasive approach for body contouring randomized controlled study Lasers in Surgery and Medicine 2009",
+   "purpose": "Druhé ověření studie z registru (jen PubMed): seed:pbm-jackson2009",
+   "domains": [
+    "pubmed.ncbi.nlm.nih.gov"
+   ]
+  },
+  {
+   "id": "study2-afifi2017",
+   "group": "study",
+   "q": "Afifi Maranda Low-level laser therapy as a treatment for androgenetic alopecia Lasers in Surgery and Medicine",
+   "purpose": "Druhé ověření studie z registru (jen PubMed): seed:pbm-afifi2017",
+   "domains": [
+    "pubmed.ncbi.nlm.nih.gov"
+   ]
+  },
+  {
+   "id": "study2-glass2021",
+   "group": "study",
+   "q": "Glass Photobiomodulation: The Clinical Applications of Low-Level Light Therapy Aesthetic Surgery Journal 2021",
+   "purpose": "Druhé ověření studie z registru (jen PubMed): seed:pbm-glass2021",
+   "domains": [
+    "pubmed.ncbi.nlm.nih.gov"
+   ]
+  },
+  {
+   "id": "study2-cochrane",
+   "group": "study",
+   "q": "Low-level light therapy for treating venous leg ulcers Cochrane Database of Systematic Reviews",
+   "purpose": "Druhé ověření studie z registru (jen PubMed): doi:10.1002/14651858.cd013061.pub2",
+   "domains": [
+    "pubmed.ncbi.nlm.nih.gov"
+   ]
+  },
+  {
+   "id": "study2-lightsite3",
+   "group": "study",
+   "q": "LIGHTSITE III photobiomodulation dry age-related macular degeneration 24-month Retina Jaffe",
+   "purpose": "Druhé ověření studie z registru (jen PubMed): seed:pbm-lightsite3-2026",
+   "domains": [
+    "pubmed.ncbi.nlm.nih.gov"
+   ]
+  }
+ ]
+}

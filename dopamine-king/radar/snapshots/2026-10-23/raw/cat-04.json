@@ -1,0 +1,62 @@
+{
+ "query": "panel s červeným světlem",
+ "query_sent": "panel s červeným světlem",
+ "allowed_domains": [],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:22:38Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "Skupina produktů:",
+   "url": "https://www.drmax.cz/cbd-star-red-light-panel-300-w-terapie-cervenym-svetlem"
+  },
+  {
+   "rank": 2,
+   "title": "dwn.alza.cz",
+   "url": "https://dwn.alza.cz/manual/160634"
+  },
+  {
+   "rank": 3,
+   "title": "16528 jaky panel pro terapii cervenym a near infra red svetlem",
+   "url": "https://www.poradte.cz/nejen-pro-zeny/16528-jaky-panel-pro-terapii-cervenym-a-near-infra-red-svetlem.html"
+  },
+  {
+   "rank": 4,
+   "title": "Indikátor pro montáž do panelu 14mm Prominentní barva Červená, typ žárovky: LED Pájecí plíšek, 12V ac/dc RS PRO",
+   "url": "https://cz.rs-online.com/web/p/indikatory-pro-montaz-do-panelu/0205296"
+  },
+  {
+   "rank": 5,
+   "title": "RS PRO Maják Blikající, Stálé barva Červená 12V LED Panel 180mA CE IP66",
+   "url": "https://cz.rs-online.com/web/p/majaky/2205003"
+  },
+  {
+   "rank": 6,
+   "title": "Panel keeps flashing red",
+   "url": "https://support.suretyhome.com/t/panel-keeps-flashing-red/48182"
+  },
+  {
+   "rank": 7,
+   "title": "Výstražný maják, řada: 855P Blikající, stálé barva Červená LED Montáž do panelu 240 V AC",
+   "url": "https://cz.rs-online.com/web/p/majaky/5364567"
+  },
+  {
+   "rank": 8,
+   "title": "ykoliron red light panel with 60pcs dual chips leds 660nm 850nm near infrared red light lamps for body and face 10 20 30min timer 5 brightness for home office gym white c",
+   "url": "https://www.ypc.co.uk/product/ykoliron-red-light-panel-with-60pcs-dual-chips-leds-660nm-850nm-near-infrared-red-light-lamps-for-body-and-face-10-20-30min-timer-5-brightness-for-home-office-gym-white-c/"
+  },
+  {
+   "rank": 9,
+   "title": "red 12vdc panel indicator light 12mm",
+   "url": "https://pro.maplin.co.uk/products/red-12vdc-panel-indicator-light-12mm"
+  }
+ ],
+ "summary": "The search for \"panel s červeným světlem\" (panel with red light) returned two main meanings.\n\n**1. Red light therapy panels (wellness/cosmetics).** This is the most likely meaning. Several Czech retailers sell LED panels that emit red and near-infrared light for skin and body use. One listing describes a 300 W model with red, infrared and near-infrared modes, aimed at home and studio use (Red Light Panel 300 W je moderní světelný panel využívající červené, infračervené a blízké infračervené světlo.). A 1500 W model from an Alza manual lists wavelengths from 630 nm to 940 nm, and claims skin and muscle benefits that are not independently verified (Červené světlo (630 nm, 660 nm) ● Stimuluje tvorbu kolagenu). A Czech forum thread compares MITO LIGHT and Lighthacker panels, with prices of 12,900 to 18,800 Kč (MITO LIGHT® Starter 3.0 - Počet LED: 72 x 5 W (360 W total)). The forum discussion is anecdotal, and the efficacy claims in these listings are marketing rather than established evidence.\n\n**2. Red indicator and warning lights (industrial).** Other results are electrical components, such as panel-mount LED indicators for 12 V devices (Indikátor pro montáž do panelu 14mm Prominentní barva Červená, typ žárovky: LED Pájecí plíšek, 12V ac/dc), and red beacon lights for control panel mounting (Výstražný maják, řada: 855P Blikající, stálé barva Červená LED Montáž do panelu 240 V AC).\n\nIf the user meant a specific product, a specification, or a flashing-red fault on a device, they should say so and I can search again.",
+ "id": "cat-04",
+ "group": "category",
+ "persona": "",
+ "purpose": "Hledání přístroje jinými slovy"
+}

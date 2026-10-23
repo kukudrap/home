@@ -1,0 +1,69 @@
+{
+ "query": "terapie červeným světlem",
+ "query_sent": "terapie červeným světlem",
+ "allowed_domains": [
+  "mitolight.cz"
+ ],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:24:58Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "Účinky červeného světla s vědeckými studiemi",
+   "url": "https://www.mitolight.cz/ucinky-a-studie/"
+  },
+  {
+   "rank": 2,
+   "title": "Jak funguje terapie červeným a blízkým infračerveným světlem?",
+   "url": "https://www.mitolight.cz/jak-funguje-terapie-cervenym-a-infracervenym-svetlem/"
+  },
+  {
+   "rank": 3,
+   "title": "Panely pro terapii červeným světlem MITO LIGHT®",
+   "url": "https://www.mitolight.cz/cervene-a-infracervene-panely/"
+  },
+  {
+   "rank": 4,
+   "title": "Kvalitnější spánek s červeným světlem",
+   "url": "https://www.mitolight.cz/blog/problemy-se-spankem-proc-se-nam-nedari-vypnout/"
+  },
+  {
+   "rank": 5,
+   "title": "Blog MITO LIGHT®",
+   "url": "https://www.mitolight.cz/blog/"
+  },
+  {
+   "rank": 6,
+   "title": "Červené světlo proti vráskám",
+   "url": "https://www.mitolight.cz/blog/cervene-svetlo-nova-zbran-proti-vraskam/"
+  },
+  {
+   "rank": 7,
+   "title": "Často kladené otázky",
+   "url": "https://www.mitolight.cz/casto-kladene-otazky/"
+  },
+  {
+   "rank": 8,
+   "title": "Zvýšení kvality a množství vlasů díky fotobiomodulaci MITO LIGHT®",
+   "url": "https://www.mitolight.cz/blog/zvyseni-kvality-a-mnozstvi-vlasu-diky-terapii-cervenym-svetlem/"
+  },
+  {
+   "rank": 9,
+   "title": "Síla světla: rychlejší regenerace a vyšší výkon bez chemie",
+   "url": "https://www.mitolight.cz/blog/sila-svetla-rychlejsi-regenerace-vyssi-vykon-bez-chemie/"
+  },
+  {
+   "rank": 10,
+   "title": "Vliv světla na sportovní výkon a regeneraci",
+   "url": "https://www.mitolight.cz/blog/zvysovani-sportovniho-vykonu-a-podpora-regenerace-pomoci-svetla/"
+  }
+ ],
+ "summary": "Výsledky jsou téměř všechny z webů firmy MITO LIGHT, která prodává panely pro červené světlo, takže tvrzení jsou spíše marketingová a nezávisle neověřená.\n\n- **Mechanismus:** Vendor tvrdí, že světlo působí na mitochondrie a zvyšuje tvorbu ATP, tedy energie pro buňky. Červené a blízké infračervené světlo cílí na mitochondrie - „elektrárny“ buněk. Podle jiné stránky jde konkrétně o vlnové délky 610-760 nm pro červené světlo, zatímco blízké infračervené se uvádí kolem 810-850 nm.\n- **Sport a regenerace:** Nejčastější tvrzení. Stránka firmy uvádí, že terapie zlepšuje svalovou sílu, snižuje opožděnou svalovou bolestivost (DOMS) a snižuje koncentraci biomarkerů svalového poškození více než kryoterapie. Odkazy na studie v textu nejsou ověřené a v hledání nebyly nalezeny nezávislé zdroje.\n- **Pleť a vlasy:** Stránky tvrdí, že terapie podporuje tvorbu kolagenu. Jako zdroj uvádějí studii z roku 2014 v *Journal of Cosmetic and Laser Therapy*, jejíž výsledky údajně ukázaly menší vrásky a vyšší hustotu kolagenu. Pro růst vlasů se uvádí přechod folikulů do růstové fáze.\n- **Spánek:** Firma tvrdí, že pravidelná terapie podporuje tvorbu melatoninu, ale tento tvrzení také nebylo nezávisle ověřeno.\n- **Omezení:** Jedna FAQ stránka uvádí, že zařízení neprodukují UV záření, a tedy neovlivňují hladinu vitamínu D. Výsledky neobsahovaly informace o bezpečnosti, kontraindikacích ani o kvalitě důkazů z nezávislých klinických studií.\n\nPro přesnější závěr by bylo vhodné hledat přehledové články nebo studie z recenzovaných zdrojů (například PubMed) a nezávislé zdroje, např. Cochrane nebo české lékařské instituce.",
+ "id": "own-01",
+ "group": "own",
+ "persona": "",
+ "purpose": "Které stránky mitolight.cz vyhledávač zná (téma)"
+}

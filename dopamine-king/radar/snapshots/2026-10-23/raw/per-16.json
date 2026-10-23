@@ -1,0 +1,62 @@
+{
+ "query": "terapie červeným světlem kolena klouby senioři",
+ "query_sent": "terapie červeným světlem kolena klouby senioři",
+ "allowed_domains": [],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:24:26Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "ff36fa9f 079b 4a29 919e ab3e2c98a065",
+   "url": "https://colliery-recovery-s-r-o.reservio.com/services/ff36fa9f-079b-4a29-919e-ab3e2c98a065"
+  },
+  {
+   "rank": 2,
+   "title": "manual rl300 a2 6a5766f897d218.71495783",
+   "url": "https://pilulka.s3-central.vshosting.cloud/vms-prod-cs/vms/product/listing/2026/07/manual_rl300_a2_6a5766f897d218.71495783.pdf"
+  },
+  {
+   "rank": 3,
+   "title": "Červené světlo, jak funguje terapie lampou?",
+   "url": "https://www.drmax.cz/zeptejte-se-lekarnika/cervene-svetlo-jak-funguje-terapie-lampou"
+  },
+  {
+   "rank": 4,
+   "title": "Biohacking, longevity a moderní zdraví",
+   "url": "https://www.newstream.cz/enjoy/biohacking-terapie-cervenym-svetlem"
+  },
+  {
+   "rank": 5,
+   "title": "cesi objevuji terapii cervenym svetlem roste z ni dalsi miliardovy byznys",
+   "url": "https://forbes.cz/cesi-objevuji-terapii-cervenym-svetlem-roste-z-ni-dalsi-miliardovy-byznys/"
+  },
+  {
+   "rank": 6,
+   "title": "Artróza kyčelního kloubu",
+   "url": "https://www.drmax.cz/zeptejte-se-lekarnika/artroza-kycelniho-kloubu4"
+  },
+  {
+   "rank": 7,
+   "title": "16373 terapie cervenym a blizko infra cervenym svetlem zkusenosti",
+   "url": "https://www.poradte.cz/nejen-pro-zeny/16373-terapie-cervenym-a-blizko-infra-cervenym-svetlem-zkusenosti.html"
+  },
+  {
+   "rank": 8,
+   "title": "Doctors Note Logo",
+   "url": "https://ubiehealth.com/doctors-note/red-light-seniors-dosing-gentle-low-guides-older-743q2"
+  },
+  {
+   "rank": 9,
+   "title": "red light therapy arthritis hands",
+   "url": "https://stg.hffa.com/archive-th-083/red-light-therapy-arthritis-hands.pdf"
+  }
+ ],
+ "summary": "The search turned up little solid evidence on red light therapy for knee joints in seniors. Most results are clinic marketing, forum posts, or general articles.\n\n- **Evidence strength:** One Czech overview says the most clinical data exist for pain relief, supporting healing, and some dermatological indications, while evidence for sleep or cognitive functions is less convincing. Knee-specific trials did not appear in these results.\n- **Senior-specific claims:** A US consumer site recommends a gentle, carefully paced approach for older adults and lists joint pain and stiffness, including osteoarthritis, as a target. This is a promotional source, so treat the claim as unverified.\n- **Device guidance:** A patient-education handout on arthritis in the hands says devices with wavelengths between 600-1000 nm and sufficient power density are typically recommended. It also warns that the therapy should not replace conventional treatments without consulting a healthcare professional. This concerns hand arthritis, not knees.\n- **Commercial claims:** A Czech physiotherapy clinic in Ostrava markets a non-invasive, painless 20-minute treatment for joint pain. This is advertising, not evidence.\n- **Pharmacist advice:** A Czech pharmacist's answer says an infrared lamp can be used on any part of the body, including the knee. This is general advice, not a study.\n- **Safety:** A Czech pharmacist advises consulting a doctor if someone has skin disease or takes medicines that increase sensitivity to light.\n\n**Bottom line:** Pain relief is the best-supported use, but I found no reliable Czech or international source on red light therapy for senior knee joints specifically. Seniors should discuss it with a doctor first, especially when it is being considered as a replacement for standard osteoarthritis care.",
+ "id": "per-16",
+ "group": "persona",
+ "persona": "seniors",
+ "purpose": "Starší lidé: klouby (rizikové téma)"
+}

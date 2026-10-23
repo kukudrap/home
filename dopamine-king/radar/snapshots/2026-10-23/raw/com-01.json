@@ -1,0 +1,62 @@
+{
+ "query": "Lighthacker panel",
+ "query_sent": "Lighthacker panel",
+ "allowed_domains": [],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:24:29Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "Solar panel",
+   "url": "https://en.wikipedia.org/wiki/Solar_panel"
+  },
+  {
+   "rank": 2,
+   "title": "Projection panel",
+   "url": "https://en.wikipedia.org/wiki/Projection_panel"
+  },
+  {
+   "rank": 3,
+   "title": "GB2145809B - Lightning panel - Google Patents",
+   "url": "https://patents.google.com/patent/GB2145809B/cg-RX-API-DMAC7.html"
+  },
+  {
+   "rank": 4,
+   "title": "GB2145809B - Lightning panel - Google Patents",
+   "url": "https://patents.google.com/patent/GB2145809B/cg-RX-API-DMAC10.html"
+  },
+  {
+   "rank": 5,
+   "title": "- 9 min read",
+   "url": "https://www.lighttherapyinsiders.com/mitohacker-5-0-review-wide-powerful/"
+  },
+  {
+   "rank": 6,
+   "title": "- 7 min read",
+   "url": "https://www.lighttherapyinsiders.com/mito-light-mitohacker-vs-biomax-powerpanel-rojo-refine/"
+  },
+  {
+   "rank": 7,
+   "title": "To the page content",
+   "url": "https://www.thomann.co.uk/work_lightshark_ls_1.htm"
+  },
+  {
+   "rank": 8,
+   "title": "www.cined.com",
+   "url": "https://www.cined.com/es/?p=105862"
+  },
+  {
+   "rank": 9,
+   "title": "Paneles luminosos LED de la serie 7L",
+   "url": "https://www.digikey.com/es/product-highlight/f/finder-relays/7l-series-led-panel-lights"
+  }
+ ],
+ "summary": "The search didn't find anything for \"Lighthacker panel\" specifically. The closest match is the MitoHacker, a red light therapy panel from Mito Light, which may be what you mean.\n\n- **MitoHacker 5.0:** One review describes it as a wide, powerful red light panel with 504 dual-chip LEDs and six wavelengths. It also notes the panel is currently sold only in the EU. Pros include excellent width for near shoulder-to-shoulder coverage, strong irradiance, and individual wavelength control, while cons include EU-only availability, a shorter warranty than some competitors, no remote, and fairly basic smart modes.\n- **Earlier MitoHacker model:** A separate comparison describes it as black rather than white like its competitors, and significantly wider. It uses 400 LEDs, compared to the 300 LEDs in the other panels.\n- **Wavelengths and features:** The same comparison says it emits six different wavelengths: 630, 660, 670, 810, 830, and 850 nanometers. It also reports that the MitoHacker and the BioMax panels don't have pulsing.\n\nThe other results were unrelated, including solar panels, projection panels, patents, and lighting consoles. If you meant a different product, a more specific name or the manufacturer would help me search again.",
+ "id": "com-01",
+ "group": "competitor",
+ "persona": "",
+ "purpose": "Konkurent Lighthacker"
+}

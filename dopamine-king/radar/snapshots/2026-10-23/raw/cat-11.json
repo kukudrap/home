@@ -1,0 +1,62 @@
+{
+ "query": "terapie červeným světlem kontraindikace",
+ "query_sent": "terapie červeným světlem kontraindikace",
+ "allowed_domains": [],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:23:07Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "2385920 terapie cervenym svetlem 1 3 nebo 5 navstev",
+   "url": "https://www.slevomat.cz/akce/2385920-terapie-cervenym-svetlem-1-3-nebo-5-navstev"
+  },
+  {
+   "rank": 2,
+   "title": "Hlavní obsah",
+   "url": "https://www.seznamzpravy.cz/clanek/magazin-zivotni-styl-posvitte-si-cervene-proc-v-cervenem-svetle-jedou-sportovci-herci-i-astronauti-265068"
+  },
+  {
+   "rank": 3,
+   "title": "manual rl300 a2 6a5766f897d218.71495783",
+   "url": "https://pilulka.s3-central.vshosting.cloud/vms-prod-cs/vms/product/listing/2026/07/manual_rl300_a2_6a5766f897d218.71495783.pdf"
+  },
+  {
+   "rank": 4,
+   "title": "900076 kolagenova terapia horuca novinka pre omladenie tela a obnovu pokozky",
+   "url": "https://www.zlavomat.sk/akcia/900076-kolagenova-terapia-horuca-novinka-pre-omladenie-tela-a-obnovu-pokozky?mainImageId=8093510"
+  },
+  {
+   "rank": 5,
+   "title": "900076 kolagenova terapia horuca novinka pre omladenie tela a obnovu pokozky",
+   "url": "https://www.zlavomat.sk/akcia/900076-kolagenova-terapia-horuca-novinka-pre-omladenie-tela-a-obnovu-pokozky"
+  },
+  {
+   "rank": 6,
+   "title": "dwn.alza.cz",
+   "url": "https://dwn.alza.cz/manual/160634"
+  },
+  {
+   "rank": 7,
+   "title": "859204 kolagenova terapia horuca novinka pre omladenie tela a obnovu pokozky",
+   "url": "https://www.zlavomat.sk/akcia/859204-kolagenova-terapia-horuca-novinka-pre-omladenie-tela-a-obnovu-pokozky"
+  },
+  {
+   "rank": 8,
+   "title": "Červené světlo, jak funguje terapie lampou?",
+   "url": "https://www.drmax.cz/zeptejte-se-lekarnika/cervene-svetlo-jak-funguje-terapie-lampou"
+  },
+  {
+   "rank": 9,
+   "title": "cesi objevuji terapii cervenym svetlem roste z ni dalsi miliardovy byznys",
+   "url": "https://forbes.cz/cesi-objevuji-terapii-cervenym-svetlem-roste-z-ni-dalsi-miliardovy-byznys/"
+  }
+ ],
+ "summary": "Search results on red light therapy contraindications are thin and mostly come from commercial listings, so I found no authoritative medical guidance.\n\n- **Epilepsy:** One Slovak spa voucher listing names photosensitive epilepsy as a contraindication, because flashing or light stimulation can trigger a seizure (Epilepsia (fotosenzitívna forma) - blikanie alebo svetelná stimulácia môže vyvolať záchvat). The same wording appears in other listings of that offer.\n- **Infections:** A Czech voucher listing for red light sessions gives only one contraindication, an infectious disease (Infekční onemocnění).\n- **Anticoagulants:** A pharmacy Q&A asks whether red or infrared therapy is suitable for someone taking warfarin after heart surgery. The question notes that some sources say infrared lamps are unsuitable with blood-clotting disorders (Někde se uvádí, že je použití infra lampy nevhodné při nemoci srážlivosti krve). No answer was retrieved.\n- **Device manual:** An Alza manual for a home red-light panel was returned, but the contraindications section was cut off in the excerpt, so I can't report its content.\n\nFrom general knowledge, not these results, other commonly cited cautions include pregnancy, active cancer or recent tumours, photosensitising medications, and using the device directly over the eyes. Please verify these with a physician or a medical source before relying on them.",
+ "id": "cat-11",
+ "group": "category",
+ "persona": "",
+ "purpose": "Kdy nepoužívat"
+}

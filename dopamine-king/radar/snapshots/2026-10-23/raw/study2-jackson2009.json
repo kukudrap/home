@@ -1,0 +1,69 @@
+{
+ "query": "Jackson Low-level laser therapy as a non-invasive approach for body contouring randomized controlled study Lasers in Surgery and Medicine 2009",
+ "query_sent": "Jackson Low-level laser therapy as a non-invasive approach for body contouring randomized controlled study Lasers in Surgery and Medicine 2009",
+ "allowed_domains": [
+  "pubmed.ncbi.nlm.nih.gov"
+ ],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:33:47Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "Low-level laser therapy as a non-invasive approach for body contouring: a randomized, controlled study - PubMed",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/20014253"
+  },
+  {
+   "rank": 2,
+   "title": "Independent evaluation of low-level laser therapy at 635 nm for non-invasive body contouring of the waist, hips, and thighs - PubMed",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/23355338/?dopt=Abstract"
+  },
+  {
+   "rank": 3,
+   "title": "Patient Satisfaction after Upper Extremity Laser Lipolysis without Suction - PubMed",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/22567238/"
+  },
+  {
+   "rank": 4,
+   "title": "A Six-week Low-level Laser Therapy Protocol is Effective for Reducing Waist, Hip, Thigh, and Upper Abdomen Circumference - PubMed",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/27386049"
+  },
+  {
+   "rank": 5,
+   "title": "Application of low-level laser therapy for noninvasive body contouring - PubMed",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/22362380/"
+  },
+  {
+   "rank": 6,
+   "title": "Efficacy of low-level laser therapy for body contouring and spot fat reduction - PubMed",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/20393809/"
+  },
+  {
+   "rank": 7,
+   "title": "Study of Low Level Laser Therapy for Body Contouring",
+   "url": "https://clinicaltrials.gov/study/NCT00738426"
+  },
+  {
+   "rank": 8,
+   "title": "The Effect of Low-Level Laser on Postoperative Pain After Tibial Fracture Surgery: A Double-Blind Controlled Randomized Clinical Trial",
+   "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4165037/"
+  },
+  {
+   "rank": 9,
+   "title": "Low-Level Laser Therapy for Thumb Carpometacarpal Joint Osteoarthritis: A Randomized Controlled Trial",
+   "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11079573/"
+  },
+  {
+   "rank": 10,
+   "title": "Low-Level Laser Therapy for Reducing the Hip, Waist, and Upper Abdomen Circumference of Individuals with Obesity - PubMed",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/27935737"
+  }
+ ],
+ "summary": "The study you're looking for is Jackson et al., published in *Lasers in Surgery and Medicine* in December 2009 (41(10):799-809, PMID 20014253). It is a double-blind, placebo-controlled randomized trial of a 635 nm multi-diode laser for contouring the waist, hips, and thighs.\n\n- **Design:** The trial ran from May 2007 to June 2008 at multiple private practices in the US and enrolled 67 volunteers aged 18-65 with a BMI of 25-30. The trial was a double-blind, randomized, placebo-controlled study of a 2-week non-invasive laser treatment. Sixty-seven volunteers between the ages of 18-65 with a body mass index (BMI) between 25 and 30 kg/m(2) and who satisfied the set inclusion criteria participated. Eight participants lacked circumference data at the 2-week follow-up.\n- **Follow-up work:** A later six-week protocol study by the same group reported a mean combined circumference reduction of 5.4 inches and no adverse events, concluding that one weekly treatment for six weeks was clinically effective and may be more effective than the previous two-week protocol.\n- **Independent check:** A separate 2013 PubMed entry lists an independent evaluation of 635 nm LLLT for waist, hip, and thigh contouring, but I did not retrieve its findings.\n\nI did not retrieve the full text, so I cannot confirm the trial's exact circumference results or its statistical outcomes. The PubMed abstract is the best source for those details.",
+ "id": "study2-jackson2009",
+ "group": "study",
+ "persona": "",
+ "purpose": "Druhé ověření studie z registru (jen PubMed): seed:pbm-jackson2009"
+}

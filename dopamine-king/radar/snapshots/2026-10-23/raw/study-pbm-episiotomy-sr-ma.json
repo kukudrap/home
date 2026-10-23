@@ -1,0 +1,62 @@
+{
+ "query": "The Effectiveness of Photobiomodulation Therapy on Perineal Pain and Wound Healing After Episiotomy - A Systematic Review and Meta-Analysis",
+ "query_sent": "\"The Effectiveness of Photobiomodulation Therapy on Perineal Pain and Wound Healing After Episiotomy - A Systematic Review and Meta-Analysis\"",
+ "allowed_domains": [],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:28:40Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "The Effectiveness of Photobiomodulation Therapy on Perineal Pain and Wound Healing After Episiotomy - A Systematic Review and Meta-Analysis",
+   "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12897679/"
+  },
+  {
+   "rank": 2,
+   "title": "pmc.ncbi.nlm.nih.gov",
+   "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12897679"
+  },
+  {
+   "rank": 3,
+   "title": "PHOTOBIOMODULATION ON PERINEAL PAIN AND HEALING PROCESS FOLLOWING EPISIOTOMY: A SYSTEMATIC REVIEW PROTOCOL",
+   "url": "https://revista.redeunida.org.br/index.php/cadernos-educacao-saude-fisioter/article/view/4805"
+  },
+  {
+   "rank": 4,
+   "title": "revista.redeunida.org.br",
+   "url": "https://revista.redeunida.org.br/index.php/cadernos-educacao-saude-fisioter/article/view/4805/1636"
+  },
+  {
+   "rank": 5,
+   "title": "www.synapsesocial.com",
+   "url": "https://www.synapsesocial.com/papers/69a75a8bc6e9836116a20804"
+  },
+  {
+   "rank": 6,
+   "title": "1. INTRODUCTION",
+   "url": "https://orthopedicreviews.openmedicalpublishing.org/article/171902-physical-rehabilitation-for-postpartum-perineal-morbidity-after-episiotomy-and-childbirth-related-perineal-trauma-a-systematic-review-and-meta-analys"
+  },
+  {
+   "rank": 7,
+   "title": "The Efficacy of Energy-Based Devices on Episiotomy Pain and Healing: A Systematic Review and Meta-Analysis",
+   "url": "https://www.ics.org/2025/abstract/868"
+  },
+  {
+   "rank": 8,
+   "title": "IS LOW-LEVEL LASER THERAPY EFFECTIVE FOR PAIN AND HEALING AFTER EPISIOTOMY? A SYSTEMATIC REVIEW AND META-ANALYSIS",
+   "url": "https://world.physio/congress-proceeding/low-level-laser-therapy-effective-pain-and-healing-after-episiotomy-systematic"
+  },
+  {
+   "rank": 9,
+   "title": "Infrared Lamp Therapy on Episiotomy Wound during Postpartum Period An Integrative Review",
+   "url": "https://he02.tci-thaijo.org/index.php/ns/article/view/254415"
+  }
+ ],
+ "summary": "The paper you named is published in *Journal of Clinical Medicine* (2026, 15(3):964) by Alayat and colleagues. Eight studies were included in the systematic review, and six studies were included in the meta-analysis.\n\n**Main finding:** The authors concluded that photobiomodulation did not produce a significant benefit for perineal pain or wound healing compared with control interventions. They stressed caution, citing small study numbers and substantial heterogeneity. They called for high-quality RCTs with standardized PBM protocols before clinical recommendations can be made.\n\n**Certainty of evidence:** Risk of bias was mixed. One trial was judged at low risk of bias, two trials raised some concerns, and three trials were at high risk of bias. Evidence certainty for both pain and wound-healing outcomes was rated very low using GRADE.\n\n**Related work:** A separate 2025 meta-analysis of energy-based devices found that infrared irradiation reduced postpartum pain compared to standard care or no treatment, but it did not show a significant healing benefit. A 2020 protocol-stage review by the same research group had also noted that no systematic reviews have examined the impact of this intervention on perineal pain and healing outcomes in women after episiotomy.",
+ "id": "study-pbm-episiotomy-sr-ma",
+ "group": "study",
+ "persona": "",
+ "purpose": "Ověření studie z registru: seed:pbm-episiotomy-sr-ma"
+}

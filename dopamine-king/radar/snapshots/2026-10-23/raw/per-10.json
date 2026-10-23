@@ -1,0 +1,62 @@
+{
+ "query": "červené světlo spánek",
+ "query_sent": "červené světlo spánek",
+ "allowed_domains": [],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:24:06Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "Zázrak pro spánek, nebo virální nesmysl? Červené brýle jsou hit, expert popsal jejich vliv",
+   "url": "https://cnn.iprima.cz/cervene-bryle-kvuli-kterym-rychleji-usnete-505257"
+  },
+  {
+   "rank": 2,
+   "title": "Zavřít reklamu",
+   "url": "https://www.letemsvetemapplem.eu/?p=661315"
+  },
+  {
+   "rank": 3,
+   "title": "Efekt akutní spánkové deprivace v rozdílných světelných podmínkách na kvalitu zotavovacího spánku",
+   "url": "https://dspace.cuni.cz/handle/20.500.11956/189955"
+  },
+  {
+   "rank": 4,
+   "title": "Mění nám obrazovky spánek?",
+   "url": "https://www.echo24.cz/a/HeRtP/meni-nam-obrazovky-spanek"
+  },
+  {
+   "rank": 5,
+   "title": "f5 dp 2025 prosova alzbeta diplomova prace prosova alzbeta",
+   "url": "https://www.fa.cvut.cz/galerie/diplomove-prace/2024-0-alzbeta-osvetleni-prace-s-cervenym-svetlem-116293/f5-dp-2025-prosova-alzbeta-diplomova_prace_prosova_alzbeta.pdf"
+  },
+  {
+   "rank": 6,
+   "title": "Vliv modrého světla na spánek",
+   "url": "https://dspace.cuni.cz/handle/20.500.11956/178988"
+  },
+  {
+   "rank": 7,
+   "title": "LED pomôcky na zaspávanie: Recenzie a komplexný sprievodca",
+   "url": "https://ddadsstornala.sk/aktuality/led-pomocka-na-zaspavanie/"
+  },
+  {
+   "rank": 8,
+   "title": "REM rebound",
+   "url": "https://en.wikipedia.org/wiki/REM_rebound"
+  },
+  {
+   "rank": 9,
+   "title": "Steun ons werk",
+   "url": "https://herseninstituut.nl/?p=6527"
+  }
+ ],
+ "summary": "Search results on red light and sleep are mixed. Most of the claims come from popular articles or product-driven pages, and only a few cite research.\n\n- **Social media trend:** Influencers are wearing red glasses an hour before bed and switching phones to a red mode to block blue light. Teď si totiž lidé před spaním nasazují červené brýle, přepínají mobily do „red mode“ a byt zalévají oranžovým světlem. The source treats the trend skeptically, quoting an influencer who urges people to check whether viral claims are actually beneficial.\n- **Blue-light concerns:** A Czech tech site says blue light suppresses melatonin, and it notes that iPhones can switch to red display colours. This is a how-to article rather than a study.\n- **Thesis on red glasses (Charles University, 2023):** A small experiment with 10 participants had them wear red blue-blocking glasses 1.5 hours before bed for three months, with sleep monitored by a watch and assessed with the Pittsburgh sleep quality index. The results are not in the snippet, so I can't say what they found.\n- **Thesis on light and sleep deprivation (Charles University, 2024):** The abstract says dim red light at night should not strongly affect sleep regulation, whereas brighter white light could.\n- **Red light and vigilance (2018 study):** Researchers tested the aftereffects of five minutes of intense red light on pupil size and alertness in the dark that followed. The results are not in the snippet.\n- **Lower-quality sources:** A Slovak page claims red light boosts melatonin, but it sells red bulbs and glasses and gives no study. An echo24 article is labelled as marketing content.\n\nOverall, the best evidence is limited and small-scale, and the snippets don't include the main findings of the red-glasses study.",
+ "id": "per-10",
+ "group": "persona",
+ "persona": "everyday",
+ "purpose": "Běžní lidé: spánek"
+}

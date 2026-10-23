@@ -1,0 +1,62 @@
+{
+ "query": "Therapeutic Effects of Low-Level Laser on Male Infertility: A Systematic Review",
+ "query_sent": "Therapeutic Effects of Low-Level Laser on Male Infertility: A Systematic Review",
+ "allowed_domains": [],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:26:39Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "Effectiveness of low level laser therapy for treating male infertility",
+   "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5992952/"
+  },
+  {
+   "rank": 2,
+   "title": "journals.sbmu.ac.ir",
+   "url": "https://journals.sbmu.ac.ir/jlms/article/download/41768/32111"
+  },
+  {
+   "rank": 3,
+   "title": "Therapeutic Effects of Low-Level Laser on Male Infertility: A Systematic Review Low-level laser and male infertility",
+   "url": "https://journals.sbmu.ac.ir/jlms/article/view/41768"
+  },
+  {
+   "rank": 4,
+   "title": "148386 therapeutic effects of low level laser on male infertility a systematic review",
+   "url": "https://urotoday.com/recent-abstracts/men-s-health/male-infertility/148386-therapeutic-effects-of-low-level-laser-on-male-infertility-a-systematic-review.html"
+  },
+  {
+   "rank": 5,
+   "title": "148386 therapeutic effects of low level laser on male infertility a systematic review",
+   "url": "https://www.urotoday.com/recent-abstracts/men-s-health/erectile-dysfunction/148386-therapeutic-effects-of-low-level-laser-on-male-infertility-a-systematic-review.html"
+  },
+  {
+   "rank": 6,
+   "title": "pmc.ncbi.nlm.nih.gov",
+   "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10658110"
+  },
+  {
+   "rank": 7,
+   "title": "scholars.duke.edu",
+   "url": "https://scholars.duke.edu/publication/1639580"
+  },
+  {
+   "rank": 8,
+   "title": "LASER THERAPY FOR MALE INFERTILITY. PART 2. SYSTEMATIC REVIEW OF CLINICAL TRIALS",
+   "url": "https://journals.eco-vector.com/1728-2985/article/view/322177"
+  },
+  {
+   "rank": 9,
+   "title": "pmc.ncbi.nlm.nih.gov",
+   "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10589983"
+  }
+ ],
+ "summary": "The review is by Eghbaldoost and colleagues, published in the Journal of Lasers in Medical Sciences in 2023 (vol. 14, e36). It covers photobiomodulation (PBM), the term that has replaced low-level laser therapy, and searched Google Scholar and PubMed for work from 2000 to September 2022. The authors included 15 studies covering in vitro sperm samples and randomized trials of men.\n\nThe in vitro studies consistently reported higher proportions of progressively motile sperm after PBM. One study of 58 samples judged PBM unsafe, while ten others found it safe. The authors caution that differences in study populations, exposure durations, sample sizes, and outcome measures mean the gains cannot be attributed solely to the laser. An earlier Russian-language review (Part 2, systematic review of clinical trials) also exists, but I didn't retrieve its findings.",
+ "id": "study-pbm-lllt-male-infertility-sr",
+ "group": "study",
+ "persona": "",
+ "purpose": "Ověření studie z registru: seed:pbm-lllt-male-infertility-sr"
+}
