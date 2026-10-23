@@ -1,0 +1,53 @@
+[
+ {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Ozáření mW/cm2 panel červené světlo: jak číst parametry",
+  "description": "Ozáření mW/cm2 panel červené světlo: jak číst údaje výrobců, proč se liší měření a jak porovnat panely MITO LIGHT podle parametrů.",
+  "inLanguage": "cs",
+  "publisher": {
+   "@type": "Organization",
+   "name": "MITO LIGHT"
+  },
+  "keywords": "ozáření mW/cm2 panel červené světlo",
+  "wordCount": 1199
+ },
+ {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+   {
+    "@type": "Question",
+    "name": "Co znamená ozáření v mW/cm2 u panelu?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Ozáření v mW/cm2 říká, jaký světelný výkon dopadá na jeden čtvereční centimetr plochy. Je to technický parametr, který závisí na vzdálenosti a měřicí metodě. U našich panelů je to údaj deklarovaný výrobcem, například 80 mW/cm2 u Expertu 5.0 nebo 82 mW/cm2 u Biohackeru 5.0."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Jak porovnat panely s červeným světlem?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Porovnávejte stejné s stejným: ozáření, vzdálenost měření, měřicí přístroj a vlnové délky. Panely MITO LIGHT 4.0 a 5.0 mají šest vlnových délek, 630, 660, 670, 810, 830 a 850 nm. Starter 5.0 ukazuje, že spektrometr a solární měřič dávají u jednoho panelu různé hodnoty."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Proč má Starter 5.0 dvě hodnoty ozáření?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Protože byl změřen dvěma přístroji. Ve vzdálenosti 15 cm je to 71 mW/cm2 měřeno spektrometrem a 130 mW/cm2 měřeno solárním měřičem. Obě hodnoty jsou deklarované výrobcem. Pro srovnání s jiným panelem použijte tu, která odpovídá stejné metodě měření."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Znamená vyšší ozáření lepší výsledky?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Ne, takto to tvrdit nelze. Vyšší číslo je jen vyšší světelný výkon na plochu. Studie u zdravých lidí jsou smíšené: některé spojují světlo před cvičením s lepší vytrvalostí , jiný přehled u celotělového světla žádný přínos nezjistil ."
+    }
+   }
+  ]
+ }
+]

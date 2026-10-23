@@ -1,0 +1,53 @@
+[
+ {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "MITO LIGHT nebo Mito Red Light: v čem je rozdíl",
+  "description": "MITO LIGHT nebo Mito Red Light? Jde o dvě různé značky. Přečtěte si, kdo je česká značka z mitolight.cz a jak je od sebe odlišit.",
+  "inLanguage": "cs",
+  "publisher": {
+   "@type": "Organization",
+   "name": "MITO LIGHT"
+  },
+  "keywords": "MITO LIGHT nebo Mito Red Light",
+  "wordCount": 1182
+ },
+ {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+   {
+    "@type": "Question",
+    "name": "Je MITO LIGHT stejná značka jako Mito Red Light?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Ne, nejsou stejné. MITO LIGHT je česká značka panelů a žárovek s červeným a blízkým infračerveným světlem a prodává na vlastním českém e-shopu mitolight.cz. Mito Red Light je americká značka s webem mitoredlight.com. Názvy jsou podobné, ale jde o dvě samostatné značky."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Kde najdu oficiální web české značky MITO LIGHT?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Oficiální e-shop značky MITO LIGHT je na adrese mitolight.cz. Prodává tam panely a žárovky s červeným a blízkým infračerveným světlem. Web americké značky Mito Red Light je jiný: mitoredlight.com. Před nákupem proto vždy zkontrolujte doménu v adresním řádku."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Kde najdu hodnocení zákazníků obchodu MITO LIGHT?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Zákaznická hodnocení obchodu najdete na Heurece a v profilu MITO LIGHT Europe na Trustpilotu. Při čtení recenzí si ověřte, že se týkají právě značky MITO LIGHT, a ne jiného obchodu s podobným názvem, například americké značky Mito Red Light."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Znamená označení CE a UKCA zdravotnické schválení?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Ne. Zařízení MITO LIGHT mají označení CE a UKCA a splňují požadavky RoHS, ale jde o označení shody elektrických zařízení. Nejsou to zdravotnická schválení ani doporučení z hlediska zdraví. Informují jen o tom, že zařízení splňuje příslušné požadavky pro elektrická zařízení."
+    }
+   }
+  ]
+ }
+]

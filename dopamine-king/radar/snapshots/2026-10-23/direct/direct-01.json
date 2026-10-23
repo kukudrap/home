@@ -1,0 +1,56 @@
+{
+ "id": "direct-01",
+ "method": "direct WebSearch tool call made by Claude during the session, copied from the tool output",
+ "retrieved_on": "2026-10-23",
+ "query": "terapie červeným světlem",
+ "allowed_domains": [],
+ "compare_with": "cat-01",
+ "links": [
+  {
+   "rank": 1,
+   "title": "cesi objevuji terapii cervenym svetlem roste z ni dalsi miliardovy byznys",
+   "url": "https://forbes.cz/cesi-objevuji-terapii-cervenym-svetlem-roste-z-ni-dalsi-miliardovy-byznys/"
+  },
+  {
+   "rank": 2,
+   "title": "Hlavní obsah",
+   "url": "https://www.seznamzpravy.cz/clanek/magazin-zivotni-styl-posvitte-si-cervene-proc-v-cervenem-svetle-jedou-sportovci-herci-i-astronauti-265068"
+  },
+  {
+   "rank": 3,
+   "title": "dwn.alza.cz",
+   "url": "https://dwn.alza.cz/manual/160634"
+  },
+  {
+   "rank": 4,
+   "title": "Červené světlo, jak funguje terapie lampou?",
+   "url": "https://www.drmax.cz/zeptejte-se-lekarnika/cervene-svetlo-jak-funguje-terapie-lampou"
+  },
+  {
+   "rank": 5,
+   "title": "Biohacking, longevity a moderní zdraví",
+   "url": "https://www.newstream.cz/enjoy/biohacking-terapie-cervenym-svetlem"
+  },
+  {
+   "rank": 6,
+   "title": "Biohacking, longevity a moderní zdraví",
+   "url": "https://www.newstream.cz/stitek/terapie"
+  },
+  {
+   "rank": 7,
+   "title": "Terapie červeným světlem, masáže podle výběru, welcome drink a čaj",
+   "url": "https://www.slevomat.cz/akce/2432624-terapie-cervenym-svetlem-a-masaze-podle-vyberu"
+  },
+  {
+   "rank": 8,
+   "title": "2385920 terapie cervenym svetlem 1 3 nebo 5 navstev",
+   "url": "https://www.slevomat.cz/akce/2385920-terapie-cervenym-svetlem-1-3-nebo-5-navstev"
+  },
+  {
+   "rank": 9,
+   "title": "manual rl300 a2 6a5766f897d218.71495783",
+   "url": "https://pilulka.s3-central.vshosting.cloud/vms-prod-cs/vms/product/listing/2026/07/manual_rl300_a2_6a5766f897d218.71495783.pdf"
+  }
+ ],
+ "note": "Long dashes in titles were replaced by a hyphen, nothing else was changed."
+}

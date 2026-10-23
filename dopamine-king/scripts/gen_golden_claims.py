@@ -35,6 +35,7 @@ CS = [
     "Zlepšuje paměť a chrání před Alzheimerovou chorobou.", "Pomůže vám usnout a zlepší kvalitu spánku.", "Jak funguje fotobiomodulace v buňkách?",
     "Pro lidi s artritidou: panel pro každodenní použití.", "Panel pomáhá sportovcům s regenerací.", "Podporuje vaši regeneraci po každém tréninku!",
     "Stačí 10 minut denně a bolest zmizí.", "Světelná rutina před spaním může podpořit pohodu.", "",
+    "Zvýšení kvality a množství vlasů díky světlu.", "Zvyšuje množství vlasů a hustotu vlasů.", "Pro silnější vlasy každý den.",
 ]
 EN = [
     "Red light cures joint pain.", "It relieves inflammation and back pain.", "Treats depression and anxiety.", "Boosts testosterone.",
@@ -54,6 +55,7 @@ EN = [
     "Hair growth and hair regrowth in 3 months.", "Anti-aging glow with fine lines gone.", "Supports your recovery.", "5 mistakes people make with red light panels",
     "Is red light therapy the same as a tanning bed?", "A harmless way to relax.", "No risk, no contraindications.",
     "Mitochondria are cell structures that make energy.", "Reduce stress and calm your mind.", "A calm evening light routine.", "",
+    "Promotes thicker hair and better hair quality.", "Boosts hair volume in weeks.",
 ]
 MIXED = [
     "Red light léčí bolest kloubů", "Detox & imunita: červené světlo", "Zlepšuje spánek (may support sleep).", "ČERVENÉ SVĚTLO LÉČÍ BOLEST!!!",

@@ -1,0 +1,56 @@
+{
+ "id": "direct-05",
+ "method": "direct WebSearch tool call made by Claude during the session, copied from the tool output",
+ "retrieved_on": "2026-10-23",
+ "query": "mitolight.cz",
+ "allowed_domains": [],
+ "compare_with": "brand-02",
+ "links": [
+  {
+   "rank": 1,
+   "title": "Více Mito Light produktu",
+   "url": "https://www.heureka.cz/znacky/mito-light/"
+  },
+  {
+   "rank": 2,
+   "title": "MITO LIGHT® Europe Reviews 397",
+   "url": "https://ca.trustpilot.com/review/mitolight.com"
+  },
+  {
+   "rank": 3,
+   "title": "cn.panjiva.com",
+   "url": "https://cn.panjiva.com/Mit-Lighting-Co-Ltd/1184536"
+  },
+  {
+   "rank": 4,
+   "title": "ČESKÉSTAVBY.cz - vše o stavbě, zahradě a bydlení",
+   "url": "https://www.ceskestavby.cz/firmy/mitol-cz.html"
+  },
+  {
+   "rank": 5,
+   "title": "[Date Prev][Date Next][Thread Prev][Thread Next][Date Index][Thread Index]",
+   "url": "https://amper.ped.muni.cz/svetlo/a/msg00254.html"
+  },
+  {
+   "rank": 6,
+   "title": "Electric Lighting Equipment Manufacturing Companies in Czech Republic",
+   "url": "https://www.dnb.com/business-directory/company-information.electric_lighting_equipment_manufacturing.cz.html?page=4"
+  },
+  {
+   "rank": 7,
+   "title": "MITON CZ opět třetí nejrychleji rostoucí technologickou firmou v ČR",
+   "url": "https://www.lupa.cz/tiskove-zpravy/miton-cz-opet-treti-nejrychleji-rostouci-firmou/"
+  },
+  {
+   "rank": 8,
+   "title": "Electric Lighting Equipment Manufacturing Companies in Czech Republic",
+   "url": "https://www.dnb.com/business-directory/company-information.electric_lighting_equipment_manufacturing.cz.html?page=3"
+  },
+  {
+   "rank": 9,
+   "title": "MITON Mirrors s.r.o., IČO (11809027), sídlo Praha",
+   "url": "https://www.mesec.cz/rejstrik-firem/firma-miton-mirrors-s-r-o-11809027"
+  }
+ ],
+ "note": "Long dashes in titles were replaced by a hyphen, nothing else was changed."
+}

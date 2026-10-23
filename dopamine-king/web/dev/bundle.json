@@ -1,7 +1,7 @@
 {
  "meta": {
   "version": 1,
-  "generated": "2026-10-02T15:58:59+00:00",
+  "generated": "2026-10-23T21:03:21+00:00",
   "synthetic": true,
   "corpus": {
    "brands": 16,
@@ -1085,11 +1085,11 @@
     "capped": false,
     "cap_reason_en": "Support comes from cell-level research and reviews of proposed mechanisms; the leading explanation (cytochrome c oxidase) is disputed and no agreed mechanism exists, so a stronger label would overstate certainty.",
     "cap_reason_cs": "Podklady pocházejí z výzkumu na úrovni buněk a z přehledů navrhovaných mechanismů; hlavní vysvětlení (cytochrom c oxidáza) je sporné a ustálený mechanismus neexistuje, silnější označení by proto nadsazovalo jistotu.",
-    "grade": "",
-    "n_studies": 3,
-    "n_pending": 1,
+    "grade": "C",
+    "n_studies": 4,
+    "n_pending": 0,
     "direction_counts": {
-     "supports": 0,
+     "supports": 1,
      "mixed": 2,
      "contradicts": 0,
      "context": 1
@@ -1098,11 +1098,13 @@
     "headline_cs": "Omezené důkazy: žádná podpůrná studie nemá stupeň A nebo B a nejsilnější studie uvádí smíšené výsledky.",
     "caveats_en": [
      "Fuchs et al. 2021: Cell culture experiment only; it does not show effects in people or from consumer panels.",
+     "Hamblin 2018: A review of proposed mechanisms: it explains how light may act on cells, not that a given device produces a result in people.",
      "de Freitas & Hamblin 2016: Mechanistic review of hypotheses, not a test of any consumer device or of health outcomes.",
      "Sommer 2019: Single-author theoretical commentary; its alternative water-based model is a hypothesis, not an established mechanism."
     ],
     "caveats_cs": [
      "Fuchs et al. 2021: Pouze pokus na buněčných kulturách; neukazuje účinky u lidí ani u spotřebitelských panelů.",
+     "Hamblin 2018: Přehled navržených mechanismů: vysvětluje, jak může světlo působit na buňky, ne že konkrétní přístroj přináší lidem výsledek.",
      "de Freitas & Hamblin 2016: Mechanistický přehled hypotéz, nikoli test nějakého spotřebitelského zařízení ani zdravotních výsledků.",
      "Sommer 2019: Teoretický komentář jednoho autora; alternativní model založený na vodě je hypotéza, nikoli ustálený mechanismus."
     ],
@@ -1145,13 +1147,13 @@
     "cap_reason_en": "The evidence verified so far is reviews and cell-culture experiments; the field has no agreed optimal parameters and reports contradictory results, and no verified human dose-finding trial is linked yet.",
     "cap_reason_cs": "Dosud ověřené podklady tvoří přehledy a pokusy na buněčných kulturách; obor nemá shodu na optimálních parametrech, uvádí protichůdné výsledky a zatím není propojena žádná ověřená studie hledání dávky u lidí.",
     "grade": "B",
-    "n_studies": 4,
-    "n_pending": 1,
+    "n_studies": 5,
+    "n_pending": 0,
     "direction_counts": {
      "supports": 2,
      "mixed": 1,
      "contradicts": 0,
-     "context": 1
+     "context": 2
     },
     "headline_en": "Moderate evidence: one supporting study graded A or B.",
     "headline_cs": "Střední síla důkazů: podpůrná studie se stupněm A nebo B je jedna.",
@@ -1159,19 +1161,21 @@
      "Fuchs et al. 2021: Cell culture only; the wavelengths and doses tested do not translate directly to people or consumer panels.",
      "Huang et al. 2009: Review article; it does not set a recommended dose for any consumer device.",
      "Zein et al. 2018: Review of heterogeneous studies; contradictory results across parameter sets limit firm dose conclusions, and it is not a test of consumer panels.",
+     "Heiskanen & Hamblin 2018: An opinion paper, not a trial. Abstract-level reading.",
      "Jenkins & Carroll 2011: Short guidance paper for researchers; it flags reporting gaps in the literature but is not a test of any device."
     ],
     "caveats_cs": [
      "Fuchs et al. 2021: Pouze buněčné kultury; testované vlnové délky a dávky nelze přímo přenést na lidi ani na spotřebitelské panely.",
      "Huang et al. 2009: Přehledový článek; nestanovuje doporučenou dávku pro žádné spotřebitelské zařízení.",
      "Zein et al. 2018: Přehled heterogenních studií; protichůdné výsledky napříč sadami parametrů brání pevným závěrům o dávce a nejde o test spotřebitelských panelů.",
+     "Heiskanen & Hamblin 2018: Názorový text, ne studie. Čteno na úrovni abstraktu.",
      "Jenkins & Carroll 2011: Krátký metodický text pro výzkumníky; upozorňuje na mezery ve vykazování v literatuře, ale není testem žádného zařízení."
     ],
     "study_ids": [
      "seed:pbm-fuchs2021",
      "doi:10.2203/dose-response.09-027.hamblin",
      "doi:10.1117/1.jbo.23.12.120901",
-     "seed:pbm-heiskanen2018",
+     "doi:10.1039/c8pp00176f",
      "seed:pbm-jenkins2011"
     ]
    },
@@ -1207,26 +1211,28 @@
     "cap_reason_en": "Only indirect, methodological sources were verified (reporting of dose and beam parameters); no peer-reviewed independent measurement study of consumer panels is linked yet, so a higher label is not supported. Revisit after such a study is added.",
     "cap_reason_cs": "Byly ověřeny jen nepřímé metodické zdroje (vykazování dávky a parametrů svazku); zatím není propojena žádná recenzovaná nezávislá studie měření spotřebitelských panelů, vyšší označení proto není podloženo. Po doplnění takové studie je vhodné je přehodnotit.",
     "grade": "",
-    "n_studies": 2,
-    "n_pending": 2,
+    "n_studies": 3,
+    "n_pending": 1,
     "direction_counts": {
      "supports": 0,
      "mixed": 0,
      "contradicts": 0,
-     "context": 2
+     "context": 3
     },
     "headline_en": "Limited evidence: only background research is linked, no direct test of this tactic.",
     "headline_cs": "Omezené důkazy: je propojen jen podkladový výzkum, žádný přímý test této taktiky.",
     "caveats_en": [
+     "Heiskanen & Hamblin 2018: An opinion paper, not a trial. Abstract-level reading.",
      "Zein et al. 2018: Research review, not a survey or measurement study of consumer devices.",
      "Jenkins & Carroll 2011: Written for research laser and LED studies; it shows why measured output matters but does not survey consumer panels."
     ],
     "caveats_cs": [
+     "Heiskanen & Hamblin 2018: Názorový text, ne studie. Čteno na úrovni abstraktu.",
      "Zein et al. 2018: Přehled výzkumu, nikoli průzkum nebo měření spotřebitelských zařízení.",
      "Jenkins & Carroll 2011: Určeno pro výzkumné studie s lasery a LED; ukazuje, proč záleží na změřeném výkonu, ale nemapuje spotřebitelské panely."
     ],
     "study_ids": [
-     "seed:pbm-heiskanen2018",
+     "doi:10.1039/c8pp00176f",
      "doi:10.1117/1.jbo.23.12.120901",
      "seed:pbm-glass2021",
      "seed:pbm-jenkins2011"
@@ -1362,29 +1368,31 @@
      "Červené světelné panely po každém tréninku urychlí regeneraci svalů.",
      "Po tréninku pod naším panelem vaše svalová bolest i poškození svalů zmizí."
     ],
-    "label": "limited",
-    "computed_label": "limited",
+    "label": "contested",
+    "computed_label": "contested",
     "capped": false,
     "cap_reason_en": "Pooled analyses disagree across outcomes and time points, many trials are small and protocols differ, and the one review of whole-body application (five studies) reported no benefit.",
     "cap_reason_cs": "Souhrnné analýzy se napříč ukazateli a časovými body neshodují, řada studií je malá s odlišnými protokoly a jediný přehled celotělové aplikace (pět studií) nezaznamenal žádný přínos.",
-    "grade": "",
-    "n_studies": 4,
-    "n_pending": 1,
+    "grade": "A",
+    "n_studies": 5,
+    "n_pending": 0,
     "direction_counts": {
-     "supports": 0,
+     "supports": 1,
      "mixed": 2,
      "contradicts": 1,
      "context": 1
     },
-    "headline_en": "Limited evidence: the best linked studies contradict this tactic.",
-    "headline_cs": "Omezené důkazy: nejkvalitnější propojené studie této taktice odporují.",
+    "headline_en": "Contested: studies graded A or B point in both directions (1 supporting, 1 contradicting).",
+    "headline_cs": "Sporné: studie se stupněm A nebo B ukazují oběma směry (podporuje 1, odporuje 1).",
     "caveats_en": [
+     "Tsou et al. 2025: Only four studies could be pooled; wavelengths and application sites varied (one to six points on the affected muscles).",
      "Li et al. 2024: Pooled effects are modest and differ by activity level; protocol details and study quality were not visible in the records checked.",
      "Nampo et al. 2016: The authors conclude that phototherapy may not have a substantial effect on exercise-induced muscle injury and pain; few studies per analysis, differences between studies and small samples limit conclusions.",
      "Álvarez-Martínez & Borden 2025: Only five studies; the authors call for more research to explain the gap with benefits seen in localised photobiomodulation studies.",
      "Leal-Junior et al. 2015: Only the design and outcomes were confirmed from the search record; read the paper before quoting a result."
     ],
     "caveats_cs": [
+     "Tsou et al. 2025: Sloučit šlo jen čtyři studie; vlnové délky i místa aplikace se lišily (jeden až šest bodů na dotčených svalech).",
      "Li et al. 2024: Souhrnné účinky jsou mírné a liší se podle úrovně aktivity; podrobnosti protokolů a kvalita studií nebyly v prověřených záznamech k dispozici.",
      "Nampo et al. 2016: Autoři docházejí k závěru, že fototerapie nemusí mít zásadní vliv na svalové poškození a bolest po cvičení; závěry omezuje málo studií v každé analýze, rozdíly mezi studiemi a malé vzorky.",
      "Álvarez-Martínez & Borden 2025: Jen pět studií; autoři vyzývají k dalšímu výzkumu, který vysvětlí rozdíl oproti přínosům pozorovaným ve studiích lokální fotobiomodulace.",
@@ -1470,8 +1478,8 @@
     "name_cs": "Vzhled pleti",
     "claim_en": "Regular red and near-infrared light sessions may improve skin appearance (fine lines, roughness, collagen density).",
     "claim_cs": "Pravidelné sezení pod červeným a blízkým infračerveným světlem může zlepšit vzhled pleti (jemné linky, hrubost, hustotu kolagenu).",
-    "summary_en": "Small controlled trials and reviews of red and near-infrared LED treatment of skin exist. The records in this ledger are research leads that are not verified yet, so no strength label is shown. Protocols, device power and trial quality vary widely.",
-    "summary_cs": "Malé kontrolované studie a přehledy o ošetření pleti červenými a blízkými infračervenými LED existují. Záznamy v tomto registru jsou zatím neověřené výzkumné podněty, proto se nezobrazuje žádná síla důkazů. Protokoly, výkon zařízení i kvalita studií se výrazně liší.",
+    "summary_en": "Small controlled trials and reviews of red and near-infrared LED treatment of skin exist, and several of them are now verified in the ledger. They are mostly small studies with different devices and protocols. Results for the look of healthy skin vary, and so does trial quality.",
+    "summary_cs": "Malé kontrolované studie a přehledy o ošetření pleti červenými a blízkými infračervenými LED existují a několik z nich je v registru ověřeno. Jde hlavně o malé studie s různými přístroji a protokoly. Výsledky pro vzhled zdravé pleti se liší a kvalita studií také.",
     "safe_en": [
      "Some small studies report modest improvements in the appearance of fine lines and skin roughness after regular red light sessions; results vary between people and between studies.",
      "Skin appearance is an area of ongoing research on red and near-infrared light; we do not promise a specific result."
@@ -1488,24 +1496,34 @@
      "Panely s červeným světlem během pár týdnů vymažou vrásky a obnoví kolagen.",
      "Zaručeně mladší vzhled pleti po každém sezení."
     ],
-    "label": "none",
-    "computed_label": "none",
-    "capped": false,
-    "cap_reason_en": "Small trials and reviews exist, but protocols and device power vary and many trials are small. Capped at moderate until the research leads are verified and read.",
-    "cap_reason_cs": "Malé studie a přehledy existují, ale protokoly i výkon zařízení se liší a mnoho studií je malých. Strop střední, dokud nebudou výzkumné podněty ověřeny a přečteny.",
-    "grade": "",
-    "n_studies": 0,
-    "n_pending": 5,
+    "label": "moderate",
+    "computed_label": "strong",
+    "capped": true,
+    "cap_reason_en": "Small trials and reviews exist, but protocols and device power vary and many trials are small. Capped at moderate: one review is still unconfirmed and the verified studies were read at abstract level only.",
+    "cap_reason_cs": "Malé studie a přehledy existují, ale protokoly i výkon zařízení se liší a mnoho studií je malých. Strop střední: jeden přehled zůstává nepotvrzený a ověřené studie byly čteny jen na úrovni abstraktu.",
+    "grade": "A",
+    "n_studies": 4,
+    "n_pending": 1,
     "direction_counts": {
-     "supports": 0,
-     "mixed": 0,
+     "supports": 2,
+     "mixed": 1,
      "contradicts": 0,
-     "context": 0
+     "context": 1
     },
-    "headline_en": "5 linked study(ies) await verification and are not counted yet.",
-    "headline_cs": "Počet propojených studií čekajících na ověření: 5. Zatím se nezapočítávají.",
-    "caveats_en": [],
-    "caveats_cs": [],
+    "headline_en": "Strong evidence: 2 supporting studies graded A or B, none of that grade contradicts them. Mixed findings in studies graded A or B: 1.",
+    "headline_cs": "Silné důkazy: podpůrných studií se stupněm A nebo B je 2, žádná stejně kvalitní jim neodporuje. Smíšené nálezy ve studiích se stupněm A nebo B: 1.",
+    "caveats_en": [
+     "Jagdeo 2018: Covers skin diseases as well as cosmetic outcomes; the strongest grades are for conditions, which are medical topics. Abstract-level reading.",
+     "Lee 2007: Abstract-level reading of a small study with several treatment settings; the numbers belong to the best setting, not to every device.",
+     "Barolet et al. 2009: Small single-blinded study with a pulsed 660 nm source; do not transfer the result to a continuous-light home panel. Read from abstract excerpts.",
+     "Wunsch & Matuschka 2014: Read from abstract summaries only. The control group received no treatment and satisfaction was self-rated; check the full paper before quoting numbers."
+    ],
+    "caveats_cs": [
+     "Jagdeo 2018: Týká se kožních nemocí i kosmetických výsledků; nejsilnější stupně patří stavům, což jsou zdravotní témata. Čteno na úrovni abstraktu.",
+     "Lee 2007: Čteno na úrovni abstraktu u malé studie s několika nastaveními; čísla patří nejlepšímu nastavení, ne každému přístroji.",
+     "Barolet et al. 2009: Malá jednostranně zaslepená studie s pulzním zdrojem 660 nm; výsledek nepřenášejte na domácí panel se stálým světlem. Čteno z úryvků abstraktu.",
+     "Wunsch & Matuschka 2014: Čteno jen ze shrnutí abstraktu. Kontrolní skupina nebyla nijak ošetřena a spokojenost hodnotili účastníci sami; před citací čísel si přečtěte celou práci."
+    ],
     "study_ids": [
      "seed:pbm-jagdeo2018",
      "seed:pbm-lee2007",
@@ -1522,8 +1540,8 @@
     "name_cs": "Tvar postavy",
     "claim_en": "Red and near-infrared light may reduce body circumference or the look of cellulite.",
     "claim_cs": "Červené a blízké infračervené světlo může zmenšit obvod těla nebo vzhled celulitidy.",
-    "summary_en": "Research on light for body contouring and fat reduction mostly concerns laser devices in clinics. The records here are unverified leads, and results for consumer panels are not established.",
-    "summary_cs": "Výzkum světla pro tvarování postavy a redukci tuku se týká hlavně laserových přístrojů v klinikách. Záznamy zde jsou neověřené podněty a výsledky pro spotřebitelské panely nejsou prokázány.",
+    "summary_en": "Research on light for body contouring and fat reduction mostly concerns laser devices in clinics. Two records are verified (a randomised laser trial and a review); the review judges the evidence for stand-alone use inadequate, and results for consumer panels are not established.",
+    "summary_cs": "Výzkum světla pro tvarování postavy a redukci tuku se týká hlavně laserových přístrojů v klinikách. Dva záznamy jsou ověřené (randomizovaná studie laseru a přehled); přehled považuje důkazy pro samostatné použití za nedostatečné a výsledky pro spotřebitelské panely nejsou prokázány.",
     "safe_en": [
      "Body contouring is an area of ongoing research on light; we do not promise changes in body size or in the look of cellulite.",
      "Light sessions are not a substitute for nutrition, exercise or medical advice."
@@ -1540,24 +1558,30 @@
      "Shoďte centimetry z pasu a stehen s červeným světlem.",
      "Červené světlo rozpouští tuk a odstraňuje celulitidu."
     ],
-    "label": "none",
-    "computed_label": "none",
+    "label": "limited",
+    "computed_label": "limited",
     "capped": false,
-    "cap_reason_en": "Evidence concerns clinical laser devices, not consumer panels, and the leads are not verified yet.",
-    "cap_reason_cs": "Důkazy se týkají klinických laserových přístrojů, ne spotřebitelských panelů, a podněty zatím nejsou ověřeny.",
+    "cap_reason_en": "Evidence concerns clinical laser devices, not consumer panels, and the verified review calls the evidence for stand-alone use inadequate.",
+    "cap_reason_cs": "Důkazy se týkají klinických laserových přístrojů, ne spotřebitelských panelů, a ověřený přehled označuje důkazy pro samostatné použití za nedostatečné.",
     "grade": "",
-    "n_studies": 0,
-    "n_pending": 2,
+    "n_studies": 2,
+    "n_pending": 0,
     "direction_counts": {
      "supports": 0,
-     "mixed": 0,
+     "mixed": 1,
      "contradicts": 0,
-     "context": 0
+     "context": 1
     },
-    "headline_en": "2 linked study(ies) await verification and are not counted yet.",
-    "headline_cs": "Počet propojených studií čekajících na ověření: 2. Zatím se nezapočítávají.",
-    "caveats_en": [],
-    "caveats_cs": [],
+    "headline_en": "Limited evidence: 1 study bears directly on this tactic, none strong enough to carry the claim.",
+    "headline_cs": "Omezené důkazy: přímo se této taktiky týká studií 1, žádná nestačí k pevnému závěru.",
+    "caveats_en": [
+     "Jackson 2009: A laser device with a short protocol in volunteers with a BMI of 25 to 30; results not read here, and a body shape claim is a cosmetic outcome claim.",
+     "Avci 2013: Laser devices used in clinics; not evidence for a home LED panel. Abstract-level reading."
+    ],
+    "caveats_cs": [
+     "Jackson 2009: Laserové zařízení s krátkým protokolem u dobrovolníků s BMI 25 až 30; výsledky zde nejsou přečtené a tvrzení o tvaru postavy je tvrzením o kosmetickém výsledku.",
+     "Avci 2013: Laserová zařízení používaná v klinikách; není to důkaz pro domácí LED panel. Čteno na úrovni abstraktu."
+    ],
     "study_ids": [
      "seed:pbm-jackson2009",
      "seed:pbm-avci2013fat"
@@ -1681,8 +1705,8 @@
     "name_cs": "Růst vlasů",
     "claim_en": "Red light promotes hair growth or treats hair loss.",
     "claim_cs": "Červené světlo podporuje růst vlasů nebo léčí vypadávání vlasů.",
-    "summary_en": "Low-level laser and light devices have been studied for pattern hair loss. This is a medical condition, so a non-medical device may not make hair claims at all, and the records here are unverified leads.",
-    "summary_cs": "Nízkoúrovňové laserové a světelné přístroje se zkoumaly u vypadávání vlasů. Jde o zdravotní stav, proto nezdravotnický přístroj nesmí o vlasech tvrdit nic, a záznamy zde jsou neověřené podněty.",
+    "summary_en": "Low-level laser and light devices have been studied for pattern hair loss, and two records are now verified. This is a medical condition, so a non-medical device may not make hair claims at all.",
+    "summary_cs": "Nízkoúrovňové laserové a světelné přístroje se zkoumaly u vypadávání vlasů a dva záznamy jsou nyní ověřené. Jde o zdravotní stav, proto nezdravotnický přístroj nesmí o vlasech tvrdit nic.",
     "safe_en": [
      "This product makes no claim about hair growth or hair loss.",
      "Only if your regulatory adviser approves it, at most: studies of low-level light and scalp hair have been published (research exists, no product claim)."
@@ -1699,26 +1723,32 @@
      "Červené světlo obnoví vlasy a zastaví jejich vypadávání.",
      "Vrátí zpět řídnoucí vlasy a plešatost během několika měsíců."
     ],
-    "label": "none",
-    "computed_label": "none",
+    "label": "limited",
+    "computed_label": "limited",
     "capped": false,
     "cap_reason_en": "Hair loss is a medical matter, so even verified evidence would not allow a product claim from a non-medical device.",
     "cap_reason_cs": "Vypadávání vlasů je zdravotní téma, takže ani ověřené důkazy by nezdravotnickému přístroji nedovolily tvrzení o produktu.",
-    "grade": "",
-    "n_studies": 0,
-    "n_pending": 2,
+    "grade": "D",
+    "n_studies": 2,
+    "n_pending": 0,
     "direction_counts": {
-     "supports": 0,
+     "supports": 1,
      "mixed": 0,
      "contradicts": 0,
-     "context": 0
+     "context": 1
     },
-    "headline_en": "2 linked study(ies) await verification and are not counted yet.",
-    "headline_cs": "Počet propojených studií čekajících na ověření: 2. Zatím se nezapočítávají.",
-    "caveats_en": [],
-    "caveats_cs": [],
+    "headline_en": "Limited evidence: 1 study bears directly on this tactic, none strong enough to carry the claim.",
+    "headline_cs": "Omezené důkazy: přímo se této taktiky týká studií 1, žádná nestačí k pevnému závěru.",
+    "caveats_en": [
+     "Jimenez 2014: A specific laser comb cleared by the US FDA; treating hair loss is a medical claim.",
+     "Afifi 2017: Mostly laser combs and helmets in small studies of mixed quality; treating hair loss is a medical claim."
+    ],
+    "caveats_cs": [
+     "Jimenez 2014: Konkrétní laserový hřeben schválený americkým FDA; léčba vypadávání vlasů je zdravotní tvrzení.",
+     "Afifi 2017: Většinou laserové hřebeny a helmy v malých studiích různé kvality; léčba vypadávání vlasů je zdravotní tvrzení."
+    ],
     "study_ids": [
-     "seed:pbm-jimenez2014",
+     "doi:10.1007/s40257-013-0060-6",
      "seed:pbm-afifi2017"
     ]
    },
@@ -1855,27 +1885,31 @@
      "Červené světlo urychluje hojení ran a pomáhá rychlejšímu uzavření vředů.",
      "Klinicky prokázáno, že napraví rány a zmírní jizvy."
     ],
-    "label": "none",
-    "computed_label": "none",
+    "label": "limited",
+    "computed_label": "limited",
     "capped": false,
     "cap_reason_en": "The one review with a visible certainty rating (episiotomy) rated it very low and the Cochrane review's findings were not seen, so nothing stronger than limited is honest.",
     "cap_reason_cs": "Jediný přehled s viditelným hodnocením jistoty (epiziotomie) ji označil za velmi nízkou a závěry Cochrane přehledu nebyly k dispozici, takže poctivé je nanejvýš označení omezené.",
     "grade": "",
-    "n_studies": 0,
-    "n_pending": 2,
+    "n_studies": 1,
+    "n_pending": 1,
     "direction_counts": {
      "supports": 0,
      "mixed": 0,
-     "contradicts": 0,
+     "contradicts": 1,
      "context": 0
     },
-    "headline_en": "2 linked study(ies) await verification and are not counted yet.",
-    "headline_cs": "Počet propojených studií čekajících na ověření: 2. Zatím se nezapočítávají.",
-    "caveats_en": [],
-    "caveats_cs": [],
+    "headline_en": "Limited evidence: the best linked studies contradict this tactic.",
+    "headline_cs": "Omezené důkazy: nejkvalitnější propojené studie této taktice odporují.",
+    "caveats_en": [
+     "The Effectiveness of Photobiomodulation (2026): Covers one specific wound type (perineal wounds after childbirth) with small, varied trials; wound healing is a medical claim."
+    ],
+    "caveats_cs": [
+     "The Effectiveness of Photobiomodulation (2026): Týká se jednoho konkrétního typu rány (poporodní poranění hráze po epiziotomii) a malých, různorodých studií; hojení ran je zdravotní tvrzení."
+    ],
     "study_ids": [
-     "doi:10.1002/14651858.cd013061.pub2",
-     "seed:pbm-episiotomy-sr-ma"
+     "seed:pbm-episiotomy-sr-ma",
+     "doi:10.1002/14651858.cd013061.pub2"
     ]
    },
    {
@@ -1963,26 +1997,28 @@
      "Chrání vaši sítnici a zvrátí makulární degeneraci."
     ],
     "label": "limited",
-    "computed_label": "limited",
-    "capped": false,
+    "computed_label": "moderate",
+    "capped": true,
     "cap_reason_en": "The evidence is a 24-person study, a patient trial of a specific regimen (figures taken from summaries, the 24-month paper is not fully verified) and a safety case report; no study of consumer panels was confirmed.",
     "cap_reason_cs": "Důkazy tvoří studie s 24 lidmi, studie u pacientů s konkrétním schématem (čísla ze souhrnů, 24měsíční článek není plně ověřen) a bezpečnostní kazuistika; žádná studie spotřebitelských panelů nebyla potvrzena.",
-    "grade": "D",
-    "n_studies": 2,
-    "n_pending": 1,
+    "grade": "A",
+    "n_studies": 3,
+    "n_pending": 0,
     "direction_counts": {
-     "supports": 1,
+     "supports": 2,
      "mixed": 0,
      "contradicts": 0,
      "context": 1
     },
-    "headline_en": "Limited evidence: 1 study bears directly on this tactic, none strong enough to carry the claim.",
-    "headline_cs": "Omezené důkazy: přímo se této taktiky týká studií 1, žádná nestačí k pevnému závěru.",
+    "headline_en": "Moderate evidence: one supporting study graded A or B.",
+    "headline_cs": "Střední síla důkazů: podpůrná studie se stupněm A nebo B je jedna.",
     "caveats_en": [
+     "Long-term efficacy and safety of photobi (2026): Patients with an eye disease (dry AMD) given a specific multiwavelength regimen, so it says nothing about healthy eyes or consumer panels; read from abstract-level summaries. Treating or slowing eye disease is a medical claim.",
      "Liu et al. 2023: A single case with a laser device used for myopia in a child; it cannot give a rate of harm and does not describe LED panels, but it shows that red light aimed at the eye is not risk-free.",
      "Shinhmar 2020: Very small study (24 people) of one specific 670 nm protocol; the measured gain was in colour contrast sensitivity, not general eyesight. Vision claims are medical claims and bright light near the eyes needs care."
     ],
     "caveats_cs": [
+     "Long-term efficacy and safety of photobi (2026): Pacienti s očním onemocněním (suchá AMD) léčení konkrétním vícevlnným schématem, takže studie nevypovídá o zdravých očích ani o spotřebitelských panelech; čteno ze shrnutí na úrovni abstraktu. Léčba nebo zpomalení očního onemocnění je zdravotní tvrzení.",
      "Liu et al. 2023: Jediný případ s laserovým zařízením používaným u dítěte při myopii; nelze z něj určit četnost poškození a netýká se LED panelů, ukazuje však, že červené světlo mířené do oka není bez rizika.",
      "Shinhmar 2020: Velmi malá studie (24 lidí) s jedním konkrétním protokolem 670 nm; změřeným přínosem byla citlivost na barevný kontrast, nikoli zrak obecně. Tvrzení o zraku jsou zdravotní a jasné světlo v blízkosti očí vyžaduje opatrnost."
     ],
@@ -2019,23 +2055,27 @@
      "Přírodní posilovač testosteronu pro muže podložený vědou."
     ],
     "label": "none",
-    "computed_label": "none",
-    "capped": false,
+    "computed_label": "limited",
+    "capped": true,
     "cap_reason_en": "No human testosterone trial was confirmed; the only peer-reviewed source is mostly in vitro semen-sample work on sperm motility, which says nothing about hormone levels or real-world fertility.",
     "cap_reason_cs": "Nebyla potvrzena žádná studie na lidech o testosteronu; jediný recenzovaný zdroj jsou převážně laboratorní práce na vzorcích spermatu o pohyblivosti spermií, které nic neříkají o hladinách hormonů ani o plodnosti v reálném životě.",
     "grade": "",
-    "n_studies": 0,
-    "n_pending": 1,
+    "n_studies": 1,
+    "n_pending": 0,
     "direction_counts": {
      "supports": 0,
-     "mixed": 0,
+     "mixed": 1,
      "contradicts": 0,
      "context": 0
     },
-    "headline_en": "1 linked study(ies) await verification and are not counted yet.",
-    "headline_cs": "Počet propojených studií čekajících na ověření: 1. Zatím se nezapočítávají.",
-    "caveats_en": [],
-    "caveats_cs": [],
+    "headline_en": "Limited evidence: no supporting study is graded A or B, and the strongest study reports mixed results.",
+    "headline_cs": "Omezené důkazy: žádná podpůrná studie nemá stupeň A nebo B a nejsilnější studie uvádí smíšené výsledky.",
+    "caveats_en": [
+     "Therapeutic Effects of Low-Level Laser o (2023): Mostly laboratory work on semen samples, not red light on the testes or body of living men; the reported outcome is sperm motility, not testosterone. Fertility claims should not be made."
+    ],
+    "caveats_cs": [
+     "Therapeutic Effects of Low-Level Laser o (2023): Převážně laboratorní práce na vzorcích spermatu, nikoli červené světlo na varlata či tělo žijících mužů; uváděným výsledkem je pohyblivost spermií, nikoli testosteron. Tvrzení o plodnosti by se používat neměla."
+    ],
     "study_ids": [
      "seed:pbm-lllt-male-infertility-sr"
     ]
@@ -2458,7 +2498,13 @@
      "thinning hair",
      "hair thinning",
      "hair density",
-     "hair follicle*"
+     "hair follicle*",
+     "hair quality",
+     "hair quantity",
+     "hair volume",
+     "hair thickness",
+     "thicker hair",
+     "fuller hair"
     ],
     "nouns_cs": [
      "růst vlasů",
@@ -2469,7 +2515,13 @@
      "řídnoucí vlasy",
      "řídnutí vlasů",
      "hustot* vlasů",
-     "vlasov* folikul*"
+     "vlasov* folikul*",
+     "množství vlasů",
+     "kvalit* vlasů",
+     "objem* vlasů",
+     "hustší vlasy",
+     "silnější vlasy",
+     "plnější vlasy"
     ],
     "patterns": [
      "\\bvlas\\w*(?:[^\\w.!?;\\n]+\\w+){0,4}[^\\w.!?;\\n]+(?:dorost\\w*|vypada\\w*|zhust\\w*|narost\\w*)",
@@ -12438,18 +12490,18 @@
      "Chang, W.-D."
     ],
     "year": 2025,
-    "venue": null,
+    "venue": "Journal of Functional Morphology and Kinesiology",
     "doi": "10.3390/jfmk10030277",
     "url": "https://doi.org/10.3390/jfmk10030277",
     "abstract": null,
     "cited_by": null,
     "design": "meta-analysis",
     "source": "seed",
-    "verified": false,
-    "verification_note": "Partly confirmed by web search on 2026-10-02: title, year (2025) and DOI (10.3390/jfmk10030277) appear in the search results (PubMed Central and MDPI links and result text), but the journal name was not displayed, so venue is null and the record is not marked verified.",
+    "verified": true,
+    "verification_note": "Confirmed by web search on 2026-10-23 (radar snapshot 2026-10-23, query study-10-3390-jfmk10030277): the exact title is the first result on PubMed Central (PMC12286287), the MDPI address 2411-5142/10/3/277 matches the DOI, and the result text names the journal and the date 17 July 2025.",
     "retracted": false,
-    "peer_reviewed": null,
-    "confidence": "medium",
+    "peer_reviewed": true,
+    "confidence": "high",
     "grade": "A",
     "grade_score": 1.0
    },
@@ -12756,18 +12808,18 @@
     "id": "seed:pbm-episiotomy-sr-ma",
     "title": "The Effectiveness of Photobiomodulation Therapy on Perineal Pain and Wound Healing After Episiotomy - A Systematic Review and Meta-Analysis",
     "authors": [],
-    "year": null,
-    "venue": null,
+    "year": 2026,
+    "venue": "Journal of Clinical Medicine",
     "doi": null,
     "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12897679",
     "abstract": null,
     "cited_by": null,
     "design": "meta-analysis",
     "source": "seed",
-    "verified": false,
-    "verification_note": "Not verified: the title and the PubMed Central address (PMC12897679) were seen in web search results on 2026-10-02; the journal, year, authors and DOI were not displayed, so they are left empty.",
+    "verified": true,
+    "verification_note": "Confirmed by web search on 2026-10-23 (radar snapshot 2026-10-23, query study-pbm-episiotomy-sr-ma): the exact title is the first result on PubMed Central (PMC12897679) and the result text names Journal of Clinical Medicine 2026, 15(3):964 (Alayat and colleagues). The journal and year are not visible in a result title, so the confidence stays medium.",
     "retracted": false,
-    "peer_reviewed": null,
+    "peer_reviewed": true,
     "confidence": "medium",
     "grade": "A",
     "grade_score": 1.0
@@ -12785,7 +12837,7 @@
     "design": "systematic-review",
     "source": "seed",
     "verified": false,
-    "verification_note": "Not verified: the title, the Cochrane Library address and the DOI string were seen in web search results on 2026-10-02; the publication year, authors, whether this record is a protocol or a completed review, and the findings were not displayed.",
+    "verification_note": "Not verified. Checked again by web search on 2026-10-23 (radar snapshot 2026-10-23, queries study-10-1002-14651858-cd013061-pub2 and study2-cochrane): the exact title and the code CD013061 appear on cochranelibrary.com (abstract, information and appendices pages), but a PubMed search returned no matching record and the results do not show whether this is a protocol or a completed review, nor its year. Not counted.",
     "retracted": false,
     "peer_reviewed": null,
     "confidence": "medium",
@@ -12885,18 +12937,18 @@
     "year": 2026,
     "venue": "Retina",
     "doi": null,
-    "url": null,
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41791029/",
     "abstract": null,
     "cited_by": null,
     "design": "rct",
     "source": "seed",
-    "verified": false,
-    "verification_note": "Not verified: the title, journal (Retina) and online date (24 April 2026) come from a single search-result summary of a news report (Review of Optometry) seen on 2026-10-02; the publisher or PubMed page, authors and DOI were not displayed. The trial itself (ClinicalTrials.gov NCT04065490, 100 participants) was confirmed in several results.",
+    "verified": true,
+    "verification_note": "Confirmed by web search on 2026-10-23 (radar snapshot 2026-10-23, query study2-lightsite3, restricted to PubMed): the exact title is the first result (PubMed 41791029) and the result text names Jaffe and colleagues, Retina, 2026. The first search only found news reports of the earlier readouts.",
     "retracted": false,
-    "peer_reviewed": null,
-    "confidence": "low",
+    "peer_reviewed": true,
+    "confidence": "high",
     "grade": "A",
-    "grade_score": 0.85
+    "grade_score": 0.9
    },
    {
     "id": "seed:pbm-liu2023",
@@ -12928,7 +12980,7 @@
     "id": "seed:pbm-lllt-male-infertility-sr",
     "title": "Therapeutic Effects of Low-Level Laser on Male Infertility: A Systematic Review",
     "authors": [],
-    "year": null,
+    "year": 2023,
     "venue": "Journal of Lasers in Medical Sciences",
     "doi": null,
     "url": "https://journals.sbmu.ac.ir/jlms/article/view/41768",
@@ -12936,11 +12988,11 @@
     "cited_by": null,
     "design": "systematic-review",
     "source": "seed",
-    "verified": false,
-    "verification_note": "Not verified: the title was seen in two web search results on 2026-10-02 (the journal website and UroToday); the journal name is inferred from the journal website address (journals.sbmu.ac.ir/jlms); the year, authors and DOI were not displayed.",
+    "verified": true,
+    "verification_note": "Confirmed by web search on 2026-10-23 (radar snapshot 2026-10-23, query study-pbm-lllt-male-infertility-sr): the exact title is on the journal's own site (journals.sbmu.ac.ir/jlms/article/view/41768) and the result text names Eghbaldoost and colleagues, Journal of Lasers in Medical Sciences 2023, 14:e36.",
     "retracted": false,
-    "peer_reviewed": null,
-    "confidence": "medium",
+    "peer_reviewed": true,
+    "confidence": "high",
     "grade": "A",
     "grade_score": 1.0
    },
@@ -12976,16 +13028,16 @@
     "year": 2014,
     "venue": "Photomedicine and Laser Surgery",
     "doi": null,
-    "url": null,
+    "url": "https://pubmed.ncbi.nlm.nih.gov/24286286/",
     "abstract": null,
     "cited_by": null,
     "design": "unknown",
     "source": "seed",
-    "verified": false,
-    "verification_note": "Not verified: recalled from the author's knowledge because the web search budget ran out in this run. Title, journal and year may contain errors. Run `kingctl evidence verify` with network access before citing.",
+    "verified": true,
+    "verification_note": "Confirmed by web search on 2026-10-23 (radar snapshot 2026-10-23, queries study-pbm-wunsch2014 and study2-barolet2009): PubMed 24286286 and PubMed Central PMC3926176 are the first results for the exact title, the exact title also appears on the PubMed result of the second search, and the result text names Wunsch and Matuschka, Photomedicine and Laser Surgery, 2014.",
     "retracted": false,
     "peer_reviewed": true,
-    "confidence": "low",
+    "confidence": "high",
     "grade": "D",
     "grade_score": 0.3
    },
@@ -13002,16 +13054,16 @@
     "year": 2009,
     "venue": "Journal of Investigative Dermatology",
     "doi": null,
-    "url": null,
+    "url": "https://pubmed.ncbi.nlm.nih.gov/19587693/",
     "abstract": null,
     "cited_by": null,
     "design": "lab-experiment",
     "source": "seed",
-    "verified": false,
-    "verification_note": "Not verified: recalled from the author's knowledge because the web search budget ran out in this run. Title, journal and year may contain errors. Run `kingctl evidence verify` with network access before citing.",
+    "verified": true,
+    "verification_note": "Confirmed by web search on 2026-10-23 (radar snapshot 2026-10-23, query study2-barolet2009, restricted to PubMed): the exact title is the first result (PubMed 19587693) and the result text names Barolet and colleagues, Journal of Investigative Dermatology 2009, 129:2751-2759.",
     "retracted": false,
     "peer_reviewed": true,
-    "confidence": "low",
+    "confidence": "high",
     "grade": "B",
     "grade_score": 0.75
    },
@@ -13024,16 +13076,16 @@
     "year": 2007,
     "venue": "Journal of Photochemistry and Photobiology B: Biology",
     "doi": null,
-    "url": null,
+    "url": "https://pubmed.ncbi.nlm.nih.gov/17566756/",
     "abstract": null,
     "cited_by": null,
     "design": "rct",
     "source": "seed",
-    "verified": false,
-    "verification_note": "Not verified: recalled from the author's knowledge because the web search budget ran out in this run. Title, journal and year may contain errors. Run `kingctl evidence verify` with network access before citing.",
+    "verified": true,
+    "verification_note": "Confirmed by web search on 2026-10-23 (radar snapshot 2026-10-23, query study-pbm-lee2007): the exact title is on the Korea University research portal, PubMed 17566756 is returned with it, and the result text names Lee et al., Journal of Photochemistry and Photobiology B, 2007.",
     "retracted": false,
     "peer_reviewed": true,
-    "confidence": "low",
+    "confidence": "high",
     "grade": "A",
     "grade_score": 0.9
    },
@@ -13046,16 +13098,16 @@
     "year": 2018,
     "venue": "Lasers in Surgery and Medicine",
     "doi": null,
-    "url": null,
+    "url": "https://pubmed.ncbi.nlm.nih.gov/29356026/",
     "abstract": null,
     "cited_by": null,
     "design": "systematic-review",
     "source": "seed",
-    "verified": false,
-    "verification_note": "Not verified: recalled from the author's knowledge because the web search budget ran out in this run. Title, journal and year may contain errors. Run `kingctl evidence verify` with network access before citing.",
+    "verified": true,
+    "verification_note": "Confirmed by web search on 2026-10-23 (radar snapshot 2026-10-23, query study-pbm-jagdeo2018): the exact title is the first result (PubMed 29356026, PubMed Central PMC6099480 is returned too) and the result text names Jagdeo and colleagues, Lasers in Surgery and Medicine, 2018.",
     "retracted": false,
     "peer_reviewed": true,
-    "confidence": "low",
+    "confidence": "high",
     "grade": "A",
     "grade_score": 1.0
    },
@@ -13068,16 +13120,16 @@
     "year": 2009,
     "venue": "Lasers in Surgery and Medicine",
     "doi": null,
-    "url": null,
+    "url": "https://pubmed.ncbi.nlm.nih.gov/20014253/",
     "abstract": null,
     "cited_by": null,
     "design": "rct",
     "source": "seed",
-    "verified": false,
-    "verification_note": "Not verified: recalled from the author's knowledge because the web search budget ran out in this run. Title, journal and year may contain errors. Run `kingctl evidence verify` with network access before citing.",
+    "verified": true,
+    "verification_note": "Confirmed by web search on 2026-10-23 (radar snapshot 2026-10-23, query study2-jackson2009, restricted to PubMed): the exact title is the first result (PubMed 20014253) and the result text names Jackson et al., Lasers in Surgery and Medicine, December 2009, 41(10):799-809. The first search did not find it.",
     "retracted": false,
     "peer_reviewed": true,
-    "confidence": "low",
+    "confidence": "high",
     "grade": "A",
     "grade_score": 0.9
    },
@@ -13090,38 +13142,38 @@
     "year": 2013,
     "venue": "Lasers in Surgery and Medicine",
     "doi": null,
-    "url": null,
+    "url": "https://pure.uj.ac.za/en/publications/low-level-laser-therapy-for-fat-layer-reduction-a-comprehensive-r/",
     "abstract": null,
     "cited_by": null,
     "design": "unknown",
     "source": "seed",
-    "verified": false,
-    "verification_note": "Not verified: recalled from the author's knowledge because the web search budget ran out in this run. Title, journal and year may contain errors. Run `kingctl evidence verify` with network access before citing.",
+    "verified": true,
+    "verification_note": "Confirmed by web search on 2026-10-23 (radar snapshot 2026-10-23, query study-pbm-avci2013fat): the exact title is on the University of Johannesburg research portal, PubMed Central PMC3769994 is returned with it, and the result text names Avci, Nyame, Gupta, Sadasivam and Hamblin, Lasers in Surgery and Medicine, PMID 23749426.",
     "retracted": false,
     "peer_reviewed": true,
-    "confidence": "low",
+    "confidence": "high",
     "grade": "D",
     "grade_score": 0.3
    },
    {
-    "id": "seed:pbm-jimenez2014",
+    "id": "doi:10.1007/s40257-013-0060-6",
     "title": "Efficacy and safety of a low-level laser device in the treatment of male and female pattern hair loss: a multicenter, randomized, sham device-controlled, double-blind study",
     "authors": [
      "Jimenez, J. J."
     ],
     "year": 2014,
     "venue": "American Journal of Clinical Dermatology",
-    "doi": null,
-    "url": null,
+    "doi": "10.1007/s40257-013-0060-6",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/24474647/",
     "abstract": null,
     "cited_by": null,
     "design": "rct",
     "source": "seed",
-    "verified": false,
-    "verification_note": "Not verified: recalled from the author's knowledge because the web search budget ran out in this run. Title, journal and year may contain errors. Run `kingctl evidence verify` with network access before citing.",
+    "verified": true,
+    "verification_note": "Confirmed by web search on 2026-10-23 (radar snapshot 2026-10-23, query study-pbm-jimenez2014): the exact title is on the University of Minnesota experts portal, PubMed 24474647 and the Springer address s40257-013-0060-6 are returned with it, and the result text names Jimenez et al., American Journal of Clinical Dermatology, 2014, 15(2):115-127.",
     "retracted": false,
     "peer_reviewed": true,
-    "confidence": "low",
+    "confidence": "high",
     "grade": "A",
     "grade_score": 0.9
    },
@@ -13134,16 +13186,16 @@
     "year": 2017,
     "venue": "Lasers in Surgery and Medicine",
     "doi": null,
-    "url": null,
+    "url": "https://pubmed.ncbi.nlm.nih.gov/27114071/",
     "abstract": null,
     "cited_by": null,
     "design": "unknown",
     "source": "seed",
-    "verified": false,
-    "verification_note": "Not verified: recalled from the author's knowledge because the web search budget ran out in this run. Title, journal and year may contain errors. Run `kingctl evidence verify` with network access before citing.",
+    "verified": true,
+    "verification_note": "Confirmed by web search on 2026-10-23 (radar snapshot 2026-10-23, query study2-afifi2017, restricted to PubMed): the exact title is a PubMed result (27114071) and the result text names Afifi, Maranda and colleagues, Lasers in Surgery and Medicine, 2017, 49(1):27-39. The first search only found a similar title and did not confirm it.",
     "retracted": false,
     "peer_reviewed": true,
-    "confidence": "low",
+    "confidence": "high",
     "grade": "D",
     "grade_score": 0.3
    },
@@ -13156,21 +13208,21 @@
     "year": 2018,
     "venue": "Photochemistry and Photobiology",
     "doi": null,
-    "url": null,
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5844808/",
     "abstract": null,
     "cited_by": null,
     "design": "theory",
     "source": "seed",
-    "verified": false,
-    "verification_note": "Not verified: recalled from the author's knowledge because the web search budget ran out in this run. Title, journal and year may contain errors. Run `kingctl evidence verify` with network access before citing.",
+    "verified": true,
+    "verification_note": "Confirmed by web search on 2026-10-23 (radar snapshot 2026-10-23, query study-pbm-hamblin2018): the exact title is on the University of Johannesburg research portal, PubMed Central PMC5844808 is returned with it, and the result text names Hamblin, Photochemistry and Photobiology, 2018.",
     "retracted": false,
     "peer_reviewed": true,
-    "confidence": "low",
+    "confidence": "high",
     "grade": "C",
     "grade_score": 0.45
    },
    {
-    "id": "seed:pbm-heiskanen2018",
+    "id": "doi:10.1039/c8pp00176f",
     "title": "Photobiomodulation: lasers vs. light emitting diodes?",
     "authors": [
      "Heiskanen, V.",
@@ -13178,17 +13230,17 @@
     ],
     "year": 2018,
     "venue": "Photochemical and Photobiological Sciences",
-    "doi": null,
-    "url": null,
+    "doi": "10.1039/c8pp00176f",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/30044464/",
     "abstract": null,
     "cited_by": null,
     "design": "theory",
     "source": "seed",
-    "verified": false,
-    "verification_note": "Not verified: recalled from the author's knowledge because the web search budget ran out in this run. Title, journal and year may contain errors. Run `kingctl evidence verify` with network access before citing.",
+    "verified": true,
+    "verification_note": "Confirmed by web search on 2026-10-23 (radar snapshot 2026-10-23, query study-pbm-heiskanen2018): the exact title is a PubMed result (30044464), the Royal Society of Chemistry address c8pp00176f (issue 8, 2018) is returned too, and the result text names Heiskanen and Hamblin, Photochemical and Photobiological Sciences, 2018.",
     "retracted": false,
     "peer_reviewed": true,
-    "confidence": "low",
+    "confidence": "high",
     "grade": "C",
     "grade_score": 0.45
    },
@@ -13207,7 +13259,7 @@
     "design": "unknown",
     "source": "seed",
     "verified": false,
-    "verification_note": "Not verified: recalled from the author's knowledge because the web search budget ran out in this run. Title, journal and year may contain errors. Run `kingctl evidence verify` with network access before citing.",
+    "verification_note": "Not verified. Checked again by web search on 2026-10-23 (radar snapshot 2026-10-23, queries study-pbm-glass2021 and study2-glass2021): the exact title appears on secondary sites and in a PubMed correction notice ('Correction to: Photobiomodulation: The Clinical Applications of Low-Level Light Therapy', PubMed 35043142); the result text cites the article as Aesthetic Surgery Journal 2021, 41(6), but the article's own PubMed or publisher page was not returned, so it is not marked verified and no DOI is stored.",
     "retracted": false,
     "peer_reviewed": true,
     "confidence": "low",
@@ -13939,11 +13991,11 @@
    {
     "tactic_id": "pbm-wound-healing",
     "study_id": "seed:pbm-episiotomy-sr-ma",
-    "direction": "context",
-    "note_en": "Systematic review and meta-analysis of photobiomodulation after episiotomy (8 studies, 6 pooled): the certainty of evidence for both pain and wound healing was rated very low (GRADE), with only one trial at low risk of bias.",
-    "note_cs": "Systematický přehled a metaanalýza fotobiomodulace po epiziotomii (8 studií, 6 sloučených): jistota důkazů pro bolest i hojení ran byla hodnocena jako velmi nízká (GRADE) a jen jedna studie měla nízké riziko zkreslení.",
-    "caveat_en": "Covers one specific wound type (perineal wounds after childbirth). This record does not state the pooled effect, and wound healing is a medical claim.",
-    "caveat_cs": "Týká se jednoho konkrétního typu rány (poporodní poranění hráze po epiziotomii). Záznam neuvádí souhrnný účinek a hojení ran je zdravotní tvrzení."
+    "direction": "contradicts",
+    "note_en": "Systematic review and meta-analysis of photobiomodulation after episiotomy (8 studies, 6 pooled): no significant benefit for perineal pain or wound healing compared with control, and the certainty of evidence was very low (GRADE) with only one trial at low risk of bias.",
+    "note_cs": "Systematický přehled a metaanalýza fotobiomodulace po epiziotomii (8 studií, 6 sloučených): oproti kontrole nebyl zjištěn významný přínos pro bolest hráze ani hojení rány a jistota důkazů byla velmi nízká (GRADE), jen jedna studie měla nízké riziko zkreslení.",
+    "caveat_en": "Covers one specific wound type (perineal wounds after childbirth) with small, varied trials; wound healing is a medical claim.",
+    "caveat_cs": "Týká se jednoho konkrétního typu rány (poporodní poranění hráze po epiziotomii) a malých, různorodých studií; hojení ran je zdravotní tvrzení."
    },
    {
     "tactic_id": "pbm-wound-healing",
@@ -13994,10 +14046,10 @@
     "tactic_id": "pbm-eye-vision",
     "study_id": "seed:pbm-lightsite3-2026",
     "direction": "supports",
-    "note_en": "Double-masked, sham-controlled trial in 100 people (148 eyes) with dry age-related macular degeneration: multiwavelength light (590, 660, 850 nm) met the primary vision endpoint (2.4 letters better than sham at 13 months) and showed a favourable safety profile.",
-    "note_cs": "Dvojitě zaslepená studie s fiktivním ošetřením (sham) u 100 lidí (148 očí) se suchou věkem podmíněnou makulární degenerací: vícevlnné světlo (590, 660, 850 nm) splnilo primární cíl (o 2,4 písmene lepší zraková ostrost) a bezpečnostní profil byl příznivý.",
-    "caveat_en": "Patients with an eye disease (dry AMD) given a specific multiwavelength regimen, so it says nothing about healthy eyes or consumer panels; figures come from summaries of the trial reports. Treating or slowing eye disease is a medical claim.",
-    "caveat_cs": "Pacienti s očním onemocněním (suchá AMD) léčení konkrétním vícevlnným schématem, takže studie nevypovídá o zdravých očích ani o spotřebitelských panelech; čísla pocházejí ze souhrnů zpráv o studii. Léčba nebo zpomalení očního onemocnění je zdravotní tvrzení."
+    "note_en": "Double-masked, sham-controlled trial in 100 people (148 eyes) with dry age-related macular degeneration, 24-month analysis: multiwavelength light (590, 660, 850 nm) met the prespecified primary vision endpoint at month 21 with a significant difference between groups (P = 0.0036) and a gain of 6.2 letters after treatment.",
+    "note_cs": "Dvojitě zaslepená studie s fiktivním ošetřením u 100 lidí (148 očí) se suchou věkem podmíněnou makulární degenerací, 24měsíční analýza: vícevlnné světlo (590, 660, 850 nm) splnilo předem stanovený primární cíl zrakové ostrosti v měsíci 21 s významným rozdílem mezi skupinami (P = 0,0036) a ziskem 6,2 písmene po ošetření.",
+    "caveat_en": "Patients with an eye disease (dry AMD) given a specific multiwavelength regimen, so it says nothing about healthy eyes or consumer panels; read from abstract-level summaries. Treating or slowing eye disease is a medical claim.",
+    "caveat_cs": "Pacienti s očním onemocněním (suchá AMD) léčení konkrétním vícevlnným schématem, takže studie nevypovídá o zdravých očích ani o spotřebitelských panelech; čteno ze shrnutí na úrovni abstraktu. Léčba nebo zpomalení očního onemocnění je zdravotní tvrzení."
    },
    {
     "tactic_id": "pbm-eye-vision",
@@ -14030,100 +14082,100 @@
     "tactic_id": "pbm-skin-appearance",
     "study_id": "seed:pbm-wunsch2014",
     "direction": "context",
-    "note_en": "A controlled trial of red and near-infrared light treatment with skin appearance and collagen density among its outcomes. Findings not verified.",
-    "note_cs": "Kontrolovaná studie ošetření červeným a blízkým infračerveným světlem, mezi jejíž výsledky patřil vzhled pleti a hustota kolagenu. Závěry nejsou ověřeny.",
-    "caveat_en": "A research lead only: nothing about its findings is stated here until it is verified and read.",
-    "caveat_cs": "Jen výzkumný podnět: o jeho závěrech se zde nic netvrdí, dokud není ověřen a přečten."
+    "note_en": "Controlled trial of red light and of broadband red plus near-infrared light against an untreated control, with skin complexion, roughness and collagen density among the outcomes. The abstract reports significant improvement; one secondary summary disagrees on the group-level numbers.",
+    "note_cs": "Kontrolovaná studie červeného a širokopásmového červeného i blízkého infračerveného světla proti neošetřené kontrole; mezi výstupy byly vzhled pleti, drsnost a hustota kolagenu. Abstrakt uvádí významné zlepšení, jedno druhotné shrnutí se v číslech skupin rozchází.",
+    "caveat_en": "Read from abstract summaries only. The control group received no treatment and satisfaction was self-rated; check the full paper before quoting numbers.",
+    "caveat_cs": "Čteno jen ze shrnutí abstraktu. Kontrolní skupina nebyla nijak ošetřena a spokojenost hodnotili účastníci sami; před citací čísel si přečtěte celou práci."
    },
    {
     "tactic_id": "pbm-skin-appearance",
     "study_id": "seed:pbm-barolet2009",
-    "direction": "context",
-    "note_en": "Cell-culture work on collagen metabolism with a 660 nm pulsed LED, paired with a single-blinded study. Findings not verified.",
-    "note_cs": "Práce na buněčných kulturách o metabolismu kolagenu s pulzní LED 660 nm, doplněná jednoduše zaslepenou studií. Závěry nejsou ověřeny.",
-    "caveat_en": "A research lead only: nothing about its findings is stated here until it is verified and read.",
-    "caveat_cs": "Jen výzkumný podnět: o jeho závěrech se zde nic netvrdí, dokud není ověřen a přečten."
+    "direction": "supports",
+    "note_en": "Laboratory work on reconstructed human skin (11 treatments with a pulsed 660 nm LED: type 1 procollagen 31 percent higher, MMP-1 18 percent lower) paired with a single-blinded split-face study in people with aged or photoaged skin, where most participants showed less wrinkle depth and roughness.",
+    "note_cs": "Laboratorní práce na rekonstruované lidské kůži (11 ošetření pulzní LED 660 nm: prokolagen typu 1 o 31 procent vyšší, MMP-1 o 18 procent nižší) spojená s jednostranně zaslepenou studií rozdělené tváře u lidí se stárnoucí nebo světlem poškozenou pletí, kde většina účastníků měla menší hloubku vrásek a drsnost.",
+    "caveat_en": "Small single-blinded study with a pulsed 660 nm source; do not transfer the result to a continuous-light home panel. Read from abstract excerpts.",
+    "caveat_cs": "Malá jednostranně zaslepená studie s pulzním zdrojem 660 nm; výsledek nepřenášejte na domácí panel se stálým světlem. Čteno z úryvků abstraktu."
    },
    {
     "tactic_id": "pbm-skin-appearance",
     "study_id": "seed:pbm-lee2007",
-    "direction": "context",
-    "note_en": "A split-face randomised, placebo-controlled study of LED phototherapy for skin rejuvenation. Findings not verified.",
-    "note_cs": "Randomizovaná, placebem kontrolovaná studie LED fototerapie pro omlazení pleti na dvou polovinách obličeje. Závěry nejsou ověřeny.",
-    "caveat_en": "A research lead only: nothing about its findings is stated here until it is verified and read.",
-    "caveat_cs": "Jen výzkumný podnět: o jeho závěrech se zde nic netvrdí, dokud není ověřen a přečten."
+    "direction": "supports",
+    "note_en": "Split-face, randomised, placebo-controlled, double-blinded study in 76 people with facial wrinkles (830 nm, 633 nm, both, or sham light; twice weekly for four weeks, three months of follow-up): the abstract reports significant reductions of wrinkles (up to 36 percent) and increases of skin elasticity (up to 19 percent).",
+    "note_cs": "Randomizovaná, placebem kontrolovaná, dvojitě zaslepená studie rozdělené tváře u 76 lidí s vráskami (830 nm, 633 nm, obojí nebo fiktivní světlo; dvakrát týdně čtyři týdny, tři měsíce sledování): abstrakt uvádí významné snížení vrásek (až o 36 procent) a zvýšení pružnosti pleti (až o 19 procent).",
+    "caveat_en": "Abstract-level reading of a small study with several treatment settings; the numbers belong to the best setting, not to every device.",
+    "caveat_cs": "Čteno na úrovni abstraktu u malé studie s několika nastaveními; čísla patří nejlepšímu nastavení, ne každému přístroji."
    },
    {
     "tactic_id": "pbm-skin-appearance",
     "study_id": "seed:pbm-jagdeo2018",
-    "direction": "context",
-    "note_en": "A systematic review of randomised controlled trials of LED treatment in dermatology. Findings not verified.",
-    "note_cs": "Systematický přehled randomizovaných kontrolovaných studií LED v dermatologii. Závěry nejsou ověřeny.",
-    "caveat_en": "A research lead only: nothing about its findings is stated here until it is verified and read.",
-    "caveat_cs": "Jen výzkumný podnět: o jeho závěrech se zde nic netvrdí, dokud není ověřen a přečten."
+    "direction": "mixed",
+    "note_en": "Systematic review of 31 randomised controlled trials of LED therapy in dermatology: grade B recommendation for acne, herpes simplex and zoster, and acute wound healing, grade C or D for other skin conditions; the authors point to small samples, missing blinding or sham controls and varied treatment parameters.",
+    "note_cs": "Systematický přehled 31 randomizovaných kontrolovaných studií LED terapie v dermatologii: doporučení stupně B pro akné, opar a pásový opar a akutní hojení ran, stupně C nebo D pro ostatní kožní stavy; autoři upozorňují na malé soubory, chybějící zaslepení či fiktivní kontrolu a různé parametry.",
+    "caveat_en": "Covers skin diseases as well as cosmetic outcomes; the strongest grades are for conditions, which are medical topics. Abstract-level reading.",
+    "caveat_cs": "Týká se kožních nemocí i kosmetických výsledků; nejsilnější stupně patří stavům, což jsou zdravotní témata. Čteno na úrovni abstraktu."
    },
    {
     "tactic_id": "pbm-body-contouring",
     "study_id": "seed:pbm-jackson2009",
     "direction": "context",
-    "note_en": "A randomised, controlled study of low-level laser for body contouring. Findings not verified.",
-    "note_cs": "Randomizovaná kontrolovaná studie nízkoúrovňového laseru pro tvarování postavy. Závěry nejsou ověřeny.",
-    "caveat_en": "A research lead only: nothing about its findings is stated here until it is verified and read.",
-    "caveat_cs": "Jen výzkumný podnět: o jeho závěrech se zde nic netvrdí, dokud není ověřen a přečten."
+    "note_en": "Double-blind, placebo-controlled randomised trial of a 635 nm laser for waist, hip and thigh circumference (67 volunteers, two weeks of treatment); the circumference results were not read.",
+    "note_cs": "Dvojitě zaslepená, placebem kontrolovaná randomizovaná studie laseru 635 nm na obvod pasu, boků a stehen (67 dobrovolníků, dva týdny ošetření); výsledky obvodů nebyly přečteny.",
+    "caveat_en": "A laser device with a short protocol in volunteers with a BMI of 25 to 30; results not read here, and a body shape claim is a cosmetic outcome claim.",
+    "caveat_cs": "Laserové zařízení s krátkým protokolem u dobrovolníků s BMI 25 až 30; výsledky zde nejsou přečtené a tvrzení o tvaru postavy je tvrzením o kosmetickém výsledku."
    },
    {
     "tactic_id": "pbm-body-contouring",
     "study_id": "seed:pbm-avci2013fat",
-    "direction": "context",
-    "note_en": "A review of low-level laser therapy for fat layer reduction. Findings not verified.",
-    "note_cs": "Přehled nízkoúrovňové laserové terapie pro redukci tukové vrstvy. Závěry nejsou ověřeny.",
-    "caveat_en": "A research lead only: nothing about its findings is stated here until it is verified and read.",
-    "caveat_cs": "Jen výzkumný podnět: o jeho závěrech se zde nic netvrdí, dokud není ověřen a přečten."
+    "direction": "mixed",
+    "note_en": "Review of laboratory and clinical studies of low-level laser for fat reduction, cellulite and blood lipids: the authors see potential without significant side effects but judge the evidence for use as a stand-alone procedure still inadequate.",
+    "note_cs": "Přehled laboratorních a klinických studií nízkoúrovňového laseru na úbytek tuku, celulitidu a krevní tuky: autoři vidí potenciál bez významných nežádoucích účinků, ale důkazy pro samostatné použití považují za stále nedostatečné.",
+    "caveat_en": "Laser devices used in clinics; not evidence for a home LED panel. Abstract-level reading.",
+    "caveat_cs": "Laserová zařízení používaná v klinikách; není to důkaz pro domácí LED panel. Čteno na úrovni abstraktu."
    },
    {
     "tactic_id": "pbm-hair",
-    "study_id": "seed:pbm-jimenez2014",
+    "study_id": "doi:10.1007/s40257-013-0060-6",
     "direction": "context",
-    "note_en": "A randomised, sham device-controlled, double-blind study of a low-level laser device for pattern hair loss. Findings not verified.",
-    "note_cs": "Randomizovaná, dvojitě zaslepená studie s atrapou zařízení, která zkoumala nízkoúrovňový laser u vypadávání vlasů. Závěry nejsou ověřeny.",
-    "caveat_en": "A research lead only: nothing about its findings is stated here until it is verified and read.",
-    "caveat_cs": "Jen výzkumný podnět: o jeho závěrech se zde nic netvrdí, dokud není ověřen a přečten."
+    "note_en": "Multicentre, randomised, sham device-controlled, double-blind trial of a low-level laser comb for pattern hair loss in 128 men and 141 women (three times a week for 26 weeks); the primary results were not read.",
+    "note_cs": "Vícecentrová randomizovaná dvojitě zaslepená studie laserového hřebenu s fiktivním přístrojem u vypadávání vlasů u 128 mužů a 141 žen (třikrát týdně 26 týdnů); primární výsledky nebyly přečteny.",
+    "caveat_en": "A specific laser comb cleared by the US FDA; treating hair loss is a medical claim.",
+    "caveat_cs": "Konkrétní laserový hřeben schválený americkým FDA; léčba vypadávání vlasů je zdravotní tvrzení."
    },
    {
     "tactic_id": "pbm-hair",
     "study_id": "seed:pbm-afifi2017",
-    "direction": "context",
-    "note_en": "A review-style paper on low-level laser therapy for androgenetic alopecia. Findings not verified.",
-    "note_cs": "Přehledová práce o nízkoúrovňové laserové terapii u androgenetické alopecie. Závěry nejsou ověřeny.",
-    "caveat_en": "A research lead only: nothing about its findings is stated here until it is verified and read.",
-    "caveat_cs": "Jen výzkumný podnět: o jeho závěrech se zde nic netvrdí, dokud není ověřen a přečten."
+    "direction": "supports",
+    "note_en": "Review of 11 studies (680 patients) of low-level laser for androgenetic alopecia: most studies reported significant gains in hair count or density, hair thickness improved in two of four studies that measured it, and the authors called it a promising option.",
+    "note_cs": "Přehled 11 studií (680 pacientů) nízkoúrovňového laseru u androgenní alopecie: většina studií uvedla významný nárůst počtu či hustoty vlasů, tloušťka vlasů se zlepšila ve dvou ze čtyř studií, které ji měřily, a autoři terapii označili za nadějnou možnost.",
+    "caveat_en": "Mostly laser combs and helmets in small studies of mixed quality; treating hair loss is a medical claim.",
+    "caveat_cs": "Většinou laserové hřebeny a helmy v malých studiích různé kvality; léčba vypadávání vlasů je zdravotní tvrzení."
    },
    {
     "tactic_id": "pbm-mechanism",
     "study_id": "seed:pbm-hamblin2018",
-    "direction": "context",
-    "note_en": "A review of proposed mechanisms of photobiomodulation, including mitochondrial redox signalling. Findings not verified.",
-    "note_cs": "Přehled navrhovaných mechanismů fotobiomodulace včetně mitochondriální redoxní signalizace. Závěry nejsou ověřeny.",
-    "caveat_en": "A research lead only: nothing about its findings is stated here until it is verified and read.",
-    "caveat_cs": "Jen výzkumný podnět: o jeho závěrech se zde nic netvrdí, dokud není ověřen a přečten."
+    "direction": "supports",
+    "note_en": "Review of the mechanisms of photobiomodulation: mitochondria, above all cytochrome c oxidase, are the main place where cells absorb the light; proposed pathways include release of inhibitory nitric oxide and light- or heat-gated ion channels, both leading to reactive oxygen species that act as signals.",
+    "note_cs": "Přehled mechanismů fotobiomodulace: hlavním místem pohlcení světla v buňkách jsou mitochondrie, zejména cytochrom c oxidáza; navržené dráhy zahrnují uvolnění inhibičního oxidu dusnatého a světelně či tepelně řízené iontové kanály, obojí vede k reaktivním formám kyslíku, které fungují jako signály.",
+    "caveat_en": "A review of proposed mechanisms: it explains how light may act on cells, not that a given device produces a result in people.",
+    "caveat_cs": "Přehled navržených mechanismů: vysvětluje, jak může světlo působit na buňky, ne že konkrétní přístroj přináší lidem výsledek."
    },
    {
     "tactic_id": "pbm-device-specs",
-    "study_id": "seed:pbm-heiskanen2018",
+    "study_id": "doi:10.1039/c8pp00176f",
     "direction": "context",
-    "note_en": "A review comparing lasers and light emitting diodes as light sources for photobiomodulation. Findings not verified.",
-    "note_cs": "Přehled srovnávající lasery a světelné diody jako zdroje světla pro fotobiomodulaci. Závěry nejsou ověřeny.",
-    "caveat_en": "A research lead only: nothing about its findings is stated here until it is verified and read.",
-    "caveat_cs": "Jen výzkumný podnět: o jeho závěrech se zde nic netvrdí, dokud není ověřen a přečten."
+    "note_en": "Perspective comparing lasers and LEDs for photobiomodulation: LEDs avoid laser safety rules, are easy to use at home, cover large areas and cost much less per mW, and the authors conclude that LED photobiomodulation is here to stay; whether the two light sources differ in biological effect is still open.",
+    "note_cs": "Stať srovnávající lasery a LED ve fotobiomodulaci: LED nemají laserová bezpečnostní omezení, jsou snadné pro domácí použití, osvítí velkou plochu a stojí na mW mnohem méně; autoři uzavírají, že LED fotobiomodulace tu zůstane. Zda se oba zdroje liší biologickým účinkem, zůstává otevřené.",
+    "caveat_en": "An opinion paper, not a trial. Abstract-level reading.",
+    "caveat_cs": "Názorový text, ne studie. Čteno na úrovni abstraktu."
    },
    {
     "tactic_id": "pbm-dose-response",
-    "study_id": "seed:pbm-heiskanen2018",
+    "study_id": "doi:10.1039/c8pp00176f",
     "direction": "context",
-    "note_en": "A review comparing lasers and light emitting diodes as light sources for photobiomodulation. Findings not verified.",
-    "note_cs": "Přehled srovnávající lasery a světelné diody jako zdroje světla pro fotobiomodulaci. Závěry nejsou ověřeny.",
-    "caveat_en": "A research lead only: nothing about its findings is stated here until it is verified and read.",
-    "caveat_cs": "Jen výzkumný podnět: o jeho závěrech se zde nic netvrdí, dokud není ověřen a přečten."
+    "note_en": "Perspective comparing lasers and LEDs for photobiomodulation: LEDs avoid laser safety rules, are easy to use at home, cover large areas and cost much less per mW, and the authors conclude that LED photobiomodulation is here to stay; whether the two light sources differ in biological effect is still open.",
+    "note_cs": "Stať srovnávající lasery a LED ve fotobiomodulaci: LED nemají laserová bezpečnostní omezení, jsou snadné pro domácí použití, osvítí velkou plochu a stojí na mW mnohem méně; autoři uzavírají, že LED fotobiomodulace tu zůstane. Zda se oba zdroje liší biologickým účinkem, zůstává otevřené.",
+    "caveat_en": "An opinion paper, not a trial. Abstract-level reading.",
+    "caveat_cs": "Názorový text, ne studie. Čteno na úrovni abstraktu."
    },
    {
     "tactic_id": "pbm-device-specs",
@@ -14170,8 +14222,8 @@
    "by_source": {
     "seed": 73
    },
-   "verified": 48,
-   "unverified": 25,
+   "verified": 62,
+   "unverified": 11,
    "retracted": 0
   }
  },
@@ -14664,8 +14716,8 @@
     "demo": false,
     "title_en": "Tsou (2025)",
     "title_cs": "Tsou (2025)",
-    "body_en": "Effects of Photomodulation Therapy for Delayed Onset Muscle Soreness: A Systematic Review and Meta-Analysis. Design: meta-analysis. Grade A. Not yet verified against Crossref: run `kingctl evidence verify`.",
-    "body_cs": "Effects of Photomodulation Therapy for Delayed Onset Muscle Soreness: A Systematic Review and Meta-Analysis. Typ studie: meta-analysis. Hodnocení A. Zatím neověřeno přes Crossref: spusťte `kingctl evidence verify`."
+    "body_en": "Effects of Photomodulation Therapy for Delayed Onset Muscle Soreness: A Systematic Review and Meta-Analysis. Design: meta-analysis. Grade A. Verified.",
+    "body_cs": "Effects of Photomodulation Therapy for Delayed Onset Muscle Soreness: A Systematic Review and Meta-Analysis. Typ studie: meta-analysis. Hodnocení A. Ověřeno."
    },
    {
     "id": "study-doi:10.1109/jstqe.2016.2561201",
@@ -14802,10 +14854,10 @@
     "kind": "study",
     "rarity": "legendary",
     "demo": false,
-    "title_en": "Unknown (None)",
-    "title_cs": "Unknown (None)",
-    "body_en": "The Effectiveness of Photobiomodulation Therapy on Perineal Pain and Wound Healing After Episiotomy - A Systematic Review and Meta-Analysis. Design: meta-analysis. Grade A. Not yet verified against Crossref: run `kingctl evidence verify`.",
-    "body_cs": "The Effectiveness of Photobiomodulation Therapy on Perineal Pain and Wound Healing After Episiotomy - A Systematic Review and Meta-Analysis. Typ studie: meta-analysis. Hodnocení A. Zatím neověřeno přes Crossref: spusťte `kingctl evidence verify`."
+    "title_en": "Unknown (2026)",
+    "title_cs": "Unknown (2026)",
+    "body_en": "The Effectiveness of Photobiomodulation Therapy on Perineal Pain and Wound Healing After Episiotomy - A Systematic Review and Meta-Analysis. Design: meta-analysis. Grade A. Verified.",
+    "body_cs": "The Effectiveness of Photobiomodulation Therapy on Perineal Pain and Wound Healing After Episiotomy - A Systematic Review and Meta-Analysis. Typ studie: meta-analysis. Hodnocení A. Ověřeno."
    },
    {
     "id": "study-doi:10.1002/14651858.cd013061.pub2",
@@ -14864,8 +14916,8 @@
     "demo": false,
     "title_en": "Unknown (2026)",
     "title_cs": "Unknown (2026)",
-    "body_en": "Long-term efficacy and safety of photobiomodulation in dry age-related macular degeneration (LIGHTSITE III: 24-month analysis). Design: rct. Grade A. Not yet verified against Crossref: run `kingctl evidence verify`.",
-    "body_cs": "Long-term efficacy and safety of photobiomodulation in dry age-related macular degeneration (LIGHTSITE III: 24-month analysis). Typ studie: rct. Hodnocení A. Zatím neověřeno přes Crossref: spusťte `kingctl evidence verify`."
+    "body_en": "Long-term efficacy and safety of photobiomodulation in dry age-related macular degeneration (LIGHTSITE III: 24-month analysis). Design: rct. Grade A. Verified.",
+    "body_cs": "Long-term efficacy and safety of photobiomodulation in dry age-related macular degeneration (LIGHTSITE III: 24-month analysis). Typ studie: rct. Hodnocení A. Ověřeno."
    },
    {
     "id": "study-seed:pbm-liu2023",
@@ -14882,10 +14934,10 @@
     "kind": "study",
     "rarity": "legendary",
     "demo": false,
-    "title_en": "Unknown (None)",
-    "title_cs": "Unknown (None)",
-    "body_en": "Therapeutic Effects of Low-Level Laser on Male Infertility: A Systematic Review. Design: systematic-review. Grade A. Not yet verified against Crossref: run `kingctl evidence verify`.",
-    "body_cs": "Therapeutic Effects of Low-Level Laser on Male Infertility: A Systematic Review. Typ studie: systematic-review. Hodnocení A. Zatím neověřeno přes Crossref: spusťte `kingctl evidence verify`."
+    "title_en": "Unknown (2023)",
+    "title_cs": "Unknown (2023)",
+    "body_en": "Therapeutic Effects of Low-Level Laser on Male Infertility: A Systematic Review. Design: systematic-review. Grade A. Verified.",
+    "body_cs": "Therapeutic Effects of Low-Level Laser on Male Infertility: A Systematic Review. Typ studie: systematic-review. Hodnocení A. Ověřeno."
    },
    {
     "id": "study-seed:pbm-ftc2022",
@@ -14904,8 +14956,8 @@
     "demo": false,
     "title_en": "Wunsch (2014)",
     "title_cs": "Wunsch (2014)",
-    "body_en": "A controlled trial to determine the efficacy of red and near-infrared light treatment in patient satisfaction, reduction of fine lines, wrinkles, skin roughness, and intradermal collagen density increase. Design: unknown. Grade D. Not yet verified against Crossref: run `kingctl evidence verify`.",
-    "body_cs": "A controlled trial to determine the efficacy of red and near-infrared light treatment in patient satisfaction, reduction of fine lines, wrinkles, skin roughness, and intradermal collagen density increase. Typ studie: unknown. Hodnocení D. Zatím neověřeno přes Crossref: spusťte `kingctl evidence verify`."
+    "body_en": "A controlled trial to determine the efficacy of red and near-infrared light treatment in patient satisfaction, reduction of fine lines, wrinkles, skin roughness, and intradermal collagen density increase. Design: unknown. Grade D. Verified.",
+    "body_cs": "A controlled trial to determine the efficacy of red and near-infrared light treatment in patient satisfaction, reduction of fine lines, wrinkles, skin roughness, and intradermal collagen density increase. Typ studie: unknown. Hodnocení D. Ověřeno."
    },
    {
     "id": "study-seed:pbm-barolet2009",
@@ -14914,8 +14966,8 @@
     "demo": false,
     "title_en": "Barolet (2009)",
     "title_cs": "Barolet (2009)",
-    "body_en": "Regulation of skin collagen metabolism in vitro using a pulsed 660 nm LED light source: clinical correlation with a single-blinded study. Design: lab-experiment. Grade B. Not yet verified against Crossref: run `kingctl evidence verify`.",
-    "body_cs": "Regulation of skin collagen metabolism in vitro using a pulsed 660 nm LED light source: clinical correlation with a single-blinded study. Typ studie: lab-experiment. Hodnocení B. Zatím neověřeno přes Crossref: spusťte `kingctl evidence verify`."
+    "body_en": "Regulation of skin collagen metabolism in vitro using a pulsed 660 nm LED light source: clinical correlation with a single-blinded study. Design: lab-experiment. Grade B. Verified.",
+    "body_cs": "Regulation of skin collagen metabolism in vitro using a pulsed 660 nm LED light source: clinical correlation with a single-blinded study. Typ studie: lab-experiment. Hodnocení B. Ověřeno."
    },
    {
     "id": "study-seed:pbm-lee2007",
@@ -14924,8 +14976,8 @@
     "demo": false,
     "title_en": "Lee (2007)",
     "title_cs": "Lee (2007)",
-    "body_en": "A prospective, randomized, placebo-controlled, double-blinded, and split-face clinical study on LED phototherapy for skin rejuvenation: clinical, profilometric, histologic, ultrastructural, and biochemical evaluations and comparison of three different treatment settings. Design: rct. Grade A. Not yet verified against Crossref: run `kingctl evidence verify`.",
-    "body_cs": "A prospective, randomized, placebo-controlled, double-blinded, and split-face clinical study on LED phototherapy for skin rejuvenation: clinical, profilometric, histologic, ultrastructural, and biochemical evaluations and comparison of three different treatment settings. Typ studie: rct. Hodnocení A. Zatím neověřeno přes Crossref: spusťte `kingctl evidence verify`."
+    "body_en": "A prospective, randomized, placebo-controlled, double-blinded, and split-face clinical study on LED phototherapy for skin rejuvenation: clinical, profilometric, histologic, ultrastructural, and biochemical evaluations and comparison of three different treatment settings. Design: rct. Grade A. Verified.",
+    "body_cs": "A prospective, randomized, placebo-controlled, double-blinded, and split-face clinical study on LED phototherapy for skin rejuvenation: clinical, profilometric, histologic, ultrastructural, and biochemical evaluations and comparison of three different treatment settings. Typ studie: rct. Hodnocení A. Ověřeno."
    },
    {
     "id": "study-seed:pbm-jagdeo2018",
@@ -14934,8 +14986,8 @@
     "demo": false,
     "title_en": "Jagdeo (2018)",
     "title_cs": "Jagdeo (2018)",
-    "body_en": "Light-emitting diodes in dermatology: A systematic review of randomized controlled trials. Design: systematic-review. Grade A. Not yet verified against Crossref: run `kingctl evidence verify`.",
-    "body_cs": "Light-emitting diodes in dermatology: A systematic review of randomized controlled trials. Typ studie: systematic-review. Hodnocení A. Zatím neověřeno přes Crossref: spusťte `kingctl evidence verify`."
+    "body_en": "Light-emitting diodes in dermatology: A systematic review of randomized controlled trials. Design: systematic-review. Grade A. Verified.",
+    "body_cs": "Light-emitting diodes in dermatology: A systematic review of randomized controlled trials. Typ studie: systematic-review. Hodnocení A. Ověřeno."
    },
    {
     "id": "study-seed:pbm-jackson2009",
@@ -14944,8 +14996,8 @@
     "demo": false,
     "title_en": "Jackson (2009)",
     "title_cs": "Jackson (2009)",
-    "body_en": "Low-level laser therapy as a non-invasive approach for body contouring: a randomized, controlled study. Design: rct. Grade A. Not yet verified against Crossref: run `kingctl evidence verify`.",
-    "body_cs": "Low-level laser therapy as a non-invasive approach for body contouring: a randomized, controlled study. Typ studie: rct. Hodnocení A. Zatím neověřeno přes Crossref: spusťte `kingctl evidence verify`."
+    "body_en": "Low-level laser therapy as a non-invasive approach for body contouring: a randomized, controlled study. Design: rct. Grade A. Verified.",
+    "body_cs": "Low-level laser therapy as a non-invasive approach for body contouring: a randomized, controlled study. Typ studie: rct. Hodnocení A. Ověřeno."
    },
    {
     "id": "study-seed:pbm-avci2013fat",
@@ -14954,18 +15006,18 @@
     "demo": false,
     "title_en": "Avci (2013)",
     "title_cs": "Avci (2013)",
-    "body_en": "Low-level laser therapy for fat layer reduction: a comprehensive review. Design: unknown. Grade D. Not yet verified against Crossref: run `kingctl evidence verify`.",
-    "body_cs": "Low-level laser therapy for fat layer reduction: a comprehensive review. Typ studie: unknown. Hodnocení D. Zatím neověřeno přes Crossref: spusťte `kingctl evidence verify`."
+    "body_en": "Low-level laser therapy for fat layer reduction: a comprehensive review. Design: unknown. Grade D. Verified.",
+    "body_cs": "Low-level laser therapy for fat layer reduction: a comprehensive review. Typ studie: unknown. Hodnocení D. Ověřeno."
    },
    {
-    "id": "study-seed:pbm-jimenez2014",
+    "id": "study-doi:10.1007/s40257-013-0060-6",
     "kind": "study",
     "rarity": "epic",
     "demo": false,
     "title_en": "Jimenez (2014)",
     "title_cs": "Jimenez (2014)",
-    "body_en": "Efficacy and safety of a low-level laser device in the treatment of male and female pattern hair loss: a multicenter, randomized, sham device-controlled, double-blind study. Design: rct. Grade A. Not yet verified against Crossref: run `kingctl evidence verify`.",
-    "body_cs": "Efficacy and safety of a low-level laser device in the treatment of male and female pattern hair loss: a multicenter, randomized, sham device-controlled, double-blind study. Typ studie: rct. Hodnocení A. Zatím neověřeno přes Crossref: spusťte `kingctl evidence verify`."
+    "body_en": "Efficacy and safety of a low-level laser device in the treatment of male and female pattern hair loss: a multicenter, randomized, sham device-controlled, double-blind study. Design: rct. Grade A. Verified.",
+    "body_cs": "Efficacy and safety of a low-level laser device in the treatment of male and female pattern hair loss: a multicenter, randomized, sham device-controlled, double-blind study. Typ studie: rct. Hodnocení A. Ověřeno."
    },
    {
     "id": "study-seed:pbm-afifi2017",
@@ -14974,8 +15026,8 @@
     "demo": false,
     "title_en": "Afifi (2017)",
     "title_cs": "Afifi (2017)",
-    "body_en": "Low-level laser therapy as a treatment for androgenetic alopecia. Design: unknown. Grade D. Not yet verified against Crossref: run `kingctl evidence verify`.",
-    "body_cs": "Low-level laser therapy as a treatment for androgenetic alopecia. Typ studie: unknown. Hodnocení D. Zatím neověřeno přes Crossref: spusťte `kingctl evidence verify`."
+    "body_en": "Low-level laser therapy as a treatment for androgenetic alopecia. Design: unknown. Grade D. Verified.",
+    "body_cs": "Low-level laser therapy as a treatment for androgenetic alopecia. Typ studie: unknown. Hodnocení D. Ověřeno."
    },
    {
     "id": "study-seed:pbm-hamblin2018",
@@ -14984,18 +15036,18 @@
     "demo": false,
     "title_en": "Hamblin (2018)",
     "title_cs": "Hamblin (2018)",
-    "body_en": "Mechanisms and Mitochondrial Redox Signaling in Photobiomodulation. Design: theory. Grade C. Not yet verified against Crossref: run `kingctl evidence verify`.",
-    "body_cs": "Mechanisms and Mitochondrial Redox Signaling in Photobiomodulation. Typ studie: theory. Hodnocení C. Zatím neověřeno přes Crossref: spusťte `kingctl evidence verify`."
+    "body_en": "Mechanisms and Mitochondrial Redox Signaling in Photobiomodulation. Design: theory. Grade C. Verified.",
+    "body_cs": "Mechanisms and Mitochondrial Redox Signaling in Photobiomodulation. Typ studie: theory. Hodnocení C. Ověřeno."
    },
    {
-    "id": "study-seed:pbm-heiskanen2018",
+    "id": "study-doi:10.1039/c8pp00176f",
     "kind": "study",
     "rarity": "common",
     "demo": false,
     "title_en": "Heiskanen (2018)",
     "title_cs": "Heiskanen (2018)",
-    "body_en": "Photobiomodulation: lasers vs. light emitting diodes?. Design: theory. Grade C. Not yet verified against Crossref: run `kingctl evidence verify`.",
-    "body_cs": "Photobiomodulation: lasers vs. light emitting diodes?. Typ studie: theory. Hodnocení C. Zatím neověřeno přes Crossref: spusťte `kingctl evidence verify`."
+    "body_en": "Photobiomodulation: lasers vs. light emitting diodes?. Design: theory. Grade C. Verified.",
+    "body_cs": "Photobiomodulation: lasers vs. light emitting diodes?. Typ studie: theory. Hodnocení C. Ověřeno."
    },
    {
     "id": "study-seed:pbm-glass2021",
@@ -15180,7 +15232,7 @@
     "address": "vy"
    },
    "writer": "offline",
-   "created": "2026-10-02T15:58:58+00:00",
+   "created": "2026-10-23T21:03:21+00:00",
    "items": [
     {
      "format": "instagram_caption",
@@ -16684,7 +16736,7 @@
     "address": ""
    },
    "writer": "offline",
-   "created": "2026-10-02T15:58:59+00:00",
+   "created": "2026-10-23T21:03:21+00:00",
    "items": [
     {
      "format": "instagram_caption",

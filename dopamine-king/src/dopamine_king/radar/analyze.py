@@ -1,7 +1,7 @@
 """From stored search records to the numbers of the report.
 
-Pure functions over the records ``collect`` stored plus two small curated files (domains and themes). No network, no model, no
-random numbers: the same snapshot always gives the same report. Every number can be traced to the links that produced it.
+Pure functions over the records ``collect`` stored plus three small curated files (domains, themes, outcome words). No network, no
+model, no random numbers: the same snapshot always gives the same report. Every number can be traced to the links that produced it.
 """
 from __future__ import annotations
 
@@ -12,16 +12,16 @@ from pathlib import Path
 from typing import Any, Iterable, Sequence
 from urllib.parse import unquote, urlsplit
 
+from ..generate.claims import terms_regex
+from ..generate.seo import split_sentences
 from ..scoring import fold
 
 MARKET_GROUPS = ("category", "persona", "competitor")           # what a Czech buyer searches for
 VISIBILITY_GROUPS = ("brand", "category", "persona", "competitor")
 JUNK_TITLES = {"hlavni obsah", "table of contents", "skupina produktu:", "home", "homepage", "menu", "passa al contenuto", "background preloader"}
-SCHOLARLY_HOSTS = ("pubmed.ncbi.nlm.nih.gov", "ncbi.nlm.nih.gov", "europepmc.org", "doi.org", "cochranelibrary.com", "mdpi.com",
-                   "sciencedirect.com", "onlinelibrary.wiley.com", "link.springer.com", "springer.com", "tandfonline.com", "liebertpub.com",
-                   "journals.sagepub.com", "academic.oup.com", "nature.com", "frontiersin.org", "journals.lww.com", "jamanetwork.com",
-                   "bmj.com", "thelancet.com", "karger.com", "scielo.br", "semanticscholar.org", "researchgate.net", "jlms.sbmu.ac.ir",
-                   "journals.sbmu.ac.ir", "aesthetic-surgery-journal.com", "wiley.com", "elsevier.com", "plos.org", "pmc.ncbi.nlm.nih.gov")
+JUNK_PREFIXES = ("[date", "an image of", "picture of", "image of", "to the page content", "- ")
+JUNK_RE = re.compile(r"^[-\s]*\d+\s*min(?:ute)?s?\s+read$")
+AUDIT_TYPES = ("media", "pharmacy", "ecommerce", "service", "foreign_shop", "foreign_media", "maker")   # hosts that sell or promote
 RULE_NAMES_CS = {
     "CLAIM_MEDICAL": "zdravotní tvrzení (léčí, zmírňuje)",
     "CLAIM_AVOID": "rizikové nebo nepodložené tvrzení",
@@ -31,6 +31,7 @@ RULE_NAMES_CS = {
     "MEDICATION_ADVICE": "rada ohledně léků",
 }
 ERROR_RULES = tuple(RULE_NAMES_CS)
+LIGHT_WORDS = ("svetl", "light", " led", "infra", "panel", "photobio", "fotobio", "laser", "lamp", "terapi", "therap", "mito", "maska", "mask")
 
 
 # -- small helpers -------------------------------------------------------------------------------------------------------
@@ -49,22 +50,17 @@ def _tokens(text: str) -> list[str]:
 
 def slug_label(url: str) -> str:
     """Readable words from the last meaningful part of a URL, used only when the page title says nothing."""
-    parts = urlsplit(url)
-    segments = [unquote(s) for s in parts.path.split("/") if s and s.lower() not in ("index.html", "index.php")]
-    last = segments[-1] if segments else ""
-    last = re.sub(r"\.(html?|php|pdf|aspx?)$", "", last, flags=re.I)
-    words = re.sub(r"[-_+]+", " ", last).strip()
-    words = re.sub(r"^\d{3,}\s+", "", words)                   # leading ids such as 2385920
-    return words
+    segments = [unquote(s) for s in urlsplit(url).path.split("/") if s and s.lower() not in ("index.html", "index.php")]
+    last = re.sub(r"\.(html?|php|pdf|aspx?)$", "", segments[-1] if segments else "", flags=re.I)
+    return re.sub(r"^\d{3,}\s+", "", re.sub(r"[-_+]+", " ", last).strip())
 
 
-def title_is_junk(title: str, url: str) -> bool:
+def title_is_junk(title: str, url: str = "") -> bool:
     plain = fold(title.strip().lower())
     if len(plain) < 4 or not re.search(r"[a-z]", plain):
         return True
-    if plain in JUNK_TITLES or plain.startswith("[date") or re.fullmatch(r"[\w.-]+\.[a-z]{2,}", plain):
-        return True
-    return False
+    return (plain in JUNK_TITLES or plain.startswith(JUNK_PREFIXES) or bool(JUNK_RE.match(plain))
+            or bool(re.fullmatch(r"[\w.-]+\.[a-z]{2,}", plain)))
 
 
 def display(link: dict[str, Any]) -> dict[str, Any]:
@@ -72,22 +68,36 @@ def display(link: dict[str, Any]) -> dict[str, Any]:
     title = link["title"].strip()
     if not title_is_junk(title, link["url"]):
         return {"label": title, "derived": False}
-    words = slug_label(link["url"])
-    return {"label": words or host_of(link["url"]), "derived": True}
+    return {"label": slug_label(link["url"]) or host_of(link["url"]), "derived": True}
 
 
-def load_config(folder: str | Path) -> dict[str, Any]:
+def load_config(folder: str | Path, brands: dict[str, Any] | None = None) -> dict[str, Any]:
+    """The curated files of the radar; the brand registry of the vertical adds the makers and review sites it lists."""
     root = Path(folder)
-    return {"domains": json.loads((root / "domains.json").read_text("utf-8")),
-            "themes": json.loads((root / "themes.json").read_text("utf-8"))}
+    domains = json.loads((root / "domains.json").read_text("utf-8"))
+    entries = dict(domains["domains"])
+    for brand in (brands or {}).get("brands", []):
+        host = host_of(brand.get("homepage", ""))
+        if host and host not in entries:
+            kind = "foreign_media" if brand.get("category") == "media" else "science" if brand.get("category") == "association" else "maker"
+            entries[host] = {"type": kind, "name": brand.get("name", host)}
+    return {"domains": {**domains, "domains": entries}, "themes": json.loads((root / "themes.json").read_text("utf-8")),
+            "outcome": json.loads((root / "outcome_words.json").read_text("utf-8"))}
 
 
 def domain_info(host: str, domains_cfg: dict[str, Any]) -> dict[str, Any]:
     entries = domains_cfg.get("domains", {})
-    for key in (host, *[host.split(".", i)[-1] for i in range(1, host.count("."))]):
+    parts = host.split(".")
+    for i in range(len(parts) - 1):
+        key = ".".join(parts[i:])
         if key in entries:
             return entries[key]
     return {}
+
+
+def is_light_related(text: str) -> bool:
+    folded = " " + fold(text.lower())
+    return any(word in folded for word in LIGHT_WORDS)
 
 
 # -- visibility ----------------------------------------------------------------------------------------------------------
@@ -105,83 +115,88 @@ def visibility(records: Sequence[dict[str, Any]], brand: dict[str, Any]) -> dict
         rows.append({
             "id": rec["id"], "group": rec["group"], "persona": rec.get("persona", ""), "query": rec["query"], "purpose": rec.get("purpose", ""),
             "n_links": len(links), "own_rank": min(own_ranks) if own_ranks else None, "other_market_rank": min(other_ranks) if other_ranks else None,
-            "confusable_links": sum(host_matches(host_of(l["url"]), confusable) for l in links),
+            "lookalike_links": sum(host_matches(host_of(l["url"]), confusable) for l in links),
             "top": {"host": host_of(first["url"]), "title": display(first)["label"], "url": first["url"]} if first else None,
         })
-    by_group: dict[str, dict[str, int]] = {}
-    for g in VISIBILITY_GROUPS:
-        sub = [r for r in rows if r["group"] == g]
-        by_group[g] = {"queries": len(sub), "own": sum(r["own_rank"] is not None for r in sub),
-                       "other_market": sum(r["other_market_rank"] is not None for r in sub)}
+    by_group = {g: {"queries": sum(r["group"] == g for r in rows), "own": sum(r["group"] == g and r["own_rank"] is not None for r in rows)}
+                for g in VISIBILITY_GROUPS}
     market = [r for r in rows if r["group"] in MARKET_GROUPS]
     return {"rows": rows, "by_group": by_group,
-            "market": {"queries": len(market), "own": sum(r["own_rank"] is not None for r in market),
-                       "other_market": sum(r["other_market_rank"] is not None for r in market)}}
+            "market": {"queries": len(market), "own": sum(r["own_rank"] is not None for r in market)},
+            "all": {"queries": len(rows), "own": sum(r["own_rank"] is not None for r in rows),
+                    "other_market": sum(r["other_market_rank"] is not None for r in rows)}}
 
 
 # -- who is around the brand -----------------------------------------------------------------------------------------------
-def landscape(records: Sequence[dict[str, Any]], domains_cfg: dict[str, Any], *, min_queries: int = 2) -> dict[str, Any]:
-    """Hosts in the results of the Czech market queries, with their curated type; hosts nobody classified stay apart."""
+def landscape(records: Sequence[dict[str, Any]], domains_cfg: dict[str, Any]) -> dict[str, Any]:
+    """Hosts in the results of the Czech market queries, with their curated type. Hosts nobody classified are only counted."""
     stats: dict[str, dict[str, Any]] = {}
     for rec in records:
         if rec["group"] not in MARKET_GROUPS:
             continue
         for link in rec["links"]:
             host = host_of(link["url"])
-            s = stats.setdefault(host, {"host": host, "queries": set(), "links": 0, "urls": {}, "best_rank": 99})
+            s = stats.setdefault(host, {"host": host, "queries": set(), "links": 0, "urls": {}})
             s["queries"].add(rec["id"])
             s["links"] += 1
-            s["best_rank"] = min(s["best_rank"], link["rank"])
             s["urls"].setdefault(link["url"], display(link)["label"])
-    rows, unclassified, noise = [], [], 0
+    rows, unclassified, noise = [], 0, 0
     for s in stats.values():
         info = domain_info(s["host"], domains_cfg)
-        row = {"host": s["host"], "queries": len(s["queries"]), "links": s["links"], "best_rank": s["best_rank"],
-               "type": info.get("type", ""), "name": info.get("name", s["host"]), "note": info.get("note", ""),
-               "pages": [{"url": u, "label": t} for u, t in list(s["urls"].items())[:4]]}
         if info.get("type") == "noise":
             noise += s["links"]
-        elif info:
-            rows.append(row)
-        elif len(s["queries"]) >= min_queries:
-            unclassified.append(row)
-    key = lambda r: (-r["queries"], -r["links"], r["host"])
-    rows.sort(key=key)
-    unclassified.sort(key=key)
-    return {"domains": rows, "unclassified": unclassified, "noise_links": noise, "hosts": len(stats),
-            "types": domains_cfg.get("types", {})}
+        elif info.get("type") == "science":
+            continue                                       # literature and patents are not who surrounds the brand
+        elif not info:
+            unclassified += s["links"]
+        else:
+            rows.append({"host": s["host"], "queries": len(s["queries"]), "links": s["links"], "type": info["type"],
+                         "name": info.get("name", s["host"]), "note": info.get("note", ""),
+                         "pages": [{"url": u, "label": t} for u, t in list(s["urls"].items())[:3]]})
+    rows.sort(key=lambda r: (-r["queries"], -r["links"], r["host"]))
+    total = sum(s["links"] for s in stats.values())
+    return {"domains": rows, "types": domains_cfg.get("types", {}), "links": total, "noise_links": noise, "unclassified_links": unclassified,
+            "hosts": len(stats)}
 
 
 # -- identity of the brand in the results ------------------------------------------------------------------------------------
-def identity(records: Sequence[dict[str, Any]], brand: dict[str, Any], domains_cfg: dict[str, Any]) -> dict[str, Any]:
-    """Pages about the brand outside its own sites, and how much of a brand query goes to the look-alike brand."""
+def identity(records: Sequence[dict[str, Any]], brand: dict[str, Any], domains_cfg: dict[str, Any],
+             direct: Sequence[dict[str, Any]] = ()) -> dict[str, Any]:
+    """Pages about the brand outside its own sites, how much of a brand query goes to the look-alike brand, and what summaries claim."""
     own = set(brand["own_domains"]) | set(brand.get("related_domains", []))
-    confusable_domains = {d for d in brand.get("confusable", []) if "." in d}
+    look_domains = {d for d in brand.get("confusable", []) if "." in d}
+    look_names = [fold(n.lower()) for n in brand.get("confusable", []) if "." not in n]
     names = [fold(n.lower()) for n in [brand["name"], *brand.get("aliases", [])]]
     about: dict[str, dict[str, Any]] = {}
-    brand_rows = []
+    rows = []
+    quotes = []
     for rec in records:
         if rec["group"] != "brand":
             continue
-        named = rec["query"].lower().startswith(("mito light", "mitolight"))
         links = rec["links"]
-        lookalike = [l for l in links if host_matches(host_of(l["url"]), confusable_domains)]
-        brand_rows.append({"id": rec["id"], "query": rec["query"], "links": len(links), "lookalike": len(lookalike),
-                           "named": named and "nebo" not in rec["query"].lower()})
+        look = [l for l in links if host_matches(host_of(l["url"]), look_domains)]
+        asks_comparison = " nebo " in rec["query"].lower()
+        rows.append({"id": rec["id"], "query": rec["query"], "links": len(links), "lookalike": len(look), "counted": not asks_comparison})
         for link in links:
             host = host_of(link["url"])
-            if host_matches(host, own) or host_matches(host, confusable_domains):
+            if host_matches(host, own) or host_matches(host, look_domains) or domain_info(host, domains_cfg).get("type") == "noise":
                 continue
             text = fold((link["title"] + " " + link["url"]).lower()).replace("-", " ").replace("_", " ")
-            if any(n in text for n in names) and domain_info(host, domains_cfg).get("type") != "noise":
+            if any(n in text for n in names):
                 entry = about.setdefault(link["url"], {"host": host, "title": display(link)["label"], "url": link["url"], "queries": []})
                 entry["queries"].append(rec["id"])
-    named_rows = [r for r in brand_rows if r["named"]]
-    total = sum(r["links"] for r in named_rows)
-    look = sum(r["lookalike"] for r in named_rows)
-    return {"about": sorted(about.values(), key=lambda e: (-len(e["queries"]), e["host"])), "rows": brand_rows,
-            "lookalike_links": look, "named_links": total,
-            "worst": max(named_rows, key=lambda r: r["lookalike"], default=None)}
+        for sentence in split_sentences(rec.get("summary", "")):
+            folded = fold(sentence.lower())
+            if any(n in folded for n in look_names) and any(n in folded for n in names):
+                quotes.append({"id": rec["id"], "query": rec["query"], "text": sentence.strip(), "machine_summary": True})
+    for rec in direct:
+        sentence = rec.get("summary_sentence")
+        if sentence:
+            quotes.append({"id": rec["id"], "query": rec["query"], "text": sentence, "machine_summary": True})
+    counted = [r for r in rows if r["counted"]]
+    return {"about": sorted(about.values(), key=lambda e: (-len(e["queries"]), e["host"])), "rows": rows,
+            "lookalike_links": sum(r["lookalike"] for r in counted), "counted_links": sum(r["links"] for r in counted),
+            "worst": max(counted, key=lambda r: r["lookalike"], default=None), "quotes": quotes}
 
 
 # -- what the top brands publish ---------------------------------------------------------------------------------------------
@@ -189,40 +204,60 @@ def theme_ids(text: str, url: str, themes_cfg: dict[str, Any]) -> list[str]:
     haystack = " " + " ".join(_tokens(text + " " + slug_label(url) + " " + urlsplit(url).path)) + " "
     found = []
     for theme in themes_cfg["themes"]:
-        if any(" " + " ".join(_tokens(k)) + " " in haystack or (k.endswith("*") and " " + " ".join(_tokens(k[:-1])) in haystack)
-               for k in theme["keywords"]):
-            found.append(theme["id"])
+        for keyword in theme["keywords"]:
+            stem = keyword.endswith("*")
+            phrase = " ".join(_tokens(keyword[:-1] if stem else keyword))
+            if (" " + phrase) in haystack if stem else (" " + phrase + " ") in haystack:
+                found.append(theme["id"])
+                break
     return found
 
 
-def brandsites(records: Sequence[dict[str, Any]], themes_cfg: dict[str, Any]) -> dict[str, Any]:
+def brandsites(records: Sequence[dict[str, Any]], themes_cfg: dict[str, Any], domains_cfg: dict[str, Any]) -> dict[str, Any]:
     sites = []
-    counts: Counter[str] = Counter()
-    brands_per_theme: dict[str, set[str]] = defaultdict(set)
     for rec in records:
         if rec["group"] != "brandsite":
             continue
         domain = (rec.get("allowed_domains") or [""])[0]
+        kind = "maker" if domain_info(domain, domains_cfg).get("type") == "maker" else "media"
         pages = []
         for link in rec["links"]:
             if not host_matches(host_of(link["url"]), [domain]):
                 continue
             shown = display(link)
-            found = theme_ids(shown["label"], link["url"], themes_cfg)
-            pages.append({"url": link["url"], "label": shown["label"], "derived": shown["derived"], "themes": found})
-            for t in found:
-                counts[t] += 1
-                brands_per_theme[t].add(domain)
-        sites.append({"id": rec["id"], "domain": domain, "purpose": rec.get("purpose", ""), "pages": pages})
-    labels = {t["id"]: t["name_cs"] for t in themes_cfg["themes"]}
-    return {"sites": sites, "pages": sum(len(s["pages"]) for s in sites),
-            "themes": [{"id": t["id"], "name": labels[t["id"]], "pages": counts[t["id"]], "brands": len(brands_per_theme[t["id"]])}
-                       for t in themes_cfg["themes"]]}
+            pages.append({"url": link["url"], "label": shown["label"], "derived": shown["derived"],
+                          "themes": theme_ids(shown["label"], link["url"], themes_cfg)})
+        sites.append({"id": rec["id"], "domain": domain, "kind": kind, "name": domain_info(domain, domains_cfg).get("name", domain), "pages": pages})
+    themes = []
+    for theme in themes_cfg["themes"]:
+        row = {"id": theme["id"], "name": theme["name_cs"]}
+        for kind in ("maker", "media"):
+            matching = [s for s in sites if s["kind"] == kind and any(theme["id"] in p["themes"] for p in s["pages"])]
+            row[kind] = {"pages": sum(theme["id"] in p["themes"] for s in sites if s["kind"] == kind for p in s["pages"]), "sites": len(matching)}
+        row["examples"] = [{"site": s["name"], "title": p["label"], "url": p["url"]} for s in sites for p in s["pages"]
+                           if theme["id"] in p["themes"] and not p["derived"]][:3]
+        themes.append(row)
+    return {"sites": sites, "pages": sum(len(s["pages"]) for s in sites), "sites_with_pages": sum(bool(s["pages"]) for s in sites),
+            "makers": sum(s["kind"] == "maker" for s in sites), "media": sum(s["kind"] == "media" for s in sites), "themes": themes}
+
+
+def own_pages(records: Sequence[dict[str, Any]], brand: dict[str, Any], themes_cfg: dict[str, Any]) -> dict[str, Any]:
+    """Pages of the brand's own Czech site that the search tool knows, with their themes."""
+    pages: dict[str, dict[str, Any]] = {}
+    for rec in records:
+        if rec["group"] != "own":
+            continue
+        for link in rec["links"]:
+            if host_matches(host_of(link["url"]), brand["own_domains"]):
+                url = re.sub(r"^https?://(?:www\.)?", "", link["url"]).rstrip("/")
+                pages.setdefault(url, {"url": link["url"], "label": display(link)["label"], "themes": theme_ids(link["title"], link["url"], themes_cfg)})
+    coverage = Counter(t for p in pages.values() for t in p["themes"])
+    return {"pages": list(pages.values()), "themes": dict(coverage)}
 
 
 # -- claims found in real page titles ----------------------------------------------------------------------------------------
 def claims_audit(records: Sequence[dict[str, Any]], profile: Any, domains_cfg: dict[str, Any], *, own_domains: Sequence[str] = ()) -> dict[str, Any]:
-    """Run the claims profile over the titles of pages the search returned: the page's own words, never the machine summary."""
+    """Run the claims profile over the titles of pages that sell or promote light therapy: the page's own words, never a summary."""
     seen: set[str] = set()
     scanned = 0
     flagged: list[dict[str, Any]] = []
@@ -230,44 +265,59 @@ def claims_audit(records: Sequence[dict[str, Any]], profile: Any, domains_cfg: d
         if rec["group"] in ("study", "own"):
             continue
         for link in rec["links"]:
-            url = link["url"]
+            url, title = link["url"], link["title"]
             host = host_of(url)
-            if url in seen or host_matches(host, own_domains) or domain_info(host, domains_cfg).get("type") == "noise":
+            if url in seen or host_matches(host, own_domains) or domain_info(host, domains_cfg).get("type") not in AUDIT_TYPES:
                 continue
             seen.add(url)
-            if title_is_junk(link["title"], url):
-                continue
+            if title_is_junk(title, url) or title.rstrip().endswith("?") or not is_light_related(title + " " + url):
+                continue                                   # questions are not claims; pages about something else are not our field
             scanned += 1
-            hits = [h for h in profile.scan_text(link["title"]) if h.code in ERROR_RULES]
+            hits = [h for h in profile.scan_text(title) if h.code in ERROR_RULES]
             if hits:
                 h = hits[0]
-                flagged.append({"host": host, "title": link["title"], "url": url, "code": h.code, "rule": RULE_NAMES_CS[h.code],
-                                "fragment": link["title"][h.start:h.end], "topic": h.topic.name_cs if h.topic else "", "query": rec["id"]})
+                flagged.append({"host": host, "name": domain_info(host, domains_cfg).get("name", host), "title": title, "url": url, "code": h.code,
+                                "rule": RULE_NAMES_CS[h.code], "fragment": title[h.start:h.end], "query": rec["id"]})
     codes = Counter(f["code"] for f in flagged)
     return {"scanned": scanned, "flagged": len(flagged), "by_rule": {RULE_NAMES_CS[c]: n for c, n in codes.most_common()}, "examples": flagged}
 
 
-# -- the study leads --------------------------------------------------------------------------------------------------------
-def study_check(records: Sequence[dict[str, Any]], studies: Sequence[Any]) -> list[dict[str, Any]]:
-    """For every unverified study of the ledger: was its exact title found on a page, and on what kind of site."""
-    by_id = {s.id: s for s in studies}
+def outcome_titles(pages: Sequence[dict[str, Any]], profile: Any, claim_map: Sequence[dict[str, Any]], outcome_cfg: dict[str, Any]) -> list[dict[str, Any]]:
+    """Titles that name a body or performance topic together with an outcome word ("proti vráskám", "kvalitnější spánek").
+
+    The claims profile is built around verbs, so a noun phrase such as "zvýšení množství vlasů" passes it. This second, simpler check
+    reads titles only: a topic noun of the claim map plus a word that promises a result. It points to texts to review, it does not judge them.
+    """
+    words = outcome_cfg["words"]
+    outcome_re = re.compile(terms_regex(words))
+    by_id = {row["id"]: row for row in claim_map}
     rows = []
-    for rec in records:
-        if rec["group"] != "study":
+    for page in pages:
+        low = fold(page["label"].lower())
+        if not outcome_re.search(low):
             continue
-        study_id = rec.get("study_id") or rec["purpose"].rsplit(": ", 1)[-1]
-        study = by_id.get(study_id)
-        if study is None:
-            continue
-        want = set(_tokens(study.title))
-        best, best_cov = None, 0.0
-        for link in rec["links"]:
-            have = set(_tokens(link["title"] + " " + slug_label(link["url"])))
-            cov = len(want & have) / len(want) if want else 0.0
-            if cov > best_cov:
-                best, best_cov = link, cov
-        scholarly = bool(best) and host_matches(host_of(best["url"]), SCHOLARLY_HOSTS)
-        rows.append({"study_id": study_id, "title": study.title, "coverage": round(best_cov, 2),
-                     "found": best_cov >= 0.8, "scholarly": scholarly,
-                     "url": best["url"] if best and best_cov >= 0.5 else "", "host": host_of(best["url"]) if best and best_cov >= 0.5 else ""})
+        topics = [t for t in profile.topics if t.klass != "context" and t.nouns and re.search(terms_regex(t.nouns), low)]
+        if topics:
+            row = by_id.get(topics[0].id, {})
+            rows.append({"url": page["url"], "title": page["label"], "topic": topics[0].name_cs, "topic_id": topics[0].id, "class": topics[0].klass,
+                         "label": row.get("label", ""), "safe": (row.get("safe_cs") or [""])[0]})
     return rows
+
+
+# -- direct cross-check -----------------------------------------------------------------------------------------------------
+def validation(records: Sequence[dict[str, Any]], direct: Sequence[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Overlap of the stored links with a search made directly with the tool, query by query."""
+    by_id = {r["id"]: r for r in records}
+    rows = []
+    for d in direct:
+        rec = by_id.get(d.get("compare_with", ""))
+        if not rec:
+            continue
+        a, b = {l["url"] for l in rec["links"]}, {l["url"] for l in d["links"]}
+        rows.append({"direct": d["id"], "query": d["query"], "stored": len(a), "direct_links": len(b), "shared": len(a & b),
+                     "same_order": [l["url"] for l in rec["links"]] == [l["url"] for l in d["links"]]})
+    return rows
+
+
+def load_direct(snapshot: str | Path) -> list[dict[str, Any]]:
+    return [json.loads(p.read_text("utf-8")) for p in sorted((Path(snapshot) / "direct").glob("*.json"))]

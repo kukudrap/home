@@ -363,7 +363,13 @@
      "thinning hair",
      "hair thinning",
      "hair density",
-     "hair follicle*"
+     "hair follicle*",
+     "hair quality",
+     "hair quantity",
+     "hair volume",
+     "hair thickness",
+     "thicker hair",
+     "fuller hair"
     ],
     "nouns_cs": [
      "růst vlasů",
@@ -374,7 +380,13 @@
      "řídnoucí vlasy",
      "řídnutí vlasů",
      "hustot* vlasů",
-     "vlasov* folikul*"
+     "vlasov* folikul*",
+     "množství vlasů",
+     "kvalit* vlasů",
+     "objem* vlasů",
+     "hustší vlasy",
+     "silnější vlasy",
+     "plnější vlasy"
     ],
     "patterns": [
      "\\bvlas\\w*(?:[^\\w.!?;\\n]+\\w+){0,4}[^\\w.!?;\\n]+(?:dorost\\w*|vypada\\w*|zhust\\w*|narost\\w*)",
@@ -3955,6 +3967,32 @@
    "hits": []
   },
   {
+   "text": "Zvýšení kvality a množství vlasů díky světlu.",
+   "hits": [
+    {
+     "code": "CLAIM_MEDICAL",
+     "topic": "pbm-hair",
+     "start": 0,
+     "end": 32
+    }
+   ]
+  },
+  {
+   "text": "Zvyšuje množství vlasů a hustotu vlasů.",
+   "hits": [
+    {
+     "code": "CLAIM_MEDICAL",
+     "topic": "pbm-hair",
+     "start": 0,
+     "end": 38
+    }
+   ]
+  },
+  {
+   "text": "Pro silnější vlasy každý den.",
+   "hits": []
+  },
+  {
    "text": "Red light cures joint pain.",
    "hits": [
     {
@@ -4413,6 +4451,28 @@
   {
    "text": "",
    "hits": []
+  },
+  {
+   "text": "Promotes thicker hair and better hair quality.",
+   "hits": [
+    {
+     "code": "CLAIM_MEDICAL",
+     "topic": "pbm-hair",
+     "start": 0,
+     "end": 45
+    }
+   ]
+  },
+  {
+   "text": "Boosts hair volume in weeks.",
+   "hits": [
+    {
+     "code": "CLAIM_MEDICAL",
+     "topic": "pbm-hair",
+     "start": 0,
+     "end": 18
+    }
+   ]
   },
   {
    "text": "Red light léčí bolest kloubů",

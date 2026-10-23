@@ -1,0 +1,58 @@
+{
+ "id": "direct-04",
+ "method": "direct WebSearch tool call made by Claude during the session, copied from the tool output",
+ "retrieved_on": "2026-10-23",
+ "query": "Joovv red light therapy panel benefits",
+ "allowed_domains": [
+  "joovv.com"
+ ],
+ "compare_with": "site-joovv",
+ "links": [
+  {
+   "rank": 1,
+   "title": "Red Light Therapy for Better, Healthier Aging",
+   "url": "https://joovv.com/blogs/joovv-blog/red-light-therapy-for-better-healthier-aging"
+  },
+  {
+   "rank": 2,
+   "title": "The Benefits of Red Light Therapy Through Fall & Winter",
+   "url": "https://joovv.com/blogs/joovv-blog/the-benefits-of-red-light-therapy-through-fall-winter"
+  },
+  {
+   "rank": 3,
+   "title": "Joovv Solo 3.0",
+   "url": "https://joovv.com/products/joovv-solo-3-0"
+  },
+  {
+   "rank": 4,
+   "title": "Red Light Therapy Masks vs. Panels",
+   "url": "https://joovv.com/blogs/joovv-blog/red-light-therapy-masks-vs-panels"
+  },
+  {
+   "rank": 5,
+   "title": "Red Light Therapy Beds vs Panels",
+   "url": "https://joovv.com/blogs/joovv-blog/red-light-therapy-beds-vs-panels"
+  },
+  {
+   "rank": 6,
+   "title": "Basics of Red Light Therapy",
+   "url": "https://joovv.com/pages/basics-of-joovv"
+  },
+  {
+   "rank": 7,
+   "title": "Medical-Grade Red Light Therapy Devices",
+   "url": "https://joovv.com/"
+  },
+  {
+   "rank": 8,
+   "title": "Why Use At-Home Red Light Therapy?",
+   "url": "https://joovv.com/blogs/joovv-blog/why-use-red-light-therapy"
+  },
+  {
+   "rank": 9,
+   "title": "Red Light Therapy: Pros and Cons",
+   "url": "https://joovv.com/blogs/joovv-blog/red-light-therapy-pros-and-cons"
+  }
+ ],
+ "note": "Long dashes in titles were replaced by a hyphen, nothing else was changed."
+}

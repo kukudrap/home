@@ -110,9 +110,9 @@ Medicínská a zakázaná témata zůstávají blokovaná, ať je štítek jaký
 
 ## Důkazy: co je ověřeno a co ne
 
-- **41 záznamů, z toho 25 ověřených** webovým vyhledáváním dne 2026-10-02 (název, časopis, rok, DOI nebo PubMed). U ověřených záznamů jsou závěry z abstraktů a shrnutí ve výsledcích, plné texty nebyly čteny.
-- **16 záznamů je "výzkumných podnětů" z paměti autora** (kůže, tvarování těla, vlasy a několik přehledů). Mají poznámku, že nejsou ověřeny, nic o jejich závěrech se neříká a do štítku se nepočítají. Ověříte je příkazem `kingctl evidence verify --vertical pbm --save .king/pbm-ledger.json` (potřebuje síť, využívá Crossref).
-- Rešerše narazila na **limit 200 webových vyhledávání na jednu relaci**. Proto chybí ověřené studie k vzhledu pleti, tvarování těla a vlasům, nejsou nezávislá měření spotřebitelských panelů ani přehled nežádoucích účinků. U sportu jsou záměrně vidět i nulové a smíšené výsledky (například celotělové panely).
+- **41 záznamů, z toho 39 ověřených** webovým vyhledáváním ze dnů 2026-10-02 (25 záznamů) a 2026-10-23 (14 záznamů): název, časopis a rok se objevily v PubMed, PubMed Central nebo u vydavatele. U ověřených záznamů jsou závěry z abstraktů a shrnutí ve výsledcích, plné texty nebyly čteny.
+- **2 záznamy zůstávají neověřené** (Cochranův přehled o žilních vředech a přehled Glassové z roku 2021). Mají poznámku, proč: u prvního se z výsledků nepodařilo poznat, jestli jde o protokol nebo hotový přehled, u druhého se nenašla stránka samotného článku. Do štítku se nepočítají.
+- První rešerše narazila na **limit 200 webových vyhledávání na jednu relaci**; chybějící studie k vzhledu pleti, tvarování těla a vlasům doplnil radar 2026-10-23. Stále nejsou nezávislá měření spotřebitelských panelů ani přehled nežádoucích účinků. U sportu jsou záměrně vidět i nulové a smíšené výsledky (například celotělové panely).
 - Hledání dalších studií: `kingctl evidence search "photobiomodulation skin" --sources pubmed,crossref` (PubMed je pro tento obor nejúplnější zdroj; potřebuje síť).
 
 ## Postup práce

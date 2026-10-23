@@ -1,0 +1,53 @@
+[
+ {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Jak dlouho a jak často používat panel s červeným světlem",
+  "description": "Jak dlouho a jak často používat panel s červeným světlem? Doba, vzdálenost, časté chyby a upozornění výrobce MITO LIGHT před prvním sezením.",
+  "inLanguage": "cs",
+  "publisher": {
+   "@type": "Organization",
+   "name": "MITO LIGHT"
+  },
+  "keywords": "jak dlouho a jak často používat panel s červeným světlem",
+  "wordCount": 1243
+ },
+ {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+   {
+    "@type": "Question",
+    "name": "Jak dlouho a jak často používat panel s červeným světlem?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Podle výrobce zhruba 10 až 20 minut na sezení ve vzdálenosti přibližně 15 až 50 cm; čím dál od zdroje, tím déle. Stejnou část těla svítíte nejvýše 30 minut denně, rozdělených do 2 až 3 sezení, každé do 20 minut na oblast. Konkrétní údaje ke svému zařízení najdete v návodu."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Co je potřeba na začátek?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Hlavně návod k panelu, pásmo na změření vzdálenosti a časovač. Rozmezí 15 až 50 cm a 10 až 20 minut vám pomůže zvolit první sezení. Dobré je také vědět, jaké léky užíváte, protože výrobce upozorňuje na opatrnost u léků způsobujících citlivost na světlo."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Jakých chyb se vyvarovat?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Nejčastější jsou překročení denního limitu 30 minut na stejnou část těla, špatná vzdálenost a ignorování léků citlivých na světlo. Nečekejte ani jisté výsledky: přehled celotělového červeného nebo blízkého infračerveného světla u aktivních lidí nenašel hlášený přínos pro únavu ani výkon ."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Kdy se poradit s lékařem?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Poraďte se s lékařem vždy, když si nejste jistí, zejména pokud užíváte léky způsobující citlivost na světlo, například některá antibiotika. Výrobce uvádí, že produkty ani informace nenahrazují radu lékaře a že MITO LIGHT není zdravotnickým prostředkem."
+    }
+   }
+  ]
+ }
+]

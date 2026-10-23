@@ -1,10 +1,52 @@
-# Dopamine King
+# MITO LIGHT Radar 2.0
 
-> **English TL;DR.** Evidence-driven content intelligence wrapped in a game. It scrapes public brand content politely (robots.txt, TDM reservations, feeds), turns it into cohort-fair benchmarks, tests and compares hooks with real statistics, keeps a graded ledger of the studies behind every tactic, and generates SEO, GEO, social and video content in 28 formats through a trust guard that blocks invented numbers and dark patterns. The Python core has no third-party dependencies; the game is one HTML file; prose is written by Claude (`--writer anthropic`) or left as explicit `[[ADD: ...]]` slots (`--writer offline`). Demo data is synthetic and labelled as such. The first industry edition targets photobiomodulation (red and near-infrared light) for the Czech brand MITO LIGHT: a non-medical wellness claims profile that blocks disease, treatment and status claims, a claims map backed only by verified studies, and sample briefs in Czech and English.
+Radar zjistí ze **skutečného vyhledávání na webu**, jak si vede značka MITO LIGHT na českém trhu, co z toho plyne a co napsat jako první. Výsledek je **jedna stránka**: [web/dist/mito-light-radar.html](web/dist/mito-light-radar.html). Stejnou stránku najdete jako artefakt v aplikaci Claude.
 
-Marketingový stroj, který **nejdřív zjistí, co skutečně funguje**, a teprve potom **generuje obsah**: SEO a GEO články, příspěvky, video scénáře, reklamy. Celé je to zabalené do hry, ve které si trénujete cit pro silné hooky, porážíte "bossy" benchmarků a učíte se experimentovat.
+## Co na stránce je (čísla platí pro snímek z 23. 10. 2026)
 
-Dopamin v názvu bereme vážně a poctivě: není to hormon slasti, ale souvisí s očekáváním a chybou predikce. **Dobrý hook vytvoří očekávání a splní ho.** Clickbait se proto ve skóre i ve hře trestá. Podrobněji v [docs/01-vize.md](docs/01-vize.md).
+1. **Sedm zjištění** s číslem, větou, upozorněním a odkazem na hledání, ze kterého vychází.
+2. **Šest úkolů na tento týden**, které se dají odškrtávat.
+3. **Kde jste vidět**: 47 hledání (značka, kategorie, šest cílových skupin, konkurenti) a co se objevilo na prvním místě.
+4. **Kdo je kolem vás**: weby, které se ve výsledcích opakují (lékárna, média, e-shopy, diskuze).
+5. **Jak vás vidí vyhledávače a AI**: kolik odkazů při hledání vašeho názvu vede na jinou značku (Mito Red Light) a kdo o vás píše.
+6. **Co zveřejňují úspěšné značky**: 127 stránek z 15 webů rozdělených podle témat, vedle vašeho webu.
+7. **Co smíte tvrdit**: mapa tvrzení (19 témat), titulky vašich stránek, které slibují výsledek, a tvrzení konkurence.
+8. **Devět návrhů textů** (tři stránky a šest příspěvků, po jednom na cílovou skupinu). Každý prošel kontrolou tvrzení.
+9. **Studie**: 39 ze 41 je ověřeno veřejnými zdroji.
+10. **Co chybí a co potřebuji od vás.**
+
+## Odkud jsou data
+
+- **88 skutečných hledání na webu** ze dne 23. 10. 2026. Každé spustil nástroj Claude Code s jediným povoleným nástrojem, vyhledáváním. Uložené odkazy jsou přesně to, co nástroj vrátil (složka [radar/snapshots/2026-10-23](radar/snapshots/2026-10-23)). Hledání se uloží jen tehdy, když opravdu proběhlo s požadovaným dotazem.
+- **Žádná simulovaná data.** Co se nepodařilo zjistit, je na stránce v části "Co chybí".
+- **Kontrola:** pět hledání jsme zopakovali přímo nástrojem pro vyhledávání a porovnali s uloženými (shodné odkazy: 9 z 9, 9 z 10, 9 z 9, 8 z 9, 9 z 9). Šesté přímé hledání zachytilo větu strojového shrnutí o vztahu k Mito Red Light.
+- **Limity:** vyhledávač hledá z USA, takže to není Google.cz ani Seznam. Vidíme názvy a adresy stránek, ne jejich obsah. Souhrny, které nástroj přidává, píše stroj. Zařazení webů do skupin a témat je úsudek podle názvů a adres.
+
+## Jak radar obnovit
+
+Napište Claudovi (v Claude Code na webu nebo v aplikaci): **"obnov radar"**. Provede tři příkazy a stránku znovu postaví. Spotřebuje jen vaše předplatné Claude, žádný API klíč.
+
+```bash
+export PYTHONPATH=src
+python3 -m dopamine_king radar collect --snapshot radar/snapshots/DATUM     # hledání na webu (asi 8 minut)
+python3 -m dopamine_king radar drafts --out radar/drafts/DATUM              # návrhy textů pro Claude účet
+python3 -m dopamine_king radar build --snapshot radar/snapshots/DATUM --drafts radar/drafts/DATUM
+```
+
+Plán hledání, seznam webů a témat jsou obyčejné soubory ve složce [radar](radar): `plan.json`, `domains.json`, `themes.json`, `outcome_words.json`, `drafts.json`. Co se má hledat, změníte tam, ne v kódu. Podrobnosti jsou v [docs/09-radar.md](docs/09-radar.md).
+
+## Co potřebuji od vás
+
+- Potvrdit, že MITO LIGHT a Mito Red Light jsou dvě různé značky a že mitolight.com a mitolight.co.uk jsou vaše weby.
+- Export ze Search Console a ze Seznam Webmaster. Radar hledá z USA, vaše skutečné pozice znáte jen vy.
+- **Zapnout internet pro prostředí**, ve kterém radar běží (nastavení prostředí, Network access). Zatím vidí jen názvy stránek, ne jejich text. S internetem zkontroluji celé texty vašeho webu a konkurence a stáhnu abstrakty studií.
+- Vzdálenost a způsob měření ozáření u každého modelu.
+
+## Starší části projektu
+
+Dopamine King vznikl jako stroj na obsah zabalený do hry (verze 1). Hra, generátor obsahu ve 28 formátech, kontrola tvrzení (Trust Shield) a mapa tvrzení fungují dál a radar je používá. Hra pracuje se **simulovanými čísly** a na každém odhalení to říká. Radar na ní nezávisí.
+
+> **English TL;DR.** MITO LIGHT Radar 2.0 builds a market picture of the Czech brand MITO LIGHT from real web search results only: 88 searches run through the logged-in Claude Code with only the WebSearch tool, links stored exactly as returned, nothing simulated. It reports search visibility, who surrounds the brand, brand-name confusion with Mito Red Light, what top brands publish, a claims check of real page titles, nine reviewed drafts and the study ledger (39 of 41 verified). Underneath is the older Dopamine King engine: a Python core without third-party dependencies, 28 content formats, a Trust Shield claims profile for non-medical wellness devices and a single-file game.
 
 ## Rychlý start
 
@@ -51,7 +93,7 @@ Obecný stroj má první **obor** (vertical): fotobiomodulaci (PBM, červené a 
 
 - profil tvrzení **wellness** pro nezdravotnický přístroj: Trust Shield blokuje diagnostiku, léčbu, prevenci a zmírnění nemocí, stavové fráze ("schváleno", "klinicky prokázáno"), absolutní bezpečnost a nahrazování lékaře, a upozorní na přínosy bez opatrné formulace, sliby výsledků, dávky mimo návod a chybějící bezpečnostní upozornění,
 - **mapu tvrzení** (19 témat, pět tříd) se silou důkazů počítanou jen z ověřených studií,
-- registr 41 záznamů o studiích (25 ověřených, 16 výslovně označených jako neověřené podněty), registr 26 značek a organizací oboru, vzorová zadání MITO LIGHT česky (vykání) a anglicky, šest cílových skupin se zvláštní péčí o zranitelné a obsah hry (Boss s kontrolou tvrzení, Mýtus nebo fakt, mapa tvrzení v Trezoru).
+- registr 41 záznamů o studiích (39 ověřených, 2 označené jako neověřené s vysvětlením), registr 26 značek a organizací oboru, vzorová zadání MITO LIGHT česky (vykání) a anglicky, šest cílových skupin se zvláštní péčí o zranitelné a obsah hry (Boss s kontrolou tvrzení, Mýtus nebo fakt, mapa tvrzení v Trezoru).
 
 ```bash
 python3 -m dopamine_king demo --vertical pbm                        # prohlídka edice na simulovaných datech
@@ -87,21 +129,23 @@ python3 -m dopamine_king evidence verify --save .king/ledger.json    # ověřen�
 | Šetrný sběr, import analytik | Hotovo, otestováno offline i proti lokálnímu HTTP serveru; **živý sběr vyžaduje síť** (prostředí, kde kód vznikl, povolilo ze 111 značek jen jednu) |
 | Ledger studií | 32 záznamů; **23 potvrzeno** veřejnými zdroji (název, časopis, rok, DOI), zbytek má u sebe poznámku, jak daleko ověření došlo. `evidence verify` ověří přes Crossref. |
 | Edice MITO LIGHT: profil wellness, mapa tvrzení, hra | Hotovo a otestováno na příkladech správných i nesprávných formulací a na 187 "golden" případech, které musí dát v Pythonu i v JavaScriptu stejný výsledek. **Pravidla je třeba nechat zkontrolovat regulatorním poradcem.** |
-| Registr důkazů PBM | 41 záznamů: 25 ověřených veřejnými zdroji, 16 jsou **neověřené podněty** z paměti autora (označené, do síly důkazů se nepočítají). Hledání studií přes PubMed je napsané a otestované offline. |
+| Registr důkazů PBM | 41 záznamů: 39 ověřených veřejnými zdroji (14 z nich radarem 2026-10-23: název, časopis a rok v PubMed, PubMed Central nebo u vydavatele), 2 neověřené s poznámkou proč. Závěry jsou čtené z abstraktů a shrnutí, ne z plných textů. |
 | Fakta o MITO LIGHT | Z veřejných zdrojů (výsledky vyhledávání, ne z otevřených stránek), **k potvrzení značkou**; čísla a parametry si značka musí schválit. |
-| Reálná data značek | Nejsou v repozitáři (autorská práva a výkonnostní čísla nejsou veřejná). Demo používá **fiktivní značky a simulovaná čísla**. |
+| MITO LIGHT Radar 2.0 | **Skutečná data**: 88 hledání na webu ze dne 2026-10-23, nic simulovaného. Vidí názvy a adresy stránek, ne jejich obsah (prostředí nemá přístup na web). |
+| Reálná data značek ve hře | Nejsou v repozitáři (autorská práva a výkonnostní čísla nejsou veřejná). Hra používá **fiktivní značky a simulovaná čísla**. |
 
 ## Struktura
 
 ```
-src/dopamine_king/   scoring, ingest, research, analysis, lab, generate, guru, server, cli
-web/                 hra (zdroje, testy), web/dist = sestavený jediný HTML soubor
+radar/               plán hledání, seznamy webů a témat, uložená hledání (snapshots) a návrhy textů (drafts)
+src/dopamine_king/   scoring, ingest, research, analysis, lab, generate, guru, radar, server, cli
+web/                 hra (zdroje, testy), web/dist = sestavené jednosouborové stránky (hra a radar)
 docs/                vize, hra, architektura, metodika, sběr dat a právo, roadmapa, edice MITO LIGHT, regulace (česky)
 examples/            hotová ukázka textů pro MITO LIGHT (fills.json a výsledek v out/)
 tests/               Python (unittest), web/tests = JavaScript (node --test)
 ```
 
-Dokumentace: [vize](docs/01-vize.md), [herní design](docs/02-hra.md), [architektura](docs/03-architektura.md), [metodika](docs/04-metodika.md), [sběr dat a právo](docs/05-scraping-a-pravo.md), [roadmapa](docs/06-roadmapa.md), [edice MITO LIGHT](docs/07-fotobiomodulace.md), [regulace reklamy](docs/08-regulace-pbm.md).
+Dokumentace: [vize](docs/01-vize.md), [herní design](docs/02-hra.md), [architektura](docs/03-architektura.md), [metodika](docs/04-metodika.md), [sběr dat a právo](docs/05-scraping-a-pravo.md), [roadmapa](docs/06-roadmapa.md), [edice MITO LIGHT](docs/07-fotobiomodulace.md), [regulace reklamy](docs/08-regulace-pbm.md), [radar](docs/09-radar.md).
 
 ## Testy
 

@@ -1,0 +1,447 @@
+{
+ "brief": {
+  "brand": "MITO LIGHT",
+  "topic": "ozáření u panelů s červeným světlem",
+  "audience": "technologičtí nadšenci, kteří porovnávají panely s červeným světlem",
+  "goal": "awareness",
+  "lang": "cs",
+  "tone": "věcný, přátelský, bez nadsázky a bez slibů; vykání",
+  "keyword": "ozáření mW/cm2 panel červené světlo",
+  "secondary_keywords": [
+   "vlnové délky panelu",
+   "jak porovnat panely s červeným světlem",
+   "ozáření ve vzdálenosti"
+  ],
+  "offer": "Světelné panely MITO LIGHT",
+  "cta": "Prohlédněte si parametry panelů MITO LIGHT",
+  "facts": [
+   "Panely generací 4.0 a 5.0 používají šest vlnových délek: 630, 660, 670, 810, 830 a 850 nm.",
+   "Starter 5.0 uvádí ozáření ve vzdálenosti 15 cm jako 71 mW/cm2 měřeno spektrometrem a jako 130 mW/cm2 měřeno solárním měřičem.",
+   "Expert 5.0 uvádí deklarované ozáření 80 mW/cm2 a Biohacker 5.0 82 mW/cm2.",
+   "Intro uvádí deklarované ozáření 70 mW/cm2 a žárovka Bulb 5.0 65 mW/cm2.",
+   "Údaje o ozáření jsou deklarované výrobcem."
+  ],
+  "sources": [
+   {
+    "id": "vanin2018",
+    "title": "Photobiomodulation therapy for the improvement of muscular performance and reduction of muscular fatigue associated with exercise in healthy people: a systematic review and meta-analysis",
+    "url": "https://doi.org/10.1007/s10103-017-2368-6",
+    "claim": "Systematický přehled a metaanalýza 39 studií u zdravých lidí (861 účastníků) zjistily určitý účinek ve prospěch fototerapie na čas do vyčerpání, počet opakování, maximální točivý moment a laktát v krvi; autoři hodnotili kvalitu důkazů jako velmi nízkou až střední."
+   },
+   {
+    "id": "dutra2022",
+    "title": "Deconstructing the Ergogenic Effects of Photobiomodulation: A Systematic Review and Meta-analysis of its Efficacy in Improving Mode-Specific Exercise Performance in Humans",
+    "url": "https://doi.org/10.1007/s40279-022-01714-y",
+    "claim": "Metaanalýza 37 placebem kontrolovaných zkřížených studií u zdravých mladých dospělých zjistila, že světlo před cvičením souviselo s lepší svalovou vytrvalostí (SMD 0,27) a delším časem do vyčerpání na kole (SMD 0,35), nikoli však se silou jednoho kloubu ani s krátkými maximálními sprinty."
+   },
+   {
+    "id": "li2024",
+    "title": "Can pre-exercise photobiomodulation improve muscle endurance and promote recovery from muscle strength and injuries in people with different activity levels? A meta-analysis of randomized controlled trials",
+    "url": "https://doi.org/10.1007/s10103-024-04079-y",
+    "claim": "Metaanalýza randomizovaných studií fotobiomodulace před cvičením uvedla celkově lepší svalovou vytrvalost (SMD 0,31), u fyzicky aktivních lidí však bez významného přínosu."
+   },
+   {
+    "id": "nampo2016",
+    "title": "Effect of low-level phototherapy on delayed onset muscle soreness: a systematic review and meta-analysis",
+    "url": "https://doi.org/10.1007/s10103-015-1832-4",
+    "claim": "Systematický přehled a metaanalýza 15 studií (317 účastníků) zjistily nižší kreatinkinázu jen při aplikaci laseru před cvičením a žádné rozdíly mezi skupinami v otoku, rozsahu pohybu ani síle; autoři uzavírají, že fototerapie nemusí mít podstatný vliv na svalové poškození a bolest po zátěži."
+   },
+   {
+    "id": "alvarez2025",
+    "title": "A systematic review on whole-body photobiomodulation for exercise performance and recovery",
+    "url": "https://doi.org/10.1007/s10103-025-04318-w",
+    "claim": "Systematický přehled pěti studií (105 fyzicky aktivních účastníků) o celotělovém červeném nebo blízkém infračerveném světle nezjistil žádný hlášený přínos pro ukazatele únavy ani výkon."
+   },
+   {
+    "id": "leal2015",
+    "title": "Effect of phototherapy (low-level laser therapy and light-emitting diode therapy) on exercise performance and markers of exercise recovery: a systematic review with meta-analysis",
+    "url": "https://doi.org/10.1007/s10103-013-1465-4",
+    "claim": "Systematický přehled s metaanalýzou randomizovaných studií fototerapie laserem nebo LED před cvičením, během něj či po něm sledoval hlavně počet opakování, čas do vyčerpání a kreatinkinázu."
+   }
+  ],
+  "voice_notes": "Čtenáři vykáme (Vy, Váš, můžete), nikdy netykáme. Mluvíme jako zkušený technik: jasně, konkrétně a bez slibů. Každý přínos opatrně a se zdrojem. \"Terapie červeným světlem\" je název kategorie, který značka používá; vedle něj nikdy žádné zdravotní tvrzení.",
+  "cohort": "pbm-cz-sk",
+  "avoid": [
+   "zázrak",
+   "revoluční"
+  ],
+  "topic_forms": {},
+  "sponsored": false,
+  "vertical": "pbm",
+  "claims_profile": "wellness",
+  "safety_note": null,
+  "address": "vy"
+ },
+ "writer": "claude-code",
+ "created": "2026-10-23T20:48:56+00:00",
+ "items": [
+  {
+   "format": "seo_article",
+   "name_en": "SEO article",
+   "name_cs": "SEO článek",
+   "family": "article",
+   "hook": "Ozáření mW/cm2 panel červené světlo: jak číst údaje",
+   "body": "---\ntitle: Ozáření mW/cm2 panel červené světlo: jak číst údaje\ndescription: Ozáření mW/cm2 panel červené světlo: jak číst údaje výrobců, proč se liší měření a jak porovnat panely MITO LIGHT podle parametrů.\n---\n\n# Ozáření mW/cm2 panel červené světlo: jak číst parametry\n\nOzáření mW/cm2 panel červené světlo udává, kolik světelného výkonu dopadá na jeden čtvereční centimetr plochy. Hodnota závisí na vzdálenosti i na způsobu měření: Starter 5.0 uvádí ve 15 cm 71 mW/cm2 podle spektrometru, ale 130 mW/cm2 podle solárního měřiče. Při porovnání panelů proto sledujte metodu, ne jen číslo.\n\n> **Z naší vlastní zkušenosti:** U panelů MITO LIGHT vidíme, jak moc záleží na metodě měření. Starter 5.0 má ve vzdálenosti 15 cm ozáření 71 mW/cm2 měřeno spektrometrem a 130 mW/cm2 měřeno solárním měřičem. Jde o stejný panel a stejnou vzdálenost, jen jiný přístroj. Všechny naše údaje o ozáření jsou deklarované výrobcem. Panely generací 4.0 a 5.0 používají šest vlnových délek: 630, 660, 670, 810, 830 a 850 nm.\n\n## Ozáření mW/cm2 panel červené světlo: o co jde?\n\nOzáření (anglicky irradiance) říká, jaký výkon světla dopadá na jednotku plochy. U panelů s červeným světlem se udává v miliwattech na centimetr čtverečný, tedy mW/cm2. Vyšší číslo znamená, že na stejnou plochu dopadá víc světelného výkonu, ale samo o sobě nic neříká o tom, jak panel působí na Vás.\n\nKe čtení parametrů patří tři věci. Za prvé vlnové délky: panely MITO LIGHT generací 4.0 a 5.0 používají šest vlnových délek, a to 630, 660, 670, 810, 830 a 850 nm. Za druhé vzdálenost, ve které se ozáření měřilo, protože se světlem se s odstupem mění. Za třetí měřicí metoda.\n\nPříklad: Starter 5.0 uvádí ve vzdálenosti 15 cm 71 mW/cm2 měřeno spektrometrem a 130 mW/cm2 měřeno solárním měřičem. Obě čísla jsou pravdivá pro svou metodu, a přesto se výrazně liší. Údaje o ozáření jsou navíc deklarované výrobcem, takže jde o údaj z katalogu, ne o nezávislé ověření.\n\n## Proč na tom záleží?\n\nPokud panely porovnáváte podle tabulky, ozáření bývá první řádek, na který se člověk podívá. Právě tady se ale nejsnáze spletete. Dva panely s podobným číslem mohou být měřené různými přístroji nebo v různé vzdálenosti, a pak se čísla nedají srovnávat jedna k jedné. Náš Starter 5.0 je dobrý příklad: 71 a 130 mW/cm2 u jednoho panelu.\n\nDruhý důvod je opatrnost s očekáváním. Studie na toto téma se týkají hlavně cvičení u zdravých lidí a jejich závěry jsou nejednotné. Metaanalýza 37 studií spojila světlo před cvičením s lepší svalovou vytrvalostí, ale ne se silou jednoho kloubu ani s krátkými sprinty [[cite:dutra2022]]. Systematický přehled pěti studií o celotělovém světle u fyzicky aktivních lidí žádný přínos pro únavu ani výkon nezjistil [[cite:alvarez2025]]. Vyšší číslo mW/cm2 tedy nelze brát jako záruku čehokoli. Je to technický parametr, který pomáhá panely věcně porovnat.\n\n## Jak na to krok za krokem?\n\nTakto můžete panely porovnat systematicky:\n\n1. Zapište si deklarované ozáření každého panelu. Máte tak základ pro srovnání, například Intro 70, Expert 5.0 80, Biohacker 5.0 82 a Bulb 5.0 65 mW/cm2.\n2. Zjistěte, v jaké vzdálenosti bylo ozáření měřeno. Bez vzdálenosti je číslo jen poloviční informace.\n3. Ověřte, jakým přístrojem se měřilo. Spektrometr a solární měřič mohou dát u stejného panelu velmi odlišné hodnoty.\n4. Porovnejte vlnové délky. Panely 4.0 a 5.0 mají šest vlnových délek: 630, 660, 670, 810, 830 a 850 nm.\n5. Připomeňte si, že údaje jsou deklarované výrobcem. Hledejte proto, co výrobce o metodě sám uvádí.\n\nKaždý krok slouží jednomu cíli: porovnávat stejné s stejným. Přínosy pro tělo si neslibujte, důkazy jsou smíšené a podle přehledu 39 studií je kvalita důkazů velmi nízká až střední [[cite:vanin2018]].\n\n## Jakým chybám se vyhnout?\n\nNa čem se při porovnávání nejčastěji chybuje, vidíme i my:\n\nPorovnávání čísel z různých metod. Hodnota ze spektrometru a hodnota ze solárního měřiče nejsou přímo srovnatelné. Starter 5.0 ukazuje rozdíl 71 versus 130 mW/cm2. Vždy se ptejte, čím se měřilo.\n\nIgnorování vzdálenosti. Údaj bez udané vzdálenosti nelze zařadit. Hledejte, kde byl měřen, u Starteru 5.0 je to 15 cm.\n\nHodnocení jen podle jednoho čísla. Důležité jsou i vlnové délky a celková konstrukce panelu, nejen mW/cm2.\n\nZaměňování deklarace s nezávislým měřením. Naše údaje jsou deklarované výrobcem a takto je také čtěte.\n\nOčekávání zaručených výsledků. Přehledy o fototerapii u cvičení dávají smíšený obraz: například pro svalové poškození a bolest po zátěži autoři uzavírají, že fototerapie nemusí mít podstatný vliv [[cite:nampo2016]]. Panel berte jako technické zařízení, ne jako slib.\n\n## Jak to vypadá v praxi?\n\nPříklad první: jeden panel, dvě čísla. Starter 5.0 uvádí ve vzdálenosti 15 cm 71 mW/cm2 měřeno spektrometrem a 130 mW/cm2 měřeno solárním měřičem. Kdybyste porovnávali jeho 130 s cizím panelem měřeným spektrometrem, vyšel by Vám zkreslený obraz. Správně porovnáte spektrometr se spektrometrem a solární měřič se solárním měřičem.\n\nPříklad druhý: srovnání deklarovaných hodnot v naší nabídce. Intro uvádí 70 mW/cm2, Expert 5.0 80 mW/cm2, Biohacker 5.0 82 mW/cm2 a žárovka Bulb 5.0 65 mW/cm2. Rozdíly mezi nimi jsou malé, takže o výběru by měly rozhodovat spíš tvar, velikost a způsob použití než desetina čísla v tabulce.\n\nU všech těchto údajů platí, že jsou deklarované výrobcem. Pokud je chcete použít v tabulce, uveďte vždy i metodu a vzdálenost.\n\n## Které nástroje a zdroje pomáhají?\n\nPro praktické porovnání Vám stačí jednoduchý kontrolní seznam, který si můžete uložit do tabulky:\n\n- deklarované ozáření v mW/cm2,\n- vzdálenost, ve které bylo měřeno,\n- měřicí přístroj (spektrometr, solární měřič),\n- seznam vlnových délek (u MITO LIGHT 4.0 a 5.0: 630, 660, 670, 810, 830 a 850 nm),\n- zda jde o údaj výrobce, nebo nezávislé měření.\n\nPokud chcete číst primární literaturu, užitečné jsou přehledy zaměřené na fototerapii u cvičení, například přehled laseru a LED před cvičením, během něj či po něm [[cite:leal2015]] nebo metaanalýza fotobiomodulace před cvičením, která u fyzicky aktivních lidí neuvedla významný přínos [[cite:li2024]]. Jejich odkazy najdete v seznamu zdrojů níže.\n\nParametry našich světelných panelů, tedy Intro, Starter 5.0, Expert 5.0, Biohacker 5.0 a žárovky Bulb 5.0, si můžete projít a porovnat podle výše uvedeného seznamu.\n\n## Časté dotazy\n\n### Co znamená ozáření v mW/cm2 u panelu?\n\nOzáření v mW/cm2 říká, jaký světelný výkon dopadá na jeden čtvereční centimetr plochy. Je to technický parametr, který závisí na vzdálenosti a měřicí metodě. U našich panelů je to údaj deklarovaný výrobcem, například 80 mW/cm2 u Expertu 5.0 nebo 82 mW/cm2 u Biohackeru 5.0.\n\n### Jak porovnat panely s červeným světlem?\n\nPorovnávejte stejné s stejným: ozáření, vzdálenost měření, měřicí přístroj a vlnové délky. Panely MITO LIGHT 4.0 a 5.0 mají šest vlnových délek, 630, 660, 670, 810, 830 a 850 nm. Starter 5.0 ukazuje, že spektrometr a solární měřič dávají u jednoho panelu různé hodnoty.\n\n### Proč má Starter 5.0 dvě hodnoty ozáření?\n\nProtože byl změřen dvěma přístroji. Ve vzdálenosti 15 cm je to 71 mW/cm2 měřeno spektrometrem a 130 mW/cm2 měřeno solárním měřičem. Obě hodnoty jsou deklarované výrobcem. Pro srovnání s jiným panelem použijte tu, která odpovídá stejné metodě měření.\n\n### Znamená vyšší ozáření lepší výsledky?\n\nNe, takto to tvrdit nelze. Vyšší číslo je jen vyšší světelný výkon na plochu. Studie u zdravých lidí jsou smíšené: některé spojují světlo před cvičením s lepší vytrvalostí [[cite:dutra2022]], jiný přehled u celotělového světla žádný přínos nezjistil [[cite:alvarez2025]].\n\n## Závěr\n\nČíslo mW/cm2 je užitečné, jen když znáte vzdálenost a metodu měření. Starter 5.0 se 71 a 130 mW/cm2 ukazuje, proč panely porovnávat jen mezi stejnými metodami. Údaje jsou deklarované výrobcem a důkazy o přínosech jsou smíšené. Máte-li zdravotní potíže nebo pochybnosti, poraďte se před používáním panelu s lékařem.\n\n**Prohlédněte si parametry panelů MITO LIGHT**\n\n## Zdroje\n\n1. [Photobiomodulation therapy for the improvement of muscular performance and reduction of muscular fatigue associated with exercise in healthy people: a systematic review and meta-analysis](https://doi.org/10.1007/s10103-017-2368-6)\n2. [Deconstructing the Ergogenic Effects of Photobiomodulation: A Systematic Review and Meta-analysis of its Efficacy in Improving Mode-Specific Exercise Performance in Humans](https://doi.org/10.1007/s40279-022-01714-y)\n3. [Can pre-exercise photobiomodulation improve muscle endurance and promote recovery from muscle strength and injuries in people with different activity levels? A meta-analysis of randomized controlled trials](https://doi.org/10.1007/s10103-024-04079-y)\n4. [Effect of low-level phototherapy on delayed onset muscle soreness: a systematic review and meta-analysis](https://doi.org/10.1007/s10103-015-1832-4)\n5. [A systematic review on whole-body photobiomodulation for exercise performance and recovery](https://doi.org/10.1007/s10103-025-04318-w)\n6. [Effect of phototherapy (low-level laser therapy and light-emitting diode therapy) on exercise performance and markers of exercise recovery: a systematic review with meta-analysis](https://doi.org/10.1007/s10103-013-1465-4)\n\n---\n\n**Autorství:** [[ADD: Author box: the real author's name, role and credentials, plus MITO LIGHT. Only real information.]]\n\nBezpečnost: Nedívejte se dlouho přímo do jasného světelného zdroje a chraňte si oči. Řiďte se návodem výrobce. Pokud jste těhotná, užíváte léky zvyšující citlivost na světlo nebo máte zdravotní potíže, poraďte se předem s lékařem. Přístroj slouží k podpoře regenerace zdravého organismu a nenahrazuje lékařskou péči.",
+   "hook_score": {
+    "total": 42.41,
+    "raw": 0.1932,
+    "parts": {
+     "curiosity": 23.6,
+     "surprise": 0.0,
+     "emotion": 0.0,
+     "relevance": 0.0,
+     "utility": 53.66,
+     "fluency": 100.0
+    },
+    "clickbait_risk": 0.0,
+    "lang": "cs",
+    "features": {
+     "n_words": 9.0,
+     "has_number": 0.0,
+     "starts_with_number": 0.0,
+     "is_question": 0.0,
+     "open_loop": 1.0,
+     "exclaim": 0.0,
+     "caps_ratio": 0.0,
+     "avg_word_len": 4.875,
+     "promise_gap": 0.0,
+     "curiosity_hits": 0.0,
+     "contrast_hits": 0.0,
+     "emotion_hits": 0.0,
+     "practical_hits": 1.0,
+     "social_hits": 0.0,
+     "second_person_hits": 0.0,
+     "clickbait_hits": 0.0,
+     "overclaim_hits": 0.0,
+     "positive_hits": 0.0,
+     "negative_hits": 0.0
+    },
+    "hits": {
+     "curiosity": 0,
+     "contrast": 0,
+     "emotion": 0,
+     "practical": 1,
+     "social": 0,
+     "second_person": 0,
+     "clickbait": 0,
+     "overclaim": 0,
+     "positive": 0,
+     "negative": 0
+    },
+    "spans": [
+     {
+      "category": "practical",
+      "tok_start": 6,
+      "tok_end": 7,
+      "start": 37,
+      "end": 40,
+      "text": "jak"
+     }
+    ],
+    "tips": [
+     {
+      "key": "add_emotion",
+      "en": "Add one high-arousal emotion word that is true to the content.",
+      "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+     },
+     {
+      "key": "address_reader",
+      "en": "Speak to the reader directly (you, your) or name the audience.",
+      "cs": "Oslov čtenáře přímo (ty, vy, váš) nebo pojmenuj publikum."
+     },
+     {
+      "key": "open_loop",
+      "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
+      "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+     }
+    ],
+    "text": "Ozáření mW/cm2 panel červené světlo: jak číst údaje"
+   },
+   "issues": [
+    {
+     "severity": "info",
+     "code": "HUMAN_REVIEW_REQUIRED",
+     "message": "Tento koncept musí před zveřejněním zkontrolovat člověk: doplnit vlastní zkušenost, ověřit každé tvrzení a upravit styl.",
+     "where": null
+    },
+    {
+     "severity": "warn",
+     "code": "OUTCOME_PROMISE",
+     "message": "Slib výsledku v určité době. Výsledky se u lidí liší; popište raději rutinu než zaručený výsledek.",
+     "where": "také čtěte. Očekávání zaručených výsledků. Přehledy o fototerapii u cvičení"
+    },
+    {
+     "severity": "warn",
+     "code": "ABSOLUTE_CLAIM",
+     "message": "Absolutní tvrzení. Nahraďte ho konkrétním, ověřitelným tvrzením.",
+     "where": "také čtěte. Očekávání zaručených výsledků. Přehledy o fototerapii u cvičení"
+    },
+    {
+     "severity": "warn",
+     "code": "PLACEHOLDER_OPEN",
+     "message": "Stále zbývá otevřených zástupných textů: 1 (author_box). Vyplňte je nebo odstraňte před zveřejněním.",
+     "where": "[[ADD: Author box: the real author's name, role and credentials, plus MITO LI..."
+    },
+    {
+     "severity": "info",
+     "code": "THERAPY_WORD",
+     "message": "Slovo 'terapie' může naznačovat léčbu. U nezdravotnického přístroje zvažte 'sezení', 'světelná rutina' nebo 'fotobiomodulace'. Formulaci si ověřte u svého regulatorního poradce.",
+     "where": "1. [Photobiomodulation therapy for the improvement of muscular performance and"
+    },
+    {
+     "severity": "info",
+     "code": "AI_DISCLOSURE_REMINDER",
+     "message": "Obsah vytvořený s pomocí AI může vyžadovat označení podle pravidel platforem a povinností transparentnosti podle evropského nařízení o AI. Ověřte si pravidla, která se vás týkají; nejde o právní poradenství.",
+     "where": "--- title: Ozáření mW/cm2 panel červené světlo: jak číst údaje description:"
+    }
+   ],
+   "verdict": "review",
+   "scores": {
+    "dopamine": 42.4,
+    "seo": 100.0,
+    "geo": 53.0
+   },
+   "alt_hooks": [
+    {
+     "text": "Ozáření u panelů s červeným světlem: přestaňte plýtvat časem a začněte jednoduše",
+     "score": 63.7,
+     "style": "contrarian"
+    },
+    {
+     "text": "Ozáření u panelů s červeným světlem: nedělejte tuto chybu",
+     "score": 56.1,
+     "style": "warning"
+    },
+    {
+     "text": "Ozáření u panelů s červeným světlem: praktický průvodce krok za krokem",
+     "score": 55.6,
+     "style": "how_to"
+    }
+   ],
+   "parts": {
+    "intent": "informational",
+    "keyword_kind": "noun",
+    "headings": [
+     "Ozáření mW/cm2 panel červené světlo: o co jde?",
+     "Proč na tom záleží?",
+     "Jak na to krok za krokem?",
+     "Jakým chybám se vyhnout?",
+     "Jak to vypadá v praxi?",
+     "Které nástroje a zdroje pomáhají?"
+    ],
+    "sources": [
+     {
+      "n": 1,
+      "id": "vanin2018",
+      "title": "Photobiomodulation therapy for the improvement of muscular performance and reduction of muscular fatigue associated with exercise in healthy people: a systematic review and meta-analysis",
+      "url": "https://doi.org/10.1007/s10103-017-2368-6",
+      "claim": "Systematický přehled a metaanalýza 39 studií u zdravých lidí (861 účastníků) zjistily určitý účinek ve prospěch fototerapie na čas do vyčerpání, počet opakování, maximální točivý moment a laktát v krvi; autoři hodnotili kvalitu důkazů jako velmi nízkou až střední."
+     },
+     {
+      "n": 2,
+      "id": "dutra2022",
+      "title": "Deconstructing the Ergogenic Effects of Photobiomodulation: A Systematic Review and Meta-analysis of its Efficacy in Improving Mode-Specific Exercise Performance in Humans",
+      "url": "https://doi.org/10.1007/s40279-022-01714-y",
+      "claim": "Metaanalýza 37 placebem kontrolovaných zkřížených studií u zdravých mladých dospělých zjistila, že světlo před cvičením souviselo s lepší svalovou vytrvalostí (SMD 0,27) a delším časem do vyčerpání na kole (SMD 0,35), nikoli však se silou jednoho kloubu ani s krátkými maximálními sprinty."
+     },
+     {
+      "n": 3,
+      "id": "li2024",
+      "title": "Can pre-exercise photobiomodulation improve muscle endurance and promote recovery from muscle strength and injuries in people with different activity levels? A meta-analysis of randomized controlled trials",
+      "url": "https://doi.org/10.1007/s10103-024-04079-y",
+      "claim": "Metaanalýza randomizovaných studií fotobiomodulace před cvičením uvedla celkově lepší svalovou vytrvalost (SMD 0,31), u fyzicky aktivních lidí však bez významného přínosu."
+     },
+     {
+      "n": 4,
+      "id": "nampo2016",
+      "title": "Effect of low-level phototherapy on delayed onset muscle soreness: a systematic review and meta-analysis",
+      "url": "https://doi.org/10.1007/s10103-015-1832-4",
+      "claim": "Systematický přehled a metaanalýza 15 studií (317 účastníků) zjistily nižší kreatinkinázu jen při aplikaci laseru před cvičením a žádné rozdíly mezi skupinami v otoku, rozsahu pohybu ani síle; autoři uzavírají, že fototerapie nemusí mít podstatný vliv na svalové poškození a bolest po zátěži."
+     },
+     {
+      "n": 5,
+      "id": "alvarez2025",
+      "title": "A systematic review on whole-body photobiomodulation for exercise performance and recovery",
+      "url": "https://doi.org/10.1007/s10103-025-04318-w",
+      "claim": "Systematický přehled pěti studií (105 fyzicky aktivních účastníků) o celotělovém červeném nebo blízkém infračerveném světle nezjistil žádný hlášený přínos pro ukazatele únavy ani výkon."
+     },
+     {
+      "n": 6,
+      "id": "leal2015",
+      "title": "Effect of phototherapy (low-level laser therapy and light-emitting diode therapy) on exercise performance and markers of exercise recovery: a systematic review with meta-analysis",
+      "url": "https://doi.org/10.1007/s10103-013-1465-4",
+      "claim": "Systematický přehled s metaanalýzou randomizovaných studií fototerapie laserem nebo LED před cvičením, během něj či po něm sledoval hlavně počet opakování, čas do vyčerpání a kreatinkinázu."
+     }
+    ],
+    "facts": [
+     "Panely generací 4.0 a 5.0 používají šest vlnových délek: 630, 660, 670, 810, 830 a 850 nm.",
+     "Starter 5.0 uvádí ozáření ve vzdálenosti 15 cm jako 71 mW/cm2 měřeno spektrometrem a jako 130 mW/cm2 měřeno solárním měřičem.",
+     "Expert 5.0 uvádí deklarované ozáření 80 mW/cm2 a Biohacker 5.0 82 mW/cm2.",
+     "Intro uvádí deklarované ozáření 70 mW/cm2 a žárovka Bulb 5.0 65 mW/cm2.",
+     "Údaje o ozáření jsou deklarované výrobcem."
+    ],
+    "json_ld": [
+     {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Ozáření mW/cm2 panel červené světlo: jak číst parametry",
+      "description": "Ozáření mW/cm2 panel červené světlo: jak číst údaje výrobců, proč se liší měření a jak porovnat panely MITO LIGHT podle parametrů.",
+      "inLanguage": "cs",
+      "publisher": {
+       "@type": "Organization",
+       "name": "MITO LIGHT"
+      },
+      "keywords": "ozáření mW/cm2 panel červené světlo",
+      "wordCount": 1199
+     },
+     {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+       {
+        "@type": "Question",
+        "name": "Co znamená ozáření v mW/cm2 u panelu?",
+        "acceptedAnswer": {
+         "@type": "Answer",
+         "text": "Ozáření v mW/cm2 říká, jaký světelný výkon dopadá na jeden čtvereční centimetr plochy. Je to technický parametr, který závisí na vzdálenosti a měřicí metodě. U našich panelů je to údaj deklarovaný výrobcem, například 80 mW/cm2 u Expertu 5.0 nebo 82 mW/cm2 u Biohackeru 5.0."
+        }
+       },
+       {
+        "@type": "Question",
+        "name": "Jak porovnat panely s červeným světlem?",
+        "acceptedAnswer": {
+         "@type": "Answer",
+         "text": "Porovnávejte stejné s stejným: ozáření, vzdálenost měření, měřicí přístroj a vlnové délky. Panely MITO LIGHT 4.0 a 5.0 mají šest vlnových délek, 630, 660, 670, 810, 830 a 850 nm. Starter 5.0 ukazuje, že spektrometr a solární měřič dávají u jednoho panelu různé hodnoty."
+        }
+       },
+       {
+        "@type": "Question",
+        "name": "Proč má Starter 5.0 dvě hodnoty ozáření?",
+        "acceptedAnswer": {
+         "@type": "Answer",
+         "text": "Protože byl změřen dvěma přístroji. Ve vzdálenosti 15 cm je to 71 mW/cm2 měřeno spektrometrem a 130 mW/cm2 měřeno solárním měřičem. Obě hodnoty jsou deklarované výrobcem. Pro srovnání s jiným panelem použijte tu, která odpovídá stejné metodě měření."
+        }
+       },
+       {
+        "@type": "Question",
+        "name": "Znamená vyšší ozáření lepší výsledky?",
+        "acceptedAnswer": {
+         "@type": "Answer",
+         "text": "Ne, takto to tvrdit nelze. Vyšší číslo je jen vyšší světelný výkon na plochu. Studie u zdravých lidí jsou smíšené: některé spojují světlo před cvičením s lepší vytrvalostí , jiný přehled u celotělového světla žádný přínos nezjistil ."
+        }
+       }
+      ]
+     }
+    ],
+    "outline": [
+     "Ozáření mW/cm2 panel červené světlo: o co jde?",
+     "Proč na tom záleží?",
+     "Jak na to krok za krokem?",
+     "Jakým chybám se vyhnout?",
+     "Jak to vypadá v praxi?",
+     "Které nástroje a zdroje pomáhají?",
+     "Časté dotazy",
+     "Závěr",
+     "Zdroje"
+    ],
+    "slug": "ozareni-mw-cm2-panel-cervene-svetlo-jak-cist-udaje",
+    "toc": [
+     {
+      "level": 2,
+      "title": "Ozáření mW/cm2 panel červené světlo: o co jde?",
+      "anchor": "ozareni-mw-cm2-panel-cervene-svetlo-o-co-jde"
+     },
+     {
+      "level": 2,
+      "title": "Proč na tom záleží?",
+      "anchor": "proc-na-tom-zalezi"
+     },
+     {
+      "level": 2,
+      "title": "Jak na to krok za krokem?",
+      "anchor": "jak-na-to-krok-za-krokem"
+     },
+     {
+      "level": 2,
+      "title": "Jakým chybám se vyhnout?",
+      "anchor": "jakym-chybam-se-vyhnout"
+     },
+     {
+      "level": 2,
+      "title": "Jak to vypadá v praxi?",
+      "anchor": "jak-to-vypada-v-praxi"
+     },
+     {
+      "level": 2,
+      "title": "Které nástroje a zdroje pomáhají?",
+      "anchor": "ktere-nastroje-a-zdroje-pomahaji"
+     },
+     {
+      "level": 2,
+      "title": "Časté dotazy",
+      "anchor": "caste-dotazy"
+     },
+     {
+      "level": 2,
+      "title": "Závěr",
+      "anchor": "zaver"
+     },
+     {
+      "level": 2,
+      "title": "Zdroje",
+      "anchor": "zdroje"
+     }
+    ],
+    "internal_links": [],
+    "word_target": 1500,
+    "question_ratio": 0.667,
+    "slots": {
+     "title": "Ozáření mW/cm2 panel červené světlo: jak číst údaje",
+     "meta_description": "Ozáření mW/cm2 panel červené světlo: jak číst údaje výrobců, proč se liší měření a jak porovnat panely MITO LIGHT podle parametrů.",
+     "h1": "Ozáření mW/cm2 panel červené světlo: jak číst parametry",
+     "answer_lead": "Ozáření mW/cm2 panel červené světlo udává, kolik světelného výkonu dopadá na jeden čtvereční centimetr plochy. Hodnota závisí na vzdálenosti i na způsobu měření: Starter 5.0 uvádí ve 15 cm 71 mW/cm2 podle spektrometru, ale 130 mW/cm2 podle solárního měřiče. Při porovnání panelů proto sledujte metodu, ne jen číslo.",
+     "experience": "U panelů MITO LIGHT vidíme, jak moc záleží na metodě měření. Starter 5.0 má ve vzdálenosti 15 cm ozáření 71 mW/cm2 měřeno spektrometrem a 130 mW/cm2 měřeno solárním měřičem. Jde o stejný panel a stejnou vzdálenost, jen jiný přístroj. Všechny naše údaje o ozáření jsou deklarované výrobcem. Panely generací 4.0 a 5.0 používají šest vlnových délek: 630, 660, 670, 810, 830 a 850 nm.",
+     "sec_1": "Ozáření (anglicky irradiance) říká, jaký výkon světla dopadá na jednotku plochy. U panelů s červeným světlem se udává v miliwattech na centimetr čtverečný, tedy mW/cm2. Vyšší číslo znamená, že na stejnou plochu dopadá víc světelného výkonu, ale samo o sobě nic neříká o tom, jak panel působí na Vás.\n\nKe čtení parametrů patří tři věci. Za prvé vlnové délky: panely MITO LIGHT generací 4.0 a 5.0 používají šest vlnových délek, a to 630, 660, 670, 810, 830 a 850 nm. Za druhé vzdálenost, ve které se ozáření měřilo, protože se světlem se s odstupem mění. Za třetí měřicí metoda.\n\nPříklad: Starter 5.0 uvádí ve vzdálenosti 15 cm 71 mW/cm2 měřeno spektrometrem a 130 mW/cm2 měřeno solárním měřičem. Obě čísla jsou pravdivá pro svou metodu, a přesto se výrazně liší. Údaje o ozáření jsou navíc deklarované výrobcem, takže jde o údaj z katalogu, ne o nezávislé ověření.",
+     "sec_2": "Pokud panely porovnáváte podle tabulky, ozáření bývá první řádek, na který se člověk podívá. Právě tady se ale nejsnáze spletete. Dva panely s podobným číslem mohou být měřené různými přístroji nebo v různé vzdálenosti, a pak se čísla nedají srovnávat jedna k jedné. Náš Starter 5.0 je dobrý příklad: 71 a 130 mW/cm2 u jednoho panelu.\n\nDruhý důvod je opatrnost s očekáváním. Studie na toto téma se týkají hlavně cvičení u zdravých lidí a jejich závěry jsou nejednotné. Metaanalýza 37 studií spojila světlo před cvičením s lepší svalovou vytrvalostí, ale ne se silou jednoho kloubu ani s krátkými sprinty [[cite:dutra2022]]. Systematický přehled pěti studií o celotělovém světle u fyzicky aktivních lidí žádný přínos pro únavu ani výkon nezjistil [[cite:alvarez2025]]. Vyšší číslo mW/cm2 tedy nelze brát jako záruku čehokoli. Je to technický parametr, který pomáhá panely věcně porovnat.",
+     "sec_3": "Takto můžete panely porovnat systematicky:\n\n1. Zapište si deklarované ozáření každého panelu. Máte tak základ pro srovnání, například Intro 70, Expert 5.0 80, Biohacker 5.0 82 a Bulb 5.0 65 mW/cm2.\n2. Zjistěte, v jaké vzdálenosti bylo ozáření měřeno. Bez vzdálenosti je číslo jen poloviční informace.\n3. Ověřte, jakým přístrojem se měřilo. Spektrometr a solární měřič mohou dát u stejného panelu velmi odlišné hodnoty.\n4. Porovnejte vlnové délky. Panely 4.0 a 5.0 mají šest vlnových délek: 630, 660, 670, 810, 830 a 850 nm.\n5. Připomeňte si, že údaje jsou deklarované výrobcem. Hledejte proto, co výrobce o metodě sám uvádí.\n\nKaždý krok slouží jednomu cíli: porovnávat stejné s stejným. Přínosy pro tělo si neslibujte, důkazy jsou smíšené a podle přehledu 39 studií je kvalita důkazů velmi nízká až střední [[cite:vanin2018]].",
+     "sec_4": "Na čem se při porovnávání nejčastěji chybuje, vidíme i my:\n\nPorovnávání čísel z různých metod. Hodnota ze spektrometru a hodnota ze solárního měřiče nejsou přímo srovnatelné. Starter 5.0 ukazuje rozdíl 71 versus 130 mW/cm2. Vždy se ptejte, čím se měřilo.\n\nIgnorování vzdálenosti. Údaj bez udané vzdálenosti nelze zařadit. Hledejte, kde byl měřen, u Starteru 5.0 je to 15 cm.\n\nHodnocení jen podle jednoho čísla. Důležité jsou i vlnové délky a celková konstrukce panelu, nejen mW/cm2.\n\nZaměňování deklarace s nezávislým měřením. Naše údaje jsou deklarované výrobcem a takto je také čtěte.\n\nOčekávání zaručených výsledků. Přehledy o fototerapii u cvičení dávají smíšený obraz: například pro svalové poškození a bolest po zátěži autoři uzavírají, že fototerapie nemusí mít podstatný vliv [[cite:nampo2016]]. Panel berte jako technické zařízení, ne jako slib.",
+     "sec_5": "Příklad první: jeden panel, dvě čísla. Starter 5.0 uvádí ve vzdálenosti 15 cm 71 mW/cm2 měřeno spektrometrem a 130 mW/cm2 měřeno solárním měřičem. Kdybyste porovnávali jeho 130 s cizím panelem měřeným spektrometrem, vyšel by Vám zkreslený obraz. Správně porovnáte spektrometr se spektrometrem a solární měřič se solárním měřičem.\n\nPříklad druhý: srovnání deklarovaných hodnot v naší nabídce. Intro uvádí 70 mW/cm2, Expert 5.0 80 mW/cm2, Biohacker 5.0 82 mW/cm2 a žárovka Bulb 5.0 65 mW/cm2. Rozdíly mezi nimi jsou malé, takže o výběru by měly rozhodovat spíš tvar, velikost a způsob použití než desetina čísla v tabulce.\n\nU všech těchto údajů platí, že jsou deklarované výrobcem. Pokud je chcete použít v tabulce, uveďte vždy i metodu a vzdálenost.",
+     "sec_6": "Pro praktické porovnání Vám stačí jednoduchý kontrolní seznam, který si můžete uložit do tabulky:\n\n- deklarované ozáření v mW/cm2,\n- vzdálenost, ve které bylo měřeno,\n- měřicí přístroj (spektrometr, solární měřič),\n- seznam vlnových délek (u MITO LIGHT 4.0 a 5.0: 630, 660, 670, 810, 830 a 850 nm),\n- zda jde o údaj výrobce, nebo nezávislé měření.\n\nPokud chcete číst primární literaturu, užitečné jsou přehledy zaměřené na fototerapii u cvičení, například přehled laseru a LED před cvičením, během něj či po něm [[cite:leal2015]] nebo metaanalýza fotobiomodulace před cvičením, která u fyzicky aktivních lidí neuvedla významný přínos [[cite:li2024]]. Jejich odkazy najdete v seznamu zdrojů níže.\n\nParametry našich světelných panelů, tedy Intro, Starter 5.0, Expert 5.0, Biohacker 5.0 a žárovky Bulb 5.0, si můžete projít a porovnat podle výše uvedeného seznamu.",
+     "faq_q1": "Co znamená ozáření v mW/cm2 u panelu?",
+     "faq_a1": "Ozáření v mW/cm2 říká, jaký světelný výkon dopadá na jeden čtvereční centimetr plochy. Je to technický parametr, který závisí na vzdálenosti a měřicí metodě. U našich panelů je to údaj deklarovaný výrobcem, například 80 mW/cm2 u Expertu 5.0 nebo 82 mW/cm2 u Biohackeru 5.0.",
+     "faq_q2": "Jak porovnat panely s červeným světlem?",
+     "faq_a2": "Porovnávejte stejné s stejným: ozáření, vzdálenost měření, měřicí přístroj a vlnové délky. Panely MITO LIGHT 4.0 a 5.0 mají šest vlnových délek, 630, 660, 670, 810, 830 a 850 nm. Starter 5.0 ukazuje, že spektrometr a solární měřič dávají u jednoho panelu různé hodnoty.",
+     "faq_q3": "Proč má Starter 5.0 dvě hodnoty ozáření?",
+     "faq_a3": "Protože byl změřen dvěma přístroji. Ve vzdálenosti 15 cm je to 71 mW/cm2 měřeno spektrometrem a 130 mW/cm2 měřeno solárním měřičem. Obě hodnoty jsou deklarované výrobcem. Pro srovnání s jiným panelem použijte tu, která odpovídá stejné metodě měření.",
+     "faq_q4": "Znamená vyšší ozáření lepší výsledky?",
+     "faq_a4": "Ne, takto to tvrdit nelze. Vyšší číslo je jen vyšší světelný výkon na plochu. Studie u zdravých lidí jsou smíšené: některé spojují světlo před cvičením s lepší vytrvalostí [[cite:dutra2022]], jiný přehled u celotělového světla žádný přínos nezjistil [[cite:alvarez2025]].",
+     "conclusion": "Číslo mW/cm2 je užitečné, jen když znáte vzdálenost a metodu měření. Starter 5.0 se 71 a 130 mW/cm2 ukazuje, proč panely porovnávat jen mezi stejnými metodami. Údaje jsou deklarované výrobcem a důkazy o přínosech jsou smíšené. Máte-li zdravotní potíže nebo pochybnosti, poraďte se před používáním panelu s lékařem.",
+     "cta": "Prohlédněte si parametry panelů MITO LIGHT",
+     "author_box": "[[ADD: Author box: the real author's name, role and credentials, plus MITO LIGHT. Only real information.]]"
+    },
+    "safety_note": "Bezpečnost: Nedívejte se dlouho přímo do jasného světelného zdroje a chraňte si oči. Řiďte se návodem výrobce. Pokud jste těhotná, užíváte léky zvyšující citlivost na světlo nebo máte zdravotní potíže, poraďte se předem s lékařem. Přístroj slouží k podpoře regenerace zdravého organismu a nenahrazuje lékařskou péči.",
+    "guard_exempt": [
+     "Bezpečnost: Nedívejte se dlouho přímo do jasného světelného zdroje a chraňte si oči. Řiďte se návodem výrobce. Pokud jste těhotná, užíváte léky zvyšující citlivost na světlo nebo máte zdravotní potíže, poraďte se předem s lékařem. Přístroj slouží k podpoře regenerace zdravého organismu a nenahrazuje lékařskou péči."
+    ]
+   },
+   "slots_open": [
+    "author_box"
+   ],
+   "rounds": 1
+  }
+ ],
+ "summary": {
+  "n_items": 1,
+  "avg_dopamine": 42.4,
+  "errors": 0,
+  "warnings": 3,
+  "open_slots": 1,
+  "verdicts": {
+   "ok": 0,
+   "review": 1,
+   "blocked": 0
+  },
+  "claims_profile": "wellness"
+ },
+ "errors": []
+}

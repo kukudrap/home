@@ -488,11 +488,11 @@ def cmd_audit(args: argparse.Namespace) -> int:
 
 
 def cmd_radar(args: argparse.Namespace) -> int:
-    """Market picture from real web search results: collect them, check them, build the report page."""
+    """Market picture from real web search results: collect them, write the drafts, build the report page."""
     from .radar import collect as rc
-    plan = rc.load_plan(args.plan)
-    snapshot = Path(args.snapshot)
     if args.radar_cmd == "collect":
+        plan = rc.load_plan(args.plan)
+        snapshot = Path(args.snapshot)
         only = set(args.only.split(",")) if args.only else None
         summary = rc.collect(plan, snapshot, only=only, jobs=args.jobs, model=args.model, force=args.force,
                              log=lambda line: print(line, file=sys.stderr))
@@ -501,6 +501,23 @@ def cmd_radar(args: argparse.Namespace) -> int:
         for qid, err in summary["errors"].items():
             print(f"  failed {qid}: {err}", file=sys.stderr)
         return 1 if summary["errors"] else 0
+    if args.radar_cmd == "drafts":
+        from .generate.providers import select_writer
+        from .radar.drafts import draft_jobs, run_jobs
+        from .verticals import load_vertical
+        vertical = load_vertical("pbm")
+        ledger = vertical.ledger()
+        spec = json.loads(Path(args.spec).read_text("utf-8"))
+        jobs = draft_jobs(vertical, spec, ledger, only=set(args.only.split(",")) if args.only else None)
+        rows = run_jobs(jobs, lambda: select_writer(args.writer, tier=args.tier), ledger, args.out, workers=args.workers,
+                        log=lambda line: print(line, file=sys.stderr))
+        print(f"wrote {len(rows)} drafts to {args.out}")
+        return 0
+    if args.radar_cmd == "build":
+        from .radar.report import build_report
+        out = build_report(args.snapshot, args.drafts, args.out, plan_path=args.plan, fragment=args.fragment)
+        print(f"wrote {out}")
+        return 0
     raise SystemExit(f"unknown radar command {args.radar_cmd!r}")
 
 
@@ -767,13 +784,23 @@ def build_parser() -> argparse.ArgumentParser:
     s.add_argument("--lang", default="en", choices=["en", "cs"]), s.add_argument("--json", action="store_true")
     s.set_defaults(fn=cmd_visibility)
 
-    s = sub.add_parser("radar", help="market picture from real web search results (collect, build)")
+    s = sub.add_parser("radar", help="market picture from real web search results (collect, drafts, build)")
     rs = s.add_subparsers(dest="radar_cmd", required=True)
     x = rs.add_parser("collect", help="run the planned searches through the logged-in Claude Code and store what they return")
     x.add_argument("--plan", default=str(ROOT / "radar" / "plan.json"))
     x.add_argument("--snapshot", required=True, help="folder of this collection, for example radar/snapshots/2026-10-23")
     x.add_argument("--only", help="comma separated query ids; default: all that are not stored yet")
     x.add_argument("--jobs", type=int, default=4), x.add_argument("--model", default="haiku"), x.add_argument("--force", action="store_true")
+    x = rs.add_parser("drafts", help="write the texts for the radar's actions and check them with the Trust Shield")
+    x.add_argument("--spec", default=str(ROOT / "radar" / "drafts.json")), x.add_argument("--out", required=True)
+    x.add_argument("--writer", default="claude-code", choices=["offline", "claude-code", "anthropic"])
+    x.add_argument("--tier", default="balanced", choices=["premium", "balanced", "economy", "fast"])
+    x.add_argument("--only", help="comma separated draft ids"), x.add_argument("--workers", type=int, default=3)
+    x = rs.add_parser("build", help="build the single-file report page from a snapshot and the drafts")
+    x.add_argument("--plan", default=str(ROOT / "radar" / "plan.json"))
+    x.add_argument("--snapshot", required=True), x.add_argument("--drafts", required=True)
+    x.add_argument("--out", default=str(ROOT / "web" / "dist" / "mito-light-radar.html"))
+    x.add_argument("--fragment", action="store_true", help="write the page body only, for hosts that wrap the page themselves")
     s.set_defaults(fn=cmd_radar)
 
     s = sub.add_parser("serve", help="run the game with the local API")

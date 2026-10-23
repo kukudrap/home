@@ -1,0 +1,240 @@
+{
+ "brief": {
+  "brand": "MITO LIGHT",
+  "topic": "světelná rutina v péči o sebe",
+  "audience": "lidé, které zajímá péče o sebe a večerní rituály",
+  "goal": "awareness",
+  "lang": "cs",
+  "tone": "věcný, přátelský, bez nadsázky a bez slibů; vykání",
+  "keyword": "světelná rutina v péči o sebe",
+  "secondary_keywords": [
+   "večerní rituál",
+   "jak bezpečně používat světelný panel",
+   "jak vybrat velikost panelu"
+  ],
+  "offer": "Světelné panely MITO LIGHT",
+  "cta": "Prohlédněte si nabídku panelů MITO LIGHT",
+  "facts": [
+   "MITO LIGHT je česká značka světelných panelů; zařízení jsou vyvíjena a navrhována v České republice.",
+   "Každý kus prochází v České republice testem výkonu.",
+   "MITO LIGHT je určen jako pomůcka k podpoře regenerace zdravého organismu a není zdravotnickým prostředkem.",
+   "Panel Mitohacker 4.0 má 408 LED diod a šest vlnových délek (630, 660, 670, 810, 830 a 850 nm).",
+   "Nabídka sahá od žárovky pro lokální použití po celotělový panel.",
+   "Řada panelů zahrnuje modely Intro, Starter, Expert, Biohacker a Master.",
+   "Zařízení MITO LIGHT mají označení CE a UKCA a splňují požadavky RoHS (jde o označení shody elektrických zařízení, nikoli o zdravotnické schválení)."
+  ],
+  "sources": [
+   {
+    "id": "vanin2018",
+    "title": "Photobiomodulation therapy for the improvement of muscular performance and reduction of muscular fatigue associated with exercise in healthy people: a systematic review and meta-analysis",
+    "url": "https://doi.org/10.1007/s10103-017-2368-6",
+    "claim": "Systematický přehled a metaanalýza 39 studií u zdravých lidí (861 účastníků) zjistily určitý účinek ve prospěch fototerapie na čas do vyčerpání, počet opakování, maximální točivý moment a laktát v krvi; autoři hodnotili kvalitu důkazů jako velmi nízkou až střední."
+   },
+   {
+    "id": "dutra2022",
+    "title": "Deconstructing the Ergogenic Effects of Photobiomodulation: A Systematic Review and Meta-analysis of its Efficacy in Improving Mode-Specific Exercise Performance in Humans",
+    "url": "https://doi.org/10.1007/s40279-022-01714-y",
+    "claim": "Metaanalýza 37 placebem kontrolovaných zkřížených studií u zdravých mladých dospělých zjistila, že světlo před cvičením souviselo s lepší svalovou vytrvalostí (SMD 0,27) a delším časem do vyčerpání na kole (SMD 0,35), nikoli však se silou jednoho kloubu ani s krátkými maximálními sprinty."
+   },
+   {
+    "id": "li2024",
+    "title": "Can pre-exercise photobiomodulation improve muscle endurance and promote recovery from muscle strength and injuries in people with different activity levels? A meta-analysis of randomized controlled trials",
+    "url": "https://doi.org/10.1007/s10103-024-04079-y",
+    "claim": "Metaanalýza randomizovaných studií fotobiomodulace před cvičením uvedla celkově lepší svalovou vytrvalost (SMD 0,31), u fyzicky aktivních lidí však bez významného přínosu."
+   },
+   {
+    "id": "nampo2016",
+    "title": "Effect of low-level phototherapy on delayed onset muscle soreness: a systematic review and meta-analysis",
+    "url": "https://doi.org/10.1007/s10103-015-1832-4",
+    "claim": "Systematický přehled a metaanalýza 15 studií (317 účastníků) zjistily nižší kreatinkinázu jen při aplikaci laseru před cvičením a žádné rozdíly mezi skupinami v otoku, rozsahu pohybu ani síle; autoři uzavírají, že fototerapie nemusí mít podstatný vliv na svalové poškození a bolest po zátěži."
+   },
+   {
+    "id": "alvarez2025",
+    "title": "A systematic review on whole-body photobiomodulation for exercise performance and recovery",
+    "url": "https://doi.org/10.1007/s10103-025-04318-w",
+    "claim": "Systematický přehled pěti studií (105 fyzicky aktivních účastníků) o celotělovém červeném nebo blízkém infračerveném světle nezjistil žádný hlášený přínos pro ukazatele únavy ani výkon."
+   },
+   {
+    "id": "leal2015",
+    "title": "Effect of phototherapy (low-level laser therapy and light-emitting diode therapy) on exercise performance and markers of exercise recovery: a systematic review with meta-analysis",
+    "url": "https://doi.org/10.1007/s10103-013-1465-4",
+    "claim": "Systematický přehled s metaanalýzou randomizovaných studií fototerapie laserem nebo LED před cvičením, během něj či po něm sledoval hlavně počet opakování, čas do vyčerpání a kreatinkinázu."
+   }
+  ],
+  "voice_notes": "Čtenáři vykáme (Vy, Váš, můžete), nikdy netykáme. Mluvíme jako zkušený technik: jasně, konkrétně a bez slibů. Každý přínos opatrně a se zdrojem. \"Terapie červeným světlem\" je název kategorie, který značka používá; vedle něj nikdy žádné zdravotní tvrzení. Cílová skupina: Beauty segment. Nejrizikovější oblast. Tvrzení o vzhledu a kůži se blíží kosmetickým a podle přílohy XVI nařízení o zdravotnických prostředcích možná i regulovaným výrobkům; ověřených studií k vzhledu pleti je v registru nula. Obsah proto stavět na rituálu a bezpečném používání, ne na výsledku, a každý kus nechat posoudit právníkem. Nikdy: Jakýkoli výsledek na pleti a vzhledu: vrásky, kolagen, jizvy, akné, pigmentace, zpevnění, omlazení, 'anti-aging'. Ošetření pleti, odstranění chloupků nebo tetování, redukce tuku, tvar těla. Fotografie před a po a svědectví o vzhledu. Doporučení lékařů či kosmetiček.",
+  "cohort": "pbm-cz-sk",
+  "avoid": [
+   "zázrak",
+   "revoluční",
+   "vrásky",
+   "kolagen",
+   "omlazení",
+   "anti-aging",
+   "jizvy",
+   "akné",
+   "před a po"
+  ],
+  "topic_forms": {
+   "gen": "světelné rutiny v péči o sebe",
+   "dat": "světelné rutině v péči o sebe",
+   "acc": "světelnou rutinu v péči o sebe",
+   "loc": "světelné rutině v péči o sebe",
+   "ins": "světelnou rutinou v péči o sebe"
+  },
+  "sponsored": false,
+  "vertical": "pbm",
+  "claims_profile": "wellness",
+  "safety_note": null,
+  "address": "vy"
+ },
+ "writer": "claude-code",
+ "created": "2026-10-23T20:49:04+00:00",
+ "items": [
+  {
+   "format": "instagram_caption",
+   "name_en": "Instagram caption",
+   "name_cs": "Popisek na Instagramu",
+   "family": "social",
+   "hook": "Chcete mít večerní rituál jasný a klidný? Zjistěte, jak do něj zařadit světlo a jak vybrat správnou velikost panelu",
+   "body": "Chcete mít večerní rituál jasný a klidný? Zjistěte, jak do něj zařadit světlo a jak vybrat správnou velikost panelu\n\nVečerní rituál nemusí být složitý. Pomáhá, když má pevné místo v čase, klidné prostředí a jasná pravidla. Světelný panel může být jeho součástí, pokud ho používáte promyšleně.\n\nPři výběru velikosti panelu začněte u toho, k čemu ho chcete používat. Nabídka MITO LIGHT sahá od žárovky pro lokální použití po celotělový panel. Řada zahrnuje modely Intro, Starter, Expert, Biohacker a Master. Například Mitohacker 4.0 má 408 LED diod a šest vlnových délek (630, 660, 670, 810, 830 a 850 nm).\n\nPři používání se držte návodu k výrobku. MITO LIGHT je pomůcka k podpoře regenerace zdravého organismu, není zdravotnickým prostředkem a nenahrazuje lékařskou péči. Zařízení mají označení CE a UKCA a splňují požadavky RoHS, jde o označení shody elektrických zařízení, nikoli o zdravotnické schválení.\n\nMITO LIGHT je česká značka: zařízení vyvíjíme a navrhujeme v České republice a každý kus tu prochází testem výkonu.\n\nProhlédněte si nabídku panelů MITO LIGHT\n\n#MITOLIGHT #VečerníRituál #PéčeOSebe #SvětelnýPanel",
+   "hook_score": {
+    "total": 39.58,
+    "raw": 0.1763,
+    "parts": {
+     "curiosity": 0.0,
+     "surprise": 0.0,
+     "emotion": 0.0,
+     "relevance": 0.0,
+     "utility": 78.53,
+     "fluency": 77.38
+    },
+    "clickbait_risk": 0.0,
+    "lang": "cs",
+    "features": {
+     "n_words": 19.0,
+     "has_number": 0.0,
+     "starts_with_number": 0.0,
+     "is_question": 0.0,
+     "open_loop": 0.0,
+     "exclaim": 0.0,
+     "caps_ratio": 0.0,
+     "avg_word_len": 5.0,
+     "promise_gap": 0.0,
+     "curiosity_hits": 0.0,
+     "contrast_hits": 0.0,
+     "emotion_hits": 0.0,
+     "practical_hits": 2.0,
+     "social_hits": 0.0,
+     "second_person_hits": 0.0,
+     "clickbait_hits": 0.0,
+     "overclaim_hits": 0.0,
+     "positive_hits": 0.0,
+     "negative_hits": 0.0
+    },
+    "hits": {
+     "curiosity": 0,
+     "contrast": 0,
+     "emotion": 0,
+     "practical": 2,
+     "social": 0,
+     "second_person": 0,
+     "clickbait": 0,
+     "overclaim": 0,
+     "positive": 0,
+     "negative": 0
+    },
+    "spans": [
+     {
+      "category": "practical",
+      "tok_start": 8,
+      "tok_end": 9,
+      "start": 52,
+      "end": 55,
+      "text": "jak"
+     },
+     {
+      "category": "practical",
+      "tok_start": 14,
+      "tok_end": 15,
+      "start": 80,
+      "end": 83,
+      "text": "jak"
+     }
+    ],
+    "tips": [
+     {
+      "key": "open_loop",
+      "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
+      "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+     },
+     {
+      "key": "add_emotion",
+      "en": "Add one high-arousal emotion word that is true to the content.",
+      "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+     },
+     {
+      "key": "address_reader",
+      "en": "Speak to the reader directly (you, your) or name the audience.",
+      "cs": "Oslov čtenáře přímo (ty, vy, váš) nebo pojmenuj publikum."
+     }
+    ],
+    "text": "Chcete mít večerní rituál jasný a klidný? Zjistěte, jak do něj zařadit světlo a jak vybrat správnou velikost panelu"
+   },
+   "issues": [
+    {
+     "severity": "info",
+     "code": "AI_DISCLOSURE_REMINDER",
+     "message": "Obsah vytvořený s pomocí AI může vyžadovat označení podle pravidel platforem a povinností transparentnosti podle evropského nařízení o AI. Ověřte si pravidla, která se vás týkají; nejde o právní poradenství.",
+     "where": "Chcete mít večerní rituál jasný a klidný? Zjistěte, jak do něj zařadit světlo a"
+    }
+   ],
+   "verdict": "ok",
+   "scores": {
+    "dopamine": 39.6,
+    "seo": null,
+    "geo": null
+   },
+   "alt_hooks": [
+    {
+     "text": "Světelná rutina v péči o sebe: přestaňte plýtvat časem a začněte jednoduše",
+     "score": 63.9,
+     "style": "contrarian"
+    },
+    {
+     "text": "5 chyb při výběru světelné rutiny v péči o sebe",
+     "score": 63.4,
+     "style": "number_list"
+    },
+    {
+     "text": "Nikdo vám neřekne celou pravdu o světelné rutině v péči o sebe",
+     "score": 56.6,
+     "style": "curiosity_gap"
+    }
+   ],
+   "parts": {
+    "slots": {
+     "hook": "Chcete mít večerní rituál jasný a klidný? Zjistěte, jak do něj zařadit světlo a jak vybrat správnou velikost panelu",
+     "body": "Večerní rituál nemusí být složitý. Pomáhá, když má pevné místo v čase, klidné prostředí a jasná pravidla. Světelný panel může být jeho součástí, pokud ho používáte promyšleně.\n\nPři výběru velikosti panelu začněte u toho, k čemu ho chcete používat. Nabídka MITO LIGHT sahá od žárovky pro lokální použití po celotělový panel. Řada zahrnuje modely Intro, Starter, Expert, Biohacker a Master. Například Mitohacker 4.0 má 408 LED diod a šest vlnových délek (630, 660, 670, 810, 830 a 850 nm).\n\nPři používání se držte návodu k výrobku. MITO LIGHT je pomůcka k podpoře regenerace zdravého organismu, není zdravotnickým prostředkem a nenahrazuje lékařskou péči. Zařízení mají označení CE a UKCA a splňují požadavky RoHS, jde o označení shody elektrických zařízení, nikoli o zdravotnické schválení.\n\nMITO LIGHT je česká značka: zařízení vyvíjíme a navrhujeme v České republice a každý kus tu prochází testem výkonu.",
+     "cta": "Prohlédněte si nabídku panelů MITO LIGHT",
+     "hashtags": "#MITOLIGHT #VečerníRituál #PéčeOSebe #SvětelnýPanel"
+    }
+   },
+   "slots_open": [],
+   "rounds": 1
+  }
+ ],
+ "summary": {
+  "n_items": 1,
+  "avg_dopamine": 39.6,
+  "errors": 0,
+  "warnings": 0,
+  "open_slots": 0,
+  "verdicts": {
+   "ok": 1,
+   "review": 0,
+   "blocked": 0
+  },
+  "claims_profile": "wellness"
+ },
+ "errors": []
+}
