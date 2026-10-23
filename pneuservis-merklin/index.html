@@ -1,0 +1,608 @@
+<!doctype html>
+<html lang="cs" data-season="winter">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Pneuservis Merklín · Roman Oberreiter · přezouvání pneumatik</title>
+  <meta name="description" content="Přezouvání pneumatik v Merklíně u Karlových Varů. Roman Oberreiter, Merklín 7. Přezutí kol, vyvážení, oprava defektu. Termín po telefonu.">
+  <meta name="theme-color" content="#0b0b0b">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="cs_CZ">
+  <meta property="og:title" content="Pneuservis Merklín · Roman Oberreiter">
+  <meta property="og:description" content="Boty na zimu. Pro vaše auto. Přezouvání pneumatik v Merklíně u Karlových Varů.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    // Sezóna se nastaví ještě před vykreslením, aby stránka neproblikla.
+    (function () {
+      var s = null;
+      try { s = localStorage.getItem('season'); } catch (e) {}
+      if (s !== 'winter' && s !== 'summer') {
+        var m = new Date().getMonth() + 1;
+        s = (m >= 10 || m <= 3) ? 'winter' : 'summer';
+      }
+      document.documentElement.dataset.season = s;
+      document.documentElement.classList.add('js');
+    })();
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TireShop",
+    "name": "Pneuservis Merklín · Roman Oberreiter",
+    "founder": { "@type": "Person", "name": "Roman Oberreiter" },
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Merklín 7",
+      "postalCode": "362 34",
+      "addressLocality": "Merklín",
+      "addressRegion": "Karlovarský kraj",
+      "addressCountry": "CZ"
+    },
+    "areaServed": ["Merklín", "Karlovy Vary"],
+    "description": "Přezouvání pneumatik, vyvážení kol a oprava defektů v Merklíně u Karlových Varů."
+  }
+  </script>
+</head>
+<body>
+  <!--
+    K DOPLNĚNÍ (hledejte XXX):
+    1. Telefon: nahraďte "+420XXXXXXXXX" (odkazy) a "+420 XXX XXX XXX" (text).
+    2. Ceny ve službách: "od XXX Kč".
+    3. IČO v patičce: "XXXXXXXX".
+    4. Fotka Romana: viz komentář v sekci "Kdo vás přezuje".
+  -->
+  <a class="skip" href="#sluzby">Přeskočit na služby</a>
+
+  <header class="nav" data-nav>
+    <a class="brand" href="#top" aria-label="Pneuservis Oberreiter, zpět nahoru">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+        <circle cx="16" cy="16" r="14" fill="none" stroke="currentColor" stroke-width="4" stroke-dasharray="3.2 1.2"/>
+        <circle cx="16" cy="16" r="7" fill="none" stroke="currentColor" stroke-width="2"/>
+        <circle cx="16" cy="16" r="2.2" fill="currentColor"/>
+      </svg>
+      <span class="brand-name">Oberreiter</span>
+      <span class="brand-sub">pneuservis</span>
+    </a>
+    <nav class="nav-links" aria-label="Hlavní navigace">
+      <a href="#sluzby">Služby</a>
+      <a href="#postup">Postup</a>
+      <a href="#poradna">Poradna</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+    <div class="season-switch" role="radiogroup" aria-label="Sezóna">
+      <span class="season-thumb" aria-hidden="true"></span>
+      <button type="button" role="radio" data-season-btn="winter">Zima</button>
+      <button type="button" role="radio" data-season-btn="summer">Léto</button>
+    </div>
+    <a class="btn btn-accent nav-call" href="tel:+420XXXXXXXXX">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2Z" fill="currentColor"/></svg>
+      <span>Zavolat</span>
+    </a>
+  </header>
+
+  <main id="top">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero dark" data-hero>
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="wrap hero-inner">
+        <p class="eyebrow hero-eyebrow"><span class="live-dot" aria-hidden="true"></span>Pneuservis · Merklín 7<span class="hide-sm"> · u Karlových Varů</span></p>
+        <h1 class="display hero-title" data-hero-title>
+          <span class="hl">Boty <span data-word>na&nbsp;<span class="swap" data-swap><span class="swap-word" data-swap-word data-winter="zimu." data-summer="léto.">zimu.</span></span></span></span>
+          <span class="hl">Pro vaše auto.</span>
+        </h1>
+        <div class="hero-bottom">
+          <p class="hero-lead">Přezujeme vaše auto v&nbsp;Merklíně, kousek od Karlových Varů. Pečlivě, v&nbsp;klidu a&nbsp;s&nbsp;člověkem, který vám rovnou řekne, jak na tom vaše gumy jsou.</p>
+          <div class="hero-cta">
+            <a class="btn btn-accent btn-lg" href="#kontakt">Domluvit přezutí
+              <svg class="arr" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11m-4-4 4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a class="btn btn-ghost btn-lg" href="#postup">Jak to probíhá</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <div class="wheel-stage" data-wheel-stage>
+          <svg class="wl wl-rot" data-wheel-rot viewBox="-500 -500 1000 1000" focusable="false">
+            <defs>
+              <radialGradient id="g-tire" cx="0" cy="0" r="470" gradientUnits="userSpaceOnUse">
+                <stop offset="0.69" stop-color="#040404"/>
+                <stop offset="0.75" stop-color="#1b1b1b"/>
+                <stop offset="0.86" stop-color="#242424"/>
+                <stop offset="0.95" stop-color="#151515"/>
+                <stop offset="1" stop-color="#090909"/>
+              </radialGradient>
+              <linearGradient id="g-metal" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0" stop-color="#6c6f74"/>
+                <stop offset="0.42" stop-color="#e4e6e9"/>
+                <stop offset="0.58" stop-color="#b3b6bb"/>
+                <stop offset="1" stop-color="#55585d"/>
+              </linearGradient>
+              <linearGradient id="g-lip" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#f4f5f6"/>
+                <stop offset="0.5" stop-color="#6f7277"/>
+                <stop offset="1" stop-color="#d3d5d8"/>
+              </linearGradient>
+              <radialGradient id="g-disc" cx="0" cy="0" r="238" gradientUnits="userSpaceOnUse">
+                <stop offset="0.45" stop-color="#2a2a2a"/>
+                <stop offset="0.55" stop-color="#4a4a4a"/>
+                <stop offset="0.8" stop-color="#3a3a3a"/>
+                <stop offset="1" stop-color="#232323"/>
+              </radialGradient>
+              <radialGradient id="g-hub" cx="0" cy="0" r="96" gradientUnits="userSpaceOnUse">
+                <stop offset="0" stop-color="#9a9da2"/>
+                <stop offset="0.7" stop-color="#d8dadd"/>
+                <stop offset="1" stop-color="#6d7075"/>
+              </radialGradient>
+              <linearGradient id="g-sheen" x1="0.12" y1="0.04" x2="0.88" y2="0.96">
+                <stop offset="0" stop-color="#fff" stop-opacity="0.16"/>
+                <stop offset="0.42" stop-color="#fff" stop-opacity="0"/>
+                <stop offset="0.62" stop-color="#000" stop-opacity="0"/>
+                <stop offset="1" stop-color="#000" stop-opacity="0.38"/>
+              </linearGradient>
+              <path id="p-side" d="M -404 0 A 404 404 0 1 1 404 0 A 404 404 0 1 1 -404 0"/>
+              <path id="p-cal" d="M -91.5 -205.5 A 225 225 0 0 1 91.5 -205.5"/>
+              <path id="spoke" d="M -9 -86 L -16 -306 Q 0 -312 16 -306 L 9 -86 Z"/>
+              <path id="nut" d="M13 0 6.5 11.26 -6.5 11.26 -13 0 -6.5 -11.26 6.5 -11.26Z"/>
+            </defs>
+            <!-- zadní část: pneumatika, disk, brzdový kotouč (točí se) -->
+              <g class="tread" data-tread fill="#111"></g>
+              <circle r="471" fill="url(#g-tire)"/>
+              <circle r="455" fill="none" stroke="#202020" stroke-width="1.5"/>
+              <circle r="352" fill="none" stroke="#1e1e1e" stroke-width="3"/>
+              <text class="sw sw-lo"><textPath href="#p-side" startOffset="25%" text-anchor="middle">OBERREITER</textPath></text>
+              <text class="sw"><textPath href="#p-side" startOffset="25%" text-anchor="middle">OBERREITER</textPath></text>
+              <text class="sw sw-sm sw-lo"><textPath href="#p-side" startOffset="75%" text-anchor="middle">PNEUSERVIS · MERKLÍN 7</textPath></text>
+              <text class="sw sw-sm"><textPath href="#p-side" startOffset="75%" text-anchor="middle">PNEUSERVIS · MERKLÍN 7</textPath></text>
+              <text class="sw sw-xs"><textPath href="#p-side" startOffset="50%" text-anchor="middle">205/55 R16 91V</textPath></text>
+              <text class="sw sw-xs"><textPath href="#p-side" startOffset="2%">TUBELESS · RADIAL</textPath></text>
+              <circle r="338" fill="#050505"/>
+              <circle r="322" fill="#0e0e0e"/>
+              <circle r="300" fill="none" stroke="#171717" stroke-width="12"/>
+              <circle r="238" fill="url(#g-disc)"/>
+              <g data-disc-holes fill="#111"></g>
+              <circle r="128" fill="#262626"/>
+              <circle r="128" fill="none" stroke="#3a3a3a" stroke-width="2"/>
+          </svg>
+          <svg class="wl" viewBox="-500 -500 1000 1000" focusable="false">
+            <!-- brzdový třmen stojí, kolo se točí kolem něj -->
+            <g class="caliper" transform="rotate(48)">
+              <path d="M -123 -231.3 A 262 262 0 0 1 123 -231.3 L 86.9 -163.3 A 185 185 0 0 0 -86.9 -163.3 Z" stroke-width="18" stroke-linejoin="round"/>
+              <text class="cal-text"><textPath href="#p-cal" startOffset="50%" text-anchor="middle">OBERREITER</textPath></text>
+            </g>
+          </svg>
+          <svg class="wl wl-rot" data-wheel-rot viewBox="-500 -500 1000 1000" focusable="false">
+            <!-- přední část: paprsky, okraj ráfku, náboj (točí se) -->
+              <g fill="url(#g-metal)" stroke="rgba(255,255,255,.18)" stroke-width="1">
+                <use href="#spoke" transform="rotate(-8)"/><use href="#spoke" transform="rotate(8)"/>
+                <use href="#spoke" transform="rotate(64)"/><use href="#spoke" transform="rotate(80)"/>
+                <use href="#spoke" transform="rotate(136)"/><use href="#spoke" transform="rotate(152)"/>
+                <use href="#spoke" transform="rotate(208)"/><use href="#spoke" transform="rotate(224)"/>
+                <use href="#spoke" transform="rotate(280)"/><use href="#spoke" transform="rotate(296)"/>
+              </g>
+              <circle r="331" fill="none" stroke="url(#g-lip)" stroke-width="16"/>
+              <circle r="322" fill="none" stroke="#000" stroke-opacity=".55" stroke-width="2"/>
+              <circle r="98" fill="url(#g-hub)"/>
+              <circle r="98" fill="none" stroke="#fff" stroke-opacity=".25" stroke-width="1.5"/>
+              <g fill="#2a2b2e" stroke="#9a9da2" stroke-width="1.5">
+                <use href="#nut" transform="translate(0 -68)"/>
+                <use href="#nut" transform="rotate(72) translate(0 -68)"/>
+                <use href="#nut" transform="rotate(144) translate(0 -68)"/>
+                <use href="#nut" transform="rotate(216) translate(0 -68)"/>
+                <use href="#nut" transform="rotate(288) translate(0 -68)"/>
+              </g>
+              <circle r="40" fill="#121212" stroke="url(#g-lip)" stroke-width="3"/>
+              <text class="cap-text" y="10">RO</text>
+          </svg>
+          <svg class="wl" viewBox="-500 -500 1000 1000" focusable="false">
+            <circle r="484" fill="url(#g-sheen)"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="wrap hero-meta">
+        <div class="meta-item"><span class="mono-label">Kdo</span><span>Roman Oberreiter</span></div>
+        <div class="meta-item"><span class="mono-label">Kde</span><span>Merklín 7, 362 34</span></div>
+        <div class="meta-item"><span class="mono-label">Dnes</span><span data-today>Zimní období se blíží</span></div>
+      </div>
+    </section>
+
+    <!-- ============ PÁS ============ -->
+    <div class="marquee dark" aria-hidden="true">
+      <div class="marquee-track" data-marquee>
+        <div class="marquee-set">
+          <span>Přezutí kol</span><b class="sep"></b>
+          <span class="o">Vyvážení</span><b class="sep"></b>
+          <span>Oprava defektu</span><b class="sep"></b>
+          <span class="o">Kontrola dezénu</span><b class="sep"></b>
+          <span>Merklín 7</span><b class="sep"></b>
+          <span class="o">Zima i léto</span><b class="sep"></b>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ MANIFEST ============ -->
+    <section class="manifest light" id="manifest">
+      <div class="wrap">
+        <p class="mono-label" data-reveal>Proč na tom záleží</p>
+        <p class="manifest-text" data-highlight>Pneumatiky jsou jediná část auta, která se dotýká silnice. Každá jen plochou zhruba jako dlaň. Na těch čtyřech dlaních brzdíte, zatáčíte a&nbsp;vezete děti do školy. Proto je přezouváme pořádně.</p>
+      </div>
+    </section>
+
+    <!-- ============ SEZÓNA ============ -->
+    <section class="season light" id="sezona">
+      <div class="wrap">
+        <div class="season-head">
+          <div>
+            <p class="mono-label" data-reveal>Sezóna</p>
+            <h2 class="h2" data-only="winter" data-split>Kdy přezout na&nbsp;zimní?</h2>
+            <h2 class="h2" data-only="summer" data-split>Kdy zpátky na&nbsp;letní?</h2>
+          </div>
+
+          <div class="countdown" data-only="winter" data-reveal>
+            <span class="mono-label" data-cd-label>Do 1. listopadu zbývá</span>
+            <div class="cd-num"><span data-cd-days>9</span><span class="cd-unit" data-cd-unit>dní</span></div>
+            <p data-cd-note>Termíny před prvním sněhem mizí nejrychleji. Zavolejte včas.</p>
+          </div>
+          <div class="countdown" data-only="summer" data-reveal>
+            <span class="mono-label">Ideální čas</span>
+            <div class="cd-num"><span>duben</span></div>
+            <p>Sledujte ranní teploty, ne kalendář. Pod Krušnými horami umí mrznout ještě dlouho.</p>
+          </div>
+        </div>
+
+        <div class="facts" data-only="winter">
+          <article class="fact" data-reveal>
+            <div class="fact-num">7<span class="u">°C</span></div>
+            <h3>Pod sedm stupňů</h3>
+            <p>Jakmile průměrná denní teplota klesne pod 7&nbsp;°C, letní směs tvrdne a&nbsp;přestává držet. To je ta chvíle.</p>
+          </article>
+          <article class="fact" data-reveal>
+            <div class="fact-num">1.&thinsp;11.</div>
+            <h3>Co říká zákon</h3>
+            <p>Od 1.&nbsp;listopadu do 31.&nbsp;března musíte mít zimní pneu, kdykoli je na silnici sníh, led nebo námraza, nebo se dají čekat.</p>
+          </article>
+          <article class="fact" data-reveal>
+            <div class="fact-num">4<span class="u">mm</span></div>
+            <h3>Minimum dezénu</h3>
+            <p>Zimní pneumatika osobního auta musí mít aspoň 4&nbsp;mm dezénu. Pod tím už se za zimní nepočítá.</p>
+          </article>
+        </div>
+
+        <div class="facts" data-only="summer">
+          <article class="fact" data-reveal>
+            <div class="fact-num">7<span class="u">°C</span></div>
+            <h3>Nad sedm stupňů</h3>
+            <p>Když teploty drží nad 7&nbsp;°C i&nbsp;ráno, zimní směs je moc měkká. Rychleji se sjíždí a&nbsp;brzdná dráha roste.</p>
+          </article>
+          <article class="fact" data-reveal>
+            <div class="fact-num">31.&thinsp;3.</div>
+            <h3>Konec zimního období</h3>
+            <p>Po 31.&nbsp;březnu už zimní pneu povinné nejsou. Na Karlovarsku ale klidně počkejte, až opravdu přestane mrznout.</p>
+          </article>
+          <article class="fact" data-reveal>
+            <div class="fact-num">1,6<span class="u">mm</span></div>
+            <h3>Zákonné minimum</h3>
+            <p>Letní pneumatika musí mít aspoň 1,6&nbsp;mm dezénu. Na mokrou silnici doporučujeme mít aspoň 3&nbsp;mm.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SLUŽBY ============ -->
+    <section class="services light" id="sluzby">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="mono-label" data-reveal>Služby a ceník</p>
+            <h2 class="h2" data-split>Co pro vás uděláme</h2>
+          </div>
+          <p class="section-lead" data-reveal>Všechno, co kola potřebují ke změně sezóny. Přesnou cenu vám řekneme do telefonu podle auta a&nbsp;rozměru.</p>
+        </div>
+
+        <ol class="service-list">
+          <li class="service" data-reveal>
+            <span class="s-num">01</span>
+            <h3 class="s-title">Přezutí kol</h3>
+            <p class="s-desc">Gumy máte na discích? Kola sundáme, nasadíme, dotáhneme a&nbsp;zkontrolujeme tlak.</p>
+            <span class="s-price">od XXX Kč</span>
+          </li>
+          <li class="service" data-reveal>
+            <span class="s-num">02</span>
+            <h3 class="s-title">Přezutí pneumatik</h3>
+            <p class="s-desc">Jedna sada disků a&nbsp;dvě sady gum. Pneumatiky přemontujeme a&nbsp;kola rovnou vyvážíme.</p>
+            <span class="s-price">od XXX Kč</span>
+          </li>
+          <li class="service" data-reveal>
+            <span class="s-num">03</span>
+            <h3 class="s-title">Vyvážení</h3>
+            <p class="s-desc">Klepe vám volant v&nbsp;osmdesáti? Kolo vyvážíme, aby jelo hladce a&nbsp;šetřilo podvozek.</p>
+            <span class="s-price">od XXX Kč</span>
+          </li>
+          <li class="service" data-reveal>
+            <span class="s-num">04</span>
+            <h3 class="s-title">Oprava defektu</h3>
+            <p class="s-desc">Hřebík nebo šroub v&nbsp;pneumatice? Když to jde opravit, opravíme. Když ne, řekneme to na rovinu.</p>
+            <span class="s-price">od XXX Kč</span>
+          </li>
+          <li class="service" data-reveal>
+            <span class="s-num">05</span>
+            <h3 class="s-title">Kontrola pneumatik</h3>
+            <p class="s-desc">Dezén, stáří, praskliny, boule. Při každém přezutí vám řekneme, jak na tom gumy jsou.</p>
+            <span class="s-price">při přezutí</span>
+          </li>
+        </ol>
+        <p class="footnote" data-reveal>Ceny jsou orientační, za sadu čtyř kol osobního auta.</p>
+      </div>
+    </section>
+
+    <!-- ============ POSTUP (připnutá sekce) ============ -->
+    <section class="process dark" id="postup" data-process>
+      <div class="process-sticky">
+        <div class="wrap process-grid">
+          <div class="process-copy">
+            <p class="mono-label">Jak to probíhá</p>
+            <h2 class="h2 process-title">Čtyři kroky.<br>Žádné drama.</h2>
+            <ol class="steps">
+              <li class="step is-active" data-step>
+                <span class="step-num">01</span>
+                <div><h3>Zavoláte</h3><p>Domluvíme den a&nbsp;hodinu. Znáte rozměr pneumatik? Řekněte ho rovnou, najdete ho na boku gumy.</p></div>
+              </li>
+              <li class="step" data-step>
+                <span class="step-num">02</span>
+                <div><h3>Přijedete do Merklína</h3><p>Merklín&nbsp;7, kousek od Varů. Navigace vás dovede až k&nbsp;nám.</p></div>
+              </li>
+              <li class="step" data-step>
+                <span class="step-num">03</span>
+                <div><h3>Přezujeme a&nbsp;vyvážíme</h3><p>Kola dolů, kontrola dezénu a&nbsp;tlaku, vyvážení a&nbsp;kola zpátky na auto.</p></div>
+              </li>
+              <li class="step" data-step>
+                <span class="step-num">04</span>
+                <div><h3>Dotáhneme do hvězdy</h3><p>Šrouby utahujeme křížem a&nbsp;na moment podle výrobce. Po 50 až 100&nbsp;km je dobré je zkontrolovat.</p></div>
+              </li>
+            </ol>
+            <div class="process-bar" aria-hidden="true"><span data-process-bar></span></div>
+          </div>
+
+          <div class="process-visual" aria-hidden="true">
+            <svg class="hub" viewBox="-300 -300 600 600" focusable="false">
+              <defs>
+                <radialGradient id="g-face" cx="0" cy="0" r="232" gradientUnits="userSpaceOnUse">
+                  <stop offset="0" stop-color="#1c1c1d"/>
+                  <stop offset="0.62" stop-color="#2a2a2c"/>
+                  <stop offset="0.86" stop-color="#3a3a3d"/>
+                  <stop offset="1" stop-color="#171718"/>
+                </radialGradient>
+                <path id="hex" d="M30 0 15 25.98 -15 25.98 -30 0 -15 -25.98 15 -25.98Z"/>
+              </defs>
+              <g data-hub-ticks stroke="rgba(255,255,255,.14)" stroke-width="2"></g>
+              <circle class="ring-track" r="272"/>
+              <circle class="ring-prog" r="272" transform="rotate(-90)" data-ring/>
+              <g data-hub-rot>
+                <circle r="232" fill="url(#g-face)"/>
+                <circle r="232" fill="none" stroke="rgba(255,255,255,.09)" stroke-width="2"/>
+                <circle r="198" fill="none" stroke="rgba(255,255,255,.05)" stroke-width="2"/>
+                <circle r="92" fill="#141415" stroke="rgba(255,255,255,.08)" stroke-width="2"/>
+                <path class="star" data-star d="M0 -150 L88.17 121.35 L-142.66 -46.35 L142.66 -46.35 L-88.17 121.35 Z"/>
+                <g class="nut" data-nut="0" transform="translate(0 -150)"><use href="#hex"/><circle r="12"/></g>
+                <g class="nut" data-nut="1" transform="translate(142.66 -46.35)"><use href="#hex"/><circle r="12"/></g>
+                <g class="nut" data-nut="2" transform="translate(88.17 121.35)"><use href="#hex"/><circle r="12"/></g>
+                <g class="nut" data-nut="3" transform="translate(-88.17 121.35)"><use href="#hex"/><circle r="12"/></g>
+                <g class="nut" data-nut="4" transform="translate(-142.66 -46.35)"><use href="#hex"/><circle r="12"/></g>
+                <text class="nut-label" x="0" y="-198">1</text>
+                <text class="nut-label" x="116.4" y="157.2">2</text>
+                <text class="nut-label" x="-188.3" y="-55">3</text>
+                <text class="nut-label" x="188.3" y="-55">4</text>
+                <text class="nut-label" x="-116.4" y="157.2">5</text>
+              </g>
+              <text class="hub-count" y="16" data-hub-count>01</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PORADNA ============ -->
+    <section class="tools light" id="poradna">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="mono-label" data-reveal>Poradna u kola</p>
+            <h2 class="h2" data-split>Než přijedete</h2>
+          </div>
+          <p class="section-lead" data-reveal>Dvě věci, které zvládnete sami u&nbsp;auta. Klidně s&nbsp;telefonem v&nbsp;ruce.</p>
+        </div>
+
+        <div class="tools-grid">
+          <article class="tool" data-reveal>
+            <p class="mono-label">Nápis na boku pneumatiky</p>
+            <h3 class="tool-title">Co znamená 205/55&nbsp;R16?</h3>
+            <div class="code" role="group" aria-label="Části označení pneumatiky">
+              <button type="button" class="code-seg is-on" data-seg="w" aria-pressed="true">205</button><span class="code-slash">/</span><button type="button" class="code-seg" data-seg="p" aria-pressed="false">55</button>
+              <button type="button" class="code-seg" data-seg="r" aria-pressed="false">R</button><button type="button" class="code-seg" data-seg="d" aria-pressed="false">16</button>
+              <button type="button" class="code-seg" data-seg="l" aria-pressed="false">91</button><button type="button" class="code-seg" data-seg="s" aria-pressed="false">V</button>
+            </div>
+            <div class="code code-dot">
+              <span class="code-muted">DOT XXXX XXXX</span><button type="button" class="code-seg" data-seg="t" aria-pressed="false">4223</button>
+            </div>
+
+            <div class="decoder">
+              <svg class="dec-svg" viewBox="0 0 320 200" aria-hidden="true">
+                <g class="dec-side">
+                  <circle cx="100" cy="100" r="86" class="dec-tire"/>
+                  <circle cx="100" cy="100" r="50" class="dec-rim"/>
+                  <circle cx="100" cy="100" r="12" class="dec-hubc"/>
+                  <g class="dim" data-dim="p"><path d="M100 14 V50"/><path d="M92 14h16M92 50h16"/></g>
+                  <g class="dim" data-dim="d"><path d="M50 100 H150"/><path d="M50 92v16M150 92v16"/></g>
+                  <g class="dim" data-dim="t"><rect x="74" y="158" width="52" height="22" rx="6"/></g>
+                  <g class="dim" data-dim="r"><path d="M100 50 L100 14 M100 50 L161 39 M100 50 L161 161 M100 50 L39 161 M100 50 L39 39" stroke-dasharray="3 5"/></g>
+                </g>
+                <g class="dec-face">
+                  <rect x="226" y="20" width="58" height="160" rx="18" class="dec-tread"/>
+                  <path d="M236 40h38M236 70h38M236 100h38M236 130h38M236 160h38" class="dec-groove"/>
+                  <g class="dim" data-dim="w"><path d="M226 192 H284"/><path d="M226 186v12M284 186v12"/></g>
+                  <g class="dim" data-dim="l"><path d="M255 4 V16" /><path d="M249 10 l6 7 6 -7"/></g>
+                  <g class="dim" data-dim="s"><path d="M300 60 V140"/><path d="M294 128 l6 12 6 -12"/></g>
+                </g>
+              </svg>
+              <div class="dec-text" aria-live="polite">
+                <span class="dec-key" data-dec-key>205</span>
+                <h4 data-dec-title>Šířka pneumatiky</h4>
+                <p data-dec-body>Šířka běhounu v&nbsp;milimetrech, od boku k&nbsp;boku. Tady 205&nbsp;mm.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="tool" data-reveal>
+            <p class="mono-label">Hloubka dezénu</p>
+            <h3 class="tool-title">Kolik vám zbývá?</h3>
+            <div class="tread-viz">
+              <svg class="tread-svg" viewBox="0 0 360 200" aria-hidden="true">
+                <g class="ruler" data-ruler></g>
+                <rect class="carcass" x="36" y="160" width="236" height="34" rx="6"/>
+                <g data-blocks></g>
+                <line class="lim lim-law" x1="36" x2="274" data-lim="law"/>
+                <line class="lim lim-season" x1="36" x2="274" data-lim="season"/>
+                <text class="lim-t lim-law-t" x="282" data-lim-t="law"><tspan x="282" dy="0">1,6 mm</tspan><tspan x="282" dy="13" class="lim-sub">zákon</tspan></text>
+                <text class="lim-t lim-season-t" x="282" data-lim-t="season"><tspan x="282" dy="0" data-lim-v>4 mm</tspan><tspan x="282" dy="13" class="lim-sub" data-lim-s>zima</tspan></text>
+              </svg>
+            </div>
+            <div class="slider-row">
+              <label for="depth" class="mono-label">Naměřeno</label>
+              <input id="depth" type="range" min="0" max="9" step="0.1" value="5.5" data-depth>
+              <output for="depth" class="depth-out" data-depth-out>5,5&nbsp;mm</output>
+            </div>
+            <p class="verdict" data-verdict aria-live="polite"></p>
+            <p class="tip">Tip: na dně drážek jsou malé můstky ve výšce 1,6&nbsp;mm. Když jsou v&nbsp;rovině s&nbsp;dezénem, gumy jsou na konci.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ KDO VÁS PŘEZUJE ============ -->
+    <section class="about light" id="roman">
+      <div class="wrap about-grid">
+        <figure class="about-photo" data-reveal>
+          <!--
+            Až bude fotka Romana z dílny, vložte ji sem místo odznaku:
+            <img src="roman.jpg" alt="Roman Oberreiter v dílně v Merklíně" loading="lazy">
+            Skutečná fotka udělá víc než jakákoli grafika.
+          -->
+          <div class="badge" aria-hidden="true">
+            <svg viewBox="-200 -200 400 400" class="badge-ring">
+              <defs><path id="p-badge" d="M -150 0 A 150 150 0 1 1 150 0 A 150 150 0 1 1 -150 0"/></defs>
+              <text><textPath href="#p-badge" startOffset="0">PNEUSERVIS · MERKLÍN 7 · ROMAN OBERREITER · ZIMA · LÉTO ·</textPath></text>
+            </svg>
+            <span class="badge-mono">RO</span>
+          </div>
+        </figure>
+        <div class="about-copy">
+          <p class="mono-label" data-reveal>Kdo vás přezuje</p>
+          <h2 class="h2" data-split>Roman Oberreiter</h2>
+          <p class="about-lead" data-reveal>Žádné call centrum ani recepce. Zavoláte Romanovi, přijedete za Romanem do Merklína a&nbsp;kola vám přezuje Roman.</p>
+          <p data-reveal>Když něco nesedí, dozvíte se to hned a&nbsp;na rovinu. Když je všechno v&nbsp;pořádku, nebudeme vám nic vnucovat. Pneuservis pro Merklín, Vary a&nbsp;celé okolí.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ KONTAKT ============ -->
+    <section class="contact dark" id="kontakt">
+      <div class="wrap contact-grid">
+        <div class="contact-main">
+          <p class="mono-label" data-reveal>Kontakt</p>
+          <h2 class="h2" data-split>Zavolejte. Domluvíme termín.</h2>
+          <a class="big-phone" href="tel:+420XXXXXXXXX" data-reveal>+420 XXX XXX XXX</a>
+          <address class="addr" data-reveal>
+            <span>Roman Oberreiter</span>
+            <span>Merklín 7</span>
+            <span>362 34 Merklín</span>
+          </address>
+          <div class="map-links" data-reveal>
+            <a class="btn btn-light" href="https://mapy.cz/zakladni?q=Merkl%C3%ADn%207%2C%20362%2034%20Merkl%C3%ADn" target="_blank" rel="noopener">Navigovat přes Mapy.cz</a>
+            <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&amp;query=Merkl%C3%ADn%207%2C%20362%2034%20Merkl%C3%ADn" target="_blank" rel="noopener">Google Maps</a>
+          </div>
+          <p class="muted" data-reveal>Nejlíp je zavolat předem, ať na vás máme čas a&nbsp;nemusíte čekat.</p>
+        </div>
+
+        <form class="sms-card" data-sms data-reveal novalidate>
+          <p class="mono-label">Nebo napište SMS</p>
+          <h3>Zprávu vám připravíme</h3>
+          <p class="muted small">Vyplňte, co víte. Telefon otevře SMS s&nbsp;hotovým textem, stačí odeslat.</p>
+          <div class="field">
+            <label for="f-car">Auto</label>
+            <input id="f-car" name="car" type="text" autocomplete="off" placeholder="třeba Škoda Octavia">
+          </div>
+          <div class="field">
+            <label for="f-size">Rozměr pneu</label>
+            <input id="f-size" name="size" type="text" autocomplete="off" placeholder="třeba 205/55 R16">
+          </div>
+          <div class="field">
+            <label for="f-when">Kdy se vám hodí</label>
+            <input id="f-when" name="when" type="text" autocomplete="off" placeholder="třeba příští týden odpoledne">
+          </div>
+          <fieldset class="field seg-field">
+            <legend>Gumy máte na discích?</legend>
+            <div class="seg">
+              <label><input type="radio" name="rims" value="ano" checked><span>Ano</span></label>
+              <label><input type="radio" name="rims" value="ne"><span>Ne</span></label>
+              <label><input type="radio" name="rims" value="nevím"><span>Nevím</span></label>
+            </div>
+          </fieldset>
+          <div class="field">
+            <label for="f-name">Jméno</label>
+            <input id="f-name" name="name" type="text" autocomplete="name" placeholder="vaše jméno">
+          </div>
+          <div class="sms-preview" aria-live="polite">
+            <span class="mono-label">Náhled zprávy</span>
+            <p data-sms-preview></p>
+          </div>
+          <button class="btn btn-accent btn-lg btn-block" type="submit">Otevřít SMS</button>
+          <p class="sms-note small" data-sms-note hidden></p>
+        </form>
+      </div>
+
+      <div class="wrap">
+        <div class="map" data-reveal>
+          <iframe title="Mapa: Merklín 7, 362 34 Merklín" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            src="https://maps.google.com/maps?q=Merkl%C3%ADn%207%2C%20362%2034%20Merkl%C3%ADn&amp;z=14&amp;output=embed"></iframe>
+          <span class="map-tag">Merklín 7</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer dark">
+    <div class="wrap footer-top">
+      <div>
+        <p class="mono-label">Pneuservis Merklín</p>
+        <p>Roman Oberreiter<br>Merklín 7, 362 34 Merklín</p>
+      </div>
+      <div>
+        <p class="mono-label">Telefon</p>
+        <p><a href="tel:+420XXXXXXXXX">+420 XXX XXX XXX</a></p>
+      </div>
+      <div>
+        <p class="mono-label">Údaje</p>
+        <p>IČO XXXXXXXX</p>
+      </div>
+      <div class="footer-up">
+        <a href="#top" class="up-link">Nahoru
+          <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 16V5m-4 4 4-4 4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-word" aria-hidden="true">Oberreiter</div>
+    <div class="wrap footer-bottom">
+      <span>© <span data-year>2026</span> Roman Oberreiter</span>
+      <span>Přezouvání pneumatik · Merklín u Karlových Varů</span>
+    </div>
+  </footer>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
