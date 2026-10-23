@@ -18,17 +18,23 @@ V souboru `index.html` hledejte `XXX`:
 
 | Co | Kde | Jak to vypadá teď |
 | --- | --- | --- |
-| Telefon v odkazech | 3 místa | `tel:+420XXXXXXXXX` |
+| Telefon v odkazech | 8 míst | `tel:+420XXXXXXXXX` |
 | Telefon v textu | 2 místa | `+420 XXX XXX XXX` |
 | Ceny služeb | sekce Služby | `od XXX Kč` |
 | IČO | patička | `IČO XXXXXXXX` |
 | Fotka Romana | sekce Kdo vás přezuje | návod je v komentáři přímo v kódu |
 
-Formulář na SMS bere číslo automaticky z prvního odkazu `tel:`, takže stačí přepsat telefon.
+Nejrychlejší je hromadné nahrazení: `+420XXXXXXXXX` a `+420 XXX XXX XXX` za skutečné číslo. Formulář na SMS bere číslo automaticky z prvního odkazu `tel:`.
 
 Projděte i texty: seznam služeb (přezutí, přemontování, vyvážení, oprava defektu, kontrola) a věta o tom, že kola přezouvá Roman osobně, jsou odhad. Co nesedí, stačí upravit nebo smazat.
 
 ## Co web umí
+
+- **Menu**: na počítači pět jasných položek, aktuální sekce se zvýrazní. Na mobilu a tabletu tlačítko menu, které otevře celoobrazovkový přehled s telefonem. Sekce mají stejná čísla jako v menu (01 až 05).
+- **Mobilní lišta**: po úvodu se dole objeví "Zavolat" a "Objednat přes SMS", u kontaktu se schová.
+- **Prodejní texty podle sezóny**: příběh "Je půl sedmé a venku je poprvé bílo..." (v létě cesta k moři), výzva "Nečekejte na první sníh / vedro" a úvodní text se mění se sezónou.
+- **Objednání z ceníku**: tlačítko "Objednat" u služby předvyplní službu ve formuláři.
+- **Časté otázky**: šest odpovědí, které zákazníkovi ušetří telefonát (objednání, pneu bez disků, kdy přezout, co vzít s sebou, klíč k bezpečnostním šroubům).
 
 - Přepínač **Zima / Léto**: přebarví celý web (modrá / oranžová), změní nadpis a rady. Výchozí sezóna se nastaví podle data (říjen až březen zima).
 - Odpočet do 1. listopadu, od listopadu do konce března zbývající dny zimního období.
