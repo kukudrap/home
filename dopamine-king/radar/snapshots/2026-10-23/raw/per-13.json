@@ -1,0 +1,62 @@
+{
+ "query": "ozáření mW/cm2 panel červené světlo",
+ "query_sent": "ozáření mW/cm2 panel červené světlo",
+ "allowed_domains": [],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:24:17Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "dwn.alza.cz",
+   "url": "https://dwn.alza.cz/manual/160634"
+  },
+  {
+   "rank": 2,
+   "title": "Welzo Max Red Light Therapy Full Body Panel - Professional Max verze 5",
+   "url": "https://welzo.com/cs-eu/products/welzo-max-red-light-therapy-full-body-panel-professional-max-verze-5"
+  },
+  {
+   "rank": 3,
+   "title": "All articles",
+   "url": "https://help.lifespanfitness.com.au/en-US/what-is-radiance-in-red-light-therapy-6660620"
+  },
+  {
+   "rank": 4,
+   "title": "Top 7 Best Red Light Therapy Panels for 2024: Ultimate Guide",
+   "url": "https://csr.hdsupply.com/?p=11009"
+  },
+  {
+   "rank": 5,
+   "title": "red light therapy panels wavelengths evidence use cases",
+   "url": "https://wf.superpower.com/guides/red-light-therapy-panels-wavelengths-evidence-use-cases"
+  },
+  {
+   "rank": 6,
+   "title": "Red Light Dose Calculator",
+   "url": "https://outliyr.com/app/light-dose-calculator"
+  },
+  {
+   "rank": 7,
+   "title": "What To Look For in a Red Light Therapy Panel: Buying Guide 2026",
+   "url": "https://mitoredlight.com/en-ca/blogs/mito-red-blog/what-to-look-for-in-a-red-light-therapy-panel-buying-guide"
+  },
+  {
+   "rank": 8,
+   "title": "What To Look For in a Red Light Therapy Panel: Buying Guide 2026",
+   "url": "https://mitoredlight.com/en-ca/blogs/mito-red-blog/compare-mito-red-light-vs-platinumled"
+  },
+  {
+   "rank": 9,
+   "title": "Red Light Therapy Calculator",
+   "url": "https://calculatequick.com/health/red-light-therapy-calculator/"
+  }
+ ],
+ "summary": "The search returned mostly consumer product pages and buying guides, with no authoritative standard for irradiance values.\n\n- **Irradiance is the key spec.** Several guides treat irradiance in mW/cm² at a stated distance as the most useful number when comparing panels. One guide notes that irradiance falls off with distance, so a panel's figure at 15 cm can be far higher than at 60 cm (index 3-6).\n- **Typical tiers differ by source.** A Mito Red Light guide sorts panels as under 20 mW/cm² (low), 20-50 (useful for many routines), 50-100 (strong consumer range), and 100+ (high output) (index 7-2). Superpower's guide puts the research-supported floor above 40 mW/cm² at 6 inches, with most published trials using 40-100 (index 5-9, 5-10). Note that these are vendor or commercial sources, not peer-reviewed standards.\n- **Higher isn't always better.** The Mito guide also says red light therapy has a biphasic dose response, so too much output can reduce the effect (index 7-3).\n- **Manufacturer figures may be inflated.** An independent calculator site says manufacturer specs are often overstated and recommends third-party measurements (index 6-5).\n- **Specific product example.** A Czech Alza manual for a 1500 W panel lists intensity above 232.2 mW/cm² at 15 cm (index 1-1). Treat that as a manufacturer claim, since it is unverified.\n\nThe wavelengths most often cited for red light therapy are 630-660 nm for red and 810-850 nm for near-infrared (index 5-3). I didn't find a Czech-language source for the irradiance thresholds, so the figures above come from English-language sources.",
+ "id": "per-13",
+ "group": "persona",
+ "persona": "tech",
+ "purpose": "Technici: ozáření"
+}

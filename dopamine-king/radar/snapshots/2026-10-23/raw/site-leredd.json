@@ -1,0 +1,64 @@
+{
+ "query": "Leredd red light therapy panel benefits",
+ "query_sent": "Leredd red light therapy panel benefits",
+ "allowed_domains": [
+  "leredd.com"
+ ],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:31:40Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "Stress reduction and sleep promotion system",
+   "url": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11013883"
+  },
+  {
+   "rank": 2,
+   "title": "What are Red Light Therapy Panels?",
+   "url": "https://leredd.com/what-are-red-light-therapy-panels/"
+  },
+  {
+   "rank": 3,
+   "title": "RPOD Red Light Therapy - LEREDD",
+   "url": "https://leredd.com/product/rpod-red-light-therapy/"
+  },
+  {
+   "rank": 4,
+   "title": "Red & Near Infrared Light Therapy For Pain & Inflammati",
+   "url": "https://leredd.com/blogs/education/red-near-infrared-light-therapy-for-pain-inflammation"
+  },
+  {
+   "rank": 5,
+   "title": "Red Light Therapy or Sauna, which is best ?",
+   "url": "https://leredd.com/red-light-therapy-sauna-benefits/"
+  },
+  {
+   "rank": 6,
+   "title": "BIOHAX 324 Modular Red Light Therapy Panel",
+   "url": "https://leredd.com/products/biohax-324-modular-red-light-therapy-panel"
+  },
+  {
+   "rank": 7,
+   "title": "Red Light Therapy for Acne : A Revolutionary Treatment Backed by Clinical Studies - LEREDD RED LIGHT THERAPY MELBOURNE",
+   "url": "https://leredd.com/red-light-therapy-for-acne/"
+  },
+  {
+   "rank": 8,
+   "title": "Portable rechargeable LED red light cavity healing devices",
+   "url": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/10406379"
+  },
+  {
+   "rank": 9,
+   "title": "RED Light Therapy Mask - LEREDD RED LIGHT THERAPY MELBOURNE",
+   "url": "https://leredd.com/red-light-therapy-mask/"
+  }
+ ],
+ "summary": "The results are mostly Leredd's own marketing pages, so treat the benefit claims as vendor claims rather than independent evidence.\n\n- **General claimed benefits:** Leredd's guide lists skin health, muscle recovery, and pain relief as the main uses. Red light therapy is widely used in skincare for its ability to improve complexion and reduce signs of aging. For recovery, the page says increased blood flow and reduced inflammation help alleviate muscle soreness.\n- **RPOD device:** Leredd's product page says it promotes wound healing and Collagen production and lists features including a 25-minute inbuilt timer and 660nm and 850nm wavelengths.\n- **BIOHAX 324:** Leredd's page says 630nm and 660nm red light target surface-level benefits, collagen production, skin rejuvenation, wound healing, and acne reduction. It also says 830nm and 850nm near-infrared penetrate deeper into muscle, joint, and nerve tissue. This page describes the product for Australian buyers.\n- **Pain and inflammation:** Leredd's article on arthritis claims red light can help in reducing joint inflammation and swelling. It doesn't cite specific trials.\n- **Independent context:** A patent document notes that the mechanism of how red light therapy aids in tissue healing is not completely understood. Its claims are general, not specific to Leredd.\n\nThe search did not turn up independent clinical studies of Leredd panels specifically. Claims such as \"clinically studied\" come from Leredd's own marketing. Check the company's site or peer-reviewed research for stronger evidence.",
+ "id": "site-leredd",
+ "group": "brandsite",
+ "persona": "",
+ "purpose": "Co zveřejňuje Leredd (Austrálie)"
+}

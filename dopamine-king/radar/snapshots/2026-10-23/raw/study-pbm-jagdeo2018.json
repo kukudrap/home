@@ -1,0 +1,67 @@
+{
+ "query": "Light-emitting diodes in dermatology: A systematic review of randomized controlled trials",
+ "query_sent": "Light-emitting diodes in dermatology: A systematic review of randomized controlled trials",
+ "allowed_domains": [],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:26:42Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "Light-emitting diodes in dermatology: A systematic review of randomized controlled trials",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/29356026/"
+  },
+  {
+   "rank": 2,
+   "title": "hs.as.uky.edu",
+   "url": "https://hs.as.uky.edu/bibcite/reference/11317"
+  },
+  {
+   "rank": 3,
+   "title": "math.as.uky.edu",
+   "url": "https://math.as.uky.edu/bibcite/reference/11317"
+  },
+  {
+   "rank": 4,
+   "title": "armyrotc.as.uky.edu",
+   "url": "https://armyrotc.as.uky.edu/bibcite/reference/11317"
+  },
+  {
+   "rank": 5,
+   "title": "aes.as.uky.edu",
+   "url": "https://aes.as.uky.edu/bibcite/reference/11317"
+  },
+  {
+   "rank": 6,
+   "title": "light emitting diodes in dermatology a systematic review of rando",
+   "url": "https://researchconnect.suny.edu/en/publications/light-emitting-diodes-in-dermatology-a-systematic-review-of-rando/"
+  },
+  {
+   "rank": 7,
+   "title": "pmc.ncbi.nlm.nih.gov",
+   "url": "https://pmc.ncbi.nlm.nih.gov/articles/6099480"
+  },
+  {
+   "rank": 8,
+   "title": "wound phototherapy",
+   "url": "https://hmpgloballearningnetwork.com/site/wounds/evidence-corner/wound-phototherapy"
+  },
+  {
+   "rank": 9,
+   "title": "jamanetwork-com.libproxy.ajou.ac.kr",
+   "url": "https://jamanetwork-com.libproxy.ajou.ac.kr/journals/jamadermatology/fullarticle/2830694"
+  },
+  {
+   "rank": 10,
+   "title": "jamanetwork.com",
+   "url": "https://jamanetwork.com/journals/jamadermatology/article-abstract/2830694"
+  }
+ ],
+ "summary": "The search turned up the 2018 review by Jagdeo and colleagues in *Lasers in Surgery and Medicine*, published online as a PubMed record and mirrored on several other sites.\n\n- **Scope:** The authors searched the literature on September 13, 2017, and included 31 original randomized controlled trials. (The review set out to critically assess published RCTs and offer evidence-based recommendations on LED therapeutic uses in dermatology, based on efficacy and safety data.)\n- **Strongest evidence:** Acne vulgaris, herpes simplex and zoster, and acute wound healing earned a grade B recommendation. Other skin conditions received grade C or D.\n- **Weaknesses:** The authors noted small patient sample sizes (n < 20), absent blinding, no sham placebo, and varied treatment parameters in some studies.\n- **Conclusion:** Citing few adverse events, affordability, and encouraging results, the authors recommend clinical use while calling for further research. (They recommend physicians use LEDs in clinical practice and that researchers keep exploring their use for skin conditions.)\n\nI only saw abstracts and summaries, not the full text, so I can't confirm the per-trial details.",
+ "id": "study-pbm-jagdeo2018",
+ "group": "study",
+ "persona": "",
+ "purpose": "Ověření studie z registru: seed:pbm-jagdeo2018"
+}

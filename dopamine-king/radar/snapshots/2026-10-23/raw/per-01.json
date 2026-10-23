@@ -1,0 +1,62 @@
+{
+ "query": "červené světlo pleť vrásky",
+ "query_sent": "červené světlo pleť vrásky",
+ "allowed_domains": [],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:23:34Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "Slibuje mladší pleť, hustší vlasy i pomoc při Alzheimerovi. Co všechno ale červené světlo opravdu umí?",
+   "url": "https://cc.cz/slibuje-mladsi-plet-hustsi-vlasy-i-pomoc-pri-alzheimerovi-co-vsechno-ale-cervene-svetlo-opravdu-umi/"
+  },
+  {
+   "rank": 2,
+   "title": "manual rl300 a2 6a5766f897d218.71495783",
+   "url": "https://pilulka.s3-central.vshosting.cloud/vms-prod-cs/vms/product/listing/2026/07/manual_rl300_a2_6a5766f897d218.71495783.pdf"
+  },
+  {
+   "rank": 3,
+   "title": "Mobilné kúpele Soft Life",
+   "url": "https://sk.airbnb.com/services/6566567"
+  },
+  {
+   "rank": 4,
+   "title": "Červené světlo, jak funguje terapie lampou?",
+   "url": "https://www.drmax.cz/zeptejte-se-lekarnika/cervene-svetlo-jak-funguje-terapie-lampou"
+  },
+  {
+   "rank": 5,
+   "title": "Hlavní obsah",
+   "url": "https://www.seznamzpravy.cz/clanek/magazin-zivotni-styl-posvitte-si-cervene-proc-v-cervenem-svetle-jedou-sportovci-herci-i-astronauti-265068"
+  },
+  {
+   "rank": 6,
+   "title": "detail sllk un auth d000095742 svetlo cervene",
+   "url": "https://arl4.library.sk/arl-sllk/en/detail-sllk_un_auth-d000095742-svetlo-cervene"
+  },
+  {
+   "rank": 7,
+   "title": "16373 terapie cervenym a blizko infra cervenym svetlem zkusenosti",
+   "url": "https://www.poradte.cz/nejen-pro-zeny/16373-terapie-cervenym-a-blizko-infra-cervenym-svetlem-zkusenosti.html"
+  },
+  {
+   "rank": 8,
+   "title": "detail sllk un auth d000095742 svetlo cervene",
+   "url": "https://arl4.library.sk/arl-sllk/en/detail-sllk_un_auth-d000095742-svetlo-cervene/?iset=11"
+  },
+  {
+   "rank": 9,
+   "title": "Number of the records: 1",
+   "url": "https://arl4.library.sk/arl-sllk/en/detail-sllk_us_auth-d000095742-svetlo-cervene/?disprec=1"
+  }
+ ],
+ "summary": "Search results on red light therapy for skin and wrinkles are mixed: some sources describe collagen-related benefits, while others stress limited evidence and caution.\n\n- **Mechanism claimed:** One Czech article says the light reaches mitochondria and can boost energy production and blood flow, which some researchers link to new collagen in the skin. Stanford dermatology professor Zakia Rahman is quoted about using this energy for hair growth, reduced inflammation, and new collagen in the skin. Red and near-infrared light can reach mitochondria and boost energy production, which also improves blood flow to tissues.\n- **Product-sheet claims:** A device manual (a manufacturer's marketing document, so treat it as promotional) says that these wavelengths reach the dermal layer, where they stimulate collagen and elastin, which improves skin elasticity and reduces wrinkles. A spa listing makes a similar claim: it says the therapy increases collagen production and reduces wrinkles, inflammation, and aids healing. Neither is independent evidence.\n- **Pharmacist's view:** A Dr. Max pharmacist answer is more cautious. It says red light may help improve skin quality, for example by supporting collagen formation, a slight improvement in skin elasticity, or supporting healing. It adds that the effect is gradual and mild and depends on regular use and individual skin reaction. It also says red light does not replace dermatological treatment.\n- **Safety caveat:** The same pharmacist answer says that some serums (e.g., with vitamin C or retinol) can increase light sensitivity, so apply them only after light therapy.\n- **Reference entry:** A Slovak library medical-subject record describes red light (620-750 nm) as used therapeutically to improve the appearance of skin by reducing wrinkles, scars, redness, and acne.\n\nOverall, the sources agree on a collagen-stimulation mechanism, but the strongest claims come from sellers, and the pharmacist describes the effect as modest. I found no high-quality clinical trial results in these snippets, so wrinkle reduction is plausible but not firmly established by these results.",
+ "id": "per-01",
+ "group": "persona",
+ "persona": "beauty",
+ "purpose": "Beauty: pleť a vrásky"
+}

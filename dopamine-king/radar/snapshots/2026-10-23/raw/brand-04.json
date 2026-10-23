@@ -1,0 +1,62 @@
+{
+ "query": "MITO LIGHT recenze",
+ "query_sent": "MITO LIGHT recenze",
+ "allowed_domains": [],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:22:10Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "Passa al contenuto",
+   "url": "https://sigmaaldrich.com/IT/it/product/mm/apt242"
+  },
+  {
+   "rank": 2,
+   "title": "zlinskykraj.cz",
+   "url": "https://zlinskykraj.cz/file/660594d5b291b6cebd054114"
+  },
+  {
+   "rank": 3,
+   "title": "Mito Light Mitohacker 4.0",
+   "url": "https://www.pcwelt.de/?p=2627686"
+  },
+  {
+   "rank": 4,
+   "title": "mito red light therapy review",
+   "url": "https://wareable.com/health-tech/mito-red-light-therapy-review"
+  },
+  {
+   "rank": 5,
+   "title": "MITO LIGHT® Europe Opiniões 409",
+   "url": "https://pt.trustpilot.com/review/mitolight.com"
+  },
+  {
+   "rank": 6,
+   "title": "MITO LIGHT® Deutschland",
+   "url": "https://www.trustedshops.de/bewertung/info_X6B7B728ADA2E4B7E3824C64752E45CDD.html?page=2"
+  },
+  {
+   "rank": 7,
+   "title": "Warum Trusted Shops?",
+   "url": "https://www.trustedshops.de/company/mito_light_europe_s_r_o_/"
+  },
+  {
+   "rank": 8,
+   "title": "MITO LIGHT® Europe Reviews 397",
+   "url": "https://ca.trustpilot.com/review/mitolight.com"
+  },
+  {
+   "rank": 9,
+   "title": "Support universel Mito Red (vertical ou horizontal)",
+   "url": "https://mitoredlight.com/fr-ca/collections/accessories"
+  }
+ ],
+ "summary": "Reviews of MITO LIGHT red light devices are mostly positive, with some caveats.\n\n- **Independent review:** Wareable rated the MITO LIGHT Starter 5.0 at 4.2/5 and called it a strong stationary device for skin and muscle recovery. Its drawbacks were that it isn't portable and costs more. The reviewer listed a $699 price range, 630-850nm wavelengths, and a 4.2/5 rating.\n- **Trustpilot (MITO LIGHT Europe):** Reviews are mostly five-star and praise build quality, delivery, and customer service. Many replies come from the company itself.\n- **Trusted Shops (Germany):** About 479 reviews, averaging 4.73/5. Customers often praise build quality and fast, well-packed delivery, and find the devices easy to set up and use. Criticism is occasional and focuses on customer service, packaging condition, and the gooseneck arm being hard to handle. The site's summary of these reviews is AI-generated.\n- **Health claims:** A Czech government response concerning the MITO LIGHT 3.0 said it is not registered as a medical device in the national registry. Its manual bars claims of diagnosing, treating, or preventing any disease.\n\nMost of this is customer or vendor-sourced, so treat the praise with some caution. Wareable's claim that the product line is FDA-cleared is the reviewer's own statement and I didn't verify it.",
+ "id": "brand-04",
+ "group": "brand",
+ "persona": "",
+ "purpose": "Co lidé najdou, když hledají recenze"
+}

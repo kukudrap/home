@@ -1,0 +1,64 @@
+{
+ "query": "Mito Red Light red light therapy panel benefits",
+ "query_sent": "Mito Red Light red light therapy panel benefits",
+ "allowed_domains": [
+  "mitoredlight.com"
+ ],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:31:25Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "Red Light Therapy Before and After Examples",
+   "url": "https://mitoredlight.com/pages/before-and-after"
+  },
+  {
+   "rank": 2,
+   "title": "Red Light Therapy Devices - Panels, Masks & Portable",
+   "url": "https://mitoredlight.com/collections/red-light-therapy"
+  },
+  {
+   "rank": 3,
+   "title": "MitoMEGA 2.0",
+   "url": "https://mitoredlight.com/products/mitomega"
+  },
+  {
+   "rank": 4,
+   "title": "Mito Red Light",
+   "url": "https://mitoredlight.com/products/mito-red-light-therapy-pod"
+  },
+  {
+   "rank": 5,
+   "title": "MitoPRO+ Red Light Therapy Panels",
+   "url": "https://mitoredlight.com/products/mitopro-series"
+  },
+  {
+   "rank": 6,
+   "title": "MitoADAPT 4.0 Red Light Therapy Panel - IEC 60601 Medical Grade",
+   "url": "https://mitoredlight.com/products/mitoadapt-series"
+  },
+  {
+   "rank": 7,
+   "title": "Medical Grade Red Light Therapy at Home: Panels & Devices",
+   "url": "https://mitoredlight.com/"
+  },
+  {
+   "rank": 8,
+   "title": "Light therapy wearable",
+   "url": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11103722"
+  },
+  {
+   "rank": 9,
+   "title": "Light therapy wearable",
+   "url": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11130000"
+  }
+ ],
+ "summary": "Most of the results come from Mito Red Light's own marketing pages, so treat the benefit claims as vendor assertions rather than independent findings.\n\n**Claimed benefits:**\n- **Skin:** The company says its panels can stimulate fibroblasts to support collagen production, which it presents as addressing fine lines and loss of elasticity. One of the most appreciated benefits of red light therapy is its ability to help support collagen production in the skin by stimulating fibroblasts.\n- **Hair:** The site says the helmets are FDA cleared for supporting hair growth. That's a specific regulatory claim, and I didn't verify it against FDA records.\n- **Sleep:** The company claims red light use before bed can help you fall asleep faster and improve sleep depth. One user review on a MitoMEGA page describes better sleep, but that's anecdotal.\n- **Muscle, joints, and recovery:** The company says its near-infrared wavelengths reach muscle, joint, and circulatory tissue that red light alone cannot access. A separate patent background cites studies linking red and infrared light to reduced muscle and joint soreness, though those are general background statements rather than Mito-specific results.\n\n**Wavelengths and products:** Mito panels typically emit 660nm red and 850nm near-infrared. All Mito Red Light panels emit both 660nm and 850nm simultaneously. The MitoPRO+ line uses four wavelengths (630, 660, 830, and 850nm), and the company says that design drives enhanced efficacy by delivering increased light energy at the parts of the spectra which maximize cytochrome c oxidase activation. The MitoPOD is a portable full-body unit with a peak irradiance of 30 mW/cm² at the surface.\n\n**Usage guidance:** One company FAQ snippet mentions 5 sessions per week at 10-15 minutes per session for skin health, but the text was cut off, so I can't confirm the full protocol.\n\n**Caveats:** The product pages include vendor-written claims, such as the \"clinically validated\" wording on the MitoPOD page. Independent, peer-reviewed evidence for the specific benefits varies by application, and the search didn't surface independent trials of these particular panels.",
+ "id": "site-mitored",
+ "group": "brandsite",
+ "persona": "",
+ "purpose": "Co zveřejňuje Mito Red Light (USA)"
+}

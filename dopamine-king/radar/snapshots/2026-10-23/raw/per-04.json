@@ -1,0 +1,62 @@
+{
+ "query": "biohacking červené světlo",
+ "query_sent": "biohacking červené světlo",
+ "allowed_domains": [],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:23:41Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "Biohacking, longevity a moderní zdraví",
+   "url": "https://www.newstream.cz/enjoy/biohacking-terapie-cervenym-svetlem"
+  },
+  {
+   "rank": 2,
+   "title": "Biohacking, longevity a moderní zdraví",
+   "url": "https://www.newstream.cz/stitek/cervene-svetlo"
+  },
+  {
+   "rank": 3,
+   "title": "Využívajú ho biohackeri, podnikatelia aj športovci. Účinná „červená“ terapia má skryté benefity",
+   "url": "https://www.startitup.sk/?p=873094"
+  },
+  {
+   "rank": 4,
+   "title": "Světlo je hack budoucnosti, říká Vít Schlesinger. Jeho infračervené panely si pořídila i fotbalová Sparta a Slavia",
+   "url": "https://cc.cz/svetlo-je-hack-budoucnosti-rika-vit-schlesinger-jeho-infracervene-panely-si-poridila-i-fotbalova-sparta-a-slavia/"
+  },
+  {
+   "rank": 5,
+   "title": "95 biohacking tech chapters",
+   "url": "https://juraj.bednar.io/assets/podcast/95-biohacking-tech-chapters.json"
+  },
+  {
+   "rank": 6,
+   "title": "Unlocking the Secrets of Biohacking: A Comprehensive Guide",
+   "url": "https://biohacking.enfermeriabuenosaires.com/health-wellness/unlocking-the-secrets-of-biohacking-a-comprehensive-guide"
+  },
+  {
+   "rank": 7,
+   "title": "edinamag.com",
+   "url": "https://edinamag.com/?p=1988"
+  },
+  {
+   "rank": 8,
+   "title": "What Is Biohacking? Benefits, Examples, and More",
+   "url": "https://mitoredlight.com/blogs/mito-red-blog/what-is-biohacking"
+  },
+  {
+   "rank": 9,
+   "title": "What Is Biohacking? Benefits, Examples, and More",
+   "url": "https://mitoredlight.com/en-ca/blogs/mito-red-blog/what-is-biohacking"
+  }
+ ],
+ "summary": "Výsledky hledání k tématu „biohacking červené světlo“ jsou převážně česká a slovenská média a také zahraniční blogy výrobců.\n\n**Co zdroje říkají o účinnosti:** Podle serveru Newstream má terapie červeným světlem nejsilnější klinická data u bolesti, hojení a některých dermatologických indikací. U spánku a kognitivních funkcí jsou důkazy méně přesvědčivé. Stejný zdroj uvádí, že rozsáhlé systematické přehledy ukazují efekt pro chronickou bolest krku, osteoartrózu kolene a tenisový loket.\n\n**Mechanismus:** Zdroje obvykle uvádějí, že světlo podle všeho ovlivňuje mitochondrie. Newstream píše, že světlo je zachycováno mimo jiné cytochrom-c-oxidázou v mitochondriích, což může ovlivnit tvorbu ATP. Používané vlnové délky jsou zhruba od 600 do 1100 nanometrů.\n\n**Dermatologie:** Newstream uvádí, že u kůže je dobře doložena stimulace produkce kolagenu, zlepšení textury pleti, hojení ran a léčba androgenní alopecie, pro kterou existuje povolení amerického Úřadu pro kontrolu potravin a léčiv (FDA).\n\n**Historie:** Slovenský Startitup připomíná, že terapie vznikla z výzkumu NASA. Podle něj červené světlo vyliečilo kožné lézie u vedcov, což vedlo k dalšímu výzkumu.\n\n**Pozor na marketing:** Článek Startitupu je sponzorovaný a vyznívá silně prodejně. Blog firmy Mito Red Light, která prodává panely, tvrdí, že má silné důkazy pro řadu využití včetně spánku a kognitivních funkcí. Tento závěr je v rozporu s opatrnějším hodnocením Newstreamu, takže je třeba brát zdroje výrobců s rezervou.\n\nShrnutí: terapie má solidní podporu u bolesti, hojení a kůže, zatímco tvrzení o spánku, mozku a obecném „anti-agingu“ jsou méně doložená.",
+ "id": "per-04",
+ "group": "persona",
+ "persona": "biohacker",
+ "purpose": "Biohackeři: biohacking"
+}

@@ -1,0 +1,62 @@
+{
+ "query": "červené světlo mitochondrie",
+ "query_sent": "červené světlo mitochondrie",
+ "allowed_domains": [],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:23:49Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "cesi objevuji terapii cervenym svetlem roste z ni dalsi miliardovy byznys",
+   "url": "https://forbes.cz/cesi-objevuji-terapii-cervenym-svetlem-roste-z-ni-dalsi-miliardovy-byznys/"
+  },
+  {
+   "rank": 2,
+   "title": "Slibuje mladší pleť, hustší vlasy i pomoc při Alzheimerovi. Co všechno ale červené světlo opravdu umí?",
+   "url": "https://cc.cz/slibuje-mladsi-plet-hustsi-vlasy-i-pomoc-pri-alzheimerovi-co-vsechno-ale-cervene-svetlo-opravdu-umi/"
+  },
+  {
+   "rank": 3,
+   "title": "Využívajú ho biohackeri, podnikatelia aj športovci. Účinná „červená“ terapia má skryté benefity",
+   "url": "https://www.startitup.sk/?p=873094"
+  },
+  {
+   "rank": 4,
+   "title": "Novel super-resolution capable mitochondrial probe, MitoRed AIE, enables assessment of real-time molecular mitochondrial dynamics",
+   "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4974624/"
+  },
+  {
+   "rank": 5,
+   "title": "Nanofluidic platform for single mitochondria analysis",
+   "url": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/8895312"
+  },
+  {
+   "rank": 6,
+   "title": "Biohacking, longevity a moderní zdraví",
+   "url": "https://www.newstream.cz/enjoy/biohacking-terapie-cervenym-svetlem"
+  },
+  {
+   "rank": 7,
+   "title": "Selection of red fluorescent protein for genetic labeling of mitochondria and intercellular transfer of viable mitochondria",
+   "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9674635/"
+  },
+  {
+   "rank": 8,
+   "title": "Scientific Reports (Nov 2022)",
+   "url": "https://doaj.org/article/0f0e13b9c1cf441d9f1f77ebb05f2879"
+  },
+  {
+   "rank": 9,
+   "title": "Modulating inter-mitochondrial contacts to increase membrane potential for mitigating blue light damage",
+   "url": "https://www.biorxiv.org/content/10.1101/2025.10.24.684455.full.pdf"
+  }
+ ],
+ "summary": "The search mostly returned Czech and Slovak articles about red-light therapy, plus some lab papers on mitochondria that don't concern light.\n\n- **Proposed mechanism:** Red and near-infrared light is thought to be absorbed by cytochrome c oxidase in mitochondria, part of the cell's respiratory chain. That may boost ATP production and trigger signaling linked to oxidative stress, inflammation, and tissue repair. Light is thought to be captured by cytochrome-c-oxidase in mitochondria, which is part of the cellular respiratory chain. This may affect ATP production and also trigger other cell signaling processes linked to oxidative stress, inflammation and tissue repair. (Newstream.cz)\n- **Penetration:** Longer wavelengths generally reach deeper into tissue, though depth depends on both wavelength and tissue type (Newstream.cz, index 6-3).\n- **Evidence:** A Czech-language CzechCrunch piece says the best-supported effects are in dermatology, such as collagen stimulation and treatment of androgenetic alopecia (FDA-cleared), and cites reviews on chronic neck pain, knee osteoarthritis and tennis elbow (Newstream.cz, index 6-4 and 6-5). Cognitive benefits are less well established (index 6-8).\n- **Caveats:** Several sources are commercial or promotional (Forbes.cz, CC.cz and StartITup.sk discuss a booming market). The CC.cz article presents the mitochondrial explanation as a mainstream claim, but I found no independent confirmation of the strongest claims in these results.\n- **Off-topic results:** The bioRxiv and PMC papers concern blue light and fluorescent mitochondrial probes, not therapeutic red light.",
+ "id": "per-05",
+ "group": "persona",
+ "persona": "biohacker",
+ "purpose": "Biohackeři: mitochondrie"
+}

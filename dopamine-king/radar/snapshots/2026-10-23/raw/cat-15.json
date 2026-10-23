@@ -1,0 +1,62 @@
+{
+ "query": "kde koupit panel s červeným světlem",
+ "query_sent": "kde koupit panel s červeným světlem",
+ "allowed_domains": [],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:23:21Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "Skupina produktů:",
+   "url": "https://www.drmax.cz/cbd-star-red-light-panel-300-w-terapie-cervenym-svetlem"
+  },
+  {
+   "rank": 2,
+   "title": "sociallifemagazine.com",
+   "url": "https://sociallifemagazine.com/?p=40951"
+  },
+  {
+   "rank": 3,
+   "title": "what to look for when choosing your first red light therapy panel",
+   "url": "https://sociallifemagazine.com/the-archive/what-to-look-for-when-choosing-your-first-red-light-therapy-panel/"
+  },
+  {
+   "rank": 4,
+   "title": "16528 jaky panel pro terapii cervenym a near infra red svetlem",
+   "url": "https://www.poradte.cz/nejen-pro-zeny/16528-jaky-panel-pro-terapii-cervenym-a-near-infra-red-svetlem.html"
+  },
+  {
+   "rank": 5,
+   "title": "red light mask vs panel",
+   "url": "https://www.monitorbp.ne.gov/post/red-light-mask-vs-panel"
+  },
+  {
+   "rank": 6,
+   "title": "red light therapy panels",
+   "url": "https://havenofheat.com/collections/red-light-therapy-panels"
+  },
+  {
+   "rank": 7,
+   "title": "Indikátor pro montáž do panelu 14mm Prominentní barva Červená, typ žárovky: LED Pájecí plíšek, 12V ac/dc RS PRO",
+   "url": "https://cz.rs-online.com/web/p/indikatory-pro-montaz-do-panelu/0205296"
+  },
+  {
+   "rank": 8,
+   "title": "Best Red Light Panels - Lighting Your Way",
+   "url": "https://do2.dr-chuck.com/?p=64400"
+  },
+  {
+   "rank": 9,
+   "title": "red 8mm panel indicator 220v",
+   "url": "https://pro.maplin.co.uk/products/red-8mm-panel-indicator-220v"
+  }
+ ],
+ "summary": "Nejlépe vyhovují výsledky z českých prodejců a diskuse, ale ceny i dostupnost ověřte přímo u prodejce.\n\n- **Dr.Max:** Prodávají panel Red Light Panel 300 W, který kombinuje červené, infračervené a blízké infračervené světlo. Je určen pro wellness a kosmetické použití jako doplněk každodenní péče o tělo a pokožku. Na stránce je také uvedeno, že není zdravotnický prostředek.\n- **Mito Light a Lighthacker:** Diskuse na poradte.cz srovnává dva české nabízené panely. Mito Light Starter 3.0 stojí podle příspěvku 12 900 Kč a Lighthacker Gold 18 800 Kč. Uživatel také zmiňuje, že Mito Light Starter 4.0 stojí 15 900 Kč. Ceny pochází z diskuse, takže nejsou aktuální.\n- **Na co se zaměřit:** Před koupí doporučuji zkontrolovat rozměry, hmotnost, připojení k elektřině a montážní příslušenství. Ochrana očí, délka sezení, citlivost na světlo a interakce s léky také stojí za pozornost.\n\nVýsledky také obsahovaly nerelevantní položky, například panely pro fotografy nebo indikátory pro montáž do panelu. Hledal jsem jen jednou, takže případně nabídky dalších českých e-shopů nejsou zahrnuty.",
+ "id": "cat-15",
+ "group": "category",
+ "persona": "",
+ "purpose": "Nákup"
+}

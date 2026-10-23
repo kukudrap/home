@@ -1,0 +1,62 @@
+{
+ "query": "terapie červeným světlem účinky",
+ "query_sent": "terapie červeným světlem účinky",
+ "allowed_domains": [],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:22:39Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "Hlavní obsah",
+   "url": "https://www.seznamzpravy.cz/clanek/magazin-zivotni-styl-posvitte-si-cervene-proc-v-cervenem-svetle-jedou-sportovci-herci-i-astronauti-265068"
+  },
+  {
+   "rank": 2,
+   "title": "cesi objevuji terapii cervenym svetlem roste z ni dalsi miliardovy byznys",
+   "url": "https://forbes.cz/cesi-objevuji-terapii-cervenym-svetlem-roste-z-ni-dalsi-miliardovy-byznys/"
+  },
+  {
+   "rank": 3,
+   "title": "Biohacking, longevity a moderní zdraví",
+   "url": "https://www.newstream.cz/enjoy/biohacking-terapie-cervenym-svetlem"
+  },
+  {
+   "rank": 4,
+   "title": "dwn.alza.cz",
+   "url": "https://dwn.alza.cz/manual/160634"
+  },
+  {
+   "rank": 5,
+   "title": "2385920 terapie cervenym svetlem 1 3 nebo 5 navstev",
+   "url": "https://www.slevomat.cz/akce/2385920-terapie-cervenym-svetlem-1-3-nebo-5-navstev"
+  },
+  {
+   "rank": 6,
+   "title": "900076 kolagenova terapia horuca novinka pre omladenie tela a obnovu pokozky",
+   "url": "https://www.zlavomat.sk/akcia/900076-kolagenova-terapia-horuca-novinka-pre-omladenie-tela-a-obnovu-pokozky?mainImageId=8093510"
+  },
+  {
+   "rank": 7,
+   "title": "900076 kolagenova terapia horuca novinka pre omladenie tela a obnovu pokozky",
+   "url": "https://www.zlavomat.sk/akcia/900076-kolagenova-terapia-horuca-novinka-pre-omladenie-tela-a-obnovu-pokozky"
+  },
+  {
+   "rank": 8,
+   "title": "859204 kolagenova terapia horuca novinka pre omladenie tela a obnovu pokozky",
+   "url": "https://www.zlavomat.sk/akcia/859204-kolagenova-terapia-horuca-novinka-pre-omladenie-tela-a-obnovu-pokozky"
+  },
+  {
+   "rank": 9,
+   "title": "Červené světlo, jak funguje terapie lampou?",
+   "url": "https://www.drmax.cz/zeptejte-se-lekarnika/cervene-svetlo-jak-funguje-terapie-lampou"
+  }
+ ],
+ "summary": "The search returned mostly Czech consumer and news pages, with a few clinical notes. Claims are claimed benefits, and the evidence quality varies by use.\n\n- **Evidence strength varies.** One Czech biohacking article says the strongest clinical data cover pain relief, healing support and some skin conditions. Evidence for sleep and cognitive effects is weaker Nejvíce klinických dat máme například pro léčbu bolesti, podporu hojení a některé dermatologické indikace, zatímco u spánku nebo kognitivních funkcí jsou důkazy zatím méně přesvědčivé.\n- **Wavelengths.** The same article says the typical range is about 600-1100 nm, covering visible red and near-infrared light (vlnové délky přibližně od 600 do 1100 nanometrů).\n- **Mechanism.** Forbes.cz reports that red light acts on mitochondria, the cell's energy producers (Červené světlo působí na mitochondrie). Forbes.cz also reports claims of better skin quality, better sleep and mood, and serotonin effects, but these are presented as unproven claims rather than established findings (Terapie červeným světlem údajně prospěšně působí na kvalitu kůže).\n- **Origin story.** Popular accounts say NASA researchers noticed faster wound and lesion healing in experiments on plants and cells, which led to interest in human use (Na účinky červeného světla na lidské tělo se přišlo náhodou, když americká NASA zkoumala, jak diody s červeným světlem působí na rostliny ve vesmíru.).\n- **Realistic expectations and safety.** A Dr. Max pharmacist answer says effects tend to be gradual and mild and depend on regular use. It also says red light does not replace dermatological treatment. It is considered safe when used correctly, but people with skin disease, photosensitising medication, or uncertainty should consult a doctor first (Účinek bývá pozvolný a mírný a závisí na pravidelnosti používání i individuální reakce pokožky. Červené světlo nenahrazuje dermatologickou léčbu, ani jinou léčbu a nelze jej považovat za řešení všech kožních, či jiných problémů. Při správném použití se považuje za bezpečné). The same answer warns that some skin serums can increase light sensitivity, so they should be applied after light therapy.\n- **Commercial context.** Most results are sales or promotional pages, including salon vouchers, LED masks and home panels. Their claims are marketing, not clinical evidence.\n\nSources are mostly popular or commercial. I found no systematic review or official health-authority statement in this search, so a follow-up search for clinical trials or a review would be needed to confirm the strength of the evidence.",
+ "id": "cat-02",
+ "group": "category",
+ "persona": "",
+ "purpose": "Co lidé chtějí vědět o účincích"
+}

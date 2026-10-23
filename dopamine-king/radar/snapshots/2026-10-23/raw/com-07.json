@@ -1,0 +1,67 @@
+{
+ "query": "červený světelný panel e-shop",
+ "query_sent": "červený světelný panel e-shop",
+ "allowed_domains": [],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:24:52Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "Skupina produktů:",
+   "url": "https://www.drmax.cz/cbd-star-red-light-panel-300-w-terapie-cervenym-svetlem"
+  },
+  {
+   "rank": 2,
+   "title": "red light therapy panels",
+   "url": "https://havenofheat.com/collections/red-light-therapy-panels"
+  },
+  {
+   "rank": 3,
+   "title": "Picture 1 of 1",
+   "url": "https://www.ebay.com/itm/291549937217"
+  },
+  {
+   "rank": 4,
+   "title": "nanoleaf red light therapy panel.oembed",
+   "url": "https://directcomputers.co.uk/fr/products/nanoleaf-red-light-therapy-panel.oembed"
+  },
+  {
+   "rank": 5,
+   "title": "svitilna cervena",
+   "url": "https://www.reimo.com/cs/camping-shop/elektrika-pro-mobilni-domy-baterie/svetlo-vozidla-jokon/23537/svitilna-cervena"
+  },
+  {
+   "rank": 6,
+   "title": "www.ebay.de",
+   "url": "https://www.ebay.de/itm/376422688410"
+  },
+  {
+   "rank": 7,
+   "title": "Red Lights",
+   "url": "https://cpc.farnell.com/c/electrical-lighting/lighting/red-light/prl/results/16"
+  },
+  {
+   "rank": 8,
+   "title": "ykoliron red light panel with 60pcs dual chips leds 660nm 850nm near infrared red light lamps for body and face 10 20 30min timer 5 brightness for home office gym white c",
+   "url": "https://www.ypc.co.uk/product/ykoliron-red-light-panel-with-60pcs-dual-chips-leds-660nm-850nm-near-infrared-red-light-lamps-for-body-and-face-10-20-30min-timer-5-brightness-for-home-office-gym-white-c/"
+  },
+  {
+   "rank": 9,
+   "title": "Indikátor pro montáž do panelu 14mm Prominentní barva Červená, typ žárovky: LED Pájecí plíšek, 12V ac/dc RS PRO",
+   "url": "https://cz.rs-online.com/web/p/indikatory-pro-montaz-do-panelu/0205296"
+  },
+  {
+   "rank": 10,
+   "title": "www.ebay.de",
+   "url": "https://www.ebay.de/itm/236288520675"
+  }
+ ],
+ "summary": "The search returned one Czech e-shop listing for a red light panel and several international ones. Most results are not relevant.\n\n- **Dr. Max (Czech Republic):** The closest match is the Red Light Panel 300 W, which combines red, infrared and near-infrared LEDs and is marketed for wellness and cosmetic use. It has a compact design with a stand and is described as non-invasive and contactless.\n- **Other listings:** Haven Of Heat sells red light therapy panels, but it is a US store with US-focused shipping. A Nanoleaf red light therapy panel appears on a UK retailer's page, where the thumbnail is marked \"Coming Soon.\" A 60-LED, 660nm/850nm panel with timer and brightness settings is listed on a UK-facing marketplace page.\n- **Off-topic results:** The Reimo, RS Online and Farnell results are car lights, indicator lamps and LED components, not light therapy panels.\n\nThe results do not show prices or stock for the Czech listing, so check the Dr. Max page directly if you need those.",
+ "id": "com-07",
+ "group": "competitor",
+ "persona": "",
+ "purpose": "Kde se panely prodávají"
+}

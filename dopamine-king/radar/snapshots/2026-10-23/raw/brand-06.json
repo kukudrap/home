@@ -1,0 +1,67 @@
+{
+ "query": "Mito Light nebo Mito Red Light",
+ "query_sent": "Mito Light nebo Mito Red Light",
+ "allowed_domains": [],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:22:23Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "store.lifespa.com",
+   "url": "https://store.lifespa.com/product/mitoredlight/"
+  },
+  {
+   "rank": 2,
+   "title": "mito red light therapy review",
+   "url": "https://wareable.com/health-tech/mito-red-light-therapy-review"
+  },
+  {
+   "rank": 3,
+   "title": "MitoGREEN Oct2024",
+   "url": "https://mitoredlight.com/cdn/shop/files/MitoGREEN_Oct2024.pdf"
+  },
+  {
+   "rank": 4,
+   "title": "MitoMobile PRO 4",
+   "url": "https://mitoredlight.com/cdn/shop/files/MitoMobile_PRO_4.pdf"
+  },
+  {
+   "rank": 5,
+   "title": "MitoMobile PRO 3",
+   "url": "https://mitoredlight.com/cdn/shop/files/MitoMobile_PRO_3.pdf"
+  },
+  {
+   "rank": 6,
+   "title": "Super Mobile 1",
+   "url": "https://mitoredlight.com/cdn/shop/files/Super_Mobile_1.pdf"
+  },
+  {
+   "rank": 7,
+   "title": "red light therapy for beginners",
+   "url": "https://mitoredlight.com/fr-ca/blogs/mito-red-blog/red-light-therapy-for-beginners"
+  },
+  {
+   "rank": 8,
+   "title": "MitoPRO+ Series - Advanced Red & Near Infrared Light Therapy",
+   "url": "https://mitoredlight.com/blogs/mito-red-blog/mitopro-series-learn"
+  },
+  {
+   "rank": 9,
+   "title": "brandsearch.co",
+   "url": "https://brandsearch.co/brands/mitoredlight.com"
+  },
+  {
+   "rank": 10,
+   "title": "mitoredlight.com",
+   "url": "https://mitoredlight.com/"
+  }
+ ],
+ "summary": "The results suggest \"Mito Light\" is a product name, and \"Mito Red Light\" is the company that makes it. I found no separate brand called Mito Light.\n\n- **Company:** Located in Scottsdale, Arizona, Mito Red Light® is dedicated to bringing the highest powered, highest quality red light therapy lights to market at the best possible value.\n- **\"Mito Light\" product:** A Wareable review covers the MITO LIGHT Starter 5.0, listed at $699 (varies by panel size), with 630-850nm wavelengths. The reviewer calls it a panel that suits full-body home therapy. The same review says the company has an extensive, FDA-cleared product line. I could not verify that FDA claim from the other results.\n- **Regulatory status:** Mito's own manuals say Mito Red Lights are general wellness devices and are not intended to cure or diagnose any medical conditions.\n- **Other lines:** The company's site lists products such as the MitoADAPT 4.0, with 8 wavelengths and eleven modes, plus MitoPRO, MitoPOD and MitoMIN panels, which appear in customer reviews on its site.\n\nIf you meant a specific device, the search results don't say which one. Tell me the model name, or I can search for that product's specs and price.",
+ "id": "brand-06",
+ "group": "brand",
+ "persona": "",
+ "purpose": "Zda se naše značka plete s americkou Mito Red Light"
+}

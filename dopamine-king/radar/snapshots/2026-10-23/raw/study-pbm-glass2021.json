@@ -1,0 +1,62 @@
+{
+ "query": "Photobiomodulation: The Clinical Applications of Low-Level Light Therapy",
+ "query_sent": "Photobiomodulation: The Clinical Applications of Low-Level Light Therapy",
+ "allowed_domains": [],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:27:07Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "Immunomodulatory effects of photobiomodulation: a comprehensive review",
+   "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11991943/"
+  },
+  {
+   "rank": 2,
+   "title": "From light to healing: photobiomodulation therapy in medical disciplines",
+   "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12751248/"
+  },
+  {
+   "rank": 3,
+   "title": "Photobiomodulation: The Clinical Applications of Low-Level Light Therapy",
+   "url": "https://www.hairlosstalk.com/interact/threads/photobiomodulation-the-clinical-applications-of-low-level-light-therapy.131004"
+  },
+  {
+   "rank": 4,
+   "title": "photobiomodulation the clinical applications of low level light therapy recykj6iwdcc2qtem",
+   "url": "https://rrmacademy.org/library/photobiomodulation-the-clinical-applications-of-low-level-light-therapy-recykj6iwdcc2qtem/"
+  },
+  {
+   "rank": 5,
+   "title": "pmc.ncbi.nlm.nih.gov",
+   "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11991943/"
+  },
+  {
+   "rank": 6,
+   "title": "s10103 025 04417 8",
+   "url": "https://link.springer.com/article/10.1007/s10103-025-04417-8"
+  },
+  {
+   "rank": 7,
+   "title": "Low-Level Light Therapy",
+   "url": "https://profiles.ucdenver.edu/display/219804"
+  },
+  {
+   "rank": 8,
+   "title": "nl.go.kr",
+   "url": "https://dbpia.nl.go.kr/asj/article/41/6/739/6153988"
+  },
+  {
+   "rank": 9,
+   "title": "www.bioinformation.net",
+   "url": "https://www.bioinformation.net/021/973206300214203.pdf"
+  }
+ ],
+ "summary": "The search turned up the 2021 review by Glass in *Aesthetic Surgery Journal* (vol. 41, no. 6, pp. 724-739), along with several related papers and a commentary on it. I didn't reach the full text, so the points below come from the abstract-level excerpts and secondary citations.\n\n- **Scope of the original review:** The review looked at clinical literature on skin rejuvenation, acne, wound healing, body contouring, and androgenic alopecia. Its methods covered the use of low level light therapy for skin rejuvenation (facial rhytids and dyschromias), acne vulgaris, wound healing, body contouring and androgenic alopecia.\n- **Main conclusion:** The evidence was mixed. Body contouring had the strongest support. A reasonable body of clinical trial evidence supports low-energy red/near-infrared light as a safe and effective option for skin rejuvenation, acne and alopecia, and especially body contouring. Weaknesses included methodologic flaws, small patient cohorts, and industry funding.\n- **Mechanism:** Red and near-infrared light is believed to act on mitochondria, increasing ATP production, cell signaling, and growth factor synthesis while reducing oxidative stress (the absorption of red/near-infrared light energy, a process termed \"photobiomodulation,\" enhances mitochondrial ATP production, cell signaling, and growth factor synthesis, and attenuates oxidative stress.).\n- **Regulation and commercialization:** The review also addressed the regulatory framework. A commentary on it notes that the US Food and Drug Administration has deemed its power level low and safe enough for medical uses.\n- **Open questions:** The review noted that it remains unclear if light-emitting diode sources induce physiologic effects of comparable nature and magnitude to those of the laser-based systems used in most of the higher-quality studies.\n\nNewer reviews (2025) describe the field as broader, covering immunomodulation and dentistry, and note that dosing is still not standardized. One of them says translation from preclinical evidence to consistent clinical outcomes remains constrained by non-standardized dosimetry, inconsistent energy delivery, and heterogeneous study endpoints.",
+ "id": "study-pbm-glass2021",
+ "group": "study",
+ "persona": "",
+ "purpose": "Ověření studie z registru: seed:pbm-glass2021"
+}

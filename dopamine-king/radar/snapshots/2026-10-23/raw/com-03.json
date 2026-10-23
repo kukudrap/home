@@ -1,0 +1,62 @@
+{
+ "query": "Glow RL300 panel červené světlo",
+ "query_sent": "Glow RL300 panel červené světlo",
+ "allowed_domains": [],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:24:34Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "SmartVisionLights RL300-625",
+   "url": "https://graftek.com/?p=9466"
+  },
+  {
+   "rank": 2,
+   "title": "Smart Vision Lights",
+   "url": "https://marketing.dev.machinevisiondirect.com/products/lighting/product/RL300-625"
+  },
+  {
+   "rank": 3,
+   "title": "marketing.dev.machinevisiondirect.com",
+   "url": "https://marketing.dev.machinevisiondirect.com/products/lighting/bright-field-ring-lights/rl/rl300"
+  },
+  {
+   "rank": 4,
+   "title": "Spiral Suns RLT 300 Panel",
+   "url": "https://cdn.shopify.com/s/files/1/0819/8583/1239/files/Spiral_Suns_RLT_300_Panel.pdf"
+  },
+  {
+   "rank": 5,
+   "title": "Video Chat with a Lighting Expert - Live",
+   "url": "https://www.bhphotovideo.com/c/product/1399577-REG/lumos_glow_panel_led_400c.html"
+  },
+  {
+   "rank": 6,
+   "title": "Skupina produktů:",
+   "url": "https://www.drmax.cz/cbd-star-red-light-panel-300-w-terapie-cervenym-svetlem"
+  },
+  {
+   "rank": 7,
+   "title": "Back to Top",
+   "url": "https://meshkati.sa/en/gl-pl102-40.html"
+  },
+  {
+   "rank": 8,
+   "title": "Banner Green, Red, Yellow Glow Lamp Indicator Lamp, 10 → 30V, 50mm Diameter",
+   "url": "https://ie.rs-online.com/web/p/indicator-lamps/0294478"
+  },
+  {
+   "rank": 9,
+   "title": "LED3000 RL Illuminatore ad anello a LED compatto per un'illuminazione uniforme",
+   "url": "https://www.leica-microsystems.com/it/prodotti/accessori/p/leica-led3000-rl/downloads"
+  }
+ ],
+ "summary": "The search didn't find a product called \"Glow RL300.\" The results point to two different things, and neither is clearly the one you mean.\n\n- **Smart Vision Lights RL300 (industrial):** This is a machine-vision ring light, and the red version is the 625 nm model. One listing describes it as a Red (625 nm) LED Ring Light with 128 High Current LEDs and a footprint of 396 × 306 × 45 mm. Another says the RL300-625 features a lens beam angle of 30 Degree. Price varies by seller. One lists it at $2,029.00, and another at $2,345.\n- **Red light panel for skin care (Czech retail):** Dr. Max sells a Red Light Panel 300 W that uses red, infrared, and near-infrared light. It is intended for wellness and cosmetic use as an add-on to daily skin and body care. This is probably not the same product as \"Glow RL300,\" but it is a consumer red-light panel sold in Czech Republic.\n\nNothing I found links \"Glow\" to the RL300 name. If you meant a consumer red-light therapy panel, the brand name, a product photo, or the retailer would help narrow it down. I can run another search on that.",
+ "id": "com-03",
+ "group": "competitor",
+ "persona": "",
+ "purpose": "Konkurent Glow"
+}

@@ -1,0 +1,67 @@
+{
+ "query": "MITO LIGHT panel červené světlo",
+ "query_sent": "MITO LIGHT panel červené světlo",
+ "allowed_domains": [],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:22:09Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "16528 jaky panel pro terapii cervenym a near infra red svetlem",
+   "url": "https://www.poradte.cz/nejen-pro-zeny/16528-jaky-panel-pro-terapii-cervenym-a-near-infra-red-svetlem.html"
+  },
+  {
+   "rank": 2,
+   "title": "Více Mito Light produktu",
+   "url": "https://www.heureka.cz/znacky/mito-light/"
+  },
+  {
+   "rank": 3,
+   "title": "Find your panel",
+   "url": "https://mitoredlight.com/collections/commercial-products"
+  },
+  {
+   "rank": 4,
+   "title": "Find your panel",
+   "url": "https://mitoredlight.com/pages/partners"
+  },
+  {
+   "rank": 5,
+   "title": "Find your panel",
+   "url": "https://mitoredlight.com/pages/popia"
+  },
+  {
+   "rank": 6,
+   "title": "Find your panel",
+   "url": "https://mitoredlight.com/en-ca/pages/partners"
+  },
+  {
+   "rank": 7,
+   "title": "Find your panel",
+   "url": "https://mitoredlight.com/fr-ca/pages/community"
+  },
+  {
+   "rank": 8,
+   "title": "Find your panel",
+   "url": "https://mitoredlight.com/pages/red-light-therapy-face-neck"
+  },
+  {
+   "rank": 9,
+   "title": "Find your panel",
+   "url": "https://mitoredlight.com/en-ca/collections/best-red-light-therapy-for-skin"
+  },
+  {
+   "rank": 10,
+   "title": "Find your panel",
+   "url": "https://mitoredlight.com/pages/contact-us"
+  }
+ ],
+ "summary": "The search turned up a Czech forum thread comparing MITO LIGHT panels, a Heureka brand listing, and some results for a different company's products.\n\n- **Forum comparison (poradte.cz):** A user weighing home red and near-infrared panels listed the MITO LIGHT Starter 3.0 at 72 x 5 W (360 W total), 130 mW/cm2 at 15 cm, wavelengths 660, 670, 830, 850 nm, priced at 12 900 Kč. The Starter 4.0 is priced at 15 900 Kč and adds two more wavelengths (630 and 810 nm). A competing Lighthacker Gold was priced at 18 800 Kč, with a higher power output but only two wavelengths.\n- **Wavelength trade-off:** Commenters noted that the cheaper 3.0 model lacks the 630 and 810 nm wavelengths. The thread asks whether the difference between 630 and 660 nm matters in practice, and I found no answer to that.\n- **Product range (Heureka):** Heureka lists many MITO LIGHT models, including Starter 5.0, Expert 5.0, Biohacker 5.0, Master 5.0 and Intro red and infrared panels, plus bulbs and glasses.\n- **Caution:** The mitoredlight.com pages are for a US company called Mito Red, with product lines such as MitoPRO and MitoPOD. They appear unrelated to the Czech MITO LIGHT brand, so don't treat their prices or specs as applying to MITO LIGHT.\n\nI did not check current Czech prices, stock, or independent test results, so verify those on the official MITO LIGHT site or the retailers before buying.",
+ "id": "brand-03",
+ "group": "brand",
+ "persona": "",
+ "purpose": "Značka a produkt dohromady"
+}

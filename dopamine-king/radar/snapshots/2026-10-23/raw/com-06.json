@@ -1,0 +1,62 @@
+{
+ "query": "Joovv Česko",
+ "query_sent": "Joovv Česko",
+ "allowed_domains": [],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:24:46Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "Czech Republic%E2%80%93Vietnam relations",
+   "url": "https://en.wikipedia.org/wiki/Czech_Republic%E2%80%93Vietnam_relations"
+  },
+  {
+   "rank": 2,
+   "title": "Videotéka Joj Play aktivovala geoblokaci pro Česko",
+   "url": "https://www.mediaguru.cz/videoteka-joj-play-aktivovala-geoblokaci-pro-cesko"
+  },
+  {
+   "rank": 3,
+   "title": "Czech-filmed comedy Jojo Rabbit gets six Oscar nominations, animated short Dcera earns one",
+   "url": "https://www.expats.cz/czech-news/tag/czech-culture/53"
+  },
+  {
+   "rank": 4,
+   "title": "Autor textu MediaGuru",
+   "url": "https://www.mediaguru.cz/2016/08/tv-joj-vstoupi-na-cesky-trh-se-stanici-joj-family/"
+  },
+  {
+   "rank": 5,
+   "title": "Česká republika",
+   "url": "https://www.finmag.cz/tema/ceska-republika"
+  },
+  {
+   "rank": 6,
+   "title": "git.openstreetmap.org",
+   "url": "https://git.openstreetmap.org/nominatim.git/blob_plain/b366b9df6fc2cdcd637cb1e35d1128c3ece2d16f:/settings/country-names/cz.yaml"
+  },
+  {
+   "rank": 7,
+   "title": "mzh.moegirl.org.cn",
+   "url": "https://mzh.moegirl.org.cn/%E6%8D%B7%E5%85%8B(%E5%9B%BD%E5%AE%B6)"
+  },
+  {
+   "rank": 8,
+   "title": "Number of the records: 1",
+   "url": "https://arl.ujep.cz/arl-ujep/en/detail-ujep_us_auth-0221924-Prirodni-rezervace-Jouglovka-cesko"
+  },
+  {
+   "rank": 9,
+   "title": "zh.moegirl.org.cn",
+   "url": "https://zh.moegirl.org.cn/%E6%8D%B7%E5%85%8B(%E5%9B%BD%E5%AE%B6)"
+  }
+ ],
+ "summary": "The search didn't turn up anything about Joovv (the red light therapy device maker) in the Czech Republic. The results were about other topics:\n\n- **Czech country background:** Česko is the Czech name for the Czech Republic, a country in Central Europe with Prague as its capital. Česká republika, také známá jako Česko, je země ve střední Evropě.\n- **Joj media group:** Several results covered the Slovak Joj TV group and its geoblocking in the Czech Republic. These are unrelated to Joovv.\n- **Other results:** Czech-Vietnam relations, a Czech nature reserve, and a Jojo Rabbit film note also came up, but none mention Joovv.\n\nA more specific query, such as \"Joovv red light therapy Czech distributor\" or \"Joovv Czechia retailer,\" might surface relevant results.",
+ "id": "com-06",
+ "group": "competitor",
+ "persona": "",
+ "purpose": "Konkurent Joovv"
+}

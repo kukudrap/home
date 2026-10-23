@@ -1,0 +1,69 @@
+{
+ "query": "jak používat",
+ "query_sent": "jak používat",
+ "allowed_domains": [
+  "mitolight.cz"
+ ],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:25:07Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "Často kladené otázky",
+   "url": "https://www.mitolight.cz/casto-kladene-otazky/"
+  },
+  {
+   "rank": 2,
+   "title": "Jak funguje terapie červeným a blízkým infračerveným světlem?",
+   "url": "https://www.mitolight.cz/jak-funguje-terapie-cervenym-a-infracervenym-svetlem/"
+  },
+  {
+   "rank": 3,
+   "title": "Účinky červeného světla s vědeckými studiemi",
+   "url": "https://www.mitolight.cz/ucinky-a-studie/"
+  },
+  {
+   "rank": 4,
+   "title": "Červená a infračervená žárovka MITO LIGHT® Bulb 5.0",
+   "url": "https://www.mitolight.cz/mito-light-bulb-5-0/"
+  },
+  {
+   "rank": 5,
+   "title": "Síla světla: rychlejší regenerace a vyšší výkon bez chemie",
+   "url": "https://www.mitolight.cz/blog/sila-svetla-rychlejsi-regenerace-vyssi-vykon-bez-chemie/"
+  },
+  {
+   "rank": 6,
+   "title": "Jak funguje terapie červeným světlem",
+   "url": "https://mitolight.cz/jak-to-funguje"
+  },
+  {
+   "rank": 7,
+   "title": "Zdravější a hladší pleť díky využití světla MITO LIGHT®",
+   "url": "https://www.mitolight.cz/blog/zdravejsi-a-hladsi-plet-diky-vyuziti-svetla/"
+  },
+  {
+   "rank": 8,
+   "title": "Vliv světla na sportovní výkon a regeneraci",
+   "url": "https://www.mitolight.cz/blog/zvysovani-sportovniho-vykonu-a-podpora-regenerace-pomoci-svetla/"
+  },
+  {
+   "rank": 9,
+   "title": "Blog MITO LIGHT®",
+   "url": "https://www.mitolight.cz/blog/"
+  },
+  {
+   "rank": 10,
+   "title": "Terapie červeným a infračerveným světlem MITO LIGHT®",
+   "url": "https://www.mitolight.cz/"
+  }
+ ],
+ "summary": "Výsledky hledání \"jak používat\" (česky \"how to use\") jsou skoro všechny o terapii červeným světlem od výrobce MITO LIGHT. Pokud jste hledali něco jiného, napište mi, o jaký produkt nebo téma jde.\n\n- **Délka a vzdálenost:** Výrobce doporučuje vzdálenost zhruba 15-50 cm a 10-20 minut na jednu osvícenou partii. Dlouhé sezení podle něj nemá smysl, protože účinek klesá ([zdroj](https://www.mitolight.cz/jak-funguje-terapie-cervenym-a-infracervenym-svetlem/)).\n- **Častost:** Doporučuje se denní použití, a když to nejde, alespoň třikrát týdně ([zdroj](https://www.mitolight.cz/casto-kladene-otazky/)).\n- **Ochrana a citlivost:** Ochranné brýle výrobce doporučuje, ale většina zákazníků podle něj jen zavírá oči. Lidem s citlivýma očima se brýle doporučují ([zdroj](https://www.mitolight.cz/ucinky-a-studie/)).\n- **Přepínání režimů u žárovky Bulb 5.0:** Vypnutím a zapnutím během 10 sekund se přepíná mezi režimy. Přepínání jde také přes mobilní aplikaci ([zdroj](https://www.mitolight.cz/jak-funguje-terapie-cervenym-a-infracervenym-svetlem/)).\n- **Používání u sportu:** Terapie se podle výrobce hodí před tréninkem i po něm ([zdroj](https://www.mitolight.cz/blog/sila-svetla-rychlejsi-regenerace-vyssi-vykon-bez-chemie/)).\n- **Večer:** Večer se doporučuje používat jen neviditelné NIR spektrum, které podle výrobce nenarušuje spánek ([zdroj](https://www.mitolight.cz/casto-kladene-otazky/)).\n\nVšechna tato doporučení pocházejí od jednoho výrobce a není to nezávislý zdroj. U citlivé pokožky, léků (například antibiotik) nebo dětí výrobce sám doporučuje poradit se s lékařem.",
+ "id": "own-03",
+ "group": "own",
+ "persona": "",
+ "purpose": "Které stránky mitolight.cz vyhledávač zná (návody)"
+}

@@ -1,0 +1,62 @@
+{
+ "query": "Welzo red light therapy panel",
+ "query_sent": "Welzo red light therapy panel",
+ "allowed_domains": [],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:24:39Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "Welzo Max Red Light Therapy Full Body Panel - Professional Max Version 5",
+   "url": "https://welzo.com/products/red-light-panel-600w"
+  },
+  {
+   "rank": 2,
+   "title": "Welzo RadiantPanel Pro - Full-Body Red & Infrared Light Therapy System",
+   "url": "https://welzo.com/products/welzo-radiantpanel-pro-full-body-red-infrared-light-therapy-system"
+  },
+  {
+   "rank": 3,
+   "title": "Ultimate Max Red Light Therapy Full Body Panel 1000W - Elite 6",
+   "url": "https://welzo.com/products/high-dose-max-red-light-therapy-full-body-panel-professional"
+  },
+  {
+   "rank": 4,
+   "title": "\"Very quick delivery. Used 3 times, each order arrived the next day before 12:00\"",
+   "url": "https://welzo.com/products/red-light-panel-medium"
+  },
+  {
+   "rank": 5,
+   "title": "Welzo Max Red Light Therapy Full Body Panel - Professional Max verze 5",
+   "url": "https://welzo.com/cs-eu/products/welzo-max-red-light-therapy-full-body-panel-professional-max-verze-5"
+  },
+  {
+   "rank": 6,
+   "title": "Ultimate Max Red Light Therapy Full Body Panel 1000W - Elite 6",
+   "url": "https://welzo.com/products/high-dose-max-red-light-therapy-full-body-panel-professional-max-version-5-copy"
+  },
+  {
+   "rank": 7,
+   "title": "Przenośny panel czerwonego światła Welzo ProMax klasy klinicznej",
+   "url": "https://welzo.com/pl-eu/products/przenosny-panel-czerwonego-swiatla-welzo-promax-klasy-klinicznej"
+  },
+  {
+   "rank": 8,
+   "title": "Welzo ProMax Clinical Grade Portable Red Light Panel",
+   "url": "https://welzo.com/products/welzo-promax-clinical-grade-portable-red-light-panel"
+  },
+  {
+   "rank": 9,
+   "title": "red light",
+   "url": "https://welzo.com/it-eu/collections/red-light"
+  }
+ ],
+ "summary": "Welzo sells several red light therapy panels, and the search returned only its own product pages, so the claims below are marketing copy, not independent testing.\n\n- **Welzo Max (600W, \"Professional Max Version 5\"):** It pairs 660nm red and 850nm near-infrared light, which the page says are combined in a 1:1 ratio. The page says it is meant to revitalise skin, reduce joint pain, and support faster recovery. The listing includes customer reviews praising next-day delivery and customer service. One reviewer says they have used Welzo for over a year.\n- **Welzo Ultimate Max 1000W (Elite 6):** It also uses 660nm and 850nm. The page says the 660nm light targets the skin's surface for collagen and wrinkles, and the 850nm light reaches deeper tissue for recovery. One product listing shows a sale price of £379.99, down from £999.00.\n- **Welzo RadiantPanel Pro (model RB-037):** This panel uses five wavelengths: 630, 660, 810, 850, and 1060 nm, with 160 LEDs. It is described as certified under UKCA standards, and it can be wall-mounted or free-standing.\n- **Welzo ProMax Clinical Grade Portable (SR-A60):** It is a portable unit with a 120W power output and wavelengths of 630, 660, 810, 830, and 850nm. The listing is priced at £299.00, down from £499.00. The product page says it is not waterproof and should not be used in bathroom environments.\n\nThe product pages say the products are intended for wellness and recovery use only and are not intended to diagnose, treat, cure or prevent any disease. Several pages also show different prices and model names for similar-looking products, so check the current listing on welzo.com before buying.",
+ "id": "com-02",
+ "group": "competitor",
+ "persona": "",
+ "purpose": "Konkurent Welzo"
+}

@@ -487,6 +487,23 @@ def cmd_audit(args: argparse.Namespace) -> int:
     return worst
 
 
+def cmd_radar(args: argparse.Namespace) -> int:
+    """Market picture from real web search results: collect them, check them, build the report page."""
+    from .radar import collect as rc
+    plan = rc.load_plan(args.plan)
+    snapshot = Path(args.snapshot)
+    if args.radar_cmd == "collect":
+        only = set(args.only.split(",")) if args.only else None
+        summary = rc.collect(plan, snapshot, only=only, jobs=args.jobs, model=args.model, force=args.force,
+                             log=lambda line: print(line, file=sys.stderr))
+        manifest = rc.write_manifest(snapshot, plan)
+        print(f"stored {summary['stored']} of {summary['requested']} new searches; the snapshot holds {manifest['records']} of {manifest['planned']}")
+        for qid, err in summary["errors"].items():
+            print(f"  failed {qid}: {err}", file=sys.stderr)
+        return 1 if summary["errors"] else 0
+    raise SystemExit(f"unknown radar command {args.radar_cmd!r}")
+
+
 def cmd_visibility(args: argparse.Namespace) -> int:
     from .generate.visibility import AnswerRecord, analyze_answers
     raw = json.loads(Path(args.answers).read_text("utf-8"))
@@ -749,6 +766,15 @@ def build_parser() -> argparse.ArgumentParser:
     s.add_argument("answers"), s.add_argument("--brand", required=True), s.add_argument("--competitors"), s.add_argument("--domains")
     s.add_argument("--lang", default="en", choices=["en", "cs"]), s.add_argument("--json", action="store_true")
     s.set_defaults(fn=cmd_visibility)
+
+    s = sub.add_parser("radar", help="market picture from real web search results (collect, build)")
+    rs = s.add_subparsers(dest="radar_cmd", required=True)
+    x = rs.add_parser("collect", help="run the planned searches through the logged-in Claude Code and store what they return")
+    x.add_argument("--plan", default=str(ROOT / "radar" / "plan.json"))
+    x.add_argument("--snapshot", required=True, help="folder of this collection, for example radar/snapshots/2026-10-23")
+    x.add_argument("--only", help="comma separated query ids; default: all that are not stored yet")
+    x.add_argument("--jobs", type=int, default=4), x.add_argument("--model", default="haiku"), x.add_argument("--force", action="store_true")
+    s.set_defaults(fn=cmd_radar)
 
     s = sub.add_parser("serve", help="run the game with the local API")
     s.add_argument("--host", default="127.0.0.1"), s.add_argument("--port", type=int, default=8765)

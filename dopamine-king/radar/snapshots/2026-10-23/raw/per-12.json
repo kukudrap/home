@@ -1,0 +1,62 @@
+{
+ "query": "panel červené světlo 660 nm 850 nm",
+ "query_sent": "panel červené světlo 660 nm 850 nm",
+ "allowed_domains": [],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:24:11Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "dwn.alza.cz",
+   "url": "https://dwn.alza.cz/manual/160634"
+  },
+  {
+   "rank": 2,
+   "title": "Skupina produktů:",
+   "url": "https://www.drmax.cz/sharpshape-red-light-panel-300"
+  },
+  {
+   "rank": 3,
+   "title": "Skupina produktů:",
+   "url": "https://www.drmax.cz/sharpshape-red-light-panel-200"
+  },
+  {
+   "rank": 4,
+   "title": "Welzo Max Red Light Therapy Full Body Panel - Professional Max verze 5",
+   "url": "https://welzo.com/cs-eu/products/welzo-max-red-light-therapy-full-body-panel-professional-max-verze-5"
+  },
+  {
+   "rank": 5,
+   "title": "www.ecohub.co.za",
+   "url": "https://www.ecohub.co.za/?p=20728"
+  },
+  {
+   "rank": 6,
+   "title": "Заряджаємо на навчання",
+   "url": "https://bt.rozetka.com.ua/608070167/p608070167/"
+  },
+  {
+   "rank": 7,
+   "title": "16528 jaky panel pro terapii cervenym a near infra red svetlem",
+   "url": "https://www.poradte.cz/nejen-pro-zeny/16528-jaky-panel-pro-terapii-cervenym-a-near-infra-red-svetlem.html"
+  },
+  {
+   "rank": 8,
+   "title": "Vevor Lampa Czerwone Światło 660 850 940nm Podczerwień Twarz Ciało Panel Stojak",
+   "url": "https://www.morele.net/vevor-lampa-czerwone-swiatlo-660-850-940nm-podczerwien-twarz-cialo-panel-stojak-16225832/"
+  },
+  {
+   "rank": 9,
+   "title": "Hooga HG1500 Red Light Therapy Panel",
+   "url": "https://m.reach.dog/shop/kaizen-recovery/products/hg1500"
+  }
+ ],
+ "summary": "The search turned up mostly Czech retail and product pages for 660 nm red plus 850 nm near-infrared panels, with a few from other countries.\n\n- **Common pairing:** Several products pair 660 nm red with 850 nm near-infrared. One is a 300W NeuroActive panel with 60 LEDs, which lets users run either wavelength alone or both together (It combines 660 nm red light with 850 nm near-infrared light, which can be used separately or together.). Another is the Hooga HG1500, which has 300 individual 5W LEDs and lists 660nm and 850nm wavelengths.\n- **Czech options:** A Czech forum thread compares a few home panels: a MITO LIGHT Starter 3.0 with four wavelengths (660, 670, 830, 850 nm), a MITO LIGHT Starter 4.0 with six, and a Lighthacker Gold that uses only 660 nm and 850 nm 1:1. The prices quoted are 12,900 to 18,800 Kč.\n- **Multi-wavelength alternatives:** Some panels add more wavelengths. The Alza AL1500 lists seven, including 630, 660, 810, 850 and 940 nm. Its manual says red light (630 nm, 660 nm) is aimed at collagen and skin, while near-infrared (810, 830, 850, 940 nm) is aimed at muscles and tissue. These are manufacturer claims, not independent evidence.\n- **Caveat:** Near-infrared light is invisible, so some LEDs may appear unlit while operating normally.\n\nThe search did not find independent clinical comparisons of these specific panels, so the benefit claims come from sellers and manufacturers.",
+ "id": "per-12",
+ "group": "persona",
+ "persona": "tech",
+ "purpose": "Technici: vlnové délky"
+}

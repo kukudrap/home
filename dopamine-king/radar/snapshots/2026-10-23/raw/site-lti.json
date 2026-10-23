@@ -1,0 +1,69 @@
+{
+ "query": "Light Therapy Insiders red light therapy panel review",
+ "query_sent": "Light Therapy Insiders red light therapy panel review",
+ "allowed_domains": [
+  "lighttherapyinsiders.com"
+ ],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:31:56Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "Red Light Therapy 2025 Review: What Worked, What Failed",
+   "url": "https://www.lighttherapyinsiders.com/best-red-light-therapy-products-2025-review/"
+  },
+  {
+   "rank": 2,
+   "title": "The Best Budget-Friendly Red Light Therapy Panel Review",
+   "url": "https://www.lighttherapyinsiders.com/best-budget-red-light-therapy-panel/"
+  },
+  {
+   "rank": 3,
+   "title": "Light Therapy Insiders",
+   "url": "https://www.lighttherapyinsiders.com/"
+  },
+  {
+   "rank": 4,
+   "title": "The Ultimate Red Light At Home Device Review 2024",
+   "url": "https://www.lighttherapyinsiders.com/red-light-therapy-at-home-device/"
+  },
+  {
+   "rank": 5,
+   "title": "Pulsed Red Light Therapy Panels: My Top Options!",
+   "url": "https://www.lighttherapyinsiders.com/pulsed-red-light-therapy-panels/"
+  },
+  {
+   "rank": 6,
+   "title": "Best Red Light Therapy Full-Body Panels 2024: Huge Comparison!",
+   "url": "https://www.lighttherapyinsiders.com/best-red-light-therapy-full-body-panel/"
+  },
+  {
+   "rank": 7,
+   "title": "The Most Powerful Red Light Therapy Panels Compared!",
+   "url": "https://www.lighttherapyinsiders.com/the-most-powerful-red-light-therapy-panel/"
+  },
+  {
+   "rank": 8,
+   "title": "Best Red Light Therapy Review & Comparison Content 2026",
+   "url": "https://www.lighttherapyinsiders.com/best-reviews-and-comparisons-of-light-therapy-insiders-2026/"
+  },
+  {
+   "rank": 9,
+   "title": "Sunlighten Red Light Therapy Panel Review: Powerful, But Something’s Missing",
+   "url": "https://www.lighttherapyinsiders.com/sunlighten-red-light-therapy-panel-review-powerful-but-somethings-missing/"
+  },
+  {
+   "rank": 10,
+   "title": "Top 5 Red Light Panels If Money Doesn't Matter",
+   "url": "https://www.lighttherapyinsiders.com/professional-grade-red-light-therapy/"
+  }
+ ],
+ "summary": "Light Therapy Insiders (run by Alex Fergus) has many panel reviews. The most recent ones I found:\n\n- **Sunlighten panel (newest, about a month old):** The reviewer measured about 120 mW/cm² peak and about 97 mW/cm² average at six inches, which ranked near the top of the site's wall-panel database. The $1,598 panel has surprising limitations, mainly that it has no physical controls. The reviewer says the app is polished but requires an account. Its wood-trim design is a standout.\n- **Rouge G4 (2025 picks):** It was named the best panel for 2025. The reviewer says it spreads light well, includes useful wavelengths and pulsing options, and performs reliably for close-distance use.\n- **Bestqool Pro 300 (2026):** The review covers an $810 half-body red light therapy panel. Its independent lab testing reveals disappointing results for power, coverage, and light uniformity.\n- **Rojo Refine 3600 (2024 full-body comparison):** It won overall. The reviewer described it as offering full-body coverage, advanced features like pulsing and dimming, five wavelengths, smart modes, and the ability to save custom protocols.\n- **PlatinumLED BioMax 900 (2024 home-panel comparison):** It was named the 2024 champion, with a handy remote included and a really nice app.\n\nCaveats: several of these comparisons are roughly a year old (the site's metadata marks them 384 days old), so newer models may have changed the rankings. The reviews also use the site's own point-scoring, so the rankings reflect its methodology, not an independent consensus. I didn't find any sponsorship or disclosure details in these results.",
+ "id": "site-lti",
+ "group": "brandsite",
+ "persona": "",
+ "purpose": "Co zveřejňuje Light Therapy Insiders (médium)"
+}

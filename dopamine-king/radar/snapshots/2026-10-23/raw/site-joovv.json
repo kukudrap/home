@@ -1,0 +1,64 @@
+{
+ "query": "Joovv red light therapy panel benefits",
+ "query_sent": "Joovv red light therapy panel benefits",
+ "allowed_domains": [
+  "joovv.com"
+ ],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:31:26Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "Red Light Therapy for Better, Healthier Aging",
+   "url": "https://joovv.com/blogs/joovv-blog/red-light-therapy-for-better-healthier-aging"
+  },
+  {
+   "rank": 2,
+   "title": "The Benefits of Red Light Therapy Through Fall & Winter",
+   "url": "https://joovv.com/blogs/joovv-blog/the-benefits-of-red-light-therapy-through-fall-winter"
+  },
+  {
+   "rank": 3,
+   "title": "Joovv Solo 3.0",
+   "url": "https://joovv.com/products/joovv-solo-3-0"
+  },
+  {
+   "rank": 4,
+   "title": "Red Light Therapy Masks vs. Panels",
+   "url": "https://joovv.com/blogs/joovv-blog/red-light-therapy-masks-vs-panels"
+  },
+  {
+   "rank": 5,
+   "title": "Red Light Therapy Beds vs Panels",
+   "url": "https://joovv.com/blogs/joovv-blog/red-light-therapy-beds-vs-panels"
+  },
+  {
+   "rank": 6,
+   "title": "Basics of Red Light Therapy",
+   "url": "https://joovv.com/pages/basics-of-joovv"
+  },
+  {
+   "rank": 7,
+   "title": "The Go 2.0",
+   "url": "https://joovv.com/products/joovv-go-2-0"
+  },
+  {
+   "rank": 8,
+   "title": "Why Use At-Home Red Light Therapy?",
+   "url": "https://joovv.com/blogs/joovv-blog/why-use-red-light-therapy"
+  },
+  {
+   "rank": 9,
+   "title": "Red Light Therapy: Pros and Cons",
+   "url": "https://joovv.com/blogs/joovv-blog/red-light-therapy-pros-and-cons"
+  }
+ ],
+ "summary": "The search turned up mostly Joovv's own marketing pages, so the claims below are the company's, not independent findings.\n\n- **Whole-body coverage:** Joovv's panels are much larger than LED masks and cover the whole body rather than just the face LED panel devices like Joovv are much larger than LED masks, and they deliver wavelengths of red and NIR light across the entire body.\n- **Claimed benefits:** Joovv lists skin health, joint pain and inflammation relief, circulation, sleep, and fitness recovery Red light therapy has proven to be an effective treatment for skin health & rejuvenation, joint pain & inflammation relief, improved circulation, enhanced sleep, better fitness & recovery. The company also says light therapy can improve blood flow after treatment (One of the potential benefits of light therapy is a significant increase in blood circulation following treatment sessions.).\n- **Sleep and mood:** Joovv's Ambient Mode uses low-intensity red light as an alternative to bright blue light in the morning and evening (Joovv's Ambient Mode offers a solution to combat the prevalence of disruptive bright blue light by utilizing low-intensity red light.). The company also cites studies on infrared light and seasonal affective disorder symptoms (Scientific studies have showcased the efficacy of infrared light in diminishing SAD symptoms.), but gives no specifics.\n- **Usage:** Joovv recommends 10 minutes per treatment area.\n- **Customer reports:** The product pages include testimonials, such as one user reporting that helps with soreness, depression and I have noticed under neck skin has tighten some too. Anecdotes like these are not controlled evidence.\n\nThe results don't include independent clinical trials on Joovv panels specifically. The one study mentioned, a 2019 case study with Bristlecone Medical, is described only in Joovv's own blog, and its findings are reported without detail.",
+ "id": "site-joovv",
+ "group": "brandsite",
+ "persona": "",
+ "purpose": "Co zveřejňuje Joovv (USA)"
+}

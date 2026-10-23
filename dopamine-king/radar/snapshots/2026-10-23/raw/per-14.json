@@ -1,0 +1,62 @@
+{
+ "query": "panel červené světlo vlnové délky srovnání parametrů",
+ "query_sent": "panel červené světlo vlnové délky srovnání parametrů",
+ "allowed_domains": [],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:24:22Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "dwn.alza.cz",
+   "url": "https://dwn.alza.cz/manual/160634"
+  },
+  {
+   "rank": 2,
+   "title": "Skupina produktů:",
+   "url": "https://www.drmax.cz/sharpshape-red-light-panel-200"
+  },
+  {
+   "rank": 3,
+   "title": "Skupina produktů:",
+   "url": "https://www.drmax.cz/sharpshape-red-light-panel-300"
+  },
+  {
+   "rank": 4,
+   "title": "Skupina produktů:",
+   "url": "https://www.drmax.cz/sharpshape-red-light-panel-1000"
+  },
+  {
+   "rank": 5,
+   "title": "hardwario.com",
+   "url": "https://stem.hardwario.com/cs/zakladni-lekce/l1107-iot-semafor/teorie"
+  },
+  {
+   "rank": 6,
+   "title": "Skupina produktů:",
+   "url": "https://www.drmax.cz/cbd-star-red-light-panel-300-w-terapie-cervenym-svetlem"
+  },
+  {
+   "rank": 7,
+   "title": "Příloha č. 1 Technická specifikace Pro kognitivní svítidlo",
+   "url": "https://skolahostivar.cz/wp-content/uploads/2020/03/Příloha-č.-1-Technická-specifikace_Pro-kognitivní-svítidlo.pdf"
+  },
+  {
+   "rank": 8,
+   "title": "monoceros.physics.muni.cz",
+   "url": "https://monoceros.physics.muni.cz/~hemzal/vyuka/2024p/aplopt2/cvicebnice.pdf"
+  },
+  {
+   "rank": 9,
+   "title": "16528 jaky panel pro terapii cervenym a near infra red svetlem",
+   "url": "https://www.poradte.cz/nejen-pro-zeny/16528-jaky-panel-pro-terapii-cervenym-a-near-infra-red-svetlem.html"
+  }
+ ],
+ "summary": "Našel jsem několik produktových stránek a pár odborných zdrojů. Porovnání je nevyrovnané, protože většina výsledků jsou prodejní popisy.\n\n**Konkrétní panely:**\n- **Alza AL1500 (1500 W):** Uvádí sedm vlnových délek od 480 do 940 nm, včetně 630 a 660 nm. Hlásí intenzitu přes 232 mW/cm² ze vzdálenosti 15 cm a životnost LED 100 000 hodin. Vlnová délka 480 nm / 630 nm / 660 nm / 810 nm / 830 nm / 850 nm / 940 nm\n- **Sharp Shape 1000 (Dr. Max):** Pracuje v rozsahu 630-1060 nm a jeho intenzita má být až 193 mW/cm². Výrobce uvádí 720 dual-chip LED. Až 193 mW/cm2 irradiance, 720 dual-chip LED. Model 200 a 300 má stejný spektrální rozsah.\n- **MITO Light Starter 3.0 vs 4.0 a Lighthacker Gold:** Diskusní vlákno na poradte.cz srovnává tyto tři panely. Starter 3.0 má čtyři vlnové délky a 360 W, Starter 4.0 šest vlnových délek za vyšší cenu a Lighthacker Gold 500 W, ale jen dvě vlnové délky (660 a 850 nm). Lighthacker je dražší, ale má větší výkon (500 W vs 360 W), ale zase jen 2 vlnové délky, což je podle diskutujících hlavní kompromis.\n\n**Obecný kontext:**\n- Počet vlnových délek sám o sobě neurčuje účinnost. Diskutující se shodli, že rozdíl mezi 630 a 660 nm je otázkou, na kterou nemají jednoznačnou odpověď.\n- Výrobci často uvádějí, že 630-670 nm má působit na povrch pokožky a 810-850 nm na hlubší tkáně. Jde ale o marketingová tvrzení bez nezávislé citace.\n- Při srovnání se vyplatí hlídat jednotky a vzdálenost, ze které je intenzita měřena (většinou 15 cm), protože čísla od různých výrobců nejsou přímo porovnatelná.\n\nPro objektivní výsledky doporučuji hledat nezávislé studie o fotobiomodulaci a testy panelů nezávislých laboratoří.",
+ "id": "per-14",
+ "group": "persona",
+ "persona": "tech",
+ "purpose": "Technici: srovnání parametrů"
+}

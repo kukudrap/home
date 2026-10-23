@@ -1,0 +1,62 @@
+{
+ "query": "jak používat panel s červeným světlem",
+ "query_sent": "jak používat panel s červeným světlem",
+ "allowed_domains": [],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:23:10Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "dwn.alza.cz",
+   "url": "https://dwn.alza.cz/manual/160634"
+  },
+  {
+   "rank": 2,
+   "title": "Welzo Max Red Light Therapy Full Body Panel - Professional Max verze 5",
+   "url": "https://welzo.com/cs-eu/products/welzo-max-red-light-therapy-full-body-panel-professional-max-verze-5"
+  },
+  {
+   "rank": 3,
+   "title": "Skupina produktů:",
+   "url": "https://www.drmax.cz/cbd-star-red-light-panel-300-w-terapie-cervenym-svetlem"
+  },
+  {
+   "rank": 4,
+   "title": "25852 manual Infracerveny LED panel inSPORTline Tugare CZ 02",
+   "url": "https://www.insportline.cz/upload/file/25852_manual_Infracerveny_LED_panel_inSPORTline_Tugare_CZ_02.pdf"
+  },
+  {
+   "rank": 5,
+   "title": "16528 jaky panel pro terapii cervenym a near infra red svetlem",
+   "url": "https://www.poradte.cz/nejen-pro-zeny/16528-jaky-panel-pro-terapii-cervenym-a-near-infra-red-svetlem.html"
+  },
+  {
+   "rank": 6,
+   "title": "27465 manual Infracerveny LED panel inSPORTline Klostar CZ 01",
+   "url": "https://www.insportline.cz/upload/file/27465_manual_Infracerveny_LED_panel_inSPORTline_Klostar_CZ_01.pdf"
+  },
+  {
+   "rank": 7,
+   "title": "Manual and Setup Guide for your Plunge Red Light Panel",
+   "url": "https://business-help.plunge.com/hc/en-us/articles/51179321477780-Manual-and-Setup-Guide-for-your-Plunge-Red-Light-Panel"
+  },
+  {
+   "rank": 8,
+   "title": "apex 1500 quick start guide",
+   "url": "https://www.irestorelaser.com/pages/apex-1500-quick-start-guide"
+  },
+  {
+   "rank": 9,
+   "title": "stylpro red light full body panel 2026464004",
+   "url": "https://mcgrocer.com/products/stylpro-red-light-full-body-panel-2026464004"
+  }
+ ],
+ "summary": "Search results are mostly product manuals and sales pages, so the steps below vary by model. Check the manual that came with your panel for exact settings.\n\n**Základní postup**\n- Panel obvykle zapnete tlačítkem napájení a nastavíte časovač. U jednoho modelu je to 0 až 30 minut, nastavení času od 1 do 30 min, změna po 1 min (inSPORTline).\n- Vlnovou délku volíte podle potřeby. Jeden výrobce nabízí tři režimy: R: Červené světlo, vlnová délka 630 nm, 660 nm; NIR: Blízké infračervené světlo, vlnová délka: 810 nm, 830 nm, 850 nm; R+NIR je kombinace červeného a blízkého infračerveného světla. Intenzitu lze obvykle nastavit posuvníkem, u jednoho modelu nastavení jasu: 1 % až 100 %.\n- Panel lze často pověsit na dveře nebo postavit na stojan. Jeden návod uvádí, že panel se zavěsí pomocí přiloženého háčku na dveře.\n- Pokud je k dispozici, můžete použít režim pulsů. U jednoho modelu se režim pulzů zapíná tlačítkem pulse, které se rozsvítí, když je aktivní.\n\n**Bezpečnost**\n- Používejte ochranné brýle. Návod uvádí: Používejte ochranu očí. Nikdy se nedívejte do diod.\n- Infračervené světlo není viditelné pouhým okem, takže nepoznáte, zda svítí.\n- Panel neslouží jako náhrada zdravotní nebo terapeutické péče.\n- Před čištěním panel vypojte ze zásuvky a kovové části otírejte navlhčeným hadříkem. Nikdy neaplikujte vodu přímo na zařízení.\n\n**Výsledky**\nVýrobci uvádějí, že červené světlo podporuje kolagen a pleť, a že NIR může pomoci se svaly a zánětem. Jde ale o tvrzení prodejců, která výsledky z výzkumu nezaručují. Pro přesné údaje si přečtěte návod ke konkrétnímu modelu nebo se poraďte s lékařem, pokud máte zdravotní potíže nebo užíváte léky.",
+ "id": "cat-12",
+ "group": "category",
+ "persona": "",
+ "purpose": "Návod k použití"
+}

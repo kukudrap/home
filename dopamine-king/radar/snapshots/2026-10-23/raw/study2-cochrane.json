@@ -1,0 +1,69 @@
+{
+ "query": "Low-level light therapy for treating venous leg ulcers Cochrane Database of Systematic Reviews",
+ "query_sent": "Low-level light therapy for treating venous leg ulcers Cochrane Database of Systematic Reviews",
+ "allowed_domains": [
+  "pubmed.ncbi.nlm.nih.gov"
+ ],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:34:00Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "A systematic review of laser therapy for venous leg ulcers - PubMed",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/10362987/?dopt=Abstract"
+  },
+  {
+   "rank": 2,
+   "title": "Laser therapy for venous leg ulcers - PubMed",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/10796615/"
+  },
+  {
+   "rank": 3,
+   "title": "Device for the treatment of mammalian tissues",
+   "url": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/7887533"
+  },
+  {
+   "rank": 4,
+   "title": "Method for the treatment of mammalian tissues",
+   "url": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/7914523"
+  },
+  {
+   "rank": 5,
+   "title": "Efficacy Study of the Application of Low Level Laser Light to Treat Venous Stasis Ulcers",
+   "url": "https://clinicaltrials.gov/study/NCT01376050"
+  },
+  {
+   "rank": 6,
+   "title": "[Venous leg ulcers: no improvement of wound healing with 685-nm low level laser therapy. Randomised, placebo-controlled, double-blind study] - PubMed",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/15580451/"
+  },
+  {
+   "rank": 7,
+   "title": "Low-level Light Therapy on Treatment of Venous Ulcers Assesed by Nursing Outcome Classification (NOC)",
+   "url": "https://clinicaltrials.gov/study/NCT03229330"
+  },
+  {
+   "rank": 8,
+   "title": "Does low output laser stimulation enhance the healing of crural ulceration? Some critical remarks - PubMed",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/12376047/"
+  },
+  {
+   "rank": 9,
+   "title": "Low-level laser therapy in the treatment of pressure ulcers: systematic review - PubMed",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/28116536/"
+  },
+  {
+   "rank": 10,
+   "title": "Low-level laser therapy for treatment of venous ulcers evaluated with the Nursing Outcome Classification: study protocol for a randomized controlled trial",
+   "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6044085/"
+  }
+ ],
+ "summary": "The Cochrane review is by Flemming and Cullum, \"Laser therapy for venous leg ulcers\" (CD001182). Its earlier 2000 version found no evidence of any benefit associated with low level laser therapy on venous leg ulcer healing. The 2014 update (CD001182.pub2) is listed in the same record. One trial in that review reported a difference: significantly more ulcers completely healed in the group receiving a combination of laser and infrared light compared with non-coherent, unpolarised red light. The review's authors called this one small study and said more research is needed.\n\nThe search did not return the full 2014 text, so I can't confirm its final conclusions. The record also shows a \"WITHDRAWN\" label near the 2000 entry, and I couldn't tell from these results what that refers to. Check the Cochrane Library directly for the current status and conclusions of CD001182.pub2.\n\nOther results were individual trials, not the Cochrane review. A 2005 randomized, placebo-controlled trial of 685-nm therapy found no statistically significant differences in reduction of wound size between the three groups.",
+ "id": "study2-cochrane",
+ "group": "study",
+ "persona": "",
+ "purpose": "Druhé ověření studie z registru (jen PubMed): doi:10.1002/14651858.cd013061.pub2"
+}

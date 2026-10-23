@@ -1,0 +1,62 @@
+{
+ "query": "červené světlo bolest kloubů",
+ "query_sent": "červené světlo bolest kloubů",
+ "allowed_domains": [],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:24:06Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "Možnost použití infračerveného světla",
+   "url": "https://www.drmax.cz/zeptejte-se-lekarnika/monost-pouit-infraervenho-svtla"
+  },
+  {
+   "rank": 2,
+   "title": "Artróza kyčelního kloubu",
+   "url": "https://www.drmax.cz/zeptejte-se-lekarnika/artroza-kycelniho-kloubu4"
+  },
+  {
+   "rank": 3,
+   "title": "Červené světlo, jak funguje terapie lampou?",
+   "url": "https://www.drmax.cz/zeptejte-se-lekarnika/cervene-svetlo-jak-funguje-terapie-lampou"
+  },
+  {
+   "rank": 4,
+   "title": "Biohacking, longevity a moderní zdraví",
+   "url": "https://www.newstream.cz/enjoy/biohacking-terapie-cervenym-svetlem"
+  },
+  {
+   "rank": 5,
+   "title": "An image of a woman using red light therapy on her joints",
+   "url": "https://www.solawave.co/blogs/red-light-therapy/red-light-therapy-for-joint-pain-everything-to-know"
+  },
+  {
+   "rank": 6,
+   "title": "Téma: klouby",
+   "url": "https://www.blesk.cz/tag/klouby/2"
+  },
+  {
+   "rank": 7,
+   "title": "Bolest kloubů - rizikové faktory a prevence",
+   "url": "https://www.drmax.cz/clanky/bolest-kloubu-rizikove-faktory-a-prevence"
+  },
+  {
+   "rank": 8,
+   "title": "dobry denudelal se mi cervenybolestivy flek na spodni casti lytka",
+   "url": "https://www.drmax.cz/zeptejte-se-lekarnika/dobry-denudelal-se-mi-cervenybolestivy-flek-na-spodni-casti-lytka"
+  },
+  {
+   "rank": 9,
+   "title": "cesi objevuji terapii cervenym svetlem roste z ni dalsi miliardovy byznys",
+   "url": "https://forbes.cz/cesi-objevuji-terapii-cervenym-svetlem-roste-z-ni-dalsi-miliardovy-byznys/"
+  }
+ ],
+ "summary": "The search returned mixed results on red light therapy for joint pain. Most of the evidence is about general light therapy, not joint-specific trials.\n\n- **Systematic reviews:** One article says large systematic reviews show an effect for chronic neck pain, knee osteoarthritis, and tennis elbow (Rozsáhlé systematické přehledy ukazují efekt pro chronickou bolest krku, osteoartrózu kolene a tenisový loket.).\n- **Mechanism:** Pharmacists at Dr. Max describe red light as acting on cell mitochondria, which may help dampen inflammation (Hlavním mechanismem je stimulace mitochondrií (energetických center buněk). Světlo aktivuje buňky, aby produkovaly více energie (ATP)). They also note that its effects are generally gradual and mild and depend on regular use (Účinek bývá pozvolný a mírný a závisí na pravidelnosti používání i individuální reakce pokožky.).\n- **Limits:** The same source says red light does not replace medical treatment, and people with skin conditions or photosensitizing medication should consult a doctor first (pokud máte kožní onemocnění, užíváte léky zvyšující citlivost na světlo nebo si nejste jisti jeho vhodností, doporučuji poradit se s lékařem).\n- **Commercial sources:** A Forbes Czech piece on the boom in red light therapy is promotional in tone, quoting clinic operators, and makes broader wellness claims without joint-specific evidence (Terapie červeným světlem dokáže doslova během patnácti až třiceti minut probudit buňky v těle k životu.).\n- **Infrared heat:** Pharmacist answers about infrared lamps for hip osteoarthritis describe general warming and muscle-relaxing effects, which is a different modality from red light (Infračervené světlo proniká hluboko pod kůži a podporuje prokrvení a prohřívání tkání.).\n\nOverall, there is some research suggesting benefit for certain joint conditions, such as knee osteoarthritis, but the search results do not establish how strong or consistent that benefit is. Anyone with significant joint pain should discuss options with a doctor. I did not find results on specific dosing or device parameters for joints.",
+ "id": "per-11",
+ "group": "persona",
+ "persona": "everyday",
+ "purpose": "Běžní lidé: klouby (rizikové téma)"
+}

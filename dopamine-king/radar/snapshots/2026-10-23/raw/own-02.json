@@ -1,0 +1,69 @@
+{
+ "query": "MITO LIGHT panel",
+ "query_sent": "MITO LIGHT panel",
+ "allowed_domains": [
+  "mitolight.cz"
+ ],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:25:00Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "Červený a infračervený panel MITO LIGHT® Biohacker 4.0",
+   "url": "https://www.mitolight.cz/mito-light-biohacker-4-0/"
+  },
+  {
+   "rank": 2,
+   "title": "Červený a infračervený panel MITO LIGHT® Expert 5.0",
+   "url": "https://www.mitolight.cz/mito-light-expert-5-0/"
+  },
+  {
+   "rank": 3,
+   "title": "Generace 5.0 - Terapie červeným světlem - mito light",
+   "url": "https://www.mitolight.cz/generace-5-0/"
+  },
+  {
+   "rank": 4,
+   "title": "Červený a infračervený panel MITO LIGHT® Mitohacker 4.0",
+   "url": "https://www.mitolight.cz/mito-light-mitohacker-4-0/"
+  },
+  {
+   "rank": 5,
+   "title": "Červený a infračervený panel MITO LIGHT® Mitohacker 5.0",
+   "url": "https://www.mitolight.cz/mito-light-mitohacker-5-0/"
+  },
+  {
+   "rank": 6,
+   "title": "Červený a infračervený panel MITO LIGHT® Expert 4.0",
+   "url": "https://www.mitolight.cz/mito-light-expert-4-0/"
+  },
+  {
+   "rank": 7,
+   "title": "Červený a infračervený panel MITO LIGHT® Intro",
+   "url": "https://www.mitolight.cz/mito-light-intro/"
+  },
+  {
+   "rank": 8,
+   "title": "Červený a infračervený panel MITO LIGHT® Starter 5.0",
+   "url": "https://www.mitolight.cz/mito-light-starter-5-0/"
+  },
+  {
+   "rank": 9,
+   "title": "Červený a infračervený panel MITO LIGHT® Master 5.0",
+   "url": "https://www.mitolight.cz/mito-light-master-5-0/"
+  },
+  {
+   "rank": 10,
+   "title": "Často kladené otázky",
+   "url": "https://www.mitolight.cz/casto-kladene-otazky/"
+  }
+ ],
+ "summary": "The search returned product pages from MITO LIGHT's official Czech site (mitolight.cz). They describe a line of red and near-infrared light therapy panels, and the content is mostly marketing copy.\n\n- **Product range:** The lineup includes Intro, Starter 5.0, Expert 5.0, Master 5.0, Biohacker 4.0, and Mitohacker 4.0 and 5.0 models. The pages list the Intro as the entry-level option and the Master 5.0 as the largest panel, with 990 LEDs and dimensions of 183 × 53 cm.\n- **Specs:** Several pages list six wavelengths (630, 660, 670, 810, 830 and 850 nm) and a 30° beam angle. The Expert 5.0 is rated at 140 mW/cm² at 15 cm.\n- **Modes and controls:** Most current models offer RED, NIR, or combined modes, plus a timer. The 5.0 generation adds a touchscreen and a companion app.\n- **Prices:** The listed prices are in Czech crowns (Kč), ranging from about 7,900 Kč for the Intro to 98,900 Kč for the Master 5.0. Some pages show discounted prices, so these may be promotional.\n- **Claims:** The pages make health and cosmetic claims, such as collagen support and muscle recovery. I did not find independent or clinical evidence in these results, so treat those claims as the manufacturer's own.",
+ "id": "own-02",
+ "group": "own",
+ "persona": "",
+ "purpose": "Které stránky mitolight.cz vyhledávač zná (produkt)"
+}

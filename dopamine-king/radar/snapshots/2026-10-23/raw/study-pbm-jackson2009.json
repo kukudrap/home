@@ -1,0 +1,62 @@
+{
+ "query": "Low-level laser therapy as a non-invasive approach for body contouring: a randomized, controlled study",
+ "query_sent": "Low-level laser therapy as a non-invasive approach for body contouring: a randomized, controlled study",
+ "allowed_domains": [],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:26:51Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "Study of Low Level Laser Therapy for Body Contouring",
+   "url": "https://clinicaltrials.gov/study/NCT00738426"
+  },
+  {
+   "rank": 2,
+   "title": "digitalcommons.lsu.edu",
+   "url": "https://digitalcommons.lsu.edu/biosci_pubs/4197"
+  },
+  {
+   "rank": 3,
+   "title": "Efficacy of low-level laser therapy for body contouring and spot fat reduction",
+   "url": "https://repository.lsu.edu/biosci_pubs/4197"
+  },
+  {
+   "rank": 4,
+   "title": "pmc.ncbi.nlm.nih.gov",
+   "url": "https://pmc.ncbi.nlm.nih.gov/articles/5225499"
+  },
+  {
+   "rank": 5,
+   "title": "low level laser effective reducing upper arm circumference",
+   "url": "https://mdedge.com/content/low-level-laser-effective-reducing-upper-arm-circumference"
+  },
+  {
+   "rank": 6,
+   "title": "efficacy of low level laser therapy for body contouring and spot fat reduction",
+   "url": "https://nutrition-evidence.com/article/158365/efficacy-of-low-level-laser-therapy-for-body-contouring-and-spot-fat-reduction"
+  },
+  {
+   "rank": 7,
+   "title": "sharon worcester",
+   "url": "https://live.mdedge.com/authors/sharon-worcester?page=147"
+  },
+  {
+   "rank": 8,
+   "title": "AJCS D 12 00048.1",
+   "url": "https://https-sage-cnpereading-com-443.webvpn1.xju.edu.cn/doi/10.5992/AJCS-D-12-00048.1"
+  },
+  {
+   "rank": 9,
+   "title": "Aesthetic Dermatology",
+   "url": "https://jhm.qa00.mdedge.com/dermatology/article/57443/aesthetic-dermatology/low-level-laser-effective-reducing-upper-arm"
+  }
+ ],
+ "summary": "I couldn't find a paper with that exact title. The closest match is a 2011 study in *Obesity Surgery* by Caruso-Davis and colleagues, which may be the intended one. Other randomized trials of low-level laser for body contouring also exist.\n\n- **Closest match (Caruso-Davis et al., 2011):** Forty adults were randomized 1:1 to laser or control, and their waists were treated for 30 minutes twice weekly over four weeks. Cumulative girth loss after 4 weeks was −2.15 cm (−0.78 ± 2.82 vs. 1.35 ± 2.64 cm for the control group, p < 0.05). Blinded reviewers of standardized photos also rated the laser group as showing cosmetic improvement. The authors also reported in vitro work suggesting the laser increases fat release from adipocytes without causing lysis or lipolysis.\n- **Upper-arm sham-controlled trial (Nestor, presented at a dermatology meeting):** In a study of 62 patients, 58% of 31 patients randomized to receive three, 20-minute treatments each week for 2 weeks, compared with 3% of 31 patients randomized to receive sham treatments reached a reduction of at least 1.25 cm. The presenter disclosed consulting and research funding from Erchonia, the device maker.\n- **Registered trial:** ClinicalTrials.gov lists NCT00738426, a double-blind, placebo-controlled randomized evaluation of the Erchonia ML Scanner on waist, hip, and thigh contouring, run by the manufacturer. Its status is listed as completed, with a start date of 2007-10 and primary completion of 2008-06.\n- **Green-light variant:** A double-blind, sham-controlled study of a 532 nm device used active (n = 35) or sham LLLT treatments (n = 32) over a 2-week period.\n\nMost of these trials are small, and several were funded or run by the device maker. Confirm the exact title and full results against the original publications before relying on them.",
+ "id": "study-pbm-jackson2009",
+ "group": "study",
+ "persona": "",
+ "purpose": "Ověření studie z registru: seed:pbm-jackson2009"
+}

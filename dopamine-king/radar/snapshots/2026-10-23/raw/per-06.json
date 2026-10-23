@@ -1,0 +1,62 @@
+{
+ "query": "terapie červeným světlem longevity",
+ "query_sent": "terapie červeným světlem longevity",
+ "allowed_domains": [],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:23:51Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "Red light therapy for longevity and healthspan",
+   "url": "https://longevity.technology/news/red-light-therapy-for-longevity-and-healthspan/"
+  },
+  {
+   "rank": 2,
+   "title": "Follow Us:",
+   "url": "https://charleston.com/charleston-insider/health-beauty/how-red-light-therapy-supports-longevity"
+  },
+  {
+   "rank": 3,
+   "title": "Are the Results From Red Light Therapy Permanent?",
+   "url": "https://mitoredlight.com/en-ca/blogs/mito-red-blog/is-red-light-therapy-permanent"
+  },
+  {
+   "rank": 4,
+   "title": "- The Longevity Code",
+   "url": "https://thelongevitycode.beehiiv.com/p/the-therapy-that-does-nothing-while-doing-everything"
+  },
+  {
+   "rank": 5,
+   "title": "www.johnharris.at",
+   "url": "https://www.johnharris.at/en/wellbeing/longevity.html"
+  },
+  {
+   "rank": 6,
+   "title": "a lot of longevity strategies are snake oil but two hacks may have something to them",
+   "url": "https://abc17news.com/cnn-health/2026/04/18/a-lot-of-longevity-strategies-are-snake-oil-but-two-hacks-may-have-something-to-them/"
+  },
+  {
+   "rank": 7,
+   "title": "a lot of longevity strategies are snake oil but two hacks may have something to them",
+   "url": "https://ktvz.com/health/cnn-health/2026/04/18/a-lot-of-longevity-strategies-are-snake-oil-but-two-hacks-may-have-something-to-them/"
+  },
+  {
+   "rank": 8,
+   "title": "a lot of longevity strategies are snake oil but two hacks may have something to them",
+   "url": "https://kvia.com/health/cnn-health/2026/04/18/a-lot-of-longevity-strategies-are-snake-oil-but-two-hacks-may-have-something-to-them/"
+  },
+  {
+   "rank": 9,
+   "title": "light therapy for longevity",
+   "url": "https://stillmanmd.substack.com/p/light-therapy-for-longevity"
+  }
+ ],
+ "summary": "Výsledky ukazují, že o red light therapy (terapie červeným světlem) pro dlouhověkost se hodně píše, ale důkazy jsou slabší, než naznačují komerční zdroje.\n\n**Mechanismus:** Podle zdrojů světlo ovlivňuje mitochondrie a zvyšuje tvorbu ATP, tedy buněčné energie. Jeden zdroj popisuje, že cytochrom c oxidáza absorbuje světlo a nastartuje tvorbu ATP (Cytochrome c oxidase absorbs the light, kickstarting the production of ATP). Expert z Buffala ale uvádí, že to není známo s jistotou.\n\n**Co je podložené nejlépe:** Podle dermatoložky ze Stanfordu vědecké důkazy stále více podporují účinek na kvalitu pleti a růst vlasů. Pro hlubší tkáně je podle zdroje CNN potřeba ještě více dat. Studie na chronickou bolest, Parkinsonovu a Alzheimerovu chorobu teprve probíhají (Studie se zabývají i dalšími možnými přínosy, jako je léčba chronické bolesti, Parkinsonovy nemoci a Alzheimerovy nemoci).\n\n**Slabiny zdrojů:** Většina článků o longevity je komerční (blogy, weby klinik a výrobců přístrojů). Tvrzení typu „hodiny zpátky o pět let“ vychází z anekdotických výpovědí pacientů jednoho lékaře (9-3). Jiný web tvrdí, že „stovky studií“ potvrdily účinky, ale bez konkrétních odkazů (5-2). Tyto údaje tedy berte s rezervou.\n\n**Shrnutí:** Terapie má solidní podklad pro kůži a vlasy, u obecné dlouhověkosti a hlubších účinků je důkazů málo a mechanismus není plně potvrzen. Pokud jde o zdravotní otázku, je vhodné se poradit s lékařem.",
+ "id": "per-06",
+ "group": "persona",
+ "persona": "biohacker",
+ "purpose": "Biohackeři: dlouhověkost"
+}

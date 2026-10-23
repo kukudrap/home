@@ -1,0 +1,62 @@
+{
+ "query": "fotobiomodulace",
+ "query_sent": "fotobiomodulace",
+ "allowed_domains": [],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:22:51Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "Fotobiomodulacao 2",
+   "url": "https://cepe.usp.br/wp-content/uploads/Fotobiomodulacao-2.pdf"
+  },
+  {
+   "rank": 2,
+   "title": "eleconomista.com.ar",
+   "url": "https://eleconomista.com.ar/deportes/luz-roja-infrarroja-beneficios-recuperacion-muscular-ciencia-n94108/amp"
+  },
+  {
+   "rank": 3,
+   "title": "ibramed.com.br",
+   "url": "https://ibramed.com.br/?p=35447"
+  },
+  {
+   "rank": 4,
+   "title": "ficha de caracterizacao fit 214 estudos avancados e inovacao em fotobiomodulacao",
+   "url": "https://www.ppgft.ufscar.br/pt-br/assets/arquivos/alunos/ementas/vigentes/ficha-de-caracterizacao-fit-214-estudos-avancados-e-inovacao-em-fotobiomodulacao.pdf"
+  },
+  {
+   "rank": 5,
+   "title": "Odontología Sanmarquina (Jul 2020)",
+   "url": "https://doaj.org/article/aa7386edef0d4e6c985585df9778e39c"
+  },
+  {
+   "rank": 6,
+   "title": "Fotobiomodulación: Revisión Narrativa Sobre sus Efectos en Humanos",
+   "url": "https://ciencialatina.org/index.php/cienciala/article/view/14468"
+  },
+  {
+   "rank": 7,
+   "title": "fotobiomodulacion activacion mitocondrial o efecto termico",
+   "url": "https://www.fisiologiadelejercicio.com/fotobiomodulacion-activacion-mitocondrial-o-efecto-termico/"
+  },
+  {
+   "rank": 8,
+   "title": "Fotobiomodulação no manejo coadjuvante da acne vulgar: Uma revisão narrativa da literatura",
+   "url": "https://rsdjournal.org/index.php/rsd/article/view/48290"
+  },
+  {
+   "rank": 9,
+   "title": "21529 la fototerapia acelera la curacion de los daos en la piel causados por la radioterapia contra el cancer",
+   "url": "https://ecancer.org/es/news/21529-la-fototerapia-acelera-la-curacion-de-los-daos-en-la-piel-causados-por-la-radioterapia-contra-el-cancer"
+  }
+ ],
+ "summary": "\"Fotobiomodulação\" is the Portuguese (and Spanish \"fotobiomodulación\") term for photobiomodulation, a light-based therapy. The results are mostly in Portuguese and Spanish.\n\n- **What it is:** One university course describes it as the newer name for laser therapy, conhecida anteriormente por Laserterapia. A clinic describes it as a method that applies low-intensity light, such as LEDs or low-power lasers, to stimulate processes in cells (Photobiomodulation (PBM) is a technology that uses low-intensity light).\n- **Claimed uses:** Sources list pain relief, reduced inflammation, and faster wound healing. Conditions mentioned include tendinitis, carpal tunnel syndrome, and diabetic foot. Acne is also studied as an add-on treatment, where one narrative review reports reduced inflammation and collagen production.\n- **Mechanism:** The main proposed explanation is that light is absorbed by mitochondrial cytochrome c oxidase, which affects ATP production. One Spanish source notes that much of this evidence comes from cell cultures and animal models.\n- **Evidence caveat:** A 2026-era narrative review concludes that longer, controlled studies are still needed to assess dosing and long-term safety. A Spanish-language piece on radiotherapy skin damage reports faster wound healing with red light than with near-infrared light in its study.",
+ "id": "cat-07",
+ "group": "category",
+ "persona": "",
+ "purpose": "Odborný název metody"
+}

@@ -1,0 +1,62 @@
+{
+ "query": "Low-level light therapy for treating venous leg ulcers",
+ "query_sent": "Low-level light therapy for treating venous leg ulcers",
+ "allowed_domains": [],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:26:16Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "Efficacy Study of the Application of Low Level Laser Light to Treat Venous Stasis Ulcers",
+   "url": "https://clinicaltrials.gov/study/NCT01376050"
+  },
+  {
+   "rank": 2,
+   "title": "pmc.ncbi.nlm.nih.gov",
+   "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6513113/"
+  },
+  {
+   "rank": 3,
+   "title": "Low‐level light therapy for treating venous leg ulcers",
+   "url": "https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD013061/abstract"
+  },
+  {
+   "rank": 4,
+   "title": "Scolaris Content Display Scolaris Content Display",
+   "url": "https://cochranelibrary.com/cdsr/doi/10.1002/14651858.CD013061"
+  },
+  {
+   "rank": 5,
+   "title": "laser therapy for venous leg ulcers 2",
+   "url": "https://research.manchester.ac.uk/en/publications/laser-therapy-for-venous-leg-ulcers-2/"
+  },
+  {
+   "rank": 6,
+   "title": "Low‐level light therapy for treating venous leg ulcers",
+   "url": "https://cochranelibrary.com/cdsr/doi/10.1002/14651858.CD013061/appendices"
+  },
+  {
+   "rank": 7,
+   "title": "Low‐level light therapy for treating venous leg ulcers",
+   "url": "https://cochranelibrary.com/cdsr/doi/10.1002/14651858.CD013061.pub2/information"
+  },
+  {
+   "rank": 8,
+   "title": "My Top Five LLLT wound healing papers",
+   "url": "https://blog.thorlaser.com/page/81"
+  },
+  {
+   "rank": 9,
+   "title": "Low‐level light therapy for treating venous leg ulcers",
+   "url": "https://cochranelibrary.com/cdsr/doi/10.1002/14651858.CD013061/information"
+  }
+ ],
+ "summary": "The search turned up a Cochrane protocol on this topic, but no completed review of low-level light therapy for venous leg ulcers.\n\n- **The Cochrane protocol:** Its stated aim is to assess how low-level light therapy affects venous leg ulcer healing. It describes the therapy as light delivered at low power to promote tissue repair, also called photobiomodulation. Low‐level light therapy (LLLT), also known as photobiomodulation (PBM), consists of the administration of light in specific conditions (low power conditions) with the purpose of promoting tissue repair.\n- **Older evidence on laser therapy:** A separate review of randomised trials of low-level laser therapy found little support. Its authors concluded that they found no evidence of any benefit associated with low level laser therapy on venous leg ulcer healing. That review also noted one small study where a combination of laser and infrared light may promote the healing of venous ulcers, however more research is needed. I could not confirm the date of that review from these results.\n- **Ongoing trial:** A registered trial from Erchonia Corporation aims to test whether low level laser light therapy is effective as an adjunctive therapy to the healing of venous stasis leg ulcers. Its listing shows an estimated status, so it may not have finished.\n- **Standard care:** Compression remains the first-line treatment. The first‐line treatment for venous leg ulcers is compression therapy, in the form of bandages or stockings.\n\nOverall, the search results do not establish that low-level light therapy helps venous leg ulcers heal. The strongest source I found is an older review that reported no benefit, and I did not find a completed Cochrane review. Vendor-run sources, such as a blog from a laser manufacturer, make stronger claims, and I would weigh those less heavily.",
+ "id": "study-10-1002-14651858-cd013061-pub2",
+ "group": "study",
+ "persona": "",
+ "purpose": "Ověření studie z registru: doi:10.1002/14651858.cd013061.pub2"
+}

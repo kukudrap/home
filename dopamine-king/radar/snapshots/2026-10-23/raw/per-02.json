@@ -1,0 +1,62 @@
+{
+ "query": "LED maska červené světlo",
+ "query_sent": "LED maska červené světlo",
+ "allowed_domains": [],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:23:34Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "Skupina produktů:",
+   "url": "https://www.drmax.cz/palsar7-ultimatni-3d-fotonova-led-maska-1-ks"
+  },
+  {
+   "rank": 2,
+   "title": "LED maska • Technologie: fotonová • Funkce: časovač • Počet intenzit: 3 • Napájení: AKU",
+   "url": "https://www.datart.cz/led-maska-palsar7-3d-na-oblicej"
+  },
+  {
+   "rank": 3,
+   "title": "LED maska • Technologie: fotonová • Funkce: časovač • Počet intenzit: 3 • Napájení: AKU",
+   "url": "https://www.datart.cz/led-maska-palsar7-na-oblicej-8v1"
+  },
+  {
+   "rank": 4,
+   "title": "Skupina produktů:",
+   "url": "https://www.drmax.cz/breakout-aid-clear-glow-led-maska"
+  },
+  {
+   "rank": 5,
+   "title": "LED maska • Technologie: fotonová • Funkce: časovač • Počet intenzit: 3 • Napájení: AKU",
+   "url": "https://www.datart.cz/led-maska-palsar7-pink-cloud-ruzova"
+  },
+  {
+   "rank": 6,
+   "title": "Skupina produktů:",
+   "url": "https://www.drmax.cz/palsar7-terapeuticka-led-maska-na-rty-1-ks-gold"
+  },
+  {
+   "rank": 7,
+   "title": "led maska rio fcaa bila",
+   "url": "https://www.datart.cz/led-maska-rio-fcaa-bila"
+  },
+  {
+   "rank": 8,
+   "title": "Introduction: 660nm LED Face Mask",
+   "url": "https://www.instructables.com/660nm-LED-face-mask"
+  },
+  {
+   "rank": 9,
+   "title": "red light therapy mask",
+   "url": "https://shop-us.sunlighten.com/products/red-light-therapy-mask"
+  }
+ ],
+ "summary": "The search turned up mostly Czech retail listings for LED masks with red light, plus a few English-language sources.\n\n- **Palsar7 mask (drmax.cz):** Red light is listed at 630 nm, and the product claims it improves skin texture, elasticity, and regeneration. It uses 99 LEDs in four colours and offers five therapy modes. Its recommended use is 10-30 minutes, 3-4 times a week.\n- **Rio FCAA mask (datart.cz):** This one offers red light at 650 and 850 nm, plus blue, purple, and 96 LEDs. The listed price is 3,999 CZK, with a discount code bringing it to 3,199 CZK. Prices may have changed since the search.\n- **Breakout Aid mask (drmax.cz):** Its red light is described as reaching deeper into the skin and supporting collagen and fine lines. The mask has an automatic 10-minute shut-off. The listing suggests using it ideally five times a week.\n- **Palsar7 Pink Cloud (datart.cz):** This version adds the neck and décolleté and has 132 LEDs in total.\n- **Sunlighten (US):** The manufacturer describes its mask as FDA-cleared. I did not verify this independently.\n\n**Safety notes:** The Palsar7 manual says blue light should be used for a maximum of 10 minutes per treatment. A DIY guide also warns not to look directly at the LEDs, which are not lasers but are very bright. The benefit claims in these listings are manufacturer marketing, not independent clinical findings, so treat them with caution.",
+ "id": "per-02",
+ "group": "persona",
+ "persona": "beauty",
+ "purpose": "Beauty: LED masky"
+}

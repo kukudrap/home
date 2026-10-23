@@ -1,0 +1,62 @@
+{
+ "query": "MITO LIGHT 5.0 panel",
+ "query_sent": "MITO LIGHT 5.0 panel",
+ "allowed_domains": [],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:22:25Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "A convenient option for stationary at-home red light therapy sessions for supporting skin health and muscle recovery",
+   "url": "https://www.wareable.com/health-tech/mito-red-light-therapy-review"
+  },
+  {
+   "rank": 2,
+   "title": "- 9 min read",
+   "url": "https://www.lighttherapyinsiders.com/mitohacker-5-0-review-wide-powerful/"
+  },
+  {
+   "rank": 3,
+   "title": "Více Mito Light produktu",
+   "url": "https://www.heureka.cz/znacky/mito-light/"
+  },
+  {
+   "rank": 4,
+   "title": "Find your panel",
+   "url": "https://mitoredlight.com/pages/partners"
+  },
+  {
+   "rank": 5,
+   "title": "Find your panel",
+   "url": "https://mitoredlight.com/en-ca/pages/partners"
+  },
+  {
+   "rank": 6,
+   "title": "Find your panel",
+   "url": "https://mitoredlight.com/collections/commercial-products"
+  },
+  {
+   "rank": 7,
+   "title": "Find your panel",
+   "url": "https://mitoredlight.com/pages/popia"
+  },
+  {
+   "rank": 8,
+   "title": "Find your panel",
+   "url": "https://mitoredlight.com/fr-ca/pages/community"
+  },
+  {
+   "rank": 9,
+   "title": "MITO LIGHT® Europe Reviews 397",
+   "url": "https://ca.trustpilot.com/review/mitolight.com"
+  }
+ ],
+ "summary": "The search didn't turn up a product called exactly \"MITO LIGHT 5.0 panel.\" The results point to several 5.0-generation panels, so the name you have in mind may be one of these:\n\n- **MITO LIGHT Starter 5.0:** A review lists it at $699 (varies by panel size), with 630-850nm wavelengths and a 74 mW/cm² power output. The reviewer describes it as a stationary panel for skin health and muscle recovery.\n- **MitoHacker 5.0 (Mito Light):** A separate review describes a wide panel with 504 dual-chip LEDs, six clinically relevant wavelengths, and nearly 100 mW/cm² peak irradiance. The same review notes it is currently EU-only.\n- **Other 5.0 models:** A Czech retailer listing shows Expert 5.0, Biohacker 5.0, Master 5.0, and Bulb 5.0 variants, among others.\n\nThe manufacturer's current site lists different product names, such as MitoPRO X and MitoPRO+, so the 5.0 lineup may have been renamed or retired. I didn't verify current availability or pricing on the official site. If you can tell me which model you mean, or whether you're after specs, price, or where to buy it, I can search again.",
+ "id": "brand-07",
+ "group": "brand",
+ "persona": "",
+ "purpose": "Nejnovější generace přístroje"
+}

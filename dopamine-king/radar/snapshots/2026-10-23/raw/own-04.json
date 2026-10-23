@@ -1,0 +1,69 @@
+{
+ "query": "red light therapy",
+ "query_sent": "red light therapy",
+ "allowed_domains": [
+  "mitolight.com"
+ ],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:25:07Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "Red-light (670 nm) therapy reduces mechanical sensitivity and neuronal cell death, and alters glial responses following spinal cord injury in rats",
+   "url": "https://www.biorxiv.org/content/10.1101/2020.02.22.960641.full.pdf"
+  },
+  {
+   "rank": 2,
+   "title": "Stress reduction and sleep promotion system",
+   "url": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11013883"
+  },
+  {
+   "rank": 3,
+   "title": "Wearable phototherapy display device",
+   "url": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/12576282"
+  },
+  {
+   "rank": 4,
+   "title": "Anti-infective and therapeutic electromagnetic emission methods and devices",
+   "url": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/12654028"
+  },
+  {
+   "rank": 5,
+   "title": "Anti-infective and therapeutic electromagnetic emission methods and devices",
+   "url": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/12377286"
+  },
+  {
+   "rank": 6,
+   "title": "Therapeutic light source and hanging apparatus",
+   "url": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/10828505"
+  },
+  {
+   "rank": 7,
+   "title": "Near infrared/ red light therapy a potential countermeasure for mitochondrial dysfunction in spaceflight associated neuro-ocular syndrome (SANS)",
+   "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11385221/"
+  },
+  {
+   "rank": 8,
+   "title": "Light therapy wearable",
+   "url": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11154722"
+  },
+  {
+   "rank": 9,
+   "title": "Light therapy wearable",
+   "url": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/10933253"
+  },
+  {
+   "rank": 10,
+   "title": "Light therapy wearable",
+   "url": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11103722"
+  }
+ ],
+ "summary": "The search returned mostly patent filings and a few research papers, so the claims below are preliminary and not clinical consensus.\n\n- **Mechanism:** Red and near-infrared light is thought to act on mitochondria. One source says it is believed to enhance mitochondrial function via the absorption of photons by mitochondrial chromophores.\n- **Penetration:** A patent describes red or near-infrared light reaching a depth of about eight to 10 millimeters in skin tissue.\n- **Skin and aging:** A patent reports that the spectral regions of visible light to near-infrared light can stimulate the synthesis of skin collagen in vitro. These are patent background claims, not independent trial results.\n- **Muscle and joints:** Patent background sections say muscle and joint stiffness and soreness have been demonstrated to be significantly reduced with red and infrared light, though they don't cite specific studies.\n- **Eye health:** A 2012 study in a retinitis pigmentosa animal model is described as finding that natural light treatments promoted mitochondrial integrity and function, prevented photoreceptor cell death, and preserved retinal function. A separate source makes stronger glaucoma claims, which I'd treat with skepticism since it is promotional text.\n- **Spinal cord injury:** A 2020 bioRxiv preprint in rats found that 670 nm treatment in spinal cord injured rats reduces microglia/macrophage activation and alleviates mechanical hypersensitivity. As a preprint in animals, it hasn't been peer-reviewed as human evidence.\n- **Sleep:** A patent suggests red or near-infrared light at night may aid in the production of melatonin and promote sleep, but this is a speculative claim from a patent.\n\nOverall, the sources are heavy on patents and marketing-style text, so for medical decisions I'd look for systematic reviews or clinical guidance from medical bodies.",
+ "id": "own-04",
+ "group": "own",
+ "persona": "",
+ "purpose": "Které stránky mitolight.com vyhledávač zná"
+}

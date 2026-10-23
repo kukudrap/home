@@ -1,0 +1,62 @@
+{
+ "query": "červené a infračervené světlo rozdíl",
+ "query_sent": "červené a infračervené světlo rozdíl",
+ "allowed_domains": [],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:23:01Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "hardwario.com",
+   "url": "https://stem.hardwario.com/cs/zakladni-lekce/l1107-iot-semafor/teorie"
+  },
+  {
+   "rank": 2,
+   "title": "mfi.upol.cz",
+   "url": "https://mfi.upol.cz/index.php/mfi/article/view/1003/766"
+  },
+  {
+   "rank": 3,
+   "title": "Může pouhým okem vidět IR světla kamery s podporou nočního vidění?",
+   "url": "https://www.mi.com/cz/support/article/KA-46703/"
+  },
+  {
+   "rank": 4,
+   "title": "infračervené světlo",
+   "url": "https://www.drmax.cz/zeptejte-se-lekarnika/infracervene-svetlo"
+  },
+  {
+   "rank": 5,
+   "title": "Infračervené světlo světelné terapie zařízení tepelná lampa černá s časovačem LED červené světlo",
+   "url": "https://www.kaufland.cz/product/507754244/"
+  },
+  {
+   "rank": 6,
+   "title": "16528 jaky panel pro terapii cervenym a near infra red svetlem",
+   "url": "https://www.poradte.cz/nejen-pro-zeny/16528-jaky-panel-pro-terapii-cervenym-a-near-infra-red-svetlem.html"
+  },
+  {
+   "rank": 7,
+   "title": "PokrokyMFA 01 1956 1 10",
+   "url": "https://www.dml.cz/bitstream/handle/10338.dmlcz/137269/PokrokyMFA_01-1956-1_10.pdf"
+  },
+  {
+   "rank": 8,
+   "title": "cdn.albatrosmedia.cz",
+   "url": "https://cdn.albatrosmedia.cz/Files/Sample/8859286"
+  },
+  {
+   "rank": 9,
+   "title": "Červené světlo, jak funguje terapie lampou?",
+   "url": "https://www.drmax.cz/zeptejte-se-lekarnika/cervene-svetlo-jak-funguje-terapie-lampou"
+  }
+ ],
+ "summary": "Hlavní rozdíl je ve vlnové délce. Viditelné červené světlo je na konci viditelného spektra a infračervené záření leží za ním, v delších vlnových délkách. Různé frekvence světla vidíme jako barvy, od červeného světla s nejnižší frekvencí a nejdelší vlnovou délkou po fialové. Infračervené záření je hned vedle viditelného spektra směrem do delších délek.\n\nHlavní praktické rozdíly:\n\n- **Viditelnost:** Červené světlo člověk vidí. Infračervené nevidí, ale blízké IR může cítit jako teplo svými receptory v pokožce.\n- **Vlnové délky v terapiích:** Ve světelné terapii se obvykle používá v rozmezí 630 - 670 nm pro červené světlo a 810 - 850 nm pro blízké infračervené světlo.\n- **Teplo:** Infračervené záření nelze jednoduše ztotožnit s tepelným zářením. Je to jen jedna složka tepelného záření, takže zdroj tepla a IR záření nejsou totéž.\n\nZdroje se shodují na tom, že jde o odlišné části spektra, a odpovědi na dotazy o terapiích se týkají hlavně blízkého infračerveného světla. Nenašel jsem přímé srovnání, které by zahrnovalo všechny aspekty najednou. Výsledky také obsahovaly reklamní a poradenské stránky, takže údaje o účincích terapií berte s rezervou.",
+ "id": "cat-09",
+ "group": "category",
+ "persona": "",
+ "purpose": "Rozdíl mezi červeným a infračerveným světlem"
+}

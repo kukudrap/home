@@ -1,0 +1,67 @@
+{
+ "query": "Regulation of skin collagen metabolism in vitro using a pulsed 660 nm LED light source: clinical correlation with a single-blinded study",
+ "query_sent": "Regulation of skin collagen metabolism in vitro using a pulsed 660 nm LED light source: clinical correlation with a single-blinded study",
+ "allowed_domains": [],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:26:34Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "Device for the treatment of mammalian tissues",
+   "url": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/7887533"
+  },
+  {
+   "rank": 2,
+   "title": "Method for the treatment of mammalian tissues",
+   "url": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/7914523"
+  },
+  {
+   "rank": 3,
+   "title": "Method for the treatment of mammalian skin tissues via pulse irradiation in the presence of a photoactive compound",
+   "url": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/9737728"
+  },
+  {
+   "rank": 4,
+   "title": "Mini Header - Login",
+   "url": "https://pleijsalon.com/?p=26219"
+  },
+  {
+   "rank": 5,
+   "title": "Mini Header - Login",
+   "url": "https://pleijsalon.com/6-clinical-studies-that-support-the-anti-aging-benefits-of-red-light-therapy/"
+  },
+  {
+   "rank": 6,
+   "title": "clinical studies",
+   "url": "https://www.ledesthetics.com/pages/clinical-studies"
+  },
+  {
+   "rank": 7,
+   "title": "clinical research",
+   "url": "https://shopdrshimching.com/pages/clinical-research"
+  },
+  {
+   "rank": 8,
+   "title": "qigonginstitute.org",
+   "url": "https://qigonginstitute.org/abstract-print/5659"
+  },
+  {
+   "rank": 9,
+   "title": "Low-Level Red-Light Therapy with Pulsing Illumination Parameters",
+   "url": "https://www.lumaflex.com/blogs/clinical-trials/low-level-red-light-therapy-with-pulsing-illumination-parameters"
+  },
+  {
+   "rank": 10,
+   "title": "Collagen production in diabetic wounded fibroblasts in response to low-intensity laser irradiation at 660 nm",
+   "url": "https://pure.uj.ac.za/en/publications/collagen-production-in-diabetic-wounded-fibroblasts-in-response-t/"
+  }
+ ],
+ "summary": "The search turned up the abstract of the paper you named, which is Barolet's 2009 study in the *Journal of Investigative Dermatology*. I didn't find the full text, so the details below come from abstract excerpts reposted on secondary sites.\n\n**Study design:** The team first tested a 660 nm sequentially pulsed LED on a tissue-engineered human reconstructed skin model, comparing sham and treated samples over 11 sessions. They then ran a split-face, single-blinded study in aged or photoaged people. Histological and biochemical changes were first evaluated in a tissue-engineered Human Reconstructed Skin (HRS) model after 11 sham or LED light treatments. LED effects were then assessed in aged/photoaged individuals in a split-face single-blinded study.\n\n**In vitro results:** Type I procollagen was higher in treated samples and MMP-1 was lower. Results yielded a mean percent difference between LED-treated and non-LED-treated HRS of 31% in levels of type-1 procollagen and of -18% in MMP-1. No histological changes were observed.\n\n**Clinical results:** The abstract reports that more than 90% of individuals showed a reduction in rhytid depth and surface roughness, and, via a blinded clinical assessment, that 87% experienced a reduction in the Fitzpatrick wrinkling severity score after 12 LED treatments. No adverse events or downtime were reported.\n\n**Conclusion:** The authors argue that LED therapy reversed collagen downregulation and MMP-1 upregulation. This could explain the improvements in skin appearance observed in LED-treated individuals.\n\n**Caveats:** The search results don't give sample sizes, control details, or statistical methods for the clinical arm. The in vitro work is a single model, and the clinical claims rest on the authors' own reporting. Several of the search hits came from marketing or clinic websites, so check the original DOI (10.1038/jid.2009.186) for the full methods.",
+ "id": "study-pbm-barolet2009",
+ "group": "study",
+ "persona": "",
+ "purpose": "Ověření studie z registru: seed:pbm-barolet2009"
+}

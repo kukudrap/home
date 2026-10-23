@@ -1,0 +1,62 @@
+{
+ "query": "Hooga red light panel Evropa",
+ "query_sent": "Hooga red light panel Evropa",
+ "allowed_domains": [],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:24:39Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "Hooga PRO1500",
+   "url": "https://www.garagegymreviews.com/?p=235609"
+  },
+  {
+   "rank": 2,
+   "title": "Hooga PRO4500 Red Light Therapy Panel",
+   "url": "https://m.reach.dog/shop/kaizen-recovery/products/pro4500"
+  },
+  {
+   "rank": 3,
+   "title": "hooga red light therapy for transformative benefits",
+   "url": "https://ynetnews.com/products-reviews/health-household-baby-care/hooga-red-light-therapy-for-transformative-benefits"
+  },
+  {
+   "rank": 4,
+   "title": "Hooga HG300 Red Light",
+   "url": "https://outliyr.com/shop/hooga-hg300-red-light"
+  },
+  {
+   "rank": 5,
+   "title": "Hooga HG300 Red Light",
+   "url": "https://outliyr.com/?p=69968"
+  },
+  {
+   "rank": 6,
+   "title": "328007196 hgpro1500",
+   "url": "https://www.desertcart.com.sa/products/328007196-hgpro1500.md"
+  },
+  {
+   "rank": 7,
+   "title": "Hooga PRO300: a solid red light therapy panel that keeps things simple",
+   "url": "https://www.wareable.com/health-tech/hooga-pro300-panel-review"
+  },
+  {
+   "rank": 8,
+   "title": "About this item:",
+   "url": "https://waysfair.it.com/product/hooga-hg300-red-light-therapy-panel-660nm-850nm-led/"
+  },
+  {
+   "rank": 9,
+   "title": "Hooga Pro300 Red Light Therapy Panel",
+   "url": "https://reuzeit.com/product/ST137212"
+  }
+ ],
+ "summary": "I found no results mentioning \"Evropa,\" so I can't confirm a European retailer or distributor for Hooga. The results do cover several Hooga red light panels, mostly sold in the US and internationally.\n\n- **PRO1500:** A large full-body panel with 300 LEDs, emitting 660nm red and 850nm near-infrared light. One review calls it affordable for its output and notes it has no app connection or pulsing mode. Its listed irradiance is 189mW/cm2 at 6 inches, with a 3-year manufacturer warranty.\n- **PRO4500:** The largest model, with 900 LEDs and a listed price of $2,999. It stands more than 5 feet tall, making it one of the largest panels of its kind.\n- **PRO300:** A compact, targeted panel that one reviewer priced at $299. It has manual controls and no app or Bluetooth. Buyers who want premium finishes, app controls, or more wavelength options will need to look at more expensive models.\n- **HG300:** An entry-level model, priced at $159 by one retailer. Its cons include a small treatment area and lower total power output than larger panels.\n\nPrices and availability vary by seller, and some listings are secondhand. If you need Evropa-specific pricing or stock, a search for the local Hooga distributor or the Evropa retailer's name would be the next step.",
+ "id": "com-04",
+ "group": "competitor",
+ "persona": "",
+ "purpose": "Konkurent Hooga"
+}

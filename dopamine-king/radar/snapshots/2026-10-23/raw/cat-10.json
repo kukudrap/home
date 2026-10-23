@@ -1,0 +1,62 @@
+{
+ "query": "terapie červeným světlem bezpečnost",
+ "query_sent": "terapie červeným světlem bezpečnost",
+ "allowed_domains": [],
+ "mode": "standard",
+ "retrieved_at": "2026-10-23T20:23:03Z",
+ "tool": "claude-code WebSearch",
+ "model": "claude-haiku-5-5",
+ "web_searches": 1,
+ "links": [
+  {
+   "rank": 1,
+   "title": "Červené světlo, jak funguje terapie lampou?",
+   "url": "https://www.drmax.cz/zeptejte-se-lekarnika/cervene-svetlo-jak-funguje-terapie-lampou"
+  },
+  {
+   "rank": 2,
+   "title": "Biohacking, longevity a moderní zdraví",
+   "url": "https://www.newstream.cz/enjoy/biohacking-terapie-cervenym-svetlem"
+  },
+  {
+   "rank": 3,
+   "title": "Infračervené světlo světelné terapie zařízení tepelná lampa černá s časovačem LED červené světlo",
+   "url": "https://www.kaufland.cz/product/507754244/"
+  },
+  {
+   "rank": 4,
+   "title": "dwn.alza.cz",
+   "url": "https://dwn.alza.cz/manual/160634"
+  },
+  {
+   "rank": 5,
+   "title": "ff36fa9f 079b 4a29 919e ab3e2c98a065",
+   "url": "https://colliery-recovery-s-r-o.reservio.com/services/ff36fa9f-079b-4a29-919e-ab3e2c98a065"
+  },
+  {
+   "rank": 6,
+   "title": "Hlavní obsah",
+   "url": "https://www.seznamzpravy.cz/clanek/magazin-zivotni-styl-posvitte-si-cervene-proc-v-cervenem-svetle-jedou-sportovci-herci-i-astronauti-265068"
+  },
+  {
+   "rank": 7,
+   "title": "cesi objevuji terapii cervenym svetlem roste z ni dalsi miliardovy byznys",
+   "url": "https://forbes.cz/cesi-objevuji-terapii-cervenym-svetlem-roste-z-ni-dalsi-miliardovy-byznys/"
+  },
+  {
+   "rank": 8,
+   "title": "Biohacking, longevity a moderní zdraví",
+   "url": "https://www.newstream.cz/stitek/terapie"
+  },
+  {
+   "rank": 9,
+   "title": "Skupina produktů:",
+   "url": "https://www.drmax.cz/cbd-star-red-light-panel-300-w-terapie-cervenym-svetlem"
+  }
+ ],
+ "summary": "Search results on red light therapy safety (in Czech) point to a few themes:\n\n- **General safety view:** A pharmacist advice column says the therapy is considered safe when used correctly, but people with skin conditions, those on photosensitizing medication, or anyone unsure should consult a doctor (drmax.cz). The same source warns that some skincare serums with vitamin C or retinol can raise light sensitivity, so they should go on after a session.\n- **Evidence quality:** A Newstream article says evidence is strongest for pain, wound healing, and some dermatological uses, and weaker for sleep and cognitive effects.\n- **Device manual warnings:** A consumer panel manual (Alza) states that red, near-infrared, and blue light are safe with proper use. It advises never looking directly at the LEDs, wearing the included protective goggles for face treatment or sensitive eyes, not using it on open wounds or during high fever, and not using it with epilepsy or photosensitizing drugs without a doctor's advice. It also says to stop if irritation appears.\n- **Marketing caveat:** Several results are sales or service pages (a clinic, a retailer, a panel listing) that make benefit claims without safety data. Treat those as non-independent sources.\n\nThe results don't include a formal regulatory or systematic-review safety assessment, so for authoritative guidance, a follow-up search for medical or regulatory sources would be needed.",
+ "id": "cat-10",
+ "group": "category",
+ "persona": "",
+ "purpose": "Bezpečnost"
+}
