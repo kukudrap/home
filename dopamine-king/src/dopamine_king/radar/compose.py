@@ -97,7 +97,7 @@ def findings(d: dict[str, Any]) -> list[dict[str, Any]]:
         "id": "studie", "number": f"{sci['verified']}{NBSP}z{NBSP}{sci['total']}",
         "title": "Důkazy: skoro všechny studie v registru jsou ověřené",
         "text": (f"K {d['meta']['date_cs']} jsme proti PubMed, PubMed Central a webům vydavatelů ověřili dalších {sci['verified_now']} studií. "
-                 f"{count(sci['pending'], 'zůstává', 'zůstávají', 'zůstává')} neověřených. Síla důkazů v mapě tvrzení se počítá jen z ověřených studií."),
+                 f"Neověřené zůstávají {count(sci['pending'], 'záznam', 'záznamy', 'záznamů')}. Síla důkazů v mapě tvrzení se počítá jen z ověřených studií."),
         "caveat": "Závěry studií jsou čtené z abstraktů a shrnutí ve výsledcích, plné texty ne.",
         "evidence": ["study-pbm-wunsch2014", "study2-barolet2009", "study2-jackson2009"]})
     return out

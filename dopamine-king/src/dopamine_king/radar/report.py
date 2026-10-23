@@ -337,6 +337,7 @@ header.top { background: linear-gradient(135deg, var(--head-a), var(--head-b)); 
 header.top .in { max-width: 900px; margin: 0 auto; }
 header.top h1 { font-size: clamp(1.7rem, 5vw, 2.4rem); line-height: 1.1; margin: 0 0 6px; letter-spacing: -0.01em; text-wrap: balance; }
 header.top p { margin: 0; opacity: .92; max-width: 60ch; }
+header.top p.how { margin-top: 8px; font-weight: 600; opacity: 1; }
 .facts { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; padding: 0; list-style: none; }
 .facts li { background: rgba(255,255,255,.14); border-radius: 999px; padding: 4px 12px; font-size: .88rem; font-variant-numeric: tabular-nums; }
 nav.tabs { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: var(--bg); border-bottom: 1px solid var(--line);
@@ -485,6 +486,7 @@ def render_page(d: dict[str, Any], *, fragment: bool = False) -> str:
 <header class="top"><div class="in">
   <h1>MITO LIGHT Radar</h1>
   <p>Co o značce a trhu ukazuje skutečné vyhledávání na webu ke dni {esc(m["date_cs"])}, co z toho plyne a co napsat jako první.</p>
+  <p class="how">Začněte zjištěními a úkoly. Zbytek stránky jsou důkazy a hotové texty.</p>
   <ul class="facts">{"".join(f"<li>{esc(f)}</li>" for f in facts)}</ul>
 </div></header>
 <nav class="tabs" aria-label="Obsah">{nav_html}</nav>
