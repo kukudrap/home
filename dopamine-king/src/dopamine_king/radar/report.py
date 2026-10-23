@@ -16,6 +16,7 @@ from ..generate.providers import normalize_dashes
 from ..verticals import load_vertical
 from . import analyze as A
 from . import compose as C
+from . import emotion
 from .collect import load_plan, load_records
 from .drafts import load_drafts
 
@@ -25,6 +26,10 @@ CLASS_CS = {"context": "vysvětlení", "wellness": "pohoda a výkon", "cosmetic"
 LABEL_CS = {"none": "bez ověřených studií", "limited": "omezené důkazy", "contested": "sporné důkazy", "moderate": "střední důkazy", "strong": "silné důkazy"}
 TRAFFIC = {"context": ("ok", "Můžete vysvětlovat"), "wellness": ("warn", "Jen opatrně"), "cosmetic": ("warn", "Jen opatrně a se zdrojem"),
            "medical": ("stop", "Neříkejte"), "avoid": ("stop", "Neříkejte")}
+DIRECTION_CS = {"supports": "podporuje", "mixed": "smíšené nálezy", "contradicts": "odporuje", "context": "souvislost"}
+CODE_CS = {"CLAIM_MEDICAL": "zdravotní tvrzení", "CLAIM_AVOID": "zakázané téma", "STATUS_CLAIM": "tvrzení o postavení", "SAFETY_ABSOLUTE": "absolutní tvrzení o bezpečnosti",
+           "OUTCOME_PROMISE": "slib výsledku", "DISEASE_MENTION": "zmínka o nemoci", "MEDICATION_ADVICE": "rada o lécích"}
+RISK_CS = {"high": ("warn", "vyšší riziko tvrzení"), "medium": ("none", "střední riziko"), "low": ("ok", "nižší riziko")}
 MONTHS_CS = ["ledna", "února", "března", "dubna", "května", "června", "července", "srpna", "září", "října", "listopadu", "prosince"]
 
 
@@ -89,6 +94,7 @@ def report_data(snapshot: str | Path, drafts: str | Path, plan_path: str | Path)
         "direct": [{"id": x["id"], "query": x["query"], "domains": x.get("allowed_domains", []), "retrieved_on": x["retrieved_on"],
                     "links": [{"rank": l["rank"], "title": A.display(l)["label"], "url": l["url"]} for l in x["links"]]} for x in direct],
         "drafts": load_drafts(drafts),
+        "emotion": emotion.section_data(emotion.load(root / "claims_emotional.json"), vertical, vertical.ledger(), vertical.personas()),
     }
     data["findings"] = C.findings(data)
     data["actions"] = C.actions(data)
@@ -311,6 +317,177 @@ Uložené odkazy jsou přesně to, co nástroj vrátil. Hledání se uloží jen
 {"".join(appendix)}'''
 
 
+def studies_cs(n: int) -> str:
+    return C.count(n, "ověřená studie", "ověřené studie", "ověřených studií")
+
+
+def copy_button(target: str) -> str:
+    return f'<button class="copy" type="button" data-target="{esc(target)}">Kopírovat text</button>'
+
+
+def use_name(uses: dict[str, str], key: str) -> str:
+    return uses[key].split(":")[0]
+
+
+def verdict_pill(c: dict[str, Any]) -> str:
+    """Nothing for a sentence the shield passed; the findings for one it did not."""
+    v = c["verdict"]
+    if v["errors"]:
+        return f'<span class="pill stop">{esc(", ".join(CODE_CS.get(x, x) for x in v["errors"]))}</span>'
+    if v["warnings"]:
+        return f'<span class="pill warn">{esc(", ".join(CODE_CS.get(x, x) for x in v["warnings"]))}</span>'
+    return ""
+
+
+def needs_note(c: dict[str, Any]) -> str:
+    return f'<p class="approve"><b>Potvrdit:</b> {esc(c["needs"])}</p>' if c.get("needs") else ""
+
+
+def facts_note(c: dict[str, Any]) -> str:
+    return f'<p class="muted"><b>Opírá se o:</b> {esc(" ".join(c["facts"]))}</p>' if c.get("facts") else ""
+
+
+def claim_row(c: dict[str, Any], uses: dict[str, str], names: dict[str, str] | None = None) -> str:
+    cid = c["id"]
+    tags = f'<span class="tag">{esc(use_name(uses, c["use"]))}</span>'
+    if names:
+        tags += f'<span class="tag">{esc(names[c["lever"]])}</span>'
+    if c.get("where_cs"):
+        tags += f'<span class="tag">{esc(c["where_cs"])}</span>'
+    if c.get("concept"):
+        tags += '<span class="pill none">Koncept</span>'
+    return (f'<li class="claim" id="c-{esc(cid)}"><p class="ctext" id="t-c-{esc(cid)}">{esc(c["text"])}</p>'
+            f'<div class="cmeta">{tags}{verdict_pill(c)}{copy_button("t-c-" + cid)}</div>{needs_note(c)}{facts_note(c)}</li>')
+
+
+def study_item(s: dict[str, Any]) -> str:
+    title = link(s["url"], s["title"][:110]) if s["url"] else esc(s["title"][:110])
+    return (f'<li>{title} <span class="host">{esc(s["year"])}, {esc(DIRECTION_CS.get(s["direction"], s["direction"]))}</span>'
+            f'<br><span class="muted">{esc(s["note"])}</span></li>')
+
+
+def evidence_list(evidence: list[dict[str, Any]]) -> str:
+    blocks = []
+    for e in evidence:
+        studies = "".join(study_item(s) for s in e["studies"])
+        ethics = f'<p class="caveat"><b>Pozor:</b> {esc(e["ethics"])}</p>' if e["ethics"] else ""
+        blocks.append(f'<div class="evi"><p><b>{esc(e["name"])}</b> <span class="pill lab">{esc(LABEL_CS[e["label"]])}, {studies_cs(e["n_verified"])}</span></p>'
+                      f'<p class="muted">{esc(e["headline"])}</p>' + (f'<ul class="plain">{studies}</ul>' if studies else "") + ethics + "</div>")
+    return "".join(blocks)
+
+
+def render_dopamine(e: dict[str, Any]) -> str:
+    d = e["dopamine"]
+    studies = "".join(study_item(s) for s in d["studies"])
+    return f"""<div class="callout">
+  <h3>Proč tu není slovo dopamin</h3>
+  <p>Dopamin je lákavé téma, ale do textů pro zákazníky nepatří. Věta typu „zvyšuje dopamin“ tvrdí účinek přístroje na tělo, a to je zdravotní tvrzení. Kontrola tvrzení ji blokuje stejně jako „vyléčí“.</p>
+  <p>{esc(d["summary"])} Claimy proto stojí na tom, co za dopaminem v běžném životě je: na těšení, rituálu a překvapení.</p>
+  <p class="caveat"><b>Pozor:</b> {esc(d["ethics"])}</p>
+  <details><summary>Studie k tématu ({studies_cs(d["n_verified"])})</summary><ul class="plain">{studies}</ul></details>
+</div>"""
+
+
+def render_picks(e: dict[str, Any]) -> str:
+    cards = []
+    for c in e["picks"]:
+        cid = c["id"]
+        kind = f'{use_name(e["uses"], c["use"])} · {e["lever_names"][c["lever"]]}'
+        cards.append(f"""<li class="pick"><span class="kind">{esc(kind)}</span>
+  <p class="big-claim" id="t-p-{esc(cid)}">{esc(c["text"])}</p>
+  <p class="pwhy">{esc(c["why_cs"])}</p>{needs_note(c)}{facts_note(c)}
+  <div class="cmeta">{verdict_pill(c)}{copy_button("t-p-" + cid)}</div></li>""")
+    return f'<ul class="picks">{"".join(cards)}</ul>'
+
+
+def render_levers(e: dict[str, Any]) -> str:
+    out = []
+    for lv in e["levers"]:
+        rows = "".join(claim_row(c, e["uses"]) for c in lv["claims"])
+        out.append(f"""<details class="topic lever" id="lever-{esc(lv["id"])}"><summary><span class="tname">{esc(lv["name_cs"])}</span>
+  <span class="pill lab">{esc(LABEL_CS[lv["label"]])}, {studies_cs(lv["n_verified"])}</span> <span class="muted">{C.count(len(lv["claims"]), "věta", "věty", "vět")}</span></summary>
+  <div class="tbody"><p>{esc(lv["what_cs"])}</p><p class="caveat"><b>Pozor:</b> {esc(lv["watch_cs"])}</p>
+  <details><summary>Důkazy za touto pákou</summary>{evidence_list(lv["evidence"])}</details>
+  <ul class="claims">{rows}</ul></div></details>""")
+    return "".join(out)
+
+
+def render_personas(e: dict[str, Any]) -> str:
+    out = []
+    for p in e["personas"]:
+        tone, label = RISK_CS.get(p["risk"], ("none", ""))
+        pill = f'<span class="pill {tone}">{esc(label)}</span>' if label else ""
+        rows = "".join(claim_row(c, e["uses"], e["lever_names"]) for c in p["claims"])
+        out.append(f'<details class="topic"><summary><span class="tname">{esc(p["name"])}</span> {pill}</summary><div class="tbody"><ul class="claims">{rows}</ul></div></details>')
+    return "".join(out)
+
+
+def render_claim_list(claims: list[dict[str, Any]], e: dict[str, Any]) -> str:
+    return '<ul class="claims">' + "".join(claim_row(c, e["uses"], e["lever_names"]) for c in claims) + "</ul>"
+
+
+def render_story(e: dict[str, Any]) -> str:
+    versions = "".join(
+        f'<details><summary>{esc(s["name_cs"])}</summary><pre class="text" id="t-{esc(s["id"])}">{esc(s["text"])}</pre>{copy_button("t-" + s["id"])}'
+        f'<p class="muted"><b>Opírá se o:</b> {esc(" ".join(s["facts"]))}</p></details>' for s in e["story"])
+    names = "".join(
+        f'<li><b>{esc(n["name"])}</b>: {esc(n["meaning_cs"])}' + (f'<br><span class="need">Potvrdit: {esc(n["needs"])}</span>' if n.get("needs") else "") + "</li>" for n in e["naming"])
+    return f'{versions}<h4>Jména pro rituál a funkce</h4><ul class="plain">{names}</ul>'
+
+
+def render_forbidden(e: dict[str, Any]) -> str:
+    rows = []
+    for r in e["forbidden"]:
+        found = " ".join(f'<span class="pill stop">{esc(CODE_CS.get(x, x))}</span>' for x in r["found"]) or '<span class="pill none">kontrola nezachytila</span>'
+        rows.append(f'<tr><td data-label="Neříkejte"><mark>{esc(r["text"])}</mark></td><td class="wrap" data-label="Proč">{esc(r["why_cs"])}</td>'
+                    f'<td data-label="Kontrola">{found}</td><td class="wrap" data-label="Místo toho">{esc(r["swap"])}</td></tr>')
+    return ('<div class="scroll"><table class="tbl stack"><thead><tr><th>Neříkejte</th><th>Proč</th><th>Kontrola</th><th>Místo toho</th></tr></thead>'
+            f'<tbody>{"".join(rows)}</tbody></table></div>')
+
+
+def render_guardrails(e: dict[str, Any]) -> str:
+    items = []
+    for g in e["guardrails"]:
+        ev = "".join(f'<br><span class="muted"><b>{esc(x["name"])}:</b> {esc(LABEL_CS[x["label"]])}. {esc(x["ethics"])}</span>' for x in g["evidence"])
+        items.append(f'<li><b>{esc(g["title_cs"])}</b><br>{esc(g["text_cs"])}{ev}</li>')
+    return f'<ul class="open">{"".join(items)}</ul>'
+
+
+def render_tests(e: dict[str, Any]) -> str:
+    items = "".join(f'<li><b>{esc(t["hypothesis_cs"])}</b><br>A: „{esc(t["a_text"])}“<br>B: „{esc(t["b_text"])}“</li>' for t in e["tests"])
+    return ('<p class="lead">Jedna věta ještě není vítěz. Pošlete obě verze stejně velké skupině lidí ve stejných dnech, měňte vždy jen jednu věc a porovnávejte kliknutí a odpovědi, ne dojem.</p>'
+            f'<ul class="open">{items}</ul>')
+
+
+def render_needs(e: dict[str, Any]) -> str:
+    def quoted(x: str) -> str:
+        return x if x.startswith("Název") else f"„{x}“"
+    items = "".join(f'<li><b>{esc(n["need"])}</b><br><span class="muted">Týká se: {esc(", ".join(quoted(x) for x in n["texts"]))}</span></li>' for n in e["needs"])
+    return f'<ul class="open">{items}</ul>'
+
+
+def render_claims(d: dict[str, Any]) -> str:
+    e = d["emotion"]
+    t = e["totals"]
+    verdict = ("Každá věta prošla kontrolou tvrzení bez chyby i varování." if not (t["errors"] or t["warnings"]) else
+               f'Kontrola našla {C.count(t["errors"], "chybu", "chyby", "chyb")} a {C.count(t["warnings"], "varování", "varování", "varování")}, dotčené věty jsou označené.')
+    return (f'<p class="lead">{C.count(t["claims"], "hotová věta", "hotové věty", "hotových vět")} pro slogany, nadpisy, příspěvky a texty v aplikaci. Stojí na {len(e["levers"])} pákách s oporou ve studiích '
+            'a popisují okamžik, volbu nebo příběh značky. Žádná netvrdí účinek na tělo, náladu ani hormony.</p>'
+            f'<p class="muted">{verdict} Kontrola hlídá slova, ne smysl, proto každou větu před zveřejněním přečte člověk. Síla důkazů platí pro obecnou páku (například těšení), ne pro konkrétní větu ani pro produkt. '
+            'Štítek Koncept znamená nápad, který zatím nic netvrdí o přístroji (kampaň, předmět e-mailu, upozornění v aplikaci). Před použitím rozhodněte, zda z něj uděláte skutečnost.</p>'
+            f'{render_dopamine(e)}'
+            f'<h3>Deset vět, od kterých začít</h3><p class="muted">Pořadí neurčuje síla věty, tu nikdo nezná předem. Každá využívá páku s oporou ve studiích a nic neslibuje. Skutečnou sílu ukáže test.</p>{render_picks(e)}'
+            f'<h3>Podle páky</h3>{render_levers(e)}'
+            f'<h3>Podle cílové skupiny</h3>{render_personas(e)}'
+            f'<h3>Slogany ({len(e["taglines"])})</h3>{render_claim_list(e["taglines"], e)}'
+            f'<h3>Mikrotexty pro aplikaci, e-maily a balení</h3><details><summary>Otevřít {C.count(len(e["microcopy"]), "text", "texty", "textů")}</summary>{render_claim_list(e["microcopy"], e)}</details>'
+            f'<h3>Příběh značky</h3>{render_story(e)}'
+            f'<h3>Co říkat místo čeho</h3>{render_forbidden(e)}'
+            f'<h3>Pravidla hry</h3>{render_guardrails(e)}'
+            f'<h3>Co otestovat</h3>{render_tests(e)}'
+            f'<h3>Než něco zveřejníte</h3><p class="muted">Co musí značka potvrdit, aby věty platily.</p>{render_needs(e)}')
+
+
 # -- page ------------------------------------------------------------------------------------------------------------------------
 CSS = """
 :root {
@@ -411,7 +588,10 @@ blockquote p { margin: 0 0 4px; }
 blockquote footer { font-size: .82rem; color: var(--muted); }
 details.topic { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 8px 14px; margin-bottom: 8px; }
 details.topic .tname { font-weight: 650; margin-right: 6px; }
-details.topic summary { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+details.topic > summary { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; list-style: none; }
+details.topic > summary::-webkit-details-marker { display: none; }
+details.topic > summary::after { content: ""; margin-left: auto; flex: none; width: 8px; height: 8px; border-right: 2px solid var(--muted); border-bottom: 2px solid var(--muted); transform: rotate(45deg); transition: transform .15s; }
+details.topic[open] > summary::after { transform: rotate(225deg); }
 .tbody { padding: 6px 0 4px; }
 .tbody p { font-size: .94rem; margin-bottom: 8px; }
 .draft { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; margin-bottom: 12px; }
@@ -429,12 +609,33 @@ ol.links li { display: flex; gap: 8px; margin-bottom: 4px; align-items: baseline
 .rk { font-family: var(--mono); color: var(--muted); min-width: 1.6em; text-align: right; }
 mark { background: var(--stop-soft); color: var(--stop); padding: 0 3px; border-radius: 3px; }
 footer.end { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--line); color: var(--muted); font-size: .88rem; }
+.callout { background: var(--accent-soft); border-left: 4px solid var(--accent); border-radius: 0 10px 10px 0; padding: 2px 16px 10px; margin: 16px 0; }
+.callout h3 { margin: 12px 0 6px; }
+ul.picks { list-style: none; padding: 0; margin: 10px 0 18px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 290px), 1fr)); gap: 14px; }
+.pick { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.pick .big-claim { font-size: 1.3rem; line-height: 1.25; font-weight: 720; letter-spacing: -0.01em; text-wrap: balance; margin: 0; overflow-wrap: anywhere; }
+.pick .pwhy { color: var(--muted); font-size: .92rem; margin: 0; }
+.pick .approve { margin: 0; }
+.pick .cmeta { margin-top: auto; }
+ul.claims { list-style: none; padding: 0; margin: 10px 0; display: grid; gap: 8px; }
+li.claim { background: var(--bg); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; min-width: 0; }
+.ctext { font-weight: 620; margin: 0 0 8px; overflow-wrap: anywhere; }
+.cmeta { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.cmeta .tag { margin-left: 0; }
+.cmeta button.copy { margin-left: auto; padding: 8px 14px; font-size: .88rem; min-height: 40px; }
+li.claim .approve, li.claim .muted { margin: 8px 0 0; }
+li.claim .cmeta button.copy { background: transparent; color: var(--fg); border: 1px solid var(--line); font-weight: 600; }
+li.claim .cmeta button.copy:hover { border-color: var(--accent); }
+li.claim .cmeta button.copy.ok { background: var(--ok); color: #fff; border-color: var(--ok); }
+.evi { border-top: 1px solid var(--line); padding-top: 8px; margin-top: 8px; }
+header.top p.newlink { margin-top: 12px; }
+header.top p.newlink a { display: inline-block; padding: 8px 16px; border-radius: 999px; background: #fff; color: var(--head-a); font-weight: 650; text-decoration: none; }
 @media (max-width: 520px) { section { padding-top: 32px; } .finding .big { font-size: 1.7rem; }
   .tbl.stack thead { display: none; } .tbl.stack, .tbl.stack tbody, .tbl.stack tr, .tbl.stack td { display: block; width: 100%; }
   .tbl.stack tr { padding: 10px 12px; border-bottom: 1px solid var(--line); } .tbl.stack tr[hidden] { display: none; }
   .tbl.stack td { border: 0; padding: 2px 0; } .tbl.stack td.wrap { min-width: 0; }
   .tbl.stack td::before { content: attr(data-label); display: block; font-size: .72rem; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); } }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } #progress-bar { transition: none; } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } #progress-bar { transition: none; } details.topic > summary::after { transition: none; } }
 """
 
 JS = """
@@ -480,13 +681,14 @@ def render_page(d: dict[str, Any], *, fragment: bool = False) -> str:
     m = d["meta"]
     facts = [f'{m["searches"]} skutečných hledání', f'{m["links"]} odkazů z {m["hosts"]} webů', f'{d["science"]["verified"]} z {d["science"]["total"]} ověřených studií', "0 simulovaných údajů"]
     nav = [("zjisteni", "Zjištění"), ("ukoly", "Úkoly"), ("videt", "Kde jste vidět"), ("trh", "Trh"), ("znacka", "Vaše značka"), ("temata", "Témata"),
-           ("tvrzeni", "Co smíte tvrdit"), ("navrhy", "Návrhy textů"), ("studie", "Studie"), ("chybi", "Co chybí"), ("data", "Jak jsou data získaná")]
+           ("tvrzeni", "Co smíte tvrdit"), ("claimy", "Emoční claimy"), ("navrhy", "Návrhy textů"), ("studie", "Studie"), ("chybi", "Co chybí"), ("data", "Jak jsou data získaná")]
     nav_html = "".join(f'<a href="#{i}">{esc(t)}</a>' for i, t in nav)
     body = f'''<div id="radar" data-snapshot="{esc(m["date"])}">
 <header class="top"><div class="in">
   <h1>MITO LIGHT Radar</h1>
   <p>Co o značce a trhu ukazuje skutečné vyhledávání na webu ke dni {esc(m["date_cs"])}, co z toho plyne a co napsat jako první.</p>
   <p class="how">Začněte zjištěními a úkoly. Zbytek stránky jsou důkazy a hotové texty.</p>
+  <p class="newlink"><a href="#claimy">Nově: emoční claimy, {C.count(d["emotion"]["totals"]["claims"], "hotová věta", "hotové věty", "hotových vět")}</a></p>
   <ul class="facts">{"".join(f"<li>{esc(f)}</li>" for f in facts)}</ul>
 </div></header>
 <nav class="tabs" aria-label="Obsah">{nav_html}</nav>
@@ -500,6 +702,7 @@ def render_page(d: dict[str, Any], *, fragment: bool = False) -> str:
 <section id="tvrzeni"><h2>Co smíte tvrdit</h2><p class="sub">Mapa tvrzení: síla důkazů se počítá jen z ověřených studií.</p>{render_claim_map(d)}
 <h3>Názvy vašich stránek</h3>{render_own_titles(d)}
 <h3>Co o sobě tvrdí trh</h3>{render_market_claims(d)}</section>
+<section id="claimy"><h2>Emoční claimy</h2><p class="sub">Pozitivní věty o těšení, rituálu, příběhu a volbě. Žádná netvrdí účinek na tělo.</p>{render_claims(d)}</section>
 <section id="navrhy"><h2>Návrhy textů</h2><p class="sub">Napsal je Claude podle zadání a faktů značky. Každý prošel kontrolou tvrzení. Jsou to koncepty, před zveřejněním je musí přečíst člověk. Obsah vytvořený s pomocí AI může podle pravidel platforem a evropského nařízení o AI vyžadovat označení; ověřte si pravidla, která se vás týkají (nejde o právní poradenství).</p>{render_drafts(d)}</section>
 <section id="studie"><h2>Studie za mapou tvrzení</h2>{render_science(d)}</section>
 <section id="chybi"><h2>Co chybí a co potřebuji od vás</h2><p class="sub">Radar nevidí všechno. Tady je přesně co a proč.</p>{render_open(d)}</section>

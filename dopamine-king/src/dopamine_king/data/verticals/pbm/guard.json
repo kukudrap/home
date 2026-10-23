@@ -419,7 +419,13 @@
    "slowing",
    "minimi*",
    "shrink*",
-   "diminish*"
+   "diminish*",
+   "raise*",
+   "elevate*",
+   "trigger*",
+   "release*",
+   "regulate*",
+   "balance*"
   ],
   "cs": [
    "zlepš*",
@@ -455,7 +461,12 @@
    "minimaliz*",
    "zmenš*",
    "zpomal*",
-   "zpomaluj*"
+   "zpomaluj*",
+   "navyš*",
+   "zved*",
+   "vyplav*",
+   "reguluj*",
+   "vyrovn*"
   ]
  },
  "disease_terms": {
@@ -1459,7 +1470,26 @@
    "treatment panel",
    "medical panel",
    "medical lamp",
-   "doctors trust"
+   "doctors trust",
+   "best red light panel on the market",
+   "best light panel on the market",
+   "best panel on the market",
+   "best on the market",
+   "best in Europe",
+   "best in the world",
+   "number one brand in",
+   "number one panel on",
+   "market leader",
+   "industry leader",
+   "leader in red light therapy",
+   "european market leader",
+   "first in Europe",
+   "first in Czechia",
+   "only Czech company",
+   "most effective panel on the market",
+   "most powerful panel on the market",
+   "best-selling panel on the market",
+   "most popular panel in"
   ],
   "cs": [
    "schváleno FDA",
@@ -1686,7 +1716,37 @@
    "terapeutick* přístroj*",
    "terapeutick* zařízení",
    "využívají lékaři",
-   "důvěřují lékaři"
+   "důvěřují lékaři",
+   "nejlepší panel na trhu",
+   "nejlepší panel v Evropě",
+   "nejlepší panel v Česku",
+   "nejlepší panel na světě",
+   "nejlepší světelný panel na trhu",
+   "nejlepší na trhu",
+   "nejlepší v Česku",
+   "nejlepší v Evropě",
+   "nejlepší na světě",
+   "číslo jedna na trhu",
+   "číslo jedna v oboru",
+   "číslo 1 na trhu",
+   "jednička na trhu",
+   "jednička v oboru",
+   "lídr trhu",
+   "tržní lídr",
+   "evropský lídr",
+   "lídr v Evropě",
+   "lídr v oboru",
+   "lídr mezi panely",
+   "první v Česku",
+   "první v Evropě",
+   "jediná česká firma",
+   "jediný český výrobce",
+   "jediná česká značka",
+   "nejúčinnější panel na trhu",
+   "nejvýkonnější panel na trhu",
+   "nejprodávanější panel v Česku",
+   "nejprodávanější v Česku",
+   "nejoblíbenější panel v Česku"
   ]
  },
  "safety_absolute": {
@@ -2312,19 +2372,21 @@
   "uzdrav"
  ],
  "timeline_patterns": {
+  "cs": [
+   "\\b(?:do|za|behem|po)\\s+(?:jen\\s+|pouze\\s+)?(?:\\d+|jed(?:en|na|no|noho|ne)|dv(?:a|e|ou|ema)|tri|trech|ctyri|ctyr|ctyrech|pet|peti|sest|sesti|sedm|sedmi|osm|osmi|devet|deviti|deset|deseti|ctrnact|ctrnacti|dvacet|dvaceti|tricet\\w*)\\s+(?:dn\\w*|tyd\\w*|mesic\\w*|hodin\\w*|minut\\w*|sezeni\\w*)\\b[^.!?\\n]{0,30}\\b(?:uvidite|ucitite|pocitite|zaznamenate|zpozorujete|dosahnete|ziskate|rozdil\\w*|vysledk\\w*|(?:novy|jiny) clovek|(?:novym|jinym) clovekem)\\b",
+   "\\b(?:uvidite|pocitite|zaznamenate|zpozorujete|dosahnete|ziskate)\\b[^.!?\\n]{0,50}\\b(?:do|za|behem|po)\\s+(?:jen\\s+|pouze\\s+)?(?:\\d+|jed(?:en|na|no|noho|ne)|dv(?:a|e|ou|ema)|tri|trech|ctyri|ctyr|ctyrech|pet|peti|sest|sesti|sedm|sedmi|osm|osmi|devet|deviti|deset|deseti|ctrnact|ctrnacti|dvacet|dvaceti|tricet\\w*)\\s+(?:dn\\w*|tyd\\w*|mesic\\w*|sezeni\\w*)\\b",
+   "\\bvysledk\\w*\\s+(?:do|za|behem|po)\\s+(?:jen\\s+|pouze\\s+)?(?:\\d+|jed(?:en|na|no|noho|ne)|dv(?:a|e|ou|ema)|tri|trech|ctyri|ctyr|ctyrech|pet|peti|sest|sesti|sedm|sedmi|osm|osmi|devet|deviti|deset|deseti|ctrnact|ctrnacti|dvacet|dvaceti|tricet\\w*)\\s+(?:dn\\w*|tyd\\w*|mesic\\w*|sezeni\\w*)\\b",
+   "\\b(?:zarucen\\w*|zarucuj\\w*|garantovan\\w*|garantuj\\w*)\\b",
+   "\\b(?:zazracn\\w*|zazrak\\w*)\\b",
+   "\\b(?:do|za|behem|po)\\s+(?:tyden|tydne|tydnu|mesic|mesice|mesici|den|dne|dni|dnu|rok|roku|roce)\\b[^.!?\\n]{0,30}\\b(?:uvidite|ucitite|pocitite|zaznamenate|zpozorujete|dosahnete|ziskate|rozdil\\w*|vysledk\\w*|(?:novy|jiny) clovek|(?:novym|jinym) clovekem|budete\\s+(?:jiny|jina|novy|nova))\\b"
+  ],
   "en": [
    "\\b(?:in|within|after)\\s+(?:just\\s+|only\\s+|as little as\\s+)?\\d+\\s+(?:days?|weeks?|sessions?|minutes?)\\b[^.!?\\n]{0,30}\\b(?:you(?:'ll| will| can expect)?|expect|see|notice|feel|get)\\b",
    "\\byou(?:'ll| will| can expect to)\\s+(?:see|notice|feel|get)\\b[^.!?\\n]{0,50}\\b(?:in|within|after)\\s+(?:just\\s+|only\\s+)?\\d+\\s+(?:days?|weeks?|sessions?)\\b",
    "\\b(?:results?|difference|changes?)\\s+(?:in|within|after)\\s+(?:just\\s+|only\\s+)?\\d+\\s+(?:days?|weeks?|sessions?)\\b",
    "\\b(?:guarantee[sd]?|guaranteeing)\\b",
-   "\\b(?:miracle|miraculous|miracles)\\b"
-  ],
-  "cs": [
-   "\\b(?:za|behem|po)\\s+(?:jen\\s+|pouze\\s+)?\\d+\\s+(?:dn\\w*|tyd\\w*|hodin\\w*|minut\\w*|sezeni\\w*)\\b[^.!?\\n]{0,30}\\b(?:uvidite|ucitite|pocitite|zaznamenate|zpozorujete|dosahnete|ziskate)\\b",
-   "\\b(?:uvidite|pocitite|zaznamenate|zpozorujete|dosahnete|ziskate)\\b[^.!?\\n]{0,50}\\b(?:za|behem|po)\\s+(?:jen\\s+|pouze\\s+)?\\d+\\s+(?:dn\\w*|tyd\\w*|sezeni\\w*)\\b",
-   "\\bvysledk\\w*\\s+(?:za|behem|po)\\s+(?:jen\\s+|pouze\\s+)?\\d+\\s+(?:dn\\w*|tyd\\w*|sezeni\\w*)\\b",
-   "\\b(?:zarucen\\w*|zarucuj\\w*|garantovan\\w*|garantuj\\w*)\\b",
-   "\\b(?:zazracn\\w*|zazrak\\w*)\\b"
+   "\\b(?:miracle|miraculous|miracles)\\b",
+   "\\b(?:in|within|after)\\s+(?:just\\s+|only\\s+|as little as\\s+)?(?:one|two|three|four|five|six|seven|eight|nine|ten|twelve|fourteen|twenty|thirty)\\s+(?:days?|weeks?|months?|sessions?)\\b[^.!?\\n]{0,30}\\b(?:you(?:'ll| will| can expect to)?\\s+(?:see|notice|feel|get)|expect|see|notice|feel|difference|results?|new you|different person)\\b"
   ]
  },
  "dose_patterns": {

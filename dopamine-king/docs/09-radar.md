@@ -14,7 +14,7 @@ plán hledání (radar/plan.json)
 návrhy textů (radar/drafts.json) -> stejný pisatel a stejný Trust Shield jako ostatní obsah
 ```
 
-Kód je v `src/dopamine_king/radar/` (`collect.py`, `analyze.py`, `compose.py`, `report.py`, `drafts.py`), příkazy jsou `kingctl radar collect`, `radar drafts` a `radar build`.
+Kód je v `src/dopamine_king/radar/` (`collect.py`, `analyze.py`, `compose.py`, `report.py`, `drafts.py`, `emotion.py`), příkazy jsou `kingctl radar collect`, `radar drafts` a `radar build`.
 
 ## Co je skutečné a co ne
 
@@ -25,6 +25,7 @@ Kód je v `src/dopamine_king/radar/` (`collect.py`, `analyze.py`, `compose.py`, 
 | Zařazení webů (lékárna, médium, e-shop) a témat | Úsudek podle názvů a adres, v souborech `domains.json` a `themes.json`, u každého webu s poznámkou. |
 | Mapa tvrzení a studie | Registr studií oboru. Síla důkazů se počítá jen z ověřených studií. |
 | Návrhy textů | Napsal je Claude z faktů v `drafts.json`. Jsou to koncepty ke kontrole člověkem. |
+| Emoční claimy | Napsal je Claude do souboru `claims_emotional.json`. Každá věta prošla kontrolou tvrzení a opírá se jen o fakta ze souboru o značce. Jsou to hypotézy k testu, ne výsledky. |
 
 Hledání se uloží jen tehdy, když nástroj opravdu proběhl s požadovaným dotazem a filtrem domény a hlásí aspoň jedno hledání. Jinak se zahodí a ohlásí. Nic se nedopisuje ani nezaokrouhluje.
 
@@ -48,6 +49,30 @@ Pět uložených hledání jsme zopakovali přímo nástrojem pro vyhledávání
 
 Kontrola tvrzení (Trust Shield) hledá slovesa vedle témat. Skutečné názvy stránek mitolight.cz, například "Zvýšení kvality a množství vlasů" nebo "Červené světlo proti vráskám", slovesa nemají, a proto jí unikly. Radar proto používá druhou, jednodušší kontrolu: název se označí, když obsahuje téma z mapy tvrzení a slovo, které slibuje výsledek (seznam v `outcome_words.json`). Označení neříká, že je název špatně. Ukazuje, které stránky má přečíst člověk. Při práci vznikla i oprava pravidel: téma "Růst vlasů" nově zná i vyjádření "množství vlasů" a "kvalita vlasů".
 
+## Emoční claimy
+
+Radar obsahuje i banku pozitivních, zážitkových vět pro značku: [radar/claims_emotional.json](../radar/claims_emotional.json). Na stránce je sekce "Emoční claimy" a v ní:
+
+- **106 hotových vět** (slogany, nadpisy, úvodní věty, popisky, mikrotexty do aplikace a e-mailů, výzvy zákazníkům), z toho deset doporučených k prvnímu použití.
+- **Sedm pák**, na kterých věty stojí: těšení, rituál, překvapení, příběh, pocit, příslušnost a volba. U každé je síla důkazů z registru studií a seznam ověřených studií. Síla platí pro obecnou páku, ne pro konkrétní větu ani pro produkt. Páka je tak silná, jak je silná její nejslabší taktika.
+- **Šest cílových skupin** po čtyřech větách (u citlivých skupin s upozorněním), **příběh značky** ve třech délkách (jen skutečný začátek v posilovně) a **jména** pro rituál a funkce (Červená hodina, Rozbřesk, Soumrak, Moje světlo).
+- **Co říkat místo čeho**: osm formulací, které kontrola tvrzení zachytí, a věta, kterou je nahradit.
+- **Pravidla hry** (žádný pocit viny, upozornění na požádání, jen pravdivý nedostatek, jen skutečný příběh, citlivé skupiny), **čtyři dvojice pro A/B test** a seznam toho, co musí značka potvrdit před zveřejněním.
+
+### Proč v nich není slovo dopamin
+Věta typu "zvyšuje dopamin" tvrdí účinek přístroje na tělo, a je tedy zdravotním tvrzením. Opírá se navíc o zjednodušení: dopamin není látka potěšení, souvisí s toužením, očekáváním a překvapením (v registru taktika `dopamine-myth` se studiemi Salimpoor 2011, Gruber 2014 a Berridge a Robinson 1998). Věty proto využívají to, co za dopaminem v běžném životě stojí, a mluví o tom lidsky. Kontrola tvrzení u vět o dopaminu, serotoninu, endorfinech a dalších hormonech navíc hlásí chybu.
+
+### Jak je zajištěno, že věty neslibují víc, než smějí
+- Každá věta prochází stejnou kontrolou tvrzení jako ostatní texty a musí projít bez chyby i varování. Test to hlídá.
+- Věta, která se opírá o fakt (šest vlnových délek, začátek v posilovně), uvádí který, a fakt musí být doslova v souboru o značce.
+- Věta s číslem je buď opřená o fakt, nebo označená jako koncept: nápad, který zatím nic netvrdí o přístroji (kampaň, předmět e-mailu, upozornění v aplikaci, které aplikace dnes nemá doložené).
+- Ani jedna věta nenese slova o těle, náladě, hormonech ani nejvyšším postavení na trhu.
+- Kontrola čte slova, ne smysl, proto každou větu před zveřejněním přečte člověk. Skutečnou sílu věty ukáže až test na lidech.
+- Slovo "zázrak" je na seznamu slov, kterým se značka vyhýbá. Věta "Žádné zázraky. Jen světlo, které si zvolíte." ho má jen v záporu a stránka u ní žádá potvrzení.
+
+### Jak ji upravit
+Věta se přidá do `radar/claims_emotional.json` s `id`, pákou (`lever`), použitím (`use`) a textem. Pokud se opírá o fakt, přidá se `support` s klíčem faktu a fakt musí být doslova v souboru o značce. Test `tests/test_radar_emotion.py` ověří kontrolu tvrzení, čísla i zakázaná slova. Stránku znovu postaví `radar build`.
+
 ## Jak ho obnovit
 
 ```bash
@@ -65,4 +90,4 @@ Plán je obyčejný soubor `radar/plan.json`: každé hledání má `id`, skupin
 
 ## Testy
 
-`tests/test_radar_collect.py` (čtení skutečného záznamu nástroje, odmítnutí hledání, které neproběhlo jak mělo), `tests/test_radar_analyze.py`, `tests/test_radar_snapshot.py` (uložená data: každé hledání z plánu je uložené, shoduje se s plánem a s přímým hledáním, žádná dlouhá pomlčka) a `tests/test_radar_report.py` (stránka, věty a návrhy textů; uložená stránka je přesně to, co sestaví kód).
+`tests/test_radar_collect.py` (čtení skutečného záznamu nástroje, odmítnutí hledání, které neproběhlo jak mělo), `tests/test_radar_analyze.py`, `tests/test_radar_snapshot.py` (uložená data: každé hledání z plánu je uložené, shoduje se s plánem a s přímým hledáním, žádná dlouhá pomlčka) `tests/test_radar_emotion.py` (banka emočních vět: kontrola tvrzení, fakta, čísla, zakázaná slova, síla důkazů pák) a `tests/test_radar_report.py` (stránka, věty, návrhy textů a sekce emočních claimů; uložená stránka je přesně to, co sestaví kód).

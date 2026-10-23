@@ -813,7 +813,17 @@
     "brain disorder*",
     "memory loss",
     "mental health",
-    "mental illness"
+    "mental illness",
+    "dopamine",
+    "serotonin",
+    "endorphin*",
+    "oxytocin",
+    "cortisol",
+    "happy hormone*",
+    "feel-good hormone*",
+    "love hormone*",
+    "stress hormone*",
+    "neurotransmitter*"
    ],
    "nouns_cs": [
     "depres*",
@@ -832,7 +842,18 @@
     "duševní zdraví",
     "duševního zdraví",
     "psychick* zdraví",
-    "mentáln* zdraví"
+    "mentáln* zdraví",
+    "dopamin*",
+    "serotonin*",
+    "endorfin*",
+    "oxytocin*",
+    "kortizol*",
+    "hormon* štěstí",
+    "hormon* radosti",
+    "hormon* lásky",
+    "stresov* hormon*",
+    "neurotransmiter*",
+    "neuromediátor*"
    ],
    "patterns": [],
    "safe_en": [
@@ -845,11 +866,13 @@
    ],
    "avoid_en": [
     "Red light therapy relieves depression and anxiety.",
-    "Boosts your memory and protects your brain from Alzheimer's disease."
+    "Boosts your memory and protects your brain from Alzheimer's disease.",
+    "Red light raises your dopamine and serotonin, so you feel happier."
    ],
    "avoid_cs": [
     "Terapie červeným světlem zmírňuje depresi a úzkost.",
-    "Zlepšuje paměť a chrání váš mozek před Alzheimerovou chorobou."
+    "Zlepšuje paměť a chrání váš mozek před Alzheimerovou chorobou.",
+    "Světlo zvyšuje hladinu dopaminu a serotoninu, takže budete šťastnější."
    ],
    "summary_en": "A meta-analysis of 11 randomised trials found lower depression scores with photobiomodulation than with control (pooled SMD -0.55), and a sham-controlled pilot trial of 823 nm light on the prefrontal cortex reported medium to large effects in major depression. These are head-applied treatments in patients, so mood and brain claims remain medical claims that MITO LIGHT may not make.",
    "summary_cs": "Metaanalýza 11 randomizovaných studií zjistila nižší skóre deprese po fotobiomodulaci než u kontroly (souhrnné SMD -0,55) a pilotní studie s fiktivním ošetřením (sham) se světlem 823 nm na prefrontální kůru uvedla u velké depresivní poruchy středně velké až velké účinky. Jde o léčbu přikládanou na hlavu u pacientů, takže tvrzení o náladě a mozku zůstávají zdravotními tvrzeními, která MITO LIGHT nesmí používat.",

@@ -36,6 +36,11 @@ CS = [
     "Pro lidi s artritidou: panel pro každodenní použití.", "Panel pomáhá sportovcům s regenerací.", "Podporuje vaši regeneraci po každém tréninku!",
     "Stačí 10 minut denně a bolest zmizí.", "Světelná rutina před spaním může podpořit pohodu.", "",
     "Zvýšení kvality a množství vlasů díky světlu.", "Zvyšuje množství vlasů a hustotu vlasů.", "Pro silnější vlasy každý den.",
+    "Zvyšuje dopamin a zlepšuje náladu.", "Podporuje tvorbu serotoninu a endorfinů.", "Snižuje stresový hormon kortizol.", "Světlo nezvyšuje dopamin, jen svítí.",
+    "Dopamin souvisí s těšením, ne s potěšením.", "Nejlepší panel v Evropě.", "Jsme lídr trhu.", "Jsme první v Česku.", "Nejlepší část dne je ta, kterou si naplánujete.",
+    "Těšte se na večer, který si vyberete sami.", "Rozsviťte svůj večerní rituál.",
+    "Do dvou týdnů pocítíte rozdíl.", "Za týden pocítíte rozdíl.", "Za 14 dní nový člověk.", "Už po týdnu budete jiný člověk.", "Za měsíc uvidíte výsledky.", "Za dva dny doručíme objednávku.",
+    "Po třech týdnech vám pošleme připomínku.", "Sezení trvá deset minut.",
 ]
 EN = [
     "Red light cures joint pain.", "It relieves inflammation and back pain.", "Treats depression and anxiety.", "Boosts testosterone.",
@@ -56,6 +61,8 @@ EN = [
     "Is red light therapy the same as a tanning bed?", "A harmless way to relax.", "No risk, no contraindications.",
     "Mitochondria are cell structures that make energy.", "Reduce stress and calm your mind.", "A calm evening light routine.", "",
     "Promotes thicker hair and better hair quality.", "Boosts hair volume in weeks.",
+    "Boosts dopamine and serotonin.", "Does not boost dopamine, it just glows.", "The best red light panel on the market.", "Market leader in red light.",
+    "In two weeks you will feel a difference.", "Within 14 days, a new you.", "Delivery within two days.",
 ]
 MIXED = [
     "Red light léčí bolest kloubů", "Detox & imunita: červené světlo", "Zlepšuje spánek (may support sleep).", "ČERVENÉ SVĚTLO LÉČÍ BOLEST!!!",

@@ -283,7 +283,12 @@ test("advice to replace or stop medication or medical care is an error", () => {
 test("outcome promises, regulatory status and absolute safety words", () => {
   assert.deepEqual(codes("Results in 14 days."), ["OUTCOME_PROMISE"]);
   assert.deepEqual(codes("Za 3 týdny uvidíte rozdíl."), ["OUTCOME_PROMISE"]);
-  assert.deepEqual(codes("Za tři týdny uvidíte rozdíl."), [], "only digits make a time frame");
+  assert.deepEqual(codes("Za tři týdny uvidíte rozdíl."), ["OUTCOME_PROMISE"], "a spelled-out number makes a time frame too");
+  assert.deepEqual(codes("Za týden pocítíte rozdíl."), ["OUTCOME_PROMISE"]);
+  assert.deepEqual(codes("Už po týdnu budete jiný člověk."), ["OUTCOME_PROMISE"]);
+  assert.deepEqual(codes("Za dva dny doručíme objednávku."), [], "a delivery date is not a promise");
+  assert.deepEqual(codes("In two weeks you will feel a difference."), ["OUTCOME_PROMISE"]);
+  assert.deepEqual(codes("Within two days you will receive your order."), []);
   assert.deepEqual(codes("FDA approved medical device."), ["STATUS_CLAIM", "STATUS_CLAIM"]);
   assert.deepEqual(codes("It is not FDA approved and makes no medical claims."), []);
   assert.deepEqual(codes("Naprosto bezpečné a bez rizika."), ["SAFETY_ABSOLUTE", "SAFETY_ABSOLUTE"]);

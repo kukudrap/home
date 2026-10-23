@@ -168,6 +168,72 @@ class PageTests(unittest.TestCase):
         self.assertNotRegex(body_rules, r"#[0-9a-fA-F]{3,6}")
 
 
+class ClaimsSectionTests(unittest.TestCase):
+    E = DATA["emotion"]
+
+    def setUp(self):
+        self.anchors = Anchors()
+        self.anchors.feed(PAGE)
+
+    def test_the_section_is_in_the_navigation_and_the_header_points_to_it(self):
+        self.assertIn('<section id="claimy">', PAGE)
+        self.assertGreaterEqual(PAGE.count('href="#claimy"'), 2)            # the tab and the link in the header
+        self.assertIn(f'Nově: emoční claimy, {C.count(self.E["totals"]["claims"], "hotová věta", "hotové věty", "hotových vět")}', PAGE)
+
+    def test_every_claim_is_a_row_once_and_every_pick_a_card(self):
+        for c in self.E["claims"]:
+            self.assertEqual(PAGE.count(f'id="c-{c["id"]}"'), 1, c["id"])
+            self.assertIn(R.esc(c["text"]), PAGE)
+        for c in self.E["picks"]:
+            self.assertEqual(PAGE.count(f'id="t-p-{c["id"]}"'), 1, c["id"])
+        self.assertEqual(PAGE.count('class="pick"'), len(self.E["picks"]))
+
+    def test_every_copy_button_points_to_text_on_the_page(self):
+        targets = re.findall(r'data-target="([^"]+)"', PAGE)
+        self.assertGreater(len(targets), len(self.E["claims"]))
+        for target in targets:
+            self.assertIn(target, self.anchors.ids, target)
+
+    def test_a_sentence_the_shield_passed_has_no_flag_and_one_it_blocked_is_marked(self):
+        self.assertEqual(R.verdict_pill({"verdict": {"errors": [], "warnings": []}}), "")
+        stop = R.verdict_pill({"verdict": {"errors": ["CLAIM_MEDICAL"], "warnings": []}})
+        self.assertIn("pill stop", stop)
+        self.assertIn("zdravotní tvrzení", stop)
+        self.assertIn("pill warn", R.verdict_pill({"verdict": {"errors": [], "warnings": ["OUTCOME_PROMISE"]}}))
+        self.assertIn("Každá věta prošla kontrolou tvrzení bez chyby i varování.", PAGE)
+
+    def test_the_page_says_why_the_word_dopamine_is_not_used_and_lists_the_studies(self):
+        self.assertIn("Proč tu není slovo dopamin", PAGE)
+        self.assertIn(R.esc(self.E["dopamine"]["summary"]), PAGE)
+        for s in self.E["dopamine"]["studies"]:
+            self.assertIn(R.esc(s["title"][:110]), PAGE)
+        for c in self.E["claims"]:
+            self.assertNotIn("dopamin", c["text"].lower())
+
+    def test_the_forbidden_wordings_are_shown_with_what_the_shield_found(self):
+        self.assertEqual(len(self.E["forbidden"]), PAGE.count('data-label="Neříkejte"'))
+        for row in self.E["forbidden"]:
+            self.assertTrue(row["found"], row["text"])
+        self.assertNotIn("kontrola nezachytila", PAGE)
+
+    def test_what_the_brand_must_confirm_is_on_the_page(self):
+        self.assertIn("Než něco zveřejníte", PAGE)
+        for n in self.E["needs"]:
+            self.assertIn(R.esc(n["need"]), PAGE)
+
+    def test_claim_text_is_escaped(self):
+        uses = {"headline": "Nadpis: hlavní nadpis stránky"}
+        row = R.claim_row({"id": "x", "use": "headline", "text": "<b>x</b>", "verdict": {"errors": [], "warnings": []}, "facts": [], "needs": "<i>y</i>"}, uses)
+        self.assertNotIn("<b>x</b>", row)
+        self.assertNotIn("<i>y</i>", row)
+        self.assertIn("&lt;b&gt;x&lt;/b&gt;", row)
+
+    def test_a_lever_row_names_the_strength_of_its_evidence(self):
+        for lv in self.E["levers"]:
+            self.assertIn(f'id="lever-{lv["id"]}"', PAGE)
+            self.assertIn(R.LABEL_CS[lv["label"]], PAGE)
+
+
 class BuildCommandTests(unittest.TestCase):
     def test_the_command_writes_the_page_and_a_fragment(self):
         with tempfile.TemporaryDirectory() as d:

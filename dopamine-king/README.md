@@ -11,9 +11,10 @@ Radar zjistí ze **skutečného vyhledávání na webu**, jak si vede značka MI
 5. **Jak vás vidí vyhledávače a AI**: kolik odkazů při hledání vašeho názvu vede na jinou značku (Mito Red Light) a kdo o vás píše.
 6. **Co zveřejňují úspěšné značky**: 127 stránek z 15 webů rozdělených podle témat, vedle vašeho webu.
 7. **Co smíte tvrdit**: mapa tvrzení (19 témat), titulky vašich stránek, které slibují výsledek, a tvrzení konkurence.
-8. **Devět návrhů textů** (tři stránky a šest příspěvků, po jednom na cílovou skupinu). Každý prošel kontrolou tvrzení.
-9. **Studie**: 39 ze 41 je ověřeno veřejnými zdroji.
-10. **Co chybí a co potřebuji od vás.**
+8. **Emoční claimy**: 106 hotových vět (slogany, nadpisy, příspěvky, texty v aplikaci, příběh značky) postavených na těšení, rituálu, překvapení, příběhu, pocitu, příslušnosti a volbě. Každá prošla kontrolou tvrzení bez chyby i varování a žádná netvrdí účinek na tělo, náladu ani hormony. Stránka vysvětluje, proč tam není slovo dopamin.
+9. **Devět návrhů textů** (tři stránky a šest příspěvků, po jednom na cílovou skupinu). Každý prošel kontrolou tvrzení.
+10. **Studie**: 39 ze 41 je ověřeno veřejnými zdroji.
+11. **Co chybí a co potřebuji od vás.**
 
 ## Odkud jsou data
 
@@ -35,18 +36,21 @@ python3 -m dopamine_king radar build --snapshot radar/snapshots/DATUM --drafts r
 
 Plán hledání, seznam webů a témat jsou obyčejné soubory ve složce [radar](radar): `plan.json`, `domains.json`, `themes.json`, `outcome_words.json`, `drafts.json`. Co se má hledat, změníte tam, ne v kódu. Podrobnosti jsou v [docs/09-radar.md](docs/09-radar.md).
 
+Emoční claimy jsou v souboru [radar/claims_emotional.json](radar/claims_emotional.json). Větu přidáte nebo přepíšete tam. Test `tests/test_radar_emotion.py` pak ověří, že prošla kontrolou tvrzení a opírá se jen o fakta ze souboru o značce. Stránku znovu postaví třetí příkaz výše.
+
 ## Co potřebuji od vás
 
 - Potvrdit, že MITO LIGHT a Mito Red Light jsou dvě různé značky a že mitolight.com a mitolight.co.uk jsou vaše weby.
 - Export ze Search Console a ze Seznam Webmaster. Radar hledá z USA, vaše skutečné pozice znáte jen vy.
 - **Zapnout internet pro prostředí**, ve kterém radar běží (nastavení prostředí, Network access). Zatím vidí jen názvy stránek, ne jejich text. S internetem zkontroluji celé texty vašeho webu a konkurence a stáhnu abstrakty studií.
 - Vzdálenost a způsob měření ozáření u každého modelu.
+- Rozhodnout o názvu **Červená hodina** (zda ho lze používat jako značku) a projít věty se štítkem Potvrdit v části "Než něco zveřejníte" na stránce.
 
 ## Starší části projektu
 
 Dopamine King vznikl jako stroj na obsah zabalený do hry (verze 1). Hra, generátor obsahu ve 28 formátech, kontrola tvrzení (Trust Shield) a mapa tvrzení fungují dál a radar je používá. Hra pracuje se **simulovanými čísly** a na každém odhalení to říká. Radar na ní nezávisí.
 
-> **English TL;DR.** MITO LIGHT Radar 2.0 builds a market picture of the Czech brand MITO LIGHT from real web search results only: 88 searches run through the logged-in Claude Code with only the WebSearch tool, links stored exactly as returned, nothing simulated. It reports search visibility, who surrounds the brand, brand-name confusion with Mito Red Light, what top brands publish, a claims check of real page titles, nine reviewed drafts and the study ledger (39 of 41 verified). Underneath is the older Dopamine King engine: a Python core without third-party dependencies, 28 content formats, a Trust Shield claims profile for non-medical wellness devices and a single-file game.
+> **English TL;DR.** MITO LIGHT Radar 2.0 builds a market picture of the Czech brand MITO LIGHT from real web search results only: 88 searches run through the logged-in Claude Code with only the WebSearch tool, links stored exactly as returned, nothing simulated. It reports search visibility, who surrounds the brand, brand-name confusion with Mito Red Light, what top brands publish, a claims check of real page titles, nine reviewed drafts and the study ledger (39 of 41 verified). Underneath is the older Dopamine King engine: a Python core without third-party dependencies, 28 content formats, a Trust Shield claims profile for non-medical wellness devices and a single-file game. The page also holds 106 emotional, experience-based claims built on anticipation, ritual, surprise, story, feeling, belonging and choice; each passes the Trust Shield with no error or warning, none claims an effect on body, mood or hormones, and the page explains why the word dopamine is not used (it would be a health claim and rests on a myth).
 
 ## Rychlý start
 
@@ -128,7 +132,7 @@ python3 -m dopamine_king evidence verify --save .king/ledger.json    # ověřen�
 | Psaní prózy modelem Claude | Napsáno podle dokumentace a **otestováno proti atrapě**; živé API zde nebylo možné vyzkoušet (bez klíče) |
 | Šetrný sběr, import analytik | Hotovo, otestováno offline i proti lokálnímu HTTP serveru; **živý sběr vyžaduje síť** (prostředí, kde kód vznikl, povolilo ze 111 značek jen jednu) |
 | Ledger studií | 32 záznamů; **23 potvrzeno** veřejnými zdroji (název, časopis, rok, DOI), zbytek má u sebe poznámku, jak daleko ověření došlo. `evidence verify` ověří přes Crossref. |
-| Edice MITO LIGHT: profil wellness, mapa tvrzení, hra | Hotovo a otestováno na příkladech správných i nesprávných formulací a na 187 "golden" případech, které musí dát v Pythonu i v JavaScriptu stejný výsledek. **Pravidla je třeba nechat zkontrolovat regulatorním poradcem.** |
+| Edice MITO LIGHT: profil wellness, mapa tvrzení, hra | Hotovo a otestováno na příkladech správných i nesprávných formulací a na 238 "golden" případech, které musí dát v Pythonu i v JavaScriptu stejný výsledek. **Pravidla je třeba nechat zkontrolovat regulatorním poradcem.** |
 | Registr důkazů PBM | 41 záznamů: 39 ověřených veřejnými zdroji (14 z nich radarem 2026-10-23: název, časopis a rok v PubMed, PubMed Central nebo u vydavatele), 2 neověřené s poznámkou proč. Závěry jsou čtené z abstraktů a shrnutí, ne z plných textů. |
 | Fakta o MITO LIGHT | Z veřejných zdrojů (výsledky vyhledávání, ne z otevřených stránek), **k potvrzení značkou**; čísla a parametry si značka musí schválit. |
 | MITO LIGHT Radar 2.0 | **Skutečná data**: 88 hledání na webu ze dne 2026-10-23, nic simulovaného. Vidí názvy a adresy stránek, ne jejich obsah (prostředí nemá přístup na web). |

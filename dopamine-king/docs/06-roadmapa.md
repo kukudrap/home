@@ -49,6 +49,7 @@ Radar 2.0 je popsán v [09-radar.md](09-radar.md). Co zbývá:
 3. **Pravidla pro věty bez slovesa.** Kontrola tvrzení je postavená na slovesech. Skutečné titulky vlastního webu ("Zvýšení kvality a množství vlasů", "Červené světlo proti vráskám") jí unikly, proto radar má druhou, jednodušší kontrolu názvů. Oprava patří do pravidel: podstatná jména výsledku (zvýšení, zlepšení, snížení) vedle témat mapy.
 4. **Další trhy.** Stejný plán hledání pro Slovensko, Německo a Velkou Británii (plán je obyčejný soubor).
 5. **Pravidelné obnovování.** Naplánovaná úloha, která jednou týdně spustí tři příkazy a ohlásí změnu oproti minulému snímku.
+6. **Test emočních claimů.** Věty v radaru jsou hypotézy, ne výsledky. Další krok jsou dva až čtyři A/B testy (čtyři dvojice jsou na stránce připravené), po nich se slabší věty přepíšou. Předtím značka rozhodne o názvu Červená hodina.
 
 ## v1.0: služba
 Fakturace, správa dat a souhlasů, dokumentace pro audit (GDPR, bezpečnost).
