@@ -560,7 +560,8 @@ def cmd_build_web(args: argparse.Namespace) -> int:
     module = importlib.util.module_from_spec(spec)  # type: ignore[arg-type]
     spec.loader.exec_module(module)  # type: ignore[union-attr]
     return int(module.main(["--out", args.out, "--vertical", args.vertical]
-                           + (["--bundle", args.bundle] if args.bundle else [])) or 0)
+                           + (["--bundle", args.bundle] if args.bundle else []) + (["--synthetic"] if args.synthetic else [])
+                           + (["--fragment"] if args.fragment else [])) or 0)
 
 
 def cmd_demo(args: argparse.Namespace) -> int:
@@ -809,9 +810,11 @@ def build_parser() -> argparse.ArgumentParser:
     s.add_argument("--allow-remote", action="store_true"), s.add_argument("--verbose", action="store_true")
     s.set_defaults(fn=cmd_serve)
 
-    s = sub.add_parser("build-web", help="build the single-file game")
+    s = sub.add_parser("build-web", help="build the single-file game (the real edition by default)")
     s.add_argument("--out", default=str(ROOT / "web" / "dist" / "dopamine-king.html")), s.add_argument("--bundle")
+    s.add_argument("--synthetic", action="store_true", help="build the demo edition on the simulated corpus instead of the real one")
     s.add_argument("--vertical", default="pbm", help="edition of the game: pbm (MITO LIGHT, default) or general")
+    s.add_argument("--fragment", action="store_true", help="write the page without document tags, for publishing as an artifact")
     s.set_defaults(fn=cmd_build_web)
     return p
 

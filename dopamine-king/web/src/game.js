@@ -8,6 +8,10 @@
  * Ethics by design: variable rewards (chests) use published drop rates and a pity timer, nothing costs
  * real money, a missed day never produces guilt copy (streak freezes instead), and wrong answers still
  * earn a little XP.
+ *
+ * Real edition: a duel has a kind (rank, reach, claim; hook in the old simulated edition). Real work earns XP too:
+ * ticking off a task of the market view and recording the numbers of a real A/B test. Both are self reported, so
+ * un-ticking never takes XP back and ticking again never pays twice.
  */
 (function (root, factory) {
   if (typeof module === "object" && module.exports) module.exports = factory(function (n) { return require("./" + n + ".js"); });
@@ -25,8 +29,9 @@
     arenaBase: 10, arenaMedium: 5, arenaHard: 10, arenaUpset: 10, arenaWrong: 2,
     confidenceBonus: 3, confidenceThreshold: 80, comboStep: 5, comboMax: 3,
     bossRepeatShare: 0.2, labRight: 25, labWrong: 5, mythRight: 8, mythWrong: 2,
-    quest: 30, dust: 5
+    quest: 30, dust: 5, taskDone: 50, tasksPerChest: 3, labPlan: 10, labResult: 40
   };
+  var DUEL_KINDS = ["hook", "rank", "reach", "claim"];
   var BOSS_MAX_RISK = 0.35;
   var HONEST_RISK = 0.10;
   var ORACLE_MIN_ANSWERS = 10;
@@ -108,8 +113,12 @@
       deck: [],
       stats: {
         arenaPlayed: 0, arenaCorrect: 0, upsetsCaught: 0, bossWins: 0, labRuns: 0, mythsCorrect: 0,
-        mythsPlayed: 0, chests: 0, labPlayed: 0, labCorrect: 0, honestWins: 0, bestCombo: 0
+        mythsPlayed: 0, chests: 0, labPlayed: 0, labCorrect: 0, honestWins: 0, bestCombo: 0, tasksDone: 0, labResults: 0
       },
+      kinds: {},         // duel kind -> {played, correct}
+      tasks: {},         // real task id -> date it was ticked off
+      tasksPaid: [],     // task ids whose XP was paid (ticking again pays nothing)
+      labTests: {},      // real test id -> {plan, result}
       brier: { sum: 0, n: 0 },
       achievements: [],
       bossWinsByDay: {},
@@ -153,6 +162,37 @@
     if (isObj(raw.stats)) Object.keys(d.stats).forEach(function (k) { p.stats[k] = Math.max(0, Math.floor(num(raw.stats[k], 0))); });
     if (isObj(raw.brier)) p.brier = { sum: Math.max(0, num(raw.brier.sum, 0)), n: Math.max(0, Math.floor(num(raw.brier.n, 0))) };
     p.achievements = strList(raw.achievements);
+    if (isObj(raw.kinds)) {
+      DUEL_KINDS.forEach(function (k) {
+        var v = raw.kinds[k];
+        if (isObj(v) && (num(v.played, 0) > 0)) {
+          var played = Math.max(0, Math.floor(num(v.played, 0)));
+          p.kinds[k] = { played: played, correct: clamp(Math.floor(num(v.correct, 0)), 0, played) };
+        }
+      });
+    }
+    if (isObj(raw.tasks)) {
+      Object.keys(raw.tasks).forEach(function (id) { if (isFinite(dayNumber(raw.tasks[id]))) p.tasks[id] = raw.tasks[id]; });
+    }
+    p.tasksPaid = strList(raw.tasksPaid, 100);
+    if (isObj(raw.labTests)) {
+      Object.keys(raw.labTests).slice(0, 50).forEach(function (id) {
+        var t = raw.labTests[id];
+        if (!isObj(t)) return;
+        var out = { plan: null, result: null };
+        if (isObj(t.plan) && num(t.plan.baseline, 0) > 0 && num(t.plan.lift, 0) > 0 && num(t.plan.nPerArm, 0) > 0) {
+          out.plan = { baseline: clamp(num(t.plan.baseline, 0), 0.0001, 0.9), lift: clamp(num(t.plan.lift, 0), 0.01, 5), nPerArm: Math.min(1e9, Math.floor(num(t.plan.nPerArm, 0))) };
+        }
+        if (isObj(t.result)) {
+          var r = t.result;
+          var nA = Math.floor(num(r.nA, 0)), nB = Math.floor(num(r.nB, 0));
+          if (nA > 0 && nB > 0) {
+            out.result = { nA: Math.min(1e9, nA), xA: clamp(Math.floor(num(r.xA, 0)), 0, nA), nB: Math.min(1e9, nB), xB: clamp(Math.floor(num(r.xB, 0)), 0, nB), date: isFinite(dayNumber(r.date)) ? r.date : null };
+          }
+        }
+        if (out.plan || out.result) p.labTests[id] = out;
+      });
+    }
     if (isObj(raw.bossWinsByDay)) {
       Object.keys(raw.bossWinsByDay).forEach(function (day) {
         if (!isFinite(dayNumber(day)) || !isObj(raw.bossWinsByDay[day])) return;
@@ -236,7 +276,9 @@
     { id: "lab_run", event: "lab_run", target: 1, route: "lab" },
     { id: "myths_5", event: "myth", target: 5, route: "vault", params: { tab: "myths" } },
     { id: "vault_open", event: "vault_open", target: 1, route: "vault" },
-    { id: "clean_win", event: "clean_win", target: 1, route: "boss" }
+    { id: "clean_win", event: "clean_win", target: 1, route: "boss" },
+    { id: "claim_duels", event: "claim_win", target: 3, route: "arena", params: { kind: "claim" } },
+    { id: "task_done", event: "task_done", target: 1, route: "market", params: { tab: "tasks" } }
   ];
 
   function questDef(id) {
@@ -363,40 +405,52 @@
   // -- achievements ---------------------------------------------------------------------------
   var ACHIEVEMENTS = [
     { id: "first_blood", icon: "swords", name: { en: "First Blood", cs: "První krev" },
-      desc: { en: "Call your first duel correctly in the Arena.", cs: "Poprvé správně rozhodni souboj v Aréně." },
+      desc: { en: "Call your first duel correctly in the Arena.", cs: "Poprvé správně rozhodněte souboj v Aréně." },
       test: function (p) { return p.stats.arenaCorrect >= 1; } },
     { id: "calibrated", icon: "target", name: { en: "Calibrated", cs: "Kalibrovaný" },
-      desc: { en: "Reach an Oracle rating of 70 or more after at least 20 answers with confidence.", cs: "Dosáhni hodnocení Orákula 70 a více po alespoň 20 odpovědích s jistotou." },
+      desc: { en: "Reach an Oracle rating of 70 or more after at least 20 answers with confidence.", cs: "Dosáhněte hodnocení Orákula 70 a více po alespoň 20 odpovědích s jistotou." },
       test: function (p) { return p.brier.n >= 20 && oracleRating(p.brier) >= 70; } },
     { id: "upset_hunter", icon: "bolt", name: { en: "Upset Hunter", cs: "Lovec překvapení" },
-      desc: { en: "Call 5 upsets, duels where the model favoured the loser.", cs: "Správně tipni 5 překvapivých duelů, ve kterých model fandil poraženému." },
+      desc: { en: "Call 5 upsets, duels where the model favoured the loser.", cs: "Správně tipněte 5 překvapivých soubojů, ve kterých model fandil poraženému." },
       test: function (p) { return p.stats.upsetsCaught >= 5; } },
     { id: "honest_hook", icon: "shield", name: { en: "Honest Hook", cs: "Poctivý hook" },
-      desc: { en: "Beat a boss with a clickbait risk below 10 percent.", cs: "Poraz bosse s rizikem clickbaitu pod 10 procent." },
+      desc: { en: "Beat a boss with a clickbait risk below 10 percent.", cs: "Poražte bosse s rizikem clickbaitu pod 10 procent." },
       test: function (p) { return p.stats.honestWins >= 1; } },
     { id: "boss_slayer", icon: "crown", name: { en: "Boss Slayer", cs: "Zabiják bossů" },
-      desc: { en: "Beat 3 different bosses.", cs: "Poraz 3 různé bossy." },
+      desc: { en: "Beat 3 different bosses.", cs: "Poražte 3 různé bossy." },
       test: function (p) { return p.bossesBeaten.length >= 3; } },
     { id: "scientist", icon: "flask", name: { en: "Scientist", cs: "Výzkumník" },
-      desc: { en: "Collect 10 vault cards.", cs: "Sesbírej 10 karet do trezoru." },
+      desc: { en: "Collect 10 vault cards.", cs: "Sesbírejte 10 karet do trezoru." },
       test: function (p) { return p.deck.length >= 10; } },
     { id: "streak_7", icon: "flame", name: { en: "Streak 7", cs: "Série 7" },
-      desc: { en: "Play on 7 days in a row.", cs: "Hraj 7 dnů v řadě." },
+      desc: { en: "Play on 7 days in a row.", cs: "Hrajte 7 dnů v řadě." },
       test: function (p) { return p.bestStreak >= 7; } },
-    { id: "dont_peek", icon: "eye", name: { en: "Don't Peek", cs: "Nenahlížej" },
-      desc: { en: "Complete the peeking demo in the Lab.", cs: "Dokonči ukázku nahlížení v Laboratoři." },
+    { id: "dont_peek", icon: "eye", name: { en: "Don't Peek", cs: "Nenahlížejte" },
+      desc: { en: "Complete the peeking demo in the Lab.", cs: "Dokončete ukázku nahlížení v Laboratoři." },
       test: function (p) { return p.peekDone === true; } },
     { id: "myth_buster", icon: "bulb", name: { en: "Myth Buster", cs: "Ničitel mýtů" },
-      desc: { en: "Answer 10 Myth or Fact cards correctly.", cs: "Správně odpověz na 10 karet Mýtus, nebo fakt." },
+      desc: { en: "Answer 10 Myth or Fact cards correctly.", cs: "Správně odpovězte na 10 karet Mýtus, nebo fakt." },
       test: function (p) { return p.stats.mythsCorrect >= 10; } },
     { id: "polyglot", icon: "globe", name: { en: "Polyglot", cs: "Polyglot" },
-      desc: { en: "Beat a boss in both English and Czech.", cs: "Poraz bosse v angličtině i v češtině." },
+      desc: { en: "Beat a boss in both English and Czech.", cs: "Poražte bosse v angličtině i v češtině." },
       test: function (p) { return p.winLangs.indexOf("en") >= 0 && p.winLangs.indexOf("cs") >= 0; } },
+    { id: "rule_reader", icon: "shieldCheck", name: { en: "Rule Reader", cs: "Čtenář pravidel" },
+      desc: { en: "Call 10 claims duels correctly: which real page title the claims check would stop.", cs: "Správně rozhodněte 10 soubojů o tvrzeních: který skutečný titulek by kontrola zastavila." },
+      test: function (p) { return !!p.kinds.claim && p.kinds.claim.correct >= 10; } },
+    { id: "market_scout", icon: "globe", name: { en: "Market Scout", cs: "Průzkumník trhu" },
+      desc: { en: "Call 10 market duels correctly: which result ranked higher, which site shows up more often.", cs: "Správně rozhodněte 10 soubojů o trhu: který výsledek byl výš, který web se objevuje častěji." },
+      test: function (p) { return ((p.kinds.rank && p.kinds.rank.correct) || 0) + ((p.kinds.reach && p.kinds.reach.correct) || 0) >= 10; } },
+    { id: "real_work", icon: "check", name: { en: "Real Work", cs: "Skutečná práce" },
+      desc: { en: "Finish 3 tasks of the market view.", cs: "Dokončete 3 úkoly z přehledu trhu." },
+      test: function (p) { return p.stats.tasksDone >= 3; } },
+    { id: "real_test", icon: "flask", name: { en: "Real Test", cs: "Skutečný test" },
+      desc: { en: "Record the numbers of a real A/B test.", cs: "Zapište čísla skutečného A/B testu." },
+      test: function (p) { return p.stats.labResults >= 1; } },
     { id: "level_5", icon: "star", name: { en: "Level 5", cs: "Úroveň 5" },
-      desc: { en: "Reach level 5.", cs: "Dosáhni úrovně 5." },
+      desc: { en: "Reach level 5.", cs: "Dosáhněte úrovně 5." },
       test: function (p) { return p.level >= 5; } },
     { id: "level_10", icon: "star", name: { en: "Level 10", cs: "Úroveň 10" },
-      desc: { en: "Reach level 10.", cs: "Dosáhni úrovně 10." },
+      desc: { en: "Reach level 10.", cs: "Dosáhněte úrovně 10." },
       test: function (p) { return p.level >= 10; } }
   ];
 
@@ -408,12 +462,14 @@
   // -- arena --------------------------------------------------------------------------------
   function comboMultiplier(combo) { return Math.min(XP.comboMax, Math.floor(combo / XP.comboStep) + 1); }
 
-  /** Choose the next duel: unseen first, the UI language first (when preferred), optional difficulty filter. */
+  /** Choose the next duel: unseen first, the UI language first (when preferred), optional difficulty and kind filters. */
   function pickDuel(arena, o) {
     o = o || {};
     var rng = o.rng || systemRng();
     var seen = o.seen || [];
-    var pool = (arena || []).filter(function (d) { return !o.difficulty || o.difficulty === "all" || d.difficulty === o.difficulty; });
+    var pool = (arena || []).filter(function (d) {
+      return (!o.difficulty || o.difficulty === "all" || d.difficulty === o.difficulty) && (!o.kind || o.kind === "all" || (d.kind || "hook") === o.kind);
+    });
     if (!pool.length) return { duel: null, cycled: false };
     var fresh = pool.filter(function (d) { return seen.indexOf(d.id) < 0 && d.id !== o.avoid; });
     var cycled = false;
@@ -439,6 +495,10 @@
     var conf = typeof args.confidence === "number" ? clamp(args.confidence, 50, 100) : null;
     var xp = { base: 0, difficulty: 0, upset: 0, multiplier: 1, subtotal: 0, confidence: 0, total: 0, participation: 0 };
 
+    var kind = DUEL_KINDS.indexOf(duel.kind) >= 0 ? duel.kind : "hook";
+    p.kinds[kind] = p.kinds[kind] || { played: 0, correct: 0 };
+    p.kinds[kind].played += 1;
+    if (correct) p.kinds[kind].correct += 1;
     p.stats.arenaPlayed += 1;
     if (correct) {
       p.stats.arenaCorrect += 1;
@@ -468,9 +528,10 @@
       bump(p, "arena_win", 1, events);
       if (duel.difficulty === "hard") bump(p, "hard_win", 1, events);
       if (upsetCaught) bump(p, "upset", 1, events);
+      if (kind === "claim") bump(p, "claim_win", 1, events);
     }
     finish(p, events);
-    return { profile: p, correct: correct, upsetCaught: upsetCaught, xp: xp, combo: p.combo, multiplier: xp.multiplier, oracle: oracleRating(p.brier), events: events };
+    return { profile: p, correct: correct, kind: kind, upsetCaught: upsetCaught, xp: xp, combo: p.combo, multiplier: xp.multiplier, oracle: oracleRating(p.brier), events: events };
   }
 
   /** P(A beats B) from two Dopamine Scores (calibrate.py win_probability). */
@@ -611,6 +672,58 @@
     award(p, xp, events);
     finish(p, events);
     return { profile: p, xp: xp, events: events };
+  }
+
+  // -- real work: tasks and real A/B tests ------------------------------------------------------
+  /**
+   * Tick a task of the market view on or off. args: {id, done, xp?}. Ticking on for the first time pays XP (50 by default) and every
+   * third task a chest; ticking off keeps the XP and ticking on again pays nothing more.
+   */
+  function toggleTask(profile, args, ctx) {
+    var st = begin(profile, ctx), p = st.next, events = st.events;
+    var out = { done: !!args.done, xp: 0, chest: false, firstTime: false };
+    if (args.done) {
+      p.tasks[args.id] = st.today;
+      if (p.tasksPaid.indexOf(args.id) < 0) {
+        p.tasksPaid.push(args.id);
+        out.firstTime = true;
+        out.xp = args.xp === undefined ? XP.taskDone : args.xp;
+        p.stats.tasksDone += 1;
+        award(p, out.xp, events);
+        bump(p, "task_done", 1, events);
+        if (p.stats.tasksDone % XP.tasksPerChest === 0) { p.chestsReady += 1; out.chest = true; events.push({ type: "taskChest" }); }
+      }
+    } else {
+      delete p.tasks[args.id];
+    }
+    finish(p, events);
+    out.profile = p; out.events = events;
+    return out;
+  }
+
+  /** Save the plan of a real A/B test (baseline rate, smallest lift worth finding, visitors per arm). Planning pays XP once per test. */
+  function planLabTest(profile, args, ctx) {
+    var st = begin(profile, ctx), p = st.next, events = st.events;
+    var prev = p.labTests[args.id] || { plan: null, result: null };
+    var first = !prev.plan;
+    p.labTests[args.id] = { plan: { baseline: args.baseline, lift: args.lift, nPerArm: args.nPerArm }, result: prev.result };
+    var xp = first ? XP.labPlan : 0;
+    award(p, xp, events);
+    finish(p, events);
+    return { profile: p, xp: xp, firstTime: first, events: events };
+  }
+
+  /** Save the real numbers of a test: visitors and conversions of A and B. The first record of a test pays XP; later corrections do not. */
+  function recordLabResult(profile, args, ctx) {
+    var st = begin(profile, ctx), p = st.next, events = st.events;
+    var prev = p.labTests[args.id] || { plan: null, result: null };
+    var first = !prev.result;
+    p.labTests[args.id] = { plan: prev.plan, result: { nA: args.nA, xA: args.xA, nB: args.nB, xB: args.xB, date: st.today } };
+    var xp = first ? XP.labResult : 0;
+    if (first) p.stats.labResults += 1;
+    award(p, xp, events);
+    finish(p, events);
+    return { profile: p, xp: xp, firstTime: first, events: events };
   }
 
   // -- myth or fact -------------------------------------------------------------------------
@@ -763,6 +876,7 @@
     pickDuel: pickDuel, answerDuel: answerDuel, winProbability: winProbability,
     percentileOf: percentileOf, thresholdScore: thresholdScore, resolveBoss: resolveBoss, applyBoss: applyBoss,
     drawLabTruth: drawLabTruth, judgeLabDecision: judgeLabDecision, applyLabRun: applyLabRun, applyLabDecision: applyLabDecision,
+    toggleTask: toggleTask, planLabTest: planLabTest, recordLabResult: recordLabResult, DUEL_KINDS: DUEL_KINDS,
     answerMyth: answerMyth, pickMyth: pickMyth,
     drawRarity: drawRarity, drawChest: drawChest, openChest: openChest, applyVaultOpen: applyVaultOpen,
     shouldShowBreak: shouldShowBreak, addPlayTime: addPlayTime, playMinutesToday: playMinutesToday,

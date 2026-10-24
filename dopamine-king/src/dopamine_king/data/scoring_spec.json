@@ -56,15 +56,15 @@
     "risk": {"en": "Clickbait risk", "cs": "Riziko clickbaitu"}
   },
   "messages": {
-    "open_loop": {"en": "Open an information gap: a question, a surprising claim or a promise of a reveal.", "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."},
-    "add_utility": {"en": "Make the payoff concrete: a number, steps or a 'how to'.", "cs": "Zkonkrétni užitek: číslo, kroky nebo \"jak na to\"."},
-    "address_reader": {"en": "Speak to the reader directly (you, your) or name the audience.", "cs": "Oslov čtenáře přímo (ty, vy, váš) nebo pojmenuj publikum."},
-    "add_emotion": {"en": "Add one high-arousal emotion word that is true to the content.", "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."},
-    "add_contrast": {"en": "Challenge an expectation: a myth, a 'stop doing X', a contrast.", "cs": "Zpochybni očekávání: mýtus, \"přestaň dělat X\", kontrast."},
-    "shorten": {"en": "Shorten it: aim for 6 to 12 words.", "cs": "Zkrať to: cílem je 6 až 12 slov."},
-    "simplify": {"en": "Use shorter, plainer words.", "cs": "Použij kratší a prostší slova."},
-    "reduce_clickbait": {"en": "Remove clickbait phrasing and exaggerated claims; trust and delivery matter.", "cs": "Odstraň clickbaitové formulace a přehnané sliby; důvěra a splnění slibu rozhodují."},
+    "open_loop": {"en": "Open an information gap: a question, a surprising claim or a promise of a reveal.", "cs": "Otevřete informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."},
+    "add_utility": {"en": "Make the payoff concrete: a number, steps or a 'how to'.", "cs": "Zkonkrétněte užitek: číslo, kroky nebo „jak na to“."},
+    "address_reader": {"en": "Speak to the reader directly (you, your) or name the audience.", "cs": "Oslovte čtenáře přímo (ty, vy, váš) nebo pojmenujte publikum."},
+    "add_emotion": {"en": "Add one high-arousal emotion word that is true to the content.", "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."},
+    "add_contrast": {"en": "Challenge an expectation: a myth, a 'stop doing X', a contrast.", "cs": "Zpochybněte očekávání: mýtus, „přestaňte dělat X“, kontrast."},
+    "shorten": {"en": "Shorten it: aim for 6 to 12 words.", "cs": "Zkraťte to: cílem je 6 až 12 slov."},
+    "simplify": {"en": "Use shorter, plainer words.", "cs": "Použijte kratší a prostší slova."},
+    "reduce_clickbait": {"en": "Remove clickbait phrasing and exaggerated claims; trust and delivery matter.", "cs": "Odstraňte clickbaitové formulace a přehnané sliby; důvěra a splnění slibu rozhodují."},
     "keep_promise": {"en": "The number in the headline promises more items than the body delivers.", "cs": "Číslo v titulku slibuje víc položek, než text obsahuje."},
-    "ship_it": {"en": "Strong and honest. Test it against a close variant.", "cs": "Silné a férové. Otestuj to proti blízké variantě."}
+    "ship_it": {"en": "Strong and honest. Test it against a close variant.", "cs": "Silné a férové. Otestujte to proti blízké variantě."}
   }
 }

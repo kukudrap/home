@@ -62,7 +62,7 @@
    "en": "Whole-body red light panels are proven to speed up recovery after training.",
    "cs": "Celotělové panely s červeným světlem prokazatelně urychlují regeneraci po tréninku.",
    "why_en": "A 2025 systematic review of five studies on whole-body red or near-infrared light found no reported benefit on fatigue markers or performance. Few studies, so the question stays open, but 'proven' is far too strong.",
-   "why_cs": "Systematický přehled z roku 2025 s pěti studiemi o celotělovém červeném nebo blízkém infračerveném světle neuvedl žádný přínos pro ukazatele únavy ani výkon. Studií je málo, otázka zůstává otevřená, ale slovo 'prokazatelně' je příliš silné."
+   "why_cs": "Systematický přehled z roku 2025 s pěti studiemi o celotělovém červeném nebo blízkém infračerveném světle neuvedl žádný přínos pro ukazatele únavy ani výkon. Studií je málo, otázka zůstává otevřená, ale slovo „prokazatelně“ je příliš silné."
   },
   {
    "id": "pm-recovery-mixed",
@@ -80,7 +80,7 @@
    "en": "Meta-analyses of light applied before exercise report small to modest gains in muscle endurance in healthy adults.",
    "cs": "Metaanalýzy světla aplikovaného před cvičením uvádějí u zdravých dospělých malé až střední zlepšení svalové vytrvalosti.",
    "why_en": "Pooled effects were modest (around 0.3 standard deviations), appeared for some exercise types only, and differed by activity level. It is a hedged 'may', never a promise.",
-   "why_cs": "Souhrnné efekty byly mírné (kolem 0,3 směrodatné odchylky), objevily se jen u některých typů cvičení a lišily se podle úrovně aktivity. Je to opatrné 'může', nikdy slib."
+   "why_cs": "Souhrnné efekty byly mírné (kolem 0,3 směrodatné odchylky), objevily se jen u některých typů cvičení a lišily se podle úrovně aktivity. Je to opatrné „může“, nikdy slib."
   },
   {
    "id": "pm-wrinkles",
@@ -97,8 +97,8 @@
    "ref": "No verified evidence in the ledger",
    "en": "Shining red light on the body is a proven way to raise testosterone.",
    "cs": "Svícení červeným světlem na tělo je prokázaný způsob, jak zvýšit testosteron.",
-   "why_en": "Claims like this circulate online, but we found no verified evidence for them, and hormone claims are outside what a wellness device may say.",
-   "why_cs": "Taková tvrzení kolují na internetu, ale nenašli jsme pro ně žádné ověřené důkazy a tvrzení o hormonech jsou mimo to, co smí wellness přístroj říkat."
+   "why_en": "Claims like this circulate online, but there is no verified evidence for them, and hormone claims are outside what a wellness device may say.",
+   "why_cs": "Taková tvrzení kolují na internetu, ale pro ně nejsou žádné ověřené důkazy a tvrzení o hormonech jsou mimo to, co smí wellness přístroj říkat."
   },
   {
    "id": "pm-claims-evidence",

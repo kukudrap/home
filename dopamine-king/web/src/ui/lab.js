@@ -1,9 +1,12 @@
-/* Lab: three mini games that teach honest experimentation.
- *  1. Duel: pick a scenario, choose visitors per arm, run a simulated A/B test (seeded RNG, hidden truth),
- *     read the z test, p value, Newcombe interval and the Bayesian chance that B is better, then decide.
- *  2. Don't Peek: 1000 A/A tests, checked at every look versus once at a fixed horizon.
- *  3. Bandit Garden: Thompson sampling versus an even split on 4 variants with an SVG regret chart.
- * Everything is simulated in the browser; the statistics live in labstats.js (tested against Python).
+/* Lab: honest experimentation.
+ *  0. Real test (real edition): the pairs of sentences of the claim bank as real A/B tests. Plan the sample size, run the test
+ *     elsewhere (e-mail, ads), then enter the real visitors and conversions and read the z test, the p value, the interval and
+ *     the Bayesian chance that B is better. Nothing here is simulated.
+ *  1. Duel (old edition): pick a scenario, choose visitors per arm, run a simulated A/B test (seeded RNG, hidden truth),
+ *     read the same numbers, then decide.
+ *  2. Don't Peek: 1000 A/A tests, checked at every look versus once at a fixed horizon. A teaching simulation.
+ *  3. Bandit Garden: Thompson sampling versus an even split on 4 variants with an SVG regret chart. A teaching simulation.
+ * The statistics live in labstats.js (tested against Python).
  */
 (function (root, factory) {
   if (typeof module === "object" && module.exports) module.exports = factory(root);
@@ -11,11 +14,12 @@
 })(typeof self !== "undefined" ? self : this, function (root) {
   "use strict";
 
-  var TABS = ["duel", "peek", "bandit"];
+  var TABS = ["real", "duel", "peek", "bandit"];
   var SPEEDS = { slow: 3, normal: 9, fast: 36 };
 
   // Survive navigation and language changes during a session.
   var duelState = { scenarioId: null, n: null, round: null, calc: { baseline: 5, lift: 20 } };
+  var realState = { id: null };
   var peekState = { looks: 10, result: null };
   var banditState = { rounds: 2000, speed: "normal", seed: null, done: null };
   var activeTab = "duel";
@@ -24,18 +28,22 @@
     var d = root.DK.ui.dom, icons = root.DK.ui.icons, widgets = root.DK.ui.widgets;
     var t = d.t;
     var sub = route && route.sub;
-    if (TABS.indexOf(sub) >= 0) activeTab = sub;
+    var hasReal = !!(ctx.bundle.lab && ctx.bundle.lab.tests && ctx.bundle.lab.tests.length);
+    var hasDuel = !!(ctx.bundle.lab && ctx.bundle.lab.scenarios && ctx.bundle.lab.scenarios.length);
+    var items = [];
+    if (hasReal) items.push({ id: "real", label: t("lab.tab.real"), icon: "scale" });
+    if (hasDuel || !hasReal) items.push({ id: "duel", label: t("lab.tab.duel"), icon: "scale" });
+    items.push({ id: "peek", label: t("lab.tab.peek"), icon: "eye" }, { id: "bandit", label: t("lab.tab.bandit"), icon: "sprout" });
+    var available = items.map(function (i) { return i.id; });
+    if (TABS.indexOf(sub) >= 0 && available.indexOf(sub) >= 0) activeTab = sub;
+    if (available.indexOf(activeTab) < 0) activeTab = available[0];
     var page = d.h("div.page.lab");
     var current = null;
-    var builders = { duel: buildDuel, peek: buildPeek, bandit: buildBandit };
+    var builders = { real: buildReal, duel: buildDuel, peek: buildPeek, bandit: buildBandit };
 
     var tabs = widgets.tabs({
       label: t("lab.tabs"), active: activeTab,
-      items: [
-        { id: "duel", label: t("lab.tab.duel"), icon: "scale" },
-        { id: "peek", label: t("lab.tab.peek"), icon: "eye" },
-        { id: "bandit", label: t("lab.tab.bandit"), icon: "sprout" }
-      ],
+      items: items,
       onChange: function (id, panel) {
         activeTab = id;
         if (current && current.destroy) current.destroy();
@@ -47,12 +55,194 @@
     d.fill(page, [
       d.h("div.arena-head", null,
         d.h("h1.page-title", { id: "view-title", tabindex: "-1" }, t("lab.title")),
-        d.h("p.page-lead", null, t("lab.lead")),
-        d.h("p.small.sim-note", null, icons.icon("flask", { size: 15 }), d.h("span", null, t("lab.simNote")))),
+        d.h("p.page-lead", null, t(hasReal ? "lab.leadReal" : "lab.lead")),
+        d.h("p.small.sim-note", null, icons.icon("flask", { size: 15 }), d.h("span", null, t(hasReal ? "lab.simNoteReal" : "lab.simNote")))),
       tabs.el, tabs.panel
     ]);
     container.appendChild(page);
     return { destroy: function () { if (current && current.destroy) current.destroy(); } };
+  }
+
+  // ===== shared: the numbers of an A/B test ================================================================
+  function rateRow(ctx, label, rate, k, n, max, tone) {
+    var d = root.DK.ui.dom, charts = root.DK.ui.charts, t = d.t;
+    return d.h("div.rate-row", null,
+      d.h("span.rate-label", null, label),
+      charts.meter({ value: rate, max: max, size: "md", tone: tone, label: label, valueText: function () { return d.fmtPct(rate, 2); } }),
+      d.h("span.rate-val", null, d.h("strong.num", null, d.fmtPct(rate, 2)), d.h("span.small.muted", null, t("lab.duel.counts", { k: d.fmt(k), n: d.fmt(n) }))));
+  }
+
+  /** The result of one test: both rates, the difference, the z test, the interval and the Bayesian chance. run: {n, nA, nB, convA, convB, test, bayes}. */
+  function resultBlock(ctx, run, extra) {
+    var d = root.DK.ui.dom, icons = root.DK.ui.icons, charts = root.DK.ui.charts, labstats = root.DK.labstats, t = d.t;
+    var tt = run.test, by = run.bayes;
+    var nA = run.nA === undefined ? run.n : run.nA, nB = run.nB === undefined ? run.n : run.nB;
+    var max = Math.max(tt.rateA, tt.rateB, 0.005) * 1.3;
+    var diffPts = tt.diff * 100;
+    var lo = tt.ciDiff[0] * 100, hi = tt.ciDiff[1] * 100;
+    var sig = tt.significant;
+    var rel = tt.relUplift === null ? "-" : d.fmtSigned(tt.relUplift * 100, 1) + "%";
+    var bayesPct = Math.round(by.pBBetter * 100);
+    return d.h("section.card.lab-results", { "aria-label": t("lab.duel.resultsTitle") },
+      d.h("h2.card-title", null, t("lab.duel.resultsTitle")),
+      d.h("div.rate-rows", null, rateRow(ctx, t("lab.duel.variantA"), tt.rateA, run.convA, nA, max, "info"), rateRow(ctx, t("lab.duel.variantB"), tt.rateB, run.convB, nB, max, "brand")),
+      d.h("div.stat-boxes", null,
+        d.h("div.stat-box", null, d.h("span.stat-label", null, t("lab.duel.diff")), d.h("strong.num", null, d.fmtSigned(diffPts, 2) + " " + t("lab.duel.points")), d.h("span.small.muted", null, t("lab.duel.rel", { r: rel }))),
+        d.h("div.stat-box", null, d.h("span.stat-label", null, t("lab.duel.zTest")), d.h("strong.num", null, "z = " + d.fmt(tt.z, 2)), d.h("span.small.muted", null, labstats.formatP(tt.pValue).replace(".", d.lang() === "cs" ? "," : "."))),
+        d.h("div.stat-box.sig-box" + (sig ? ".is-sig" : ""), null,
+          d.h("span.stat-label", null, t("lab.duel.verdict")),
+          d.h("strong", null, icons.icon(sig ? "check" : "minus", { size: 16, stroke: 2.6 }), " ", sig ? t("lab.duel.sig") : t("lab.duel.notSig")),
+          d.h("span.small.muted", null, sig ? (tt.diff > 0 ? t("lab.duel.sigB") : t("lab.duel.sigA")) : t("lab.duel.notSigHint")))),
+      d.h("div.interval-box", null,
+        d.h("h3.sub", null, t("lab.duel.ci")),
+        charts.intervalPlot({ point: diffPts, lo: lo, hi: hi, fmt: function (v) { return d.fmtSigned(v, 1); }, zeroLabel: t("lab.duel.zero"),
+          ariaLabel: t("lab.duel.ciAria", { d: d.fmtSigned(diffPts, 2), lo: d.fmtSigned(lo, 2), hi: d.fmtSigned(hi, 2) }) }).el,
+        d.h("p.small.muted", null, t("lab.duel.ciHint"))),
+      d.h("div.bayes-box", null,
+        d.h("h3.sub", null, t("lab.duel.bayes")),
+        d.h("div.bayes-row", null, d.h("strong.num.bayes-num", null, bayesPct + "%"),
+          charts.meter({ value: bayesPct, max: 100, size: "md", tone: by.pBBetter >= 0.95 ? "ok" : "brand", label: t("lab.duel.bayes"), valueText: function () { return bayesPct + "%"; }, marker: 95, markerLabel: "95%" })),
+        d.h("p.small.muted", null, t("lab.duel.loss", { a: d.fmt(by.expectedLossChooseA * 100, 2), b: d.fmt(by.expectedLossChooseB * 100, 2) }))),
+      extra || null);
+  }
+
+  // ===== 0. Real test =======================================================================================
+  function buildReal(panel, ctx) {
+    var d = root.DK.ui.dom, icons = root.DK.ui.icons, widgets = root.DK.ui.widgets, game = root.DK.game, labstats = root.DK.labstats;
+    var t = d.t;
+    var tests = (ctx.bundle.lab && ctx.bundle.lab.tests) || [];
+    var host = d.h("div.lab-real");
+    d.fill(panel, host);
+    if (!tests.length) {
+      d.fill(host, widgets.emptyState({ icon: "flask", title: t("lab.empty.title"), text: t("lab.empty.text") }));
+      return { destroy: function () {} };
+    }
+    if (!tests.some(function (x) { return x.id === realState.id; })) realState.id = tests[0].id;
+
+    function current() { return tests.filter(function (x) { return x.id === realState.id; })[0]; }
+    function saved(id) { return ctx.profile().labTests[id] || { plan: null, result: null }; }
+    function number(el) { return parseFloat(String(el.value).replace(",", ".")); }
+    function whole(el) { var v = number(el); return isFinite(v) && v === Math.floor(v) ? v : NaN; }
+
+    function picker() {
+      return d.h("fieldset.fieldset.scn-group", null,
+        d.h("legend", null, t("lab.real.pick")),
+        d.h("div.scn-list", null, tests.map(function (x, i) {
+          var sv = saved(x.id);
+          var input = d.h("input", { type: "radio", name: "lab-real", value: x.id, checked: x.id === realState.id, onchange: function () { realState.id = x.id; render(); } });
+          return d.h("label.scn" + (x.id === realState.id ? ".is-on" : ""), null, input,
+            d.h("span.scn-title", null, t("lab.real.testN", { n: i + 1 })),
+            d.h("span.scn-meta", null, d.typo(x.hypothesis_cs)),
+            d.h("span.scn-meta.scn-status", null,
+              sv.result ? d.h("span.chip.tone-ok", null, icons.icon("check", { size: 13 }), d.h("span", null, t("lab.real.statusDone")))
+                : sv.plan ? d.h("span.chip.tone-info", null, d.h("span", null, t("lab.real.statusPlanned"))) : d.h("span.chip", null, d.h("span", null, t("lab.real.statusNew")))));
+        })));
+    }
+
+    function sentenceRow(letter, text) {
+      return d.h("div.real-sentence", null,
+        d.h("span.hook-letter", { "aria-hidden": "true" }, letter),
+        d.h("p.real-text", null, text),
+        widgets.copyButton(text, t("common.copy")));
+    }
+
+    function planCard(x) {
+      var sv = saved(x.id).plan;
+      var inB = d.h("input.input", { type: "number", inputmode: "decimal", min: "0.1", max: "90", step: "0.1", value: String(sv ? Math.round(sv.baseline * 10000) / 100 : 5), id: "real-base" });
+      var inL = d.h("input.input", { type: "number", inputmode: "decimal", min: "1", max: "500", step: "1", value: String(sv ? Math.round(sv.lift * 100) : 20), id: "real-lift" });
+      var out = d.h("p.calc-out", { "aria-live": "polite" });
+      var msg = d.h("p.form-msg", { role: "status" });
+      function planned() {
+        var b = number(inB), l = number(inL);
+        if (!(b > 0 && b < 100 && l > 0)) return null;
+        try { return { baseline: b / 100, lift: l / 100, nPerArm: labstats.sampleSizePerArm(b / 100, l / 100) }; } catch (e) { return null; }
+      }
+      function update() {
+        var pl = planned();
+        out.textContent = pl ? t("lab.calc.result", { n: d.fmt(pl.nPerArm) }) : t("lab.calc.invalid");
+        out.classList.toggle("is-bad", !pl);
+      }
+      inB.addEventListener("input", update);
+      inL.addEventListener("input", update);
+      update();
+      var save = d.h("button.btn.btn-primary", { type: "button", onclick: function () {
+        var pl = planned();
+        if (!pl) { msg.textContent = t("lab.calc.invalid"); msg.className = "form-msg is-bad"; return; }
+        var res = ctx.apply(game.planLabTest, { id: x.id, baseline: pl.baseline, lift: pl.lift, nPerArm: pl.nPerArm });
+        render();
+        d.announce(t("lab.real.planSaved", { xp: res.xp }));
+      } }, icons.icon("check", { size: 18 }), d.h("span", null, sv ? t("lab.real.planUpdate") : t("lab.real.planSave")));
+      return d.h("section.card.real-plan", { "aria-labelledby": "real-plan-h" },
+        d.h("h2.card-title", { id: "real-plan-h" }, t("lab.real.planTitle")),
+        d.h("p.small.muted", null, t("lab.real.planIntro")),
+        d.h("div.form-grid.two", null, widgets.field(t("lab.real.baseline"), inB, t("lab.real.baselineHint")), widgets.field(t("lab.real.lift"), inL, t("lab.real.liftHint"))),
+        out,
+        d.h("div.row.wrap", null, save, sv ? d.h("span.chip.tone-ok", null, icons.icon("check", { size: 13 }), d.h("span", null, t("lab.real.planKept", { n: d.fmt(sv.nPerArm) }))) : null),
+        msg);
+    }
+
+    function resultCard(x) {
+      var sv = saved(x.id);
+      var r = sv.result;
+      function field(id, value) { return d.h("input.input", { type: "number", inputmode: "numeric", min: "0", step: "1", id: id, value: r ? String(value) : "" }); }
+      var nA = field("real-na", r && r.nA), xA = field("real-xa", r && r.xA), nB = field("real-nb", r && r.nB), xB = field("real-xb", r && r.xB);
+      var msg = d.h("p.form-msg", { role: "status" });
+      var out = d.h("div.real-out");
+      function show(vals) {
+        var test = labstats.twoProportionTest(vals.xA, vals.nA, vals.xB, vals.nB);
+        var bayes = labstats.bayesAB(vals.xA, vals.nA, vals.xB, vals.nB, { draws: 8000, seed: labstats.hashSeed([x.id, vals.nA, vals.xA, vals.nB, vals.xB].join(":")) });
+        var plan = saved(x.id).plan;
+        var early = plan && Math.min(vals.nA, vals.nB) < plan.nPerArm;
+        var note = d.h("div", null,
+          early ? d.h("p.small.upset-note", null, icons.icon("alert", { size: 15 }), d.h("span", null, t("lab.real.early", { have: d.fmt(Math.min(vals.nA, vals.nB)), need: d.fmt(plan.nPerArm) }))) : null,
+          !plan ? d.h("p.small.muted", null, t("lab.real.noPlan")) : null,
+          d.h("p.small.muted", null, t("lab.real.honest")));
+        d.fill(out, resultBlock(ctx, { nA: vals.nA, nB: vals.nB, convA: vals.xA, convB: vals.xB, test: test, bayes: bayes }, note));
+      }
+      var saveLabel = d.h("span", null, r ? t("lab.real.resultUpdate") : t("lab.real.resultSave"));
+      var save = d.h("button.btn.btn-primary", { type: "button", onclick: function () {
+        var vals = { nA: whole(nA), xA: whole(xA), nB: whole(nB), xB: whole(xB) };
+        var ok = vals.nA >= 1 && vals.nB >= 1 && vals.xA >= 0 && vals.xB >= 0 && vals.xA <= vals.nA && vals.xB <= vals.nB;
+        if (!ok) { msg.textContent = t("lab.real.invalid"); msg.className = "form-msg is-bad"; return; }
+        var res = ctx.apply(game.recordLabResult, { id: x.id, nA: vals.nA, xA: vals.xA, nB: vals.nB, xB: vals.xB });
+        msg.textContent = res.xp ? t("lab.real.saved", { xp: res.xp }) : t("lab.real.updated");
+        msg.className = "form-msg is-ok";
+        saveLabel.textContent = t("lab.real.resultUpdate");
+        ctx.sound("pop");
+        d.announce(msg.textContent);
+        show(vals);
+        var chip = host.querySelector(".scn.is-on .scn-status");
+        if (chip) d.fill(chip, d.h("span.chip.tone-ok", null, icons.icon("check", { size: 13 }), d.h("span", null, t("lab.real.statusDone"))));
+      } }, icons.icon("chart", { size: 18 }), saveLabel);
+      if (r) show(r);
+      return d.h("section.card.real-result", { "aria-labelledby": "real-result-h" },
+        d.h("h2.card-title", { id: "real-result-h" }, t("lab.real.resultTitle")),
+        d.h("p.small.muted", null, t("lab.real.resultIntro")),
+        d.h("div.form-grid.two", null,
+          widgets.field(t("lab.real.visitorsA"), nA), widgets.field(t("lab.real.convA"), xA),
+          widgets.field(t("lab.real.visitorsB"), nB), widgets.field(t("lab.real.convB"), xB)),
+        d.h("div.row.wrap", null, save), msg, out);
+    }
+
+    function render() {
+      var x = current();
+      d.fill(host, [
+        d.h("section.card.lab-intro", null,
+          d.h("h2.card-title", null, t("lab.real.title")),
+          d.h("p", null, t("lab.real.intro")),
+          picker()),
+        d.h("section.card", null,
+          d.h("h2.card-title", null, t("lab.real.sentences")),
+          d.h("p.small.muted", null, d.typo(x.hypothesis_cs)),
+          sentenceRow("A", x.a), sentenceRow("B", x.b),
+          d.h("p.small.muted", null, t("lab.real.sentencesHint"))),
+        planCard(x),
+        resultCard(x)
+      ]);
+    }
+
+    render();
+    return { destroy: function () {} };
   }
 
   // ===== 1. Duel ============================================================================================
@@ -125,43 +315,6 @@
           d.h("div.stack.tight", null, slider.el, days, d.h("p.small.muted", null, plan)),
           d.h("div.run-col", null, runBtn,
             round.runs.length ? d.h("span.small.muted", null, t("lab.duel.runs", { k: round.runs.length })) : null)));
-    }
-
-    function rateRow(label, rate, k, n, max, tone) {
-      return d.h("div.rate-row", null,
-        d.h("span.rate-label", null, label),
-        charts.meter({ value: rate, max: max, size: "md", tone: tone, label: label, valueText: function () { return d.fmtPct(rate, 2); } }),
-        d.h("span.rate-val", null, d.h("strong.num", null, d.fmtPct(rate, 2)), d.h("span.small.muted", null, t("lab.duel.counts", { k: d.fmt(k), n: d.fmt(n) }))));
-    }
-
-    function resultBlock(run) {
-      var tt = run.test, by = run.bayes;
-      var max = Math.max(tt.rateA, tt.rateB, 0.005) * 1.3;
-      var diffPts = tt.diff * 100;
-      var lo = tt.ciDiff[0] * 100, hi = tt.ciDiff[1] * 100;
-      var sig = tt.significant;
-      var rel = tt.relUplift === null ? "-" : d.fmtSigned(tt.relUplift * 100, 1) + "%";
-      var bayesPct = Math.round(by.pBBetter * 100);
-      return d.h("section.card.lab-results", { "aria-label": t("lab.duel.resultsTitle") },
-        d.h("h2.card-title", null, t("lab.duel.resultsTitle")),
-        d.h("div.rate-rows", null, rateRow(t("lab.duel.variantA"), tt.rateA, run.convA, run.n, max, "info"), rateRow(t("lab.duel.variantB"), tt.rateB, run.convB, run.n, max, "brand")),
-        d.h("div.stat-boxes", null,
-          d.h("div.stat-box", null, d.h("span.stat-label", null, t("lab.duel.diff")), d.h("strong.num", null, d.fmtSigned(diffPts, 2) + " " + t("lab.duel.points")), d.h("span.small.muted", null, t("lab.duel.rel", { r: rel }))),
-          d.h("div.stat-box", null, d.h("span.stat-label", null, t("lab.duel.zTest")), d.h("strong.num", null, "z = " + d.fmt(tt.z, 2)), d.h("span.small.muted", null, labstats.formatP(tt.pValue).replace(".", d.lang() === "cs" ? "," : "."))),
-          d.h("div.stat-box.sig-box" + (sig ? ".is-sig" : ""), null,
-            d.h("span.stat-label", null, t("lab.duel.verdict")),
-            d.h("strong", null, icons.icon(sig ? "check" : "minus", { size: 16, stroke: 2.6 }), " ", sig ? t("lab.duel.sig") : t("lab.duel.notSig")),
-            d.h("span.small.muted", null, sig ? (tt.diff > 0 ? t("lab.duel.sigB") : t("lab.duel.sigA")) : t("lab.duel.notSigHint")))),
-        d.h("div.interval-box", null,
-          d.h("h3.sub", null, t("lab.duel.ci")),
-          charts.intervalPlot({ point: diffPts, lo: lo, hi: hi, fmt: function (v) { return d.fmtSigned(v, 1); }, zeroLabel: t("lab.duel.zero"),
-            ariaLabel: t("lab.duel.ciAria", { d: d.fmtSigned(diffPts, 2), lo: d.fmtSigned(lo, 2), hi: d.fmtSigned(hi, 2) }) }).el,
-          d.h("p.small.muted", null, t("lab.duel.ciHint"))),
-        d.h("div.bayes-box", null,
-          d.h("h3.sub", null, t("lab.duel.bayes")),
-          d.h("div.bayes-row", null, d.h("strong.num.bayes-num", null, bayesPct + "%"),
-            charts.meter({ value: bayesPct, max: 100, size: "md", tone: by.pBBetter >= 0.95 ? "ok" : "brand", label: t("lab.duel.bayes"), valueText: function () { return bayesPct + "%"; }, marker: 95, markerLabel: "95%" })),
-          d.h("p.small.muted", null, t("lab.duel.loss", { a: d.fmt(by.expectedLossChooseA * 100, 2), b: d.fmt(by.expectedLossChooseB * 100, 2) }))));
     }
 
     function historyTable() {
@@ -275,7 +428,7 @@
           d.h("p.small.muted", null, t("lab.duel.odds", { a: Math.round(game.LAB_TRUTH_ODDS.better * 100), b: Math.round(game.LAB_TRUTH_ODDS.none * 100), c: Math.round(game.LAB_TRUTH_ODDS.worse * 100) })),
           scenarioPicker()),
         controls(),
-        running ? runningBlock(st.pendingN) : (latest ? resultBlock(latest) : null),
+        running ? runningBlock(st.pendingN) : (latest ? resultBlock(ctx, latest) : null),
         historyTable(),
         decisionBlock(),
         calculator()

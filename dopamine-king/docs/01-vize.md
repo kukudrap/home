@@ -2,7 +2,7 @@
 
 ## Jedna věta
 
-Dopamine King je marketingový stroj, který **nejdřív zjistí, co skutečně funguje** (sběr veřejného obsahu úspěšných značek, benchmarky, vědecké studie, vlastní experimenty), a teprve potom **vygeneruje obsah ve všech formátech**: SEO a GEO články, příspěvky, video scénáře, reklamy. Celé je to zabalené do hry, ve které si uživatel trénuje cit pro silné hooky a učí se experimentovat.
+Dopamine King je marketingový stroj, který nejdřív zjistí, co skutečně funguje (hledání na webu, benchmarky, vědecké studie, vlastní experimenty), a teprve potom vygeneruje obsah ve všech formátech: SEO a GEO články, příspěvky, video scénáře, reklamy. Je zabalený do hry, ve které si uživatel na skutečných datech trénuje úsudek a učí se experimentovat.
 
 ## Proč to není další AI generátor textů
 
@@ -21,7 +21,7 @@ Dopamin **není** "hormon štěstí" ani látka slasti. Souvisí hlavně s *cht�
 
 ## Dvě hry v jedné
 
-1. **Hra pro uživatele.** Duely hooků (hádáte, který fungoval lépe), souboje s "bossy" (napište hook, který překoná benchmark oboru), laboratoř (naučte se nenahlížet do testů), Vault (karty se studiemi). Postup, série dnů, sběratelské karty s **zveřejněnými šancemi** a pity timerem.
+1. Hra pro uživatele. Souboje o pořadí, výskyt a tvrzení ze skutečných hledání, souboje s bossy (napište hook, který obstojí vedle skutečného titulku), přehled trhu s úkoly, laboratoř se skutečným A/B testem a dvěma simulacemi, Trezor s kartami a studiemi. Postup, série dnů a sběratelské karty se zveřejněnými šancemi a pojistkou.
 2. **Hra o pozornost.** Samotný obsah, který systém generuje, je skórován stejným modelem a poměřován s korpusem.
 
 ## Co je opravdu hotové a co potřebuje vaše vstupy
@@ -29,12 +29,12 @@ Dopamin **není** "hormon štěstí" ani látka slasti. Souvisí hlavně s *cht�
 | Část | Stav v tomto repozitáři |
 |---|---|
 | Scoring, benchmark, pattern mining, kalibrace, laboratoř | Hotovo, testováno na syntetickém korpusu se zasazenými efekty |
-| Hra (single-file HTML), lokální API server | Hotovo |
+| Hra (single-file HTML) na skutečných datech z uložených hledání, lokální API server | Hotovo |
 | Generátory (články, SEO, GEO, sociální sítě, video, reklamy), Trust Shield | Hotovo; offline režim nevymýšlí prózu, zapisuje `[[ADD: ...]]`; psaní prózy zajišťuje Claude (`--writer anthropic`) |
 | Šetrný sběr (robots.txt, TDM, feedy, sitemapy), import vlastních analytik | Hotovo a testováno offline; **živý sběr vyžaduje síť** |
 | Hledání studií (OpenAlex, Crossref, arXiv) | Hotovo a testováno offline; **živé hledání vyžaduje síť** |
 | Seed ledger studií | 32 záznamů, z toho **23 potvrzeno** veřejnými zdroji (název, časopis, rok, DOI); ostatní nesou poznámku, jak daleko ověření došlo. `kingctl evidence verify` je znovu ověří přes Crossref (potřebuje síť). |
-| Skutečná data značek | Nejsou součástí repozitáře (autorská práva, výkonnostní čísla nejsou veřejná). Demo používá fiktivní značky a **simulovaná** čísla. |
+| Skutečná data o trhu | 88 uložených hledání ze dne 23. 10. 2026 jsou v repozitáři (jen titulky, adresy a pořadí). Výkonnostní čísla značek nejsou veřejná, proto v repozitáři nejsou. Starší demo má fiktivní značky a simulovaná čísla a zůstává jako `build-web --synthetic`. |
 
 ## Edice pro obor: MITO LIGHT (fotobiomodulace)
 

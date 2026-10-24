@@ -1,6 +1,6 @@
 # MITO LIGHT Radar 2.0
 
-Radar je druhá verze projektu. První verze (hra a generátor) fungovala na simulovaných číslech a pro uživatele byla těžko srozumitelná. Radar dělá jednu věc: ze skutečných dat o vyhledávání ukáže, kde je značka MITO LIGHT na českém trhu a co napsat jako první. Výsledek je jedna stránka v češtině, [web/dist/mito-light-radar.html](../web/dist/mito-light-radar.html).
+Radar zjišťuje ze skutečných dat o vyhledávání, kde je značka MITO LIGHT na českém trhu a co napsat jako první. Výsledek je jedna stránka v češtině, [web/dist/mito-light-radar.html](../web/dist/mito-light-radar.html). Stejná data pohánějí i hru [web/dist/dopamine-king.html](../web/dist/dopamine-king.html).
 
 ## Jak to funguje
 
@@ -14,7 +14,20 @@ plán hledání (radar/plan.json)
 návrhy textů (radar/drafts.json) -> stejný pisatel a stejný Trust Shield jako ostatní obsah
 ```
 
-Kód je v `src/dopamine_king/radar/` (`collect.py`, `analyze.py`, `compose.py`, `report.py`, `drafts.py`, `emotion.py`), příkazy jsou `kingctl radar collect`, `radar drafts` a `radar build`.
+Kód je v `src/dopamine_king/radar/` (`collect.py`, `analyze.py`, `compose.py`, `report.py`, `drafts.py`, `emotion.py`, `realbundle.py`), příkazy jsou `kingctl radar collect`, `radar drafts` a `radar build`.
+
+## Jak data použije hra
+
+`realbundle.py` vezme nejnovější snímek, stejné analýzy jako stránka radaru a registr studií a postaví z nich datový balíček hry. Je deterministický (stejný snímek dá stejný balíček), nic v něm není simulované a každý souboj nese svůj zdroj.
+
+- Souboje o pořadí: dvojice výsledků jednoho hledání od dvou různých webů. Vítěz je ten, kdo byl výš. Odhad Dopamine Score se počítá ze skutečných titulků a překvapení je souboj, ve kterém si model byl jistý (rozdíl skóre aspoň 8 bodů) a spletl se.
+- Souboje o výskyt: dvojice webů, které se objevily v různém počtu z 47 hledání na českém trhu. Počty se dají zpětně spočítat z uložených hledání.
+- Souboje o tvrzení: skutečný titulek, který kontrola tvrzení zastaví, proti titulku bez jediné připomínky. Verdikt počítá stejná kontrola jako v Boss souboji.
+- Bossové jsou nejlépe umístěné titulky konkurentů a médií. Měřítkem je skóre skutečných titulků.
+- Úkoly a zjištění v Trhu jsou věty z `compose.py`, tedy stejné jako na stránce radaru.
+- Skutečný A/B test v Laboratoři používá dvojice vět z banky emočních claimů.
+
+Přesnost Dopamine Score se měří na všech dvojicích, ne jen na odehraných: ze 201 dvojic dokázalo skóre rozlišit 147 a vybralo výše umístěný výsledek v 74 případech (50,3 %). Hra tento údaj ukazuje u každého souboje o pořadí.
 
 ## Co je skutečné a co ne
 
@@ -31,7 +44,7 @@ Hledání se uloží jen tehdy, když nástroj opravdu proběhl s požadovaným 
 
 ## Kontrola proti přímému hledání
 
-Pět uložených hledání jsme zopakovali přímo nástrojem pro vyhledávání a porovnali odkazy (soubory `radar/snapshots/2026-10-23/direct`). Shoda byla 9 z 9, 9 z 10, 9 z 9, 8 z 9 a 9 z 9 odkazů. Test `tests/test_radar_snapshot.py` hlídá, že shoda zůstane nad 80 procenty.
+Pět uložených hledání bylo zopakováno přímo nástrojem pro vyhledávání a odkazy byly porovnány (soubory `radar/snapshots/2026-10-23/direct`). Shoda byla 9 z 9, 9 z 10, 9 z 9, 8 z 9 a 9 z 9 odkazů. Test `tests/test_radar_snapshot.py` hlídá, že shoda zůstane nad 80 procenty.
 
 ## Limity, které je nutné znát
 

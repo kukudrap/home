@@ -235,6 +235,31 @@
     return lang() === "cs" ? s.replace(/"([^"\n]+)"/g, "„$1“") : s.replace(/"([^"\n]+)"/g, "“$1”");
   }
 
+  /** A link to a page outside the game: opens in a new tab, never hands over the opener, and only http(s) addresses become links. */
+  function extLink(url, children, cls) {
+    var ok = typeof url === "string" && /^https?:\/\//i.test(url);
+    var a = h("a" + (cls ? "." + cls : ""), { href: ok ? url : null, target: ok ? "_blank" : null, rel: ok ? "noopener noreferrer" : null });
+    return append(a, Array.isArray(children) ? children : [children]);
+  }
+
+  /** "2026-10-23" or an ISO timestamp as a date in the UI language: 23. 10. 2026 (Czech) or 23/10/2026 (English). */
+  function fmtDate(iso) {
+    var m = /^(\d{4})-(\d{2})-(\d{2})/.exec(String(iso || ""));
+    if (!m) return "";
+    var day = +m[3], month = +m[2], year = +m[1];
+    return lang() === "cs" ? day + ".\u00a0" + month + ".\u00a0" + year : (day < 10 ? "0" : "") + day + "/" + (month < 10 ? "0" : "") + month + "/" + year;
+  }
+
+  /** Shorten a title at a word boundary: "A long title that does not fit" -> "A long title that\u2026". */
+  function clip(text, max) {
+    var s = String(text || "").replace(/\s+/g, " ").trim();
+    if (s.length <= max) return s;
+    var cut = s.slice(0, max);
+    var space = cut.lastIndexOf(" ");
+    if (space > max * 0.6) cut = cut.slice(0, space);
+    return cut.replace(/[\s,;:.\-]+$/, "") + "\u2026";
+  }
+
   /** A short "press this key" hint. */
   function kbd(text) { return h("kbd", { class: "kbd" }, text); }
 
@@ -249,6 +274,6 @@
     SVG_NS: SVG_NS, h: h, svg: svg, clear: clear, fill: fill, append: append, clamp: clamp, lerp: lerp, uid: uid,
     debounce: debounce, t: t, lang: lang, fmt: fmt, ease: ease, tween: tween, countUp: countUp, raf: raf, wait: wait,
     setReducedMotion: setReducedMotion, reducedMotion: reducedMotion, announce: announce, copyText: copyText,
-    download: download, isFormField: isFormField, rich: rich, typo: typo, kbd: kbd, fmtMinutes: fmtMinutes, quote: quote, fmtPct: fmtPct, fmtSigned: fmtSigned
+    download: download, isFormField: isFormField, rich: rich, typo: typo, kbd: kbd, extLink: extLink, fmtDate: fmtDate, clip: clip, fmtMinutes: fmtMinutes, quote: quote, fmtPct: fmtPct, fmtSigned: fmtSigned
   };
 });

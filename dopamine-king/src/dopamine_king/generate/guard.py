@@ -748,6 +748,11 @@ _RULE_FUNCS: tuple[Callable[[_Ctx], list[Issue]], ...] = (
 RULE_CODES = tuple(_RULES)
 
 
+def severity_of(code: str) -> str:
+    """"error", "warn" or "info" for a rule code of the Trust Shield (and for the codes of the claims profile that share its table)."""
+    return _RULES[code][0]
+
+
 class TrustShield:
     """Rule based guard. ``ledger`` is any object with ``get_study(study_id) -> object | None``.
 

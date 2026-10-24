@@ -148,17 +148,17 @@
      {
       "key": "open_loop",
       "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
-      "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+      "cs": "Otevřete informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
      },
      {
       "key": "add_emotion",
       "en": "Add one high-arousal emotion word that is true to the content.",
-      "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+      "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
      },
      {
       "key": "address_reader",
       "en": "Speak to the reader directly (you, your) or name the audience.",
-      "cs": "Oslov čtenáře přímo (ty, vy, váš) nebo pojmenuj publikum."
+      "cs": "Oslovte čtenáře přímo (ty, vy, váš) nebo pojmenujte publikum."
      }
     ],
     "text": "3 věci v návodu, které si přečtěte dřív, než světelný panel poprvé zapojíte"

@@ -9,7 +9,7 @@ Tato edice mění obecný stroj Dopamine King v nástroj pro obsahový marketing
 | **Registr důkazů** | 41 záznamů o studiích propojených s tématy. Síla důkazů se počítá jen z ověřených záznamů. |
 | **Registr značek oboru** | 26 značek a organizací (domácí panely, LED masky, klinické přístroje, odborné společnosti, média, MITO LIGHT) pro šetrný sběr. |
 | **Vzorová zadání MITO LIGHT** | Česky a anglicky, s fakty z veřejných zdrojů (k potvrzení značkou) a s ověřenými zdroji. |
-| **Obsah hry** | Souboje (Boss) s kontrolou tvrzení, Mýtus nebo fakt o červeném světle, simulované duely, mapa tvrzení v Trezoru. |
+| **Obsah hry** | Souboje (Boss) s kontrolou tvrzení, Mýtus nebo fakt o červeném světle, souboje ze skutečných hledání, mapa tvrzení v Trezoru. |
 | **Příkazy** | `kingctl audit` (kontrola existujících textů), `kingctl evidence claims`, `--vertical pbm` u ostatních příkazů, hledání v PubMed. |
 
 ## Výchozí bod: nezdravotnický přístroj
@@ -172,4 +172,4 @@ Otevřené otázky pro značku (výběr): kdo je právním provozovatelem v jedn
 - Štít tvrzení je **heuristický kontrolor, ne právník**. Může přehlédnout nebo označit zbytečně; seznamy jsou záměrně konzervativní.
 - Fakta o MITO LIGHT, počet studií a registr značek odpovídají tomu, co šlo zjistit z vyhledávání v prostředí s omezeným rozpočtem a blokovanou sítí (viz výše).
 - Pravidla znají češtinu a angličtinu. Slovenština a němčina jsou v roadmapě.
-- Čísla v duelech a benchmarcích hry jsou **simulovaná** (fiktivní značky). Skutečná data konkurence získáte šetrným sběrem po povolení sítě a vlastní analytikou.
+- Čísla v soubojích a benchmarcích hry pocházejí z uložených hledání (titulky, pořadí a adresy). Výkonnostní čísla konkurence nejsou veřejná. Získat je lze jen vlastní analytikou značky.

@@ -143,17 +143,17 @@
      {
       "key": "add_emotion",
       "en": "Add one high-arousal emotion word that is true to the content.",
-      "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+      "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
      },
      {
       "key": "address_reader",
       "en": "Speak to the reader directly (you, your) or name the audience.",
-      "cs": "Oslov čtenáře přímo (ty, vy, váš) nebo pojmenuj publikum."
+      "cs": "Oslovte čtenáře přímo (ty, vy, váš) nebo pojmenujte publikum."
      },
      {
       "key": "add_utility",
       "en": "Make the payoff concrete: a number, steps or a 'how to'.",
-      "cs": "Zkonkrétni užitek: číslo, kroky nebo \"jak na to\"."
+      "cs": "Zkonkrétněte užitek: číslo, kroky nebo „jak na to“."
      }
     ],
     "text": "Nenechte se zmást: 3 otázky, které si položte u studií o červeném světle po tréninku"

@@ -1,6 +1,6 @@
 # Roadmapa
 
-Verze 0.1 (tento repozitář) je **svislý řez**: celý řetězec od sběru po hru běží a je otestovaný, ale na syntetických datech. Další kroky mění demo na produkt.
+Verze 0.1 byla svislý řez: celý řetězec od sběru po hru běžel na syntetických datech. Dnešní hra už pracuje se skutečnými uloženými hledáními a ověřenými studiemi. Další kroky jsou skutečná výkonnostní čísla značky a obsah celých stránek.
 
 ## Známá omezení verze 0.1
 - Zástupné texty `[[ADD: ...]]` v offline režimu nesou **anglické** zadání pro pisatele i v českých balíčcích (je to totéž zadání, které dostává model). Lokalizace zadání do češtiny je malá, ale pracná úprava všech 28 builderů.
@@ -39,7 +39,7 @@ Edice je hotový svislý řez (viz [07-fotobiomodulace.md](07-fotobiomodulace.md
 5. **Soubor důkazů ke každému tvrzení** (claim file: zdroj, datum, populace, dávka) vytvářený automaticky z mapy tvrzení, aby bylo možné prokázat věcnou přesnost na požádání dozorového orgánu.
 6. **Schvalovací workflow:** koncept, kontrola Štítem důvěry, schválení odpovědnou osobou, archiv schválených verzí, smlouvy a kontrolní seznam pro influencery a prodejce.
 7. **Kontrola obrázků a videa** (před a po, bílé pláště, nápisy ve videu), protože textová pravidla je nevidí, a kontrola proti aktuálním pravidlům reklamních platforem.
-8. **Měření a vlastní analytika značky** (import CSV z Meta, Google, e-shopu), aby se nahradila simulovaná demo čísla a kalibrovalo se na skutečném výkonu.
+8. **Měření a vlastní analytika značky** (import CSV z Meta, Google, e-shopu), aby se skóre kalibrovalo na skutečném výkonu. Dnes předpovídá pořadí v hledání stejně spolehlivě jako hod mincí.
 
 ## Radar: další kroky
 Radar 2.0 je popsán v [09-radar.md](09-radar.md). Co zbývá:

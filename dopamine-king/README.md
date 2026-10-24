@@ -1,31 +1,49 @@
-# MITO LIGHT Radar 2.0
+# Dopamine King: hra o skutečném trhu MITO LIGHT
 
-Radar zjistí ze **skutečného vyhledávání na webu**, jak si vede značka MITO LIGHT na českém trhu, co z toho plyne a co napsat jako první. Výsledek je **jedna stránka**: [web/dist/mito-light-radar.html](web/dist/mito-light-radar.html). Stejnou stránku najdete jako artefakt v aplikaci Claude.
+Dopamine King je hra v prohlížeči, která učí číst trh značky MITO LIGHT na skutečných datech. Souboje, soupeři a karty vycházejí z uložených hledání na webu, z registru ověřených studií a ze souboru o značce. U každé položky je vidět zdroj a datum a většina odkazuje na skutečnou stránku.
 
-## Co na stránce je (čísla platí pro snímek z 23. 10. 2026)
+Hra je jeden soubor: [web/dist/dopamine-king.html](web/dist/dopamine-king.html). Otevřete ho dvojklikem a nic se nikam neodesílá. Stejná hra je publikovaná jako artefakt v aplikaci Claude.
 
-1. **Sedm zjištění** s číslem, větou, upozorněním a odkazem na hledání, ze kterého vychází.
-2. **Šest úkolů na tento týden**, které se dají odškrtávat.
-3. **Kde jste vidět**: 47 hledání (značka, kategorie, šest cílových skupin, konkurenti) a co se objevilo na prvním místě.
-4. **Kdo je kolem vás**: weby, které se ve výsledcích opakují (lékárna, média, e-shopy, diskuze).
-5. **Jak vás vidí vyhledávače a AI**: kolik odkazů při hledání vašeho názvu vede na jinou značku (Mito Red Light) a kdo o vás píše.
-6. **Co zveřejňují úspěšné značky**: 127 stránek z 15 webů rozdělených podle témat, vedle vašeho webu.
-7. **Co smíte tvrdit**: mapa tvrzení (19 témat), titulky vašich stránek, které slibují výsledek, a tvrzení konkurence.
-8. **Emoční claimy**: 106 hotových vět (slogany, nadpisy, příspěvky, texty v aplikaci, příběh značky) postavených na těšení, rituálu, překvapení, příběhu, pocitu, příslušnosti a volbě. Každá prošla kontrolou tvrzení bez chyby i varování a žádná netvrdí účinek na tělo, náladu ani hormony. Stránka vysvětluje, proč tam není slovo dopamin.
-9. **Devět návrhů textů** (tři stránky a šest příspěvků, po jednom na cílovou skupinu). Každý prošel kontrolou tvrzení.
-10. **Studie**: 39 ze 41 je ověřeno veřejnými zdroji.
-11. **Co chybí a co potřebuji od vás.**
+## Co ve hře najdete
+
+- Aréna má tři druhy soubojů. U pořadí hádáte, který ze dvou výsledků jednoho hledání byl výš. U výskytu hádáte, který web se objevil ve víc hledáních. U tvrzení hádáte, který ze dvou skutečných titulků by kontrola tvrzení zastavila. Po odpovědi uvidíte, jak to dopadlo, a odkaz na skutečnou stránku.
+- Boss je skutečný titulek konkurenta nebo média z uložených hledání. Napíšete vlastní hook ke stejnému tématu a hra živě ukáže Dopamine Score, riziko clickbaitu a kontrolu tvrzení.
+- Trh shrnuje, co hledání ukázala: sedm zjištění s číslem a zdrojem, šest úkolů, všech 88 uložených hledání s odkazy, kdo zaplňuje výsledky, co tvrdí trh a jak data vznikla.
+- Laboratoř nabízí skutečný A/B test. Naplánujete vzorek, zapíšete skutečná čísla a hra je vyhodnotí. K tomu patří dvě výukové simulace.
+- Trezor drží karty, 73 studií s odkazy (ověřené i neověřené), mapu tvrzení a hru Mýtus, nebo fakt.
+- Claimy je banka 106 emočních vět, které prošly kontrolou tvrzení.
+- Kovárna a Guru ukazují devět návrhů textů pro značku a plán obsahu.
+
+XP dostanete za souboje, bosse a testy. Splněný úkol z Trhu vyplatí 50 XP jednou a každý třetí úkol otevře truhlu. Úkoly odškrtáváte sami, hra je nemůže ověřit.
 
 ## Odkud jsou data
 
-- **88 skutečných hledání na webu** ze dne 23. 10. 2026. Každé spustil nástroj Claude Code s jediným povoleným nástrojem, vyhledáváním. Uložené odkazy jsou přesně to, co nástroj vrátil (složka [radar/snapshots/2026-10-23](radar/snapshots/2026-10-23)). Hledání se uloží jen tehdy, když opravdu proběhlo s požadovaným dotazem.
-- **Žádná simulovaná data.** Co se nepodařilo zjistit, je na stránce v části "Co chybí".
-- **Kontrola:** pět hledání jsme zopakovali přímo nástrojem pro vyhledávání a porovnali s uloženými (shodné odkazy: 9 z 9, 9 z 10, 9 z 9, 8 z 9, 9 z 9). Šesté přímé hledání zachytilo větu strojového shrnutí o vztahu k Mito Red Light.
-- **Limity:** vyhledávač hledá z USA, takže to není Google.cz ani Seznam. Vidíme názvy a adresy stránek, ne jejich obsah. Souhrny, které nástroj přidává, píše stroj. Zařazení webů do skupin a témat je úsudek podle názvů a adres.
+- 88 skutečných hledání na webu ze dne 23. 10. 2026. Každé spustil nástroj Claude Code s jediným povoleným nástrojem, vyhledáváním. Uložené odkazy jsou přesně to, co nástroj vrátil (složka [radar/snapshots/2026-10-23](radar/snapshots/2026-10-23)). Hledání se uloží jen tehdy, když opravdu proběhlo s požadovaným dotazem.
+- Z těchto hledání Python spočítá souboje, soupeře a karty ([src/dopamine_king/radar/realbundle.py](src/dopamine_king/radar/realbundle.py)). Testy hlídají, že počty, pořadí a verdikty kontroly tvrzení sedí s uloženými daty.
+- Studie jsou z registru oboru: 39 ze 41 je ověřeno veřejnými zdroji. Fakta o značce jsou z veřejných popisů a značka je zatím nepotvrdila.
+- Pět hledání bylo zopakováno přímo nástrojem pro vyhledávání a porovnáno s uloženými (shodné odkazy: 9 z 9, 9 z 10, 9 z 9, 8 z 9, 9 z 9).
 
-## Jak radar obnovit
+## Co hra neumí
 
-Napište Claudovi (v Claude Code na webu nebo v aplikaci): **"obnov radar"**. Provede tři příkazy a stránku znovu postaví. Spotřebuje jen vaše předplatné Claude, žádný API klíč.
+- Dopamine Score čte slova. Na skutečných dvojicích v Aréně vybral výše umístěný výsledek v 50,3 % případů, kdy dokázal dvojici rozlišit (74 ze 147). Hod mincí by dal 50 %. Hra to říká, pořadí skóre nepředpovídá.
+- Hledání běžela z USA, takže nejde o Google.cz ani Seznam. Nástroj ukazuje názvy a adresy stránek, ne jejich obsah, a souhrny, které přidává, píše stroj.
+- Zařazení webů a témat do skupin je úsudek podle názvů a adres.
+- Dvě minihry v Laboratoři (Nenahlížejte, Zahrada banditů) jsou simulace s vymyšlenými daty a říkají to.
+- Kontrola tvrzení čte slova, ne smysl. Každý text před zveřejněním musí přečíst člověk.
+
+## Sestavení hry
+
+```bash
+export PYTHONPATH=src
+python3 -m dopamine_king build-web              # hra se skutečnými daty z nejnovějšího snímku
+python3 -m dopamine_king build-web --synthetic  # starší demo se simulovanými daty (pro testy a ukázku)
+```
+
+Nová data získáte tak, že napíšete Claudovi (v Claude Code na webu nebo v aplikaci): "obnov radar". Provede tři příkazy z následující části a potom sestaví i hru příkazem `build-web`. Spotřebuje jen vaše předplatné Claude, žádný API klíč.
+
+## Radar jako samostatná stránka
+
+Stejná data jsou i na jedné stránce, [web/dist/mito-light-radar.html](web/dist/mito-light-radar.html): zjištění, úkoly na tento týden, viditelnost značky, konkurence, záměna názvu s Mito Red Light, témata úspěšných značek, mapa tvrzení, emoční claimy, návrhy textů, studie a to, co chybí. Podrobnosti jsou v [docs/09-radar.md](docs/09-radar.md).
 
 ```bash
 export PYTHONPATH=src
@@ -34,23 +52,21 @@ python3 -m dopamine_king radar drafts --out radar/drafts/DATUM              # n�
 python3 -m dopamine_king radar build --snapshot radar/snapshots/DATUM --drafts radar/drafts/DATUM
 ```
 
-Plán hledání, seznam webů a témat jsou obyčejné soubory ve složce [radar](radar): `plan.json`, `domains.json`, `themes.json`, `outcome_words.json`, `drafts.json`. Co se má hledat, změníte tam, ne v kódu. Podrobnosti jsou v [docs/09-radar.md](docs/09-radar.md).
+Plán hledání, seznam webů a témat jsou obyčejné soubory ve složce [radar](radar): `plan.json`, `domains.json`, `themes.json`, `outcome_words.json`, `drafts.json`. Co se má hledat, změníte tam, ne v kódu. Emoční claimy jsou v souboru [radar/claims_emotional.json](radar/claims_emotional.json). Větu přidáte nebo přepíšete tam a test `tests/test_radar_emotion.py` ověří, že prošla kontrolou tvrzení a opírá se jen o fakta ze souboru o značce.
 
-Emoční claimy jsou v souboru [radar/claims_emotional.json](radar/claims_emotional.json). Větu přidáte nebo přepíšete tam. Test `tests/test_radar_emotion.py` pak ověří, že prošla kontrolou tvrzení a opírá se jen o fakta ze souboru o značce. Stránku znovu postaví třetí příkaz výše.
+## Co je potřeba od značky
 
-## Co potřebuji od vás
-
-- Potvrdit, že MITO LIGHT a Mito Red Light jsou dvě různé značky a že mitolight.com a mitolight.co.uk jsou vaše weby.
-- Export ze Search Console a ze Seznam Webmaster. Radar hledá z USA, vaše skutečné pozice znáte jen vy.
-- **Zapnout internet pro prostředí**, ve kterém radar běží (nastavení prostředí, Network access). Zatím vidí jen názvy stránek, ne jejich text. S internetem zkontroluji celé texty vašeho webu a konkurence a stáhnu abstrakty studií.
+- Potvrdit, že MITO LIGHT a Mito Red Light jsou dvě různé značky a že mitolight.com a mitolight.co.uk jsou její weby.
+- Export ze Search Console a ze Seznam Webmaster. Radar hledá z USA, skutečné pozice zná jen značka.
+- Zapnout internet pro prostředí, ve kterém radar běží (nastavení prostředí, Network access). Zatím vidí jen názvy stránek. S internetem může zkontrolovat celé texty webu a konkurence a stáhnout abstrakty studií.
 - Vzdálenost a způsob měření ozáření u každého modelu.
-- Rozhodnout o názvu **Červená hodina** (zda ho lze používat jako značku) a projít věty se štítkem Potvrdit v části "Než něco zveřejníte" na stránce.
+- Rozhodnout o názvu Červená hodina (zda ho lze používat jako značku) a projít věty se štítkem Potvrdit v části Claimy.
 
 ## Starší části projektu
 
-Dopamine King vznikl jako stroj na obsah zabalený do hry (verze 1). Hra, generátor obsahu ve 28 formátech, kontrola tvrzení (Trust Shield) a mapa tvrzení fungují dál a radar je používá. Hra pracuje se **simulovanými čísly** a na každém odhalení to říká. Radar na ní nezávisí.
+Dopamine King vznikl jako stroj na obsah zabalený do hry. Generátor obsahu ve 28 formátech, kontrola tvrzení (Trust Shield) a mapa tvrzení jsou součástí hry i radaru. Starší demo se simulovanými daty zůstává pro testy a pro ukázku jako `build-web --synthetic`.
 
-> **English TL;DR.** MITO LIGHT Radar 2.0 builds a market picture of the Czech brand MITO LIGHT from real web search results only: 88 searches run through the logged-in Claude Code with only the WebSearch tool, links stored exactly as returned, nothing simulated. It reports search visibility, who surrounds the brand, brand-name confusion with Mito Red Light, what top brands publish, a claims check of real page titles, nine reviewed drafts and the study ledger (39 of 41 verified). Underneath is the older Dopamine King engine: a Python core without third-party dependencies, 28 content formats, a Trust Shield claims profile for non-medical wellness devices and a single-file game. The page also holds 106 emotional, experience-based claims built on anticipation, ritual, surprise, story, feeling, belonging and choice; each passes the Trust Shield with no error or warning, none claims an effect on body, mood or hormones, and the page explains why the word dopamine is not used (it would be a health claim and rests on a myth).
+> **English TL;DR.** Dopamine King is a single-file browser game for the Czech brand MITO LIGHT, built on real data only: 88 web searches run through Claude Code with the WebSearch tool as its only tool (links stored exactly as returned), a verified study ledger and a brand file. The Arena has three kinds of duel (which result ranked higher, which site appeared in more searches, which real page title the claims check would stop), the Boss is a real rival title, the Market view holds the findings, the stored searches and six tasks, and the Lab runs a real A/B test next to two teaching simulations that say they are simulated. The Dopamine Score picked the better placed result in 50.3 % of the pairs it could tell apart, which is a coin toss, and the game says so. Underneath is a Python core without third-party dependencies, 28 content formats and a Trust Shield claims profile for non-medical wellness devices. The same data also come as a one-page report, and 106 emotional, experience-based claims pass the Trust Shield without any error or warning.
 
 ## Rychlý start
 
@@ -61,7 +77,7 @@ cd dopamine-king
 export PYTHONPATH=src
 
 python3 -m dopamine_king demo              # celý řetězec na syntetických datech, offline, pár vteřin
-python3 -m dopamine_king build-web         # postaví web/dist/dopamine-king.html (jeden soubor)
+python3 -m dopamine_king build-web         # postaví web/dist/dopamine-king.html (jeden soubor, skutečná data)
 python3 -m dopamine_king serve             # hra + lokální API na http://127.0.0.1:8765
 ```
 
@@ -127,7 +143,7 @@ python3 -m dopamine_king evidence verify --save .king/ledger.json    # ověřen�
 | Část | Stav |
 |---|---|
 | Dopamine Score, benchmark, pattern mining, kalibrace, laboratoř (A/B, bandité) | Hotovo, otestováno na syntetickém korpusu se **zasazenými efekty** (analytika je dokáže zpětně najít) |
-| Hra (arena, boss, laboratoř, vault) | Hotovo; JS skóre je shodné s Pythonem (110 "golden" případů) |
+| Hra (aréna, boss, trh, laboratoř, trezor, claimy) | Hotovo a postavená na skutečných datech z uložených hledání. JS skóre je shodné s Pythonem (110 "golden" případů). |
 | 28 formátů obsahu, Trust Shield, SEO a GEO skóre | Hotovo; offline režim nevymýšlí prózu |
 | Psaní prózy modelem Claude | Napsáno podle dokumentace a **otestováno proti atrapě**; živé API zde nebylo možné vyzkoušet (bez klíče) |
 | Šetrný sběr, import analytik | Hotovo, otestováno offline i proti lokálnímu HTTP serveru; **živý sběr vyžaduje síť** (prostředí, kde kód vznikl, povolilo ze 111 značek jen jednu) |
@@ -136,7 +152,7 @@ python3 -m dopamine_king evidence verify --save .king/ledger.json    # ověřen�
 | Registr důkazů PBM | 41 záznamů: 39 ověřených veřejnými zdroji (14 z nich radarem 2026-10-23: název, časopis a rok v PubMed, PubMed Central nebo u vydavatele), 2 neověřené s poznámkou proč. Závěry jsou čtené z abstraktů a shrnutí, ne z plných textů. |
 | Fakta o MITO LIGHT | Z veřejných zdrojů (výsledky vyhledávání, ne z otevřených stránek), **k potvrzení značkou**; čísla a parametry si značka musí schválit. |
 | MITO LIGHT Radar 2.0 | **Skutečná data**: 88 hledání na webu ze dne 2026-10-23, nic simulovaného. Vidí názvy a adresy stránek, ne jejich obsah (prostředí nemá přístup na web). |
-| Reálná data značek ve hře | Nejsou v repozitáři (autorská práva a výkonnostní čísla nejsou veřejná). Hra používá **fiktivní značky a simulovaná čísla**. |
+| Výkonnostní čísla značek | Nejsou veřejná, proto nejsou v repozitáři. Hra pracuje s tím, co je vidět ve výsledcích hledání: titulky, pořadím a adresami. Demo se simulovanými čísly zůstává jako `build-web --synthetic`. |
 
 ## Struktura
 
@@ -161,15 +177,15 @@ make lint-dash   # projektové pravidlo: žádná dlouhá pomlčka v žádném s
 Prohlížečový test celé hry (Playwright + Chromium, mimo CI, protože potřebuje prohlížeč):
 
 ```bash
-python3 -m dopamine_king build-web
-node web/tests/smoke.playwright.mjs     # projde všechny pohledy v cs i en, světlém i tmavém režimu a na mobilu, včetně kontroly tvrzení
+node web/tests/smoke.playwright.mjs     # sestaví demo i skutečnou edici a projde všechny pohledy v cs i en, světlém i tmavém režimu a na mobilu
                                         # (potřebuje balíček playwright; když je nainstalovaný globálně, nastavte NODE_PATH na jeho složku)
+node web/tests/smoke.playwright.mjs --real-only    # jen skutečná edice: tři druhy soubojů, Trh, úkoly, skutečný A/B test
 ```
 
 ## Poctivost a limity
 
-- **Dopamine Score je heuristika**, ne měření mozku ani záruka výkonu. Smysl má jako pořadí a vůči korpusu.
-- **Demo čísla jsou simulovaná**; hra to na každém odhalení říká.
+- **Dopamine Score je heuristika**, ne měření mozku ani záruka výkonu. Na skutečných dvojicích v Aréně předpovídá pořadí stejně spolehlivě jako hod mincí a hra to říká.
+- **Čísla ve hře jsou z uložených hledání.** Jen dvě minihry v Laboratoři jsou simulace a hlásí to. Demo edice (`build-web --synthetic`) označuje všechna čísla jako simulovaná.
 - **Žádné automatické publikování.** Výstup je koncept pro člověka; quality gate blokuje články bez vlastní zkušenosti.
 - **Právo:** sběr respektuje `robots.txt` a rezervaci práv TDM, ukládá jen metadata a krátký výňatek. Není to právní poradenství, viz [docs/05-scraping-a-pravo.md](docs/05-scraping-a-pravo.md).
 - **Edice MITO LIGHT hlídá slova, ne záměr.** Pravidla poznají zakázané formulace, ne obrázky, hashtagy ani celkový dojem; schválení textu před zveřejněním zůstává na člověku. Číslo studie v mapě tvrzení neznamená, že se týká právě vašeho přístroje.

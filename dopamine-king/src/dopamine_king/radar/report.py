@@ -42,6 +42,11 @@ def date_cs(iso: str) -> str:
     return f"{d.day}. {d.month}. {d.year}"
 
 
+def tool_label(tool: str) -> str:
+    """The tool as the reader knows it. The snapshot also stores the exact tool string, which is not meant for readers."""
+    return "Claude Code" if tool.lower().startswith("claude-code") else tool
+
+
 def link(url: str, label: str) -> str:
     return f'<a href="{esc(url)}" target="_blank" rel="noopener noreferrer">{esc(label)}</a>'
 
@@ -76,7 +81,7 @@ def report_data(snapshot: str | Path, drafts: str | Path, plan_path: str | Path)
         "brand": plan["brand"], "plan_name": plan.get("name", ""),
         "meta": {"date": stamp, "date_cs": date_cs(stamp), "searches": len(records), "direct": len(direct),
                  "links": sum(len(r["links"]) for r in records), "hosts": len({A.host_of(l["url"]) for r in records for l in r["links"]}),
-                 "tool": manifest["tool"], "models": manifest["models"], "first": manifest["first_retrieved_at"], "last": manifest["last_retrieved_at"],
+                 "tool": tool_label(manifest["tool"]), "first": manifest["first_retrieved_at"], "last": manifest["last_retrieved_at"],
                  "missing": manifest["missing"]},
         "visibility": A.visibility(records, plan["brand"]),
         "landscape": A.landscape(records, cfg["domains"]),
@@ -160,7 +165,7 @@ def render_landscape(d: dict[str, Any]) -> str:
                     f'<div class="track"><span style="width:{width}%"></span></div>'
                     + (f'<div class="note">{esc(x["note"])}</div>' if x["note"] else "") + "</li>")
     return (f'<p class="lead">V {n} českých hledáních (kategorie, cílové skupiny, konkurenti) vrátil nástroj {land["links"]} odkazů z {land["hosts"]} webů. '
-            f'Ukazujeme weby, které jsme ručně zařadili; {land["noise_links"]} odkazů nesouviselo s oborem a {land["unclassified_links"]} jsme nezařadili.</p>'
+            f'Níže jsou weby zařazené ručně; {land["noise_links"]} odkazů nesouviselo s oborem a {land["unclassified_links"]} zůstalo nezařazených.</p>'
             f'<ul class="bars">{"".join(rows)}</ul>')
 
 
@@ -192,8 +197,8 @@ def render_themes(d: dict[str, Any]) -> str:
         ex = f'{link(example["url"], example["title"][:60])} <span class="host">{esc(example["site"])}</span>' if example else ""
         rows.append(f'<tr><td>{esc(t["name"])}</td><td class="num">{mk["pages"]}</td><td class="num">{md["pages"]}</td><td class="num mine">{mine}</td><td class="wrap">{ex}</td></tr>')
     failed = [s["name"] for s in b["sites"] if not s["pages"]]
-    return (f'<p class="lead">Prošli jsme {b["pages"]} stránek z {b["sites_with_pages"]} webů: {b["makers"]} výrobců a {b["media"]} recenzních webů. '
-            f'Tabulka ukazuje, kolik stránek patří k jednotlivým tématům.'
+    return (f'<p class="lead">Tabulka vychází z {b["pages"]} stránek z {b["sites_with_pages"]} webů: {b["makers"]} výrobců a {b["media"]} recenzních webů. '
+            f'Ukazuje, kolik stránek patří k jednotlivým tématům.'
             + (f' U těchto webů vyhledávač nevrátil žádnou stránku: {esc(", ".join(failed))}.' if failed else "") + '</p>'
             f'<div class="scroll"><table class="tbl"><thead><tr><th>Téma</th><th>Výrobci</th><th>Recenzní weby</th><th>Váš web</th><th>Příklad</th></tr></thead><tbody>{"".join(rows)}</tbody></table></div>'
             f'<p class="caveat">Témata se přiřazují podle slov v názvu a adrese stránky. Váš web: {len(d["own"]["pages"])} stránek, které vyhledávač zná.</p>')
@@ -231,7 +236,7 @@ def render_market_claims(d: dict[str, Any]) -> str:
     rows = "".join(f'<tr><td data-label="Kdo">{esc(e["name"])}</td><td data-label="Název stránky">{link(e["url"], e["title"][:90])}</td><td data-label="Pravidlo">{esc(e["rule"])}</td>'
                    f'<td data-label="Část názvu"><mark>{esc(e["fragment"])}</mark></td></tr>' for e in a["examples"])
     return (f'<p class="lead">Z {a["scanned"]} názvů stránek prodejců, výrobců a médií v oboru jich {a["flagged"]} obsahuje tvrzení, které váš profil blokuje. '
-            'Otázky, stránky o jiném tématu a stránky bez smysluplného názvu jsme vynechali.</p>'
+            'Otázky, stránky o jiném tématu a stránky bez smysluplného názvu se nekontrolovaly.</p>'
             f'<div class="scroll"><table class="tbl stack"><thead><tr><th>Kdo</th><th>Název stránky</th><th>Pravidlo</th><th>Část názvu</th></tr></thead><tbody>{rows}</tbody></table></div>')
 
 
@@ -269,15 +274,15 @@ def render_science(d: dict[str, Any]) -> str:
     s = d["science"]
     rows = "".join(f'<tr><td>{link(x["url"], x["title"][:96]) if x["url"] else esc(x["title"][:96])}</td><td>{esc(x["venue"])}</td><td class="num">{esc(x["year"])}</td></tr>' for x in s["new"])
     pend = "".join(f'<li><b>{esc(x["title"])}</b><br><span class="muted">{esc(x["note"])}</span></li>' for x in s["unverified"])
-    return (f'<p class="lead">Registr má {s["total"]} studií, z toho {s["verified"]} ověřených. K {d["meta"]["date_cs"]} jsme ověřili {s["verified_now"]} nových. '
-            'Ověřená studie znamená, že se její název, časopis a rok objevily ve veřejném zdroji (PubMed, PubMed Central, vydavatel). Neznamená to, že jsme četli celý text.</p>'
+    return (f'<p class="lead">Registr má {s["total"]} studií, z toho {s["verified"]} ověřených. K {d["meta"]["date_cs"]} bylo ověřeno {s["verified_now"]} nových. '
+            'Ověřená studie znamená, že se její název, časopis a rok objevily ve veřejném zdroji (PubMed, PubMed Central, vydavatel). Neznamená to, že byl přečten celý text.</p>'
             f'<div class="scroll"><table class="tbl"><thead><tr><th>Nově ověřeno</th><th>Časopis</th><th>Rok</th></tr></thead><tbody>{rows}</tbody></table></div>'
             f'<h3>Zůstává neověřeno</h3><ul class="plain">{pend}</ul>')
 
 
 def render_open(d: dict[str, Any]) -> str:
     return '<ul class="open">' + "".join(
-        f'<li><b>{esc(x["what"])}</b><br>{esc(x["why"])}<br><span class="need">Potřebuji: {esc(x["need"])}</span></li>' for x in d["open_items"]) + "</ul>"
+        f'<li><b>{esc(x["what"])}</b><br>{esc(x["why"])}<br><span class="need">Potřeba: {esc(x["need"])}</span></li>' for x in d["open_items"]) + "</ul>"
 
 
 def render_method(d: dict[str, Any]) -> str:
@@ -304,14 +309,14 @@ def render_method(d: dict[str, Any]) -> str:
     return f'''<p>Data pocházejí z <b>{m["searches"]} skutečných hledání na webu</b> ze dne {esc(m["date_cs"])}. Každé hledání spustil nástroj Claude Code s jediným povoleným nástrojem, vyhledáváním na webu.
 Uložené odkazy jsou přesně to, co nástroj vrátil. Hledání se uloží jen tehdy, když nástroj opravdu proběhl s požadovaným dotazem. Nic se nedopisuje, nezaokrouhluje ani nesimuluje.</p>
 <ul class="plain">
-<li>Vyhledávač je USA a není to Google.cz ani Seznam. Pořadí a výběr se od českých výsledků mohou lišit.</li>
+<li>Vyhledávač hledá z USA a není to Google.cz ani Seznam. Pořadí a výběr se od českých výsledků mohou lišit.</li>
 <li>Jde o jeden snímek. Při dalším hledání se výsledky mírně změní.</li>
-<li>Vidíme názvy a adresy stránek, ne jejich obsah. Souhrny, které nástroj přidává, píše stroj, ne stránky.</li>
+<li>Nástroj ukazuje názvy a adresy stránek, ne jejich obsah. Souhrny, které přidává, píše stroj.</li>
 <li>Zařazení webů a témat jsou úsudky podle názvů, adres a ručně sestaveného seznamu.</li>
-<li>Dlouhé pomlčky v názvech jsme nahradili spojovníkem, jiná úprava se nedělala.</li>
+<li>Dlouhé pomlčky v názvech byly nahrazeny spojovníkem, jiná úprava se nedělala.</li>
 </ul>
 <h4>Kontrola proti přímému hledání</h4>
-<p>Pět hledání jsme zopakovali přímo nástrojem pro vyhledávání a porovnali odkazy s uloženými.</p>
+<p>Pět hledání bylo zopakováno přímo nástrojem pro vyhledávání a odkazy byly porovnány s uloženými.</p>
 <div class="scroll"><table class="tbl"><thead><tr><th>Hledání</th><th>Shodné odkazy</th><th>Stejné pořadí</th></tr></thead><tbody>{val}</tbody></table></div>
 <h4>Všechna hledání</h4>
 {"".join(appendix)}'''
@@ -695,7 +700,7 @@ def render_page(d: dict[str, Any], *, fragment: bool = False) -> str:
 <main class="wrap-page">
 <section id="zjisteni"><h2>Co z dat plyne</h2><p class="sub">Sedm zjištění. Každé má číslo, větu, upozornění a odkaz na hledání, ze kterého vychází.</p>{render_findings(d)}</section>
 <section id="ukoly"><h2>Co udělat tento týden</h2><p class="sub">Šest kroků v pořadí důležitosti. Zaškrtnutí se pamatuje jen v tomto prohlížeči.</p>{render_actions(d)}</section>
-<section id="videt"><h2>Kde jste vidět</h2><p class="sub">Co se stalo, když jsme hledali jako zákazník.</p>{render_visibility(d)}</section>
+<section id="videt"><h2>Kde jste vidět</h2><p class="sub">Co se stalo při hledání z pohledu zákazníka.</p>{render_visibility(d)}</section>
 <section id="trh"><h2>Kdo je kolem vás</h2><p class="sub">Weby, které se ve výsledcích opakují.</p>{render_landscape(d)}</section>
 <section id="znacka"><h2>Jak vás vidí vyhledávače a AI</h2><p class="sub">Název MITO LIGHT je podobný jiné značce. Tady je vidět, co z toho ve výsledcích plyne.</p>{render_identity(d)}</section>
 <section id="temata"><h2>Co zveřejňují úspěšné značky</h2><p class="sub">Porovnání témat výrobců, recenzních webů a vašeho webu.</p>{render_themes(d)}</section>
@@ -705,9 +710,9 @@ def render_page(d: dict[str, Any], *, fragment: bool = False) -> str:
 <section id="claimy"><h2>Emoční claimy</h2><p class="sub">Pozitivní věty o těšení, rituálu, příběhu a volbě. Žádná netvrdí účinek na tělo.</p>{render_claims(d)}</section>
 <section id="navrhy"><h2>Návrhy textů</h2><p class="sub">Napsal je Claude podle zadání a faktů značky. Každý prošel kontrolou tvrzení. Jsou to koncepty, před zveřejněním je musí přečíst člověk. Obsah vytvořený s pomocí AI může podle pravidel platforem a evropského nařízení o AI vyžadovat označení; ověřte si pravidla, která se vás týkají (nejde o právní poradenství).</p>{render_drafts(d)}</section>
 <section id="studie"><h2>Studie za mapou tvrzení</h2>{render_science(d)}</section>
-<section id="chybi"><h2>Co chybí a co potřebuji od vás</h2><p class="sub">Radar nevidí všechno. Tady je přesně co a proč.</p>{render_open(d)}</section>
+<section id="chybi"><h2>Co chybí a co je potřeba</h2><p class="sub">Radar nevidí všechno. Tady je přesně co a proč.</p>{render_open(d)}</section>
 <section id="data"><h2>Jak jsou data získaná</h2>{render_method(d)}</section>
-<footer class="end">MITO LIGHT Radar, verze 2.0. Snímek {esc(m["first"])} až {esc(m["last"])}. Zdroj dat: {esc(m["tool"])}, model {esc(", ".join(m["models"]))}.</footer>
+<footer class="end">MITO LIGHT Radar, verze 2.0. Snímek {esc(m["first"])} až {esc(m["last"])}. Zdroj dat: {esc(m["tool"])} s vyhledáváním na webu.</footer>
 </main>
 </div>'''
     if fragment:

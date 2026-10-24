@@ -8,7 +8,7 @@
 })(typeof self !== "undefined" ? self : this, function (root) {
   "use strict";
 
-  var QUEST_ICON = { arena: "swords", boss: "skull", lab: "flask", vault: "vault" };
+  var QUEST_ICON = { arena: "swords", boss: "skull", lab: "flask", vault: "vault", market: "globe" };
 
   function routeHref(route, params) {
     var q = params ? "?" + Object.keys(params).map(function (k) { return k + "=" + encodeURIComponent(params[k]); }).join("&") : "";
@@ -64,10 +64,32 @@
           d.h("h2.edition-name", { id: "edition-title" }, ui.pickLang(v, "edition", lang) || ui.pickLang(v, "name", lang)),
           d.h("p.edition-tagline", null, ui.pickLang(v, "tagline", lang)),
           chips.length ? d.h("div.chip-row", null, chips) : null,
-          d.h("p.small.muted", null, t("edition.built")),
+          d.h("p.small.muted", null, t(ctx.bundle.meta && ctx.bundle.meta.synthetic === false ? "edition.builtReal" : "edition.built")),
           ctx.bundle.claims ? d.h("div.row.wrap", null,
             d.h("a.btn.btn-ghost.btn-sm", { href: "#/vault/claims" }, icons.icon("shieldCheck", { size: 16 }), d.h("span", null, t("edition.openMap"))),
             d.h("a.btn.btn-ghost.btn-sm", { href: "#/vault/claims?focus=check" }, icons.icon("pencil", { size: 16 }), d.h("span", null, t("edition.checkText")))) : null));
+    }
+
+    /** The real tasks of the market view: how many are done and the next one to do. */
+    function tasksCard() {
+      var tasks = ctx.bundle.tasks || [];
+      if (!tasks.length) return null;
+      var p = ctx.profile();
+      var open = tasks.filter(function (x) { return !p.tasks[x.id]; });
+      var done = tasks.length - open.length;
+      var card = d.h("section.card.tasks-card", { "aria-labelledby": "tasks-title" },
+        widgets.heading(2, t("home.tasks.title"), t("home.tasks.sub"), d.h("span.chip.tone-ok", null, t("common.of", { a: done, b: tasks.length }))),
+        charts.meter({ value: done, max: tasks.length, size: "sm", tone: "ok", label: t("home.tasks.title"), valueText: function () { return done + " / " + tasks.length; } }),
+        open.length ? d.h("p.task-next", null, d.h("strong", null, t("home.tasks.next") + " "), open[0].title) : d.h("p.task-next", null, t("home.tasks.allDone")),
+        d.h("a.btn.btn-ghost.btn-sm", { href: "#/market/tasks" }, icons.icon("check", { size: 16 }), d.h("span", null, t("home.tasks.go"))));
+      card.querySelector("h2").id = "tasks-title";
+      return card;
+    }
+
+    /** The tile text of a mode: the real edition has its own wording for the modes that differ. */
+    function modeText(id) {
+      var real = !!(ctx.bundle.meta && ctx.bundle.meta.synthetic === false);
+      return t(real && root.DK.i18n.has("home.mode." + id + "Real") ? "home.mode." + id + "Real" : "home.mode." + id);
     }
 
     function statCard(title, body) {
@@ -92,7 +114,7 @@
         d.h("div.hero-main", null,
           d.h("p.eyebrow", null, t("app.tagline")),
           d.h("h1.page-title", { id: "view-title", tabindex: "-1" }, p.name ? t("home.helloName", { name: p.name }) : t("home.hello")),
-          d.h("p.hero-lead", null, t("home.lead")),
+          d.h("p.hero-lead", null, t(ctx.bundle.meta && ctx.bundle.meta.synthetic === false ? "home.leadReal" : "home.lead")),
           d.h("div.hero-level", null,
             d.h("span.lvl-badge.big", { "aria-hidden": "true" }, String(lp.level)),
             d.h("div.hero-level-body", null,
@@ -142,12 +164,12 @@
       var modes = d.h("section", { "aria-labelledby": "modes-title" },
         widgets.heading(2, t("home.modes.title")),
         d.h("ul.mode-grid", null, [
-          ["arena", "swords"], ["boss", "skull"], ["lab", "flask"], ["vault", "vault"], ["forge", "forge"], ["guru", "guru"]
-        ].map(function (m) {
+          ["arena", "swords"], ["boss", "skull"], ["market", "globe"], ["claims", "shieldCheck"], ["lab", "flask"], ["vault", "vault"], ["forge", "forge"], ["guru", "guru"]
+        ].filter(function (m) { return m[0] !== "market" || ctx.bundle.market; }).filter(function (m) { return m[0] !== "claims" || ctx.bundle.claimbank; }).map(function (m) {
           return d.h("li", null, d.h("a.mode-tile", { href: "#/" + m[0] },
             d.h("span.mode-icon", null, icons.icon(m[1], { size: 26 })),
             d.h("strong", null, t("nav." + m[0])),
-            d.h("span.small.muted", null, t("home.mode." + m[0])),
+            d.h("span.small.muted", null, modeText(m[0])),
             icons.icon("chevronRight", { size: 18, class: "mode-go" })));
         })));
       modes.querySelector("h2").id = "modes-title";
@@ -161,6 +183,8 @@
         ["heart", t("home.xp.wrong", { n: X.arenaWrong })],
         ["skull", t("home.xp.boss", { share: Math.round(X.bossRepeatShare * 100) })],
         ["flask", t("home.xp.lab", { right: X.labRight, wrong: X.labWrong })],
+        ctx.bundle.tasks && ctx.bundle.tasks.length ? ["check", t("home.xp.task", { n: X.taskDone, m: X.tasksPerChest })] : null,
+        ctx.bundle.lab && ctx.bundle.lab.tests && ctx.bundle.lab.tests.length ? ["chart", t("home.xp.realTest", { plan: X.labPlan, result: X.labResult })] : null,
         ["bulb", t("home.xp.myth", { right: X.mythRight, wrong: X.mythWrong })],
         ["check", t("home.xp.quest", { n: X.quest })],
         ["gem", t("home.xp.dust", { n: X.dust })],
@@ -169,13 +193,14 @@
       ];
       var xpPanel = d.h("details.card.xp-panel", { open: firstPaint ? p.xp < 400 : (page.querySelector(".xp-panel") ? page.querySelector(".xp-panel").open : false) },
         d.h("summary", null, icons.icon("info", { size: 20 }), d.h("span", null, t("home.xp.title")), icons.icon("chevronDown", { size: 18, class: "chev" })),
-        d.h("ul.rule-list", null, rules.map(function (r) { return d.h("li", null, icons.icon(r[0], { size: 18 }), d.h("span", null, r[1])); })),
+        d.h("ul.rule-list", null, rules.filter(Boolean).map(function (r) { return d.h("li", null, icons.icon(r[0], { size: 18 }), d.h("span", null, r[1])); })),
         d.h("p.ethics-note", null, icons.icon("shieldCheck", { size: 18 }), d.h("span", null, t("home.xp.ethics"))));
 
       d.fill(page, [
         hero,
         editionBanner(),
         d.h("div.home-grid", null, questsCard, chestCard),
+        tasksCard(),
         d.h("div.stat-grid-4", null, oracleCard, timeCard, streakCard, accCard),
         modes,
         xpPanel
