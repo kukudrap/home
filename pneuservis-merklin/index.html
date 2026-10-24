@@ -24,8 +24,12 @@
         var m = new Date().getMonth() + 1;
         s = (m >= 10 || m <= 3) ? 'winter' : 'summer';
       }
-      document.documentElement.dataset.season = s;
-      document.documentElement.classList.add('js');
+      var h = document.documentElement;
+      h.dataset.season = s;
+      h.classList.add('js');
+      // bez animací pro ty, kdo je mají vypnuté, a pojistka, kdyby se skripty nenačetly
+      if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) h.classList.add('no-motion');
+      setTimeout(function () { if (!window.__heroReady) h.classList.add('no-motion'); }, 4000);
     })();
   </script>
   <script type="application/ld+json">
@@ -72,6 +76,7 @@
       <a href="#sluzby" data-spy="sluzby">Služby a ceny</a>
       <a href="#postup" data-spy="postup">Jak to probíhá</a>
       <a href="#poradna" data-spy="poradna">Rady</a>
+      <a href="#dilna" data-spy="dilna">Z dílny</a>
       <a href="#otazky" data-spy="otazky">Otázky</a>
       <a href="#kontakt" data-spy="kontakt">Kontakt</a>
     </nav>
@@ -95,8 +100,9 @@
       <a href="#sluzby"><span class="menu-num">01</span>Služby a ceny</a>
       <a href="#postup"><span class="menu-num">02</span>Jak to probíhá</a>
       <a href="#poradna"><span class="menu-num">03</span>Rady u kola</a>
-      <a href="#otazky"><span class="menu-num">04</span>Časté otázky</a>
-      <a href="#kontakt"><span class="menu-num">05</span>Kontakt a mapa</a>
+      <a href="#dilna"><span class="menu-num">04</span>Z dílny</a>
+      <a href="#otazky"><span class="menu-num">05</span>Časté otázky</a>
+      <a href="#kontakt"><span class="menu-num">06</span>Kontakt a mapa</a>
     </nav>
     <div class="menu-foot">
       <a class="btn btn-accent btn-lg btn-block" href="tel:+420XXXXXXXXX"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2Z" fill="currentColor"/></svg><span>Zavolat Romanovi</span></a>
@@ -113,8 +119,8 @@
       <div class="wrap hero-inner">
         <p class="eyebrow hero-eyebrow"><span class="live-dot" aria-hidden="true"></span>Pneuservis · Merklín 7<span class="hide-sm"> · u Karlových Varů</span></p>
         <h1 class="display hero-title" data-hero-title>
-          <span class="hl">Boty <span data-word>na&nbsp;<span class="swap" data-swap><span class="swap-word" data-swap-word data-winter="zimu." data-summer="léto.">zimu.</span></span></span></span>
-          <span class="hl">Pro vaše auto.</span>
+          <span class="hl"><span class="split">Boty na</span>&nbsp;<span class="swap" data-swap><span class="swap-word" data-swap-word data-winter="zimu." data-summer="léto.">zimu.</span></span></span>
+          <span class="hl"><span class="split">Pro vaše auto.</span></span>
         </h1>
         <div class="hero-bottom">
           <p class="hero-lead" data-only="winter">První sníh jednou přijde v&nbsp;noci, bez varování. Přezujte včas a&nbsp;ráno vyjedete v&nbsp;klidu, i&nbsp;když ostatní zůstanou stát v&nbsp;kopci. V&nbsp;Merklíně, kousek od Karlových Varů.</p>
@@ -334,36 +340,51 @@
           <p class="section-lead" data-reveal>Všechno, co kola potřebují ke změně sezóny. Přesnou cenu vám řekneme do telefonu podle auta a&nbsp;rozměru.</p>
         </div>
 
-        <ol class="service-list">
-          <li class="service" data-reveal>
-            <span class="s-num">01</span>
-            <h3 class="s-title">Přezutí kol</h3>
-            <p class="s-desc">Gumy máte na discích? Kola sundáme, nasadíme, dotáhneme a&nbsp;zkontrolujeme tlak.</p>
-            <div class="s-side"><span class="s-price">od XXX Kč</span><a class="s-cta" href="#objednat" data-pick="Přezutí kol">Objednat <svg class="arr" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11m-4-4 4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+        <ol class="fan" data-fan>
+          <li class="fan-card fan-card--dark">
+            <div class="fc-inner" data-spotlight>
+              <div class="fc-top"><span class="fc-num">01</span><span class="fc-price">od XXX Kč</span></div>
+              <svg class="fc-ic draw" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="15"/><circle cx="32" cy="32" r="6"/><path d="M10 27a23 23 0 0 1 37-13"/><path d="M48 7v8h-8"/><path d="M54 37a23 23 0 0 1-37 13"/><path d="M16 57v-8h8"/></svg>
+              <h3 class="fc-title">Přezutí kol</h3>
+              <p class="fc-desc">Gumy máte na discích? Kola sundáme, nasadíme, dotáhneme a&nbsp;zkontrolujeme tlak.</p>
+              <a class="fc-cta" href="#objednat" data-pick="Přezutí kol">Objednat <svg class="arr" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11m-4-4 4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            </div>
           </li>
-          <li class="service" data-reveal>
-            <span class="s-num">02</span>
-            <h3 class="s-title">Přezutí pneumatik</h3>
-            <p class="s-desc">Jedna sada disků a&nbsp;dvě sady gum. Pneumatiky přemontujeme a&nbsp;kola rovnou vyvážíme.</p>
-            <div class="s-side"><span class="s-price">od XXX Kč</span><a class="s-cta" href="#objednat" data-pick="Přezutí pneumatik">Objednat <svg class="arr" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11m-4-4 4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+          <li class="fan-card">
+            <div class="fc-inner" data-spotlight>
+              <div class="fc-top"><span class="fc-num">02</span><span class="fc-price">od XXX Kč</span></div>
+              <svg class="fc-ic draw" viewBox="0 0 64 64" aria-hidden="true"><circle cx="27" cy="35" r="19"/><circle cx="27" cy="35" r="10"/><path d="M39 23 55 7"/><path d="M51 4l8 8"/></svg>
+              <h3 class="fc-title">Přezutí pneumatik</h3>
+              <p class="fc-desc">Jedna sada disků a&nbsp;dvě sady gum. Pneumatiky přemontujeme a&nbsp;kola rovnou vyvážíme.</p>
+              <a class="fc-cta" href="#objednat" data-pick="Přezutí pneumatik">Objednat <svg class="arr" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11m-4-4 4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            </div>
           </li>
-          <li class="service" data-reveal>
-            <span class="s-num">03</span>
-            <h3 class="s-title">Vyvážení</h3>
-            <p class="s-desc">Klepe vám volant v&nbsp;osmdesáti? Kolo vyvážíme, aby jelo hladce a&nbsp;šetřilo podvozek.</p>
-            <div class="s-side"><span class="s-price">od XXX Kč</span><a class="s-cta" href="#objednat" data-pick="Vyvážení">Objednat <svg class="arr" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11m-4-4 4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+          <li class="fan-card">
+            <div class="fc-inner" data-spotlight>
+              <div class="fc-top"><span class="fc-num">03</span><span class="fc-price">od XXX Kč</span></div>
+              <svg class="fc-ic draw" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="28" r="18"/><circle cx="32" cy="28" r="5"/><rect x="28" y="11" width="8" height="5" rx="1.5"/><path d="M8 56h48"/><path d="M14 51v9M50 51v9"/></svg>
+              <h3 class="fc-title">Vyvážení</h3>
+              <p class="fc-desc">Klepe vám volant v&nbsp;osmdesáti? Kolo vyvážíme, aby jelo hladce a&nbsp;šetřilo podvozek.</p>
+              <a class="fc-cta" href="#objednat" data-pick="Vyvážení">Objednat <svg class="arr" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11m-4-4 4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            </div>
           </li>
-          <li class="service" data-reveal>
-            <span class="s-num">04</span>
-            <h3 class="s-title">Oprava defektu</h3>
-            <p class="s-desc">Hřebík nebo šroub v&nbsp;pneumatice? Když to jde opravit, opravíme. Když ne, řekneme to na rovinu.</p>
-            <div class="s-side"><span class="s-price">od XXX Kč</span><a class="s-cta" href="#objednat" data-pick="Oprava defektu">Objednat <svg class="arr" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11m-4-4 4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+          <li class="fan-card">
+            <div class="fc-inner" data-spotlight>
+              <div class="fc-top"><span class="fc-num">04</span><span class="fc-price">od XXX Kč</span></div>
+              <svg class="fc-ic draw" viewBox="0 0 64 64" aria-hidden="true"><rect x="9" y="16" width="46" height="38" rx="8"/><path d="M9 29h46M9 42h46"/><path d="M41 5 31 35"/><path d="M36 3l10 3"/></svg>
+              <h3 class="fc-title">Oprava defektu</h3>
+              <p class="fc-desc">Hřebík nebo šroub v&nbsp;pneumatice? Když to jde opravit, opravíme. Když ne, řekneme to na rovinu.</p>
+              <a class="fc-cta" href="#objednat" data-pick="Oprava defektu">Objednat <svg class="arr" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11m-4-4 4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            </div>
           </li>
-          <li class="service" data-reveal>
-            <span class="s-num">05</span>
-            <h3 class="s-title">Kontrola pneumatik</h3>
-            <p class="s-desc">Dezén, stáří, praskliny, boule. Při každém přezutí vám řekneme, jak na tom gumy jsou.</p>
-            <div class="s-side"><span class="s-price">při přezutí</span><a class="s-cta" href="#objednat" data-pick="Kontrola pneumatik">Objednat <svg class="arr" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11m-4-4 4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+          <li class="fan-card">
+            <div class="fc-inner" data-spotlight>
+              <div class="fc-top"><span class="fc-num">05</span><span class="fc-price">při přezutí</span></div>
+              <svg class="fc-ic draw" viewBox="0 0 64 64" aria-hidden="true"><path d="M12 44a20 20 0 1 1 40 0"/><path d="M32 44 42 28"/><circle cx="32" cy="44" r="3"/><path d="M17 30l3 2M32 21v4M47 30l-3 2"/><path d="M14 53h36"/></svg>
+              <h3 class="fc-title">Kontrola pneumatik</h3>
+              <p class="fc-desc">Dezén, stáří, praskliny, boule. Při každém přezutí vám řekneme, jak na tom gumy jsou.</p>
+              <a class="fc-cta" href="#objednat" data-pick="Kontrola pneumatik">Objednat <svg class="arr" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11m-4-4 4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            </div>
           </li>
         </ol>
         <p class="footnote" data-reveal>Ceny jsou orientační, za sadu čtyř kol osobního auta.</p>
@@ -448,7 +469,7 @@
         </div>
 
         <div class="tools-grid">
-          <article class="tool" data-reveal>
+          <article class="tool" data-reveal data-spotlight>
             <p class="mono-label">Nápis na boku pneumatiky</p>
             <h3 class="tool-title">Co znamená 205/55&nbsp;R16?</h3>
             <div class="code" role="group" aria-label="Části označení pneumatiky">
@@ -487,7 +508,7 @@
             </div>
           </article>
 
-          <article class="tool" data-reveal>
+          <article class="tool" data-reveal data-spotlight>
             <p class="mono-label">Hloubka dezénu</p>
             <h3 class="tool-title">Kolik vám zbývá?</h3>
             <div class="tread-viz">
@@ -509,6 +530,87 @@
             <p class="verdict" data-verdict aria-live="polite"></p>
             <p class="tip">Tip: na dně drážek jsou malé můstky ve výšce 1,6&nbsp;mm. Když jsou v&nbsp;rovině s&nbsp;dezénem, gumy jsou na konci.</p>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Z DÍLNY (na počítači se posouvá do strany) ============ -->
+    <section class="gallery dark" id="dilna" data-gallery>
+      <div class="gal-pin">
+        <div class="wrap gal-head">
+          <div>
+            <p class="mono-label" data-reveal>04 · Z dílny</p>
+            <h2 class="h2" data-split>Řemeslo, které není vidět</h2>
+          </div>
+          <p class="section-lead" data-reveal>Většina práce na kolech se schová pod blatník. Tak vám ji ukážeme aspoň tady.</p>
+        </div>
+        <!--
+          Až budou fotky z dílny, vložte je do karet místo kresby:
+          <div class="gal-art"><img src="dilna-1.jpg" alt="Přezouvání v dílně v Merklíně" loading="lazy"></div>
+        -->
+        <div class="gal-viewport" data-gal-viewport>
+          <ol class="gal-track" data-gal-track>
+          <li class="gal-card" data-spotlight>
+            <div class="gal-art"><svg class="draw" viewBox="0 0 240 180" aria-hidden="true"><rect x="34" y="14" width="172" height="152" rx="20"/><rect x="48" y="24" width="38" height="26" rx="6"/><polyline points="54,30.5 60.5,35.5 67,30.5 73.5,35.5 80,30.5"/><polyline points="54,38.5 60.5,43.5 67,38.5 73.5,43.5 80,38.5"/><rect x="48" y="60" width="38" height="26" rx="6"/><polyline points="54,66.5 60.5,71.5 67,66.5 73.5,71.5 80,66.5"/><polyline points="54,74.5 60.5,79.5 67,74.5 73.5,79.5 80,74.5"/><rect x="48" y="96" width="38" height="26" rx="6"/><polyline points="54,102.5 60.5,107.5 67,102.5 73.5,107.5 80,102.5"/><polyline points="54,110.5 60.5,115.5 67,110.5 73.5,115.5 80,110.5"/><rect x="48" y="132" width="38" height="26" rx="6"/><polyline points="54,138.5 60.5,143.5 67,138.5 73.5,143.5 80,138.5"/><polyline points="54,146.5 60.5,151.5 67,146.5 73.5,151.5 80,146.5"/><rect x="101" y="42" width="38" height="26" rx="6"/><polyline points="107,48.5 113.5,53.5 120,48.5 126.5,53.5 133,48.5"/><polyline points="107,56.5 113.5,61.5 120,56.5 126.5,61.5 133,56.5"/><rect x="101" y="78" width="38" height="26" rx="6"/><polyline points="107,84.5 113.5,89.5 120,84.5 126.5,89.5 133,84.5"/><polyline points="107,92.5 113.5,97.5 120,92.5 126.5,97.5 133,92.5"/><rect x="101" y="114" width="38" height="26" rx="6"/><polyline points="107,120.5 113.5,125.5 120,120.5 126.5,125.5 133,120.5"/><polyline points="107,128.5 113.5,133.5 120,128.5 126.5,133.5 133,128.5"/><rect x="154" y="24" width="38" height="26" rx="6"/><polyline points="160,30.5 166.5,35.5 173,30.5 179.5,35.5 186,30.5"/><polyline points="160,38.5 166.5,43.5 173,38.5 179.5,43.5 186,38.5"/><rect x="154" y="60" width="38" height="26" rx="6"/><polyline points="160,66.5 166.5,71.5 173,66.5 179.5,71.5 186,66.5"/><polyline points="160,74.5 166.5,79.5 173,74.5 179.5,79.5 186,74.5"/><rect x="154" y="96" width="38" height="26" rx="6"/><polyline points="160,102.5 166.5,107.5 173,102.5 179.5,107.5 186,102.5"/><polyline points="160,110.5 166.5,115.5 173,110.5 179.5,115.5 186,110.5"/><rect x="154" y="132" width="38" height="26" rx="6"/><polyline points="160,138.5 166.5,143.5 173,138.5 179.5,143.5 186,138.5"/><polyline points="160,146.5 166.5,151.5 173,146.5 179.5,151.5 186,146.5"/></svg></div>
+            <div class="gal-meta">
+              <span class="gal-num">01 / 06</span>
+              <h3>Zimní dezén</h3>
+              <p>Lamely v&nbsp;blocích se zakousnou do sněhu. Pod 4&nbsp;mm už zimní guma nepatří na silnici.</p>
+            </div>
+          </li>
+          <li class="gal-card" data-spotlight>
+            <div class="gal-art"><svg class="draw" viewBox="0 0 240 180" aria-hidden="true"><rect x="34" y="14" width="172" height="152" rx="20"/><path d="M88 14V166"/><path d="M120 14V166"/><path d="M152 14V166"/><path d="M34 26l26 12"/><path d="M206 26l-26 12"/><path d="M96 30l16 7"/><path d="M144 30l-16 7"/><path d="M34 48l26 12"/><path d="M206 48l-26 12"/><path d="M96 52l16 7"/><path d="M144 52l-16 7"/><path d="M34 70l26 12"/><path d="M206 70l-26 12"/><path d="M96 74l16 7"/><path d="M144 74l-16 7"/><path d="M34 92l26 12"/><path d="M206 92l-26 12"/><path d="M96 96l16 7"/><path d="M144 96l-16 7"/><path d="M34 114l26 12"/><path d="M206 114l-26 12"/><path d="M96 118l16 7"/><path d="M144 118l-16 7"/><path d="M34 136l26 12"/><path d="M206 136l-26 12"/><path d="M96 140l16 7"/><path d="M144 140l-16 7"/><path d="M34 158l26 12"/><path d="M206 158l-26 12"/><path d="M96 162l16 7"/><path d="M144 162l-16 7"/></svg></div>
+            <div class="gal-meta">
+              <span class="gal-num">02 / 06</span>
+              <h3>Letní dezén</h3>
+              <p>Podélné drážky odvádějí vodu. Čím víc dezénu, tím menší riziko aquaplaningu.</p>
+            </div>
+          </li>
+          <li class="gal-card" data-spotlight>
+            <div class="gal-art"><svg class="draw" viewBox="0 0 240 180" aria-hidden="true"><circle cx="120" cy="86" r="64"/><circle cx="120" cy="86" r="44"/><circle cx="120" cy="86" r="10"/><path d="M127.64 75.48L144.1 52.83"/><path d="M132.36 90.02L158.99 98.67"/><path d="M120 99L120 127"/><path d="M107.64 90.02L81.01 98.67"/><path d="M112.36 75.48L95.9 52.83"/><rect x="111" y="45" width="18" height="9" rx="2"/><path d="M34 64q-8 8 0 16t0 16"/><path d="M206 64q8 8 0 16t0 16"/><path d="M44 166H196"/></svg></div>
+            <div class="gal-meta">
+              <span class="gal-num">03 / 06</span>
+              <h3>Vyvážení</h3>
+              <p>Pár gramů na ráfku rozhodne, jestli volant v&nbsp;osmdesáti stojí klidně, nebo klepe.</p>
+            </div>
+          </li>
+          <li class="gal-card" data-spotlight>
+            <div class="gal-art"><svg class="draw" viewBox="0 0 240 180" aria-hidden="true"><rect x="34" y="40" width="172" height="100" rx="18"/><path d="M34 74H206"/><path d="M34 106H206"/><path d="M90 40V74"/><path d="M150 40V74"/><path d="M120 74V106"/><path d="M80 106V140"/><path d="M160 106V140"/><path d="M152 12 128 92"/><path d="M141 8l23 8"/><circle cx="128" cy="96" r="12"/></svg></div>
+            <div class="gal-meta">
+              <span class="gal-num">04 / 06</span>
+              <h3>Oprava defektu</h3>
+              <p>Hřebík v&nbsp;běhounu se většinou opravit dá. Poškozený bok ne, a&nbsp;to vám řekneme rovnou.</p>
+            </div>
+          </li>
+          <li class="gal-card" data-spotlight>
+            <div class="gal-art"><svg class="draw" viewBox="0 0 240 180" aria-hidden="true"><circle cx="120" cy="90" r="72"/><circle cx="120" cy="90" r="24"/><polygon points="130,42 125,50.66 115,50.66 110,42 115,33.34 125,33.34"/><polygon points="175.65,75.17 170.65,83.83 160.65,83.83 155.65,75.17 160.65,66.51 170.65,66.51"/><polygon points="158.21,128.83 153.21,137.49 143.21,137.49 138.21,128.83 143.21,120.17 153.21,120.17"/><polygon points="101.79,128.83 96.79,137.49 86.79,137.49 81.79,128.83 86.79,120.17 96.79,120.17"/><polygon points="84.35,75.17 79.35,83.83 69.35,83.83 64.35,75.17 69.35,66.51 79.35,66.51"/><polyline points="120,42 148.21,128.83 74.35,75.17 165.65,75.17 91.79,128.83 120,42"/></svg></div>
+            <div class="gal-meta">
+              <span class="gal-num">05 / 06</span>
+              <h3>Do hvězdy</h3>
+              <p>Šrouby křížem a&nbsp;na předepsaný moment, aby kolo dosedlo rovně.</p>
+            </div>
+          </li>
+          <li class="gal-card" data-spotlight>
+            <div class="gal-art"><svg class="draw" viewBox="0 0 240 180" aria-hidden="true"><path d="M57.65 146A72 72 0 1 1 182.35 146"/><path d="M69.77 139L62.84 143"/><path d="M62 110L54 110"/><path d="M69.77 81L62.84 77"/><path d="M91 59.77L87 52.84"/><path d="M120 52L120 44"/><path d="M149 59.77L153 52.84"/><path d="M170.23 81L177.16 77"/><path d="M178 110L186 110"/><path d="M170.23 139L177.16 143"/><path d="M120 110L145 66.7"/><circle cx="120" cy="110" r="6"/><path d="M98 158H142"/></svg></div>
+            <div class="gal-meta">
+              <span class="gal-num">06 / 06</span>
+              <h3>Tlak</h3>
+              <p>S&nbsp;každými 10&nbsp;°C dolů klesne tlak zhruba o&nbsp;0,1&nbsp;baru. V&nbsp;zimě ho kontrolujte častěji.</p>
+            </div>
+          </li>
+            <li class="gal-card gal-end">
+              <p class="mono-label">Na řadě jste vy</p>
+              <h3>Chcete to mít hotové i&nbsp;na svém autě?</h3>
+              <div class="gal-end-actions">
+                <a class="btn btn-accent btn-lg" href="#objednat">Objednat přezutí <svg class="arr" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11m-4-4 4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                <a class="btn btn-ghost btn-lg" href="tel:+420XXXXXXXXX"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2Z" fill="currentColor"/></svg><span>Zavolat</span></a>
+              </div>
+            </li>
+          </ol>
+        </div>
+        <div class="wrap gal-foot" aria-hidden="true">
+          <span class="gal-bar"><span data-gal-bar></span></span>
+          <span class="gal-hint mono-label">Scrollujte, karty jedou do strany</span>
         </div>
       </div>
     </section>
@@ -548,7 +650,7 @@
     <section class="faq light" id="otazky">
       <div class="wrap faq-grid">
         <div class="faq-head">
-          <p class="mono-label" data-reveal>04 · Časté otázky</p>
+          <p class="mono-label" data-reveal>05 · Časté otázky</p>
           <h2 class="h2" data-split>Na co se lidé ptají</h2>
           <p class="section-lead" data-reveal>Nenašli jste odpověď? Zavolejte, Roman vám poradí.</p>
           <a class="btn btn-dark" href="tel:+420XXXXXXXXX" data-reveal><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2Z" fill="currentColor"/></svg><span>Zavolat</span></a>
@@ -591,8 +693,8 @@
       </svg>
       <div class="wrap cta-inner">
         <p class="mono-label cta-label" data-reveal><span data-only="winter">Zimní období začíná 1. listopadu</span><span data-only="summer">Sezóna letních pneumatik</span></p>
-        <h2 class="cta-title" data-only="winter" data-split>Nečekejte na první sníh.</h2>
-        <h2 class="cta-title" data-only="summer" data-split>Nečekejte na první vedro.</h2>
+        <h2 class="cta-title" data-only="winter" data-pour>Nečekejte na první sníh.</h2>
+        <h2 class="cta-title" data-only="summer" data-pour>Nečekejte na první vedro.</h2>
         <p class="cta-sub" data-reveal><span data-only="winter">Zavolejte teď a&nbsp;přezujte v&nbsp;klidu. Ne ve frontě s&nbsp;půlkou okresu, až začne padat.</span><span data-only="summer">Zavolejte teď a&nbsp;vyrazte na výlety i&nbsp;dovolenou na správných gumách.</span></p>
         <div class="cta-actions" data-reveal>
           <a class="btn btn-invert btn-lg" href="tel:+420XXXXXXXXX"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2Z" fill="currentColor"/></svg><span>Zavolat Romanovi</span></a>
@@ -605,7 +707,7 @@
     <section class="contact dark" id="kontakt">
       <div class="wrap contact-grid">
         <div class="contact-main">
-          <p class="mono-label" data-reveal>05 · Kontakt</p>
+          <p class="mono-label" data-reveal>06 · Kontakt</p>
           <h2 class="h2" data-split>Zavolejte. Zbytek vyřešíme za vás.</h2>
           <a class="big-phone" href="tel:+420XXXXXXXXX" data-reveal>+420 XXX XXX XXX</a>
           <address class="addr" data-reveal>
@@ -620,7 +722,7 @@
           <p class="muted" data-reveal>Nejlíp je zavolat předem, ať na vás máme čas a&nbsp;nemusíte čekat.</p>
         </div>
 
-        <form class="sms-card" id="objednat" data-sms data-reveal novalidate>
+        <form class="sms-card" id="objednat" data-sms data-reveal data-spotlight novalidate>
           <p class="mono-label">Nebo napište SMS</p>
           <h3>Objednávka za 30 vteřin</h3>
           <p class="muted small">Vyplňte, co víte. Telefon otevře SMS s&nbsp;hotovým textem, stačí odeslat.</p>
@@ -705,13 +807,18 @@
         </a>
       </div>
     </div>
-    <div class="footer-word" aria-hidden="true">Oberreiter</div>
+    <div class="footer-word" aria-hidden="true" data-pour>Oberreiter</div>
     <div class="wrap footer-bottom">
       <span>© <span data-year>2026</span> Roman Oberreiter</span>
       <span>Přezouvání pneumatik · Merklín u Karlových Varů</span>
     </div>
   </footer>
 
+  <script src="vendor/gsap.min.js" defer></script>
+  <script src="vendor/ScrollTrigger.min.js" defer></script>
+  <script src="vendor/SplitText.min.js" defer></script>
+  <script src="vendor/DrawSVGPlugin.min.js" defer></script>
+  <script src="vendor/lenis.min.js" defer></script>
   <script src="app.js" defer></script>
 </body>
 </html>

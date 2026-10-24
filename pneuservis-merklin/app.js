@@ -1,5 +1,7 @@
 /* Pneuservis Merklín · Roman Oberreiter
-   Bez knihoven. Jedna smyčka requestAnimationFrame řídí kolo, pás, příběh, připnutou sekci, navigaci a mobilní lištu. */
+   Animace: GSAP (ScrollTrigger, SplitText, DrawSVG). Plynulé kolečko myši: Lenis, dotyk zůstává nativní.
+   Světlo pod kurzorem na kartách je port komponenty SpotlightCard z React Bits do čistého JS.
+   Když se knihovny nenačtou nebo má návštěvník vypnuté animace, web funguje dál, jen bez pohybu. */
 (() => {
   'use strict';
 
@@ -8,11 +10,23 @@
   const root = document.documentElement;
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const finePointer = matchMedia('(hover: hover) and (pointer: fine)').matches;
+  const G = window.gsap;
+  const ST = window.ScrollTrigger;
+  const SplitText = window.SplitText;
+  const hasSplit = !!(G && SplitText);
+  const hasDraw = !!(G && window.DrawSVGPlugin);
+  const motion = !!(G && ST) && !reduce;
   const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
-  const lerp = (a, b, t) => a + (b - a) * t;
-  const easeOut = t => 1 - Math.pow(1 - t, 4);
   const plural = (n, one, few, many) => (n === 1 ? one : n >= 2 && n <= 4 ? few : many);
   const cz = n => String(n).replace('.', ',');
+
+  if (G && ST) G.registerPlugin(...[ST, SplitText, window.DrawSVGPlugin].filter(Boolean));
+  if (!motion) root.classList.add('no-motion');
+
+  // písmena se "vylijí": spadnou shora protažená jako kapka a dosednou s pružným dojezdem
+  const POUR = { yPercent: -140, scaleY: 2.1, opacity: 0, transformOrigin: '50% 0%' };
+  const pourIn = (chars, opts = {}) => G.from(chars, { ...POUR, duration: 1.25, ease: 'elastic.out(1, 0.6)', stagger: 0.034, ...opts });
+  const DRAWABLE = 'path, circle, rect, polyline, polygon, line';
 
   /* ---------- geometrie kola a náboje ---------- */
   function buildGeometry() {
@@ -36,92 +50,63 @@
     }
   }
 
-  /* ---------- dělení nadpisů na slova ---------- */
-  let wordIndex = 0;
-  function wrapWord(content) {
-    const w = document.createElement('span');
-    w.className = 'w';
-    const wi = document.createElement('span');
-    wi.className = 'wi';
-    wi.style.setProperty('--i', wordIndex++);
-    if (typeof content === 'string') wi.textContent = content;
-    else wi.appendChild(content);
-    w.appendChild(wi);
-    return w;
+  /* ---------- Lenis: plynulé kolečko myši ---------- */
+  let lenis = null;
+  if (motion && window.Lenis) {
+    lenis = new window.Lenis({ lerp: 0.1, smoothWheel: true, syncTouch: false });
+    lenis.on('scroll', ST.update);
+    G.ticker.add(time => lenis.raf(time * 1000));
+    G.ticker.lagSmoothing(0);
   }
-  function splitNode(node) {
-    Array.from(node.childNodes).forEach(child => {
-      if (child.nodeType === 3) {
-        const frag = document.createDocumentFragment();
-        // dělí jen na běžných mezerách a koncích řádků, pevná mezera drží slova pohromadě
-        child.textContent.split(/([ \t\n\r]+)/).forEach(part => {
-          if (!part) return;
-          frag.appendChild(/^[ \t\n\r]+$/.test(part) ? document.createTextNode(' ') : wrapWord(part));
-        });
-        node.replaceChild(frag, child);
-      } else if (child.nodeType === 1) {
-        if (child.hasAttribute('data-word')) {
-          const holder = document.createElement('span');
-          node.replaceChild(holder, child);
-          holder.replaceWith(wrapWord(child));
-        } else if (child.tagName !== 'BR') {
-          splitNode(child);
-        }
-      }
-    });
-  }
-  function splitHeadings() {
-    $$('[data-split], [data-hero-title]').forEach(el => {
-      wordIndex = 0;
-      splitNode(el);
-    });
-  }
+  const scrollY = () => (lenis ? lenis.scroll : window.scrollY);
 
-  /* ---------- odhalování při scrollu ---------- */
-  function setupReveal() {
-    // sourozenci se odhalují s malým zpožděním za sebou
-    $$('.facts, .service-list, .tools-grid, .map-links, .benefits, .faq-list').forEach(group => {
-      $$(':scope > [data-reveal]', group).forEach((el, i) => el.style.setProperty('--d', `${i * 0.09}s`));
-    });
-    if (!('IntersectionObserver' in window)) {
-      $$('[data-reveal], [data-split]').forEach(el => el.classList.add('in'));
-      return;
-    }
-    const io = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('in');
-          io.unobserve(e.target);
-        }
-      });
-    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.01 });
-    $$('[data-reveal], [data-split]').forEach(el => io.observe(el));
-  }
+  // kotvy v menu a tlačítkách jedou plynule i přes Lenis
+  document.addEventListener('click', e => {
+    const a = e.target.closest('a[href^="#"]');
+    if (!a || e.defaultPrevented || e.metaKey || e.ctrlKey || e.shiftKey) return;
+    const hash = a.getAttribute('href');
+    const target = hash.length > 1 ? document.getElementById(hash.slice(1)) : null;
+    if (!target) return;
+    e.preventDefault();
+    if (menuOpen) setMenu(false);
+    if (lenis) lenis.scrollTo(target, { offset: hash === '#top' ? 0 : -84, duration: 1.3 });
+    else target.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+  });
 
   /* ---------- sezóna ---------- */
   const swapBox = $('[data-swap]');
   const swapWord = $('[data-swap-word]');
+  let swapSplit = null;
+  let swapBusy = false;
+  let swapQueued = null;
 
-  function animateSwap(next) {
-    const w0 = swapBox.getBoundingClientRect().width;
-    const out = swapWord.animate(
-      [{ transform: 'none', opacity: 1, filter: 'blur(0)' }, { transform: 'translateY(-40%)', opacity: 0, filter: 'blur(8px)' }],
-      { duration: 260, easing: 'cubic-bezier(.5,0,.9,.4)', fill: 'forwards' }
-    );
-    out.onfinish = () => {
-      swapWord.textContent = next;
-      swapBox.style.width = 'auto';
-      const w1 = swapBox.getBoundingClientRect().width;
-      swapBox.style.width = `${w0}px`;
-      void swapBox.offsetWidth;
-      swapBox.style.width = `${w1}px`;
-      const inn = swapWord.animate(
-        [{ transform: 'translateY(40%)', opacity: 0, filter: 'blur(8px)' }, { transform: 'none', opacity: 1, filter: 'blur(0)' }],
-        { duration: 700, easing: 'cubic-bezier(.22,1,.36,1)', fill: 'forwards' }
-      );
-      out.cancel();
-      inn.onfinish = () => { inn.cancel(); swapBox.style.width = ''; };
-    };
+  function swapTo(next) {
+    if (!swapWord) return;
+    if (!motion || !swapSplit) { swapWord.textContent = next; return; }
+    if (swapBusy) { swapQueued = next; return; }
+    if (swapWord.textContent === next) return;
+    swapBusy = true;
+    const w0 = swapBox.offsetWidth;
+    // staré slovo vyteče dolů, nové se vylije shora
+    G.to(swapSplit.chars, {
+      yPercent: 110, scaleY: 1.5, opacity: 0, transformOrigin: '50% 100%', duration: 0.32, ease: 'power2.in', stagger: 0.025,
+      onComplete() {
+        swapSplit.revert();
+        swapWord.textContent = next;
+        const w1 = swapBox.offsetWidth;
+        G.fromTo(swapBox, { width: w0 }, { width: w1, duration: 0.8, ease: 'expo.out', clearProps: 'width' });
+        swapSplit = SplitText.create(swapWord, { type: 'chars', charsClass: 'ch' });
+        pourIn(swapSplit.chars, {
+          duration: 1.1, stagger: 0.045,
+          onComplete() {
+            swapBusy = false;
+            const q = swapQueued;
+            swapQueued = null;
+            if (q && q !== swapWord.textContent) swapTo(q);
+          }
+        });
+      }
+    });
   }
 
   function setSeason(s, animate) {
@@ -131,15 +116,17 @@
     $$('[data-season-btn]').forEach(b => b.setAttribute('aria-checked', String(b.dataset.seasonBtn === s)));
     if (swapWord) {
       const next = swapWord.dataset[s];
-      if (animate && !reduce && swapWord.textContent !== next) animateSwap(next);
-      else swapWord.textContent = next;
+      if (animate) swapTo(next);
+      else if (!swapSplit) swapWord.textContent = next;
     }
+    updateTread();
     if (animate && changed) {
       document.body.classList.remove('season-anim');
       void document.body.offsetWidth;
       document.body.classList.add('season-anim');
+      // texty obou sezón mají jinou délku, pozice animací se musí přepočítat
+      if (ST) requestAnimationFrame(() => ST.refresh());
     }
-    updateTread();
   }
 
   function setupSeason() {
@@ -167,76 +154,340 @@
     const days = $('[data-cd-days]');
     const unit = $('[data-cd-unit]');
     const note = $('[data-cd-note]');
-
+    let d;
     if (m >= 11 || m <= 3) {
-      const end = new Date(m >= 11 ? now.getFullYear() + 1 : now.getFullYear(), 2, 31);
-      const d = dayDiff(end);
+      d = dayDiff(new Date(m >= 11 ? now.getFullYear() + 1 : now.getFullYear(), 2, 31));
       if (todayEl) todayEl.textContent = 'Zimní období právě běží';
       if (label) label.textContent = 'Zimní období potrvá ještě';
-      if (days) days.textContent = d;
-      if (unit) unit.textContent = plural(d, 'den', 'dny', 'dní');
       if (note) note.textContent = 'Pořád jezdíte na letních? Zavolejte, přezujeme vás.';
     } else {
-      const d = dayDiff(new Date(now.getFullYear(), 10, 1));
+      d = dayDiff(new Date(now.getFullYear(), 10, 1));
       if (todayEl) todayEl.textContent = m >= 9 ? `Zimní období za ${d} ${plural(d, 'den', 'dny', 'dní')}` : 'Sezóna letních pneu';
-      if (days) days.textContent = d;
-      if (unit) unit.textContent = plural(d, 'den', 'dny', 'dní');
     }
+    if (days) days.textContent = d;
+    if (unit) unit.textContent = plural(d, 'den', 'dny', 'dní');
     const y = $('[data-year]');
     if (y) y.textContent = now.getFullYear();
+
+    // počet dní naskočí od nuly, když se karta objeví
+    if (motion && days) {
+      const c = { v: 0 };
+      days.textContent = '0';
+      G.to(c, {
+        v: d, duration: 1.6, ease: 'power3.out',
+        scrollTrigger: { trigger: days, start: 'top 90%', once: true },
+        onUpdate: () => { days.textContent = Math.round(c.v); }
+      });
+    }
   }
 
-  /* ---------- běžící pás ---------- */
-  const marquee = $('[data-marquee]');
-  let marqueeX = 0;
-  let setWidth = 0;
-  function fillMarquee() {
-    if (!marquee) return;
-    const set = marquee.firstElementChild;
-    setWidth = set.getBoundingClientRect().width;
-    while (marquee.children.length < 2 || marquee.scrollWidth < innerWidth + setWidth) {
-      marquee.appendChild(set.cloneNode(true));
+  /* ---------- úvod: nadpis se vylije písmeno po písmenu, kolo se přivalí ---------- */
+  const hero = $('[data-hero]');
+  const stage = $('[data-wheel-stage]');
+  const wheelLayers = $$('[data-wheel-rot]');
+  const wheel = { roll: motion ? 1 : 0, tx: 0, ty: 0, tiltX: 0, tiltY: 0, radius: 1 };
+  let heroOn = true;
+
+  function heroIntro() {
+    const title = $('[data-hero-title]');
+    const hidden = [title, $('.hero-eyebrow'), $('.hero-bottom'), $('.hero-meta'), stage, nav].filter(Boolean);
+    if (!motion) { window.__heroReady = true; return; }
+
+    let chars = [];
+    if (hasSplit) {
+      const parts = $$('.split', title).map(el => SplitText.create(el, { type: 'words,chars', wordsClass: 'hw', charsClass: 'ch' }));
+      swapSplit = SplitText.create(swapWord, { type: 'chars', charsClass: 'ch' });
+      chars = [...parts[0].chars, ...swapSplit.chars, ...(parts[1] ? parts[1].chars : [])];
     }
+    G.set(hidden, { visibility: 'visible' });
+    window.__heroReady = true;
+
+    const tl = G.timeline({ delay: 0.1 });
+    if (chars.length) tl.add(pourIn(chars, { duration: 1.35, stagger: 0.032 }), 0);
+    else tl.from(title, { y: 40, opacity: 0, duration: 1.1, ease: 'expo.out' }, 0);
+    tl.from('.hero-eyebrow', { y: 16, opacity: 0, duration: 0.9, ease: 'expo.out' }, 0.05)
+      .from(stage, { opacity: 0, duration: 1.4, ease: 'power2.out' }, 0.1)
+      .fromTo(wheel, { roll: 1 }, { roll: 0, duration: 2.2, ease: 'power3.out' }, 0.1)
+      .from(nav, { y: -24, opacity: 0, duration: 1.1, ease: 'expo.out' }, 0.35)
+      .from($$('.hero-bottom > *'), { y: 28, opacity: 0, duration: 1.1, ease: 'expo.out', stagger: 0.08 }, 0.6)
+      .from($$('.hero-meta > *'), { y: 20, opacity: 0, duration: 1, ease: 'expo.out', stagger: 0.06 }, 0.85);
+
+    // text v úvodu se při odjezdu jemně zvedne a ztlumí
+    G.to('.hero-inner', { yPercent: -6, opacity: 0.45, ease: 'none', scrollTrigger: { trigger: hero, start: 'top top', end: 'bottom top', scrub: true } });
+  }
+
+  function setupWheel() {
+    if (!stage) return;
+    const measure = () => { wheel.radius = stage.offsetWidth * 0.484 || 1; };
+    measure();
+    addEventListener('resize', measure);
+    if (hero && 'IntersectionObserver' in window) new IntersectionObserver(([e]) => { heroOn = e.isIntersecting; }).observe(hero);
+    if (hero && finePointer && motion) {
+      hero.addEventListener('pointermove', e => {
+        wheel.tx = (e.clientY / innerHeight - 0.5) * -5;
+        wheel.ty = (e.clientX / innerWidth - 0.5) * 7;
+      });
+      hero.addEventListener('pointerleave', () => { wheel.tx = 0; wheel.ty = 0; });
+    }
+    const render = () => {
+      if (!heroOn) return;
+      const y = reduce ? 0 : scrollY();
+      // kolo se otočí přesně o dráhu, kterou při vjezdu ujede
+      const rollPx = wheel.roll * innerWidth * 0.42;
+      const rot = (rollPx / wheel.radius) * 57.2958 + y * 0.2;
+      const rotCss = `rotate(${rot.toFixed(2)}deg)`;
+      for (let i = 0; i < wheelLayers.length; i++) wheelLayers[i].style.transform = rotCss;
+      wheel.tiltX += (wheel.tx - wheel.tiltX) * 0.06;
+      wheel.tiltY += (wheel.ty - wheel.tiltY) * 0.06;
+      stage.style.transform = `perspective(1600px) translate3d(${rollPx.toFixed(1)}px, ${(y * 0.16).toFixed(1)}px, 0) rotateX(${wheel.tiltX.toFixed(2)}deg) rotateY(${wheel.tiltY.toFixed(2)}deg)`;
+    };
+    if (G) G.ticker.add(render);
+    else { const loop = () => { render(); requestAnimationFrame(loop); }; loop(); }
+  }
+
+  /* ---------- nadpisy sekcí vyjíždějí slovo po slovu ---------- */
+  function setupHeadings() {
+    $$('[data-split]').forEach(el => {
+      if (!hasSplit) {
+        G.from(el, { y: 40, opacity: 0, duration: 1.1, ease: 'expo.out', scrollTrigger: { trigger: el, start: 'top 88%', once: true } });
+        return;
+      }
+      const split = SplitText.create(el, { type: 'words', mask: 'words', wordsClass: 'wd' });
+      G.from(split.words, {
+        yPercent: 118, rotate: 6, transformOrigin: '0% 100%', duration: 1.15, ease: 'expo.out', stagger: 0.07,
+        scrollTrigger: { trigger: el, start: 'top 88%', once: true }
+      });
+    });
+    // výzva a patička: písmena se vylijí, když na ně dojedete
+    $$('[data-pour]').forEach(el => {
+      if (!hasSplit) return;
+      const split = SplitText.create(el, { type: 'words,chars', wordsClass: 'pw', charsClass: 'ch' });
+      pourIn(split.chars, { stagger: 0.03, scrollTrigger: { trigger: el, start: 'top 86%', once: true } });
+    });
+  }
+
+  /* ---------- ostatní obsah vyjíždí zespodu ---------- */
+  function setupReveals() {
+    const els = $$('[data-reveal]');
+    G.set(els, { opacity: 0, y: 34 });
+    ST.batch(els, {
+      start: 'top 92%',
+      once: true,
+      onEnter: batch => G.to(batch, { opacity: 1, y: 0, duration: 1.1, ease: 'expo.out', stagger: 0.08, overwrite: true })
+    });
   }
 
   /* ---------- příběh: slova se rozsvěcují se scrollem ---------- */
-  const stories = $$('[data-highlight]').map(el => ({ el, words: [], lit: -1 }));
-  function setupManifest() {
-    stories.forEach(st => {
-      const frag = document.createDocumentFragment();
-      st.el.textContent.trim().split(/([ \t\n\r]+)/).forEach(part => {
-        if (/^[ \t\n\r]+$/.test(part)) frag.appendChild(document.createTextNode(' '));
-        else {
-          const w = document.createElement('span');
-          w.className = 'mw';
-          w.textContent = part;
-          frag.appendChild(w);
-        }
+  function setupStory() {
+    $$('[data-highlight]').forEach(el => {
+      const words = hasSplit ? SplitText.create(el, { type: 'words', wordsClass: 'mw' }).words : [el];
+      G.fromTo(words, { opacity: 0.14 }, {
+        opacity: 1, ease: 'none', stagger: 0.1,
+        scrollTrigger: { trigger: el, start: 'top 80%', end: 'bottom 48%', scrub: 0.4 }
       });
-      st.el.textContent = '';
-      st.el.appendChild(frag);
-      st.words = $$('.mw', st.el);
-    });
-  }
-  function updateManifest(vh) {
-    stories.forEach(st => {
-      if (!st.el.offsetParent) return; // druhá sezóna je skrytá
-      const r = st.el.getBoundingClientRect();
-      if (r.bottom < -100 || r.top > vh + 100) return;
-      const p = clamp((vh * 0.82 - r.top) / (r.height + vh * 0.32));
-      const lit = Math.round(p * st.words.length);
-      if (lit === st.lit) return;
-      st.lit = lit;
-      st.words.forEach((w, i) => w.classList.toggle('on', i < lit));
     });
   }
 
-  /* ---------- navigace: zvýraznění sekce, ve které právě jste ---------- */
+  /* ---------- běžící pás reaguje na rychlost scrollu ---------- */
+  function setupMarquee() {
+    const track = $('[data-marquee]');
+    if (!track) return;
+    let setWidth = 0;
+    const fill = () => {
+      const set = track.firstElementChild;
+      setWidth = set.getBoundingClientRect().width;
+      while (track.children.length < 2 || track.scrollWidth < innerWidth + setWidth) track.appendChild(set.cloneNode(true));
+    };
+    fill();
+    addEventListener('resize', fill);
+    if (!motion) return;
+    let x = 0;
+    let vel = 0;
+    ST.create({ start: 0, end: 'max', onUpdate: self => { vel = self.getVelocity(); } });
+    G.ticker.add((time, dt) => {
+      vel *= 0.92;
+      x -= (0.045 + Math.min(0.9, Math.abs(vel) / 9000)) * dt;
+      if (setWidth && -x >= setWidth) x += setWidth;
+      track.style.transform = `translate3d(${x.toFixed(2)}px, 0, 0)`;
+    });
+  }
+
+  /* ---------- služby: vějíř karet se rozevře ---------- */
+  function setupFan() {
+    const fan = $('[data-fan]');
+    if (!fan) return;
+    const cards = $$('.fan-card', fan);
+    const n = cards.length;
+    const mid = (n - 1) / 2;
+    const iconParts = card => $$(DRAWABLE, $('.fc-ic', card));
+    const mm = G.matchMedia();
+
+    mm.add('(min-width: 1101px)', () => {
+      fan.classList.add('fan-on');
+      const cardW = () => Math.round(Math.min(264, Math.max(220, innerWidth * 0.19)));
+      const setW = () => fan.style.setProperty('--card-w', `${cardW()}px`);
+      const step = () => Math.min(250, (fan.clientWidth - cardW()) / (n - 1));
+      setW();
+      // prostřední karta leží nahoře, krajní pod ní
+      cards.forEach((c, i) => { c.style.zIndex = String(10 - Math.round(Math.abs(i - mid) * 2)); });
+      const tl = G.timeline({
+        scrollTrigger: { trigger: fan, start: 'top 82%', end: 'top 26%', scrub: 0.8, invalidateOnRefresh: true, onRefreshInit: setW }
+      });
+      cards.forEach((c, i) => {
+        const k = i - mid;
+        tl.fromTo(c,
+          { x: () => k * 14, y: () => 70 + Math.abs(k) * 4, rotation: k * 2.5 },
+          { x: () => k * step(), y: () => k * k * 9, rotation: k * 5.5, ease: 'power2.out', duration: 1 }, 0);
+      });
+      // ikony se kreslí linkou, zatímco se vějíř otevírá
+      if (hasDraw) tl.from(cards.flatMap(iconParts), { drawSVG: 0, ease: 'none', duration: 0.6, stagger: 0.012 }, 0.35);
+      return () => {
+        fan.classList.remove('fan-on');
+        fan.style.removeProperty('--card-w');
+        cards.forEach(c => { c.style.zIndex = ''; });
+      };
+    });
+
+    mm.add('(max-width: 1100px)', () => {
+      // na menší obrazovce se karty "rozdají" jedna po druhé
+      cards.forEach((c, i) => {
+        G.from(c, { y: 80, rotation: i % 2 ? 5 : -5, opacity: 0, duration: 1.1, ease: 'expo.out', scrollTrigger: { trigger: c, start: 'top 92%', once: true } });
+        if (hasDraw) G.from(iconParts(c), { drawSVG: 0, duration: 1, ease: 'power2.out', stagger: 0.06, delay: 0.25, scrollTrigger: { trigger: c, start: 'top 92%', once: true } });
+      });
+    });
+  }
+
+  /* ---------- z dílny: na počítači se galerie posouvá do strany, kresby se kreslí linkou ---------- */
+  function setupGallery() {
+    const sec = $('[data-gallery]');
+    if (!sec) return;
+    const track = $('[data-gal-track]', sec);
+    const viewport = $('[data-gal-viewport]', sec);
+    const bar = $('[data-gal-bar]', sec);
+    const cards = $$('.gal-card', track);
+    const artOf = card => $$(DRAWABLE.split(', ').map(t => `.draw ${t}`).join(', '), card);
+    const setBar = p => { if (bar) bar.style.transform = `scaleX(${p.toFixed(4)})`; };
+    const onNativeScroll = () => setBar(viewport.scrollLeft / Math.max(1, viewport.scrollWidth - viewport.clientWidth));
+
+    if (!motion) {
+      viewport.addEventListener('scroll', onNativeScroll, { passive: true });
+      return;
+    }
+    const mm = G.matchMedia();
+
+    mm.add('(min-width: 1024px)', () => {
+      sec.classList.add('gal-pinned');
+      const dist = () => Math.max(0, track.scrollWidth - innerWidth);
+      const tween = G.to(track, {
+        x: () => -dist(),
+        ease: 'none',
+        scrollTrigger: {
+          trigger: sec, start: 'top top', end: () => `+=${dist()}`, pin: true, scrub: 0.8, anticipatePin: 1, invalidateOnRefresh: true,
+          onUpdate: self => setBar(self.progress)
+        }
+      });
+      if (hasDraw) cards.forEach(card => {
+        const art = artOf(card);
+        if (art.length) G.from(art, {
+          drawSVG: 0, duration: 1.5, ease: 'power2.inOut', stagger: 0.025,
+          scrollTrigger: { trigger: card, containerAnimation: tween, start: 'left 90%', toggleActions: 'play none none reverse' }
+        });
+      });
+      return () => sec.classList.remove('gal-pinned');
+    });
+
+    mm.add('(max-width: 1023px)', () => {
+      viewport.addEventListener('scroll', onNativeScroll, { passive: true });
+      if (!hasDraw) return () => viewport.removeEventListener('scroll', onNativeScroll);
+      // na dotyku se karta nakreslí, když ji prstem posunete do záběru
+      const drawn = cards.filter(card => artOf(card).length);
+      drawn.forEach(card => G.set(artOf(card), { drawSVG: 0 }));
+      let io = null;
+      const st = ST.create({
+        trigger: sec, start: 'top 70%', once: true,
+        onEnter: () => {
+          io = new IntersectionObserver(entries => entries.forEach(e => {
+            if (!e.isIntersecting) return;
+            G.to(artOf(e.target), { drawSVG: '100%', duration: 1.4, ease: 'power2.inOut', stagger: 0.025 });
+            io.unobserve(e.target);
+          }), { root: viewport, threshold: 0.45 });
+          drawn.forEach(c => io.observe(c));
+        }
+      });
+      return () => {
+        viewport.removeEventListener('scroll', onNativeScroll);
+        st.kill();
+        if (io) io.disconnect();
+      };
+    });
+  }
+
+  /* ---------- připnutá sekce "Jak to probíhá" ---------- */
+  function setupProcess() {
+    const proc = $('[data-process]');
+    if (!proc) return;
+    const P = {
+      steps: $$('[data-step]', proc),
+      ring: $('[data-ring]', proc),
+      bar: $('[data-process-bar]', proc),
+      rot: $('[data-hub-rot]', proc),
+      star: $('[data-star]', proc),
+      count: $('[data-hub-count]', proc),
+      nuts: $$('[data-nut]', proc),
+      labels: $$('.nut-label', proc),
+      order: [0, 2, 4, 1, 3],
+      step: -1,
+      lit: -1
+    };
+    const render = p => {
+      const step = Math.min(3, Math.floor(p * 4));
+      if (step !== P.step) {
+        P.step = step;
+        P.steps.forEach((el, i) => el.classList.toggle('is-active', i === step));
+        P.count.textContent = `0${step + 1}`;
+      }
+      P.ring.style.strokeDashoffset = (1709.03 * (1 - p)).toFixed(1);
+      P.bar.style.transform = `scaleX(${p.toFixed(4)})`;
+      P.rot.setAttribute('transform', `rotate(${(-144 * (1 - clamp(p / 0.75))).toFixed(2)})`);
+      // poslední krok: šrouby se dotahují do hvězdy 1, 3, 5, 2, 4
+      const sub = clamp((p - 0.75) / 0.2);
+      P.star.style.strokeDashoffset = (1426.6 * (1 - sub)).toFixed(1);
+      const lit = sub <= 0 ? 0 : Math.min(5, Math.floor(sub * 5 + 0.0001) + 1);
+      if (lit !== P.lit) {
+        P.lit = lit;
+        P.order.forEach((nutIdx, k) => {
+          P.nuts[nutIdx].classList.toggle('on', k < lit);
+          P.labels[k].classList.toggle('on', k < lit);
+        });
+      }
+    };
+    render(0);
+    if (ST) {
+      const state = { p: 0 };
+      G.to(state, {
+        p: 1, ease: 'none', onUpdate: () => render(state.p),
+        scrollTrigger: { trigger: proc, start: 'top top', end: 'bottom bottom', scrub: reduce ? true : 0.6 }
+      });
+    } else {
+      addEventListener('scroll', () => {
+        const r = proc.getBoundingClientRect();
+        render(clamp(-r.top / (r.height - innerHeight)));
+      }, { passive: true });
+    }
+  }
+
+  /* ---------- navigace: barva podle sekce, zvýraznění sekce, mobilní lišta ---------- */
+  const nav = $('[data-nav]');
+  let navTheme = 'dark';
+  const setNavTheme = t => { if (nav && t !== navTheme) { navTheme = t; nav.dataset.theme = t; } };
+  // sekce se zjistí hned, dokud je připnutá galerie ještě přímým potomkem <main>
+  const mainSections = $$('main > section');
+  const lightSections = mainSections.filter(sec => sec.classList.contains('light'));
   const spyLinks = $$('[data-spy]');
   const spyMap = new Map(spyLinks.map(a => [a.dataset.spy, a]));
-  const mainSections = $$('main > section');
   const navInd = $('[data-nav-ind]');
-  let spyCurrent = null;
+  let spyCurrent;
+
   function placeIndicator() {
     if (!navInd) return;
     const a = spyMap.get(spyCurrent);
@@ -245,20 +496,54 @@
     navInd.style.transform = `translateX(${a.offsetLeft}px)`;
     navInd.classList.add('on');
   }
-  function updateSpy(vh) {
-    let cur = null;
-    for (const sec of mainSections) {
-      if (sec.getBoundingClientRect().top <= vh * 0.38) cur = spyMap.has(sec.id) ? sec.id : null;
-      else break;
-    }
-    if (cur === spyCurrent) return;
-    spyCurrent = cur;
+  function setSpy(id) {
+    if (id === spyCurrent) return;
+    spyCurrent = id;
     spyLinks.forEach(l => {
-      const on = l.dataset.spy === cur;
+      const on = l.dataset.spy === id;
       l.classList.toggle('is-current', on);
       if (on) l.setAttribute('aria-current', 'location'); else l.removeAttribute('aria-current');
     });
     placeIndicator();
+  }
+
+  function setupNavState() {
+    const mbar = $('[data-mbar]');
+    const contact = $('#kontakt');
+    const lights = lightSections;
+    const sections = mainSections;
+    if (ST) {
+      const active = new Set();
+      lights.forEach(sec => ST.create({
+        trigger: sec, start: 'top 42px', end: 'bottom 42px',
+        onToggle: self => {
+          if (self.isActive) active.add(sec); else active.delete(sec);
+          if (!menuOpen) setNavTheme(active.size ? 'light' : 'dark');
+        }
+      }));
+      sections.forEach(sec => ST.create({
+        trigger: sec, start: 'top 40%', end: 'bottom 40%',
+        onToggle: self => { if (self.isActive) setSpy(spyMap.has(sec.id) ? sec.id : null); }
+      }));
+      if (mbar && hero && contact) ST.create({
+        trigger: hero, start: 'bottom 25%', endTrigger: contact, end: 'top 90%',
+        onToggle: self => mbar.classList.toggle('show', self.isActive)
+      });
+      return;
+    }
+    const update = () => {
+      const vh = innerHeight;
+      if (!menuOpen) setNavTheme(lights.some(s => { const r = s.getBoundingClientRect(); return r.top <= 42 && r.bottom >= 42; }) ? 'light' : 'dark');
+      let cur = null;
+      for (const s of sections) {
+        if (s.getBoundingClientRect().top <= vh * 0.4) cur = spyMap.has(s.id) ? s.id : null;
+        else break;
+      }
+      setSpy(cur);
+      if (mbar && contact) mbar.classList.toggle('show', window.scrollY > vh * 0.75 && contact.getBoundingClientRect().top > vh * 0.9);
+    };
+    addEventListener('scroll', update, { passive: true });
+    update();
   }
 
   /* ---------- menu pro mobil a tablet ---------- */
@@ -273,6 +558,7 @@
     burger.setAttribute('aria-expanded', String(open));
     burger.setAttribute('aria-label', open ? 'Zavřít menu' : 'Otevřít menu');
     root.classList.toggle('menu-open', open);
+    if (lenis) { if (open) lenis.stop(); else lenis.start(); }
     if (open) {
       setNavTheme('dark');
       setTimeout(() => { const first = $('a', menu); if (first && menuOpen) first.focus({ preventScroll: true }); }, 380);
@@ -282,32 +568,50 @@
     if (!menu || !burger) return;
     $$('.menu-links a', menu).forEach((a, i) => a.style.setProperty('--i', i));
     burger.addEventListener('click', () => setMenu(!menuOpen));
-    // zámek scrollu se uvolní ještě před skokem na kotvu
-    menu.addEventListener('click', e => { if (e.target.closest('a')) setMenu(false); });
     addEventListener('keydown', e => {
       if (e.key === 'Escape' && menuOpen) { setMenu(false); burger.focus(); }
     });
     matchMedia('(min-width: 1101px)').addEventListener('change', e => { if (e.matches && menuOpen) setMenu(false); });
   }
 
+  /* ---------- světlo pod kurzorem: port SpotlightCard z React Bits ---------- */
+  function setupSpotlight() {
+    if (!finePointer) return;
+    $$('[data-spotlight]').forEach(card => {
+      card.addEventListener('pointermove', e => {
+        const r = card.getBoundingClientRect();
+        card.style.setProperty('--sx', `${Math.round(e.clientX - r.left)}px`);
+        card.style.setProperty('--sy', `${Math.round(e.clientY - r.top)}px`);
+      });
+      card.addEventListener('pointerenter', () => card.classList.add('lit'));
+      card.addEventListener('pointerleave', () => card.classList.remove('lit'));
+    });
+  }
+
+  /* ---------- výzva: kruh se točí se scrollem ---------- */
+  function setupCta() {
+    const ring = $('[data-cta-ring]');
+    if (!ring) return;
+    G.to(ring, { rotation: 140, ease: 'none', scrollTrigger: { trigger: ring.parentElement, start: 'top bottom', end: 'bottom top', scrub: true } });
+  }
+
   /* ---------- časté otázky: plynulé rozbalení, otevřená je vždy jen jedna ---------- */
   function setupFaq() {
     const items = $$('.qa');
+    const done = () => { if (ST) ST.refresh(); };
     const close = d => {
       const body = $('.qa-body', d);
       d.dataset.anim = '1';
       d.classList.add('closing');
-      const a = body.animate([{ height: `${body.scrollHeight}px`, opacity: 1 }, { height: '0px', opacity: 0 }],
-        { duration: 380, easing: 'cubic-bezier(.4,0,.2,1)' });
-      a.onfinish = () => { d.open = false; d.classList.remove('closing'); delete d.dataset.anim; };
+      const a = body.animate([{ height: `${body.scrollHeight}px`, opacity: 1 }, { height: '0px', opacity: 0 }], { duration: 380, easing: 'cubic-bezier(.4,0,.2,1)' });
+      a.onfinish = () => { d.open = false; d.classList.remove('closing'); delete d.dataset.anim; done(); };
     };
     const open = d => {
       const body = $('.qa-body', d);
       d.open = true;
       d.dataset.anim = '1';
-      const a = body.animate([{ height: '0px', opacity: 0 }, { height: `${body.scrollHeight}px`, opacity: 1 }],
-        { duration: 560, easing: 'cubic-bezier(.22,1,.36,1)' });
-      a.onfinish = () => { delete d.dataset.anim; };
+      const a = body.animate([{ height: '0px', opacity: 0 }, { height: `${body.scrollHeight}px`, opacity: 1 }], { duration: 560, easing: 'cubic-bezier(.22,1,.36,1)' });
+      a.onfinish = () => { delete d.dataset.anim; done(); };
     };
     items.forEach(d => {
       $('summary', d).addEventListener('click', e => {
@@ -321,7 +625,7 @@
     });
   }
 
-  /* ---------- objednání služby přímo z ceníku ---------- */
+  /* ---------- objednání služby přímo z karty ---------- */
   function setupPick() {
     const sel = $('#f-service');
     if (!sel) return;
@@ -334,153 +638,6 @@
       wrap.classList.add('picked');
       setTimeout(() => wrap.classList.remove('picked'), 2200);
     }));
-  }
-
-  /* ---------- připnutá sekce "Jak to probíhá" ---------- */
-  const proc = $('[data-process]');
-  const P = proc && {
-    steps: $$('[data-step]', proc),
-    ring: $('[data-ring]', proc),
-    bar: $('[data-process-bar]', proc),
-    rot: $('[data-hub-rot]', proc),
-    star: $('[data-star]', proc),
-    count: $('[data-hub-count]', proc),
-    nuts: $$('[data-nut]', proc),
-    labels: $$('.nut-label', proc),
-    order: [0, 2, 4, 1, 3],
-    ringLen: 1709.03,
-    starLen: 1426.6,
-    p: 0,
-    step: -1,
-    lit: -1
-  };
-  function updateProcess(vh) {
-    if (!P) return;
-    const r = proc.getBoundingClientRect();
-    if (r.bottom < 0 || r.top > vh) return;
-    const raw = clamp(-r.top / (r.height - vh));
-    P.p = reduce ? raw : lerp(P.p, raw, 0.16);
-    if (Math.abs(P.p - raw) < 0.0005) P.p = raw;
-    const p = P.p;
-
-    const step = Math.min(3, Math.floor(raw * 4));
-    if (step !== P.step) {
-      P.step = step;
-      P.steps.forEach((el, i) => el.classList.toggle('is-active', i === step));
-      P.count.textContent = `0${step + 1}`;
-    }
-    P.ring.style.strokeDashoffset = (P.ringLen * (1 - p)).toFixed(1);
-    P.bar.style.transform = `scaleX(${p.toFixed(4)})`;
-    P.rot.setAttribute('transform', `rotate(${(-144 * (1 - clamp(p / 0.75))).toFixed(2)})`);
-
-    // poslední krok: šrouby se dotahují do hvězdy 1, 3, 5, 2, 4
-    const sub = clamp((p - 0.75) / 0.2);
-    P.star.style.strokeDashoffset = (P.starLen * (1 - sub)).toFixed(1);
-    const lit = sub <= 0 ? 0 : Math.min(5, Math.floor(sub * 5 + 0.0001) + 1);
-    if (lit !== P.lit) {
-      P.lit = lit;
-      P.order.forEach((nutIdx, k) => {
-        P.nuts[nutIdx].classList.toggle('on', k < lit);
-        P.labels[k].classList.toggle('on', k < lit);
-      });
-    }
-  }
-
-  /* ---------- hlavní smyčka ---------- */
-  const hero = $('[data-hero]');
-  const heroInner = $('.hero-inner');
-  const stage = $('[data-wheel-stage]');
-  const wheelLayers = $$('[data-wheel-rot]');
-  const nav = $('[data-nav]');
-  const lightSections = $$('main > .light');
-  let navTheme = 'dark';
-  function setNavTheme(t) { if (nav && t !== navTheme) { navTheme = t; nav.dataset.theme = t; } }
-  const mbar = $('[data-mbar]');
-  const contactSec = $('#kontakt');
-  let mbarOn = false;
-  const ctaRing = $('[data-cta-ring]');
-  let scrollY = window.scrollY;
-  let smooth = scrollY;
-  let last = smooth;
-  let vel = 0;
-  let heroOn = true;
-  let introStart = Infinity;
-  const INTRO_MS = 2000;
-  let tiltX = 0, tiltY = 0, tX = 0, tY = 0;
-  let prevTime = performance.now();
-  let radiusPx = 1;
-  const measure = () => { if (stage) radiusPx = stage.offsetWidth * 0.484 || 1; };
-
-  addEventListener('scroll', () => { scrollY = window.scrollY; }, { passive: true });
-
-  if (hero && 'IntersectionObserver' in window) {
-    new IntersectionObserver(([e]) => { heroOn = e.isIntersecting; }).observe(hero);
-  }
-  if (hero && finePointer && !reduce) {
-    hero.addEventListener('pointermove', e => {
-      tX = (e.clientY / innerHeight - 0.5) * -5;
-      tY = (e.clientX / innerWidth - 0.5) * 7;
-    });
-    hero.addEventListener('pointerleave', () => { tX = 0; tY = 0; });
-  }
-
-  function frame(now) {
-    const dt = Math.min(64, now - prevTime);
-    prevTime = now;
-    const vh = innerHeight;
-
-    smooth = reduce ? scrollY : lerp(smooth, scrollY, 0.13);
-    if (Math.abs(smooth - scrollY) < 0.05) smooth = scrollY;
-    vel = lerp(vel, smooth - last, 0.2);
-    last = smooth;
-
-    if (heroOn && stage) {
-      // kolo se při vstupu přivalí zprava a otočí se přesně o ujetou dráhu
-      const t = reduce ? 1 : clamp((now - introStart) / INTRO_MS);
-      const e = easeOut(t);
-      const rollPx = (1 - e) * innerWidth * 0.42;
-      const rot = (rollPx / radiusPx) * 57.2958 + smooth * 0.2;
-      const rotCss = `rotate(${rot.toFixed(2)}deg)`;
-      for (let i = 0; i < wheelLayers.length; i++) wheelLayers[i].style.transform = rotCss;
-
-      tiltX = lerp(tiltX, tX, 0.06);
-      tiltY = lerp(tiltY, tY, 0.06);
-      stage.style.transform = `perspective(1600px) translate3d(${rollPx.toFixed(1)}px, ${(smooth * 0.16).toFixed(1)}px, 0) rotateX(${tiltX.toFixed(2)}deg) rotateY(${tiltY.toFixed(2)}deg)`;
-      if (heroInner) {
-        const k = clamp(smooth / (vh * 0.9));
-        heroInner.style.transform = `translate3d(0, ${(smooth * -0.08).toFixed(1)}px, 0)`;
-        heroInner.style.opacity = (1 - k * 0.55).toFixed(3);
-      }
-    }
-
-    if (marquee && setWidth) {
-      const speed = reduce ? 0 : 0.045 + Math.min(1.6, Math.abs(vel) * 0.06);
-      marqueeX -= speed * dt;
-      if (-marqueeX >= setWidth) marqueeX += setWidth;
-      marquee.style.transform = `translate3d(${marqueeX.toFixed(2)}px, 0, 0)`;
-    }
-
-    updateManifest(vh);
-    updateProcess(vh);
-
-    updateSpy(vh);
-
-    if (nav && !menuOpen) {
-      const mid = 42;
-      setNavTheme(lightSections.some(sec => { const r = sec.getBoundingClientRect(); return r.top <= mid && r.bottom >= mid; }) ? 'light' : 'dark');
-    }
-
-    // mobilní lišta: ukáže se po úvodu, schová se u kontaktu
-    if (mbar && contactSec) {
-      const show = scrollY > vh * 0.75 && contactSec.getBoundingClientRect().top > vh * 0.9;
-      if (show !== mbarOn) { mbarOn = show; mbar.classList.toggle('show', show); }
-    }
-
-    if (ctaRing && !reduce) {
-      const r = ctaRing.parentElement.getBoundingClientRect();
-      if (r.bottom > 0 && r.top < vh) ctaRing.style.transform = `rotate(${(smooth * 0.06).toFixed(2)}deg)`;
-    }
-    requestAnimationFrame(frame);
   }
 
   /* ---------- poradna: nápis na boku ---------- */
@@ -565,7 +722,7 @@
   }
 
   function updateTread() {
-    if (!depth) return;
+    if (!depth || !$('.tb')) return;
     const v = parseFloat(depth.value);
     const season = root.dataset.season;
     const tool = depth.closest('.tool');
@@ -645,12 +802,7 @@
 
   /* ---------- start ---------- */
   buildGeometry();
-  splitHeadings();
   setupSeason();
-  setupDates();
-  setupManifest();
-  fillMarquee();
-  measure();
   setupDecoder();
   setupTread();
   updateTread();
@@ -658,22 +810,37 @@
   setupMenu();
   setupFaq();
   setupPick();
-  setupReveal();
-  requestAnimationFrame(frame);
+  setupSpotlight();
+  fitFooter();
 
   let started = false;
   const start = () => {
     if (started) return;
     started = true;
     fitFooter();
-    fillMarquee();
-    measure();
+    if (motion) {
+      // připnutá galerie se zakládá první, aby pozice všeho pod ní počítaly s jejím místem
+      setupGallery();
+      heroIntro();
+      setupHeadings();
+      setupReveals();
+      setupStory();
+      setupFan();
+      setupCta();
+    } else {
+      heroIntro();
+      setupGallery();
+    }
+    setupDates();
+    setupMarquee();
+    setupWheel();
+    setupProcess();
+    setupNavState();
     placeIndicator();
-    root.classList.add('is-loaded');
-    $('[data-hero-title]').classList.add('in');
-    introStart = performance.now() + 120;
+    if (ST) { ST.sort(); ST.refresh(); }
   };
+  // úvod startuje až s načteným písmem, aby se písmena nepřeskládala uprostřed animace
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(start);
-  setTimeout(start, 1500);
-  addEventListener('resize', () => { fitFooter(); fillMarquee(); measure(); placeIndicator(); });
+  setTimeout(start, 1200);
+  addEventListener('resize', () => { fitFooter(); placeIndicator(); });
 })();

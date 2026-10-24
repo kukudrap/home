@@ -1,6 +1,6 @@
 # Pneuservis Merklín · Roman Oberreiter
 
-Web pro přezouvání pneumatik, Merklín 7, 362 34 Merklín. Čisté HTML, CSS a JavaScript bez knihoven a bez sestavování.
+Web pro přezouvání pneumatik, Merklín 7, 362 34 Merklín. HTML, CSS a JavaScript bez sestavování. Animace dělá GSAP, plynulé kolečko myši Lenis; obě knihovny jsou přímo ve složce `vendor/`, takže web nezávisí na cizím CDN.
 
 ## Jak si to prohlédnout
 
@@ -18,17 +18,30 @@ V souboru `index.html` hledejte `XXX`:
 
 | Co | Kde | Jak to vypadá teď |
 | --- | --- | --- |
-| Telefon v odkazech | 8 míst | `tel:+420XXXXXXXXX` |
+| Telefon v odkazech | 9 míst | `tel:+420XXXXXXXXX` |
 | Telefon v textu | 2 místa | `+420 XXX XXX XXX` |
 | Ceny služeb | sekce Služby | `od XXX Kč` |
 | IČO | patička | `IČO XXXXXXXX` |
 | Fotka Romana | sekce Kdo vás přezuje | návod je v komentáři přímo v kódu |
+| Fotky z dílny | galerie Z dílny | místo kreseb, návod v komentáři |
 
 Nejrychlejší je hromadné nahrazení: `+420XXXXXXXXX` a `+420 XXX XXX XXX` za skutečné číslo. Formulář na SMS bere číslo automaticky z prvního odkazu `tel:`.
 
 Projděte i texty: seznam služeb (přezutí, přemontování, vyvážení, oprava defektu, kontrola) a věta o tom, že kola přezouvá Roman osobně, jsou odhad. Co nesedí, stačí upravit nebo smazat.
 
 ## Co web umí
+
+**Animace (GSAP + Lenis)**
+
+- Nadpis v úvodu se při načtení "vylije" písmeno po písmenu (SplitText). Při přepnutí sezóny slovo "zimu." vyteče a "léto." se vylije.
+- Služby jsou vějíř karet, který se při scrollu rozevře; ikony se mezitím kreslí linkou (DrawSVG). Na mobilu se karty "rozdají" pod sebe.
+- Nadpisy sekcí vyjíždějí slovo po slovu, ostatní obsah zespodu.
+- Galerie "Z dílny" se na počítači při scrollu posouvá do strany a kresby dezénů, vyvážení nebo utahování do hvězdy se kreslí linkou. Na mobilu se karty posouvají prstem.
+- Lenis vyhlazuje jen kolečko myši, dotyk na mobilu zůstává nativní.
+- Světlo pod kurzorem na kartách je efekt SpotlightCard z React Bits přepsaný do čistého JavaScriptu.
+- Kdo má v systému vypnuté animace, nebo kdyby se knihovny nenačetly, uvidí celý obsah bez pohybu.
+
+**Obsah a funkce**
 
 - **Menu**: na počítači pět jasných položek, aktuální sekce se zvýrazní. Na mobilu a tabletu tlačítko menu, které otevře celoobrazovkový přehled s telefonem. Sekce mají stejná čísla jako v menu (01 až 05).
 - **Mobilní lišta**: po úvodu se dole objeví "Zavolat" a "Objednat přes SMS", u kontaktu se schová.
@@ -47,7 +60,7 @@ Projděte i texty: seznam služeb (přezutí, přemontování, vyvážení, opra
 
 ## Zveřejnění
 
-Stačí nahrát čtyři soubory (`index.html`, `styles.css`, `app.js`, `favicon.svg`) na libovolný hosting. Nejrychleji zdarma: přetáhnout složku na Netlify Drop, nebo zapnout GitHub Pages. Pro vlastní doménu (třeba pneuservis-merklin.cz) se doména jen nasměruje na hosting.
+Stačí nahrát celou složku (`index.html`, `styles.css`, `app.js`, `favicon.svg` a `vendor/`) na libovolný hosting. Nejrychleji zdarma: přetáhnout složku na Netlify Drop, nebo zapnout GitHub Pages. Pro vlastní doménu (třeba pneuservis-merklin.cz) se doména jen nasměruje na hosting.
 
 ## Fakta použitá v textech
 
