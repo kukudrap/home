@@ -1,0 +1,219 @@
+{
+ "brief": {
+  "brand": "MITO LIGHT",
+  "topic": "LED panel s červeným a infračerveným světlem",
+  "audience": "technologičtí nadšenci, kteří srovnávají parametry zařízení",
+  "goal": "awareness",
+  "lang": "cs",
+  "tone": "věcný, přátelský, bez nadsázky a bez slibů; vykání",
+  "keyword": "LED panel s červeným světlem",
+  "secondary_keywords": [
+   "vlnové délky červeného a infračerveného světla",
+   "ozáření mW/cm2 a vzdálenost",
+   "označení CE UKCA RoHS"
+  ],
+  "offer": "Světelné panely MITO LIGHT",
+  "cta": "Prohlédněte si nabídku panelů MITO LIGHT",
+  "facts": [
+   "MITO LIGHT je česká značka světelných panelů; zařízení jsou vyvíjena a navrhována v České republice.",
+   "Každý kus prochází v České republice testem výkonu.",
+   "MITO LIGHT je určen jako pomůcka k podpoře regenerace zdravého organismu a není zdravotnickým prostředkem.",
+   "Panel Mitohacker 4.0 má 408 LED diod a šest vlnových délek (630, 660, 670, 810, 830 a 850 nm).",
+   "Nabídka sahá od žárovky pro lokální použití po celotělový panel.",
+   "Řada panelů zahrnuje modely Intro, Starter, Expert, Biohacker a Master.",
+   "Zařízení MITO LIGHT mají označení CE a UKCA a splňují požadavky RoHS (jde o označení shody elektrických zařízení, nikoli o zdravotnické schválení)."
+  ],
+  "sources": [
+   {
+    "id": "vanin2018",
+    "title": "Photobiomodulation therapy for the improvement of muscular performance and reduction of muscular fatigue associated with exercise in healthy people: a systematic review and meta-analysis",
+    "url": "https://doi.org/10.1007/s10103-017-2368-6",
+    "claim": "Systematický přehled a metaanalýza 39 studií u zdravých lidí (861 účastníků) zjistily určitý účinek ve prospěch fototerapie na čas do vyčerpání, počet opakování, maximální točivý moment a laktát v krvi; autoři hodnotili kvalitu důkazů jako velmi nízkou až střední."
+   },
+   {
+    "id": "dutra2022",
+    "title": "Deconstructing the Ergogenic Effects of Photobiomodulation: A Systematic Review and Meta-analysis of its Efficacy in Improving Mode-Specific Exercise Performance in Humans",
+    "url": "https://doi.org/10.1007/s40279-022-01714-y",
+    "claim": "Metaanalýza 37 placebem kontrolovaných zkřížených studií u zdravých mladých dospělých zjistila, že světlo před cvičením souviselo s lepší svalovou vytrvalostí (SMD 0,27) a delším časem do vyčerpání na kole (SMD 0,35), nikoli však se silou jednoho kloubu ani s krátkými maximálními sprinty."
+   },
+   {
+    "id": "li2024",
+    "title": "Can pre-exercise photobiomodulation improve muscle endurance and promote recovery from muscle strength and injuries in people with different activity levels? A meta-analysis of randomized controlled trials",
+    "url": "https://doi.org/10.1007/s10103-024-04079-y",
+    "claim": "Metaanalýza randomizovaných studií fotobiomodulace před cvičením uvedla celkově lepší svalovou vytrvalost (SMD 0,31), u fyzicky aktivních lidí však bez významného přínosu."
+   },
+   {
+    "id": "nampo2016",
+    "title": "Effect of low-level phototherapy on delayed onset muscle soreness: a systematic review and meta-analysis",
+    "url": "https://doi.org/10.1007/s10103-015-1832-4",
+    "claim": "Systematický přehled a metaanalýza 15 studií (317 účastníků) zjistily nižší kreatinkinázu jen při aplikaci laseru před cvičením a žádné rozdíly mezi skupinami v otoku, rozsahu pohybu ani síle; autoři uzavírají, že fototerapie nemusí mít podstatný vliv na svalové poškození a bolest po zátěži."
+   },
+   {
+    "id": "alvarez2025",
+    "title": "A systematic review on whole-body photobiomodulation for exercise performance and recovery",
+    "url": "https://doi.org/10.1007/s10103-025-04318-w",
+    "claim": "Systematický přehled pěti studií (105 fyzicky aktivních účastníků) o celotělovém červeném nebo blízkém infračerveném světle nezjistil žádný hlášený přínos pro ukazatele únavy ani výkon."
+   },
+   {
+    "id": "leal2015",
+    "title": "Effect of phototherapy (low-level laser therapy and light-emitting diode therapy) on exercise performance and markers of exercise recovery: a systematic review with meta-analysis",
+    "url": "https://doi.org/10.1007/s10103-013-1465-4",
+    "claim": "Systematický přehled s metaanalýzou randomizovaných studií fototerapie laserem nebo LED před cvičením, během něj či po něm sledoval hlavně počet opakování, čas do vyčerpání a kreatinkinázu."
+   }
+  ],
+  "voice_notes": "Čtenáři vykáme (Vy, Váš, můžete), nikdy netykáme. Mluvíme jako zkušený technik: jasně, konkrétně a bez slibů. Každý přínos opatrně a se zdrojem. \"Terapie červeným světlem\" je název kategorie, který značka používá; vedle něj nikdy žádné zdravotní tvrzení. Cílová skupina: Technologičtí nadšenci. Nejméně rizikové téma, ale technická čísla musí potvrdit výrobce včetně vzdálenosti a metody měření. Do doby potvrzení raději parametry jen popsat a nepřepočítávat. Nikdy: Čísla bez zdroje, metody a vzdálenosti. Superlativy (nejsilnější, nejlepší, evropský lídr) bez doložení. Srovnání s konkurencí bez ověřených dat. Označení CE nebo UKCA jako zdravotnické schválení.",
+  "cohort": "pbm-cz-sk",
+  "avoid": [
+   "zázrak",
+   "revoluční",
+   "nejsilnější",
+   "nejlepší",
+   "evropský lídr"
+  ],
+  "topic_forms": {
+   "gen": "LED panelu s červeným a infračerveným světlem",
+   "dat": "LED panelu s červeným a infračerveným světlem",
+   "acc": "LED panel s červeným a infračerveným světlem",
+   "loc": "LED panelu s červeným a infračerveným světlem",
+   "ins": "LED panelem s červeným a infračerveným světlem"
+  },
+  "sponsored": false,
+  "vertical": "pbm",
+  "claims_profile": "wellness",
+  "safety_note": null,
+  "address": "vy"
+ },
+ "writer": "claude-code",
+ "created": "2026-10-23T20:49:15+00:00",
+ "items": [
+  {
+   "format": "instagram_caption",
+   "name_en": "Instagram caption",
+   "name_cs": "Popisek na Instagramu",
+   "family": "social",
+   "hook": "Srovnáváte LED panely? Podívejte se na 3 věci: vlnové délky, ozáření ve vzdálenosti a označení CE, UKCA, RoHS",
+   "body": "Srovnáváte LED panely? Podívejte se na 3 věci: vlnové délky, ozáření ve vzdálenosti a označení CE, UKCA, RoHS\n\nPři výběru LED panelu s červeným světlem se vyplatí číst parametry, ne slogany. Tady je krátký přehled, co sledovat.\n\n1) Vlnové délky. Panel Mitohacker 4.0 má 408 LED diod a šest vlnových délek: 630, 660, 670, 810, 830 a 850 nm. Červené a infračervené světlo tak pokrývá v jednom zařízení.\n\n2) Ozáření v mW/cm2 a vzdálenost. Číslo má smysl jen s uvedenou vzdáleností a metodou měření. Bez nich není srovnatelné, proto u panelů hledejte všechny tři údaje společně.\n\n3) Označení. Zařízení MITO LIGHT mají označení CE a UKCA a splňují požadavky RoHS. Jde o označení shody elektrických zařízení, nikoli o zdravotnické schválení.\n\nDále: MITO LIGHT je česká značka, zařízení vyvíjíme a navrhujeme v České republice a každý kus u nás prochází testem výkonu. Nabídka sahá od žárovky pro lokální použití po celotělový panel (modely Intro, Starter, Expert, Biohacker a Master). Jde o pomůcku k podpoře regenerace zdravého organismu, nikoli o zdravotnický prostředek.\n\nProhlédněte si nabídku panelů MITO LIGHT\n\n#MITOLIGHT #LEDpanel #červenésvětlo #infračervenésvětlo #biohacking",
+   "hook_score": {
+    "total": 26.49,
+    "raw": 0.1077,
+    "parts": {
+     "curiosity": 23.6,
+     "surprise": 0.0,
+     "emotion": 0.0,
+     "relevance": 0.0,
+     "utility": 23.6,
+     "fluency": 80.62
+    },
+    "clickbait_risk": 0.0,
+    "lang": "cs",
+    "features": {
+     "n_words": 18.0,
+     "has_number": 1.0,
+     "starts_with_number": 0.0,
+     "is_question": 0.0,
+     "open_loop": 1.0,
+     "exclaim": 0.0,
+     "caps_ratio": 0.1111,
+     "avg_word_len": 5.0588,
+     "promise_gap": 0.0,
+     "curiosity_hits": 0.0,
+     "contrast_hits": 0.0,
+     "emotion_hits": 0.0,
+     "practical_hits": 0.0,
+     "social_hits": 0.0,
+     "second_person_hits": 0.0,
+     "clickbait_hits": 0.0,
+     "overclaim_hits": 0.0,
+     "positive_hits": 0.0,
+     "negative_hits": 0.0
+    },
+    "hits": {
+     "curiosity": 0,
+     "contrast": 0,
+     "emotion": 0,
+     "practical": 0,
+     "social": 0,
+     "second_person": 0,
+     "clickbait": 0,
+     "overclaim": 0,
+     "positive": 0,
+     "negative": 0
+    },
+    "spans": [],
+    "tips": [
+     {
+      "key": "add_emotion",
+      "en": "Add one high-arousal emotion word that is true to the content.",
+      "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
+     },
+     {
+      "key": "address_reader",
+      "en": "Speak to the reader directly (you, your) or name the audience.",
+      "cs": "Oslovte čtenáře přímo (ty, vy, váš) nebo pojmenujte publikum."
+     },
+     {
+      "key": "add_utility",
+      "en": "Make the payoff concrete: a number, steps or a 'how to'.",
+      "cs": "Zkonkrétněte užitek: číslo, kroky nebo „jak na to“."
+     }
+    ],
+    "text": "Srovnáváte LED panely? Podívejte se na 3 věci: vlnové délky, ozáření ve vzdálenosti a označení CE, UKCA, RoHS"
+   },
+   "issues": [
+    {
+     "severity": "info",
+     "code": "AI_DISCLOSURE_REMINDER",
+     "message": "Obsah vytvořený s pomocí AI může vyžadovat označení podle pravidel platforem a povinností transparentnosti podle evropského nařízení o AI. Ověřte si pravidla, která se vás týkají; nejde o právní poradenství.",
+     "where": "Srovnáváte LED panely? Podívejte se na 3 věci: vlnové délky, ozáření ve"
+    }
+   ],
+   "verdict": "ok",
+   "scores": {
+    "dopamine": 26.5,
+    "seo": null,
+    "geo": null
+   },
+   "alt_hooks": [
+    {
+     "text": "5 chyb při výběru LED panelu s červeným a infračerveným světlem",
+     "score": 63.4,
+     "style": "number_list"
+    },
+    {
+     "text": "LED panel s červeným a infračerveným světlem: přestaňte plýtvat časem a začněte jednoduše",
+     "score": 62.8,
+     "style": "contrarian"
+    },
+    {
+     "text": "LED panel s červeným a infračerveným světlem: nedělejte tuto chybu",
+     "score": 56.1,
+     "style": "warning"
+    }
+   ],
+   "parts": {
+    "slots": {
+     "hook": "Srovnáváte LED panely? Podívejte se na 3 věci: vlnové délky, ozáření ve vzdálenosti a označení CE, UKCA, RoHS",
+     "body": "Při výběru LED panelu s červeným světlem se vyplatí číst parametry, ne slogany. Tady je krátký přehled, co sledovat.\n\n1) Vlnové délky. Panel Mitohacker 4.0 má 408 LED diod a šest vlnových délek: 630, 660, 670, 810, 830 a 850 nm. Červené a infračervené světlo tak pokrývá v jednom zařízení.\n\n2) Ozáření v mW/cm2 a vzdálenost. Číslo má smysl jen s uvedenou vzdáleností a metodou měření. Bez nich není srovnatelné, proto u panelů hledejte všechny tři údaje společně.\n\n3) Označení. Zařízení MITO LIGHT mají označení CE a UKCA a splňují požadavky RoHS. Jde o označení shody elektrických zařízení, nikoli o zdravotnické schválení.\n\nDále: MITO LIGHT je česká značka, zařízení vyvíjíme a navrhujeme v České republice a každý kus u nás prochází testem výkonu. Nabídka sahá od žárovky pro lokální použití po celotělový panel (modely Intro, Starter, Expert, Biohacker a Master). Jde o pomůcku k podpoře regenerace zdravého organismu, nikoli o zdravotnický prostředek.",
+     "cta": "Prohlédněte si nabídku panelů MITO LIGHT",
+     "hashtags": "#MITOLIGHT #LEDpanel #červenésvětlo #infračervenésvětlo #biohacking"
+    }
+   },
+   "slots_open": [],
+   "rounds": 1
+  }
+ ],
+ "summary": {
+  "n_items": 1,
+  "avg_dopamine": 26.5,
+  "errors": 0,
+  "warnings": 0,
+  "open_slots": 0,
+  "verdicts": {
+   "ok": 1,
+   "review": 0,
+   "blocked": 0
+  },
+  "claims_profile": "wellness"
+ },
+ "errors": []
+}

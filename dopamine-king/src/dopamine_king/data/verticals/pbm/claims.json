@@ -371,11 +371,11 @@
     "Panely s červeným světlem během pár týdnů vymažou vrásky a obnoví kolagen.",
     "Zaručeně mladší vzhled pleti po každém sezení."
    ],
-   "summary_en": "Small controlled trials and reviews of red and near-infrared LED treatment of skin exist. The records in this ledger are research leads that are not verified yet, so no strength label is shown. Protocols, device power and trial quality vary widely.",
-   "summary_cs": "Malé kontrolované studie a přehledy o ošetření pleti červenými a blízkými infračervenými LED existují. Záznamy v tomto registru jsou zatím neověřené výzkumné podněty, proto se nezobrazuje žádná síla důkazů. Protokoly, výkon zařízení i kvalita studií se výrazně liší.",
+   "summary_en": "Small controlled trials and reviews of red and near-infrared LED treatment of skin exist, and several of them are now verified in the ledger. They are mostly small studies with different devices and protocols. Results for the look of healthy skin vary, and so does trial quality.",
+   "summary_cs": "Malé kontrolované studie a přehledy o ošetření pleti červenými a blízkými infračervenými LED existují a několik z nich je v registru ověřeno. Jde hlavně o malé studie s různými přístroji a protokoly. Výsledky pro vzhled zdravé pleti se liší a kvalita studií také.",
    "label_cap": "moderate",
-   "cap_reason_en": "Small trials and reviews exist, but protocols and device power vary and many trials are small. Capped at moderate until the research leads are verified and read.",
-   "cap_reason_cs": "Malé studie a přehledy existují, ale protokoly i výkon zařízení se liší a mnoho studií je malých. Strop střední, dokud nebudou výzkumné podněty ověřeny a přečteny."
+   "cap_reason_en": "Small trials and reviews exist, but protocols and device power vary and many trials are small. Capped at moderate: one review is still unconfirmed and the verified studies were read at abstract level only.",
+   "cap_reason_cs": "Malé studie a přehledy existují, ale protokoly i výkon zařízení se liší a mnoho studií je malých. Strop střední: jeden přehled zůstává nepotvrzený a ověřené studie byly čteny jen na úrovni abstraktu."
   },
   {
    "id": "pbm-body-contouring",
@@ -426,11 +426,11 @@
     "Shoďte centimetry z pasu a stehen s červeným světlem.",
     "Červené světlo rozpouští tuk a odstraňuje celulitidu."
    ],
-   "summary_en": "Research on light for body contouring and fat reduction mostly concerns laser devices in clinics. The records here are unverified leads, and results for consumer panels are not established.",
-   "summary_cs": "Výzkum světla pro tvarování postavy a redukci tuku se týká hlavně laserových přístrojů v klinikách. Záznamy zde jsou neověřené podněty a výsledky pro spotřebitelské panely nejsou prokázány.",
+   "summary_en": "Research on light for body contouring and fat reduction mostly concerns laser devices in clinics. Two records are verified (a randomised laser trial and a review); the review judges the evidence for stand-alone use inadequate, and results for consumer panels are not established.",
+   "summary_cs": "Výzkum světla pro tvarování postavy a redukci tuku se týká hlavně laserových přístrojů v klinikách. Dva záznamy jsou ověřené (randomizovaná studie laseru a přehled); přehled považuje důkazy pro samostatné použití za nedostatečné a výsledky pro spotřebitelské panely nejsou prokázány.",
    "label_cap": "limited",
-   "cap_reason_en": "Evidence concerns clinical laser devices, not consumer panels, and the leads are not verified yet.",
-   "cap_reason_cs": "Důkazy se týkají klinických laserových přístrojů, ne spotřebitelských panelů, a podněty zatím nejsou ověřeny."
+   "cap_reason_en": "Evidence concerns clinical laser devices, not consumer panels, and the verified review calls the evidence for stand-alone use inadequate.",
+   "cap_reason_cs": "Důkazy se týkají klinických laserových přístrojů, ne spotřebitelských panelů, a ověřený přehled označuje důkazy pro samostatné použití za nedostatečné."
   },
   {
    "id": "pbm-sleep",
@@ -552,7 +552,13 @@
     "thinning hair",
     "hair thinning",
     "hair density",
-    "hair follicle*"
+    "hair follicle*",
+    "hair quality",
+    "hair quantity",
+    "hair volume",
+    "hair thickness",
+    "thicker hair",
+    "fuller hair"
    ],
    "nouns_cs": [
     "růst vlasů",
@@ -563,7 +569,13 @@
     "řídnoucí vlasy",
     "řídnutí vlasů",
     "hustot* vlasů",
-    "vlasov* folikul*"
+    "vlasov* folikul*",
+    "množství vlasů",
+    "kvalit* vlasů",
+    "objem* vlasů",
+    "hustší vlasy",
+    "silnější vlasy",
+    "plnější vlasy"
    ],
    "patterns": [
     "\\bvlas\\w*(?:[^\\w.!?;\\n]+\\w+){0,4}[^\\w.!?;\\n]+(?:dorost\\w*|vypada\\w*|zhust\\w*|narost\\w*)",
@@ -588,8 +600,8 @@
     "Červené světlo obnoví vlasy a zastaví jejich vypadávání.",
     "Vrátí zpět řídnoucí vlasy a plešatost během několika měsíců."
    ],
-   "summary_en": "Low-level laser and light devices have been studied for pattern hair loss. This is a medical condition, so a non-medical device may not make hair claims at all, and the records here are unverified leads.",
-   "summary_cs": "Nízkoúrovňové laserové a světelné přístroje se zkoumaly u vypadávání vlasů. Jde o zdravotní stav, proto nezdravotnický přístroj nesmí o vlasech tvrdit nic, a záznamy zde jsou neověřené podněty.",
+   "summary_en": "Low-level laser and light devices have been studied for pattern hair loss, and two records are now verified. This is a medical condition, so a non-medical device may not make hair claims at all.",
+   "summary_cs": "Nízkoúrovňové laserové a světelné přístroje se zkoumaly u vypadávání vlasů a dva záznamy jsou nyní ověřené. Jde o zdravotní stav, proto nezdravotnický přístroj nesmí o vlasech tvrdit nic.",
    "label_cap": "limited",
    "cap_reason_en": "Hair loss is a medical matter, so even verified evidence would not allow a product claim from a non-medical device.",
    "cap_reason_cs": "Vypadávání vlasů je zdravotní téma, takže ani ověřené důkazy by nezdravotnickému přístroji nedovolily tvrzení o produktu."
@@ -801,7 +813,17 @@
     "brain disorder*",
     "memory loss",
     "mental health",
-    "mental illness"
+    "mental illness",
+    "dopamine",
+    "serotonin",
+    "endorphin*",
+    "oxytocin",
+    "cortisol",
+    "happy hormone*",
+    "feel-good hormone*",
+    "love hormone*",
+    "stress hormone*",
+    "neurotransmitter*"
    ],
    "nouns_cs": [
     "depres*",
@@ -820,7 +842,18 @@
     "duševní zdraví",
     "duševního zdraví",
     "psychick* zdraví",
-    "mentáln* zdraví"
+    "mentáln* zdraví",
+    "dopamin*",
+    "serotonin*",
+    "endorfin*",
+    "oxytocin*",
+    "kortizol*",
+    "hormon* štěstí",
+    "hormon* radosti",
+    "hormon* lásky",
+    "stresov* hormon*",
+    "neurotransmiter*",
+    "neuromediátor*"
    ],
    "patterns": [],
    "safe_en": [
@@ -833,11 +866,13 @@
    ],
    "avoid_en": [
     "Red light therapy relieves depression and anxiety.",
-    "Boosts your memory and protects your brain from Alzheimer's disease."
+    "Boosts your memory and protects your brain from Alzheimer's disease.",
+    "Red light raises your dopamine and serotonin, so you feel happier."
    ],
    "avoid_cs": [
     "Terapie červeným světlem zmírňuje depresi a úzkost.",
-    "Zlepšuje paměť a chrání váš mozek před Alzheimerovou chorobou."
+    "Zlepšuje paměť a chrání váš mozek před Alzheimerovou chorobou.",
+    "Světlo zvyšuje hladinu dopaminu a serotoninu, takže budete šťastnější."
    ],
    "summary_en": "A meta-analysis of 11 randomised trials found lower depression scores with photobiomodulation than with control (pooled SMD -0.55), and a sham-controlled pilot trial of 823 nm light on the prefrontal cortex reported medium to large effects in major depression. These are head-applied treatments in patients, so mood and brain claims remain medical claims that MITO LIGHT may not make.",
    "summary_cs": "Metaanalýza 11 randomizovaných studií zjistila nižší skóre deprese po fotobiomodulaci než u kontroly (souhrnné SMD -0,55) a pilotní studie s fiktivním ošetřením (sham) se světlem 823 nm na prefrontální kůru uvedla u velké depresivní poruchy středně velké až velké účinky. Jde o léčbu přikládanou na hlavu u pacientů, takže tvrzení o náladě a mozku zůstávají zdravotními tvrzeními, která MITO LIGHT nesmí používat.",

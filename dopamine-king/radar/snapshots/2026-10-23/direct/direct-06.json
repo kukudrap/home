@@ -1,0 +1,57 @@
+{
+ "id": "direct-06",
+ "method": "direct WebSearch tool call made by Claude during the session, copied from the tool output",
+ "retrieved_on": "2026-10-23",
+ "query": "MITO LIGHT Česko panely pro terapii červeným světlem",
+ "allowed_domains": [],
+ "compare_with": "",
+ "links": [
+  {
+   "rank": 1,
+   "title": "cesi objevuji terapii cervenym svetlem roste z ni dalsi miliardovy byznys",
+   "url": "https://forbes.cz/cesi-objevuji-terapii-cervenym-svetlem-roste-z-ni-dalsi-miliardovy-byznys/"
+  },
+  {
+   "rank": 2,
+   "title": "2385920 terapie cervenym svetlem 1 3 nebo 5 navstev",
+   "url": "https://www.slevomat.cz/akce/2385920-terapie-cervenym-svetlem-1-3-nebo-5-navstev"
+  },
+  {
+   "rank": 3,
+   "title": "16528 jaky panel pro terapii cervenym a near infra red svetlem",
+   "url": "https://www.poradte.cz/nejen-pro-zeny/16528-jaky-panel-pro-terapii-cervenym-a-near-infra-red-svetlem.html"
+  },
+  {
+   "rank": 4,
+   "title": "mito red light therapy review",
+   "url": "https://wareable.com/health-tech/mito-red-light-therapy-review"
+  },
+  {
+   "rank": 5,
+   "title": "store.lifespa.com",
+   "url": "https://store.lifespa.com/product/mitoredlight/"
+  },
+  {
+   "rank": 6,
+   "title": "Fast Free Shipping",
+   "url": "https://mitoredlight.com/fr-ca/products/mito-red-light-therapy-pod"
+  },
+  {
+   "rank": 7,
+   "title": "Fast Free Shipping",
+   "url": "https://mitoredlight.com/fr-ca/products/mitopromobile"
+  },
+  {
+   "rank": 8,
+   "title": "MITO LIGHT® Europe Reviews 397",
+   "url": "https://ca.trustpilot.com/review/mitolight.com"
+  },
+  {
+   "rank": 9,
+   "title": "Fast Free Shipping",
+   "url": "https://mitoredlight.com/fr-ca"
+  }
+ ],
+ "summary_sentence": "Značka MITO LIGHT je součástí širší skupiny Mito Red Light, která nabízí panely, podložky, pásy a příslušenství pro domácí i profesionální použití.",
+ "note": "Long dashes in titles were replaced by a hyphen, nothing else was changed."
+}

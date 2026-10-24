@@ -114,12 +114,12 @@
      {
       "key": "add_emotion",
       "en": "Add one high-arousal emotion word that is true to the content.",
-      "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+      "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
      },
      {
       "key": "add_contrast",
       "en": "Challenge an expectation: a myth, a 'stop doing X', a contrast.",
-      "cs": "Zpochybni očekávání: mýtus, \"přestaň dělat X\", kontrast."
+      "cs": "Zpochybněte očekávání: mýtus, „přestaňte dělat X“, kontrast."
      }
     ],
     "text": "Why your running shoes feel heavy (and how to fix it)"
@@ -255,17 +255,17 @@
      {
       "key": "add_emotion",
       "en": "Add one high-arousal emotion word that is true to the content.",
-      "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+      "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
      },
      {
       "key": "open_loop",
       "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
-      "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+      "cs": "Otevřete informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
      },
      {
       "key": "add_contrast",
       "en": "Challenge an expectation: a myth, a 'stop doing X', a contrast.",
-      "cs": "Zpochybni očekávání: mýtus, \"přestaň dělat X\", kontrast."
+      "cs": "Zpochybněte očekávání: mýtus, „přestaňte dělat X“, kontrast."
      }
     ],
     "text": "Lightweight running shoes for beginners: how to choose your first pair"
@@ -419,17 +419,17 @@
      {
       "key": "address_reader",
       "en": "Speak to the reader directly (you, your) or name the audience.",
-      "cs": "Oslov čtenáře přímo (ty, vy, váš) nebo pojmenuj publikum."
+      "cs": "Oslovte čtenáře přímo (ty, vy, váš) nebo pojmenujte publikum."
      },
      {
       "key": "open_loop",
       "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
-      "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+      "cs": "Otevřete informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
      },
      {
       "key": "add_contrast",
       "en": "Challenge an expectation: a myth, a 'stop doing X', a contrast.",
-      "cs": "Zpochybni očekávání: mýtus, \"přestaň dělat X\", kontrast."
+      "cs": "Zpochybněte očekávání: mýtus, „přestaňte dělat X“, kontrast."
      }
     ],
     "text": "Light shoes, easy first 5k: try the Aero 2 free for 30 days"
@@ -535,17 +535,17 @@
      {
       "key": "simplify",
       "en": "Use shorter, plainer words.",
-      "cs": "Použij kratší a prostší slova."
+      "cs": "Použijte kratší a prostší slova."
      },
      {
       "key": "add_utility",
       "en": "Make the payoff concrete: a number, steps or a 'how to'.",
-      "cs": "Zkonkrétni užitek: číslo, kroky nebo \"jak na to\"."
+      "cs": "Zkonkrétněte užitek: číslo, kroky nebo „jak na to“."
      },
      {
       "key": "open_loop",
       "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
-      "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+      "cs": "Otevřete informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
      }
     ],
     "text": "Lightweight Running Shoes"

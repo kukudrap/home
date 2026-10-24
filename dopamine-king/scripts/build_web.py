@@ -6,8 +6,9 @@
 
 The script reads ``web/src/index.template.html``, inlines ``styles.css`` and the JavaScript files in
 dependency order, and embeds the data bundle as ``<script id="dk-bundle" type="application/json">``.
-Without ``--bundle`` the bundle is computed by ``dopamine_king.webdata.build_bundle()`` together with the
-shipped seed evidence ledger (so the Vault shows studies and tactics). ``--forge`` and
+Without ``--bundle`` the bundle is the REAL edition, computed by ``dopamine_king.radar.realbundle.build_real_bundle()`` from the newest
+stored radar snapshot (``--synthetic`` computes the old demo edition on the simulated corpus instead, with ``dopamine_king.webdata.build_bundle()``
+and the shipped seed evidence ledger, so the Vault shows studies and tactics). ``--forge`` and
 ``--guru`` inject a sample Pack and Plan when the bundle has none; when they are not given, the development
 samples ``web/dev/mock-forge.json`` and ``web/dev/mock-guru.json`` are used (``--no-samples`` turns that off),
 so the Forge and Guru views are never empty in the offline file. The edition is chosen with ``--vertical``: ``pbm``
@@ -36,14 +37,14 @@ DEV_GURU = ROOT / "web" / "dev" / "mock-guru.json"
 JS_ORDER = [
     "scoring.js", "labstats.js", "claims.js", "game.js", "i18n.js", "store.js",
     "ui/dom.js", "ui/icons.js", "ui/charts.js", "ui/widgets.js", "ui/claimsui.js", "ui/fx.js", "ui/shell.js",
-    "ui/home.js", "ui/arena.js", "ui/boss.js", "ui/lab.js", "ui/vault.js", "ui/forge.js", "ui/guru.js", "ui/about.js",
+    "ui/home.js", "ui/arena.js", "ui/boss.js", "ui/lab.js", "ui/vault.js", "ui/market.js", "ui/claimbank.js", "ui/forge.js", "ui/guru.js", "ui/about.js",
     "app.js",
 ]
 TEMPLATE = "index.template.html"
 STYLES = "styles.css"
 PLACEHOLDERS = {"styles": "/*@@STYLES@@*/", "bundle": "/*@@BUNDLE@@*/", "scripts": "/*@@SCRIPTS@@*/"}
 REQUIRED_BUNDLE_KEYS = ("spec", "benchmarks", "arena", "bosses", "myths", "lab", "loot")
-MAX_BYTES = 2_000_000
+MAX_BYTES = 4_000_000
 
 EM_DASH = chr(0x2014)
 EN_DASH = chr(0x2013)
@@ -81,9 +82,26 @@ def load_json(path: Path, what: str) -> Any:
         raise BuildError(f"{what} file is not valid JSON ({path}): {exc}") from exc
 
 
-def load_bundle(bundle_path: Path | None, vertical: str | None = None) -> dict[str, Any]:
+def latest_radar() -> tuple[Path, Path, Path]:
+    """The newest stored snapshot of the radar with its drafts and the plan."""
+    folders = sorted(p for p in (ROOT / "radar" / "snapshots").glob("*") if (p / "snapshot.json").is_file())
+    if not folders:
+        raise BuildError("no radar snapshot found in radar/snapshots (run: kingctl radar collect), or build with --synthetic")
+    snap = folders[-1]
+    return snap, ROOT / "radar" / "drafts" / snap.name, ROOT / "radar" / "plan.json"
+
+
+def load_bundle(bundle_path: Path | None, vertical: str | None = None, synthetic: bool = False) -> dict[str, Any]:
     if bundle_path is not None:
         bundle = load_json(bundle_path, "bundle")
+    elif not synthetic:
+        sys.path.insert(0, str(ROOT / "src"))
+        try:
+            from dopamine_king.radar.realbundle import build_real_bundle  # type: ignore
+        except ImportError as exc:
+            raise BuildError(f"cannot import dopamine_king.radar.realbundle.build_real_bundle: {exc}") from exc
+        snapshot, drafts, plan = latest_radar()
+        bundle = build_real_bundle(snapshot, drafts, plan, vertical=vertical or "pbm")
     else:
         sys.path.insert(0, str(ROOT / "src"))
         try:
@@ -197,12 +215,24 @@ def verify(html: str) -> None:
         raise BuildError(f"the output is {size} bytes, the limit is {MAX_BYTES}")
 
 
+def to_fragment(html: str) -> str:
+    """The page the way the Artifact tool wants it: no document tags, the title and the style first, then the content of the body.
+    The tool wraps the fragment in its own skeleton (charset, viewport and a small reset), so the viewport meta and the icon are left out."""
+    title = re.search(r"<title>.*?</title>", html, re.S)
+    style = re.search(r"<style>.*?</style>", html, re.S)
+    body = re.search(r"<body[^>]*>\s*(.*?)\s*</body>", html, re.S)
+    if not (title and style and body):
+        raise BuildError("the page has no title, style or body to turn into a fragment")
+    return f"{title.group(0)}\n{style.group(0)}\n{body.group(1)}\n"
+
+
 def build_web(bundle_path: Path | None = None, out_path: Path | None = None,
-              forge: Path | None = None, guru: Path | None = None, quiet: bool = False, vertical: str | None = None) -> Path:
+              forge: Path | None = None, guru: Path | None = None, quiet: bool = False, vertical: str | None = None, synthetic: bool = False,
+              fragment: bool = False) -> Path:
     """Build the single-file game and return the output path."""
     out_path = Path(out_path) if out_path else DEFAULT_OUT
     check_sources()
-    bundle = load_bundle(Path(bundle_path) if bundle_path else None, vertical)
+    bundle = load_bundle(Path(bundle_path) if bundle_path else None, vertical, synthetic)
     inject_samples(bundle, Path(forge) if forge else None, Path(guru) if guru else None)
     counter = [0]
     bundle = sanitize(bundle, counter)
@@ -210,6 +240,8 @@ def build_web(bundle_path: Path | None = None, out_path: Path | None = None,
         print(f"note: replaced long dash characters in {counter[0]} bundle string(s)", file=sys.stderr)
     html = assemble(bundle)
     verify(html)
+    if fragment:
+        html = to_fragment(html)
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(html, "utf-8")
     if not quiet:
@@ -223,7 +255,9 @@ def build_web(bundle_path: Path | None = None, out_path: Path | None = None,
 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Build the Dopamine King web game into one HTML file.")
-    parser.add_argument("--bundle", type=Path, help="data bundle JSON (default: computed by dopamine_king.webdata.build_bundle)")
+    parser.add_argument("--bundle", type=Path, help="data bundle JSON (default: the real edition computed from the newest radar snapshot)")
+    parser.add_argument("--synthetic", action="store_true", help="compute the demo edition on the simulated corpus instead of the real one")
+    parser.add_argument("--fragment", action="store_true", help="write the page without document tags, for publishing as an artifact (title, style, then the content)")
     parser.add_argument("--out", type=Path, default=DEFAULT_OUT, help="output file (default: web/dist/dopamine-king.html)")
     parser.add_argument("--forge", type=Path, help="sample Pack JSON, used when the bundle has no forge_samples")
     parser.add_argument("--guru", type=Path, help="sample Plan JSON, used when the bundle has no guru_sample")
@@ -232,11 +266,11 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--quiet", action="store_true")
     args = parser.parse_args(argv)
     forge, guru = args.forge, args.guru
-    if not args.no_samples:
+    if not args.no_samples and (args.synthetic or args.bundle):
         forge = forge or (DEV_FORGE if DEV_FORGE.is_file() else None)
         guru = guru or (DEV_GURU if DEV_GURU.is_file() else None)
     try:
-        build_web(args.bundle, args.out, forge, guru, args.quiet, None if args.vertical in ("general", "none", "") else args.vertical)
+        build_web(args.bundle, args.out, forge, guru, args.quiet, None if args.vertical in ("general", "none", "") else args.vertical, args.synthetic, args.fragment)
     except BuildError as exc:
         print(f"build failed: {exc}", file=sys.stderr)
         return 1

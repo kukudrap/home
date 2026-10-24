@@ -355,6 +355,62 @@ class ApprovedCategoryNameTests(unittest.TestCase):
         self.assertNotIn("THERAPY_WORD", codes("Neslouží jako terapie nemocí.", CS))
 
 
+class NeurochemistryAndSuperlativeTests(unittest.TestCase):
+    """Found while writing emotional claims: "zvyšuje dopamin" passed as a mere warning, and "nejlepší panel v Evropě" passed untouched."""
+
+    def test_claims_about_dopamine_and_hormones_are_medical_claims(self):
+        for text, brief in (("Zvyšuje dopamin a zlepšuje náladu.", CS), ("Panel zvyšuje hladinu serotoninu.", CS), ("Podporuje tvorbu endorfinů.", CS),
+                            ("Snižuje stresový hormon kortizol.", CS), ("Boosts dopamine and serotonin.", EN), ("It raises your oxytocin.", EN)):
+            found = codes(text, brief)
+            self.assertTrue({"CLAIM_MEDICAL", "CLAIM_AVOID"} & found, (text, found))
+
+    def test_explaining_or_negating_is_not_a_claim(self):
+        for text, brief in (("Světlo nezvyšuje dopamin, jen svítí.", CS), ("Dopamin souvisí s těšením, ne s potěšením.", CS),
+                            ("Does not boost dopamine, it just glows.", EN), ("Dopamine is not a pleasure chemical.", EN)):
+            self.assertFalse({"CLAIM_MEDICAL", "CLAIM_AVOID"} & codes(text, brief), text)
+
+    def test_superlatives_and_market_position_are_status_claims_unless_the_facts_say_so(self):
+        for text, brief in (("Nejlepší panel v Evropě.", CS), ("Jsme lídr trhu.", CS), ("Jsme první v Česku.", CS), ("Nejlepší na trhu.", CS),
+                            ("The best red light panel on the market.", EN), ("Market leader in red light.", EN)):
+            self.assertIn("STATUS_CLAIM", codes(text, brief), text)
+        backed = Brief(brand="B", topic="t", audience="a", lang="cs", vertical="pbm", claims_profile="wellness",
+                       facts=["Podle nezávislého srovnání z roku 2026 jsme lídr trhu s panely."])
+        self.assertNotIn("STATUS_CLAIM", codes("Jsme lídr trhu s panely.", backed))
+
+    def test_ordinary_uses_of_the_same_words_are_left_alone(self):
+        for text in ("Nejlepší část dne je ta, kterou si naplánujete.", "Těšte se na večer, který si vyberete sami.", "Rozsviťte svůj večerní rituál.",
+                     "Česká značka. Vaše světlo."):
+            self.assertEqual(codes(text) - {"THERAPY_WORD"}, set(), text)
+
+
+class TimeFrameTests(unittest.TestCase):
+    """A promise in time is an outcome promise whether the number is a digit or a word, and it is reported once."""
+
+    @staticmethod
+    def promises(text: str, brief: Brief = CS) -> int:
+        return [i.code for i in SH.check(text, brief)].count("OUTCOME_PROMISE")
+
+    def test_digits_and_spelled_out_numbers_are_time_frames(self):
+        for text in ("Za 3 týdny uvidíte rozdíl.", "Za tři týdny uvidíte rozdíl.", "Do dvou týdnů pocítíte rozdíl.", "Za 14 dní nový člověk.",
+                     "Výsledky za čtrnáct dní.", "Za 10 minut pocítíte klid.", "Pocítíte to po třech týdnech."):
+            self.assertEqual(self.promises(text), 1, text)
+
+    def test_a_week_or_a_month_without_a_number_is_a_time_frame_too(self):
+        for text in ("Za týden pocítíte rozdíl.", "Už po týdnu budete jiný člověk.", "Za měsíc uvidíte výsledky."):
+            self.assertEqual(self.promises(text), 1, text)
+
+    def test_english_spelled_out_numbers(self):
+        for text in ("In two weeks you will feel a difference.", "Within fourteen days, a new you.", "Within 14 days, a new you."):
+            self.assertEqual(self.promises(text, EN), 1, text)
+
+    def test_delivery_dates_and_reminders_are_not_promises(self):
+        for text in ("Za dva dny doručíme objednávku.", "Po třech týdnech vám pošleme připomínku.", "Sezení trvá deset minut.", "Za měsíc se ozveme.",
+                     "Do dvou dnů doručíme zdarma.", "Sedm večerů, sedm malých vítězství."):
+            self.assertEqual(self.promises(text), 0, text)
+        for text in ("Delivery within two days.", "Within two days you will receive your order."):
+            self.assertEqual(self.promises(text, EN), 0, text)
+
+
 class DataTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):

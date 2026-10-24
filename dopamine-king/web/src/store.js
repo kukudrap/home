@@ -80,6 +80,7 @@
       } catch (e) { return fresh(); }
     }
 
+    var openedFresh = !readRaw();        // nothing was saved yet when the page opened: the edition may pick the language
     var profile = load();
 
     function notify() { listeners.slice().forEach(function (fn) { try { fn(profile); } catch (e) { /* a listener must not break the store */ } }); }
@@ -114,6 +115,8 @@
         persist(); notify();
         return profile;
       },
+      /** True when no profile was saved at the time the page opened (a first visit, or blocked storage). */
+      openedFresh: function () { return openedFresh; },
       /** True when progress is only kept in memory (storage blocked or failing). */
       usingFallback: function () { return fallback; },
       exportJSON: function () {

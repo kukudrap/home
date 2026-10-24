@@ -1,0 +1,155 @@
+[
+ {
+  "id": "identita",
+  "kind": "page",
+  "action": "identity",
+  "title": "MITO LIGHT a Mito Red Light: dvě různé značky",
+  "persona": "",
+  "formats": [
+   "seo_article"
+  ],
+  "writer": "claude-code",
+  "needs_approval": "Věta o tom, že MITO LIGHT a Mito Red Light jsou dvě různé značky, vychází z poznámek recenzentů. Potvrďte ji, než text zveřejníte.",
+  "verdict": "review",
+  "errors": 0,
+  "warnings": 3,
+  "open_slots": 1,
+  "created": "2026-10-23T20:52:52+00:00"
+ },
+ {
+  "id": "bezpecne-pouziti",
+  "kind": "page",
+  "action": "howto",
+  "title": "Jak dlouho a jak často používat panel s červeným světlem",
+  "persona": "",
+  "formats": [
+   "seo_article"
+  ],
+  "writer": "claude-code",
+  "needs_approval": "Údaje o době a vzdálenosti jsou z častých otázek na webu značky. Před zveřejněním je porovnejte s návodem ke konkrétnímu modelu.",
+  "verdict": "review",
+  "errors": 0,
+  "warnings": 1,
+  "open_slots": 1,
+  "created": "2026-10-23T20:48:54+00:00"
+ },
+ {
+  "id": "ozareni",
+  "kind": "page",
+  "action": "measure",
+  "title": "Ozáření v mW/cm2: co číslo znamená a jak panely porovnávat",
+  "persona": "",
+  "formats": [
+   "seo_article"
+  ],
+  "writer": "claude-code",
+  "needs_approval": "U ozáření chybí vzdálenost a způsob měření u většiny modelů. Doplňte je z technických listů, jinak text porovnání jen naznačí.",
+  "verdict": "review",
+  "errors": 0,
+  "warnings": 3,
+  "open_slots": 1,
+  "created": "2026-10-23T20:48:56+00:00"
+ },
+ {
+  "id": "post-fitness",
+  "kind": "post",
+  "action": "persona",
+  "title": "Fitness a sport",
+  "persona": "fitness",
+  "formats": [
+   "instagram_caption"
+  ],
+  "writer": "claude-code",
+  "needs_approval": "",
+  "verdict": "ok",
+  "errors": 0,
+  "warnings": 0,
+  "open_slots": 0,
+  "created": "2026-10-23T20:48:54+00:00"
+ },
+ {
+  "id": "post-biohacker",
+  "kind": "post",
+  "action": "persona",
+  "title": "Biohackeři",
+  "persona": "biohacker",
+  "formats": [
+   "instagram_caption"
+  ],
+  "writer": "claude-code",
+  "needs_approval": "",
+  "verdict": "ok",
+  "errors": 0,
+  "warnings": 0,
+  "open_slots": 0,
+  "created": "2026-10-23T20:51:29+00:00"
+ },
+ {
+  "id": "post-beauty",
+  "kind": "post",
+  "action": "persona",
+  "title": "Beauty segment",
+  "persona": "beauty",
+  "formats": [
+   "instagram_caption"
+  ],
+  "writer": "claude-code",
+  "needs_approval": "",
+  "verdict": "ok",
+  "errors": 0,
+  "warnings": 0,
+  "open_slots": 0,
+  "created": "2026-10-23T20:49:04+00:00"
+ },
+ {
+  "id": "post-everyday",
+  "kind": "post",
+  "action": "persona",
+  "title": "Běžní lidé, kteří chtějí zlepšit pohodu",
+  "persona": "everyday",
+  "formats": [
+   "instagram_caption"
+  ],
+  "writer": "claude-code",
+  "needs_approval": "",
+  "verdict": "ok",
+  "errors": 0,
+  "warnings": 0,
+  "open_slots": 0,
+  "created": "2026-10-23T20:51:28+00:00"
+ },
+ {
+  "id": "post-tech",
+  "kind": "post",
+  "action": "persona",
+  "title": "Technologičtí nadšenci",
+  "persona": "tech",
+  "formats": [
+   "instagram_caption"
+  ],
+  "writer": "claude-code",
+  "needs_approval": "",
+  "verdict": "ok",
+  "errors": 0,
+  "warnings": 0,
+  "open_slots": 0,
+  "created": "2026-10-23T20:49:15+00:00"
+ },
+ {
+  "id": "post-seniors",
+  "kind": "post",
+  "action": "persona",
+  "title": "Starší lidé",
+  "persona": "seniors",
+  "formats": [
+   "instagram_caption"
+  ],
+  "writer": "claude-code",
+  "needs_approval": "",
+  "verdict": "ok",
+  "errors": 0,
+  "warnings": 0,
+  "open_slots": 0,
+  "created": "2026-10-23T20:49:18+00:00"
+ }
+]

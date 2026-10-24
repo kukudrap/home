@@ -1,0 +1,63 @@
+{
+ "id": "direct-02",
+ "method": "direct WebSearch tool call made by Claude during the session, copied from the tool output",
+ "retrieved_on": "2026-10-23",
+ "query": "MITO LIGHT panel",
+ "allowed_domains": [
+  "mitolight.cz"
+ ],
+ "compare_with": "own-02",
+ "links": [
+  {
+   "rank": 1,
+   "title": "Červený a infračervený panel MITO LIGHT® Biohacker 4.0",
+   "url": "https://www.mitolight.cz/mito-light-biohacker-4-0/"
+  },
+  {
+   "rank": 2,
+   "title": "Terapie červeným a infračerveným světlem MITO LIGHT®",
+   "url": "https://www.mitolight.cz/"
+  },
+  {
+   "rank": 3,
+   "title": "Červený a infračervený panel MITO LIGHT® Expert 5.0",
+   "url": "https://www.mitolight.cz/mito-light-expert-5-0/"
+  },
+  {
+   "rank": 4,
+   "title": "Generace 5.0 - Terapie červeným světlem - mito light",
+   "url": "https://www.mitolight.cz/generace-5-0/"
+  },
+  {
+   "rank": 5,
+   "title": "Červený a infračervený panel MITO LIGHT® Mitohacker 4.0",
+   "url": "https://www.mitolight.cz/mito-light-mitohacker-4-0/"
+  },
+  {
+   "rank": 6,
+   "title": "Červený a infračervený panel MITO LIGHT® Mitohacker 5.0",
+   "url": "https://www.mitolight.cz/mito-light-mitohacker-5-0/"
+  },
+  {
+   "rank": 7,
+   "title": "Červený a infračervený panel MITO LIGHT® Expert 4.0",
+   "url": "https://www.mitolight.cz/mito-light-expert-4-0/"
+  },
+  {
+   "rank": 8,
+   "title": "Červený a infračervený panel MITO LIGHT® Starter 5.0",
+   "url": "https://www.mitolight.cz/mito-light-starter-5-0/"
+  },
+  {
+   "rank": 9,
+   "title": "Červený a infračervený panel MITO LIGHT® Master 5.0",
+   "url": "https://www.mitolight.cz/mito-light-master-5-0/"
+  },
+  {
+   "rank": 10,
+   "title": "Často kladené otázky",
+   "url": "https://www.mitolight.cz/casto-kladene-otazky/"
+  }
+ ],
+ "note": "Long dashes in titles were replaced by a hyphen, nothing else was changed."
+}

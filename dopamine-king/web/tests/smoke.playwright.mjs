@@ -2,7 +2,10 @@
 //
 //   NODE_PATH=/opt/node22/lib/node_modules node web/tests/smoke.playwright.mjs [options]
 //
-//   --file <html>     the built file (default web/dist/dopamine-king.html)
+//   --file <html>     the demo edition to test (default: built on the fly with scripts/build_web.py --synthetic)
+//   --real-file <html>   the real edition to test (default: built on the fly from the newest radar snapshot)
+//   --skip-real       skip the checks of the real edition
+//   --real-only       run only the checks of the real edition
 //   --shots <dir>     where screenshots go (default: a folder under the system temp directory)
 //   --only <WxH:scheme>   run one combination, for example 390x844:dark
 //   --skip-live       skip the live mode check (a tiny local server stands in for kingctl serve)
@@ -14,10 +17,13 @@
 // light) it plays 3 Arena rounds, types a hook in a Boss fight and checks the meter moves, opens a chest, runs a Lab
 // duel, switches language, and screenshots every view in both languages. Extra checks: no horizontal scroll at 320px,
 // Tab order and visible focus rings, the break card (fake clock), reduced motion, and live mode.
-// The default build is the MITO LIGHT edition, so every combination also checks the claims features: the Boss claims
-// panel (a medical claim is an error, a compliant hook passes and wins), the Vault Claims map and its "Check your own
-// text" box, the Home banner, and the Studies tab marking studies that are not verified yet. A second build of the
-// generic edition (python3 scripts/build_web.py --vertical general) must show none of it; --skip-generic turns that off.
+// The main part runs on the simulated MITO LIGHT demo edition (build_web.py --synthetic), so every combination also checks the
+// claims features: the Boss claims panel (a medical claim is an error, a compliant hook passes and wins), the Vault Claims map
+// and its "Check your own text" box, the Home banner, and the Studies tab marking studies that are not verified yet. A build of
+// the generic demo edition (--synthetic --vertical general) must show none of it; --skip-generic turns that off.
+// The real edition (the default build of the game, data from the stored web searches) gets its own part: the three kinds of
+// Arena duel with links to the real pages, the Market view and its tasks, the real A/B test in the Lab, source links in the
+// Vault, and a tour of every view in both languages with the contrast and structure audits; --skip-real turns that off.
 // `node --test web/tests/` may pick this file up on older Node versions. It needs a browser, so it only runs when started directly.
 if (process.env.NODE_TEST_CONTEXT) {
   console.log("smoke.playwright.mjs is a browser test: run it directly with node, skipping under node --test");
@@ -38,7 +44,17 @@ const ROOT = path.resolve(HERE, "..", "..");
 // -- options --------------------------------------------------------------------------------------------------
 const argv = process.argv.slice(2);
 const opt = (name, fallback) => { const i = argv.indexOf(name); return i >= 0 && argv[i + 1] ? argv[i + 1] : fallback; };
-const FILE = path.resolve(opt("--file", path.join(ROOT, "web", "dist", "dopamine-king.html")));
+function buildEdition(extraArgs, out) {
+  const build = spawnSync("python3", [path.join(ROOT, "scripts", "build_web.py"), ...extraArgs, "--out", out, "--quiet"], {
+    cwd: ROOT, encoding: "utf8", env: Object.assign({}, process.env, { PYTHONPATH: path.join(ROOT, "src") })
+  });
+  if (build.status !== 0) { console.error(`Could not build ${extraArgs.join(" ")}: ${String(build.stderr).split("\n")[0]}`); process.exit(2); }
+  return out;
+}
+const FILE = path.resolve(argv.includes("--file") ? opt("--file") : buildEdition(["--synthetic"], path.join(os.tmpdir(), "dopamine-king-demo.html")));
+const SKIP_REAL = argv.includes("--skip-real");
+const REAL_ONLY = argv.includes("--real-only");
+const REAL_FILE = SKIP_REAL ? null : path.resolve(argv.includes("--real-file") ? opt("--real-file") : buildEdition([], path.join(os.tmpdir(), "dopamine-king-real.html")));
 const SHOTS = path.resolve(opt("--shots", path.join(os.tmpdir(), "dopamine-king-shots")));
 const ONLY = opt("--only", null);
 const SKIP_LIVE = argv.includes("--skip-live");
@@ -70,7 +86,7 @@ const log = (m) => console.log(m);
 const COMBOS = [
   { w: 390, h: 844, scheme: "dark" }, { w: 390, h: 844, scheme: "light" },
   { w: 1280, h: 800, scheme: "dark" }, { w: 1280, h: 800, scheme: "light" }
-].filter((c) => !LIVE_ONLY && (!ONLY || `${c.w}x${c.h}:${c.scheme}` === ONLY));
+].filter((c) => !LIVE_ONLY && !REAL_ONLY && (!ONLY || `${c.w}x${c.h}:${c.scheme}` === ONLY));
 
 const VIEWS = [
   ["home", "home"], ["arena", "arena"], ["boss", "boss"], ["lab", "lab"], ["lab-peek", "lab/peek"], ["lab-bandit", "lab/bandit"],
@@ -631,7 +647,7 @@ async function editionFlow(page, tag) {
 // The generic edition, built from the same sources, shows none of the claims features and still works.
 async function genericFlow(browser) {
   const file = path.join(os.tmpdir(), "dopamine-king-generic.html");
-  const build = spawnSync("python3", [path.join(ROOT, "scripts", "build_web.py"), "--vertical", "general", "--out", file, "--quiet"], {
+  const build = spawnSync("python3", [path.join(ROOT, "scripts", "build_web.py"), "--synthetic", "--vertical", "general", "--out", file, "--quiet"], {
     cwd: ROOT, encoding: "utf8", env: Object.assign({}, process.env, { PYTHONPATH: path.join(ROOT, "src") })
   });
   if (build.status !== 0) { log("  (the generic edition could not be built, check skipped: " + String(build.stderr).split("\n")[0] + ")"); return; }
@@ -944,6 +960,182 @@ async function liveFlow(browser) {
   server.close();
 }
 
+// -- the real edition ---------------------------------------------------------------------------------------------------
+const REAL_VIEWS = [
+  ["home", "home"], ["arena", "arena"], ["boss", "boss"], ["lab-real", "lab/real"], ["lab-peek", "lab/peek"], ["lab-bandit", "lab/bandit"],
+  ["vault-cards", "vault/cards"], ["vault-studies", "vault/studies"], ["vault-claims", "vault/claims"], ["vault-myths", "vault/myths"],
+  ["market-overview", "market/overview"], ["market-tasks", "market/tasks"], ["market-searches", "market/searches"], ["market-competition", "market/competition"],
+  ["market-claims", "market/claims"], ["market-method", "market/method"],
+  ["claims-start", "claims/start"], ["claims-levers", "claims/levers"], ["claims-groups", "claims/groups"], ["claims-story", "claims/story"],
+  ["claims-rules", "claims/rules"], ["claims-confirm", "claims/confirm"],
+  ["forge", "forge"], ["guru", "guru"], ["about", "about"]
+];
+const UNFINISHED = /\{[A-Za-z_.]+\}|\bundefined\b|\bNaN\b|\[object /;
+const plain = (text) => String(text || "").replace(/[  ]/g, " ");
+
+// Every duel kind: the question, the reveal with links to the real pages, nothing labelled as simulated, the kind counted in the profile.
+async function realArenaFlow(page, tag) {
+  for (const kind of ["rank", "reach", "claim"]) {
+    await go(page, "arena?kind=" + kind);
+    await page.waitForSelector('.hook-card[data-side="a"]', { timeout: 6000 });
+    const question = plain(await page.textContent("#duel-q"));
+    check(question.length > 20, `${tag} arena ${kind}: the duel asks a question (${question})`);
+    check(/Hledání z/.test(plain(await page.textContent(".duel-meta"))), `${tag} arena ${kind}: the date of the stored search is shown`);
+    await page.click('.hook-card[data-side="a"]');
+    await page.waitForSelector(".verdict", { timeout: 8000 });
+    check((await page.locator(".sim-chip, .sim-note").count()) === 0, `${tag} arena ${kind}: nothing is labelled as simulated`);
+    const links = await page.$$eval(".hook-reveal a", (els) => els.map((a) => [a.getAttribute("href"), a.getAttribute("rel"), a.getAttribute("target")]));
+    check(links.length >= 1 && links.every(([h, r, t]) => /^https?:\/\//.test(h) && /noopener/.test(r) && t === "_blank"), `${tag} arena ${kind}: the reveal links to the real pages safely (${links.length})`);
+    if (kind === "rank") check(/50,3/.test(plain(await page.textContent(".result-details"))), `${tag} arena rank: the real accuracy of the score is stated`);
+    if (kind === "reach") check((await page.locator(".reach-where li").count()) >= 2, `${tag} arena reach: the searches behind the counts are listed`);
+    if (kind === "claim") check((await page.locator(".hook-reveal .finding").count()) >= 1, `${tag} arena claim: the stopped title shows its finding`);
+    if (kind === "rank") await shot(page, `${tag}-flow-arena-rank`);
+    const p = await profile(page);
+    check(p && p.kinds && p.kinds[kind] && p.kinds[kind].played === 1, `${tag} arena ${kind}: the profile counts one ${kind} duel`);
+    await page.click(".next-btn");
+    await page.waitForSelector(".verdict", { state: "detached", timeout: 6000 });
+  }
+}
+
+// The Market view: findings with their sources, the stored searches, tasks that pay once.
+async function realMarketFlow(page, tag) {
+  await go(page, "market/overview");
+  const info = await page.evaluate(() => ({ findings: DK.app.bundle.market.findings.length, tasks: DK.app.bundle.tasks.length, queries: DK.app.bundle.market.queries.length + DK.app.bundle.market.direct.length }));
+  check((await page.locator(".finding-card").count()) === info.findings, `${tag} market: every finding is shown (${info.findings})`);
+  await page.locator("#f-viditelnost button.chip-btn").first().click();
+  await page.waitForSelector("details.query[open]", { timeout: 4000 });
+  check((await page.locator("details.query").count()) === info.queries, `${tag} market: a source chip opens the stored search among all ${info.queries}`);
+  check((await page.locator("details.query[open] ol.links li").count()) >= 1, `${tag} market: with the links the tool returned`);
+  await go(page, "market/tasks");
+  const before = await profile(page);
+  check((await page.locator("li.task").count()) === info.tasks, `${tag} market: every task is listed (${info.tasks})`);
+  await page.locator("li.task input").first().check();
+  await page.waitForFunction(() => document.querySelectorAll("li.task.is-done").length === 1, null, { timeout: 3000 });
+  const ticked = await profile(page);
+  check(ticked.xp === before.xp + 50 && Object.keys(ticked.tasks).length === 1, `${tag} market: ticking a task pays 50 XP (${before.xp} to ${ticked.xp})`);
+  await shot(page, `${tag}-flow-market-task`);
+  await page.locator("li.task input").first().uncheck();
+  await page.locator("li.task input").first().check();
+  const again = await profile(page);
+  check(again.xp === ticked.xp && again.stats.tasksDone === 1, `${tag} market: unticking and ticking again pays nothing more`);
+  await go(page, "market/searches");
+  const rows = await page.locator("table.data-table tbody tr").count();
+  check(rows >= 40, `${tag} market: the searches table lists the market searches (${rows})`);
+  if (combo390(page)) {
+    const shown = await page.evaluate(() => getComputedStyle(document.querySelector("table.data-table thead")).display);
+    check(shown === "none", `${tag} market: the table turns into stacked rows on a phone`);
+  }
+}
+const combo390 = (page) => page.viewportSize().width < 720;
+
+// The real A/B test: a plan pays 10 XP, the numbers pay 40, an invalid entry changes nothing, and the game says it cannot check them.
+async function realLabFlow(page, tag) {
+  await go(page, "lab/real");
+  const x0 = (await profile(page)).xp;
+  await page.fill("#real-base", "5");
+  await page.fill("#real-lift", "20");
+  await page.click(".real-plan .btn-primary");
+  await page.waitForFunction((x) => JSON.parse(localStorage.getItem("dk.profile.v1")).xp === x + 10, x0, { timeout: 3000 });
+  check(true, `${tag} lab: planning a real test pays 10 XP`);
+  for (const [id, v] of [["real-na", 5000], ["real-xa", 250], ["real-nb", 5000], ["real-xb", 310]]) await page.fill("#" + id, String(v));
+  await page.click(".real-result .btn-primary");
+  await page.waitForSelector(".real-out .verdict-box, .real-out p", { timeout: 4000 });
+  const p = await profile(page);
+  check(p.xp === x0 + 50 && p.stats.labResults === 1, `${tag} lab: the numbers pay 40 XP (${x0} to ${p.xp})`);
+  check(/nemůže ověřit/.test(plain(await page.textContent(".real-out"))), `${tag} lab: the game says it cannot check the numbers`);
+  await page.fill("#real-xb", "99999");
+  await page.click(".real-result .btn-primary");
+  check(/celá čísla/.test(plain(await page.textContent(".real-result .form-msg"))), `${tag} lab: an invalid entry is refused`);
+  check((await profile(page)).labTests[Object.keys(p.labTests)[0]].result.xB === 310, `${tag} lab: and changes nothing`);
+  await shot(page, `${tag}-flow-lab-real`);
+}
+
+// Home, Boss and Vault in the real edition.
+async function realPagesFlow(page, tag) {
+  await go(page, "home");
+  check((await page.locator(".tasks-card").count()) === 1, `${tag} home: the tasks card is there`);
+  check(/Čísla pocházejí z uložených hledání/.test(plain(await page.textContent(".hero-lead"))), `${tag} home: the lead says where the numbers come from`);
+  check(/Edice sestavená z veřejných popisů značky a z uložených hledání/.test(plain(await page.textContent(".edition-banner"))), `${tag} home: the edition note is the real one`);
+  check((await page.locator(".chip.demo-chip.tone-ok").count()) === 1 && /Skutečná data/.test(plain(await page.textContent(".demo-chip"))), `${tag} the top bar says the data are real`);
+  await go(page, "boss");
+  await page.waitForSelector(".boss-card", { timeout: 5000 });
+  await page.locator(".boss-card").first().click();
+  await page.waitForSelector(".rival", { timeout: 5000 });
+  check((await page.locator('.rival a[href^="http"]').count()) === 1, `${tag} boss: the rival links to its real page`);
+  check(/místo z/.test(plain(await page.textContent(".rival"))), `${tag} boss: the rival says where it ranked`);
+  // every boss page fits the screen, whatever its host name or title looks like
+  const ids = await page.evaluate(() => DK.app.bundle.bosses.map((b) => b.id));
+  for (const id of ids) {
+    await go(page, "boss/" + id);
+    const o = await overflow(page);
+    check(o.sw <= o.cw, `${tag} boss ${id}: no horizontal scroll (${o.sw} > ${o.cw})`);
+  }
+  await go(page, "vault/studies");
+  const links = await page.$$eval("a", (els) => els.filter((a) => /Otevřít zdroj/.test(a.textContent)).map((a) => a.getAttribute("href")));
+  check(links.length >= 10 && links.every((h) => /^https?:\/\//.test(h)), `${tag} vault: studies link to their sources (${links.length})`);
+  check((await page.locator(".study .chip:has-text('Zatím neověřeno')").count()) >= 1, `${tag} vault: studies that are not verified are tagged`);
+  await go(page, "forge");
+  check(/Návrh pro značku/.test(plain(await page.textContent(".pack-head h2"))), `${tag} forge: the header names a draft`);
+  check((await page.locator(".draft-bar").count()) === 1, `${tag} forge: a draft can be picked`);
+}
+
+async function realTour(page, tag, lang) {
+  await setLang(page, lang);
+  for (const [name, route] of REAL_VIEWS) {
+    await go(page, route);
+    const t = `${tag}-${lang} ${name}`;
+    check(((await page.textContent("#main h1")) || "").trim().length > 0, `${t}: has a heading`);
+    const o = await overflow(page);
+    check(o.sw <= o.cw, `${t}: no horizontal scroll (${o.sw} > ${o.cw})`);
+    check((await page.locator(".demo-chip.tone-ok").count()) === 1, `${t}: the Real data chip is visible`);
+    const text = plain(await page.textContent("#main"));
+    const m = UNFINISHED.exec(text);
+    check(!m, `${t}: no unfinished text (${m && text.slice(Math.max(0, m.index - 40), m.index + 40)})`);
+    const low = await page.evaluate(CONTRAST_AUDIT);
+    check(low.length === 0, `${t}: text contrast (${low.slice(0, 4).map((x) => `${x.cr}<${x.need} ${x.tag}.${x.cls} ${JSON.stringify(x.text)}`).join("; ")})`);
+    const a11y = await page.evaluate(A11Y_AUDIT);
+    check(a11y.length === 0, `${t}: accessibility structure (${a11y.slice(0, 4).join("; ")})`);
+    await shot(page, `${tag}-${lang}-${name}`);
+  }
+}
+
+async function realFlow(browser, file) {
+  const combos = [{ w: 390, h: 844, scheme: "dark" }, { w: 1280, h: 800, scheme: "light" }].filter((c) => !ONLY || `${c.w}x${c.h}:${c.scheme}` === ONLY);
+  for (const combo of combos) {
+    const tag = `real-${combo.w}x${combo.h}-${combo.scheme}`;
+    log(`\n== ${tag}`);
+    const { context, page } = await open(browser, combo);
+    const problems = watch(page, tag);
+    try {
+      await boot(page, "file://" + file);
+      check((await page.evaluate(() => document.documentElement.lang)) === "cs", `${tag} the real edition opens in Czech`);
+      check(await page.evaluate(() => DK.app.bundle.meta.synthetic === false && DK.app.bundle.meta.edition === "real"), `${tag} the bundle is the real one`);
+      await shot(page, `${tag}-first-paint`);
+      await realArenaFlow(page, tag); log("  arena kinds ok"); flush(problems);
+      await realMarketFlow(page, tag); log("  market ok"); flush(problems);
+      await realLabFlow(page, tag); log("  real test ok"); flush(problems);
+      await realPagesFlow(page, tag); log("  home, boss, vault, forge ok"); flush(problems);
+      await realTour(page, tag, "cs"); log("  tour cs ok"); flush(problems);
+      await realTour(page, tag, "en"); log("  tour en ok"); flush(problems);
+    } catch (e) {
+      check(false, `${tag} flow threw: ${e.message}`);
+      try { await shot(page, `${tag}-failure`); } catch (e2) { /* the page may be gone */ }
+    }
+    await context.close();
+  }
+  // the narrowest screen
+  const { context, page } = await open(browser, { w: 320, h: 640, scheme: "dark" }, { locale: "cs-CZ" });
+  const problems = watch(page, "real 320px");
+  await boot(page, "file://" + file);
+  for (const [name, route] of REAL_VIEWS) {
+    await go(page, route);
+    const o = await overflow(page);
+    check(o.sw <= o.cw, `real 320px ${name}: no horizontal scroll (${o.sw} > ${o.cw})`);
+  }
+  flush(problems);
+  await context.close();
+}
+
 // -- main -------------------------------------------------------------------------------------------------------
 const started = Date.now();
 // The browser itself must stay quiet too: no update checks, sync or pings that would show up as outside connections.
@@ -991,7 +1183,8 @@ try {
     }
     await context.close();
   }
-  if (!ONLY) {
+  if (!LIVE_ONLY && !SKIP_REAL) { await realFlow(browser, REAL_FILE); log("  real edition done"); }
+  if (!ONLY && !REAL_ONLY) {
     log("\n== extras");
     if (!LIVE_ONLY) {
       await narrowFlow(browser); log("  320px ok");

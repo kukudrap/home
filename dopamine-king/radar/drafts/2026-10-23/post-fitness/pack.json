@@ -1,0 +1,218 @@
+{
+ "brief": {
+  "brand": "MITO LIGHT",
+  "topic": "červené světlo po tréninku",
+  "audience": "lidé, kteří pravidelně cvičí a chtějí promyšleně řešit regeneraci",
+  "goal": "awareness",
+  "lang": "cs",
+  "tone": "věcný, přátelský, bez nadsázky a bez slibů; vykání",
+  "keyword": "červené světlo po tréninku",
+  "secondary_keywords": [
+   "regenerace po tréninku",
+   "světelný panel pro sportovce",
+   "jak číst studie o červeném světle"
+  ],
+  "offer": "Světelné panely MITO LIGHT",
+  "cta": "Prohlédněte si nabídku panelů MITO LIGHT",
+  "facts": [
+   "MITO LIGHT je česká značka světelných panelů; zařízení jsou vyvíjena a navrhována v České republice.",
+   "Každý kus prochází v České republice testem výkonu.",
+   "MITO LIGHT je určen jako pomůcka k podpoře regenerace zdravého organismu a není zdravotnickým prostředkem.",
+   "Panel Mitohacker 4.0 má 408 LED diod a šest vlnových délek (630, 660, 670, 810, 830 a 850 nm).",
+   "Nabídka sahá od žárovky pro lokální použití po celotělový panel.",
+   "Řada panelů zahrnuje modely Intro, Starter, Expert, Biohacker a Master.",
+   "Zařízení MITO LIGHT mají označení CE a UKCA a splňují požadavky RoHS (jde o označení shody elektrických zařízení, nikoli o zdravotnické schválení)."
+  ],
+  "sources": [
+   {
+    "id": "vanin2018",
+    "title": "Photobiomodulation therapy for the improvement of muscular performance and reduction of muscular fatigue associated with exercise in healthy people: a systematic review and meta-analysis",
+    "url": "https://doi.org/10.1007/s10103-017-2368-6",
+    "claim": "Systematický přehled a metaanalýza 39 studií u zdravých lidí (861 účastníků) zjistily určitý účinek ve prospěch fototerapie na čas do vyčerpání, počet opakování, maximální točivý moment a laktát v krvi; autoři hodnotili kvalitu důkazů jako velmi nízkou až střední."
+   },
+   {
+    "id": "dutra2022",
+    "title": "Deconstructing the Ergogenic Effects of Photobiomodulation: A Systematic Review and Meta-analysis of its Efficacy in Improving Mode-Specific Exercise Performance in Humans",
+    "url": "https://doi.org/10.1007/s40279-022-01714-y",
+    "claim": "Metaanalýza 37 placebem kontrolovaných zkřížených studií u zdravých mladých dospělých zjistila, že světlo před cvičením souviselo s lepší svalovou vytrvalostí (SMD 0,27) a delším časem do vyčerpání na kole (SMD 0,35), nikoli však se silou jednoho kloubu ani s krátkými maximálními sprinty."
+   },
+   {
+    "id": "li2024",
+    "title": "Can pre-exercise photobiomodulation improve muscle endurance and promote recovery from muscle strength and injuries in people with different activity levels? A meta-analysis of randomized controlled trials",
+    "url": "https://doi.org/10.1007/s10103-024-04079-y",
+    "claim": "Metaanalýza randomizovaných studií fotobiomodulace před cvičením uvedla celkově lepší svalovou vytrvalost (SMD 0,31), u fyzicky aktivních lidí však bez významného přínosu."
+   },
+   {
+    "id": "nampo2016",
+    "title": "Effect of low-level phototherapy on delayed onset muscle soreness: a systematic review and meta-analysis",
+    "url": "https://doi.org/10.1007/s10103-015-1832-4",
+    "claim": "Systematický přehled a metaanalýza 15 studií (317 účastníků) zjistily nižší kreatinkinázu jen při aplikaci laseru před cvičením a žádné rozdíly mezi skupinami v otoku, rozsahu pohybu ani síle; autoři uzavírají, že fototerapie nemusí mít podstatný vliv na svalové poškození a bolest po zátěži."
+   },
+   {
+    "id": "alvarez2025",
+    "title": "A systematic review on whole-body photobiomodulation for exercise performance and recovery",
+    "url": "https://doi.org/10.1007/s10103-025-04318-w",
+    "claim": "Systematický přehled pěti studií (105 fyzicky aktivních účastníků) o celotělovém červeném nebo blízkém infračerveném světle nezjistil žádný hlášený přínos pro ukazatele únavy ani výkon."
+   },
+   {
+    "id": "leal2015",
+    "title": "Effect of phototherapy (low-level laser therapy and light-emitting diode therapy) on exercise performance and markers of exercise recovery: a systematic review with meta-analysis",
+    "url": "https://doi.org/10.1007/s10103-013-1465-4",
+    "claim": "Systematický přehled s metaanalýzou randomizovaných studií fototerapie laserem nebo LED před cvičením, během něj či po něm sledoval hlavně počet opakování, čas do vyčerpání a kreatinkinázu."
+   }
+  ],
+  "voice_notes": "Čtenáři vykáme (Vy, Váš, můžete), nikdy netykáme. Mluvíme jako zkušený technik: jasně, konkrétně a bez slibů. Každý přínos opatrně a se zdrojem. \"Terapie červeným světlem\" je název kategorie, který značka používá; vedle něj nikdy žádné zdravotní tvrzení. Cílová skupina: Fitness a sport. Nejlépe podložené téma oboru, ale důkazy jsou smíšené (malé efekty, u fyzicky aktivních lidí často žádný přínos). Psát vyváženě, každý přínos opatrně a se zdrojem. Nikdy: Slib vyššího výkonu, síly nebo rychlejšího růstu svalů. Hojení svalů, zranění nebo bolest. Časové sliby (za týden, po měsíci). Fotografie před a po.",
+  "cohort": "pbm-cz-sk",
+  "avoid": [
+   "zázrak",
+   "revoluční",
+   "rychlejší růst svalů",
+   "zaručeně"
+  ],
+  "topic_forms": {
+   "gen": "červeného světla po tréninku",
+   "dat": "červenému světlu po tréninku",
+   "acc": "červené světlo po tréninku",
+   "loc": "červeném světle po tréninku",
+   "ins": "červeným světlem po tréninku"
+  },
+  "sponsored": false,
+  "vertical": "pbm",
+  "claims_profile": "wellness",
+  "safety_note": null,
+  "address": "vy"
+ },
+ "writer": "claude-code",
+ "created": "2026-10-23T20:48:54+00:00",
+ "items": [
+  {
+   "format": "instagram_caption",
+   "name_en": "Instagram caption",
+   "name_cs": "Popisek na Instagramu",
+   "family": "social",
+   "hook": "Nenechte se zmást: 3 otázky, které si položte u studií o červeném světle po tréninku",
+   "body": "Nenechte se zmást: 3 otázky, které si položte u studií o červeném světle po tréninku\n\nDůkazy o červeném světle kolem tréninku jsou smíšené. Proto má smysl číst studie pozorně a hlavně tři věci:\n\n1) Kdy se světlo použilo. Metaanalýzy často sledují aplikaci před cvičením, ne po něm. [[cite:dutra2022]]\n\n2) U koho. U fyzicky aktivních lidí metaanalýza nenašla významný přínos [[cite:li2024]] a přehled pěti studií o celotělovém světle nezjistil hlášený přínos pro ukazatele únavy ani výkon [[cite:alvarez2025]].\n\n3) Jak velký je efekt. U zdravých mladých dospělých šlo o malé rozdíly ve svalové vytrvalosti (SMD 0,27), ne však v síle jednoho kloubu nebo v krátkých sprintech. [[cite:dutra2022]]\n\nPokud o světelném panelu přemýšlíte, berte ho jako možný doplněk rutiny, ne jako jistotu. MITO LIGHT je česká značka, zařízení vyvíjíme a navrhujeme v České republice a každý kus prochází testem výkonu. Je to pomůcka k podpoře regenerace zdravého organismu, nikoli zdravotnický prostředek.\n\nProhlédněte si nabídku panelů MITO LIGHT\n\n#MITOLIGHT #RegeneracePoTréninku #SvětelnýPanel #ČervenéSvětlo",
+   "hook_score": {
+    "total": 27.57,
+    "raw": 0.1129,
+    "parts": {
+     "curiosity": 23.6,
+     "surprise": 0.0,
+     "emotion": 0.0,
+     "relevance": 0.0,
+     "utility": 23.6,
+     "fluency": 90.31
+    },
+    "clickbait_risk": 0.0,
+    "lang": "cs",
+    "features": {
+     "n_words": 15.0,
+     "has_number": 1.0,
+     "starts_with_number": 0.0,
+     "is_question": 0.0,
+     "open_loop": 1.0,
+     "exclaim": 0.0,
+     "caps_ratio": 0.0,
+     "avg_word_len": 4.7857,
+     "promise_gap": 0.0,
+     "curiosity_hits": 0.0,
+     "contrast_hits": 0.0,
+     "emotion_hits": 0.0,
+     "practical_hits": 0.0,
+     "social_hits": 0.0,
+     "second_person_hits": 0.0,
+     "clickbait_hits": 0.0,
+     "overclaim_hits": 0.0,
+     "positive_hits": 0.0,
+     "negative_hits": 0.0
+    },
+    "hits": {
+     "curiosity": 0,
+     "contrast": 0,
+     "emotion": 0,
+     "practical": 0,
+     "social": 0,
+     "second_person": 0,
+     "clickbait": 0,
+     "overclaim": 0,
+     "positive": 0,
+     "negative": 0
+    },
+    "spans": [],
+    "tips": [
+     {
+      "key": "add_emotion",
+      "en": "Add one high-arousal emotion word that is true to the content.",
+      "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
+     },
+     {
+      "key": "address_reader",
+      "en": "Speak to the reader directly (you, your) or name the audience.",
+      "cs": "Oslovte čtenáře přímo (ty, vy, váš) nebo pojmenujte publikum."
+     },
+     {
+      "key": "add_utility",
+      "en": "Make the payoff concrete: a number, steps or a 'how to'.",
+      "cs": "Zkonkrétněte užitek: číslo, kroky nebo „jak na to“."
+     }
+    ],
+    "text": "Nenechte se zmást: 3 otázky, které si položte u studií o červeném světle po tréninku"
+   },
+   "issues": [
+    {
+     "severity": "info",
+     "code": "AI_DISCLOSURE_REMINDER",
+     "message": "Obsah vytvořený s pomocí AI může vyžadovat označení podle pravidel platforem a povinností transparentnosti podle evropského nařízení o AI. Ověřte si pravidla, která se vás týkají; nejde o právní poradenství.",
+     "where": "Nenechte se zmást: 3 otázky, které si položte u studií o červeném světle po"
+    }
+   ],
+   "verdict": "ok",
+   "scores": {
+    "dopamine": 27.6,
+    "seo": null,
+    "geo": null
+   },
+   "alt_hooks": [
+    {
+     "text": "5 chyb při výběru červeného světla po tréninku",
+     "score": 63.4,
+     "style": "number_list"
+    },
+    {
+     "text": "Červené světlo po tréninku: přestaňte plýtvat časem a začněte jednoduše",
+     "score": 62.8,
+     "style": "contrarian"
+    },
+    {
+     "text": "Nikdo vám neřekne celou pravdu o červeném světle po tréninku",
+     "score": 56.6,
+     "style": "curiosity_gap"
+    }
+   ],
+   "parts": {
+    "slots": {
+     "hook": "Nenechte se zmást: 3 otázky, které si položte u studií o červeném světle po tréninku",
+     "body": "Důkazy o červeném světle kolem tréninku jsou smíšené. Proto má smysl číst studie pozorně a hlavně tři věci:\n\n1) Kdy se světlo použilo. Metaanalýzy často sledují aplikaci před cvičením, ne po něm. [[cite:dutra2022]]\n\n2) U koho. U fyzicky aktivních lidí metaanalýza nenašla významný přínos [[cite:li2024]] a přehled pěti studií o celotělovém světle nezjistil hlášený přínos pro ukazatele únavy ani výkon [[cite:alvarez2025]].\n\n3) Jak velký je efekt. U zdravých mladých dospělých šlo o malé rozdíly ve svalové vytrvalosti (SMD 0,27), ne však v síle jednoho kloubu nebo v krátkých sprintech. [[cite:dutra2022]]\n\nPokud o světelném panelu přemýšlíte, berte ho jako možný doplněk rutiny, ne jako jistotu. MITO LIGHT je česká značka, zařízení vyvíjíme a navrhujeme v České republice a každý kus prochází testem výkonu. Je to pomůcka k podpoře regenerace zdravého organismu, nikoli zdravotnický prostředek.",
+     "cta": "Prohlédněte si nabídku panelů MITO LIGHT",
+     "hashtags": "#MITOLIGHT #RegeneracePoTréninku #SvětelnýPanel #ČervenéSvětlo"
+    }
+   },
+   "slots_open": [],
+   "rounds": 1
+  }
+ ],
+ "summary": {
+  "n_items": 1,
+  "avg_dopamine": 27.6,
+  "errors": 0,
+  "warnings": 0,
+  "open_slots": 0,
+  "verdicts": {
+   "ok": 1,
+   "review": 0,
+   "blocked": 0
+  },
+  "claims_profile": "wellness"
+ },
+ "errors": []
+}

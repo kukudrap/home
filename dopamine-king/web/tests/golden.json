@@ -55,17 +55,17 @@
     {
      "key": "add_utility",
      "en": "Make the payoff concrete: a number, steps or a 'how to'.",
-     "cs": "Zkonkrétni užitek: číslo, kroky nebo \"jak na to\"."
+     "cs": "Zkonkrétněte užitek: číslo, kroky nebo „jak na to“."
     },
     {
      "key": "open_loop",
      "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
-     "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+     "cs": "Otevřete informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
     },
     {
      "key": "add_emotion",
      "en": "Add one high-arousal emotion word that is true to the content.",
-     "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+     "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
     }
    ],
    "text": ""
@@ -127,17 +127,17 @@
     {
      "key": "add_utility",
      "en": "Make the payoff concrete: a number, steps or a 'how to'.",
-     "cs": "Zkonkrétni užitek: číslo, kroky nebo \"jak na to\"."
+     "cs": "Zkonkrétněte užitek: číslo, kroky nebo „jak na to“."
     },
     {
      "key": "open_loop",
      "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
-     "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+     "cs": "Otevřete informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
     },
     {
      "key": "add_emotion",
      "en": "Add one high-arousal emotion word that is true to the content.",
-     "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+     "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
     }
    ],
    "text": ""
@@ -208,17 +208,17 @@
     {
      "key": "add_utility",
      "en": "Make the payoff concrete: a number, steps or a 'how to'.",
-     "cs": "Zkonkrétni užitek: číslo, kroky nebo \"jak na to\"."
+     "cs": "Zkonkrétněte užitek: číslo, kroky nebo „jak na to“."
     },
     {
      "key": "open_loop",
      "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
-     "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+     "cs": "Otevřete informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
     },
     {
      "key": "address_reader",
      "en": "Speak to the reader directly (you, your) or name the audience.",
-     "cs": "Oslov čtenáře přímo (ty, vy, váš) nebo pojmenuj publikum."
+     "cs": "Oslovte čtenáře přímo (ty, vy, váš) nebo pojmenujte publikum."
     }
    ],
    "text": "Win"
@@ -280,17 +280,17 @@
     {
      "key": "open_loop",
      "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
-     "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+     "cs": "Otevřete informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
     },
     {
      "key": "add_emotion",
      "en": "Add one high-arousal emotion word that is true to the content.",
-     "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+     "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
     },
     {
      "key": "address_reader",
      "en": "Speak to the reader directly (you, your) or name the audience.",
-     "cs": "Oslov čtenáře přímo (ty, vy, váš) nebo pojmenuj publikum."
+     "cs": "Oslovte čtenáře přímo (ty, vy, váš) nebo pojmenujte publikum."
     }
    ],
    "text": "42"
@@ -352,17 +352,17 @@
     {
      "key": "add_utility",
      "en": "Make the payoff concrete: a number, steps or a 'how to'.",
-     "cs": "Zkonkrétni užitek: číslo, kroky nebo \"jak na to\"."
+     "cs": "Zkonkrétněte užitek: číslo, kroky nebo „jak na to“."
     },
     {
      "key": "open_loop",
      "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
-     "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+     "cs": "Otevřete informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
     },
     {
      "key": "add_emotion",
      "en": "Add one high-arousal emotion word that is true to the content.",
-     "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+     "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
     }
    ],
    "text": "2026"
@@ -424,17 +424,17 @@
     {
      "key": "open_loop",
      "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
-     "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+     "cs": "Otevřete informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
     },
     {
      "key": "add_emotion",
      "en": "Add one high-arousal emotion word that is true to the content.",
-     "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+     "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
     },
     {
      "key": "address_reader",
      "en": "Speak to the reader directly (you, your) or name the audience.",
-     "cs": "Oslov čtenáře přímo (ty, vy, váš) nebo pojmenuj publikum."
+     "cs": "Oslovte čtenáře přímo (ty, vy, váš) nebo pojmenujte publikum."
     }
    ],
    "text": "10"
@@ -496,17 +496,17 @@
     {
      "key": "open_loop",
      "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
-     "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+     "cs": "Otevřete informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
     },
     {
      "key": "add_emotion",
      "en": "Add one high-arousal emotion word that is true to the content.",
-     "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+     "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
     },
     {
      "key": "address_reader",
      "en": "Speak to the reader directly (you, your) or name the audience.",
-     "cs": "Oslov čtenáře přímo (ty, vy, váš) nebo pojmenuj publikum."
+     "cs": "Oslovte čtenáře přímo (ty, vy, váš) nebo pojmenujte publikum."
     }
    ],
    "text": "1,000 users"
@@ -568,17 +568,17 @@
     {
      "key": "open_loop",
      "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
-     "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+     "cs": "Otevřete informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
     },
     {
      "key": "add_emotion",
      "en": "Add one high-arousal emotion word that is true to the content.",
-     "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+     "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
     },
     {
      "key": "address_reader",
      "en": "Speak to the reader directly (you, your) or name the audience.",
-     "cs": "Oslov čtenáře přímo (ty, vy, váš) nebo pojmenuj publikum."
+     "cs": "Oslovte čtenáře přímo (ty, vy, váš) nebo pojmenujte publikum."
     }
    ],
    "text": "3.5 hours a week"
@@ -657,17 +657,17 @@
     {
      "key": "open_loop",
      "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
-     "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+     "cs": "Otevřete informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
     },
     {
      "key": "address_reader",
      "en": "Speak to the reader directly (you, your) or name the audience.",
-     "cs": "Oslov čtenáře přímo (ty, vy, váš) nebo pojmenuj publikum."
+     "cs": "Oslovte čtenáře přímo (ty, vy, váš) nebo pojmenujte publikum."
     },
     {
      "key": "add_contrast",
      "en": "Challenge an expectation: a myth, a 'stop doing X', a contrast.",
-     "cs": "Zpochybni očekávání: mýtus, \"přestaň dělat X\", kontrast."
+     "cs": "Zpochybněte očekávání: mýtus, „přestaňte dělat X“, kontrast."
     }
    ],
    "text": "Best CRM tools 2026"
@@ -738,17 +738,17 @@
     {
      "key": "open_loop",
      "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
-     "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+     "cs": "Otevřete informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
     },
     {
      "key": "address_reader",
      "en": "Speak to the reader directly (you, your) or name the audience.",
-     "cs": "Oslov čtenáře přímo (ty, vy, váš) nebo pojmenuj publikum."
+     "cs": "Oslovte čtenáře přímo (ty, vy, váš) nebo pojmenujte publikum."
     },
     {
      "key": "add_utility",
      "en": "Make the payoff concrete: a number, steps or a 'how to'.",
-     "cs": "Zkonkrétni užitek: číslo, kroky nebo \"jak na to\"."
+     "cs": "Zkonkrétněte užitek: číslo, kroky nebo „jak na to“."
     }
    ],
    "text": "Save 12.5 percent on shoes"
@@ -810,17 +810,17 @@
     {
      "key": "open_loop",
      "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
-     "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+     "cs": "Otevřete informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
     },
     {
      "key": "add_emotion",
      "en": "Add one high-arousal emotion word that is true to the content.",
-     "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+     "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
     },
     {
      "key": "address_reader",
      "en": "Speak to the reader directly (you, your) or name the audience.",
-     "cs": "Oslov čtenáře přímo (ty, vy, váš) nebo pojmenuj publikum."
+     "cs": "Oslovte čtenáře přímo (ty, vy, váš) nebo pojmenujte publikum."
     }
    ],
    "text": "1.25 liters a day"
@@ -882,17 +882,17 @@
     {
      "key": "simplify",
      "en": "Use shorter, plainer words.",
-     "cs": "Použij kratší a prostší slova."
+     "cs": "Použijte kratší a prostší slova."
     },
     {
      "key": "open_loop",
      "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
-     "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+     "cs": "Otevřete informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
     },
     {
      "key": "add_emotion",
      "en": "Add one high-arousal emotion word that is true to the content.",
-     "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+     "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
     }
    ],
    "text": "12,5 procenta ročně"
@@ -954,17 +954,17 @@
     {
      "key": "simplify",
      "en": "Use shorter, plainer words.",
-     "cs": "Použij kratší a prostší slova."
+     "cs": "Použijte kratší a prostší slova."
     },
     {
      "key": "open_loop",
      "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
-     "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+     "cs": "Otevřete informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
     },
     {
      "key": "add_emotion",
      "en": "Add one high-arousal emotion word that is true to the content.",
-     "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+     "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
     }
    ],
    "text": "2026.5 forecast"
@@ -1026,17 +1026,17 @@
     {
      "key": "open_loop",
      "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
-     "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+     "cs": "Otevřete informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
     },
     {
      "key": "add_emotion",
      "en": "Add one high-arousal emotion word that is true to the content.",
-     "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+     "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
     },
     {
      "key": "address_reader",
      "en": "Speak to the reader directly (you, your) or name the audience.",
-     "cs": "Oslov čtenáře přímo (ty, vy, váš) nebo pojmenuj publikum."
+     "cs": "Oslovte čtenáře přímo (ty, vy, váš) nebo pojmenujte publikum."
     }
    ],
    "text": "1900.0 hours"
@@ -1107,17 +1107,17 @@
     {
      "key": "open_loop",
      "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
-     "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+     "cs": "Otevřete informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
     },
     {
      "key": "add_emotion",
      "en": "Add one high-arousal emotion word that is true to the content.",
-     "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+     "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
     },
     {
      "key": "address_reader",
      "en": "Speak to the reader directly (you, your) or name the audience.",
-     "cs": "Oslov čtenáře přímo (ty, vy, váš) nebo pojmenuj publikum."
+     "cs": "Oslovte čtenáře přímo (ty, vy, váš) nebo pojmenujte publikum."
     }
    ],
    "text": "12.5 tips for runners"
@@ -1179,17 +1179,17 @@
     {
      "key": "add_utility",
      "en": "Make the payoff concrete: a number, steps or a 'how to'.",
-     "cs": "Zkonkrétni užitek: číslo, kroky nebo \"jak na to\"."
+     "cs": "Zkonkrétněte užitek: číslo, kroky nebo „jak na to“."
     },
     {
      "key": "open_loop",
      "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
-     "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+     "cs": "Otevřete informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
     },
     {
      "key": "add_emotion",
      "en": "Add one high-arousal emotion word that is true to the content.",
-     "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+     "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
     }
    ],
    "text": "Our Q3 company update"
@@ -1251,17 +1251,17 @@
     {
      "key": "open_loop",
      "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
-     "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+     "cs": "Otevřete informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
     },
     {
      "key": "add_emotion",
      "en": "Add one high-arousal emotion word that is true to the content.",
-     "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+     "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
     },
     {
      "key": "address_reader",
      "en": "Speak to the reader directly (you, your) or name the audience.",
-     "cs": "Oslov čtenáře přímo (ty, vy, váš) nebo pojmenuj publikum."
+     "cs": "Oslovte čtenáře přímo (ty, vy, váš) nebo pojmenujte publikum."
     }
    ],
    "text": "Introducing the new Aero 2 running shoe"
@@ -1348,17 +1348,17 @@
     {
      "key": "address_reader",
      "en": "Speak to the reader directly (you, your) or name the audience.",
-     "cs": "Oslov čtenáře přímo (ty, vy, váš) nebo pojmenuj publikum."
+     "cs": "Oslovte čtenáře přímo (ty, vy, váš) nebo pojmenujte publikum."
     },
     {
      "key": "add_emotion",
      "en": "Add one high-arousal emotion word that is true to the content.",
-     "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+     "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
     },
     {
      "key": "add_contrast",
      "en": "Challenge an expectation: a myth, a 'stop doing X', a contrast.",
-     "cs": "Zpochybni očekávání: mýtus, \"přestaň dělat X\", kontrast."
+     "cs": "Zpochybněte očekávání: mýtus, „přestaňte dělat X“, kontrast."
     }
    ],
    "text": "7 mistakes every beginner runner makes (and how to fix them)"
@@ -1453,17 +1453,17 @@
     {
      "key": "reduce_clickbait",
      "en": "Remove clickbait phrasing and exaggerated claims; trust and delivery matter.",
-     "cs": "Odstraň clickbaitové formulace a přehnané sliby; důvěra a splnění slibu rozhodují."
+     "cs": "Odstraňte clickbaitové formulace a přehnané sliby; důvěra a splnění slibu rozhodují."
     },
     {
      "key": "add_utility",
      "en": "Make the payoff concrete: a number, steps or a 'how to'.",
-     "cs": "Zkonkrétni užitek: číslo, kroky nebo \"jak na to\"."
+     "cs": "Zkonkrétněte užitek: číslo, kroky nebo „jak na to“."
     },
     {
      "key": "open_loop",
      "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
-     "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+     "cs": "Otevřete informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
     }
    ],
    "text": "You won't BELIEVE this one trick!!!"
@@ -1558,17 +1558,17 @@
     {
      "key": "reduce_clickbait",
      "en": "Remove clickbait phrasing and exaggerated claims; trust and delivery matter.",
-     "cs": "Odstraň clickbaitové formulace a přehnané sliby; důvěra a splnění slibu rozhodují."
+     "cs": "Odstraňte clickbaitové formulace a přehnané sliby; důvěra a splnění slibu rozhodují."
     },
     {
      "key": "add_utility",
      "en": "Make the payoff concrete: a number, steps or a 'how to'.",
-     "cs": "Zkonkrétni užitek: číslo, kroky nebo \"jak na to\"."
+     "cs": "Zkonkrétněte užitek: číslo, kroky nebo „jak na to“."
     },
     {
      "key": "open_loop",
      "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
-     "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+     "cs": "Otevřete informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
     }
    ],
    "text": "You won’t believe this one trick!!!"
@@ -1655,12 +1655,12 @@
     {
      "key": "add_utility",
      "en": "Make the payoff concrete: a number, steps or a 'how to'.",
-     "cs": "Zkonkrétni užitek: číslo, kroky nebo \"jak na to\"."
+     "cs": "Zkonkrétněte užitek: číslo, kroky nebo „jak na to“."
     },
     {
      "key": "add_emotion",
      "en": "Add one high-arousal emotion word that is true to the content.",
-     "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+     "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
     }
    ],
    "text": "Why most marketing dashboards lie to you"
@@ -1731,17 +1731,17 @@
     {
      "key": "open_loop",
      "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
-     "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+     "cs": "Otevřete informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
     },
     {
      "key": "add_emotion",
      "en": "Add one high-arousal emotion word that is true to the content.",
-     "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+     "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
     },
     {
      "key": "address_reader",
      "en": "Speak to the reader directly (you, your) or name the audience.",
-     "cs": "Oslov čtenáře přímo (ty, vy, váš) nebo pojmenuj publikum."
+     "cs": "Oslovte čtenáře přímo (ty, vy, váš) nebo pojmenujte publikum."
     }
    ],
    "text": "How to write a LinkedIn hook in 5 minutes"
@@ -1828,17 +1828,17 @@
     {
      "key": "open_loop",
      "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
-     "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+     "cs": "Otevřete informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
     },
     {
      "key": "add_emotion",
      "en": "Add one high-arousal emotion word that is true to the content.",
-     "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+     "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
     },
     {
      "key": "address_reader",
      "en": "Speak to the reader directly (you, your) or name the audience.",
-     "cs": "Oslov čtenáře přímo (ty, vy, váš) nebo pojmenuj publikum."
+     "cs": "Oslovte čtenáře přímo (ty, vy, váš) nebo pojmenujte publikum."
     }
    ],
    "text": "The complete guide to email marketing automation for B2B SaaS companies in 2026 with examples and templates"
@@ -1909,17 +1909,17 @@
     {
      "key": "add_emotion",
      "en": "Add one high-arousal emotion word that is true to the content.",
-     "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+     "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
     },
     {
      "key": "address_reader",
      "en": "Speak to the reader directly (you, your) or name the audience.",
-     "cs": "Oslov čtenáře přímo (ty, vy, váš) nebo pojmenuj publikum."
+     "cs": "Oslovte čtenáře přímo (ty, vy, váš) nebo pojmenujte publikum."
     },
     {
      "key": "add_utility",
      "en": "Make the payoff concrete: a number, steps or a 'how to'.",
-     "cs": "Zkonkrétni užitek: číslo, kroky nebo \"jak na to\"."
+     "cs": "Zkonkrétněte užitek: číslo, kroky nebo „jak na to“."
     }
    ],
    "text": "Stop posting every day: what 1,000 brand accounts taught us"
@@ -2030,17 +2030,17 @@
     {
      "key": "reduce_clickbait",
      "en": "Remove clickbait phrasing and exaggerated claims; trust and delivery matter.",
-     "cs": "Odstraň clickbaitové formulace a přehnané sliby; důvěra a splnění slibu rozhodují."
+     "cs": "Odstraňte clickbaitové formulace a přehnané sliby; důvěra a splnění slibu rozhodují."
     },
     {
      "key": "address_reader",
      "en": "Speak to the reader directly (you, your) or name the audience.",
-     "cs": "Oslov čtenáře přímo (ty, vy, váš) nebo pojmenuj publikum."
+     "cs": "Oslovte čtenáře přímo (ty, vy, váš) nebo pojmenujte publikum."
     },
     {
      "key": "add_contrast",
      "en": "Challenge an expectation: a myth, a 'stop doing X', a contrast.",
-     "cs": "Zpochybni očekávání: mýtus, \"přestaň dělat X\", kontrast."
+     "cs": "Zpochybněte očekávání: mýtus, „přestaňte dělat X“, kontrast."
     }
    ],
    "text": "Guaranteed 10x growth overnight with this secret formula"
@@ -2119,17 +2119,17 @@
     {
      "key": "add_utility",
      "en": "Make the payoff concrete: a number, steps or a 'how to'.",
-     "cs": "Zkonkrétni užitek: číslo, kroky nebo \"jak na to\"."
+     "cs": "Zkonkrétněte užitek: číslo, kroky nebo „jak na to“."
     },
     {
      "key": "add_emotion",
      "en": "Add one high-arousal emotion word that is true to the content.",
-     "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+     "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
     },
     {
      "key": "add_contrast",
      "en": "Challenge an expectation: a myth, a 'stop doing X', a contrast.",
-     "cs": "Zpochybni očekávání: mýtus, \"přestaň dělat X\", kontrast."
+     "cs": "Zpochybněte očekávání: mýtus, „přestaňte dělat X“, kontrast."
     }
    ],
    "text": "Is your CRM costing you deals?"
@@ -2208,17 +2208,17 @@
     {
      "key": "add_utility",
      "en": "Make the payoff concrete: a number, steps or a 'how to'.",
-     "cs": "Zkonkrétni užitek: číslo, kroky nebo \"jak na to\"."
+     "cs": "Zkonkrétněte užitek: číslo, kroky nebo „jak na to“."
     },
     {
      "key": "add_emotion",
      "en": "Add one high-arousal emotion word that is true to the content.",
-     "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+     "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
     },
     {
      "key": "add_contrast",
      "en": "Challenge an expectation: a myth, a 'stop doing X', a contrast.",
-     "cs": "Zpochybni očekávání: mýtus, \"přestaň dělat X\", kontrast."
+     "cs": "Zpochybněte očekávání: mýtus, „přestaňte dělat X“, kontrast."
     }
    ],
    "text": "What nobody tells you about churn..."
@@ -2305,17 +2305,17 @@
     {
      "key": "reduce_clickbait",
      "en": "Remove clickbait phrasing and exaggerated claims; trust and delivery matter.",
-     "cs": "Odstraň clickbaitové formulace a přehnané sliby; důvěra a splnění slibu rozhodují."
+     "cs": "Odstraňte clickbaitové formulace a přehnané sliby; důvěra a splnění slibu rozhodují."
     },
     {
      "key": "simplify",
      "en": "Use shorter, plainer words.",
-     "cs": "Použij kratší a prostší slova."
+     "cs": "Použijte kratší a prostší slova."
     },
     {
      "key": "add_utility",
      "en": "Make the payoff concrete: a number, steps or a 'how to'.",
-     "cs": "Zkonkrétni užitek: číslo, kroky nebo \"jak na to\"."
+     "cs": "Zkonkrétněte užitek: číslo, kroky nebo „jak na to“."
     }
    ],
    "text": "SHOCKING!!! THIS CHANGES EVERYTHING!!!"
@@ -2386,17 +2386,17 @@
     {
      "key": "open_loop",
      "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
-     "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+     "cs": "Otevřete informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
     },
     {
      "key": "add_emotion",
      "en": "Add one high-arousal emotion word that is true to the content.",
-     "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+     "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
     },
     {
      "key": "address_reader",
      "en": "Speak to the reader directly (you, your) or name the audience.",
-     "cs": "Oslov čtenáře přímo (ty, vy, váš) nebo pojmenuj publikum."
+     "cs": "Oslovte čtenáře přímo (ty, vy, váš) nebo pojmenujte publikum."
     }
    ],
    "text": "Jak získat prvních 100 zákazníků bez reklamy"
@@ -2491,12 +2491,12 @@
     {
      "key": "add_emotion",
      "en": "Add one high-arousal emotion word that is true to the content.",
-     "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+     "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
     },
     {
      "key": "add_contrast",
      "en": "Challenge an expectation: a myth, a 'stop doing X', a contrast.",
-     "cs": "Zpochybni očekávání: mýtus, \"přestaň dělat X\", kontrast."
+     "cs": "Zpochybněte očekávání: mýtus, „přestaňte dělat X“, kontrast."
     }
    ],
    "text": "7 chyb, které dělá každý začátečník v běhu (a jak se jim vyhnout)"
@@ -2591,12 +2591,12 @@
     {
      "key": "add_emotion",
      "en": "Add one high-arousal emotion word that is true to the content.",
-     "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+     "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
     },
     {
      "key": "add_contrast",
      "en": "Challenge an expectation: a myth, a 'stop doing X', a contrast.",
-     "cs": "Zpochybni očekávání: mýtus, \"přestaň dělat X\", kontrast."
+     "cs": "Zpochybněte očekávání: mýtus, „přestaňte dělat X“, kontrast."
     }
    ],
    "text": "7 chyb, ktere dela kazdy zacatecnik v behu (a jak se jim vyhnout)"
@@ -2658,17 +2658,17 @@
     {
      "key": "add_utility",
      "en": "Make the payoff concrete: a number, steps or a 'how to'.",
-     "cs": "Zkonkrétni užitek: číslo, kroky nebo \"jak na to\"."
+     "cs": "Zkonkrétněte užitek: číslo, kroky nebo „jak na to“."
     },
     {
      "key": "open_loop",
      "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
-     "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+     "cs": "Otevřete informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
     },
     {
      "key": "add_emotion",
      "en": "Add one high-arousal emotion word that is true to the content.",
-     "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+     "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
     }
    ],
    "text": "Naše novinky za třetí čtvrtletí"
@@ -2763,17 +2763,17 @@
     {
      "key": "reduce_clickbait",
      "en": "Remove clickbait phrasing and exaggerated claims; trust and delivery matter.",
-     "cs": "Odstraň clickbaitové formulace a přehnané sliby; důvěra a splnění slibu rozhodují."
+     "cs": "Odstraňte clickbaitové formulace a přehnané sliby; důvěra a splnění slibu rozhodují."
     },
     {
      "key": "add_utility",
      "en": "Make the payoff concrete: a number, steps or a 'how to'.",
-     "cs": "Zkonkrétni užitek: číslo, kroky nebo \"jak na to\"."
+     "cs": "Zkonkrétněte užitek: číslo, kroky nebo „jak na to“."
     },
     {
      "key": "address_reader",
      "en": "Speak to the reader directly (you, your) or name the audience.",
-     "cs": "Oslov čtenáře přímo (ty, vy, váš) nebo pojmenuj publikum."
+     "cs": "Oslovte čtenáře přímo (ty, vy, váš) nebo pojmenujte publikum."
     }
    ],
    "text": "Nevěříte, co se stalo potom!!! Šokující trik"
@@ -2852,17 +2852,17 @@
     {
      "key": "simplify",
      "en": "Use shorter, plainer words.",
-     "cs": "Použij kratší a prostší slova."
+     "cs": "Použijte kratší a prostší slova."
     },
     {
      "key": "add_utility",
      "en": "Make the payoff concrete: a number, steps or a 'how to'.",
-     "cs": "Zkonkrétni užitek: číslo, kroky nebo \"jak na to\"."
+     "cs": "Zkonkrétněte užitek: číslo, kroky nebo „jak na to“."
     },
     {
      "key": "address_reader",
      "en": "Speak to the reader directly (you, your) or name the audience.",
-     "cs": "Oslov čtenáře přímo (ty, vy, váš) nebo pojmenuj publikum."
+     "cs": "Oslovte čtenáře přímo (ty, vy, váš) nebo pojmenujte publikum."
     }
    ],
    "text": "Proč většina firemních newsletterů selhává?"
@@ -2933,17 +2933,17 @@
     {
      "key": "open_loop",
      "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
-     "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+     "cs": "Otevřete informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
     },
     {
      "key": "add_emotion",
      "en": "Add one high-arousal emotion word that is true to the content.",
-     "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+     "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
     },
     {
      "key": "address_reader",
      "en": "Speak to the reader directly (you, your) or name the audience.",
-     "cs": "Oslov čtenáře přímo (ty, vy, váš) nebo pojmenuj publikum."
+     "cs": "Oslovte čtenáře přímo (ty, vy, váš) nebo pojmenujte publikum."
     }
    ],
    "text": "Jak napsat hook na LinkedIn za 5 minut"
@@ -3014,17 +3014,17 @@
     {
      "key": "open_loop",
      "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
-     "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+     "cs": "Otevřete informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
     },
     {
      "key": "add_emotion",
      "en": "Add one high-arousal emotion word that is true to the content.",
-     "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+     "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
     },
     {
      "key": "address_reader",
      "en": "Speak to the reader directly (you, your) or name the audience.",
-     "cs": "Oslov čtenáře přímo (ty, vy, váš) nebo pojmenuj publikum."
+     "cs": "Oslovte čtenáře přímo (ty, vy, váš) nebo pojmenujte publikum."
     }
    ],
    "text": "Jak zacit s marketingem bez rozpoctu"
@@ -3119,17 +3119,17 @@
     {
      "key": "reduce_clickbait",
      "en": "Remove clickbait phrasing and exaggerated claims; trust and delivery matter.",
-     "cs": "Odstraň clickbaitové formulace a přehnané sliby; důvěra a splnění slibu rozhodují."
+     "cs": "Odstraňte clickbaitové formulace a přehnané sliby; důvěra a splnění slibu rozhodují."
     },
     {
      "key": "add_utility",
      "en": "Make the payoff concrete: a number, steps or a 'how to'.",
-     "cs": "Zkonkrétni užitek: číslo, kroky nebo \"jak na to\"."
+     "cs": "Zkonkrétněte užitek: číslo, kroky nebo „jak na to“."
     },
     {
      "key": "open_loop",
      "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
-     "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+     "cs": "Otevřete informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
     }
    ],
    "text": "Zaručený růst přes noc bez rizika"
@@ -3191,17 +3191,17 @@
     {
      "key": "add_utility",
      "en": "Make the payoff concrete: a number, steps or a 'how to'.",
-     "cs": "Zkonkrétni užitek: číslo, kroky nebo \"jak na to\"."
+     "cs": "Zkonkrétněte užitek: číslo, kroky nebo „jak na to“."
     },
     {
      "key": "open_loop",
      "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
-     "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+     "cs": "Otevřete informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
     },
     {
      "key": "add_emotion",
      "en": "Add one high-arousal emotion word that is true to the content.",
-     "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+     "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
     }
    ],
    "text": "Žluťoučký kůň úpěl ďábelské ódy"
@@ -3280,17 +3280,17 @@
     {
      "key": "open_loop",
      "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
-     "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+     "cs": "Otevřete informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
     },
     {
      "key": "address_reader",
      "en": "Speak to the reader directly (you, your) or name the audience.",
-     "cs": "Oslov čtenáře přímo (ty, vy, váš) nebo pojmenuj publikum."
+     "cs": "Oslovte čtenáře přímo (ty, vy, váš) nebo pojmenujte publikum."
     },
     {
      "key": "add_contrast",
      "en": "Challenge an expectation: a myth, a 'stop doing X', a contrast.",
-     "cs": "Zpochybni očekávání: mýtus, \"přestaň dělat X\", kontrast."
+     "cs": "Zpochybněte očekávání: mýtus, „přestaňte dělat X“, kontrast."
     }
    ],
    "text": "🔥 5 tips for better sleep 🔥"
@@ -3352,17 +3352,17 @@
     {
      "key": "add_utility",
      "en": "Make the payoff concrete: a number, steps or a 'how to'.",
-     "cs": "Zkonkrétni užitek: číslo, kroky nebo \"jak na to\"."
+     "cs": "Zkonkrétněte užitek: číslo, kroky nebo „jak na to“."
     },
     {
      "key": "open_loop",
      "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
-     "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+     "cs": "Otevřete informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
     },
     {
      "key": "add_emotion",
      "en": "Add one high-arousal emotion word that is true to the content.",
-     "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+     "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
     }
    ],
    "text": "Café résumé naïve façade"
@@ -3424,17 +3424,17 @@
     {
      "key": "add_utility",
      "en": "Make the payoff concrete: a number, steps or a 'how to'.",
-     "cs": "Zkonkrétni užitek: číslo, kroky nebo \"jak na to\"."
+     "cs": "Zkonkrétněte užitek: číslo, kroky nebo „jak na to“."
     },
     {
      "key": "open_loop",
      "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
-     "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+     "cs": "Otevřete informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
     },
     {
      "key": "add_emotion",
      "en": "Add one high-arousal emotion word that is true to the content.",
-     "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+     "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
     }
    ],
    "text": "é combining accent test"
@@ -3496,17 +3496,17 @@
     {
      "key": "shorten",
      "en": "Shorten it: aim for 6 to 12 words.",
-     "cs": "Zkrať to: cílem je 6 až 12 slov."
+     "cs": "Zkraťte to: cílem je 6 až 12 slov."
     },
     {
      "key": "add_utility",
      "en": "Make the payoff concrete: a number, steps or a 'how to'.",
-     "cs": "Zkonkrétni užitek: číslo, kroky nebo \"jak na to\"."
+     "cs": "Zkonkrétněte užitek: číslo, kroky nebo „jak na to“."
     },
     {
      "key": "open_loop",
      "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
-     "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+     "cs": "Otevřete informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
     }
    ],
    "text": "a b c d e f g h i j k l m n o p q r s t u v w x y z a b c d e f g h i j k l m n o p q r s t u v w x y z"
@@ -5169,17 +5169,17 @@
     {
      "key": "shorten",
      "en": "Shorten it: aim for 6 to 12 words.",
-     "cs": "Zkrať to: cílem je 6 až 12 slov."
+     "cs": "Zkraťte to: cílem je 6 až 12 slov."
     },
     {
      "key": "add_utility",
      "en": "Make the payoff concrete: a number, steps or a 'how to'.",
-     "cs": "Zkonkrétni užitek: číslo, kroky nebo \"jak na to\"."
+     "cs": "Zkonkrétněte užitek: číslo, kroky nebo „jak na to“."
     },
     {
      "key": "add_emotion",
      "en": "Add one high-arousal emotion word that is true to the content.",
-     "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+     "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
     }
    ],
    "text": "why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you why most dashboards lie to you"
@@ -5255,12 +5255,12 @@
     {
      "key": "open_loop",
      "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
-     "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+     "cs": "Otevřete informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
     },
     {
      "key": "add_emotion",
      "en": "Add one high-arousal emotion word that is true to the content.",
-     "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+     "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
     }
    ],
    "text": "7 ways to cut churn"
@@ -5331,17 +5331,17 @@
     {
      "key": "open_loop",
      "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
-     "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+     "cs": "Otevřete informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
     },
     {
      "key": "add_emotion",
      "en": "Add one high-arousal emotion word that is true to the content.",
-     "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+     "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
     },
     {
      "key": "address_reader",
      "en": "Speak to the reader directly (you, your) or name the audience.",
-     "cs": "Oslov čtenáře přímo (ty, vy, váš) nebo pojmenuj publikum."
+     "cs": "Oslovte čtenáře přímo (ty, vy, váš) nebo pojmenujte publikum."
     }
    ],
    "text": "7 ways to cut churn"
@@ -5425,12 +5425,12 @@
     {
      "key": "reduce_clickbait",
      "en": "Remove clickbait phrasing and exaggerated claims; trust and delivery matter.",
-     "cs": "Odstraň clickbaitové formulace a přehnané sliby; důvěra a splnění slibu rozhodují."
+     "cs": "Odstraňte clickbaitové formulace a přehnané sliby; důvěra a splnění slibu rozhodují."
     },
     {
      "key": "open_loop",
      "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
-     "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+     "cs": "Otevřete informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
     }
    ],
    "text": "10 tips for better sleep"
@@ -5509,17 +5509,17 @@
     {
      "key": "open_loop",
      "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
-     "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+     "cs": "Otevřete informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
     },
     {
      "key": "address_reader",
      "en": "Speak to the reader directly (you, your) or name the audience.",
-     "cs": "Oslov čtenáře přímo (ty, vy, váš) nebo pojmenuj publikum."
+     "cs": "Oslovte čtenáře přímo (ty, vy, váš) nebo pojmenujte publikum."
     },
     {
      "key": "add_contrast",
      "en": "Challenge an expectation: a myth, a 'stop doing X', a contrast.",
-     "cs": "Zpochybni očekávání: mýtus, \"přestaň dělat X\", kontrast."
+     "cs": "Zpochybněte očekávání: mýtus, „přestaňte dělat X“, kontrast."
     }
    ],
    "text": "1,000 ways to win"
@@ -5612,12 +5612,12 @@
     {
      "key": "add_emotion",
      "en": "Add one high-arousal emotion word that is true to the content.",
-     "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+     "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
     },
     {
      "key": "add_utility",
      "en": "Make the payoff concrete: a number, steps or a 'how to'.",
-     "cs": "Zkonkrétni užitek: číslo, kroky nebo \"jak na to\"."
+     "cs": "Zkonkrétněte užitek: číslo, kroky nebo „jak na to“."
     }
    ],
    "text": "Why most marketing dashboards lie to you"
@@ -5710,12 +5710,12 @@
     {
      "key": "add_utility",
      "en": "Make the payoff concrete: a number, steps or a 'how to'.",
-     "cs": "Zkonkrétni užitek: číslo, kroky nebo \"jak na to\"."
+     "cs": "Zkonkrétněte užitek: číslo, kroky nebo „jak na to“."
     },
     {
      "key": "add_emotion",
      "en": "Add one high-arousal emotion word that is true to the content.",
-     "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+     "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
     }
    ],
    "text": "Why most marketing dashboards lie to you"
@@ -5777,17 +5777,17 @@
     {
      "key": "add_utility",
      "en": "Make the payoff concrete: a number, steps or a 'how to'.",
-     "cs": "Zkonkrétni užitek: číslo, kroky nebo \"jak na to\"."
+     "cs": "Zkonkrétněte užitek: číslo, kroky nebo „jak na to“."
     },
     {
      "key": "open_loop",
      "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
-     "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+     "cs": "Otevřete informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
     },
     {
      "key": "add_emotion",
      "en": "Add one high-arousal emotion word that is true to the content.",
-     "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+     "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
     }
    ],
    "text": "Why most marketing dashboards lie to you"
@@ -5849,17 +5849,17 @@
     {
      "key": "simplify",
      "en": "Use shorter, plainer words.",
-     "cs": "Použij kratší a prostší slova."
+     "cs": "Použijte kratší a prostší slova."
     },
     {
      "key": "add_utility",
      "en": "Make the payoff concrete: a number, steps or a 'how to'.",
-     "cs": "Zkonkrétni užitek: číslo, kroky nebo \"jak na to\"."
+     "cs": "Zkonkrétněte užitek: číslo, kroky nebo „jak na to“."
     },
     {
      "key": "open_loop",
      "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
-     "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+     "cs": "Otevřete informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
     }
    ],
    "text": "Proč většina dashboardů liže"
@@ -5938,17 +5938,17 @@
     {
      "key": "add_utility",
      "en": "Make the payoff concrete: a number, steps or a 'how to'.",
-     "cs": "Zkonkrétni užitek: číslo, kroky nebo \"jak na to\"."
+     "cs": "Zkonkrétněte užitek: číslo, kroky nebo „jak na to“."
     },
     {
      "key": "add_emotion",
      "en": "Add one high-arousal emotion word that is true to the content.",
-     "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+     "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
     },
     {
      "key": "add_contrast",
      "en": "Challenge an expectation: a myth, a 'stop doing X', a contrast.",
-     "cs": "Zpochybni očekávání: mýtus, \"přestaň dělat X\", kontrast."
+     "cs": "Zpochybněte očekávání: mýtus, „přestaňte dělat X“, kontrast."
     }
    ],
    "text": "What nobody tells you about cycling"
@@ -6035,12 +6035,12 @@
     {
      "key": "add_emotion",
      "en": "Add one high-arousal emotion word that is true to the content.",
-     "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+     "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
     },
     {
      "key": "add_contrast",
      "en": "Challenge an expectation: a myth, a 'stop doing X', a contrast.",
-     "cs": "Zpochybni očekávání: mýtus, \"přestaň dělat X\", kontrast."
+     "cs": "Zpochybněte očekávání: mýtus, „přestaňte dělat X“, kontrast."
     }
    ],
    "text": "3 yoga mistakes that quietly cost you results"
@@ -6102,17 +6102,17 @@
     {
      "key": "simplify",
      "en": "Use shorter, plainer words.",
-     "cs": "Použij kratší a prostší slova."
+     "cs": "Použijte kratší a prostší slova."
     },
     {
      "key": "add_utility",
      "en": "Make the payoff concrete: a number, steps or a 'how to'.",
-     "cs": "Zkonkrétni užitek: číslo, kroky nebo \"jak na to\"."
+     "cs": "Zkonkrétněte užitek: číslo, kroky nebo „jak na to“."
     },
     {
      "key": "open_loop",
      "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
-     "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+     "cs": "Otevřete informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
     }
    ],
    "text": "Cycling news and announcements"
@@ -6183,17 +6183,17 @@
     {
      "key": "open_loop",
      "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
-     "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+     "cs": "Otevřete informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
     },
     {
      "key": "add_emotion",
      "en": "Add one high-arousal emotion word that is true to the content.",
-     "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+     "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
     },
     {
      "key": "address_reader",
      "en": "Speak to the reader directly (you, your) or name the audience.",
-     "cs": "Oslov čtenáře přímo (ty, vy, váš) nebo pojmenuj publikum."
+     "cs": "Oslovte čtenáře přímo (ty, vy, váš) nebo pojmenujte publikum."
     }
    ],
    "text": "7 ways to get more out of cycling"
@@ -6255,17 +6255,17 @@
     {
      "key": "add_utility",
      "en": "Make the payoff concrete: a number, steps or a 'how to'.",
-     "cs": "Zkonkrétni užitek: číslo, kroky nebo \"jak na to\"."
+     "cs": "Zkonkrétněte užitek: číslo, kroky nebo „jak na to“."
     },
     {
      "key": "open_loop",
      "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
-     "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+     "cs": "Otevřete informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
     },
     {
      "key": "add_emotion",
      "en": "Add one high-arousal emotion word that is true to the content.",
-     "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+     "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
     }
    ],
    "text": "Our Q3 marathon training update"
@@ -6344,17 +6344,17 @@
     {
      "key": "shorten",
      "en": "Shorten it: aim for 6 to 12 words.",
-     "cs": "Zkrať to: cílem je 6 až 12 slov."
+     "cs": "Zkraťte to: cílem je 6 až 12 slov."
     },
     {
      "key": "add_utility",
      "en": "Make the payoff concrete: a number, steps or a 'how to'.",
-     "cs": "Zkonkrétni užitek: číslo, kroky nebo \"jak na to\"."
+     "cs": "Zkonkrétněte užitek: číslo, kroky nebo „jak na to“."
     },
     {
      "key": "add_emotion",
      "en": "Add one high-arousal emotion word that is true to the content.",
-     "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+     "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
     }
    ],
    "text": "The hidden truth about running shoes in a way that works for teams of every size across every industry and every single region of the world"
@@ -6416,17 +6416,17 @@
     {
      "key": "shorten",
      "en": "Shorten it: aim for 6 to 12 words.",
-     "cs": "Zkrať to: cílem je 6 až 12 slov."
+     "cs": "Zkraťte to: cílem je 6 až 12 slov."
     },
     {
      "key": "add_utility",
      "en": "Make the payoff concrete: a number, steps or a 'how to'.",
-     "cs": "Zkonkrétni užitek: číslo, kroky nebo \"jak na to\"."
+     "cs": "Zkonkrétněte užitek: číslo, kroky nebo „jak na to“."
     },
     {
      "key": "open_loop",
      "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
-     "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+     "cs": "Otevřete informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
     }
    ],
    "text": "A message from our CEO on recovery in a way that works for teams of every size across every industry and every single region of the world"
@@ -6505,17 +6505,17 @@
     {
      "key": "add_utility",
      "en": "Make the payoff concrete: a number, steps or a 'how to'.",
-     "cs": "Zkonkrétni užitek: číslo, kroky nebo \"jak na to\"."
+     "cs": "Zkonkrétněte užitek: číslo, kroky nebo „jak na to“."
     },
     {
      "key": "add_emotion",
      "en": "Add one high-arousal emotion word that is true to the content.",
-     "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+     "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
     },
     {
      "key": "add_contrast",
      "en": "Challenge an expectation: a myth, a 'stop doing X', a contrast.",
-     "cs": "Zpochybni očekávání: mýtus, \"přestaň dělat X\", kontrast."
+     "cs": "Zpochybněte očekávání: mýtus, „přestaňte dělat X“, kontrast."
     }
    ],
    "text": "Why founders and experts choose marathon training"
@@ -6586,17 +6586,17 @@
     {
      "key": "open_loop",
      "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
-     "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+     "cs": "Otevřete informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
     },
     {
      "key": "add_emotion",
      "en": "Add one high-arousal emotion word that is true to the content.",
-     "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+     "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
     },
     {
      "key": "address_reader",
      "en": "Speak to the reader directly (you, your) or name the audience.",
-     "cs": "Oslov čtenáře přímo (ty, vy, váš) nebo pojmenuj publikum."
+     "cs": "Oslovte čtenáře přímo (ty, vy, váš) nebo pojmenujte publikum."
     }
    ],
    "text": "A beginner guide to meal prep"
@@ -6683,17 +6683,17 @@
     {
      "key": "reduce_clickbait",
      "en": "Remove clickbait phrasing and exaggerated claims; trust and delivery matter.",
-     "cs": "Odstraň clickbaitové formulace a přehnané sliby; důvěra a splnění slibu rozhodují."
+     "cs": "Odstraňte clickbaitové formulace a přehnané sliby; důvěra a splnění slibu rozhodují."
     },
     {
      "key": "add_utility",
      "en": "Make the payoff concrete: a number, steps or a 'how to'.",
-     "cs": "Zkonkrétni užitek: číslo, kroky nebo \"jak na to\"."
+     "cs": "Zkonkrétněte užitek: číslo, kroky nebo „jak na to“."
     },
     {
      "key": "open_loop",
      "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
-     "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+     "cs": "Otevřete informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
     }
    ],
    "text": "You won't believe what happened with sourdough!!!"
@@ -6772,17 +6772,17 @@
     {
      "key": "open_loop",
      "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
-     "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+     "cs": "Otevřete informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
     },
     {
      "key": "add_emotion",
      "en": "Add one high-arousal emotion word that is true to the content.",
-     "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+     "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
     },
     {
      "key": "add_contrast",
      "en": "Challenge an expectation: a myth, a 'stop doing X', a contrast.",
-     "cs": "Zpochybni očekávání: mýtus, \"přestaň dělat X\", kontrast."
+     "cs": "Zpochybněte očekávání: mýtus, „přestaňte dělat X“, kontrast."
     }
    ],
    "text": "4 meal prep templates you can copy today"
@@ -6861,17 +6861,17 @@
     {
      "key": "add_utility",
      "en": "Make the payoff concrete: a number, steps or a 'how to'.",
-     "cs": "Zkonkrétni užitek: číslo, kroky nebo \"jak na to\"."
+     "cs": "Zkonkrétněte užitek: číslo, kroky nebo „jak na to“."
     },
     {
      "key": "add_emotion",
      "en": "Add one high-arousal emotion word that is true to the content.",
-     "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+     "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
     },
     {
      "key": "add_contrast",
      "en": "Challenge an expectation: a myth, a 'stop doing X', a contrast.",
-     "cs": "Zpochybni očekávání: mýtus, \"přestaň dělat X\", kontrast."
+     "cs": "Zpochybněte očekávání: mýtus, „přestaňte dělat X“, kontrast."
     }
    ],
    "text": "What nobody tells you about plant-based dinners"
@@ -6942,17 +6942,17 @@
     {
      "key": "add_utility",
      "en": "Make the payoff concrete: a number, steps or a 'how to'.",
-     "cs": "Zkonkrétni užitek: číslo, kroky nebo \"jak na to\"."
+     "cs": "Zkonkrétněte užitek: číslo, kroky nebo „jak na to“."
     },
     {
      "key": "open_loop",
      "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
-     "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+     "cs": "Otevřete informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
     },
     {
      "key": "add_emotion",
      "en": "Add one high-arousal emotion word that is true to the content.",
-     "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+     "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
     }
    ],
    "text": "Your meal prep questions, answered"
@@ -7023,17 +7023,17 @@
     {
      "key": "open_loop",
      "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
-     "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+     "cs": "Otevřete informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
     },
     {
      "key": "add_emotion",
      "en": "Add one high-arousal emotion word that is true to the content.",
-     "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+     "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
     },
     {
      "key": "address_reader",
      "en": "Speak to the reader directly (you, your) or name the audience.",
-     "cs": "Oslov čtenáře přímo (ty, vy, váš) nebo pojmenuj publikum."
+     "cs": "Oslovte čtenáře přímo (ty, vy, váš) nebo pojmenujte publikum."
     }
    ],
    "text": "9 ways to get more out of cold brew"
@@ -7104,17 +7104,17 @@
     {
      "key": "add_utility",
      "en": "Make the payoff concrete: a number, steps or a 'how to'.",
-     "cs": "Zkonkrétni užitek: číslo, kroky nebo \"jak na to\"."
+     "cs": "Zkonkrétněte užitek: číslo, kroky nebo „jak na to“."
     },
     {
      "key": "open_loop",
      "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
-     "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+     "cs": "Otevřete informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
     },
     {
      "key": "add_emotion",
      "en": "Add one high-arousal emotion word that is true to the content.",
-     "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+     "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
     }
    ],
    "text": "Everything you need for sourdough"
@@ -7185,17 +7185,17 @@
     {
      "key": "add_utility",
      "en": "Make the payoff concrete: a number, steps or a 'how to'.",
-     "cs": "Zkonkrétni užitek: číslo, kroky nebo \"jak na to\"."
+     "cs": "Zkonkrétněte užitek: číslo, kroky nebo „jak na to“."
     },
     {
      "key": "open_loop",
      "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
-     "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+     "cs": "Otevřete informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
     },
     {
      "key": "add_emotion",
      "en": "Add one high-arousal emotion word that is true to the content.",
-     "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+     "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
     }
    ],
    "text": "Stop doing customer onboarding the hard way"
@@ -7257,17 +7257,17 @@
     {
      "key": "shorten",
      "en": "Shorten it: aim for 6 to 12 words.",
-     "cs": "Zkrať to: cílem je 6 až 12 slov."
+     "cs": "Zkraťte to: cílem je 6 až 12 slov."
     },
     {
      "key": "add_utility",
      "en": "Make the payoff concrete: a number, steps or a 'how to'.",
-     "cs": "Zkonkrétni užitek: číslo, kroky nebo \"jak na to\"."
+     "cs": "Zkonkrétněte užitek: číslo, kroky nebo „jak na to“."
     },
     {
      "key": "open_loop",
      "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
-     "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+     "cs": "Otevřete informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
     }
    ],
    "text": "Introducing our new CRM range in a way that works for teams of every size across every industry and every single region of the world"
@@ -7338,17 +7338,17 @@
     {
      "key": "add_utility",
      "en": "Make the payoff concrete: a number, steps or a 'how to'.",
-     "cs": "Zkonkrétni užitek: číslo, kroky nebo \"jak na to\"."
+     "cs": "Zkonkrétněte užitek: číslo, kroky nebo „jak na to“."
     },
     {
      "key": "open_loop",
      "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
-     "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+     "cs": "Otevřete informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
     },
     {
      "key": "address_reader",
      "en": "Speak to the reader directly (you, your) or name the audience.",
-     "cs": "Oslov čtenáře přímo (ty, vy, váš) nebo pojmenuj publikum."
+     "cs": "Oslovte čtenáře přímo (ty, vy, váš) nebo pojmenujte publikum."
     }
    ],
    "text": "We are obsessed with CRM"
@@ -7427,17 +7427,17 @@
     {
      "key": "add_utility",
      "en": "Make the payoff concrete: a number, steps or a 'how to'.",
-     "cs": "Zkonkrétni užitek: číslo, kroky nebo \"jak na to\"."
+     "cs": "Zkonkrétněte užitek: číslo, kroky nebo „jak na to“."
     },
     {
      "key": "add_emotion",
      "en": "Add one high-arousal emotion word that is true to the content.",
-     "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+     "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
     },
     {
      "key": "add_contrast",
      "en": "Challenge an expectation: a myth, a 'stop doing X', a contrast.",
-     "cs": "Zpochybni očekávání: mýtus, \"přestaň dělat X\", kontrast."
+     "cs": "Zpochybněte očekávání: mýtus, „přestaňte dělat X“, kontrast."
     }
    ],
    "text": "Why founders and experts choose CRM"
@@ -7499,17 +7499,17 @@
     {
      "key": "add_utility",
      "en": "Make the payoff concrete: a number, steps or a 'how to'.",
-     "cs": "Zkonkrétni užitek: číslo, kroky nebo \"jak na to\"."
+     "cs": "Zkonkrétněte užitek: číslo, kroky nebo „jak na to“."
     },
     {
      "key": "add_emotion",
      "en": "Add one high-arousal emotion word that is true to the content.",
-     "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+     "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
     },
     {
      "key": "address_reader",
      "en": "Speak to the reader directly (you, your) or name the audience.",
-     "cs": "Oslov čtenáře přímo (ty, vy, váš) nebo pojmenuj publikum."
+     "cs": "Oslovte čtenáře přímo (ty, vy, váš) nebo pojmenujte publikum."
     }
    ],
    "text": "Is sales forecasting worth the money?"
@@ -7580,17 +7580,17 @@
     {
      "key": "simplify",
      "en": "Use shorter, plainer words.",
-     "cs": "Použij kratší a prostší slova."
+     "cs": "Použijte kratší a prostší slova."
     },
     {
      "key": "add_emotion",
      "en": "Add one high-arousal emotion word that is true to the content.",
-     "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+     "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
     },
     {
      "key": "address_reader",
      "en": "Speak to the reader directly (you, your) or name the audience.",
-     "cs": "Oslov čtenáře přímo (ty, vy, váš) nebo pojmenuj publikum."
+     "cs": "Oslovte čtenáře přímo (ty, vy, váš) nebo pojmenujte publikum."
     }
    ],
    "text": "Email automation: a practical playbook"
@@ -7669,17 +7669,17 @@
     {
      "key": "open_loop",
      "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
-     "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+     "cs": "Otevřete informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
     },
     {
      "key": "address_reader",
      "en": "Speak to the reader directly (you, your) or name the audience.",
-     "cs": "Oslov čtenáře přímo (ty, vy, váš) nebo pojmenuj publikum."
+     "cs": "Oslovte čtenáře přímo (ty, vy, váš) nebo pojmenujte publikum."
     },
     {
      "key": "add_contrast",
      "en": "Challenge an expectation: a myth, a 'stop doing X', a contrast.",
-     "cs": "Zpochybni očekávání: mýtus, \"přestaň dělat X\", kontrast."
+     "cs": "Zpochybněte očekávání: mýtus, „přestaňte dělat X“, kontrast."
     }
    ],
    "text": "12 tips for better email automation"
@@ -7774,17 +7774,17 @@
     {
      "key": "reduce_clickbait",
      "en": "Remove clickbait phrasing and exaggerated claims; trust and delivery matter.",
-     "cs": "Odstraň clickbaitové formulace a přehnané sliby; důvěra a splnění slibu rozhodují."
+     "cs": "Odstraňte clickbaitové formulace a přehnané sliby; důvěra a splnění slibu rozhodují."
     },
     {
      "key": "simplify",
      "en": "Use shorter, plainer words.",
-     "cs": "Použij kratší a prostší slova."
+     "cs": "Použijte kratší a prostší slova."
     },
     {
      "key": "add_utility",
      "en": "Make the payoff concrete: a number, steps or a 'how to'.",
-     "cs": "Zkonkrétni užitek: číslo, kroky nebo \"jak na to\"."
+     "cs": "Zkonkrétněte užitek: číslo, kroky nebo „jak na to“."
     }
    ],
    "text": "Shocking budgeting secrets revealed!!!"
@@ -7855,17 +7855,17 @@
     {
      "key": "add_utility",
      "en": "Make the payoff concrete: a number, steps or a 'how to'.",
-     "cs": "Zkonkrétni užitek: číslo, kroky nebo \"jak na to\"."
+     "cs": "Zkonkrétněte užitek: číslo, kroky nebo „jak na to“."
     },
     {
      "key": "open_loop",
      "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
-     "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+     "cs": "Otevřete informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
     },
     {
      "key": "add_emotion",
      "en": "Add one high-arousal emotion word that is true to the content.",
-     "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+     "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
     }
    ],
    "text": "Index funds myths we need to retire"
@@ -7944,17 +7944,17 @@
     {
      "key": "open_loop",
      "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
-     "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+     "cs": "Otevřete informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
     },
     {
      "key": "address_reader",
      "en": "Speak to the reader directly (you, your) or name the audience.",
-     "cs": "Oslov čtenáře přímo (ty, vy, váš) nebo pojmenuj publikum."
+     "cs": "Oslovte čtenáře přímo (ty, vy, váš) nebo pojmenujte publikum."
     },
     {
      "key": "add_contrast",
      "en": "Challenge an expectation: a myth, a 'stop doing X', a contrast.",
-     "cs": "Zpochybni očekávání: mýtus, \"přestaň dělat X\", kontrast."
+     "cs": "Zpochybněte očekávání: mýtus, „přestaňte dělat X“, kontrast."
     }
    ],
    "text": "10 tips for better index funds"
@@ -8033,17 +8033,17 @@
     {
      "key": "reduce_clickbait",
      "en": "Remove clickbait phrasing and exaggerated claims; trust and delivery matter.",
-     "cs": "Odstraň clickbaitové formulace a přehnané sliby; důvěra a splnění slibu rozhodují."
+     "cs": "Odstraňte clickbaitové formulace a přehnané sliby; důvěra a splnění slibu rozhodují."
     },
     {
      "key": "add_utility",
      "en": "Make the payoff concrete: a number, steps or a 'how to'.",
-     "cs": "Zkonkrétni užitek: číslo, kroky nebo \"jak na to\"."
+     "cs": "Zkonkrétněte užitek: číslo, kroky nebo „jak na to“."
     },
     {
      "key": "open_loop",
      "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
-     "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+     "cs": "Otevřete informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
     }
    ],
    "text": "This one trick changes everything about saving"
@@ -8138,17 +8138,17 @@
     {
      "key": "reduce_clickbait",
      "en": "Remove clickbait phrasing and exaggerated claims; trust and delivery matter.",
-     "cs": "Odstraň clickbaitové formulace a přehnané sliby; důvěra a splnění slibu rozhodují."
+     "cs": "Odstraňte clickbaitové formulace a přehnané sliby; důvěra a splnění slibu rozhodují."
     },
     {
      "key": "simplify",
      "en": "Use shorter, plainer words.",
-     "cs": "Použij kratší a prostší slova."
+     "cs": "Použijte kratší a prostší slova."
     },
     {
      "key": "add_utility",
      "en": "Make the payoff concrete: a number, steps or a 'how to'.",
-     "cs": "Zkonkrétni užitek: číslo, kroky nebo \"jak na to\"."
+     "cs": "Zkonkrétněte užitek: číslo, kroky nebo „jak na to“."
     }
    ],
    "text": "Shocking index funds secrets revealed!!!"
@@ -8219,17 +8219,17 @@
     {
      "key": "add_utility",
      "en": "Make the payoff concrete: a number, steps or a 'how to'.",
-     "cs": "Zkonkrétni užitek: číslo, kroky nebo \"jak na to\"."
+     "cs": "Zkonkrétněte užitek: číslo, kroky nebo „jak na to“."
     },
     {
      "key": "open_loop",
      "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
-     "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+     "cs": "Otevřete informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
     },
     {
      "key": "add_emotion",
      "en": "Add one high-arousal emotion word that is true to the content.",
-     "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+     "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
     }
    ],
    "text": "Stop doing saving the hard way"
@@ -8300,17 +8300,17 @@
     {
      "key": "open_loop",
      "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
-     "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+     "cs": "Otevřete informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
     },
     {
      "key": "add_emotion",
      "en": "Add one high-arousal emotion word that is true to the content.",
-     "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+     "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
     },
     {
      "key": "address_reader",
      "en": "Speak to the reader directly (you, your) or name the audience.",
-     "cs": "Oslov čtenáře přímo (ty, vy, váš) nebo pojmenuj publikum."
+     "cs": "Oslovte čtenáře přímo (ty, vy, váš) nebo pojmenujte publikum."
     }
    ],
    "text": "12 ways to get more out of credit cards"
@@ -8389,17 +8389,17 @@
     {
      "key": "open_loop",
      "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
-     "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+     "cs": "Otevřete informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
     },
     {
      "key": "add_emotion",
      "en": "Add one high-arousal emotion word that is true to the content.",
-     "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+     "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
     },
     {
      "key": "add_contrast",
      "en": "Challenge an expectation: a myth, a 'stop doing X', a contrast.",
-     "cs": "Zpochybni očekávání: mýtus, \"přestaň dělat X\", kontrast."
+     "cs": "Zpochybněte očekávání: mýtus, „přestaňte dělat X“, kontrast."
     }
    ],
    "text": "9 budget flights templates you can copy today"
@@ -8470,17 +8470,17 @@
     {
      "key": "add_utility",
      "en": "Make the payoff concrete: a number, steps or a 'how to'.",
-     "cs": "Zkonkrétni užitek: číslo, kroky nebo \"jak na to\"."
+     "cs": "Zkonkrétněte užitek: číslo, kroky nebo „jak na to“."
     },
     {
      "key": "add_emotion",
      "en": "Add one high-arousal emotion word that is true to the content.",
-     "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+     "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
     },
     {
      "key": "address_reader",
      "en": "Speak to the reader directly (you, your) or name the audience.",
-     "cs": "Oslov čtenáře přímo (ty, vy, váš) nebo pojmenuj publikum."
+     "cs": "Oslovte čtenáře přímo (ty, vy, váš) nebo pojmenujte publikum."
     }
    ],
    "text": "Why most weekend trips advice falls flat"
@@ -8559,17 +8559,17 @@
     {
      "key": "open_loop",
      "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
-     "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+     "cs": "Otevřete informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
     },
     {
      "key": "add_emotion",
      "en": "Add one high-arousal emotion word that is true to the content.",
-     "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+     "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
     },
     {
      "key": "add_contrast",
      "en": "Challenge an expectation: a myth, a 'stop doing X', a contrast.",
-     "cs": "Zpochybni očekávání: mýtus, \"přestaň dělat X\", kontrast."
+     "cs": "Zpochybněte očekávání: mýtus, „přestaňte dělat X“, kontrast."
     }
    ],
    "text": "21 hotel deals templates you can copy today"
@@ -8640,17 +8640,17 @@
     {
      "key": "add_emotion",
      "en": "Add one high-arousal emotion word that is true to the content.",
-     "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+     "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
     },
     {
      "key": "address_reader",
      "en": "Speak to the reader directly (you, your) or name the audience.",
-     "cs": "Oslov čtenáře přímo (ty, vy, váš) nebo pojmenuj publikum."
+     "cs": "Oslovte čtenáře přímo (ty, vy, váš) nebo pojmenujte publikum."
     },
     {
      "key": "open_loop",
      "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
-     "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+     "cs": "Otevřete informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
     }
    ],
    "text": "Road trips: a practical playbook"
@@ -8737,17 +8737,17 @@
     {
      "key": "shorten",
      "en": "Shorten it: aim for 6 to 12 words.",
-     "cs": "Zkrať to: cílem je 6 až 12 slov."
+     "cs": "Zkraťte to: cílem je 6 až 12 slov."
     },
     {
      "key": "add_emotion",
      "en": "Add one high-arousal emotion word that is true to the content.",
-     "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+     "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
     },
     {
      "key": "add_contrast",
      "en": "Challenge an expectation: a myth, a 'stop doing X', a contrast.",
-     "cs": "Zpochybni očekávání: mýtus, \"přestaň dělat X\", kontrast."
+     "cs": "Zpochybněte očekávání: mýtus, „přestaňte dělat X“, kontrast."
     }
    ],
    "text": "10 weekend trips mistakes that quietly cost you results in a way that works for teams of every size across every industry and every single region of the world"
@@ -8826,17 +8826,17 @@
     {
      "key": "open_loop",
      "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
-     "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+     "cs": "Otevřete informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
     },
     {
      "key": "add_emotion",
      "en": "Add one high-arousal emotion word that is true to the content.",
-     "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+     "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
     },
     {
      "key": "add_contrast",
      "en": "Challenge an expectation: a myth, a 'stop doing X', a contrast.",
-     "cs": "Zpochybni očekávání: mýtus, \"přestaň dělat X\", kontrast."
+     "cs": "Zpochybněte očekávání: mýtus, „přestaňte dělat X“, kontrast."
     }
    ],
    "text": "8 weekend trips templates you can copy today"
@@ -8907,17 +8907,17 @@
     {
      "key": "add_utility",
      "en": "Make the payoff concrete: a number, steps or a 'how to'.",
-     "cs": "Zkonkrétni užitek: číslo, kroky nebo \"jak na to\"."
+     "cs": "Zkonkrétněte užitek: číslo, kroky nebo „jak na to“."
     },
     {
      "key": "open_loop",
      "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
-     "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+     "cs": "Otevřete informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
     },
     {
      "key": "address_reader",
      "en": "Speak to the reader directly (you, your) or name the audience.",
-     "cs": "Oslov čtenáře přímo (ty, vy, váš) nebo pojmenuj publikum."
+     "cs": "Oslovte čtenáře přímo (ty, vy, váš) nebo pojmenujte publikum."
     }
    ],
    "text": "We are obsessed with weekend trips"
@@ -8988,17 +8988,17 @@
     {
      "key": "add_utility",
      "en": "Make the payoff concrete: a number, steps or a 'how to'.",
-     "cs": "Zkonkrétni užitek: číslo, kroky nebo \"jak na to\"."
+     "cs": "Zkonkrétněte užitek: číslo, kroky nebo „jak na to“."
     },
     {
      "key": "add_emotion",
      "en": "Add one high-arousal emotion word that is true to the content.",
-     "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+     "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
     },
     {
      "key": "add_contrast",
      "en": "Challenge an expectation: a myth, a 'stop doing X', a contrast.",
-     "cs": "Zpochybni očekávání: mýtus, \"přestaň dělat X\", kontrast."
+     "cs": "Zpochybněte očekávání: mýtus, „přestaňte dělat X“, kontrast."
     }
    ],
    "text": "Should you rethink esports this year?"
@@ -9077,17 +9077,17 @@
     {
      "key": "add_utility",
      "en": "Make the payoff concrete: a number, steps or a 'how to'.",
-     "cs": "Zkonkrétni užitek: číslo, kroky nebo \"jak na to\"."
+     "cs": "Zkonkrétněte užitek: číslo, kroky nebo „jak na to“."
     },
     {
      "key": "add_emotion",
      "en": "Add one high-arousal emotion word that is true to the content.",
-     "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+     "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
     },
     {
      "key": "add_contrast",
      "en": "Challenge an expectation: a myth, a 'stop doing X', a contrast.",
-     "cs": "Zpochybni očekávání: mýtus, \"přestaň dělat X\", kontrast."
+     "cs": "Zpochybněte očekávání: mýtus, „přestaňte dělat X“, kontrast."
     }
    ],
    "text": "Why founders and experts choose controllers"
@@ -9166,17 +9166,17 @@
     {
      "key": "reduce_clickbait",
      "en": "Remove clickbait phrasing and exaggerated claims; trust and delivery matter.",
-     "cs": "Odstraň clickbaitové formulace a přehnané sliby; důvěra a splnění slibu rozhodují."
+     "cs": "Odstraňte clickbaitové formulace a přehnané sliby; důvěra a splnění slibu rozhodují."
     },
     {
      "key": "add_utility",
      "en": "Make the payoff concrete: a number, steps or a 'how to'.",
-     "cs": "Zkonkrétni užitek: číslo, kroky nebo \"jak na to\"."
+     "cs": "Zkonkrétněte užitek: číslo, kroky nebo „jak na to“."
     },
     {
      "key": "open_loop",
      "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
-     "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+     "cs": "Otevřete informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
     }
    ],
    "text": "This one trick changes everything about controllers"
@@ -9255,17 +9255,17 @@
     {
      "key": "add_utility",
      "en": "Make the payoff concrete: a number, steps or a 'how to'.",
-     "cs": "Zkonkrétni užitek: číslo, kroky nebo \"jak na to\"."
+     "cs": "Zkonkrétněte užitek: číslo, kroky nebo „jak na to“."
     },
     {
      "key": "add_emotion",
      "en": "Add one high-arousal emotion word that is true to the content.",
-     "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+     "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
     },
     {
      "key": "address_reader",
      "en": "Speak to the reader directly (you, your) or name the audience.",
-     "cs": "Oslov čtenáře přímo (ty, vy, váš) nebo pojmenuj publikum."
+     "cs": "Oslovte čtenáře přímo (ty, vy, váš) nebo pojmenujte publikum."
     }
    ],
    "text": "The hidden truth about game settings"
@@ -9344,17 +9344,17 @@
     {
      "key": "add_utility",
      "en": "Make the payoff concrete: a number, steps or a 'how to'.",
-     "cs": "Zkonkrétni užitek: číslo, kroky nebo \"jak na to\"."
+     "cs": "Zkonkrétněte užitek: číslo, kroky nebo „jak na to“."
     },
     {
      "key": "add_emotion",
      "en": "Add one high-arousal emotion word that is true to the content.",
-     "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+     "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
     },
     {
      "key": "add_contrast",
      "en": "Challenge an expectation: a myth, a 'stop doing X', a contrast.",
-     "cs": "Zpochybni očekávání: mýtus, \"přestaň dělat X\", kontrast."
+     "cs": "Zpochybněte očekávání: mýtus, „přestaňte dělat X“, kontrast."
     }
    ],
    "text": "What nobody tells you about co-op games"
@@ -9416,17 +9416,17 @@
     {
      "key": "simplify",
      "en": "Use shorter, plainer words.",
-     "cs": "Použij kratší a prostší slova."
+     "cs": "Použijte kratší a prostší slova."
     },
     {
      "key": "add_utility",
      "en": "Make the payoff concrete: a number, steps or a 'how to'.",
-     "cs": "Zkonkrétni užitek: číslo, kroky nebo \"jak na to\"."
+     "cs": "Zkonkrétněte užitek: číslo, kroky nebo „jak na to“."
     },
     {
      "key": "add_emotion",
      "en": "Add one high-arousal emotion word that is true to the content.",
-     "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+     "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
     }
    ],
    "text": "Company update: game settings"
@@ -9505,17 +9505,17 @@
     {
      "key": "add_utility",
      "en": "Make the payoff concrete: a number, steps or a 'how to'.",
-     "cs": "Zkonkrétni užitek: číslo, kroky nebo \"jak na to\"."
+     "cs": "Zkonkrétněte užitek: číslo, kroky nebo „jak na to“."
     },
     {
      "key": "open_loop",
      "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
-     "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+     "cs": "Otevřete informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
     },
     {
      "key": "address_reader",
      "en": "Speak to the reader directly (you, your) or name the audience.",
-     "cs": "Oslov čtenáře přímo (ty, vy, váš) nebo pojmenuj publikum."
+     "cs": "Oslovte čtenáře přímo (ty, vy, váš) nebo pojmenujte publikum."
     }
    ],
    "text": "Indie releases that people absolutely love"
@@ -9594,17 +9594,17 @@
     {
      "key": "open_loop",
      "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
-     "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+     "cs": "Otevřete informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
     },
     {
      "key": "address_reader",
      "en": "Speak to the reader directly (you, your) or name the audience.",
-     "cs": "Oslov čtenáře přímo (ty, vy, váš) nebo pojmenuj publikum."
+     "cs": "Oslovte čtenáře přímo (ty, vy, váš) nebo pojmenujte publikum."
     },
     {
      "key": "add_contrast",
      "en": "Challenge an expectation: a myth, a 'stop doing X', a contrast.",
-     "cs": "Zpochybni očekávání: mýtus, \"přestaň dělat X\", kontrast."
+     "cs": "Zpochybněte očekávání: mýtus, „přestaňte dělat X“, kontrast."
     }
    ],
    "text": "5 tips for better decluttering"
@@ -9675,17 +9675,17 @@
     {
      "key": "shorten",
      "en": "Shorten it: aim for 6 to 12 words.",
-     "cs": "Zkrať to: cílem je 6 až 12 slov."
+     "cs": "Zkraťte to: cílem je 6 až 12 slov."
     },
     {
      "key": "add_utility",
      "en": "Make the payoff concrete: a number, steps or a 'how to'.",
-     "cs": "Zkonkrétni užitek: číslo, kroky nebo \"jak na to\"."
+     "cs": "Zkonkrétněte užitek: číslo, kroky nebo „jak na to“."
     },
     {
      "key": "add_emotion",
      "en": "Add one high-arousal emotion word that is true to the content.",
-     "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+     "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
     }
    ],
    "text": "Should you rethink small apartments this year? in a way that works for teams of every size across every industry and every single region of the world"
@@ -9756,17 +9756,17 @@
     {
      "key": "open_loop",
      "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
-     "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+     "cs": "Otevřete informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
     },
     {
      "key": "add_emotion",
      "en": "Add one high-arousal emotion word that is true to the content.",
-     "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+     "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
     },
     {
      "key": "add_contrast",
      "en": "Challenge an expectation: a myth, a 'stop doing X', a contrast.",
-     "cs": "Zpochybni očekávání: mýtus, \"přestaň dělat X\", kontrast."
+     "cs": "Zpochybněte očekávání: mýtus, „přestaňte dělat X“, kontrast."
     }
    ],
    "text": "6 things top performers do differently with sleep setups"
@@ -9828,17 +9828,17 @@
     {
      "key": "add_utility",
      "en": "Make the payoff concrete: a number, steps or a 'how to'.",
-     "cs": "Zkonkrétni užitek: číslo, kroky nebo \"jak na to\"."
+     "cs": "Zkonkrétněte užitek: číslo, kroky nebo „jak na to“."
     },
     {
      "key": "open_loop",
      "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
-     "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+     "cs": "Otevřete informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
     },
     {
      "key": "add_emotion",
      "en": "Add one high-arousal emotion word that is true to the content.",
-     "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+     "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
     }
    ],
    "text": "Our Q3 small apartments update"
@@ -9909,17 +9909,17 @@
     {
      "key": "simplify",
      "en": "Use shorter, plainer words.",
-     "cs": "Použij kratší a prostší slova."
+     "cs": "Použijte kratší a prostší slova."
     },
     {
      "key": "add_utility",
      "en": "Make the payoff concrete: a number, steps or a 'how to'.",
-     "cs": "Zkonkrétni užitek: číslo, kroky nebo \"jak na to\"."
+     "cs": "Zkonkrétněte užitek: číslo, kroky nebo „jak na to“."
     },
     {
      "key": "open_loop",
      "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
-     "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+     "cs": "Otevřete informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
     }
    ],
    "text": "Your sleep setups questions, answered"
@@ -9981,17 +9981,17 @@
     {
      "key": "add_utility",
      "en": "Make the payoff concrete: a number, steps or a 'how to'.",
-     "cs": "Zkonkrétni užitek: číslo, kroky nebo \"jak na to\"."
+     "cs": "Zkonkrétněte užitek: číslo, kroky nebo „jak na to“."
     },
     {
      "key": "open_loop",
      "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
-     "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+     "cs": "Otevřete informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
     },
     {
      "key": "add_emotion",
      "en": "Add one high-arousal emotion word that is true to the content.",
-     "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+     "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
     }
    ],
    "text": "A message from our CEO on home office"
@@ -10070,17 +10070,17 @@
     {
      "key": "add_utility",
      "en": "Make the payoff concrete: a number, steps or a 'how to'.",
-     "cs": "Zkonkrétni užitek: číslo, kroky nebo \"jak na to\"."
+     "cs": "Zkonkrétněte užitek: číslo, kroky nebo „jak na to“."
     },
     {
      "key": "address_reader",
      "en": "Speak to the reader directly (you, your) or name the audience.",
-     "cs": "Oslov čtenáře přímo (ty, vy, váš) nebo pojmenuj publikum."
+     "cs": "Oslovte čtenáře přímo (ty, vy, váš) nebo pojmenujte publikum."
     },
     {
      "key": "add_emotion",
      "en": "Add one high-arousal emotion word that is true to the content.",
-     "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+     "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
     }
    ],
    "text": "Why home office advice is usually wrong"
@@ -10159,17 +10159,17 @@
     {
      "key": "add_utility",
      "en": "Make the payoff concrete: a number, steps or a 'how to'.",
-     "cs": "Zkonkrétni užitek: číslo, kroky nebo \"jak na to\"."
+     "cs": "Zkonkrétněte užitek: číslo, kroky nebo „jak na to“."
     },
     {
      "key": "open_loop",
      "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
-     "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+     "cs": "Otevřete informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
     },
     {
      "key": "address_reader",
      "en": "Speak to the reader directly (you, your) or name the audience.",
-     "cs": "Oslov čtenáře přímo (ty, vy, váš) nebo pojmenuj publikum."
+     "cs": "Oslovte čtenáře přímo (ty, vy, váš) nebo pojmenujte publikum."
     }
    ],
    "text": "Milujeme cestování po Česku"
@@ -10240,17 +10240,17 @@
     {
      "key": "open_loop",
      "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
-     "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+     "cs": "Otevřete informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
     },
     {
      "key": "add_emotion",
      "en": "Add one high-arousal emotion word that is true to the content.",
-     "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+     "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
     },
     {
      "key": "address_reader",
      "en": "Speak to the reader directly (you, your) or name the audience.",
-     "cs": "Oslov čtenáře přímo (ty, vy, váš) nebo pojmenuj publikum."
+     "cs": "Oslovte čtenáře přímo (ty, vy, váš) nebo pojmenujte publikum."
     }
    ],
    "text": "Jak na osobní rozpočet tak, aby to fungovalo pro týmy všech velikostí napříč všemi obory a ve všech regionech celého světa"
@@ -10329,17 +10329,17 @@
     {
      "key": "address_reader",
      "en": "Speak to the reader directly (you, your) or name the audience.",
-     "cs": "Oslov čtenáře přímo (ty, vy, váš) nebo pojmenuj publikum."
+     "cs": "Oslovte čtenáře přímo (ty, vy, váš) nebo pojmenujte publikum."
     },
     {
      "key": "add_emotion",
      "en": "Add one high-arousal emotion word that is true to the content.",
-     "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+     "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
     },
     {
      "key": "add_contrast",
      "en": "Challenge an expectation: a myth, a 'stop doing X', a contrast.",
-     "cs": "Zpochybni očekávání: mýtus, \"přestaň dělat X\", kontrast."
+     "cs": "Zpochybněte očekávání: mýtus, „přestaňte dělat X“, kontrast."
     }
    ],
    "text": "7 chyb, které děláte u domácí kávy"
@@ -10401,17 +10401,17 @@
     {
      "key": "add_utility",
      "en": "Make the payoff concrete: a number, steps or a 'how to'.",
-     "cs": "Zkonkrétni užitek: číslo, kroky nebo \"jak na to\"."
+     "cs": "Zkonkrétněte užitek: číslo, kroky nebo „jak na to“."
     },
     {
      "key": "add_emotion",
      "en": "Add one high-arousal emotion word that is true to the content.",
-     "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+     "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
     },
     {
      "key": "address_reader",
      "en": "Speak to the reader directly (you, your) or name the audience.",
-     "cs": "Oslov čtenáře přímo (ty, vy, váš) nebo pojmenuj publikum."
+     "cs": "Oslovte čtenáře přímo (ty, vy, váš) nebo pojmenujte publikum."
     }
    ],
    "text": "Vyplatí se běžecké boty?"
@@ -10498,17 +10498,17 @@
     {
      "key": "open_loop",
      "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
-     "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+     "cs": "Otevřete informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
     },
     {
      "key": "address_reader",
      "en": "Speak to the reader directly (you, your) or name the audience.",
-     "cs": "Oslov čtenáře přímo (ty, vy, váš) nebo pojmenuj publikum."
+     "cs": "Oslovte čtenáře přímo (ty, vy, váš) nebo pojmenujte publikum."
     },
     {
      "key": "add_contrast",
      "en": "Challenge an expectation: a myth, a 'stop doing X', a contrast.",
-     "cs": "Zpochybni očekávání: mýtus, \"přestaň dělat X\", kontrast."
+     "cs": "Zpochybněte očekávání: mýtus, „přestaňte dělat X“, kontrast."
     }
    ],
    "text": "5 tipů, jak vylepšit chytrou domácnost"
@@ -10587,17 +10587,17 @@
     {
      "key": "shorten",
      "en": "Shorten it: aim for 6 to 12 words.",
-     "cs": "Zkrať to: cílem je 6 až 12 slov."
+     "cs": "Zkraťte to: cílem je 6 až 12 slov."
     },
     {
      "key": "open_loop",
      "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
-     "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+     "cs": "Otevřete informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
     },
     {
      "key": "address_reader",
      "en": "Speak to the reader directly (you, your) or name the audience.",
-     "cs": "Oslov čtenáře přímo (ty, vy, váš) nebo pojmenuj publikum."
+     "cs": "Oslovte čtenáře přímo (ty, vy, váš) nebo pojmenujte publikum."
     }
    ],
    "text": "4 tipů, jak vylepšit cestování po Česku tak, aby to fungovalo pro týmy všech velikostí napříč všemi obory a ve všech regionech celého světa"
@@ -10659,17 +10659,17 @@
     {
      "key": "add_utility",
      "en": "Make the payoff concrete: a number, steps or a 'how to'.",
-     "cs": "Zkonkrétni užitek: číslo, kroky nebo \"jak na to\"."
+     "cs": "Zkonkrétněte užitek: číslo, kroky nebo „jak na to“."
     },
     {
      "key": "add_emotion",
      "en": "Add one high-arousal emotion word that is true to the content.",
-     "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+     "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
     },
     {
      "key": "address_reader",
      "en": "Speak to the reader directly (you, your) or name the audience.",
-     "cs": "Oslov čtenáře přímo (ty, vy, váš) nebo pojmenuj publikum."
+     "cs": "Oslovte čtenáře přímo (ty, vy, váš) nebo pojmenujte publikum."
     }
    ],
    "text": "Představujeme naši novou nabídku: online nakupování"
@@ -10756,17 +10756,17 @@
     {
      "key": "add_utility",
      "en": "Make the payoff concrete: a number, steps or a 'how to'.",
-     "cs": "Zkonkrétni užitek: číslo, kroky nebo \"jak na to\"."
+     "cs": "Zkonkrétněte užitek: číslo, kroky nebo „jak na to“."
     },
     {
      "key": "open_loop",
      "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
-     "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+     "cs": "Otevřete informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
     },
     {
      "key": "address_reader",
      "en": "Speak to the reader directly (you, your) or name the audience.",
-     "cs": "Oslov čtenáře přímo (ty, vy, váš) nebo pojmenuj publikum."
+     "cs": "Oslovte čtenáře přímo (ty, vy, váš) nebo pojmenujte publikum."
     }
    ],
    "text": "Přestaňte dělat online nakupování špatně"
@@ -10845,17 +10845,17 @@
     {
      "key": "add_emotion",
      "en": "Add one high-arousal emotion word that is true to the content.",
-     "cs": "Přidej jedno silné emoční slovo, které odpovídá obsahu."
+     "cs": "Přidejte jedno silné emoční slovo, které odpovídá obsahu."
     },
     {
      "key": "address_reader",
      "en": "Speak to the reader directly (you, your) or name the audience.",
-     "cs": "Oslov čtenáře přímo (ty, vy, váš) nebo pojmenuj publikum."
+     "cs": "Oslovte čtenáře přímo (ty, vy, váš) nebo pojmenujte publikum."
     },
     {
      "key": "open_loop",
      "en": "Open an information gap: a question, a surprising claim or a promise of a reveal.",
-     "cs": "Otevři informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
+     "cs": "Otevřete informační mezeru: otázka, překvapivé tvrzení nebo příslib odhalení."
     }
    ],
    "text": "Průvodce pro začátečníky: osobní rozpočet"

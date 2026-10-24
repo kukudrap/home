@@ -1,7 +1,8 @@
 "use strict";
 // The claims views: the pure models (claims map, findings, study links) and the rendered Boss claims panel, Vault claims
 // map, Home banner, About cards and Forge pill, using the small DOM of ui-sandbox.js. The generic edition (a bundle
-// without vertical, claims and claim_rules) must keep its old shape.
+// without vertical, claims and claim_rules) must keep its old shape. These tests run on the simulated demo edition
+// (web/dev/demo-bundle.json: two sample packs, teaching scenarios); the real edition is covered in realui.test.js.
 const test = require("node:test");
 const assert = require("node:assert/strict");
 const fs = require("node:fs");
@@ -13,7 +14,7 @@ const game = require("../src/game.js");
 const scoring = require("../src/scoring.js");
 const { loadUi, sleep } = require("./ui-sandbox.js");
 
-const bundle = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "dev", "bundle.json"), "utf8"));
+const bundle = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "dev", "demo-bundle.json"), "utf8"));
 const clone = (x) => JSON.parse(JSON.stringify(x));
 /** The same data as the generic edition ships it: no vertical, no claims map, no rules. */
 function generic() {

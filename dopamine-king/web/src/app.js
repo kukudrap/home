@@ -8,7 +8,7 @@
 
   var DK = root.DK;
   var dom = DK.ui.dom, icons = DK.ui.icons, i18n = DK.i18n, game = DK.game, scoring = DK.scoring;
-  var VIEWS = ["home", "arena", "boss", "lab", "vault", "forge", "guru", "about"];
+  var VIEWS = ["home", "arena", "boss", "market", "lab", "vault", "claims", "forge", "guru", "about"];
 
   var app = {
     bundle: null, store: null, shell: null, route: null, view: null,
@@ -270,6 +270,11 @@
       ctx.bundle = bundle;
       ctx.store = app.store;
       scoring.setDefaultSpec(bundle.spec);
+      var defLang = bundle.meta && bundle.meta.default_lang;
+      if ((defLang === "cs" || defLang === "en") && app.store.openedFresh()) {
+        app.store.update(function (p) { return Object.assign({}, p, { settings: Object.assign({}, p.settings, { lang: defLang }) }); }, { silent: true });
+        applySettings(app.store.get().settings, null);
+      }
       app.store.update(function (p) { return game.rollover(p, ctx).profile; }, { silent: true });
       app.shell = DK.ui.shell.mount(ctx);
       document.getElementById("dk-boot").remove();

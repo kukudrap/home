@@ -116,7 +116,7 @@ _DEFS: list[tuple[str, str, str, str, str, str, str, str]] = [
         "Concrete numbers and specific details are commonly advised because they are easier to picture and check "
         "than vague wording ('seven steps' rather than 'some tips'). The ledger holds no direct test of this yet.",
         "Konkrétní čísla a podrobnosti se běžně doporučují, protože se dají snáz představit a ověřit než vágní "
-        "formulace ('sedm kroků' místo 'pár tipů'). Registr studií zatím neobsahuje žádný přímý test tohoto postupu.",
+        "formulace („sedm kroků“ místo „pár tipů“). Registr studií zatím neobsahuje žádný přímý test tohoto postupu.",
         "Numbers must be real and sourced. Fake precision is deception.",
         "Čísla musí být skutečná a doložená. Falešná přesnost je klam.",
     ),
@@ -208,7 +208,7 @@ _DEFS: list[tuple[str, str, str, str, str, str, str, str]] = [
         "Dopamine is not a simple pleasure chemical. It is tied to wanting, anticipation and prediction error, which "
         "is why 'dopamine hits' is a misleading way to describe engagement.",
         "Dopamin není jednoduchá chemická látka potěšení. Souvisí s toužením, očekáváním a predikční chybou, a "
-        "proto je výraz 'dávky dopaminu' zavádějící popis zapojení.",
+        "proto je výraz „dávky dopaminu“ zavádějící popis zapojení.",
         "Do not use neuroscience words to dress up manipulation. Say what the content does, not that it hacks the brain.",
         "Neurovědní slova nepoužívejte k ozdobení manipulace. Řekněte, co obsah dělá, ne že hackuje mozek.",
     ),

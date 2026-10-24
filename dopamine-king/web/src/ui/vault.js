@@ -16,7 +16,7 @@
 
   var RARITIES = ["common", "rare", "epic", "legendary"];
   var DESIGNS = ["meta-analysis", "systematic-review", "rct", "field-experiment", "lab-experiment", "observational", "survey", "theory", "qualitative", "book", "preprint", "guideline", "unknown"];
-  var KIND_ICON = { pattern: "chart", tip: "bulb", study: "book", tactic: "layers" };
+  var KIND_ICON = { pattern: "chart", tip: "bulb", study: "book", tactic: "layers", market: "globe" };
   var CONFETTI_BY_RARITY = { common: 0, rare: 70, epic: 130, legendary: 230 };
 
   var state = { tab: "cards", studyFilter: "all", lootFilter: "all", tacticTheme: "all", tacticEvidence: "all", checkText: "", focusCheck: false, myth: { current: null, answered: null, correctRun: 0, played: 0 } };
@@ -141,7 +141,8 @@
         d.h("span.loot-top", null, icons.gems(r, 13), d.h("span.loot-rarity", null, rarityLabel(r))),
         d.h("span.loot-kind", null, icons.icon(KIND_ICON[c.kind] || "bulb", { size: 16 }), d.h("span", null, kindLabel(c.kind))),
         d.h("strong.loot-title", null, cardTitle(c)),
-        c.demo ? d.h("span.chip.tone-warn", null, t("common.simulatedShort")) : null));
+        c.demo ? d.h("span.chip.tone-warn", null, t("common.simulatedShort")) : null,
+        c.verified === false ? d.h("span.chip.tone-warn", null, t("vault.unverified")) : null));
     }
 
     function showCard(c) {
@@ -151,8 +152,11 @@
         title: cardTitle(c),
         body: d.h("div.stack.tight.card-detail", null,
           d.h("div.row.wrap", null, d.h("span.rar-name.r-" + r, null, icons.gems(r, 14), d.h("span", null, rarityLabel(r))), d.h("span.chip", null, icons.icon(KIND_ICON[c.kind] || "bulb", { size: 13 }), d.h("span", null, kindLabel(c.kind))),
-            c.demo ? d.h("span.chip.tone-warn", null, icons.icon("flask", { size: 13 }), d.h("span", null, t("common.simulated"))) : null),
+            c.demo ? d.h("span.chip.tone-warn", null, icons.icon("flask", { size: 13 }), d.h("span", null, t("common.simulated"))) : null,
+            c.verified === true ? d.h("span.chip.tone-ok", null, icons.icon("shieldCheck", { size: 13 }), d.h("span", null, t("vault.verified"))) : null,
+            c.verified === false ? d.h("span.chip.tone-warn", null, icons.icon("alert", { size: 13 }), d.h("span", null, t("vault.unverified"))) : null),
           d.h("p.detail-body", null, ctx.pick(c, "body")),
+          c.url ? d.h("p", null, d.extLink(c.url, [icons.icon("arrowRight", { size: 14 }), d.h("span", null, t("vault.openSource"))], "link.small")) : null,
           c.demo ? d.h("p.small.muted", null, t("vault.demoCard")) : null),
         actions: [d.h("button.btn.btn-primary", { type: "button", onclick: function () { dlg.close(); } }, t("common.close"))]
       });
@@ -293,7 +297,8 @@
         d.h("span.loot-kind", null, icons.icon(KIND_ICON[c.kind] || "bulb", { size: 16 }), d.h("span", null, kindLabel(c.kind))),
         d.h("strong.loot-title", null, cardTitle(c)),
         d.h("span.loot-body", null, ctx.pick(c, "body")),
-        res.duplicate ? d.h("span.chip.tone-xp", null, t("vault.dupeChip", { n: res.dust })) : d.h("span.chip.tone-ok", null, icons.icon("star", { size: 13 }), d.h("span", null, t("common.new"))));
+        res.duplicate ? d.h("span.chip.tone-xp", null, t("vault.dupeChip", { n: res.dust })) : d.h("span.chip.tone-ok", null, icons.icon("star", { size: 13 }), d.h("span", null, t("common.new"))),
+        c.verified === false ? d.h("span.chip.tone-warn", null, t("vault.unverified")) : null);
       var back = d.h("div.flip-face.flip-back", null, icons.icon("crown", { size: 56 }), d.h("span", null, t("app.name")));
       return { el: d.h("div.flip", { hidden: true }, d.h("div.flip-inner", null, back, face)), face: face };
     }
@@ -352,7 +357,9 @@
           s.peer_reviewed === true ? d.h("span.chip", null, t("vault.peer")) : (s.peer_reviewed === false ? d.h("span.chip", null, t("vault.notPeer")) : null)),
         s.verification_note ? d.h("p.small.muted", null, s.verification_note) : null,
         linkNodes(s.id),
-        doi ? d.h("div.row.wrap.doi-row", null, d.h("code.doi", null, "doi:" + doi), widgets.copyButton(doi, t("vault.copyDoi"))) : null));
+        doi || s.url ? d.h("div.row.wrap.doi-row", null,
+          doi ? d.h("code.doi", null, "doi:" + doi) : null, doi ? widgets.copyButton(doi, t("vault.copyDoi")) : null,
+          s.url ? d.extLink(s.url, [icons.icon("arrowRight", { size: 14 }), d.h("span", null, t("vault.openSource"))], "link.small") : null) : null));
     }
 
     function render() {

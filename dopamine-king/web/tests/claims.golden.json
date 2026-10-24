@@ -363,7 +363,13 @@
      "thinning hair",
      "hair thinning",
      "hair density",
-     "hair follicle*"
+     "hair follicle*",
+     "hair quality",
+     "hair quantity",
+     "hair volume",
+     "hair thickness",
+     "thicker hair",
+     "fuller hair"
     ],
     "nouns_cs": [
      "růst vlasů",
@@ -374,7 +380,13 @@
      "řídnoucí vlasy",
      "řídnutí vlasů",
      "hustot* vlasů",
-     "vlasov* folikul*"
+     "vlasov* folikul*",
+     "množství vlasů",
+     "kvalit* vlasů",
+     "objem* vlasů",
+     "hustší vlasy",
+     "silnější vlasy",
+     "plnější vlasy"
     ],
     "patterns": [
      "\\bvlas\\w*(?:[^\\w.!?;\\n]+\\w+){0,4}[^\\w.!?;\\n]+(?:dorost\\w*|vypada\\w*|zhust\\w*|narost\\w*)",
@@ -552,7 +564,17 @@
      "brain disorder*",
      "memory loss",
      "mental health",
-     "mental illness"
+     "mental illness",
+     "dopamine",
+     "serotonin",
+     "endorphin*",
+     "oxytocin",
+     "cortisol",
+     "happy hormone*",
+     "feel-good hormone*",
+     "love hormone*",
+     "stress hormone*",
+     "neurotransmitter*"
     ],
     "nouns_cs": [
      "depres*",
@@ -571,7 +593,18 @@
      "duševní zdraví",
      "duševního zdraví",
      "psychick* zdraví",
-     "mentáln* zdraví"
+     "mentáln* zdraví",
+     "dopamin*",
+     "serotonin*",
+     "endorfin*",
+     "oxytocin*",
+     "kortizol*",
+     "hormon* štěstí",
+     "hormon* radosti",
+     "hormon* lásky",
+     "stresov* hormon*",
+     "neurotransmiter*",
+     "neuromediátor*"
     ],
     "patterns": [],
     "safe_en": [
@@ -1122,7 +1155,13 @@
     "slowing",
     "minimi*",
     "shrink*",
-    "diminish*"
+    "diminish*",
+    "raise*",
+    "elevate*",
+    "trigger*",
+    "release*",
+    "regulate*",
+    "balance*"
    ],
    "cs": [
     "zlepš*",
@@ -1158,7 +1197,12 @@
     "minimaliz*",
     "zmenš*",
     "zpomal*",
-    "zpomaluj*"
+    "zpomaluj*",
+    "navyš*",
+    "zved*",
+    "vyplav*",
+    "reguluj*",
+    "vyrovn*"
    ]
   },
   "disease_terms": {
@@ -2162,7 +2206,26 @@
     "treatment panel",
     "medical panel",
     "medical lamp",
-    "doctors trust"
+    "doctors trust",
+    "best red light panel on the market",
+    "best light panel on the market",
+    "best panel on the market",
+    "best on the market",
+    "best in Europe",
+    "best in the world",
+    "number one brand in",
+    "number one panel on",
+    "market leader",
+    "industry leader",
+    "leader in red light therapy",
+    "european market leader",
+    "first in Europe",
+    "first in Czechia",
+    "only Czech company",
+    "most effective panel on the market",
+    "most powerful panel on the market",
+    "best-selling panel on the market",
+    "most popular panel in"
    ],
    "cs": [
     "schváleno FDA",
@@ -2389,7 +2452,37 @@
     "terapeutick* přístroj*",
     "terapeutick* zařízení",
     "využívají lékaři",
-    "důvěřují lékaři"
+    "důvěřují lékaři",
+    "nejlepší panel na trhu",
+    "nejlepší panel v Evropě",
+    "nejlepší panel v Česku",
+    "nejlepší panel na světě",
+    "nejlepší světelný panel na trhu",
+    "nejlepší na trhu",
+    "nejlepší v Česku",
+    "nejlepší v Evropě",
+    "nejlepší na světě",
+    "číslo jedna na trhu",
+    "číslo jedna v oboru",
+    "číslo 1 na trhu",
+    "jednička na trhu",
+    "jednička v oboru",
+    "lídr trhu",
+    "tržní lídr",
+    "evropský lídr",
+    "lídr v Evropě",
+    "lídr v oboru",
+    "lídr mezi panely",
+    "první v Česku",
+    "první v Evropě",
+    "jediná česká firma",
+    "jediný český výrobce",
+    "jediná česká značka",
+    "nejúčinnější panel na trhu",
+    "nejvýkonnější panel na trhu",
+    "nejprodávanější panel v Česku",
+    "nejprodávanější v Česku",
+    "nejoblíbenější panel v Česku"
    ]
   },
   "safety_absolute": {
@@ -2807,19 +2900,21 @@
    "uzdrav"
   ],
   "timeline_patterns": {
+   "cs": [
+    "\\b(?:do|za|behem|po)\\s+(?:jen\\s+|pouze\\s+)?(?:\\d+|jed(?:en|na|no|noho|ne)|dv(?:a|e|ou|ema)|tri|trech|ctyri|ctyr|ctyrech|pet|peti|sest|sesti|sedm|sedmi|osm|osmi|devet|deviti|deset|deseti|ctrnact|ctrnacti|dvacet|dvaceti|tricet\\w*)\\s+(?:dn\\w*|tyd\\w*|mesic\\w*|hodin\\w*|minut\\w*|sezeni\\w*)\\b[^.!?\\n]{0,30}\\b(?:uvidite|ucitite|pocitite|zaznamenate|zpozorujete|dosahnete|ziskate|rozdil\\w*|vysledk\\w*|(?:novy|jiny) clovek|(?:novym|jinym) clovekem)\\b",
+    "\\b(?:uvidite|pocitite|zaznamenate|zpozorujete|dosahnete|ziskate)\\b[^.!?\\n]{0,50}\\b(?:do|za|behem|po)\\s+(?:jen\\s+|pouze\\s+)?(?:\\d+|jed(?:en|na|no|noho|ne)|dv(?:a|e|ou|ema)|tri|trech|ctyri|ctyr|ctyrech|pet|peti|sest|sesti|sedm|sedmi|osm|osmi|devet|deviti|deset|deseti|ctrnact|ctrnacti|dvacet|dvaceti|tricet\\w*)\\s+(?:dn\\w*|tyd\\w*|mesic\\w*|sezeni\\w*)\\b",
+    "\\bvysledk\\w*\\s+(?:do|za|behem|po)\\s+(?:jen\\s+|pouze\\s+)?(?:\\d+|jed(?:en|na|no|noho|ne)|dv(?:a|e|ou|ema)|tri|trech|ctyri|ctyr|ctyrech|pet|peti|sest|sesti|sedm|sedmi|osm|osmi|devet|deviti|deset|deseti|ctrnact|ctrnacti|dvacet|dvaceti|tricet\\w*)\\s+(?:dn\\w*|tyd\\w*|mesic\\w*|sezeni\\w*)\\b",
+    "\\b(?:zarucen\\w*|zarucuj\\w*|garantovan\\w*|garantuj\\w*)\\b",
+    "\\b(?:zazracn\\w*|zazrak\\w*)\\b",
+    "\\b(?:do|za|behem|po)\\s+(?:tyden|tydne|tydnu|mesic|mesice|mesici|den|dne|dni|dnu|rok|roku|roce)\\b[^.!?\\n]{0,30}\\b(?:uvidite|ucitite|pocitite|zaznamenate|zpozorujete|dosahnete|ziskate|rozdil\\w*|vysledk\\w*|(?:novy|jiny) clovek|(?:novym|jinym) clovekem|budete\\s+(?:jiny|jina|novy|nova))\\b"
+   ],
    "en": [
     "\\b(?:in|within|after)\\s+(?:just\\s+|only\\s+|as little as\\s+)?\\d+\\s+(?:days?|weeks?|sessions?|minutes?)\\b[^.!?\\n]{0,30}\\b(?:you(?:'ll| will| can expect)?|expect|see|notice|feel|get)\\b",
     "\\byou(?:'ll| will| can expect to)\\s+(?:see|notice|feel|get)\\b[^.!?\\n]{0,50}\\b(?:in|within|after)\\s+(?:just\\s+|only\\s+)?\\d+\\s+(?:days?|weeks?|sessions?)\\b",
     "\\b(?:results?|difference|changes?)\\s+(?:in|within|after)\\s+(?:just\\s+|only\\s+)?\\d+\\s+(?:days?|weeks?|sessions?)\\b",
     "\\b(?:guarantee[sd]?|guaranteeing)\\b",
-    "\\b(?:miracle|miraculous|miracles)\\b"
-   ],
-   "cs": [
-    "\\b(?:za|behem|po)\\s+(?:jen\\s+|pouze\\s+)?\\d+\\s+(?:dn\\w*|tyd\\w*|hodin\\w*|minut\\w*|sezeni\\w*)\\b[^.!?\\n]{0,30}\\b(?:uvidite|ucitite|pocitite|zaznamenate|zpozorujete|dosahnete|ziskate)\\b",
-    "\\b(?:uvidite|pocitite|zaznamenate|zpozorujete|dosahnete|ziskate)\\b[^.!?\\n]{0,50}\\b(?:za|behem|po)\\s+(?:jen\\s+|pouze\\s+)?\\d+\\s+(?:dn\\w*|tyd\\w*|sezeni\\w*)\\b",
-    "\\bvysledk\\w*\\s+(?:za|behem|po)\\s+(?:jen\\s+|pouze\\s+)?\\d+\\s+(?:dn\\w*|tyd\\w*|sezeni\\w*)\\b",
-    "\\b(?:zarucen\\w*|zarucuj\\w*|garantovan\\w*|garantuj\\w*)\\b",
-    "\\b(?:zazracn\\w*|zazrak\\w*)\\b"
+    "\\b(?:miracle|miraculous|miracles)\\b",
+    "\\b(?:in|within|after)\\s+(?:just\\s+|only\\s+|as little as\\s+)?(?:one|two|three|four|five|six|seven|eight|nine|ten|twelve|fourteen|twenty|thirty)\\s+(?:days?|weeks?|months?|sessions?)\\b[^.!?\\n]{0,30}\\b(?:you(?:'ll| will| can expect to)?\\s+(?:see|notice|feel|get)|expect|see|notice|feel|difference|results?|new you|different person)\\b"
    ]
   },
   "dose_patterns": {
@@ -3350,7 +3445,7 @@
      "Describe the routine and the technology instead, for example: 'a red light panel for a regular evening routine; it does not replace medical care.'"
     ],
     "cs": [
-     "Popište raději rutinu a technologii, například: 'světelný panel pro pravidelný večerní rituál; nenahrazuje lékařskou péči.'"
+     "Popište raději rutinu a technologii, například: „světelný panel pro pravidelný večerní rituál; nenahrazuje lékařskou péči.“"
     ]
    },
    "terms": {
@@ -3748,6 +3843,12 @@
     {
      "code": "OUTCOME_PROMISE",
      "topic": null,
+     "start": 0,
+     "end": 39
+    },
+    {
+     "code": "OUTCOME_PROMISE",
+     "topic": null,
      "start": 14,
      "end": 49
     },
@@ -3828,6 +3929,12 @@
   {
    "text": "Za tri tydny uvidite rozdil, vysledky za 21 dni.",
    "hits": [
+    {
+     "code": "OUTCOME_PROMISE",
+     "topic": null,
+     "start": 0,
+     "end": 37
+    },
     {
      "code": "OUTCOME_PROMISE",
      "topic": null,
@@ -3952,6 +4059,185 @@
   },
   {
    "text": "",
+   "hits": []
+  },
+  {
+   "text": "Zvýšení kvality a množství vlasů díky světlu.",
+   "hits": [
+    {
+     "code": "CLAIM_MEDICAL",
+     "topic": "pbm-hair",
+     "start": 0,
+     "end": 32
+    }
+   ]
+  },
+  {
+   "text": "Zvyšuje množství vlasů a hustotu vlasů.",
+   "hits": [
+    {
+     "code": "CLAIM_MEDICAL",
+     "topic": "pbm-hair",
+     "start": 0,
+     "end": 38
+    }
+   ]
+  },
+  {
+   "text": "Pro silnější vlasy každý den.",
+   "hits": []
+  },
+  {
+   "text": "Zvyšuje dopamin a zlepšuje náladu.",
+   "hits": [
+    {
+     "code": "CLAIM_MEDICAL",
+     "topic": "pbm-mood-brain",
+     "start": 0,
+     "end": 15
+    }
+   ]
+  },
+  {
+   "text": "Podporuje tvorbu serotoninu a endorfinů.",
+   "hits": [
+    {
+     "code": "CLAIM_MEDICAL",
+     "topic": "pbm-mood-brain",
+     "start": 0,
+     "end": 39
+    }
+   ]
+  },
+  {
+   "text": "Snižuje stresový hormon kortizol.",
+   "hits": [
+    {
+     "code": "CLAIM_AVOID",
+     "topic": "pbm-testosterone",
+     "start": 0,
+     "end": 23
+    }
+   ]
+  },
+  {
+   "text": "Světlo nezvyšuje dopamin, jen svítí.",
+   "hits": []
+  },
+  {
+   "text": "Dopamin souvisí s těšením, ne s potěšením.",
+   "hits": []
+  },
+  {
+   "text": "Nejlepší panel v Evropě.",
+   "hits": [
+    {
+     "code": "STATUS_CLAIM",
+     "topic": null,
+     "start": 0,
+     "end": 23
+    }
+   ]
+  },
+  {
+   "text": "Jsme lídr trhu.",
+   "hits": [
+    {
+     "code": "STATUS_CLAIM",
+     "topic": null,
+     "start": 5,
+     "end": 14
+    }
+   ]
+  },
+  {
+   "text": "Jsme první v Česku.",
+   "hits": [
+    {
+     "code": "STATUS_CLAIM",
+     "topic": null,
+     "start": 5,
+     "end": 18
+    }
+   ]
+  },
+  {
+   "text": "Nejlepší část dne je ta, kterou si naplánujete.",
+   "hits": []
+  },
+  {
+   "text": "Těšte se na večer, který si vyberete sami.",
+   "hits": []
+  },
+  {
+   "text": "Rozsviťte svůj večerní rituál.",
+   "hits": []
+  },
+  {
+   "text": "Do dvou týdnů pocítíte rozdíl.",
+   "hits": [
+    {
+     "code": "OUTCOME_PROMISE",
+     "topic": null,
+     "start": 0,
+     "end": 29
+    }
+   ]
+  },
+  {
+   "text": "Za týden pocítíte rozdíl.",
+   "hits": [
+    {
+     "code": "OUTCOME_PROMISE",
+     "topic": null,
+     "start": 0,
+     "end": 24
+    }
+   ]
+  },
+  {
+   "text": "Za 14 dní nový člověk.",
+   "hits": [
+    {
+     "code": "OUTCOME_PROMISE",
+     "topic": null,
+     "start": 0,
+     "end": 21
+    }
+   ]
+  },
+  {
+   "text": "Už po týdnu budete jiný člověk.",
+   "hits": [
+    {
+     "code": "OUTCOME_PROMISE",
+     "topic": null,
+     "start": 3,
+     "end": 30
+    }
+   ]
+  },
+  {
+   "text": "Za měsíc uvidíte výsledky.",
+   "hits": [
+    {
+     "code": "OUTCOME_PROMISE",
+     "topic": null,
+     "start": 0,
+     "end": 25
+    }
+   ]
+  },
+  {
+   "text": "Za dva dny doručíme objednávku.",
+   "hits": []
+  },
+  {
+   "text": "Po třech týdnech vám pošleme připomínku.",
+   "hits": []
+  },
+  {
+   "text": "Sezení trvá deset minut.",
    "hits": []
   },
   {
@@ -4412,6 +4698,91 @@
   },
   {
    "text": "",
+   "hits": []
+  },
+  {
+   "text": "Promotes thicker hair and better hair quality.",
+   "hits": [
+    {
+     "code": "CLAIM_MEDICAL",
+     "topic": "pbm-hair",
+     "start": 0,
+     "end": 45
+    }
+   ]
+  },
+  {
+   "text": "Boosts hair volume in weeks.",
+   "hits": [
+    {
+     "code": "CLAIM_MEDICAL",
+     "topic": "pbm-hair",
+     "start": 0,
+     "end": 18
+    }
+   ]
+  },
+  {
+   "text": "Boosts dopamine and serotonin.",
+   "hits": [
+    {
+     "code": "CLAIM_MEDICAL",
+     "topic": "pbm-mood-brain",
+     "start": 0,
+     "end": 29
+    }
+   ]
+  },
+  {
+   "text": "Does not boost dopamine, it just glows.",
+   "hits": []
+  },
+  {
+   "text": "The best red light panel on the market.",
+   "hits": [
+    {
+     "code": "STATUS_CLAIM",
+     "topic": null,
+     "start": 4,
+     "end": 38
+    }
+   ]
+  },
+  {
+   "text": "Market leader in red light.",
+   "hits": [
+    {
+     "code": "STATUS_CLAIM",
+     "topic": null,
+     "start": 0,
+     "end": 13
+    }
+   ]
+  },
+  {
+   "text": "In two weeks you will feel a difference.",
+   "hits": [
+    {
+     "code": "OUTCOME_PROMISE",
+     "topic": null,
+     "start": 0,
+     "end": 39
+    }
+   ]
+  },
+  {
+   "text": "Within 14 days, a new you.",
+   "hits": [
+    {
+     "code": "OUTCOME_PROMISE",
+     "topic": null,
+     "start": 0,
+     "end": 25
+    }
+   ]
+  },
+  {
+   "text": "Delivery within two days.",
    "hits": []
   },
   {

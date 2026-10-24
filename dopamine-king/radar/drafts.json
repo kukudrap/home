@@ -1,0 +1,93 @@
+{
+ "note": "Texty k akcím radaru. Každý text se napíše stejným pisatelem a zkontroluje stejným Trust Shieldem jako ostatní obsah. Fakta v zadání jsou jediné údaje o značce, které smí text uvést; kdo je schvaluje, schvaluje je jako tvrzení značky.",
+ "pages": [
+  {
+   "id": "identita",
+   "action": "identity",
+   "title": "MITO LIGHT a Mito Red Light: dvě různé značky",
+   "formats": [
+    "seo_article"
+   ],
+   "topic": "rozdíl mezi MITO LIGHT a Mito Red Light",
+   "audience": "všechny, kdo hledají značku MITO LIGHT",
+   "keyword": "MITO LIGHT nebo Mito Red Light",
+   "secondary_keywords": [
+    "mitolight.cz",
+    "česká značka panelů s červeným světlem",
+    "Mito Red Light"
+   ],
+   "cta": "Prohlédněte si panely MITO LIGHT na mitolight.cz",
+   "facts": [
+    "MITO LIGHT je česká značka panelů a žárovek s červeným a blízkým infračerveným světlem; zboží prodává ve vlastním českém e-shopu mitolight.cz.",
+    "MITO LIGHT není stejná značka jako Mito Red Light, americká značka s webem mitoredlight.com.",
+    "Zařízení MITO LIGHT jsou vyvíjena a navrhována v České republice a mají označení CE a UKCA a splňují požadavky RoHS (jde o označení shody elektrických zařízení, nikoli o zdravotnické schválení).",
+    "Zákaznická hodnocení obchodu najdete na Heurece a ve profilu MITO LIGHT Europe na Trustpilotu."
+   ],
+   "needs_approval": "Věta, že MITO LIGHT a Mito Red Light jsou dvě různé značky, vychází z poznámek recenzentů: potvrďte ji. Text na jednom místě píše, že s webem mitoredlight.com nemáte nic společného. To je víc, než říkají ověřená fakta, proto větu potvrďte nebo škrtněte.",
+   "no_sources": true
+  },
+  {
+   "id": "bezpecne-pouziti",
+   "action": "howto",
+   "title": "Jak dlouho a jak často používat panel s červeným světlem",
+   "formats": [
+    "seo_article"
+   ],
+   "topic": "bezpečné používání panelu s červeným světlem",
+   "audience": "lidé před prvním sezením s panelem s červeným světlem",
+   "keyword": "jak dlouho a jak často používat panel s červeným světlem",
+   "secondary_keywords": [
+    "terapie červeným světlem bezpečnost",
+    "vzdálenost od panelu",
+    "kdy se poradit s lékařem"
+   ],
+   "cta": "Přečtěte si návod ke svému panelu MITO LIGHT",
+   "facts": [
+    "Podle častých otázek na mitolight.cz se doporučuje zhruba 10 až 20 minut na sezení ve vzdálenosti přibližně 15 až 50 cm; čím dál od zdroje, tím déle.",
+    "Stejnou část těla se podle výrobce svítí nejvýše 30 minut denně, rozdělených do 2 až 3 sezení, každé do 20 minut na oblast.",
+    "Blízké infračervené světlo na břiše se podle výrobce používá z větší vzdálenosti, kolem 40 až 70 cm.",
+    "Výrobce upozorňuje na opatrnost při lécích způsobujících citlivost na světlo, například u některých antibiotik, a uvádí, že produkty ani informace nenahrazují radu lékaře.",
+    "MITO LIGHT je určen jako pomůcka k podpoře regenerace zdravého organismu a není zdravotnickým prostředkem."
+   ],
+   "needs_approval": "Údaje o době a vzdálenosti jsou z častých otázek na webu značky. Před zveřejněním je porovnejte s návodem ke konkrétnímu modelu."
+  },
+  {
+   "id": "ozareni",
+   "action": "measure",
+   "title": "Ozáření v mW/cm2: co číslo znamená a jak panely porovnávat",
+   "formats": [
+    "seo_article"
+   ],
+   "topic": "ozáření u panelů s červeným světlem",
+   "audience": "technologičtí nadšenci, kteří porovnávají panely s červeným světlem",
+   "keyword": "ozáření mW/cm2 panel červené světlo",
+   "secondary_keywords": [
+    "vlnové délky panelu",
+    "jak porovnat panely s červeným světlem",
+    "ozáření ve vzdálenosti"
+   ],
+   "cta": "Prohlédněte si parametry panelů MITO LIGHT",
+   "facts": [
+    "Panely generací 4.0 a 5.0 používají šest vlnových délek: 630, 660, 670, 810, 830 a 850 nm.",
+    "Starter 5.0 uvádí ozáření ve vzdálenosti 15 cm jako 71 mW/cm2 měřeno spektrometrem a jako 130 mW/cm2 měřeno solárním měřičem.",
+    "Expert 5.0 uvádí deklarované ozáření 80 mW/cm2 a Biohacker 5.0 82 mW/cm2.",
+    "Intro uvádí deklarované ozáření 70 mW/cm2 a žárovka Bulb 5.0 65 mW/cm2.",
+    "Údaje o ozáření jsou deklarované výrobcem."
+   ],
+   "needs_approval": "U ozáření chybí vzdálenost a způsob měření u většiny modelů. Doplňte je z technických listů, jinak text porovnání jen naznačí."
+  }
+ ],
+ "posts": {
+  "formats": [
+   "instagram_caption"
+  ],
+  "personas": [
+   "fitness",
+   "biohacker",
+   "beauty",
+   "everyday",
+   "tech",
+   "seniors"
+  ]
+ }
+}

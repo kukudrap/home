@@ -9,7 +9,7 @@ Tato edice mění obecný stroj Dopamine King v nástroj pro obsahový marketing
 | **Registr důkazů** | 41 záznamů o studiích propojených s tématy. Síla důkazů se počítá jen z ověřených záznamů. |
 | **Registr značek oboru** | 26 značek a organizací (domácí panely, LED masky, klinické přístroje, odborné společnosti, média, MITO LIGHT) pro šetrný sběr. |
 | **Vzorová zadání MITO LIGHT** | Česky a anglicky, s fakty z veřejných zdrojů (k potvrzení značkou) a s ověřenými zdroji. |
-| **Obsah hry** | Souboje (Boss) s kontrolou tvrzení, Mýtus nebo fakt o červeném světle, simulované duely, mapa tvrzení v Trezoru. |
+| **Obsah hry** | Souboje (Boss) s kontrolou tvrzení, Mýtus nebo fakt o červeném světle, souboje ze skutečných hledání, mapa tvrzení v Trezoru. |
 | **Příkazy** | `kingctl audit` (kontrola existujících textů), `kingctl evidence claims`, `--vertical pbm` u ostatních příkazů, hledání v PubMed. |
 
 ## Výchozí bod: nezdravotnický přístroj
@@ -110,9 +110,9 @@ Medicínská a zakázaná témata zůstávají blokovaná, ať je štítek jaký
 
 ## Důkazy: co je ověřeno a co ne
 
-- **41 záznamů, z toho 25 ověřených** webovým vyhledáváním dne 2026-10-02 (název, časopis, rok, DOI nebo PubMed). U ověřených záznamů jsou závěry z abstraktů a shrnutí ve výsledcích, plné texty nebyly čteny.
-- **16 záznamů je "výzkumných podnětů" z paměti autora** (kůže, tvarování těla, vlasy a několik přehledů). Mají poznámku, že nejsou ověřeny, nic o jejich závěrech se neříká a do štítku se nepočítají. Ověříte je příkazem `kingctl evidence verify --vertical pbm --save .king/pbm-ledger.json` (potřebuje síť, využívá Crossref).
-- Rešerše narazila na **limit 200 webových vyhledávání na jednu relaci**. Proto chybí ověřené studie k vzhledu pleti, tvarování těla a vlasům, nejsou nezávislá měření spotřebitelských panelů ani přehled nežádoucích účinků. U sportu jsou záměrně vidět i nulové a smíšené výsledky (například celotělové panely).
+- **41 záznamů, z toho 39 ověřených** webovým vyhledáváním ze dnů 2026-10-02 (25 záznamů) a 2026-10-23 (14 záznamů): název, časopis a rok se objevily v PubMed, PubMed Central nebo u vydavatele. U ověřených záznamů jsou závěry z abstraktů a shrnutí ve výsledcích, plné texty nebyly čteny.
+- **2 záznamy zůstávají neověřené** (Cochranův přehled o žilních vředech a přehled Glassové z roku 2021). Mají poznámku, proč: u prvního se z výsledků nepodařilo poznat, jestli jde o protokol nebo hotový přehled, u druhého se nenašla stránka samotného článku. Do štítku se nepočítají.
+- První rešerše narazila na **limit 200 webových vyhledávání na jednu relaci**; chybějící studie k vzhledu pleti, tvarování těla a vlasům doplnil radar 2026-10-23. Stále nejsou nezávislá měření spotřebitelských panelů ani přehled nežádoucích účinků. U sportu jsou záměrně vidět i nulové a smíšené výsledky (například celotělové panely).
 - Hledání dalších studií: `kingctl evidence search "photobiomodulation skin" --sources pubmed,crossref` (PubMed je pro tento obor nejúplnější zdroj; potřebuje síť).
 
 ## Postup práce
@@ -172,4 +172,4 @@ Otevřené otázky pro značku (výběr): kdo je právním provozovatelem v jedn
 - Štít tvrzení je **heuristický kontrolor, ne právník**. Může přehlédnout nebo označit zbytečně; seznamy jsou záměrně konzervativní.
 - Fakta o MITO LIGHT, počet studií a registr značek odpovídají tomu, co šlo zjistit z vyhledávání v prostředí s omezeným rozpočtem a blokovanou sítí (viz výše).
 - Pravidla znají češtinu a angličtinu. Slovenština a němčina jsou v roadmapě.
-- Čísla v duelech a benchmarcích hry jsou **simulovaná** (fiktivní značky). Skutečná data konkurence získáte šetrným sběrem po povolení sítě a vlastní analytikou.
+- Čísla v soubojích a benchmarcích hry pocházejí z uložených hledání (titulky, pořadí a adresy). Výkonnostní čísla konkurence nejsou veřejná. Získat je lze jen vlastní analytikou značky.

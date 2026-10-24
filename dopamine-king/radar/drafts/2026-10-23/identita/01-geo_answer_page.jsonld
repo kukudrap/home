@@ -1,0 +1,57 @@
+[
+ {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "MITO LIGHT nebo Mito Red Light: 2 různé značky, poznáte je podle webu",
+  "description": "MITO LIGHT je česká značka panelů a žárovek s červeným a blízkým infračerveným světlem pro všechny, kdo hledají značku MITO LIGHT. Otázka „MITO LIGHT nebo Mito",
+  "inLanguage": "cs",
+  "publisher": {
+   "@type": "Organization",
+   "name": "MITO LIGHT"
+  },
+  "keywords": "MITO LIGHT nebo Mito Red Light"
+ },
+ {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+   {
+    "@type": "Question",
+    "name": "Je MITO LIGHT stejná značka jako Mito Red Light?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Ne, jsou to dvě různé značky. MITO LIGHT je česká značka panelů a žárovek s červeným a blízkým infračerveným světlem s e-shopem mitolight.cz. Mito Red Light je americká značka s webem mitoredlight.com. Podobný název může vést k záměně, proto stojí za to zkontrolovat adresu webu."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Jak poznám, že jsem na webu MITO LIGHT?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Podívejte se na adresu: český e-shop MITO LIGHT běží na mitolight.cz. Web mitoredlight.com patří americké značce Mito Red Light. Pokud si nejste jistí, začněte přímo zadáním mitolight.cz do prohlížeče a ověřte si i zákaznická hodnocení obchodu na Heurece nebo Trustpilotu."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Znamenají CE a UKCA, že jde o zdravotnický prostředek?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Ne. Zařízení MITO LIGHT mají označení CE a UKCA a splňují požadavky RoHS, ale jde o označení shody elektrických zařízení. Nejde o zdravotnické schválení ani o doporučení lékaře. Panely MITO LIGHT jsou wellness produkt, nikoli zdravotnický prostředek."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Kde najdu zkušenosti zákazníků s obchodem MITO LIGHT?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Zákaznická hodnocení obchodu najdete na Heurece a v profilu MITO LIGHT Europe na Trustpilotu. Doporučujeme si je přečíst před nákupem a posoudit je podle vlastních priorit. Panely a žárovky si můžete prohlédnout na mitolight.cz."
+    }
+   }
+  ]
+ },
+ {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "MITO LIGHT"
+ }
+]

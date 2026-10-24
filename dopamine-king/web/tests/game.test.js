@@ -200,7 +200,10 @@ test("win probability helper", () => {
   assert.ok(game.winProbability(40, 60) < 0.5);
   // The bundle was computed with the calibrated logit scale; the stored probabilities must agree.
   const k = bundle.calibration.logit_scale;
-  for (const d of bundle.arena) near(game.winProbability(d.a.score, d.b.score, k), d.model_p_a, 0.002, d.id);
+  const ranked = bundle.arena.filter((d) => d.kind === "rank");
+  assert.ok(ranked.length >= 50, "the position duels carry the model's probability");
+  // The stored scores have one decimal and the probability was computed from the unrounded ones: at most 0.1 points of gap, so 0.1 * 0.25 / 12 = 0.0021 of probability.
+  for (const d of ranked) near(game.winProbability(d.a.score, d.b.score, k), d.model_p_a, 0.0025, d.id);
 });
 
 // -- boss ---------------------------------------------------------------------------------------
@@ -331,7 +334,7 @@ test("Lab runs count, the peeking demo unlocks Don't Peek", () => {
 });
 
 test("Lab truth is drawn with the published odds from the scenario lift", () => {
-  const sc = bundle.lab.scenarios[0];
+  const sc = { id: "lab-subject", baseline: 0.04, lift_rel: 0.25 }; // the real edition ships no simulated scenario, the rules still need to hold for one
   const rng = mulberry32(12);
   const counts = { better: 0, none: 0, worse: 0 };
   const n = 20000;
@@ -441,9 +444,9 @@ test("quests are chosen deterministically from the date", () => {
   const variants = new Set();
   for (let d = 1; d <= 28; d++) variants.add(game.questIdsForDate(`2026-10-${String(d).padStart(2, "0")}`, 3).join());
   assert.ok(variants.size > 10, "different days give different quests");
-  assert.equal(game.QUEST_POOL.length, 8);
+  assert.equal(game.QUEST_POOL.length, 10);
   const events = new Set(game.QUEST_POOL.map((q) => q.event));
-  assert.equal(events.size, 8);
+  assert.equal(events.size, 10);
 });
 
 function forceQuests(p, ids) {
@@ -664,11 +667,12 @@ test("ten cards unlock Scientist", () => {
 });
 
 // -- achievements -------------------------------------------------------------------------------
-test("12 achievements with English and Czech names and descriptions", () => {
-  assert.equal(game.ACHIEVEMENTS.length, 12);
+test("16 achievements with English and Czech names and descriptions", () => {
+  assert.equal(game.ACHIEVEMENTS.length, 16);
   const ids = game.ACHIEVEMENTS.map((a) => a.id);
-  assert.equal(new Set(ids).size, 12);
-  for (const id of ["first_blood", "calibrated", "upset_hunter", "honest_hook", "boss_slayer", "scientist", "streak_7", "dont_peek", "myth_buster", "polyglot", "level_5", "level_10"]) assert.ok(ids.includes(id), id);
+  assert.equal(new Set(ids).size, 16);
+  for (const id of ["first_blood", "calibrated", "upset_hunter", "honest_hook", "boss_slayer", "scientist", "streak_7", "dont_peek", "myth_buster", "polyglot", "level_5", "level_10",
+    "rule_reader", "market_scout", "real_work", "real_test"]) assert.ok(ids.includes(id), id);
   game.ACHIEVEMENTS.forEach((a) => {
     for (const lang of ["en", "cs"]) { assert.ok(a.name[lang] && a.name[lang].trim(), `${a.id} name ${lang}`); assert.ok(a.desc[lang] && a.desc[lang].trim(), `${a.id} desc ${lang}`); }
     assert.equal(typeof a.test, "function");

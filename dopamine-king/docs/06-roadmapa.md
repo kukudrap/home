@@ -1,6 +1,6 @@
 # Roadmapa
 
-Verze 0.1 (tento repozitář) je **svislý řez**: celý řetězec od sběru po hru běží a je otestovaný, ale na syntetických datech. Další kroky mění demo na produkt.
+Verze 0.1 byla svislý řez: celý řetězec od sběru po hru běžel na syntetických datech. Dnešní hra už pracuje se skutečnými uloženými hledáními a ověřenými studiemi. Další kroky jsou skutečná výkonnostní čísla značky a obsah celých stránek.
 
 ## Známá omezení verze 0.1
 - Zástupné texty `[[ADD: ...]]` v offline režimu nesou **anglické** zadání pro pisatele i v českých balíčcích (je to totéž zadání, které dostává model). Lokalizace zadání do češtiny je malá, ale pracná úprava všech 28 builderů.
@@ -32,14 +32,24 @@ Verze 0.1 (tento repozitář) je **svislý řez**: celý řetězec od sběru po 
 ## Edice PBM (MITO LIGHT): další kroky
 Edice je hotový svislý řez (viz [07-fotobiomodulace.md](07-fotobiomodulace.md)). Co je třeba udělat, aby z ní byl provozní nástroj:
 
-1. **Ověřit zbylých 16 záznamů studií** (`kingctl evidence verify --vertical pbm --save ...` a `evidence search --sources pubmed` pro každé téma). Teprve ověřené záznamy zvedají sílu důkazů v mapě tvrzení. Kvůli omezení vyhledávání v prostředí, kde edice vznikla, se to nepovedlo.
+1. **Dočíst studie.** Čtrnáct záznamů je od 2026-10-23 ověřeno (název, časopis, rok), dva zůstávají otevřené. Závěry jsou čtené z abstraktů a shrnutí, ne z plných textů. S přístupem na web `kingctl evidence verify --vertical pbm --save ...` ověří DOI přes Crossref a stáhne abstrakty.
 2. **Živý sběr registru 26 značek oboru** (potřebuje síť) a rozšíření registru na stovky značek, včetně srovnání českého a slovenského trhu.
 3. **Kontrola pravidel regulatorním poradcem** a doplnění o to, co řekne: seznamy výrazů a témata jsou data, úprava nevyžaduje změnu kódu. Prověřit zejména dopis Ministerstva zdravotnictví o MITO LIGHT 3.0 (zatím jediný nepotvrzený zdroj, viz [08-regulace-pbm.md](08-regulace-pbm.md)).
 4. **Další pravidlové profily:** zdravotnický prostředek (pro klinické přístroje nebo pokud se status změní) a lokalizace (slovenština, němčina včetně německého zákona o reklamě na léčivé prostředky, angličtina pro USA a Velkou Británii).
 5. **Soubor důkazů ke každému tvrzení** (claim file: zdroj, datum, populace, dávka) vytvářený automaticky z mapy tvrzení, aby bylo možné prokázat věcnou přesnost na požádání dozorového orgánu.
 6. **Schvalovací workflow:** koncept, kontrola Štítem důvěry, schválení odpovědnou osobou, archiv schválených verzí, smlouvy a kontrolní seznam pro influencery a prodejce.
 7. **Kontrola obrázků a videa** (před a po, bílé pláště, nápisy ve videu), protože textová pravidla je nevidí, a kontrola proti aktuálním pravidlům reklamních platforem.
-8. **Měření a vlastní analytika značky** (import CSV z Meta, Google, e-shopu), aby se nahradila simulovaná demo čísla a kalibrovalo se na skutečném výkonu.
+8. **Měření a vlastní analytika značky** (import CSV z Meta, Google, e-shopu), aby se skóre kalibrovalo na skutečném výkonu. Dnes předpovídá pořadí v hledání stejně spolehlivě jako hod mincí.
+
+## Radar: další kroky
+Radar 2.0 je popsán v [09-radar.md](09-radar.md). Co zbývá:
+
+1. **Přístup na web pro prostředí.** Radar dnes vidí jen názvy a adresy stránek. S přístupem zkontrolujeme celé texty vlastního webu a konkurence Trust Shieldem (`kingctl audit`), stáhneme technické parametry panelů a ověříme DOI přes Crossref.
+2. **Vlastní data značky.** Import exportu ze Search Console a Seznam Webmaster nahradí odhad viditelnosti skutečnými pozicemi, import prodejů ukáže, které téma se vyplatí.
+3. **Pravidla pro věty bez slovesa.** Kontrola tvrzení je postavená na slovesech. Skutečné titulky vlastního webu ("Zvýšení kvality a množství vlasů", "Červené světlo proti vráskám") jí unikly, proto radar má druhou, jednodušší kontrolu názvů. Oprava patří do pravidel: podstatná jména výsledku (zvýšení, zlepšení, snížení) vedle témat mapy.
+4. **Další trhy.** Stejný plán hledání pro Slovensko, Německo a Velkou Británii (plán je obyčejný soubor).
+5. **Pravidelné obnovování.** Naplánovaná úloha, která jednou týdně spustí tři příkazy a ohlásí změnu oproti minulému snímku.
+6. **Test emočních claimů.** Věty v radaru jsou hypotézy, ne výsledky. Další krok jsou dva až čtyři A/B testy (čtyři dvojice jsou na stránce připravené), po nich se slabší věty přepíšou. Předtím značka rozhodne o názvu Červená hodina.
 
 ## v1.0: služba
 Fakturace, správa dat a souhlasů, dokumentace pro audit (GDPR, bezpečnost).

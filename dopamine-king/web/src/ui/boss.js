@@ -4,6 +4,8 @@
  * Victory needs: percentile in the boss cohort >= boss.percentile AND clickbait risk <= 0.35. In an edition with
  * a claims profile (bundle.claim_rules) the typed hook also runs through the claims checker (claims.js) live, and
  * victory needs no error level finding: a hook for a non-medical device must not claim to treat anything.
+ * In the real edition a boss has a rival (boss.rival): a real page title from a stored search, shown with its source,
+ * and the cohort is the Dopamine Score of real titles.
  */
 (function (root, factory) {
   if (typeof module === "object" && module.exports) module.exports = factory(root);
@@ -44,6 +46,14 @@
       return c ? c[ctx.lang()] || c.en || id : id;
     }
 
+    var real = !!(ctx.bundle.meta && ctx.bundle.meta.real);
+
+    function rivalLine(boss) {
+      var r = boss.rival;
+      if (!r) return null;
+      return d.h("p.small.muted.boss-rival-line", null, t("boss.rival.line", { host: r.brand || r.host, rank: r.rank, of: r.of }));
+    }
+
     function card(boss) {
       var p = ctx.profile();
       var wonToday = !!(p.bossWinsByDay[ctx.today()] && p.bossWinsByDay[ctx.today()][boss.id]);
@@ -55,7 +65,7 @@
           d.h("div.boss-card-id", null,
             d.h("strong.boss-name", null, boss.name),
             d.h("span.boss-tier", null, stars, d.h("span", null, t("boss.tier" + boss.tier))),
-            d.h("em.boss-taunt", null, d.quote(ctx.pick(boss, "taunt"))))),
+            d.h("em.boss-taunt", null, d.quote(ctx.pick(boss, "taunt"))), rivalLine(boss))),
         d.h("p.boss-brief", null, ctx.pick(boss, "brief")),
         d.h("div.chip-row", null,
           d.h("span.chip.tone-info", null, icons.icon("layers", { size: 13 }), d.h("span", null, cohortName(boss.cohort))),
@@ -72,11 +82,11 @@
     d.fill(page, [
       d.h("div.arena-head", null,
         d.h("h1.page-title", { id: "view-title", tabindex: "-1" }, t("boss.title")),
-        d.h("p.page-lead", null, t("boss.lead") + (claimsui().engine(ctx.bundle) ? " " + t("boss.leadClaims") : ""))),
+        d.h("p.page-lead", null, t(ctx.bundle.meta && ctx.bundle.meta.synthetic === false ? "boss.leadReal" : "boss.lead") + (claimsui().engine(ctx.bundle) ? " " + t("boss.leadClaims") : ""))),
       bosses.length
         ? d.h("ul.boss-grid", null, bosses.map(card))
         : widgets.emptyState({ icon: "skull", title: t("boss.empty.title"), text: t("boss.empty.text") }),
-      d.h("p.small.sim-note", null, icons.icon("flask", { size: 15 }), d.h("span", null, t("boss.benchNote")))
+      d.h("p.small.sim-note", null, icons.icon(real ? "shieldCheck" : "flask", { size: 15 }), d.h("span", null, t(real ? "boss.benchNoteReal" : "boss.benchNote")))
     ]);
     return { destroy: function () {} };
   }
@@ -102,6 +112,7 @@
       return { destroy: function () {} };
     }
 
+    var real = !!(ctx.bundle.meta && ctx.bundle.meta.real);
     var benchmarks = ctx.bundle.benchmarks || {};
     var cohort = (ctx.bundle.cohort_labels && ctx.bundle.cohort_labels[boss.cohort]) ? (ctx.bundle.cohort_labels[boss.cohort][ctx.lang()] || ctx.bundle.cohort_labels[boss.cohort].en) : boss.cohort;
     var bench = benchmarks[boss.cohort] || benchmarks.all || null;
@@ -216,7 +227,7 @@
         pctText,
         conds,
         quantiles ? null : d.h("p.small.upset-note", null, icons.icon("alert", { size: 15 }), d.h("span", null, t("boss.noBench"))),
-        d.h("p.small.sim-note", null, icons.icon("flask", { size: 15 }), d.h("span", null, t("boss.benchLine", { n: bench && bench.stats ? bench.stats.n : "?", cohort: cohort }))));
+        d.h("p.small.sim-note", null, icons.icon(real ? "shieldCheck" : "flask", { size: 15 }), d.h("span", null, t(real ? "boss.benchLineReal" : "boss.benchLine", { n: bench && bench.stats ? bench.stats.n : "?", cohort: cohort }))));
 
       els.claimsStatus = d.h("div.claims-status.is-idle", { role: "status" });
       els.claimsHost = d.h("div.claims-host");
@@ -457,6 +468,22 @@
           d.h("span.chip", null, t("boss.tier" + boss.tier)),
           d.h("span.chip.tone-xp", null, "+" + boss.xp + " XP"))));
 
+    function rivalCard() {
+      var r = boss.rival;
+      if (!r) return null;
+      var typeKey = "type." + r.host_type;
+      return d.h("section.card.rival", { "aria-labelledby": "rival-h" },
+        d.h("h2.card-title", { id: "rival-h" }, t("boss.rival.title")),
+        d.h("p.rival-title", null, d.quote(r.text)),
+        d.h("div.chip-row", null,
+          d.h("span.chip.tone-info", null, d.h("span", null, r.brand || r.host)),
+          r.host_type && root.DK.i18n.has(typeKey) ? d.h("span.chip", null, t(typeKey)) : null,
+          d.h("span.chip.tone-brand", null, t("boss.rival.score", { n: d.fmt(r.score, 1) })),
+          typeof r.percentile === "number" ? d.h("span.chip", null, t("boss.rival.pct", { p: Math.round(r.percentile), cohort: cohort })) : null),
+        d.h("p.small.muted", null, t("boss.rival.where", { rank: r.rank, of: r.of, query: r.query, date: d.fmtDate(r.retrieved_at) })),
+        d.extLink(r.url, [icons.icon("arrowRight", { size: 14 }), d.h("span", null, t("arena.open"))], "link.small.open-link"));
+    }
+
     var briefCard = d.h("section.card.brief", { "aria-labelledby": "brief-h" },
       d.h("h2.card-title", { id: "brief-h" }, t("boss.briefTitle")),
       d.h("p.brief-text", null, ctx.pick(boss, "brief")),
@@ -473,7 +500,7 @@
       strip,
       resultHost);
 
-    d.fill(page, [head, briefCard, editorCard, buildAnalysis()]);
+    d.fill(page, [head, rivalCard(), briefCard, editorCard, buildAnalysis()]);
     analyze(true);
     d.raf(resize);
 

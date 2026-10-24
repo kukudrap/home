@@ -13,9 +13,11 @@
   function W() { return root.DK.ui.widgets; }
   function G() { return root.DK.game; }
 
+  // `needs` names the bundle key a view reads: an edition without it (the generic one) has no such tab.
   var NAV = [
     { id: "home", icon: "home" }, { id: "arena", icon: "swords" }, { id: "boss", icon: "skull" },
-    { id: "lab", icon: "flask" }, { id: "vault", icon: "vault" },
+    { id: "market", icon: "globe", needs: "market" }, { id: "vault", icon: "vault" },
+    { id: "lab", icon: "flask", secondary: true }, { id: "claims", icon: "shieldCheck", secondary: true, needs: "claimbank" },
     { id: "forge", icon: "forge", secondary: true }, { id: "guru", icon: "guru", secondary: true }, { id: "about", icon: "info", secondary: true }
   ];
   var SESSION_CHOICES = [0, 10, 15, 20, 30, 45, 60];
@@ -97,10 +99,12 @@
       return chip;
     }
 
+    function isReal() { return !!(ctx.bundle.meta && ctx.bundle.meta.synthetic === false); }
+
     function demoChip() {
-      var synthetic = !ctx.bundle.meta || ctx.bundle.meta.synthetic !== false;
-      var children = [icons.icon("flask", { size: 14 }), d.h("span", null, synthetic ? t("top.demo") : t("top.demoReal"))];
-      return d.h("button.chip.demo-chip" + (synthetic ? ".tone-warn" : ".tone-ok"), { type: "button", title: t("top.demoTitle"), onclick: function () { openDemo(); } }, children);
+      var real = isReal();
+      var children = [icons.icon(real ? "shieldCheck" : "flask", { size: 14 }), d.h("span", null, real ? t("top.real") : t("top.demo"))];
+      return d.h("button.chip.demo-chip" + (real ? ".tone-ok" : ".tone-warn"), { type: "button", title: real ? t("top.realTitle") : t("top.demoTitle"), onclick: function () { openDemo(); } }, children);
     }
 
     function renderTop() {
@@ -116,6 +120,8 @@
     }
 
     // -- navigation --------------------------------------------------------------------------------
+    function visible(item) { return !item.needs || !!ctx.bundle[item.needs]; }
+
     function navLink(item) {
       var cur = state.route === item.id;
       return d.h("li", null, d.h("a.nav-link", { href: "#/" + item.id, "aria-current": cur ? "page" : null, onclick: function () { closeMore(); } },
@@ -131,7 +137,8 @@
     }
 
     function renderNav() {
-      var secondaryActive = NAV.some(function (n) { return n.secondary && n.id === state.route; });
+      var shown = NAV.filter(visible);
+      var secondaryActive = shown.some(function (n) { return n.secondary && n.id === state.route; });
       var more = d.h("li.nav-more-item" + (state.moreOpen ? ".is-open" : ""), null,
         d.h("button.nav-link.nav-more", {
           type: "button", "aria-expanded": state.moreOpen ? "true" : "false", "aria-controls": "nav-sub", "aria-label": t("nav.moreLabel"),
@@ -143,8 +150,8 @@
             e.currentTarget.setAttribute("aria-expanded", state.moreOpen ? "true" : "false");
           }
         }, icons.icon("dots", { size: 22 }), d.h("span.nav-label", null, t("nav.more"))),
-        d.h("ul.nav-sub", { id: "nav-sub" }, NAV.filter(function (n) { return n.secondary; }).map(navLink)));
-      var list = d.h("ul.nav-list", null, NAV.filter(function (n) { return !n.secondary; }).map(navLink), more);
+        d.h("ul.nav-sub", { id: "nav-sub" }, shown.filter(function (n) { return n.secondary; }).map(navLink)));
+      var list = d.h("ul.nav-list", null, shown.filter(function (n) { return !n.secondary; }).map(navLink), more);
       nav.setAttribute("aria-label", t("nav.label"));
       d.fill(nav, list);
     }
@@ -158,10 +165,11 @@
 
     // -- dialogs -----------------------------------------------------------------------------------
     function openDemo() {
+      var key = isReal() ? "demo.real" : "demo";
       var dlg = widgets.dialog({
-        title: t("demo.title"),
+        title: t(key + ".title"),
         body: d.h("div.stack.tight", null,
-          d.h("p", null, t("demo.p1")), d.h("p", null, t("demo.p2")), d.h("p", null, t("demo.p3")),
+          d.h("p", null, t(key + ".p1")), d.h("p", null, t(key + ".p2")), d.h("p", null, t(key + ".p3")),
           d.h("p", null, d.h("a.link", { href: "#/about", onclick: function () { dlg.close(); } }, t("demo.more")))),
         actions: [d.h("button.btn.btn-primary", { type: "button", onclick: function () { dlg.close(); } }, t("common.ok"))]
       });
@@ -288,6 +296,9 @@
           if (a) { widgets.toast({ title: t("toast.achievement"), text: a.name[lang] + ": " + a.desc[lang], icon: a.icon, tone: "xp", ms: 6500 }); ctx.sound("level"); }
         } else if (e.type === "quest") {
           widgets.toast({ title: t("toast.quest", { xp: e.xp }), text: t("quest." + e.id, { n: game.questDef(e.id).target }), icon: "check", tone: "ok" });
+        } else if (e.type === "taskChest") {
+          widgets.toast({ title: t("toast.taskChest"), text: t("toast.taskChestText", { n: game.XP.tasksPerChest }), icon: "vault", tone: "xp", ms: 6500 });
+          ctx.sound("chest");
         } else if (e.type === "bonusChest") {
           widgets.toast({ title: t("toast.bonusChest"), text: t("toast.bonusChestText"), icon: "vault", tone: "xp", ms: 6500 });
           ctx.sound("chest");

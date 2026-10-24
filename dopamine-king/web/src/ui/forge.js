@@ -11,6 +11,9 @@
 })(typeof self !== "undefined" ? self : this, function (root) {
   "use strict";
 
+  /** The writer as the reader knows it: the tool behind the draft, not its internal id. */
+  function writerName(id) { return id === "claude-code" ? "Claude Code" : id; }
+
   var FAMILY_ICON = { social: "users", article: "book", video: "play", ad: "megaphone", email: "send", audio: "speaker", hooks: "bolt" };
   var VERDICT = { ok: { shield: "intact", icon: "shieldCheck", tone: "ok" }, review: { shield: "cracked", icon: "alert", tone: "warn" }, blocked: { shield: "broken", icon: "x", tone: "risk" } };
   var SEVERITY = { error: { icon: "x", tone: "risk" }, warn: { icon: "alert", tone: "warn" }, info: { icon: "info", tone: "info" } };
@@ -22,7 +25,7 @@
     brief: { brand: "", topic: "", audience: "", goal: "awareness", lang: null, tone: "friendly, direct, no hype", keyword: "", facts: "", offer: "", cta: "", vertical: null, claims_profile: "general", safety_note: "" },
     formats: [], offline: false, seeded: false
   };
-  var forgeState = { pack: null, active: null, busy: false, message: null };
+  var forgeState = { pack: null, active: null, busy: false, message: null, draftId: null };
 
   /** A pack or plan written for a vertical edition (a brief with a vertical, or a claims profile other than general). */
   function isEdition(item) {
@@ -216,7 +219,9 @@
     var page = d.h("div.page.forge");
     container.appendChild(page);
     var live = ctx.live();
-    var sample = pickByLang(ctx.bundle.forge_samples || [], ctx.lang());
+    var samples = ctx.bundle.forge_samples || [];
+    var drafts = samples.filter(function (s) { return s && s.draft; });          // the reviewed drafts of the real edition
+    var sample = drafts.length ? (drafts.filter(function (s) { return s.draft.id === forgeState.draftId; })[0] || drafts[0]) : pickByLang(samples, ctx.lang());
     var pack = forgeState.pack || sample;
     var isSample = !forgeState.pack;
     var current = null;
@@ -321,7 +326,7 @@
           d.h("div.item-title", null,
             d.h("h2.card-title", null, ctx.pick(item, "name") || item.format),
             d.h("div.chip-row", null,
-              item.family ? d.h("span.chip", null, icons.icon(FAMILY_ICON[item.family] || "layers", { size: 13 }), d.h("span", null, item.family)) : null,
+              item.family ? d.h("span.chip", null, icons.icon(FAMILY_ICON[item.family] || "layers", { size: 13 }), d.h("span", null, root.DK.i18n.has("forge.family." + item.family) ? t("forge.family." + item.family) : item.family)) : null,
               verdictBadge(item.verdict),
               openSlots ? d.h("span.chip.tone-warn", null, icons.icon("pencil", { size: 13 }), d.h("span", null, ctx.tp("forge.openSlots", openSlots))) : null)),
           d.h("div.stat-boxes", null,
@@ -336,6 +341,26 @@
         issuesCard(item),
         altCard(item, hs)
       ]);
+    }
+
+    function draftBar() {
+      if (drafts.length < 2 || !isSample) return null;
+      var sel = d.h("select.input", { id: "draft-pick", onchange: function () {
+        forgeState.draftId = sel.value;
+        forgeState.active = null;
+        sample = drafts.filter(function (s) { return s.draft.id === sel.value; })[0] || drafts[0];
+        pack = sample;
+        render();
+      } }, drafts.map(function (s) {
+        return d.h("option", { value: s.draft.id, selected: s.draft.id === pack.draft.id }, t("forge.kind." + (s.draft.kind === "page" ? "page" : "post")) + ": " + s.draft.title);
+      }));
+      return d.h("section.card.draft-bar", null, widgets.field(t("forge.draftPick"), sel));
+    }
+
+    function approvalNote() {
+      return pack && pack.draft && pack.draft.needs_approval
+        ? d.h("p.approve", null, d.h("strong", null, t("forge.draftApprove") + " "), pack.draft.needs_approval)
+        : null;
     }
 
     function packView() {
@@ -357,11 +382,12 @@
         }
       });
       return d.h("section", { "aria-labelledby": "pack-h" },
+        draftBar(),
         d.h("div.card.pack-head", null,
           d.h("div.editor-head", null,
-            d.h("h2.card-title", { id: "pack-h" }, isSample ? t("forge.sampleTitle", { brand: (pack.brief && pack.brief.brand) || "" }) : t("forge.packTitle", { brand: (pack.brief && pack.brief.brand) || "" })),
+            d.h("h2.card-title", { id: "pack-h" }, isSample && pack.draft ? t("forge.draftTitle", { brand: (pack.brief && pack.brief.brand) || "" }) : isSample ? t("forge.sampleTitle", { brand: (pack.brief && pack.brief.brand) || "" }) : t("forge.packTitle", { brand: (pack.brief && pack.brief.brand) || "" })),
             d.h("div.chip-row", null,
-              d.h("span.chip.tone-info", null, icons.icon("pencil", { size: 13 }), d.h("span", null, t("forge.writer", { w: pack.writer || "offline" }))),
+              d.h("span.chip.tone-info", null, icons.icon("pencil", { size: 13 }), d.h("span", null, t("forge.writer", { w: writerName(pack.writer || "offline") }))),
               profilePill(),
               pack.created ? d.h("span.chip", null, String(pack.created).slice(0, 10)) : null)),
           d.h("div.stat-boxes.five", null,
@@ -370,7 +396,9 @@
             scoreTile(t("forge.sumErrors"), sum.errors, null, 0),
             scoreTile(t("forge.sumWarnings"), sum.warnings, null, 0),
             scoreTile(t("forge.sumSlots"), sum.open_slots, null, 0)),
-          isSample ? d.h("p.small.sim-note", null, icons.icon("flask", { size: 15 }), d.h("span", null, isEdition(pack) ? t("forge.sampleNoteEdition", { brand: (pack.brief && pack.brief.brand) || "" }) : t("forge.sampleNote"))) : d.h("p.small.muted", null, t("forge.liveNote"))),
+          isSample && pack.draft ? d.h("p.small.muted", null, icons.icon("shieldCheck", { size: 15 }), " ", t("forge.draftNote"))
+            : isSample ? d.h("p.small.sim-note", null, icons.icon("flask", { size: 15 }), d.h("span", null, isEdition(pack) ? t("forge.sampleNoteEdition", { brand: (pack.brief && pack.brief.brand) || "" }) : t("forge.sampleNote"))) : d.h("p.small.muted", null, t("forge.liveNote")),
+          approvalNote()),
         pack.errors && pack.errors.length
           ? d.h("div.card.pack-errors", { role: "note" }, d.h("p.small", null, icons.icon("alert", { size: 16 }), d.h("strong", null, " " + t("forge.packErrors"))), d.h("ul.small", null, pack.errors.map(function (e) { return d.h("li", null, String(e)); })))
           : null,
@@ -422,7 +450,7 @@
       d.fill(page, [
         d.h("div.arena-head", null,
           d.h("h1.page-title", { id: "view-title", tabindex: "-1" }, t("forge.title")),
-          d.h("p.page-lead", null, t("forge.lead"))),
+          d.h("p.page-lead", null, t(ctx.bundle.meta && ctx.bundle.meta.synthetic === false ? "forge.leadReal" : "forge.lead"))),
         live.enabled ? liveBox() : null,
         packView(),
         live.enabled ? null : liveBox()

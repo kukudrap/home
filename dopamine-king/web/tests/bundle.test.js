@@ -24,30 +24,56 @@ const round1 = (x) => Math.round(x * 10) / 10;
 // -- arena data ---------------------------------------------------------------------------------
 test("the Python scores stored in the arena data equal what the JavaScript scorer computes", () => {
   assert.ok(bundle.arena.length >= 100);
+  let scored = 0;
   for (const d of bundle.arena) {
+    if (d.kind === "reach") continue; // the sides of a reach duel are sites, not texts
     for (const side of ["a", "b"]) {
-      const s = scoring.scoreHook(d[side].text, "", { lang: d.lang, spec });
+      const s = scoring.scoreHook(d[side].text, "", { lang: d[side].lang, spec });
       assert.ok(Math.abs(round1(s.total) - d[side].score) <= 0.1 + 1e-9, `${d.id} ${side}: ${s.total} vs ${d[side].score}`);
+      scored += 1;
     }
   }
+  assert.ok(scored >= 200, "most duels carry a scored text");
 });
 
-test("arena duels are well formed", () => {
+test("arena duels are well formed, whatever their kind", () => {
   const ids = new Set();
   for (const d of bundle.arena) {
     assert.ok(!ids.has(d.id), `duplicate ${d.id}`);
     ids.add(d.id);
+    assert.ok(game.DUEL_KINDS.includes(d.kind), `${d.id}: unknown kind ${d.kind}`);
+    assert.ok(d.id.startsWith(d.kind + "-"), `${d.id}: the id names the kind`);
     assert.ok(["easy", "medium", "hard"].includes(d.difficulty), d.id);
     assert.ok(["cs", "en"].includes(d.lang), d.id);
     assert.ok(["a", "b"].includes(d.winner), d.id);
-    assert.equal(d.winner, d.a.success >= d.b.success ? "a" : "b", `${d.id}: winner must have the higher success`);
-    assert.equal(typeof d.upset, "boolean");
-    const disagree = (d.model_p_a >= 0.5) !== (d.winner === "a");
-    if (d.upset) assert.ok(disagree, `${d.id}: an upset means the model favoured the loser`);
-    else assert.ok(!disagree || Math.abs(d.model_p_a - 0.5) < 0.03, `${d.id}: a model miss that is not an upset must be a near tie`);
-    assert.equal(d.reasons_en.length, d.reasons_cs.length, `${d.id}: both languages explain the same points (a close duel may have none)`);
+    assert.equal(typeof d.upset, "boolean", d.id);
+    assert.ok(d.a.text && d.b.text && d.a.host && d.b.host, `${d.id}: both sides have a name and a host`);
+    if (d.kind === "rank") {
+      assert.equal(d.winner, d.a.success > d.b.success ? "a" : "b", `${d.id}: the winner is the side placed higher`);
+      assert.ok(d.a.rank !== d.b.rank && d.a.of === d.b.of && d.query && d.record && d.retrieved_at, `${d.id}: two places in one stored search`);
+      for (const side of [d.a, d.b]) assert.ok(Math.abs(side.success - 100 * (side.of - side.rank + 1) / side.of) < 0.06, `${d.id}: position score`);
+      const confident = Math.abs(d.a.score - d.b.score) >= 8;
+      const disagree = (d.model_p_a >= 0.5) !== (d.winner === "a");
+      assert.equal(d.upset, confident && disagree, `${d.id}: an upset is a confident model that was wrong`);
+      assert.equal(d.reasons_en.length, d.reasons_cs.length, `${d.id}: both languages explain the same points`);
+    } else if (d.kind === "reach") {
+      assert.ok(d.a.count !== d.b.count, d.id);
+      assert.equal(d.winner, d.a.count > d.b.count ? "a" : "b", `${d.id}: the winner appeared in more searches`);
+      for (const side of [d.a, d.b]) assert.equal(side.searches.length, side.count, `${d.id}: the searches behind the count are listed`);
+      assert.equal(d.upset, false);
+    } else if (d.kind === "claim") {
+      assert.ok(d.a.flagged !== d.b.flagged, `${d.id}: exactly one title is stopped`);
+      assert.equal(d.winner, d.a.flagged ? "a" : "b", `${d.id}: the winner is the title the check stops`);
+      for (const side of [d.a, d.b]) assert.equal(side.flagged, side.findings.some((f) => f.severity === "error"), `${d.id}: flagged means an error finding`);
+      assert.equal(d.upset, false);
+    }
   }
-  for (const lang of ["cs", "en"]) for (const diff of ["easy", "medium", "hard"]) assert.ok(bundle.arena.some((d) => d.lang === lang && d.difficulty === diff), `${lang} ${diff}`);
+  assert.ok(bundle.arena.some((d) => d.lang === "cs") && bundle.arena.some((d) => d.lang === "en"), "both languages appear");
+  for (const kind of ["rank", "reach", "claim"]) {
+    const levels = new Set(bundle.arena.filter((d) => d.kind === kind).map((d) => d.difficulty));
+    assert.ok(levels.size >= 2, `${kind} duels exist on at least two levels (a kind has a level only when the data has such a pair)`);
+  }
+  for (const diff of ["easy", "medium", "hard"]) assert.ok(bundle.arena.some((d) => d.difficulty === diff), `the arena has ${diff} duels`);
 });
 
 test("shipped constants are consistent", () => {
@@ -96,8 +122,9 @@ test("the development sample pack agrees with the JavaScript scorer and with its
   checkPack(pack, { everyVerdict: true });
 });
 
-test("the sample packs shipped in the bundle (one per language) agree with the JavaScript scorer and their own summary", () => {
-  assert.deepEqual(bundle.forge_samples.map((p) => p.brief.lang).sort(), ["cs", "en"]);
+test("the draft packs shipped in the bundle agree with the JavaScript scorer and their own summary", () => {
+  assert.ok(bundle.forge_samples.length >= 6, "one draft per page or post of the brand");
+  assert.ok(bundle.forge_samples.every((p) => p.brief.lang === "cs"), "the drafts are written in Czech");
   for (const p of bundle.forge_samples) checkPack(p, { everyVerdict: false });
 });
 

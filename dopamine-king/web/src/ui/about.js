@@ -36,6 +36,8 @@
     var meta = b.meta || {};
     var loot = b.loot || { cards: [], rates: {}, pity_after: 8 };
     var lang = ctx.lang();
+    var isReal = meta.synthetic === false && !!meta.real;
+    var real = meta.real || {};
     var page = d.h("div.page.about");
     container.appendChild(page);
 
@@ -54,9 +56,9 @@
         d.h("div.hero-main", null,
           d.h("p.eyebrow", null, t("app.tagline")),
           d.h("h1.page-title", { id: "view-title", tabindex: "-1" }, t("about.title")),
-          d.h("p.hero-lead", null, t("about.lead")),
+          d.h("p.hero-lead", null, t(isReal ? "about.leadReal" : "about.lead")),
           d.h("div.chip-row", null,
-            widgets.chip(t("top.demo"), { tone: "warn", icon: "flask", title: t("top.demoTitle") }),
+            isReal ? widgets.chip(t("top.real"), { tone: "ok", icon: "shieldCheck", title: t("top.realTitle") }) : widgets.chip(t("top.demo"), { tone: "warn", icon: "flask", title: t("top.demoTitle") }),
             widgets.chip(t("about.chipOffline"), { tone: "ok", icon: "lock" }),
             widgets.chip(t("about.chipNoTrack"), { tone: "info", icon: "shieldCheck" }))),
         d.h("div.hero-art", { "aria-hidden": "true" }, icons.logo(120)));
@@ -74,8 +76,8 @@
         d.h("div.card.edition-card", null,
           d.h("h3.edition-name", null, ui.pickLang(vertical, "edition", lang) || ui.pickLang(vertical, "name", lang)),
           d.h("p.edition-tagline", null, ui.pickLang(vertical, "tagline", lang)),
-          bullets(["about.edition.1", "about.edition.2", "about.edition.3", "about.edition.4"], "check"),
-          d.h("p.small.muted", null, t("edition.built"))));
+          bullets(isReal ? ["about.editionReal.1", "about.editionReal.2", "about.editionReal.3", "about.editionReal.4"] : ["about.edition.1", "about.edition.2", "about.edition.3", "about.edition.4"], "check"),
+          d.h("p.small.muted", null, t(isReal ? "edition.builtReal" : "edition.built"))));
     }
 
     function claimsCard() {
@@ -112,7 +114,22 @@
     }
 
     // -- real versus simulated ----------------------------------------------------------------------------
+    function honestyReal() {
+      var model = real.model || {};
+      return d.h("section", { "aria-labelledby": "honest-h" },
+        d.h("div.heading", null, d.h("div.heading-main", null, d.h("h2.heading-title", { id: "honest-h" }, t("about.honest.title")), d.h("p.heading-sub", null, t("about.honestReal.sub")))),
+        d.h("div.grid-2.honest-grid", null,
+          d.h("div.card.real-card", null,
+            d.h("h3.card-title", null, icons.icon("check", { size: 20, stroke: 2.6 }), d.h("span", null, t("about.real.title"))),
+            bullets(["about.realData.1", "about.realData.2", "about.realData.3", "about.realData.4"], "check", { n: d.fmt(real.searches || 0), date: d.fmtDate(real.snapshot) })),
+          d.h("div.card.sim-card", null,
+            d.h("h3.card-title", null, icons.icon("flask", { size: 20 }), d.h("span", null, t("about.limitsReal.title"))),
+            bullets(["about.realLimits.1", "about.realLimits.2", "about.realLimits.3", "about.realLimits.4"], "info", { pct: d.fmt(typeof model.pct === "number" ? model.pct : 0, 1) }))),
+        d.h("p.small.muted.bundle-line", null, t("about.bundleLineReal", { date: d.fmtDate(real.snapshot), searches: d.fmt(real.searches || 0), links: d.fmt(real.links || 0), sites: d.fmt(real.sites || 0) })));
+    }
+
     function honesty() {
+      if (isReal) return honestyReal();
       var corpus = meta.corpus || {};
       var date = typeof meta.generated === "string" ? meta.generated.slice(0, 10) : null;
       return d.h("section", { "aria-labelledby": "honest-h" },
@@ -160,7 +177,7 @@
           icons.icon("scale", { size: 20 }),
           d.h("div", null,
             d.h("strong", null, t("about.cal.title")),
-            d.h("p.small", null, t("about.cal.text", { n: d.fmt(cal.n || 0), a: d.fmt(cal.cv_spearman_default, 2), b: d.fmt(cal.cv_spearman_calibrated, 2) }))));
+            d.h("p.small", null, t(isReal ? "about.cal.textReal" : "about.cal.text", { n: d.fmt(cal.n || 0), a: d.fmt(cal.cv_spearman_default, 2), b: d.fmt(cal.cv_spearman_calibrated, 2) }))));
       }
 
       return d.h("section", { "aria-labelledby": "score-h" },
@@ -286,7 +303,9 @@
       var rowsData = [
         [t("about.build.bundle"), meta.version === undefined ? "?" : "v" + meta.version],
         [t("about.build.generated"), typeof meta.generated === "string" ? meta.generated.slice(0, 10) : "?"],
-        [t("about.build.corpus"), t("about.build.corpusValue", { brands: corpus.brands === undefined ? "?" : d.fmt(corpus.brands), items: corpus.items === undefined ? "?" : d.fmt(corpus.items) })],
+        isReal
+          ? [t("about.build.data"), t("about.build.dataReal", { searches: d.fmt(real.searches || 0), links: d.fmt(real.links || 0), sites: d.fmt(real.sites || 0), date: d.fmtDate(real.snapshot) })]
+          : [t("about.build.corpus"), t("about.build.corpusValue", { brands: corpus.brands === undefined ? "?" : d.fmt(corpus.brands), items: corpus.items === undefined ? "?" : d.fmt(corpus.items) })],
         [t("about.build.spec"), spec.version === undefined ? "?" : "v" + spec.version],
         [t("about.build.mode"), live.enabled ? t("about.build.modeLive", { v: live.version || "?" }) : t("about.build.modeOffline")],
         [t("about.build.storage"), ctx.store && ctx.store.usingFallback && ctx.store.usingFallback() ? t("about.build.storageMemory") : t("about.build.storageBrowser")]

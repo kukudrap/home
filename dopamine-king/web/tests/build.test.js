@@ -11,6 +11,7 @@ const { spawnSync } = require("node:child_process");
 const ROOT = path.resolve(__dirname, "..", "..");
 const SCRIPT = path.join(ROOT, "scripts", "build_web.py");
 const BUNDLE = path.join(ROOT, "web", "dev", "bundle.json");
+const DEMO = path.join(ROOT, "web", "dev", "demo-bundle.json");
 const FORGE = path.join(ROOT, "web", "dev", "mock-forge.json");
 const GURU = path.join(ROOT, "web", "dev", "mock-guru.json");
 const TMP = fs.mkdtempSync(path.join(os.tmpdir(), "dk-build-"));
@@ -43,7 +44,7 @@ function jsOrder() {
 test("the build produces one self-contained file", () => {
   const html = build("a.html");
   assert.ok(html.startsWith("<!doctype html>") || html.startsWith("<!DOCTYPE html>"));
-  assert.ok(Buffer.byteLength(html) < 2_000_000, "size limit (the build refuses 2 MB and more)");
+  assert.ok(Buffer.byteLength(html) < 4_000_000, "size limit (the build refuses 4 MB and more)");
   assert.equal((html.match(/<style\b/g) || []).length, 1, "one inline stylesheet");
   assert.equal((html.match(/<script\b/g) || []).length, 2, "the bundle and the code, nothing else");
   const links = html.match(/<link\b[^>]*>/gi) || [];
@@ -56,6 +57,25 @@ test("the build produces one self-contained file", () => {
   assert.match(html, /<html lang="/);
   assert.match(html, /id="dk-skip"/, "skip link");
   assert.match(html, /<noscript>/);
+});
+
+test("the fragment build is what the Artifact tool wants: title, style and content, no document tags", () => {
+  const out = path.join(TMP, "fragment.html");
+  const res = run(["--bundle", BUNDLE, "--out", out, "--quiet", "--fragment"]);
+  assert.equal(res.status, 0, res.err);
+  const html = fs.readFileSync(out, "utf8");
+  assert.match(html, /^<title>Dopamine King<\/title>\n<style>/, "the title and the style come first");
+  for (const tag of [/<!doctype/i, /<html[\s>]/i, /<head[\s>]/i, /<body[\s>]/i, /<meta\s/i, /<link\s/i]) assert.ok(!tag.test(html), `no ${tag}`);
+  assert.equal((html.match(/<style\b/g) || []).length, 1, "one stylesheet");
+  assert.equal((html.match(/<script\b/g) || []).length, 2, "the bundle and the code");
+  assert.ok(html.includes('id="dk-skip"') && html.includes('id="main"') && html.includes('id="dk-bundle"'), "the page itself is complete");
+  assert.ok(!/<(?:img|iframe|audio|video|source|object|embed)\b/i.test(html), "no media or embeds");
+  assert.ok(!/\bsrc\s*=\s*["']?https?:|\bhref\s*=\s*["']?https?:/i.test(html.replace(/<script id="dk-bundle"[\s\S]*?<\/script>/, "")), "no remote src or href");
+  assert.ok(!html.includes(EM) && !html.includes(EN), "no em or en dash");
+  const blocks = [...html.matchAll(/<script(?![^>]*type="application\/json")[^>]*>([\s\S]*?)<\/script>/g)];
+  assert.equal(blocks.length, 1);
+  assert.doesNotThrow(() => new vm.Script(blocks[0][1], { filename: "dopamine-king.fragment.js" }));
+  assert.deepEqual(Object.keys(embeddedBundle(html)).sort(), Object.keys(JSON.parse(fs.readFileSync(BUNDLE, "utf8"))).sort(), "the data bundle is intact");
 });
 
 test("the inline code is in dependency order and compiles as one script", () => {
@@ -176,48 +196,62 @@ test("problems are reported plainly with a non-zero exit code and no output file
   assert.ok(!fs.existsSync(out), "nothing is written when the build fails");
 });
 
-test("the real default path (bundle computed by the Python package) is the MITO LIGHT edition", (t) => {
+test("the default path (bundle computed by the Python package from the stored searches) is the real MITO LIGHT edition", (t) => {
   const out = path.join(TMP, "computed.html");
   const res = run(["--out", out, "--quiet"]);
-  if (res.status !== 0 && /cannot import/.test(res.err)) { t.skip(res.err); return; }
+  if (res.status !== 0 && /cannot import|no radar snapshot/.test(res.err)) { t.skip(res.err); return; }
   assert.equal(res.status, 0, res.err);
   const html = fs.readFileSync(out, "utf8");
-  assert.ok(Buffer.byteLength(html) < 2_000_000);
+  assert.ok(Buffer.byteLength(html) < 4_000_000);
   const b = embeddedBundle(html);
-  assert.equal(b.meta.synthetic, true, "the bundle says its data is simulated");
+  assert.equal(b.meta.synthetic, false, "the bundle says its data is real");
+  assert.equal(b.meta.edition, "real");
+  assert.equal(b.meta.default_lang, "cs");
+  assert.match(b.meta.note, /Nothing is simulated/);
   assert.equal(b.meta.vertical, "pbm");
   assert.equal(b.vertical.id, "pbm");
   assert.match(b.vertical.edition_en, /MITO LIGHT/);
+  assert.deepEqual([...new Set(b.arena.map((d) => d.kind))].sort(), ["claim", "rank", "reach"], "every duel is built from stored searches, none is simulated");
   assert.ok(b.arena.length >= 100);
   assert.ok(b.claims && b.claims.topics.length >= 15 && Object.keys(b.claims.classes).sort().join() === "avoid,context,cosmetic,medical,wellness");
   assert.ok(b.claim_rules && b.claim_rules.topics.length >= b.claims.topics.length - 1, "the rules the checker compiles");
-  assert.equal(b.forge_samples.length, 2, "one real offline pack per language");
-  assert.deepEqual(b.forge_samples.map((p) => p.brief.lang).sort(), ["cs", "en"]);
+  assert.ok(b.forge_samples.length >= 6 && b.forge_samples.every((p) => p.brief.lang === "cs"), "one draft per page or post, written in Czech");
   assert.deepEqual(b.guru_samples.map((p) => p.brief.lang).sort(), ["cs", "en"]);
   assert.ok(b.guru_sample, "the legacy single sample stays available");
-  assert.ok(b.forge_samples.every((p) => p.writer === "offline" && p.summary.open_slots > 0), "samples are engine output, gaps stay open");
   assert.ok(b.forge_samples.every((p) => p.brief.vertical === "pbm" && p.brief.claims_profile === "wellness" && p.summary.claims_profile === "wellness"));
   assert.ok(b.guru_samples.every((p) => p.brief.vertical === "pbm" && p.brief.claims_profile === "wellness"));
-  assert.ok(b.bosses.every((x) => /^boss-pbm-/.test(x.id)), "the bosses are the edition's own");
+  assert.ok(b.bosses.length >= 15 && b.bosses.every((x) => /^boss-/.test(x.id)), "a boss is a real rival title");
   const unverified = b.vault.studies.filter((x) => x.verified !== true);
   assert.ok(unverified.length > 0, "leads that are not verified yet ship with the edition and the UI marks them");
   const topicIds = new Set(b.claims.topics.map((x) => x.id));
   assert.ok(b.vault.links.some((l) => topicIds.has(l.tactic_id)), "links point at claim topics");
+  assert.ok(b.market && b.market.queries.length >= 80, "the stored searches are in the bundle");
+  assert.ok(b.tasks.length >= 5 && b.claimbank && b.lab.tests.length >= 3, "tasks, claim bank and real tests");
 });
 
-test("the generic edition is still available and has no claims data", (t) => {
-  const out = path.join(TMP, "general.html");
-  const res = run(["--out", out, "--quiet", "--vertical", "general"]);
+test("the simulated demo edition is still available on request, and its generic variant has no claims data", (t) => {
+  const out = path.join(TMP, "demo.html");
+  const res = run(["--out", out, "--quiet", "--synthetic"]);
   if (res.status !== 0 && /cannot import/.test(res.err)) { t.skip(res.err); return; }
   assert.equal(res.status, 0, res.err);
-  const b = embeddedBundle(fs.readFileSync(out, "utf8"));
+  const demo = embeddedBundle(fs.readFileSync(out, "utf8"));
+  assert.equal(demo.meta.synthetic, true);
+  assert.equal(demo.meta.vertical, "pbm");
+  assert.equal(demo.forge_samples.length, 2, "one real offline pack per language");
+  const general = path.join(TMP, "general.html");
+  const res2 = run(["--out", general, "--quiet", "--synthetic", "--vertical", "general"]);
+  assert.equal(res2.status, 0, res2.err);
+  const b = embeddedBundle(fs.readFileSync(general, "utf8"));
   assert.ok(!b.meta.vertical);
   assert.ok(!b.vertical && !b.claims && !b.claim_rules, "no vertical, claims map or rules");
   assert.ok(b.bosses.length >= 5 && b.arena.length >= 100);
 });
 
-test("the demo data is labelled as simulated inside the bundle", () => {
-  const b = JSON.parse(fs.readFileSync(BUNDLE, "utf8"));
-  assert.equal(b.meta.synthetic, true);
-  assert.match(b.meta.note, /SIMULATED/);
+test("the demo data is labelled as simulated inside its bundle, the real data says it is not", () => {
+  const demo = JSON.parse(fs.readFileSync(DEMO, "utf8"));
+  assert.equal(demo.meta.synthetic, true);
+  assert.match(demo.meta.note, /SIMULATED/);
+  const real = JSON.parse(fs.readFileSync(BUNDLE, "utf8"));
+  assert.equal(real.meta.synthetic, false);
+  assert.doesNotMatch(real.meta.note, /SIMULATED/);
 });

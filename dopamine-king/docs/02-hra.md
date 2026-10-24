@@ -1,51 +1,61 @@
 # Herní design
 
-Hra je tréninkový nástroj. Cílem není strávit v ní co nejvíc času, ale **zlepšit odhad toho, co funguje**, a odnést si z ní poznatky o experimentování a důkazech.
+Hra je tréninkový nástroj. Cílem není strávit v ní co nejvíc času, ale zlepšit odhad toho, co na trhu funguje, a odnést si z ní poznatky o experimentování a důkazech. Ve skutečné edici (výchozí sestavení) se všechna čísla berou z uložených hledání na webu, z ověřeného registru studií a ze souboru o značce. Starší demo se simulovanými daty zůstává jako `build-web --synthetic`.
 
 ## Smyčka (Trigger, Action, Reward, Investment)
 
-Model vychází z populárního rámce Hooked (Eyal, 2014; praktická kniha, ne recenzovaná studie) a upravuje ho eticky.
+Model vychází z rámce Hooked (Eyal, 2014; praktická kniha, ne recenzovaná studie) a upravuje ho eticky.
 
 | Fáze | Co se děje | Eticky |
 |---|---|---|
-| **Trigger** | Denní kvesty (3 denně), upozornění na sérii | Žádné tlačení: bez notifikací, bez odpočtů |
-| **Action** | Duel hooků, souboj s bossem, laboratorní experiment, kvíz Mýtus nebo fakt | Každá akce trvá 30 až 120 sekund |
-| **Variable reward** | Truhla s kartou, odhalení "upsetu" (model se spletl a hráč měl pravdu) | Šance jsou **vždy viditelné**, funguje pity timer, žádné platby |
-| **Investment** | Sbírka karet, Oracle rating (kalibrace), úspěchy | Odměňuje se pokrok a mistrovství, ne pouhá aktivita |
+| Trigger | Denní úkoly (3 denně), série dnů | Žádné notifikace ani odpočty |
+| Action | Souboj v Aréně, boss, skutečný úkol z Trhu, experiment v Laboratoři, Mýtus, nebo fakt | Každá akce trvá 30 až 120 sekund |
+| Variable reward | Truhla s kartou, odhalení překvapení (model se spletl a hráč měl pravdu) | Šance jsou vždy viditelné, funguje pojistka a nic se neplatí |
+| Investment | Sbírka karet, hodnocení Orákula (kalibrace), úspěchy | Odměňuje se pokrok a přesnost, ne samotná aktivita |
 
 ## Režimy
 
-- **Arena (duel hooků).** Dva hooky, hráč tipne vítěze a volitelně nastaví jistotu 50 až 100 procent. Po odhalení uvidí skutečné (v demu simulované) percentily úspěchu, odhad modelu a vysvětlení. Z jistoty se počítá **Brierovo skóre** a z něj **Oracle rating**: odměňuje se dobrá kalibrace, ne štěstí.
-- **Boss Battle.** Hráč napíše hook k zadání. Živě se přepočítává Dopamine Score, šest pák, riziko clickbaitu (Trust Shield) a percentil v kohortě. Boss je poražen, když percentil dosáhne cíle **a** riziko clickbaitu zůstane pod 0,35. Clickbait se tedy nevyplácí.
-- **Laboratoř.** (1) Duel A/B s hlídáním velikosti vzorku, (2) "Nenahlížej": simulace ukáže, že zastavit test při první hodnotě p pod 0,05 po desetinásobném nahlédnutí dává kolem 17 až 25 procent falešně pozitivních výsledků místo 5, (3) Bandit Garden: Thompson sampling proti rovnoměrnému dělení provozu.
-- **Vault.** Karty taktik a studií (s hodnocením A až D, výhradami a stavem ověření), kvíz Mýtus nebo fakt.
+- Aréna. Má tři druhy soubojů z uložených hledání. U pořadí (147 soubojů) hráč hádá, který ze dvou výsledků stejného hledání byl výš. U výskytu (36) hádá, který web se objevil ve víc z 47 hledání na českém trhu. U tvrzení (36) hádá, který ze dvou skutečných titulků by kontrola tvrzení zastavila. Po odpovědi hra ukáže pořadí, počty, nálezy kontroly a odkaz na skutečnou stránku. U pořadí navíc ukáže odhad Dopamine Score a přizná, že na všech dvojicích skóre pořadí nepředpovídá (50,3 %, hod mincí je 50 %). Z jistoty, kterou hráč volitelně nastaví, se počítá Brierovo skóre a z něj hodnocení Orákula.
+- Boss. Soupeř je skutečný titulek konkurenta nebo média (21 bossů). Hráč napíše hook ke stejnému tématu. Živě se přepočítává Dopamine Score, šest faktorů, riziko clickbaitu a percentil mezi skutečnými titulky. Boss je poražen, když percentil dosáhne cíle, riziko clickbaitu zůstane do 35 % a hook nemá žádný blokující problém s tvrzením.
+- Trh. Sedm zjištění z hledání, každé s číslem, upozorněním a odkazem na hledání, ze kterého vychází. Šest úkolů, které z nich plynou. Všech 88 uložených hledání s odkazy, přehled konkurence, záměna názvu s Mito Red Light, tvrzení trhu a popis metody včetně toho, co chybí.
+- Laboratoř. Skutečný A/B test: hráč vybere dvojici vět z banky claimů, hra spočítá velikost vzorku, hráč test spustí ve vlastním nástroji a zapíše skutečná čísla, hra je vyhodnotí. Dále dvě výukové simulace: Nenahlížejte (zastavit test při první hodnotě p pod 0,05 po opakovaném nahlížení dává mnohem víc falešných poplachů než 5 %) a Zahrada banditů (Thompsonovo vzorkování proti rovnoměrnému dělení provozu). Obě simulace jsou označené.
+- Trezor. Karty (studie, čísla z hledání, tipy), 73 studií s odkazy a stavem ověření, mapa tvrzení s 19 tématy a hra Mýtus, nebo fakt.
+- Claimy. Banka 106 vět pro slogany, nadpisy a příspěvky, které prošly kontrolou tvrzení.
+- Kovárna a Guru. Devět návrhů textů pro značku (psal je Claude, každý prošel kontrolou tvrzení) a ukázkový plán obsahu.
 
-## Edice MITO LIGHT: co je ve hře jinak
+## Skutečná data a jejich meze
 
-Hra se sestavuje jako **edice**: stejná hra a stejný scorer, nastavené pro jeden výrobek (výchozí je fotobiomodulace a značka MITO LIGHT, viz [07-fotobiomodulace.md](07-fotobiomodulace.md)). Edice nemění pravidla hry, přidává kontrolu toho, co smí o nezdravotnickém světelném panelu zaznít:
-
-- **Boss Battle.** Vedle skóre a rizika clickbaitu běží naživo **kontrola tvrzení** (profil wellness). Boss je poražen, když hook dosáhne cílového percentilu, má riziko clickbaitu do 0,35 **a zároveň nemá žádný blokující problém s tvrzením** (zdravotní tvrzení, nemoc vedle slova o léčbě, stavová fráze typu "schváleno", absolutní bezpečnost, rada nahradit léky). Varování a poznámky výhru neblokují. U každého nálezu hra ukáže kód, vlastní text, téma, označení síly důkazů a bezpečnější formulaci.
-- **Trezor.** Záložka **Mapa tvrzení** ukazuje 19 témat v pěti třídách (wellness, vzhled, souvislosti, zdravotní, zakázáno) se silou důkazů, propojenými studiemi a bezpečnějšími formulacemi. Neověřené studie jsou vidět, ale sílu důkazů nikdy nezvedají. Pole **Zkontroluj vlastní text** pustí stejný kontrolor na libovolný vložený text.
-- **O hře.** Vysvětluje edici, kontrolu tvrzení, slovníček pojmů oboru a regulatorní poznámku (není to právní poradenství).
-- **Kovárna a Guru.** Mají volbu profilu tvrzení (obecný, wellness) a bezpečnostní upozornění; ukázkové balíčky pro značku říkají, že vznikly offline z veřejných popisů a fakta musí potvrdit značka.
-
-Kontrola tvrzení běží celá v prohlížeči (JavaScriptový port Python kontroloru, shodu hlídá 187 společných testovacích případů), text se nikam neodesílá a nic neukládá. Je to heuristika: čte slova, ne význam, může něco přehlédnout a nenahrazuje schválení člověkem.
+- Každý souboj nese dotaz, pořadí, datum hledání a odkaz. Titulek, který nástroj nevrátil, hra označí jako vzniklý z adresy.
+- Úkoly a čísla testů zapisuje hráč sám. Hra je neověřuje a říká to.
+- Vyhledávač hledal z USA, takže pořadí se může lišit od Googlu a Seznamu.
+- Kontrola tvrzení čte slova, ne smysl. Neověřené studie jsou vidět, ale sílu důkazů nikdy nezvedají.
 
 ## Progres
 
-- **Úrovně:** kumulativně `round(100 * (n - 1)^1.5)` XP; deset pojmenovaných úrovní (od Rookie po King).
-- **Arena XP:** správně 10, +5 střední, +10 těžký duel, +10 za zachycený upset; špatně 2 (účast, nikdy trest); násobič série správných odpovědí až x3.
-- **Boss:** XP bosse při první výhře dne, opakované výhry 20 procent.
-- **Série dnů:** kdo vynechá den, spotřebuje "zmrazení" (získá se po každém sedmém dni, nejvýš 2). Žádné výčitky v textech.
+- Úrovně: kumulativně `round(100 * (n - 1)^1.5)` XP, deset pojmenovaných úrovní (od Nováčka po Krále).
+- Aréna: správně 10 XP, +5 u střední a +10 u těžké obtížnosti, +10 za trefené překvapení proti modelu. Špatně 2 XP (účast, nikdy trest). Násobič série správných odpovědí je nejvýš x3.
+- Boss: plná odměna za první výhru dne nad daným bossem, za opakované 20 %.
+- Skutečná práce: splněný úkol z Trhu 50 XP jednou, každý třetí úkol otevře truhlu, naplánování skutečného testu 10 XP a zapsání jeho čísel 40 XP, vždy jednou za test. Odškrtnutí úkolu zpět XP neubere.
+- Série dnů: kdo vynechá den, spotřebuje zmrazení (získá se po každém sedmém dni, nejvýš 2).
+- Denní úkoly: tři z deseti, každý za 30 XP, všechny tři otevřou bonusovou truhlu.
+- Šestnáct úspěchů, mezi nimi Čtenář pravidel (10 správných soubojů o tvrzeních), Průzkumník trhu (10 soubojů o pořadí a výskytu), Skutečná práce (3 úkoly) a Skutečný test.
 
 ## Etika dopaminového designu
 
-1. **Publikované šance.** Panel "Drop rates" ukazuje: běžná 60 %, vzácná 28 %, epická 10 %, legendární 2 %. Po 8 truhlách bez vzácné nebo lepší karty je další zaručená vzácná.
-2. **Žádné peníze ve hře.** Žádné loot boxy za skutečné peníze, žádná virtuální měna, kterou by šlo koupit.
-3. **Žádné vynucené návyky.** Po nastavené době hraní (výchozí 20 minut) přijde vlídná, odmítnutelná karta "dejte si pauzu". Zvuk je ve výchozím stavu vypnutý, respektuje se `prefers-reduced-motion`.
-4. **Poctivost dat.** Každé odhalení v demu nese štítek **SIMULOVANÁ DATA**; hra říká, že Dopamine Score je heuristika.
-5. **Přesah do obsahu.** Totéž platí pro generovaný obsah: žádný falešný nedostatek, žádné výčitky ("confirmshaming"), žádné slibované a nesplněné.
+1. Zveřejněné šance. Panel ukazuje: běžná 60 %, vzácná 28 %, epická 10 %, legendární 2 %. Po 8 truhlách bez vzácné nebo lepší karty je další zaručeně vzácná. Karta ze studie, kterou nikdo neověřil, je vždy jen běžná.
+2. Žádné peníze ve hře. Žádné loot boxy za skutečné peníze a žádná virtuální měna, kterou by šlo koupit.
+3. Žádné vynucené návyky. Po nastavené době hraní (výchozí je 20 minut) se ukáže připomínka přestávky, kterou lze odmítnout. Zvuk je ve výchozím stavu vypnutý a respektuje se `prefers-reduced-motion`.
+4. Poctivost dat. Hra říká, odkud čísla jsou, a že Dopamine Score je heuristika. Simulace v Laboratoři a celé demo jsou označené.
+5. Stejná pravidla pro generovaný obsah: žádný falešný nedostatek, žádné výčitky, žádné sliby, které by se nesplnily.
+
+## Edice MITO LIGHT a kontrola tvrzení
+
+Hra se sestavuje jako edice: stejná hra a stejný scorer, nastavené pro jeden výrobek (výchozí je fotobiomodulace a značka MITO LIGHT, viz [07-fotobiomodulace.md](07-fotobiomodulace.md)). Edice přidává kontrolu toho, co smí o nezdravotnickém světelném panelu zaznít.
+
+- V souboji s bossem běží naživo kontrola tvrzení (profil wellness). Zdravotní tvrzení, nemoc vedle slova o léčbě, stavové fráze typu "schváleno", absolutní bezpečnost a rada nahradit léky jsou chyby a výhru blokují. Varování a poznámky ji neblokují. U každého nálezu hra ukáže kód, text, téma, označení síly důkazů a bezpečnější formulaci.
+- Mapa tvrzení v Trezoru ukazuje 19 témat v pěti třídách se silou důkazů, propojenými studiemi a bezpečnějšími formulacemi. Pole Zkontrolujte vlastní text pustí stejný kontrolor na libovolný vložený text.
+- Kontrola běží celá v prohlížeči (JavaScriptový port Python kontroloru, shodu hlídá 238 společných testovacích případů) a text se nikam neodesílá.
 
 ## Proč Brierovo skóre
 
-Kdybychom odměňovali jen "trefil jsem vítěze", hráč by se naučil sázet na jistotu. Brierovo skóre `(jistota - výsledek)^2` odměňuje **poctivě odhadnutou nejistotu**. Oracle rating = `100 * (1 - Brier / 0,25)` (0,25 je skóre hráče, který vždy tipuje 50 procent), zobrazuje se po deseti odpovědích.
+Kdyby se odměňovalo jen trefení vítěze, hráč by se naučil sázet na jistotu. Brierovo skóre `(jistota - výsledek)^2` odměňuje poctivě odhadnutou nejistotu. Hodnocení Orákula je `100 * (1 - Brier / 0,25)`, kde 0,25 je skóre hráče, který vždy tipuje 50 %. Zobrazí se po deseti odpovědích s jistotou.
