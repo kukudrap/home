@@ -58,9 +58,24 @@ Projděte i texty: seznam služeb (přezutí, přemontování, vyvážení, opra
 - Mapa, odkazy na navigaci (Mapy.cz, Google Maps), strukturovaná data pro Google (`TireShop`).
 - Respektuje nastavení "omezit pohyb" v systému, funguje od 360 px po velké monitory.
 
-## Zveřejnění
+## Zveřejnění na Cloudflare
 
-Stačí nahrát celou složku (`index.html`, `styles.css`, `app.js`, `favicon.svg` a `vendor/`) na libovolný hosting. Nejrychleji zdarma: přetáhnout složku na Netlify Drop, nebo zapnout GitHub Pages. Pro vlastní doménu (třeba pneuservis-merklin.cz) se doména jen nasměruje na hosting.
+Web je statický, nic se nesestavuje. Soubor `_headers` nastaví Cloudflare bezpečnostní hlavičky a cache pro knihovny.
+
+**Nejjednodušší (bez příkazové řádky):**
+
+1. Zabalte obsah složky do ZIPu tak, aby `index.html` byl hned v kořeni (README do něj patřit nemusí).
+2. Cloudflare → Workers & Pages → Vytvořit → Pages → Nahrát soubory (Upload assets).
+3. Zadejte název projektu, přetáhněte ZIP a dejte Nasadit. Web poběží na `nazev-projektu.pages.dev`.
+4. Vlastní doménu přidáte v projektu v záložce Vlastní domény (Custom domains).
+
+**Z příkazové řádky:**
+
+```bash
+npx wrangler pages deploy pneuservis-merklin --project-name pneuservis-merklin
+```
+
+**Napojení na GitHub:** v Cloudflare Pages zvolte tento repozitář, build command nechte prázdný a jako výstupní složku (build output directory) zadejte `pneuservis-merklin`.
 
 ## Fakta použitá v textech
 
